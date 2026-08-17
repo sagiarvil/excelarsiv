@@ -13,9 +13,24 @@
   },
   "canonicalHost": "https://excelarsiv.com",
   "trailingSlash": false,
-  "redirects": [],
+  "redirects": [
+    {
+      "from": "/excel-araclari",
+      "to": "/sablonlar",
+      "type": 301,
+      "createdAt": "2026-08-17T00:00:00Z",
+      "reason": "Excel Araçları katalogu kalıcı olarak /sablonlar altında konsolide edildi."
+    },
+    {
+      "from": "/paketler",
+      "to": "/sablon/kobi-finans-yonetim-paketi",
+      "type": 301,
+      "createdAt": "2026-08-17T00:00:00Z",
+      "reason": "Paket landing sayfasının bire bir halefi ürün sayfasıdır."
+    }
+  ],
   "notes": [
-    "Özel path redirect kuralı tanımlı değil; ledger boşluğu bilinçlidir.",
+    "/excel-araclari → /sablonlar 301; /paketler → /sablon/kobi-finans-yonetim-paketi 301.",
     "Firebase cleanUrls=true ve trailingSlash=false mevcut production sözleşmesidir.",
     "HTTP/www varyantlarının gerçek tek-adım status zinciri authenticated/live header kanıtı olmadan PASS ilan edilmez."
   ]

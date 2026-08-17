@@ -1,0 +1,115 @@
+---
+import CommerceLayout from '../layouts/CommerceLayout.astro';
+import { getCollection } from 'astro:content';
+import { getCategoryName } from '../lib/categories';
+
+const templates = (await getCollection('templates')).map((entry) => ({
+  slug: entry.id,
+  name: entry.data.name,
+  summary: entry.data.summary,
+  category: entry.data.category,
+  categoryName: getCategoryName(entry.data.category),
+  priceTL: entry.data.priceTL,
+  url: `/sablon/${entry.id}`,
+  demoUrl: `/demo/${entry.id}`,
+}));
+---
+
+<CommerceLayout
+  title="Ürün Bulucu | Excel Arşiv"
+  description="İş probleminize göre bir ana Excel sistemi ve en fazla iki ilgili sistemi bulun."
+  robots="noindex,follow"
+>
+  <section class="finder" data-urun-bulucu>
+    <div class="site-container finder__inner">
+      <p class="finder__kicker">ÜRÜN BULUCU</p>
+      <h1>Hangi Excel sistemini seçmelisiniz?</h1>
+      <p class="finder__lead">Beş soruya yanıt verin. Sonuçta 1 ana sistem ve en fazla 2 ilgili sistem görünür; uzun katalog listesi yok.</p>
+
+      <form class="finder__form" data-finder-form>
+        <label>
+          <span>Ne takip etmek istiyorsunuz?</span>
+          <select name="alan" required>
+            <option value="">Seçin</option>
+            <option value="nakit-akisi">Nakit, kasa, ödeme planı</option>
+            <option value="muhasebe-ve-vergi">Cari, vergi, SGK, muhasebe</option>
+            <option value="stok-ve-uretim">Stok ve üretim</option>
+            <option value="satis-ve-fiyatlama">Satış, POS, e-ticaret kârlılığı</option>
+            <option value="personel-ve-bordro">Personel ve işçilik maliyeti</option>
+            <option value="finansal-analiz">Yönetim kârlılığı ve rapor</option>
+            <option value="butce-ve-planlama">Bütçe ve dönem planı</option>
+          </select>
+        </label>
+        <label>
+          <span>İşletme tipiniz?</span>
+          <select name="tip" required>
+            <option value="">Seçin</option>
+            <option value="ticaret">Ticaret / toptan</option>
+            <option value="hizmet">Hizmet</option>
+            <option value="uretim">Üretim</option>
+            <option value="eticaret">E-ticaret / pazaryeri</option>
+            <option value="saha">Şantiye / saha</option>
+          </select>
+        </label>
+        <label>
+          <span>Kaç kayıt yönetiyorsunuz?</span>
+          <select name="hacim" required>
+            <option value="">Seçin</option>
+            <option value="az">50’ye kadar</option>
+            <option value="orta">50–500</option>
+            <option value="cok">500+</option>
+          </select>
+        </label>
+        <label>
+          <span>Kararınız hangi dönem için?</span>
+          <select name="donem" required>
+            <option value="">Seçin</option>
+            <option value="gun">Günlük / kasa</option>
+            <option value="hafta">Haftalık nakit</option>
+            <option value="ay">Aylık yönetim</option>
+            <option value="yil">Yıllık vergi / amortisman</option>
+          </select>
+        </label>
+        <label>
+          <span>En büyük probleminiz?</span>
+          <select name="problem" required>
+            <option value="">Seçin</option>
+            <option value="nakit">Nakit yetişmiyor</option>
+            <option value="tahsilat">Tahsilat ve cari risk</option>
+            <option value="kar">Gerçek kâr görünmüyor</option>
+            <option value="vergi">Vergi / SGK hesabı dağınık</option>
+            <option value="stok">Stok nakit bağlıyor</option>
+            <option value="personel">Personel maliyeti belirsiz</option>
+          </select>
+        </label>
+        <button type="submit">Sistemi göster</button>
+      </form>
+
+      <div class="finder__sonuc" data-finder-sonuc hidden></div>
+    </div>
+  </section>
+</CommerceLayout>
+
+<script type="application/json" id="finder-katalog" set:html={JSON.stringify(templates)}></script>
+<script>
+  import { mountUrunBulucu } from '../scripts/urun-bulucu';
+  const root = document.querySelector<HTMLElement>('[data-urun-bulucu]');
+  const dataEl = document.getElementById('finder-katalog');
+  if (root && dataEl) mountUrunBulucu(root, JSON.parse(dataEl.textContent ?? '[]'));
+</script>
+
+<style>
+  .finder { padding: 56px 0 96px; }
+  .finder__inner { max-width: 760px; }
+  .finder__kicker { margin: 0; font-family: var(--font-mono); font-size: 10px; font-weight: 800; letter-spacing: .12em; color: #0d7040; }
+  .finder h1 { margin: 12px 0 0; font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -.04em; }
+  .finder__lead { margin: 14px 0 0; font-size: 15px; line-height: 1.65; color: #5b6b62; }
+  .finder__form { display: grid; gap: 14px; margin-top: 28px; }
+  .finder__form label { display: grid; gap: 6px; font-size: 13px; font-weight: 700; color: #173023; }
+  .finder__form select, .finder__form button { min-height: 46px; padding: 0 12px; border-radius: 12px; border: 1px solid #d7e2db; font: inherit; }
+  .finder__form button { border: 0; background: #0d7040; color: #fff; font-weight: 800; cursor: pointer; }
+  .finder__sonuc { display: grid; gap: 10px; margin-top: 28px; }
+  .finder__sonuc a { display: grid; gap: 4px; padding: 16px 18px; border: 1px solid #d7e2db; border-radius: 14px; background: #fff; color: inherit; text-decoration: none; }
+  .finder__sonuc a.is-ana { border-color: #0d7040; }
+  .finder__sonuc small { font-family: var(--font-mono); font-size: 10px; font-weight: 800; color: #0d7040; }
+</style>

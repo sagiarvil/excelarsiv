@@ -4,6 +4,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import YazarKutusu from '../../components/YazarKutusu.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { yazarPersonId } from '../../data/yazar';
+import RehberUrunCta from '../../components/RehberUrunCta.astro';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -64,11 +65,13 @@ const updatedLabel = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: '
       <div class="guide-hero__summary">{guide.data.description}</div>
       <div class="guide-hero__updated">Güncellendi: <time datetime={guide.data.updatedAt}>{updatedLabel}</time></div>
       <ul>{guide.data.takeaways.map((item) => <li><span>✓</span>{item}</li>)}</ul>
+      {product && <RehberUrunCta href={`/sablon/${guide.data.productSlug}`} urunAdi={product.data.name} />}
     </header>
 
     <div class="guide-layout">
       <article class="guide-prose">
         <Content />
+        {product && <RehberUrunCta href={`/sablon/${guide.data.productSlug}`} urunAdi={product.data.name} />}
         <YazarKutusu varyant="rehber" />
       </article>
       <aside class="guide-side">

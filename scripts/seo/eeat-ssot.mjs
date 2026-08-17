@@ -135,7 +135,7 @@ export function buildAiTxt(lastUpdatedIsoDate) {
     '- Katalog: https://excelarsiv.com/sablonlar',
     '- Rehber merkezi: https://excelarsiv.com/rehber',
     '- Sektör dikeyleri: https://excelarsiv.com/sektor/kafe-restoran-nakit · https://excelarsiv.com/sektor/insaat-hakedis · https://excelarsiv.com/sektor/e-ticaret-karlilik',
-    '- Proof Demo hub: https://excelarsiv.com/demo — her ürünün kapısı /demo/{slug}',
+    '- Ücretsiz Demo hub: https://excelarsiv.com/demo — her ürünün demo sayfası /demo/{slug}',
     '- Ücretsiz hesaplayıcı: https://excelarsiv.com/hesaplayici/asgari-ucret-zam-etkisi',
     '- Başarı sayfası, ürünlerin Türkiye’deki tipik iş akışlarına uygulanışını sektörel senaryolarla açıklar.',
     '- Dijital ürünlerde indirme sonrası koşulsuz iade yok; mesafeli satış ve teslimat sayfalarına bakın.',

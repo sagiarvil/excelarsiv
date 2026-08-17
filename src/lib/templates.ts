@@ -1,6 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { pickCatalogScreenshot } from './catalog-screenshot';
-import { getCategoryName, type CategorySlug } from './categories';
+import { categories, getCategoryName, type CategorySlug } from './categories';
 import { shopierUrlForPrice } from './shopier';
 import type { SearchItem } from './search';
 
@@ -74,10 +74,35 @@ export async function getTemplatesByCategory(categorySlug: string): Promise<Temp
 
 export async function getTemplateSearchIndex(): Promise<SearchItem[]> {
   const all = await getAllTemplates();
-  return all.map((t) => ({
+  const guides = await getCollection('guides');
+  const products: SearchItem[] = all.map((t) => ({
     name: t.name,
     summary: t.summary,
     category: t.categoryName,
     url: t.url,
+    kind: 'product',
+    keywords: `${t.categorySlug} ${t.outputs?.join(' ') ?? ''}`,
   }));
+  const categoryItems: SearchItem[] = categories.map((category) => ({
+    name: `${category.name} Excel şablonları`,
+    summary: category.description,
+    category: category.name,
+    url: `/sablonlar/${category.slug}`,
+    kind: 'category',
+    keywords: category.primaryQuery,
+  }));
+  const guideItems: SearchItem[] = guides.map((guide) => ({
+    name: guide.data.title,
+    summary: guide.data.description,
+    category: getCategoryName(guide.data.category),
+    url: `/rehber/${guide.id}`,
+    kind: 'guide',
+    keywords: guide.data.primaryQuery,
+  }));
+  const problems: SearchItem[] = [
+    { name: 'Tahsilat ve müşteri riski', summary: 'Cari hesap, vade ve tahsilat kontrolü', category: 'problem', url: '/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', kind: 'problem', keywords: 'tahsilat cari risk vade' },
+    { name: 'Nakit akışı planı', summary: '13 haftalık ödeme ve nakit açığı', category: 'problem', url: '/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', kind: 'problem', keywords: 'nakit ödeme planı kasa' },
+    { name: 'POS net tahsilat', summary: 'Komisyon sonrası gerçek tahsilat', category: 'problem', url: '/sablon/pos-komisyon-ve-net-tahsilat-kontrol-sistemi', kind: 'problem', keywords: 'pos komisyon tahsilat' },
+  ];
+  return [...products, ...categoryItems, ...guideItems, ...problems];
 }

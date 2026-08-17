@@ -3,6 +3,8 @@ export interface SearchItem {
   summary: string;
   category: string;
   url: string;
+  kind?: 'product' | 'category' | 'guide' | 'problem';
+  keywords?: string;
 }
 
 const escapeHtml = (value: string): string =>
@@ -39,12 +41,10 @@ export function mountHeroSearch(root: HTMLElement, items: SearchItem[]): void {
       return;
     }
     const results = items
-      .filter(
-        (item) =>
-          normalize(item.name).includes(q) ||
-          normalize(item.summary).includes(q) ||
-          normalize(item.category).includes(q)
-      )
+      .filter((item) => {
+        const haystack = `${item.name} ${item.summary} ${item.category} ${item.keywords ?? ''}`;
+        return normalize(haystack).includes(q);
+      })
       .slice(0, 5);
 
     if (results.length === 0) {
@@ -53,13 +53,20 @@ export function mountHeroSearch(root: HTMLElement, items: SearchItem[]): void {
       return;
     }
 
+    const kindLabel: Record<string, string> = {
+      product: 'Ürün',
+      category: 'Kategori',
+      guide: 'Rehber',
+      problem: 'Problem',
+    };
+
     list.innerHTML = results
       .map(
         (result, index) => `
           <li>
             <a href="${result.url}" data-result-index="${index}">
               <span class="hero-search__name">${escapeHtml(result.name)}</span>
-              <span class="hero-search__meta">${escapeHtml(result.category)}</span>
+              <span class="hero-search__meta">${escapeHtml(kindLabel[result.kind ?? 'product'] ?? 'Ürün')} · ${escapeHtml(result.category)}</span>
             </a>
           </li>`
       )

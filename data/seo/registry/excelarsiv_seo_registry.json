@@ -1366,6 +1366,21 @@
       "notes": "Registry parity sync — otomatik eklendi."
     },
     {
+      "pageId": "excelarsiv:excel-araclari",
+      "route": "/excel-araclari",
+      "type": "landing",
+      "status": "redirect",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "Excel Araçları",
+      "searchIntent": "commercial",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/excel-araclari",
+      "ownerRoute": null,
+      "redirectTarget": "/sablonlar",
+      "notes": "Kalıcı 301: katalog /sablonlar altında konsolide."
+    },
+    {
       "pageId": "excelarsiv:hakkinda",
       "route": "/hakkinda",
       "type": "other",
@@ -1509,7 +1524,7 @@
       "pageId": "excelarsiv:paketler",
       "route": "/paketler",
       "type": "landing",
-      "status": "live",
+      "status": "redirect",
       "primaryQueryClusterId": null,
       "primaryEntity": "Excel Paketleri",
       "searchIntent": "commercial",
@@ -1517,7 +1532,8 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/paketler",
       "ownerRoute": null,
-      "notes": null
+      "redirectTarget": "/sablon/kobi-finans-yonetim-paketi",
+      "notes": "Kalıcı 301: bire bir halef ürün sayfası /sablon/kobi-finans-yonetim-paketi."
     },
     {
       "pageId": "excelarsiv:pazarlama-acik-riza",
@@ -3770,6 +3786,20 @@
       "canonical": "https://excelarsiv.com/teslimat-ve-iade",
       "ownerRoute": null,
       "notes": null
+    },
+    {
+      "pageId": "excelarsiv:urun-bulucu",
+      "route": "/urun-bulucu",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "Ürün Bulucu",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/urun-bulucu",
+      "ownerRoute": null,
+      "notes": "Dönüşüm aracı; noindex. SEO route üretmez."
     }
   ]
 }

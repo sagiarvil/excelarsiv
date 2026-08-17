@@ -65,7 +65,7 @@ test('listeleme ve sızıntı yüzeyleri tek kart bileşenine bağlı', () => {
   const home = readFileSync(resolve(ROOT, 'src/components/home/PremiumFeaturedTemplates.astro'), 'utf8');
   const visual = readFileSync(resolve(ROOT, 'src/components/ProductCard.astro'), 'utf8');
   const filter = readFileSync(resolve(ROOT, 'src/scripts/catalog-filter.ts'), 'utf8');
-  const tools = readFileSync(resolve(ROOT, 'src/pages/excel-araclari.astro'), 'utf8');
+  const sablonlar = readFileSync(resolve(ROOT, 'src/pages/sablonlar.astro'), 'utf8');
   const legacy = readFileSync(resolve(ROOT, 'src/components/catalog/TemplateCard.astro'), 'utf8');
 
   assert.match(grid, /data-template-grid-wrap/);
@@ -88,7 +88,7 @@ test('listeleme ve sızıntı yüzeyleri tek kart bileşenine bağlı', () => {
   assert.match(visual, /border-radius:\s*0/);
   assert.equal(/●\s*Canlı|pv-kpi|product-visual/.test(visual), false);
   assert.match(filter, /data-template-grid-wrap/);
-  assert.equal(/wa\.me/.test(tools), false);
+  assert.equal(/wa\.me/.test(sablonlar), false);
   assert.equal(/wa\.me/.test(legacy), false);
   const shopierSrc = readFileSync(resolve(ROOT, 'src/lib/shopier.ts'), 'utf8');
   assert.match(shopierSrc, /export function shopierUrlForPrice/);
