@@ -1,5 +1,6 @@
 ---
 import type { CategorySlug } from '../lib/categories';
+import { catalogShotOdak } from '../lib/catalog-screenshot';
 
 export interface Props {
   title: string;
@@ -51,6 +52,7 @@ const workbookName =
     : `${workbookTitle.slice(0, 34).trimEnd()}….${ext}`;
 const tabs = (sheetTabs && sheetTabs.length > 0 ? sheetTabs : ['PANO', 'Girdi', 'Hesap']).slice(0, 3);
 const activeTab = tabs[0];
+const shotOdak = catalogShotOdak(screenshotUrl);
 ---
 
 <article
@@ -90,6 +92,7 @@ const activeTab = tabs[0];
             decoding="async"
             width="640"
             height="400"
+            style={`object-position: ${shotOdak.x}% ${shotOdak.y}%; transform: scale(${shotOdak.s}); transform-origin: ${shotOdak.x}% ${shotOdak.y}%;`}
           />
         ) : null}
       </span>
@@ -266,13 +269,8 @@ const activeTab = tabs[0];
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: left top;
     display: block;
   }
-
-  .card__frame[data-focus='result'] .card__screenshot { object-position: left top; }
-  .card__frame[data-focus='top'] .card__screenshot { object-position: left top; }
-  .card__frame[data-focus='center'] .card__screenshot { object-position: left center; }
 
   .card__sheets {
     display: flex;

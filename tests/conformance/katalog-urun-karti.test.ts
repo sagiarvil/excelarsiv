@@ -7,30 +7,31 @@ import { catalogScreenshotAlt, pickCatalogScreenshot } from '../../src/lib/catal
 
 const ROOT = resolve(fileURLToPath(new URL('../../', import.meta.url)));
 
-test('katalog ekranı PANO altını girdi sayfasına tercih eder', () => {
+test('katalog ekranı harita yoksa hesap ızgarasını (-2) boş panoya tercih eder', () => {
   const picked = pickCatalogScreenshot([
     { src: '/screenshots/ornek-1.png', alt: 'NAKIT_GIRISLERI — Haftalık nakit girişi girişleri' },
     { src: '/screenshots/ornek-2.png', alt: 'HAFTALIK_PLAN — Haftalık plan' },
     { src: '/screenshots/ornek-3.png', alt: 'PANO sayfası — Yönetim panosu özeti' },
   ]);
-  assert.equal(picked?.src, '/screenshots/ornek-3.png');
-});
-
-test('katalog ekranı alt yoksa -3.png dosyasını seçer', () => {
-  const picked = pickCatalogScreenshot([
-    { src: '/screenshots/ornek-1.png', alt: 'Girdi sütunları' },
-    { src: '/screenshots/ornek-2.png', alt: 'Hesap motoru' },
-    { src: '/screenshots/ornek-3.png', alt: 'Tablo görünümü' },
-  ]);
-  assert.equal(picked?.src, '/screenshots/ornek-3.png');
-});
-
-test('katalog ekranı girdi altını karar havuzundan çıkarır', () => {
-  const picked = pickCatalogScreenshot([
-    { src: '/screenshots/ornek-1.png', alt: 'NAKIT_GIRISLERI — Haftalık nakit girişi girişleri' },
-    { src: '/screenshots/ornek-2.png', alt: 'HAFTALIK_PLAN — Haftalık plan' },
-  ]);
   assert.equal(picked?.src, '/screenshots/ornek-2.png');
+});
+
+test('katalog ekranı dolu Excel ızgarasını (-1) seçer', () => {
+  const picked = pickCatalogScreenshot([
+    { src: '/screenshots/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi-1.png', alt: 'Girdi' },
+    { src: '/screenshots/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi-2.png', alt: 'Hesap' },
+    { src: '/screenshots/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi-3.png', alt: 'PANO' },
+  ]);
+  assert.equal(picked?.src, '/screenshots/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi-1.png');
+});
+
+test('katalog ekranı Proof-Demo üründe hesap karesini (-2) seçer', () => {
+  const picked = pickCatalogScreenshot([
+    { src: '/screenshots/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi-1.png', alt: 'Girdi' },
+    { src: '/screenshots/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi-2.png', alt: 'Hesap' },
+    { src: '/screenshots/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi-3.png', alt: 'PANO' },
+  ]);
+  assert.equal(picked?.src, '/screenshots/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi-2.png');
 });
 
 test('katalog ekranı tek karede o kareyi döndürür', () => {
@@ -81,7 +82,8 @@ test('listeleme ve sızıntı yüzeyleri tek kart bileşenine bağlı', () => {
   assert.equal(/CatalogProductVisual/.test(home), false);
   assert.match(visual, /aspect-ratio:\s*4\s*\/\s*3/);
   assert.match(visual, /object-fit:\s*cover/);
-  assert.match(visual, /object-position:\s*left\s+top/);
+  assert.match(visual, /catalogShotOdak/);
+  assert.match(visual, /transform:\s*scale/);
   assert.match(visual, /card__workbook/);
   assert.match(visual, /border-radius:\s*0/);
   assert.equal(/●\s*Canlı|pv-kpi|product-visual/.test(visual), false);
