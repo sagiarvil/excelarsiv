@@ -5,6 +5,8 @@ import TrustStrip from '../components/home/TrustStrip.astro';
 import PremiumFeaturedTemplates from '../components/home/PremiumFeaturedTemplates.astro';
 import CategorySection from '../components/home/CategorySection.astro';
 import MoatStrip from '../components/home/MoatStrip.astro';
+import ProofGallery from '../components/home/ProofGallery.astro';
+import ValueSection from '../components/home/ValueSection.astro';
 import PurchaseProcess from '../components/home/PurchaseProcess.astro';
 import FinalCTA from '../components/home/FinalCTA.astro';
 import YazarKutusu from '../components/YazarKutusu.astro';
@@ -47,12 +49,22 @@ const homeItemListLd = JSON.stringify({
     <CategorySection />
   </div>
 
-  <div id="moat" data-experience-stage>
+  <div id="sistem" data-experience-stage data-mobile-deferred-rich>
     <MoatStrip />
   </div>
 
+  <div id="kanit" data-experience-stage data-mobile-deferred-rich>
+    <ProofGallery />
+  </div>
+
+  <div id="deger" data-experience-stage data-mobile-deferred-rich>
+    <ValueSection />
+  </div>
+
   <div id="satin-alma" data-experience-stage>
-    <PurchaseProcess />
+    <div data-mobile-deferred-rich>
+      <PurchaseProcess />
+    </div>
     <FinalCTA />
     <div class="home-yazar">
       <YazarKutusu varyant="sablon" />
@@ -61,10 +73,25 @@ const homeItemListLd = JSON.stringify({
 </CommerceLayout>
 
 <style>
+  :root {
+    --font-sans: ui-sans-serif, system-ui, sans-serif;
+    --font-mono-face: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
   [data-experience-stage] {
     scroll-margin-top: 92px;
     content-visibility: auto;
     contain-intrinsic-size: auto 760px;
+  }
+
+  [data-mobile-deferred-rich] {
+    display: none;
+  }
+
+  @media (min-width: 721px) {
+    [data-mobile-deferred-rich] {
+      display: block;
+    }
   }
 
   .home-yazar {

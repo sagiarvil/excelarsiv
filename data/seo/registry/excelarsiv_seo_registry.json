@@ -16,8 +16,8 @@
   },
   "mode": "DEGRADED_PUBLIC",
   "source": {
-    "builtIndexableUrlCount": 233,
-    "commercialProductCount": 35,
+    "builtIndexableUrlCount": 155,
+    "commercialProductCount": 50,
     "guideCount": 4,
     "phase0Artifact": "data/seo/tam_map.json"
   },
@@ -148,6 +148,20 @@
       "notes": "Registry parity sync — otomatik eklendi."
     },
     {
+      "pageId": "excelarsiv:demo:amortisman-2026-yeniden-degerleme",
+      "route": "/demo/amortisman-2026-yeniden-degerleme",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/amortisman-2026-yeniden-degerleme",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/amortisman-2026-yeniden-degerleme",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
       "pageId": "excelarsiv:demo:amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti",
       "route": "/demo/amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti",
       "type": "landing",
@@ -165,7 +179,7 @@
       "pageId": "excelarsiv:demo:asgari-kurumlar-vergisi-simulasyon-motoru",
       "route": "/demo/asgari-kurumlar-vergisi-simulasyon-motoru",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/asgari-kurumlar-vergisi-simulasyon-motoru",
       "searchIntent": "informational",
@@ -173,7 +187,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/asgari-kurumlar-vergisi-simulasyon-motoru",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli",
@@ -221,7 +235,7 @@
       "pageId": "excelarsiv:demo:banka-kredi-covenant-erken-uyari",
       "route": "/demo/banka-kredi-covenant-erken-uyari",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/banka-kredi-covenant-erken-uyari",
       "searchIntent": "informational",
@@ -229,7 +243,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/banka-kredi-covenant-erken-uyari",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:banka-kredi-ve-taksit-takip-sistemi",
@@ -242,6 +256,20 @@
       "templateId": null,
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/banka-kredi-ve-taksit-takip-sistemi",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
+      "pageId": "excelarsiv:demo:cari-ba-bs-toplu-mutabakat",
+      "route": "/demo/cari-ba-bs-toplu-mutabakat",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/cari-ba-bs-toplu-mutabakat",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/cari-ba-bs-toplu-mutabakat",
       "ownerRoute": null,
       "notes": "Registry parity sync — otomatik eklendi."
     },
@@ -277,7 +305,7 @@
       "pageId": "excelarsiv:demo:dava-masraf-harc-hesaplama",
       "route": "/demo/dava-masraf-harc-hesaplama",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/dava-masraf-harc-hesaplama",
       "searchIntent": "informational",
@@ -285,13 +313,27 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/dava-masraf-harc-hesaplama",
       "ownerRoute": null,
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:demo:defter-beyan-e-arsiv-aktarim",
+      "route": "/demo/defter-beyan-e-arsiv-aktarim",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/defter-beyan-e-arsiv-aktarim",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/defter-beyan-e-arsiv-aktarim",
+      "ownerRoute": null,
       "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:demo:depo-doluluk-lokasyon",
       "route": "/demo/depo-doluluk-lokasyon",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/depo-doluluk-lokasyon",
       "searchIntent": "informational",
@@ -299,13 +341,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/depo-doluluk-lokasyon",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:dernek-kooperatif-mali-yonetim",
       "route": "/demo/dernek-kooperatif-mali-yonetim",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/dernek-kooperatif-mali-yonetim",
       "searchIntent": "informational",
@@ -313,7 +355,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/dernek-kooperatif-mali-yonetim",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:doviz-acik-pozisyonu-ve-kur-riski-stres-testi",
@@ -333,7 +375,7 @@
       "pageId": "excelarsiv:demo:e-belge-zorunluluk-radari",
       "route": "/demo/e-belge-zorunluluk-radari",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/e-belge-zorunluluk-radari",
       "searchIntent": "informational",
@@ -341,13 +383,41 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/e-belge-zorunluluk-radari",
       "ownerRoute": null,
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:demo:e-fatura-satir-defteri-pdf-kaniti",
+      "route": "/demo/e-fatura-satir-defteri-pdf-kaniti",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/e-fatura-satir-defteri-pdf-kaniti",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/e-fatura-satir-defteri-pdf-kaniti",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
+      "pageId": "excelarsiv:demo:e-fatura-toplu-donusturucu",
+      "route": "/demo/e-fatura-toplu-donusturucu",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/e-fatura-toplu-donusturucu",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/e-fatura-toplu-donusturucu",
+      "ownerRoute": null,
       "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:demo:e-ticaret-gercek-karlilik-fiyatlama",
       "route": "/demo/e-ticaret-gercek-karlilik-fiyatlama",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/e-ticaret-gercek-karlilik-fiyatlama",
       "searchIntent": "informational",
@@ -355,13 +425,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/e-ticaret-gercek-karlilik-fiyatlama",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:elektrik-faturasi-dogrulama",
       "route": "/demo/elektrik-faturasi-dogrulama",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/elektrik-faturasi-dogrulama",
       "searchIntent": "informational",
@@ -369,13 +439,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/elektrik-faturasi-dogrulama",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:emlak-pipeline-komisyon",
       "route": "/demo/emlak-pipeline-komisyon",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/emlak-pipeline-komisyon",
       "searchIntent": "informational",
@@ -383,13 +453,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/emlak-pipeline-komisyon",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:fason-uretim-takip-sistemi",
       "route": "/demo/fason-uretim-takip-sistemi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/fason-uretim-takip-sistemi",
       "searchIntent": "informational",
@@ -397,7 +467,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/fason-uretim-takip-sistemi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:fazla-mesai-ve-isci-dava-riski-tespit-dosyasi",
@@ -417,7 +487,7 @@
       "pageId": "excelarsiv:demo:fesih-maliyeti-simulatoru",
       "route": "/demo/fesih-maliyeti-simulatoru",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/fesih-maliyeti-simulatoru",
       "searchIntent": "informational",
@@ -425,13 +495,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/fesih-maliyeti-simulatoru",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:filo-arac-maliyet-komutasi",
       "route": "/demo/filo-arac-maliyet-komutasi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/filo-arac-maliyet-komutasi",
       "searchIntent": "informational",
@@ -439,13 +509,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/filo-arac-maliyet-komutasi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:ges-uretim-performans",
       "route": "/demo/ges-uretim-performans",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/ges-uretim-performans",
       "searchIntent": "informational",
@@ -453,13 +523,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/ges-uretim-performans",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:ges-yatirim-fizibilite",
       "route": "/demo/ges-yatirim-fizibilite",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/ges-yatirim-fizibilite",
       "searchIntent": "informational",
@@ -467,13 +537,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/ges-yatirim-fizibilite",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:gida-lot-maliyet-izlenebilirlik",
       "route": "/demo/gida-lot-maliyet-izlenebilirlik",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/gida-lot-maliyet-izlenebilirlik",
       "searchIntent": "informational",
@@ -481,7 +551,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/gida-lot-maliyet-izlenebilirlik",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:gunluk-gelir-gider-ve-gercek-karlilik-sistemi",
@@ -515,7 +585,7 @@
       "pageId": "excelarsiv:demo:hizmet-ihracati-100-indirim-transfer-takip",
       "route": "/demo/hizmet-ihracati-100-indirim-transfer-takip",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/hizmet-ihracati-100-indirim-transfer-takip",
       "searchIntent": "informational",
@@ -523,13 +593,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/hizmet-ihracati-100-indirim-transfer-takip",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:hukuk-burosu-dosya-vekalet",
       "route": "/demo/hukuk-burosu-dosya-vekalet",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/hukuk-burosu-dosya-vekalet",
       "searchIntent": "informational",
@@ -537,13 +607,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/hukuk-burosu-dosya-vekalet",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:ihale-fiyat-farki-eskalasyon-pro",
       "route": "/demo/ihale-fiyat-farki-eskalasyon-pro",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/ihale-fiyat-farki-eskalasyon-pro",
       "searchIntent": "informational",
@@ -551,7 +621,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/ihale-fiyat-farki-eskalasyon-pro",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:ihaleye-kac-tl-teklif-vermeliyim",
@@ -571,7 +641,7 @@
       "pageId": "excelarsiv:demo:ihracat-siparis-karlilik-kur",
       "route": "/demo/ihracat-siparis-karlilik-kur",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/ihracat-siparis-karlilik-kur",
       "searchIntent": "informational",
@@ -579,13 +649,27 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/ihracat-siparis-karlilik-kur",
       "ownerRoute": null,
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:demo:insaat-hakedis-santiye-maliyet",
+      "route": "/demo/insaat-hakedis-santiye-maliyet",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/insaat-hakedis-santiye-maliyet",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/insaat-hakedis-santiye-maliyet",
+      "ownerRoute": null,
       "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:demo:insaat-hakedis-yonetim-sistemi",
       "route": "/demo/insaat-hakedis-yonetim-sistemi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/insaat-hakedis-yonetim-sistemi",
       "searchIntent": "informational",
@@ -593,13 +677,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/insaat-hakedis-yonetim-sistemi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:isg-risk-degerlendirme-pro-6331",
       "route": "/demo/isg-risk-degerlendirme-pro-6331",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/isg-risk-degerlendirme-pro-6331",
       "searchIntent": "informational",
@@ -607,7 +691,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/isg-risk-degerlendirme-pro-6331",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:ithalat-depo-teslim-rafa-gelen-net-birim-maliyet",
@@ -627,7 +711,7 @@
       "pageId": "excelarsiv:demo:ithalat-landed-cost-motoru",
       "route": "/demo/ithalat-landed-cost-motoru",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/ithalat-landed-cost-motoru",
       "searchIntent": "informational",
@@ -635,7 +719,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/ithalat-landed-cost-motoru",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi",
@@ -655,7 +739,7 @@
       "pageId": "excelarsiv:demo:kargo-desi-maliyet-optimizasyonu",
       "route": "/demo/kargo-desi-maliyet-optimizasyonu",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/kargo-desi-maliyet-optimizasyonu",
       "searchIntent": "informational",
@@ -663,19 +747,33 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/kargo-desi-maliyet-optimizasyonu",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:kat-karsiligi-hasilat-paylasimi-simulator",
       "route": "/demo/kat-karsiligi-hasilat-paylasimi-simulator",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/kat-karsiligi-hasilat-paylasimi-simulator",
       "searchIntent": "informational",
       "templateId": null,
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/kat-karsiligi-hasilat-paylasimi-simulator",
+      "ownerRoute": null,
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:demo:kdv-iade-listesi-robotu-gib7",
+      "route": "/demo/kdv-iade-listesi-robotu-gib7",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/kdv-iade-listesi-robotu-gib7",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/kdv-iade-listesi-robotu-gib7",
       "ownerRoute": null,
       "notes": "Registry parity sync — otomatik eklendi."
     },
@@ -697,13 +795,27 @@
       "pageId": "excelarsiv:demo:kdv-iadesi-tutar-surec-simulasyonu",
       "route": "/demo/kdv-iadesi-tutar-surec-simulasyonu",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/kdv-iadesi-tutar-surec-simulasyonu",
       "searchIntent": "informational",
       "templateId": null,
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/kdv-iadesi-tutar-surec-simulasyonu",
+      "ownerRoute": null,
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:demo:kdv-tevkifat-mahsup-iade-listesi",
+      "route": "/demo/kdv-tevkifat-mahsup-iade-listesi",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/kdv-tevkifat-mahsup-iade-listesi",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/kdv-tevkifat-mahsup-iade-listesi",
       "ownerRoute": null,
       "notes": "Registry parity sync — otomatik eklendi."
     },
@@ -725,7 +837,7 @@
       "pageId": "excelarsiv:demo:kik-asiri-dusuk-savunma-sinir-deger",
       "route": "/demo/kik-asiri-dusuk-savunma-sinir-deger",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/kik-asiri-dusuk-savunma-sinir-deger",
       "searchIntent": "informational",
@@ -733,13 +845,27 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/kik-asiri-dusuk-savunma-sinir-deger",
       "ownerRoute": null,
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:demo:kira-avans-takip-dekont",
+      "route": "/demo/kira-avans-takip-dekont",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/kira-avans-takip-dekont",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/kira-avans-takip-dekont",
+      "ownerRoute": null,
       "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:demo:kira-portfoyu-getiri-komutasi",
       "route": "/demo/kira-portfoyu-getiri-komutasi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/kira-portfoyu-getiri-komutasi",
       "searchIntent": "informational",
@@ -747,7 +873,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/kira-portfoyu-getiri-komutasi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti",
@@ -778,10 +904,24 @@
       "notes": "Registry parity sync — otomatik eklendi."
     },
     {
+      "pageId": "excelarsiv:demo:konkordato-nakit-akis-on-projesi",
+      "route": "/demo/konkordato-nakit-akis-on-projesi",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/konkordato-nakit-akis-on-projesi",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/konkordato-nakit-akis-on-projesi",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
       "pageId": "excelarsiv:demo:konkordato-ttk376-kriz-paketi",
       "route": "/demo/konkordato-ttk376-kriz-paketi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/konkordato-ttk376-kriz-paketi",
       "searchIntent": "informational",
@@ -789,13 +929,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/konkordato-ttk376-kriz-paketi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:kvkk-veri-envanteri-verbis-uyum",
       "route": "/demo/kvkk-veri-envanteri-verbis-uyum",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/kvkk-veri-envanteri-verbis-uyum",
       "searchIntent": "informational",
@@ -803,13 +943,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/kvkk-veri-envanteri-verbis-uyum",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:makine-bakim-kalibrasyon-durus-maliyeti",
       "route": "/demo/makine-bakim-kalibrasyon-durus-maliyeti",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/makine-bakim-kalibrasyon-durus-maliyeti",
       "searchIntent": "informational",
@@ -817,13 +957,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/makine-bakim-kalibrasyon-durus-maliyeti",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:mini-mrp-bom-malzeme-kapasite",
       "route": "/demo/mini-mrp-bom-malzeme-kapasite",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/mini-mrp-bom-malzeme-kapasite",
       "searchIntent": "informational",
@@ -831,13 +971,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/mini-mrp-bom-malzeme-kapasite",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:mizan-anomali-denetim-oncesi-kontrol",
       "route": "/demo/mizan-anomali-denetim-oncesi-kontrol",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/mizan-anomali-denetim-oncesi-kontrol",
       "searchIntent": "informational",
@@ -845,7 +985,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/mizan-anomali-denetim-oncesi-kontrol",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:mutfak-kayip-kacak-hesaplayici",
@@ -879,7 +1019,7 @@
       "pageId": "excelarsiv:demo:oee-durus-kok-neden-komutasi",
       "route": "/demo/oee-durus-kok-neden-komutasi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/oee-durus-kok-neden-komutasi",
       "searchIntent": "informational",
@@ -887,13 +1027,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/oee-durus-kok-neden-komutasi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:on-uc-haftalik-nakit-odeme-onceligi",
       "route": "/demo/on-uc-haftalik-nakit-odeme-onceligi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/on-uc-haftalik-nakit-odeme-onceligi",
       "searchIntent": "informational",
@@ -901,7 +1041,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/on-uc-haftalik-nakit-odeme-onceligi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici",
@@ -921,7 +1061,7 @@
       "pageId": "excelarsiv:demo:ortulu-sermaye-emsal-faiz-tf-paketi",
       "route": "/demo/ortulu-sermaye-emsal-faiz-tf-paketi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/ortulu-sermaye-emsal-faiz-tf-paketi",
       "searchIntent": "informational",
@@ -929,13 +1069,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/ortulu-sermaye-emsal-faiz-tf-paketi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:pazaryeri-hakedis-mutabakat-motoru",
       "route": "/demo/pazaryeri-hakedis-mutabakat-motoru",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/pazaryeri-hakedis-mutabakat-motoru",
       "searchIntent": "informational",
@@ -943,7 +1083,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/pazaryeri-hakedis-mutabakat-motoru",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:pazaryeri-net-kar-ve-eksik-hakedis-yakalayici",
@@ -977,7 +1117,7 @@
       "pageId": "excelarsiv:demo:proje-finansmani-dscr-llcr-paketi",
       "route": "/demo/proje-finansmani-dscr-llcr-paketi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/proje-finansmani-dscr-llcr-paketi",
       "searchIntent": "informational",
@@ -985,7 +1125,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/proje-finansmani-dscr-llcr-paketi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:proje-ve-is-bazinda-gercek-karlilik-sistemi",
@@ -1005,7 +1145,7 @@
       "pageId": "excelarsiv:demo:puantaj-vardiya-fazla-mesai-kanit-sistemi",
       "route": "/demo/puantaj-vardiya-fazla-mesai-kanit-sistemi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/puantaj-vardiya-fazla-mesai-kanit-sistemi",
       "searchIntent": "informational",
@@ -1013,13 +1153,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/puantaj-vardiya-fazla-mesai-kanit-sistemi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:recete-maliyeti-menu-muhendisligi",
       "route": "/demo/recete-maliyeti-menu-muhendisligi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/recete-maliyeti-menu-muhendisligi",
       "searchIntent": "informational",
@@ -1027,13 +1167,27 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/recete-maliyeti-menu-muhendisligi",
       "ownerRoute": null,
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:demo:restoran-recete-maliyet-fire",
+      "route": "/demo/restoran-recete-maliyet-fire",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/restoran-recete-maliyet-fire",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/restoran-recete-maliyet-fire",
+      "ownerRoute": null,
       "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:demo:sarj-istasyonu-yatirim",
       "route": "/demo/sarj-istasyonu-yatirim",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/sarj-istasyonu-yatirim",
       "searchIntent": "informational",
@@ -1041,13 +1195,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/sarj-istasyonu-yatirim",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:sekiz-d-duzeltici-faaliyet-dosya",
       "route": "/demo/sekiz-d-duzeltici-faaliyet-dosya",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/sekiz-d-duzeltici-faaliyet-dosya",
       "searchIntent": "informational",
@@ -1055,13 +1209,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/sekiz-d-duzeltici-faaliyet-dosya",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:sera-kurulum-fizibilite",
       "route": "/demo/sera-kurulum-fizibilite",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/sera-kurulum-fizibilite",
       "searchIntent": "informational",
@@ -1069,13 +1223,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/sera-kurulum-fizibilite",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:sevkiyat-fiyatlama-navlun",
       "route": "/demo/sevkiyat-fiyatlama-navlun",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/sevkiyat-fiyatlama-navlun",
       "searchIntent": "informational",
@@ -1083,13 +1237,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/sevkiyat-fiyatlama-navlun",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:sgk-prim-tesvikleri-optimizasyon-motoru",
       "route": "/demo/sgk-prim-tesvikleri-optimizasyon-motoru",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/sgk-prim-tesvikleri-optimizasyon-motoru",
       "searchIntent": "informational",
@@ -1097,7 +1251,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/sgk-prim-tesvikleri-optimizasyon-motoru",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli",
@@ -1117,7 +1271,7 @@
       "pageId": "excelarsiv:demo:site-apartman-yonetim-sistemi",
       "route": "/demo/site-apartman-yonetim-sistemi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/site-apartman-yonetim-sistemi",
       "searchIntent": "informational",
@@ -1125,13 +1279,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/site-apartman-yonetim-sistemi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:spc-proses-yetenek-analizi",
       "route": "/demo/spc-proses-yetenek-analizi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/spc-proses-yetenek-analizi",
       "searchIntent": "informational",
@@ -1139,13 +1293,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/spc-proses-yetenek-analizi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:stok-optimizasyon-abc-olu-stok-nakit",
       "route": "/demo/stok-optimizasyon-abc-olu-stok-nakit",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/stok-optimizasyon-abc-olu-stok-nakit",
       "searchIntent": "informational",
@@ -1153,7 +1307,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/stok-optimizasyon-abc-olu-stok-nakit",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:stok-satis-ve-nakit-baglanma-sistemi",
@@ -1187,7 +1341,7 @@
       "pageId": "excelarsiv:demo:sut-surusu-yonetim",
       "route": "/demo/sut-surusu-yonetim",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/sut-surusu-yonetim",
       "searchIntent": "informational",
@@ -1195,13 +1349,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/sut-surusu-yonetim",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:tahsilat-riski-vade-komuta-paneli",
       "route": "/demo/tahsilat-riski-vade-komuta-paneli",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/tahsilat-riski-vade-komuta-paneli",
       "searchIntent": "informational",
@@ -1209,13 +1363,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/tahsilat-riski-vade-komuta-paneli",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:tarimsal-destek-uygunluk",
       "route": "/demo/tarimsal-destek-uygunluk",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/tarimsal-destek-uygunluk",
       "searchIntent": "informational",
@@ -1223,7 +1377,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/tarimsal-destek-uygunluk",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:taseron-hakedis-kesinti-mutabakati",
@@ -1240,10 +1394,52 @@
       "notes": "Registry parity sync — otomatik eklendi."
     },
     {
+      "pageId": "excelarsiv:demo:tesvikli-bordro-avantajli-tesvik",
+      "route": "/demo/tesvikli-bordro-avantajli-tesvik",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/tesvikli-bordro-avantajli-tesvik",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/tesvikli-bordro-avantajli-tesvik",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
+      "pageId": "excelarsiv:demo:tesvikli-bordro-optimizasyon",
+      "route": "/demo/tesvikli-bordro-optimizasyon",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/tesvikli-bordro-optimizasyon",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/tesvikli-bordro-optimizasyon",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
+      "pageId": "excelarsiv:demo:trendyol-komisyon-sonrasi-net-kar",
+      "route": "/demo/trendyol-komisyon-sonrasi-net-kar",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/trendyol-komisyon-sonrasi-net-kar",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/trendyol-komisyon-sonrasi-net-kar",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
       "pageId": "excelarsiv:demo:uretim-kari-125-kv-optimizasyonu",
       "route": "/demo/uretim-kari-125-kv-optimizasyonu",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/uretim-kari-125-kv-optimizasyonu",
       "searchIntent": "informational",
@@ -1251,7 +1447,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/uretim-kari-125-kv-optimizasyonu",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:uretim-recetesi-ve-zam-yansitma-hesaplayici",
@@ -1299,7 +1495,7 @@
       "pageId": "excelarsiv:demo:yem-rasyonu-maliyet",
       "route": "/demo/yem-rasyonu-maliyet",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/yem-rasyonu-maliyet",
       "searchIntent": "informational",
@@ -1307,13 +1503,13 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/yem-rasyonu-maliyet",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:yeniden-degerleme-komuta-merkezi",
       "route": "/demo/yeniden-degerleme-komuta-merkezi",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/yeniden-degerleme-komuta-merkezi",
       "searchIntent": "informational",
@@ -1321,7 +1517,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/yeniden-degerleme-komuta-merkezi",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:demo:yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi",
@@ -1352,10 +1548,24 @@
       "notes": "Registry parity sync — otomatik eklendi."
     },
     {
+      "pageId": "excelarsiv:demo:ymm-tasdik-kontrol-robotu",
+      "route": "/demo/ymm-tasdik-kontrol-robotu",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/ymm-tasdik-kontrol-robotu",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/ymm-tasdik-kontrol-robotu",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
       "pageId": "excelarsiv:demo:yurt-disi-yapilanma-vergi-simulatoru",
       "route": "/demo/yurt-disi-yapilanma-vergi-simulatoru",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "/demo/yurt-disi-yapilanma-vergi-simulatoru",
       "searchIntent": "informational",
@@ -1363,7 +1573,7 @@
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/demo/yurt-disi-yapilanma-vergi-simulatoru",
       "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:excel-araclari",
@@ -1958,6 +2168,20 @@
       "notes": "Primary query intent: kasa defteri excel."
     },
     {
+      "pageId": "excelarsiv:sablon:amortisman-2026-yeniden-degerleme",
+      "route": "/sablon/amortisman-2026-yeniden-degerleme",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/amortisman-2026-yeniden-degerleme",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/amortisman-2026-yeniden-degerleme",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
       "pageId": "excelarsiv:sablon:amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti",
       "route": "/sablon/amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti",
       "type": "product",
@@ -1979,7 +2203,7 @@
       "pageId": "excelarsiv:sablon:asgari-kurumlar-vergisi-simulasyon-motoru",
       "route": "/sablon/asgari-kurumlar-vergisi-simulasyon-motoru",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Asgari Kurumlar Vergisi Simülasyon Motoru",
       "searchIntent": "transactional",
@@ -1991,7 +2215,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/asgari-kurumlar-vergisi-simulasyon-motoru",
       "ownerRoute": "/sablon/asgari-kurumlar-vergisi-simulasyon-motoru",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli",
@@ -2054,7 +2278,7 @@
       "pageId": "excelarsiv:sablon:banka-kredi-covenant-erken-uyari",
       "route": "/sablon/banka-kredi-covenant-erken-uyari",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Banka Kredi + Covenant Erken Uyarı",
       "searchIntent": "transactional",
@@ -2066,7 +2290,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/banka-kredi-covenant-erken-uyari",
       "ownerRoute": "/sablon/banka-kredi-covenant-erken-uyari",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:banka-kredi-ve-taksit-takip-sistemi",
@@ -2088,6 +2312,20 @@
       "canonical": "https://excelarsiv.com/sablon/banka-kredi-ve-taksit-takip-sistemi",
       "ownerRoute": "/sablon/banka-kredi-ve-taksit-takip-sistemi",
       "notes": "Primary query intent: kredi takip excel."
+    },
+    {
+      "pageId": "excelarsiv:sablon:cari-ba-bs-toplu-mutabakat",
+      "route": "/sablon/cari-ba-bs-toplu-mutabakat",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/cari-ba-bs-toplu-mutabakat",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/cari-ba-bs-toplu-mutabakat",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:sablon:cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi",
@@ -2135,7 +2373,7 @@
       "pageId": "excelarsiv:sablon:dava-masraf-harc-hesaplama",
       "route": "/sablon/dava-masraf-harc-hesaplama",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Dava Masraf & Harç Hesaplama Motoru",
       "searchIntent": "transactional",
@@ -2147,13 +2385,27 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/dava-masraf-harc-hesaplama",
       "ownerRoute": "/sablon/dava-masraf-harc-hesaplama",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:sablon:defter-beyan-e-arsiv-aktarim",
+      "route": "/sablon/defter-beyan-e-arsiv-aktarim",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/defter-beyan-e-arsiv-aktarim",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/defter-beyan-e-arsiv-aktarim",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:sablon:depo-doluluk-lokasyon",
       "route": "/sablon/depo-doluluk-lokasyon",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Depo Doluluk & Lokasyon Optimizasyonu",
       "searchIntent": "transactional",
@@ -2165,13 +2417,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/depo-doluluk-lokasyon",
       "ownerRoute": "/sablon/depo-doluluk-lokasyon",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:dernek-kooperatif-mali-yonetim",
       "route": "/sablon/dernek-kooperatif-mali-yonetim",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Dernek/Kooperatif Mali Yönetim Sistemi",
       "searchIntent": "transactional",
@@ -2183,7 +2435,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/dernek-kooperatif-mali-yonetim",
       "ownerRoute": "/sablon/dernek-kooperatif-mali-yonetim",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:doviz-acik-pozisyonu-ve-kur-riski-stres-testi",
@@ -2207,7 +2459,7 @@
       "pageId": "excelarsiv:sablon:e-belge-zorunluluk-radari",
       "route": "/sablon/e-belge-zorunluluk-radari",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "e-Belge Zorunluluk Radarı",
       "searchIntent": "transactional",
@@ -2219,13 +2471,41 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/e-belge-zorunluluk-radari",
       "ownerRoute": "/sablon/e-belge-zorunluluk-radari",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:sablon:e-fatura-satir-defteri-pdf-kaniti",
+      "route": "/sablon/e-fatura-satir-defteri-pdf-kaniti",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/e-fatura-satir-defteri-pdf-kaniti",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/e-fatura-satir-defteri-pdf-kaniti",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
+      "pageId": "excelarsiv:sablon:e-fatura-toplu-donusturucu",
+      "route": "/sablon/e-fatura-toplu-donusturucu",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/e-fatura-toplu-donusturucu",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/e-fatura-toplu-donusturucu",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:sablon:e-ticaret-gercek-karlilik-fiyatlama",
       "route": "/sablon/e-ticaret-gercek-karlilik-fiyatlama",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "E-Ticaret Gerçek Kârlılık & Fiyatlama",
       "searchIntent": "transactional",
@@ -2237,13 +2517,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/e-ticaret-gercek-karlilik-fiyatlama",
       "ownerRoute": "/sablon/e-ticaret-gercek-karlilik-fiyatlama",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:elektrik-faturasi-dogrulama",
       "route": "/sablon/elektrik-faturasi-dogrulama",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Elektrik Faturası Doğrulama Motoru",
       "searchIntent": "transactional",
@@ -2255,13 +2535,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/elektrik-faturasi-dogrulama",
       "ownerRoute": "/sablon/elektrik-faturasi-dogrulama",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:emlak-pipeline-komisyon",
       "route": "/sablon/emlak-pipeline-komisyon",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Emlak Ofisi Satış Pipeline & Komisyon Takibi",
       "searchIntent": "transactional",
@@ -2273,13 +2553,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/emlak-pipeline-komisyon",
       "ownerRoute": "/sablon/emlak-pipeline-komisyon",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:fason-uretim-takip-sistemi",
       "route": "/sablon/fason-uretim-takip-sistemi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Fason Üretim Takip Sistemi",
       "searchIntent": "transactional",
@@ -2291,7 +2571,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/fason-uretim-takip-sistemi",
       "ownerRoute": "/sablon/fason-uretim-takip-sistemi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:fazla-mesai-ve-isci-dava-riski-tespit-dosyasi",
@@ -2315,7 +2595,7 @@
       "pageId": "excelarsiv:sablon:fesih-maliyeti-simulatoru",
       "route": "/sablon/fesih-maliyeti-simulatoru",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Fesih Maliyeti Simülatörü (kıdem+ihbar+işe iade)",
       "searchIntent": "transactional",
@@ -2327,13 +2607,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/fesih-maliyeti-simulatoru",
       "ownerRoute": "/sablon/fesih-maliyeti-simulatoru",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:filo-arac-maliyet-komutasi",
       "route": "/sablon/filo-arac-maliyet-komutasi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Filo Araç Maliyet Komutası",
       "searchIntent": "transactional",
@@ -2345,13 +2625,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/filo-arac-maliyet-komutasi",
       "ownerRoute": "/sablon/filo-arac-maliyet-komutasi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:ges-uretim-performans",
       "route": "/sablon/ges-uretim-performans",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "GES Üretim & Performans Takibi",
       "searchIntent": "transactional",
@@ -2363,13 +2643,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/ges-uretim-performans",
       "ownerRoute": "/sablon/ges-uretim-performans",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:ges-yatirim-fizibilite",
       "route": "/sablon/ges-yatirim-fizibilite",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "GES Yatırım Fizibilite Simülatörü",
       "searchIntent": "transactional",
@@ -2381,13 +2661,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/ges-yatirim-fizibilite",
       "ownerRoute": "/sablon/ges-yatirim-fizibilite",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:gida-lot-maliyet-izlenebilirlik",
       "route": "/sablon/gida-lot-maliyet-izlenebilirlik",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik",
       "searchIntent": "transactional",
@@ -2399,7 +2679,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/gida-lot-maliyet-izlenebilirlik",
       "ownerRoute": "/sablon/gida-lot-maliyet-izlenebilirlik",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:gunluk-gelir-gider-ve-gercek-karlilik-sistemi",
@@ -2444,7 +2724,7 @@
       "pageId": "excelarsiv:sablon:hizmet-ihracati-100-indirim-transfer-takip",
       "route": "/sablon/hizmet-ihracati-100-indirim-transfer-takip",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Hizmet İhracatı %100 İndirim + Transfer Takip",
       "searchIntent": "transactional",
@@ -2456,13 +2736,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/hizmet-ihracati-100-indirim-transfer-takip",
       "ownerRoute": "/sablon/hizmet-ihracati-100-indirim-transfer-takip",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:hukuk-burosu-dosya-vekalet",
       "route": "/sablon/hukuk-burosu-dosya-vekalet",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Hukuk Bürosu Dosya & Vekalet Komutası",
       "searchIntent": "transactional",
@@ -2474,13 +2754,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/hukuk-burosu-dosya-vekalet",
       "ownerRoute": "/sablon/hukuk-burosu-dosya-vekalet",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:ihale-fiyat-farki-eskalasyon-pro",
       "route": "/sablon/ihale-fiyat-farki-eskalasyon-pro",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "İhale Fiyat Farkı (Eskalasyon) Pro",
       "searchIntent": "transactional",
@@ -2492,7 +2772,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/ihale-fiyat-farki-eskalasyon-pro",
       "ownerRoute": "/sablon/ihale-fiyat-farki-eskalasyon-pro",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:ihaleye-kac-tl-teklif-vermeliyim",
@@ -2516,7 +2796,7 @@
       "pageId": "excelarsiv:sablon:ihracat-siparis-karlilik-kur",
       "route": "/sablon/ihracat-siparis-karlilik-kur",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "İhracat Sipariş Kârlılık & Kur Riski Komutası",
       "searchIntent": "transactional",
@@ -2528,13 +2808,27 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/ihracat-siparis-karlilik-kur",
       "ownerRoute": "/sablon/ihracat-siparis-karlilik-kur",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:sablon:insaat-hakedis-santiye-maliyet",
+      "route": "/sablon/insaat-hakedis-santiye-maliyet",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/insaat-hakedis-santiye-maliyet",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/insaat-hakedis-santiye-maliyet",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:sablon:insaat-hakedis-yonetim-sistemi",
       "route": "/sablon/insaat-hakedis-yonetim-sistemi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "İnşaat Hakediş Yönetim Sistemi",
       "searchIntent": "transactional",
@@ -2546,13 +2840,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/insaat-hakedis-yonetim-sistemi",
       "ownerRoute": "/sablon/insaat-hakedis-yonetim-sistemi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:isg-risk-degerlendirme-pro-6331",
       "route": "/sablon/isg-risk-degerlendirme-pro-6331",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "İSG Risk Değerlendirme Pro (6331)",
       "searchIntent": "transactional",
@@ -2564,7 +2858,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/isg-risk-degerlendirme-pro-6331",
       "ownerRoute": "/sablon/isg-risk-degerlendirme-pro-6331",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:ithalat-depo-teslim-rafa-gelen-net-birim-maliyet",
@@ -2588,7 +2882,7 @@
       "pageId": "excelarsiv:sablon:ithalat-landed-cost-motoru",
       "route": "/sablon/ithalat-landed-cost-motoru",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "İthalat Landed Cost Motoru",
       "searchIntent": "transactional",
@@ -2600,7 +2894,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/ithalat-landed-cost-motoru",
       "ownerRoute": "/sablon/ithalat-landed-cost-motoru",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi",
@@ -2624,7 +2918,7 @@
       "pageId": "excelarsiv:sablon:kargo-desi-maliyet-optimizasyonu",
       "route": "/sablon/kargo-desi-maliyet-optimizasyonu",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Kargo/Desi Maliyet Optimizasyonu",
       "searchIntent": "transactional",
@@ -2636,13 +2930,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/kargo-desi-maliyet-optimizasyonu",
       "ownerRoute": "/sablon/kargo-desi-maliyet-optimizasyonu",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:kat-karsiligi-hasilat-paylasimi-simulator",
       "route": "/sablon/kat-karsiligi-hasilat-paylasimi-simulator",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Kat Karşılığı / Hasılat Paylaşımı Simülatör",
       "searchIntent": "transactional",
@@ -2654,7 +2948,21 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/kat-karsiligi-hasilat-paylasimi-simulator",
       "ownerRoute": "/sablon/kat-karsiligi-hasilat-paylasimi-simulator",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:sablon:kdv-iade-listesi-robotu-gib7",
+      "route": "/sablon/kdv-iade-listesi-robotu-gib7",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/kdv-iade-listesi-robotu-gib7",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/kdv-iade-listesi-robotu-gib7",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:sablon:kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici",
@@ -2678,7 +2986,7 @@
       "pageId": "excelarsiv:sablon:kdv-iadesi-tutar-surec-simulasyonu",
       "route": "/sablon/kdv-iadesi-tutar-surec-simulasyonu",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "KDV İadesi Tutar ve Süreç Simülasyonu",
       "searchIntent": "transactional",
@@ -2690,7 +2998,21 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/kdv-iadesi-tutar-surec-simulasyonu",
       "ownerRoute": "/sablon/kdv-iadesi-tutar-surec-simulasyonu",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:sablon:kdv-tevkifat-mahsup-iade-listesi",
+      "route": "/sablon/kdv-tevkifat-mahsup-iade-listesi",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/kdv-tevkifat-mahsup-iade-listesi",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/kdv-tevkifat-mahsup-iade-listesi",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:sablon:kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici",
@@ -2714,7 +3036,7 @@
       "pageId": "excelarsiv:sablon:kik-asiri-dusuk-savunma-sinir-deger",
       "route": "/sablon/kik-asiri-dusuk-savunma-sinir-deger",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "KİK Aşırı Düşük Savunma + Sınır Değer Paketi",
       "searchIntent": "transactional",
@@ -2726,13 +3048,27 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/kik-asiri-dusuk-savunma-sinir-deger",
       "ownerRoute": "/sablon/kik-asiri-dusuk-savunma-sinir-deger",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:sablon:kira-avans-takip-dekont",
+      "route": "/sablon/kira-avans-takip-dekont",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/kira-avans-takip-dekont",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/kira-avans-takip-dekont",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:sablon:kira-portfoyu-getiri-komutasi",
       "route": "/sablon/kira-portfoyu-getiri-komutasi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Kira Portföyü Getiri Komutası",
       "searchIntent": "transactional",
@@ -2744,7 +3080,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/kira-portfoyu-getiri-komutasi",
       "ownerRoute": "/sablon/kira-portfoyu-getiri-komutasi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti",
@@ -2786,10 +3122,24 @@
       "notes": "Primary query intent: kobi finans yönetim excel."
     },
     {
+      "pageId": "excelarsiv:sablon:konkordato-nakit-akis-on-projesi",
+      "route": "/sablon/konkordato-nakit-akis-on-projesi",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/konkordato-nakit-akis-on-projesi",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/konkordato-nakit-akis-on-projesi",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
       "pageId": "excelarsiv:sablon:konkordato-ttk376-kriz-paketi",
       "route": "/sablon/konkordato-ttk376-kriz-paketi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Konkordato + TTK 376 Kriz Paketi",
       "searchIntent": "transactional",
@@ -2801,13 +3151,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/konkordato-ttk376-kriz-paketi",
       "ownerRoute": "/sablon/konkordato-ttk376-kriz-paketi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:kvkk-veri-envanteri-verbis-uyum",
       "route": "/sablon/kvkk-veri-envanteri-verbis-uyum",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "KVKK Veri Envanteri + VERBİS Uyum Sistemi",
       "searchIntent": "transactional",
@@ -2819,13 +3169,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/kvkk-veri-envanteri-verbis-uyum",
       "ownerRoute": "/sablon/kvkk-veri-envanteri-verbis-uyum",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:makine-bakim-kalibrasyon-durus-maliyeti",
       "route": "/sablon/makine-bakim-kalibrasyon-durus-maliyeti",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Makine Bakım & Kalibrasyon + Duruş Maliyeti",
       "searchIntent": "transactional",
@@ -2837,13 +3187,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/makine-bakim-kalibrasyon-durus-maliyeti",
       "ownerRoute": "/sablon/makine-bakim-kalibrasyon-durus-maliyeti",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:mini-mrp-bom-malzeme-kapasite",
       "route": "/sablon/mini-mrp-bom-malzeme-kapasite",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite)",
       "searchIntent": "transactional",
@@ -2855,13 +3205,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/mini-mrp-bom-malzeme-kapasite",
       "ownerRoute": "/sablon/mini-mrp-bom-malzeme-kapasite",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:mizan-anomali-denetim-oncesi-kontrol",
       "route": "/sablon/mizan-anomali-denetim-oncesi-kontrol",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Mizan Anomali & Denetim Öncesi Kontrol",
       "searchIntent": "transactional",
@@ -2873,7 +3223,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/mizan-anomali-denetim-oncesi-kontrol",
       "ownerRoute": "/sablon/mizan-anomali-denetim-oncesi-kontrol",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:mutfak-kayip-kacak-hesaplayici",
@@ -2915,7 +3265,7 @@
       "pageId": "excelarsiv:sablon:oee-durus-kok-neden-komutasi",
       "route": "/sablon/oee-durus-kok-neden-komutasi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "OEE & Duruş Kök-Neden Komutası",
       "searchIntent": "transactional",
@@ -2927,13 +3277,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/oee-durus-kok-neden-komutasi",
       "ownerRoute": "/sablon/oee-durus-kok-neden-komutasi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:on-uc-haftalik-nakit-odeme-onceligi",
       "route": "/sablon/on-uc-haftalik-nakit-odeme-onceligi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "13 Haftalık Nakit + Ödeme Önceliği",
       "searchIntent": "transactional",
@@ -2945,7 +3295,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/on-uc-haftalik-nakit-odeme-onceligi",
       "ownerRoute": "/sablon/on-uc-haftalik-nakit-odeme-onceligi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici",
@@ -2969,7 +3319,7 @@
       "pageId": "excelarsiv:sablon:ortulu-sermaye-emsal-faiz-tf-paketi",
       "route": "/sablon/ortulu-sermaye-emsal-faiz-tf-paketi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Örtülü Sermaye + Emsal Faiz + TF Paketi",
       "searchIntent": "transactional",
@@ -2981,13 +3331,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/ortulu-sermaye-emsal-faiz-tf-paketi",
       "ownerRoute": "/sablon/ortulu-sermaye-emsal-faiz-tf-paketi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:pazaryeri-hakedis-mutabakat-motoru",
       "route": "/sablon/pazaryeri-hakedis-mutabakat-motoru",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Pazaryeri Hakediş Mutabakat Motoru",
       "searchIntent": "transactional",
@@ -2999,7 +3349,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/pazaryeri-hakedis-mutabakat-motoru",
       "ownerRoute": "/sablon/pazaryeri-hakedis-mutabakat-motoru",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:pazaryeri-net-kar-ve-eksik-hakedis-yakalayici",
@@ -3044,7 +3394,7 @@
       "pageId": "excelarsiv:sablon:proje-finansmani-dscr-llcr-paketi",
       "route": "/sablon/proje-finansmani-dscr-llcr-paketi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Proje Finansmanı Paketi (DSCR/LLCR)",
       "searchIntent": "transactional",
@@ -3056,7 +3406,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/proje-finansmani-dscr-llcr-paketi",
       "ownerRoute": "/sablon/proje-finansmani-dscr-llcr-paketi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:proje-ve-is-bazinda-gercek-karlilik-sistemi",
@@ -3083,7 +3433,7 @@
       "pageId": "excelarsiv:sablon:puantaj-vardiya-fazla-mesai-kanit-sistemi",
       "route": "/sablon/puantaj-vardiya-fazla-mesai-kanit-sistemi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi",
       "searchIntent": "transactional",
@@ -3095,13 +3445,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/puantaj-vardiya-fazla-mesai-kanit-sistemi",
       "ownerRoute": "/sablon/puantaj-vardiya-fazla-mesai-kanit-sistemi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:recete-maliyeti-menu-muhendisligi",
       "route": "/sablon/recete-maliyeti-menu-muhendisligi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Reçete Maliyeti & Menü Mühendisliği",
       "searchIntent": "transactional",
@@ -3113,13 +3463,27 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/recete-maliyeti-menu-muhendisligi",
       "ownerRoute": "/sablon/recete-maliyeti-menu-muhendisligi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
+    },
+    {
+      "pageId": "excelarsiv:sablon:restoran-recete-maliyet-fire",
+      "route": "/sablon/restoran-recete-maliyet-fire",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/restoran-recete-maliyet-fire",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/restoran-recete-maliyet-fire",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
     },
     {
       "pageId": "excelarsiv:sablon:sarj-istasyonu-yatirim",
       "route": "/sablon/sarj-istasyonu-yatirim",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Şarj İstasyonu Yatırım Simülatörü",
       "searchIntent": "transactional",
@@ -3131,13 +3495,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/sarj-istasyonu-yatirim",
       "ownerRoute": "/sablon/sarj-istasyonu-yatirim",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:sekiz-d-duzeltici-faaliyet-dosya",
       "route": "/sablon/sekiz-d-duzeltici-faaliyet-dosya",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "8D / Düzeltici Faaliyet Dosya Sistemi",
       "searchIntent": "transactional",
@@ -3149,13 +3513,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/sekiz-d-duzeltici-faaliyet-dosya",
       "ownerRoute": "/sablon/sekiz-d-duzeltici-faaliyet-dosya",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:sera-kurulum-fizibilite",
       "route": "/sablon/sera-kurulum-fizibilite",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Sera Kurulum & Rekolte Fizibilitesi",
       "searchIntent": "transactional",
@@ -3167,13 +3531,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/sera-kurulum-fizibilite",
       "ownerRoute": "/sablon/sera-kurulum-fizibilite",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:sevkiyat-fiyatlama-navlun",
       "route": "/sablon/sevkiyat-fiyatlama-navlun",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Sevkiyat Fiyatlama & Navlun Maliyet Motoru",
       "searchIntent": "transactional",
@@ -3185,13 +3549,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/sevkiyat-fiyatlama-navlun",
       "ownerRoute": "/sablon/sevkiyat-fiyatlama-navlun",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:sgk-prim-tesvikleri-optimizasyon-motoru",
       "route": "/sablon/sgk-prim-tesvikleri-optimizasyon-motoru",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "SGK Prim Teşvikleri Optimizasyon Motoru",
       "searchIntent": "transactional",
@@ -3203,7 +3567,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/sgk-prim-tesvikleri-optimizasyon-motoru",
       "ownerRoute": "/sablon/sgk-prim-tesvikleri-optimizasyon-motoru",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli",
@@ -3227,7 +3591,7 @@
       "pageId": "excelarsiv:sablon:site-apartman-yonetim-sistemi",
       "route": "/sablon/site-apartman-yonetim-sistemi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Site/Apartman Yönetim Sistemi",
       "searchIntent": "transactional",
@@ -3239,13 +3603,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/site-apartman-yonetim-sistemi",
       "ownerRoute": "/sablon/site-apartman-yonetim-sistemi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:spc-proses-yetenek-analizi",
       "route": "/sablon/spc-proses-yetenek-analizi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "SPC Proses Yetenek Analizi",
       "searchIntent": "transactional",
@@ -3257,13 +3621,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/spc-proses-yetenek-analizi",
       "ownerRoute": "/sablon/spc-proses-yetenek-analizi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:stok-optimizasyon-abc-olu-stok-nakit",
       "route": "/sablon/stok-optimizasyon-abc-olu-stok-nakit",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Stok Optimizasyon + ABC + Ölü Stok Nakit",
       "searchIntent": "transactional",
@@ -3275,7 +3639,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/stok-optimizasyon-abc-olu-stok-nakit",
       "ownerRoute": "/sablon/stok-optimizasyon-abc-olu-stok-nakit",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:stok-satis-ve-nakit-baglanma-sistemi",
@@ -3320,7 +3684,7 @@
       "pageId": "excelarsiv:sablon:sut-surusu-yonetim",
       "route": "/sablon/sut-surusu-yonetim",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Süt Sürüsü Yönetim Komutası",
       "searchIntent": "transactional",
@@ -3332,13 +3696,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/sut-surusu-yonetim",
       "ownerRoute": "/sablon/sut-surusu-yonetim",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:tahsilat-riski-vade-komuta-paneli",
       "route": "/sablon/tahsilat-riski-vade-komuta-paneli",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Tahsilat Riski & Vade Komuta Paneli",
       "searchIntent": "transactional",
@@ -3350,13 +3714,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/tahsilat-riski-vade-komuta-paneli",
       "ownerRoute": "/sablon/tahsilat-riski-vade-komuta-paneli",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:tarimsal-destek-uygunluk",
       "route": "/sablon/tarimsal-destek-uygunluk",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Tarımsal Destek/Teşvik Uygunluk Testi",
       "searchIntent": "transactional",
@@ -3368,7 +3732,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/tarimsal-destek-uygunluk",
       "ownerRoute": "/sablon/tarimsal-destek-uygunluk",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:taseron-hakedis-kesinti-mutabakati",
@@ -3389,10 +3753,52 @@
       "notes": "Primary query candidate: taşeron hakediş excel. Demand cluster dış veri gelene kadar null."
     },
     {
+      "pageId": "excelarsiv:sablon:tesvikli-bordro-avantajli-tesvik",
+      "route": "/sablon/tesvikli-bordro-avantajli-tesvik",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/tesvikli-bordro-avantajli-tesvik",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/tesvikli-bordro-avantajli-tesvik",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
+      "pageId": "excelarsiv:sablon:tesvikli-bordro-optimizasyon",
+      "route": "/sablon/tesvikli-bordro-optimizasyon",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/tesvikli-bordro-optimizasyon",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/tesvikli-bordro-optimizasyon",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
+      "pageId": "excelarsiv:sablon:trendyol-komisyon-sonrasi-net-kar",
+      "route": "/sablon/trendyol-komisyon-sonrasi-net-kar",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/trendyol-komisyon-sonrasi-net-kar",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/trendyol-komisyon-sonrasi-net-kar",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
       "pageId": "excelarsiv:sablon:uretim-kari-125-kv-optimizasyonu",
       "route": "/sablon/uretim-kari-125-kv-optimizasyonu",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Üretim Kârı %12,5 KV Optimizasyonu",
       "searchIntent": "transactional",
@@ -3404,7 +3810,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/uretim-kari-125-kv-optimizasyonu",
       "ownerRoute": "/sablon/uretim-kari-125-kv-optimizasyonu",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:uretim-recetesi-ve-zam-yansitma-hesaplayici",
@@ -3467,7 +3873,7 @@
       "pageId": "excelarsiv:sablon:yem-rasyonu-maliyet",
       "route": "/sablon/yem-rasyonu-maliyet",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Yem Rasyonu & Maliyet Motoru",
       "searchIntent": "transactional",
@@ -3479,13 +3885,13 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/yem-rasyonu-maliyet",
       "ownerRoute": "/sablon/yem-rasyonu-maliyet",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:yeniden-degerleme-komuta-merkezi",
       "route": "/sablon/yeniden-degerleme-komuta-merkezi",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Yeniden Değerleme Komuta Merkezi (298/Ç + Geç.32)",
       "searchIntent": "transactional",
@@ -3497,7 +3903,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/yeniden-degerleme-komuta-merkezi",
       "ownerRoute": "/sablon/yeniden-degerleme-komuta-merkezi",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablon:yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi",
@@ -3536,10 +3942,24 @@
       "notes": "Primary query candidate: yıllara sari inşaat stopaj excel. Demand cluster dış veri gelene kadar null."
     },
     {
+      "pageId": "excelarsiv:sablon:ymm-tasdik-kontrol-robotu",
+      "route": "/sablon/ymm-tasdik-kontrol-robotu",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/sablon/ymm-tasdik-kontrol-robotu",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/sablon/ymm-tasdik-kontrol-robotu",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
       "pageId": "excelarsiv:sablon:yurt-disi-yapilanma-vergi-simulatoru",
       "route": "/sablon/yurt-disi-yapilanma-vergi-simulatoru",
       "type": "product",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Yurt Dışı Yapılanma Vergi Simülatörü",
       "searchIntent": "transactional",
@@ -3551,7 +3971,7 @@
       ],
       "canonical": "https://excelarsiv.com/sablon/yurt-disi-yapilanma-vergi-simulatoru",
       "ownerRoute": "/sablon/yurt-disi-yapilanma-vergi-simulatoru",
-      "notes": "Registry parity sync — live product route."
+      "notes": "Katalog dışı SKU — canlı index setinden çıkarıldı."
     },
     {
       "pageId": "excelarsiv:sablonlar",
