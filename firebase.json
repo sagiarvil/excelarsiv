@@ -19,6 +19,10 @@
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "cleanUrls": true,
       "trailingSlash": false,
+      "redirects": [
+        { "source": "/excel-araclari", "destination": "/sablonlar", "type": 301 },
+        { "source": "/paketler", "destination": "/sablon/kobi-finans-yonetim-paketi", "type": 301 }
+      ],
       "rewrites": [
         { "source": "/api/checkout", "function": { "functionId": "createCheckout", "region": "europe-west1" } },
         { "source": "/api/checkout-status", "function": { "functionId": "checkoutStatus", "region": "europe-west1" } },

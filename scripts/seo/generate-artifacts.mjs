@@ -129,7 +129,7 @@ function llmPageLine(page) {
   return `- [${markdownEscape(page.title)}](${page.canonical})${page.description ? ` — ${markdownEscape(page.description)}` : ''}`;
 }
 
-const START_PATHS = new Set(['/nasil-calisir', '/paketler', '/sss']);
+const START_PATHS = new Set(['/nasil-calisir', '/sss']);
 const TRUST_PATHS = new Set([
   '/hakkinda',
   '/neden-excel-arsiv',
@@ -246,8 +246,8 @@ function buildLlmsShort(indexablePages, templateRecords) {
     `- Katalog: ${SITE_ORIGIN}/sablonlar`,
     `- Rehberler: ${SITE_ORIGIN}/rehber`,
     `- Sektör dikeyleri: ${SITE_ORIGIN}/sektor/kafe-restoran-nakit`,
-    `- Proof Demo: ${SITE_ORIGIN}/demo`,
-    `- Uzman profili (E-E-A-T): ${SITE_ORIGIN}/hakkinda`,
+    `- Ücretsiz Demo: ${SITE_ORIGIN}/demo`,
+    `- Uzman profili: ${SITE_ORIGIN}/hakkinda`,
     '- Dil: Türkçe (tr-TR)',
     '- Para birimi: Türk Lirası (TL)',
     '',
@@ -260,7 +260,7 @@ function buildLlmsShort(indexablePages, templateRecords) {
   appendPageSection(lines, 'Katalog ve kategoriler', categories);
   appendPageSection(lines, 'Uygulama rehberleri', guides);
   appendPageSection(lines, 'Ücretsiz hesaplayıcılar', calculators);
-  appendPageSection(lines, 'Güven, yasal ve E-E-A-T', trust);
+  appendPageSection(lines, 'Güven, yasal ve uzmanlık', trust);
   appendPageSection(lines, 'Diğer public sayfalar', other);
 
   lines.push('## Ürünler', '');
@@ -273,10 +273,10 @@ function buildLlmsShort(indexablePages, templateRecords) {
 
   lines.push(
     '',
-    '## Proof Demo kapıları',
+    '## Ücretsiz Demo',
     '',
-    `- Hub: [${markdownEscape('Proof Demo')}](${SITE_ORIGIN}/demo)`,
-    '- Kural: her ücretli ürünün demo kapısı `{SITE}/demo/{slug}` adresindedir; ayrı demo URL’leri burada tekrar edilmez.',
+    `- Hub: [${markdownEscape('Ücretsiz Demo')}](${SITE_ORIGIN}/demo)`,
+    '- Kural: her ücretli ürünün demo sayfası `{SITE}/demo/{slug}` adresindedir; ayrı demo URL’leri burada tekrar edilmez.',
     '',
     '## Keşif ve kullanım notu',
     '',
@@ -314,10 +314,10 @@ function buildLlmsFull(indexablePages, templateRecords) {
     '- Makine kataloğu (JSON): https://excelarsiv.com/katalog.json',
     '- Rehber: https://excelarsiv.com/rehber',
     '- Sektör dikeyleri: https://excelarsiv.com/sektor/kafe-restoran-nakit · https://excelarsiv.com/sektor/insaat-hakedis · https://excelarsiv.com/sektor/e-ticaret-karlilik',
-    '- Proof Demo hub: https://excelarsiv.com/demo',
+    '- Ücretsiz Demo hub: https://excelarsiv.com/demo',
     '- Satın alma (ürün sayfası #satin-al): her ürün URL’sinde Shopier ödeme başlatma',
     '- Neden Excel Arşiv (moat): https://excelarsiv.com/neden-excel-arsiv',
-    '- Uzman profili (E-E-A-T): https://excelarsiv.com/hakkinda',
+    '- Uzman profili: https://excelarsiv.com/hakkinda',
     '',
     buildEeatMarkdownSection({ headingLevel: 2 }).trimEnd(),
     '',
@@ -328,15 +328,15 @@ function buildLlmsFull(indexablePages, templateRecords) {
   appendFullSection(lines, 'Katalog ve kategoriler', pagesOf(indexablePages, 'kategori'));
   appendFullSection(lines, 'Uygulama rehberleri', pagesOf(indexablePages, 'rehber'));
   appendFullSection(lines, 'Ücretsiz hesaplayıcılar', pagesOf(indexablePages, 'hesaplayici'));
-  appendFullSection(lines, 'Güven, yasal ve E-E-A-T', pagesOf(indexablePages, 'guven'));
+  appendFullSection(lines, 'Güven, yasal ve uzmanlık', pagesOf(indexablePages, 'guven'));
   appendFullSection(lines, 'Diğer public sayfalar', pagesOf(indexablePages, 'diger'));
 
   lines.push(
-    '## Proof Demo kapıları',
+    '## Ücretsiz Demo',
     '',
     `- Hub: ${SITE_ORIGIN}/demo`,
-    '- Kural: her ücretli ürünün indexlenebilir demo kapısı `{SITE}/demo/{slug}` adresindedir.',
-    '- Tam ürün sayfası canonical kaynaktır; demo kapısı satın alma yerine geçmez.',
+    '- Kural: her ücretli ürünün demo sayfası `{SITE}/demo/{slug}` adresindedir.',
+    '- Tam ürün sayfası canonical kaynaktır; demo sayfası satın alma yerine geçmez.',
     '',
     '## Ürün kataloğu',
     '',

@@ -32,6 +32,10 @@ function validateRecords(records: JsonRecord[], sitemapRoutes: Set<string> | nul
     if (!route.startsWith('/') || routes.has(route)) errors.push(`INV-1.1 route duplicate/invalid: ${route}`); else routes.add(route);
     if (!canonical || canonicals.has(canonical)) errors.push(`INV-1.1 canonical duplicate/empty: ${canonical}`); else canonicals.add(canonical);
     if (status === 'live' && canonical !== canonicalFor(route)) errors.push(`INV-1.1 canonical mismatch: ${route}`);
+    if (status === 'redirect') {
+      const target = typeof record.redirectTarget === 'string' ? record.redirectTarget : '';
+      if (!target.startsWith('/')) errors.push(`INV-1.1 redirectTarget eksik: ${route}`);
+    }
     const cluster = record.primaryQueryClusterId;
     if (cluster !== null && cluster !== undefined) {
       if (typeof cluster !== 'string' || cluster.length === 0) errors.push(`INV-1.3 cluster invalid: ${route}`);

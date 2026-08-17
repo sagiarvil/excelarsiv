@@ -1,52 +1,50 @@
 ---
-import { getCollection } from 'astro:content';
-
-const modules = ['Kasa + banka + cari + POS bakiyeleri', 'Nakit girişi', 'Stok alışı ve operasyon gideri', 'Maaş ve kredi ödemeleri', 'Net nakit değişimi ve kapanış', 'Kâr tahmini', 'Risk skoru ve karar'];
-const templates = await getCollection('templates');
-const packageEntry = templates.find((entry) => entry.id === 'kobi-finans-yonetim-paketi');
-const packagePrice = packageEntry?.data.priceTL.toLocaleString('tr-TR') ?? '7.900';
-const packageHref = packageEntry ? `/sablon/${packageEntry.id}` : '/paketler';
+const problems = [
+  { label: 'Nakit akışımı planlamak istiyorum', href: '/sablonlar/nakit-akisi', hint: '13 haftalık plan, kasa, ödeme' },
+  { label: 'Cari ve tahsilatı kontrol etmek istiyorum', href: '/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', hint: 'Cari risk, vade, tahsilat' },
+  { label: 'Gerçek ürün kârlılığını görmek istiyorum', href: '/sablonlar/satis-ve-fiyatlama', hint: 'POS, pazaryeri, net marj' },
+  { label: 'Vergi hesaplarımı kontrol etmek istiyorum', href: '/sablonlar/muhasebe-ve-vergi', hint: 'KDV, amortisman, SGK' },
+  { label: 'Stok riskini azaltmak istiyorum', href: '/sablonlar/stok-ve-uretim', hint: 'Stok, üretim, nakit bağlanması' },
+  { label: 'Personel maliyetini hesaplamak istiyorum', href: '/sablonlar/personel-ve-bordro', hint: 'İşçilik, kıdem, teşvik' },
+];
 ---
 
-<section class="premium-close" aria-labelledby="final-cta-title">
+<section class="problem-nav" aria-labelledby="problem-nav-title">
   <div class="site-container">
-    <div class="premium-close__shell">
-      <div class="premium-close__copy">
-        <span class="premium-close__kicker">TEK DOSYA · BÜTÜN DÜZEN</span>
-        <h2 id="final-cta-title">Finans işlerinizi parça parça kurmak yerine <em>konsolide bir düzenle</em> başlayın.</h2>
-        <p>Tek bir ihtiyacınız varsa bireysel sistemi seçin. Kasa, banka, cari ve POS göstergelerini birlikte konsolide yönetmek istiyorsanız paket yapısını inceleyin.</p>
-        <div class="premium-close__actions">
-          <a class="premium-close__primary" href={packageHref}>KOBİ Finans Paketini İncele <span aria-hidden="true">→</span></a>
-          <a class="premium-close__secondary" href="/sablonlar">Tekil sistemler</a>
-        </div>
-        <div class="premium-close__signals">
-          <span>✓ Satın almadan önce demo</span><span>✓ KDV dahil fiyat</span><span>✓ Shopier ile ödeme</span>
-        </div>
-      </div>
-
-      <aside class="premium-close__package" aria-label="KOBİ Finans Yönetim Paketi kapsamı">
-        <div class="package-preview__top">
-          <span>KOBİ FİNANS YÖNETİM PAKETİ</span>
-          <b>Excel Arşiv</b>
-        </div>
-        <div class="package-preview__headline">Birbirinden kopuk dosyalar yerine kasa, banka, cari ve POS göstergelerini tek dosyada konsolide eden düzen.</div>
-        <div class="package-preview__price"><strong>{packagePrice} TL</strong><span>KDV dahil · tek ödeme</span></div>
-        <ul>
-          {modules.map((module, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><b>{module}</b><i>✓</i></li>)}
-        </ul>
-        <a class="package-preview__bottom" href={packageHref}><span>Demo → İncele → Karar ver</span><strong>Paketi Gör ↗</strong></a>
-      </aside>
+    <div class="problem-nav__head">
+      <span>EN ÇOK ÇÖZÜM ARANAN İŞ PROBLEMLERİ</span>
+      <h2 id="problem-nav-title">Hangi işletme problemini bugün netleştirmek istiyorsunuz?</h2>
+      <p>Generic şablon listesi yerine problemi seçin; sizi ilgili kategori veya ürüne götürelim.</p>
     </div>
+    <ul class="problem-nav__grid">
+      {problems.map((item) => (
+        <li>
+          <a href={item.href}>
+            <strong>{item.label}</strong>
+            <small>{item.hint}</small>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="problem-nav__finder">
+      Emin değilmisiniz? <a href="/urun-bulucu">Ürün bulucu ile 1 ana sistem + en fazla 2 ilgili sistem görün.</a>
+    </p>
   </div>
 </section>
 
 <style>
-  .premium-close { padding-block:clamp(70px,8vw,108px); background:#fff; }
-  .premium-close__shell { display:grid; grid-template-columns:minmax(0,1.02fr) minmax(420px,.98fr); gap:60px; align-items:center; padding:clamp(38px,5vw,66px); overflow:hidden; border-radius:30px; background:linear-gradient(135deg,#10251b 0%,#0b3b28 55%,#0a5a34 100%); box-shadow:0 28px 72px rgba(19,55,35,.17); color:#fff; }
-  .premium-close__copy { min-width:0; }.premium-close__kicker{font-family:var(--font-mono);font-size:12.5px;font-weight:700;letter-spacing:.12em;color:#89e2ad}.premium-close h2{max-width:680px;margin:13px 0 0;font-family:var(--font-display);font-size:clamp(38px,4.6vw,62px);line-height:.98;letter-spacing:-.045em;color:#fff}.premium-close h2 em{font-style:normal;color:#87e2ad}.premium-close__copy>p{max-width:620px;margin:18px 0 0;font-size:14px;line-height:1.7;color:rgba(241,255,247,.72)}
-  .premium-close__actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:26px}.premium-close__primary,.premium-close__secondary{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border-radius:13px;font-family:var(--font-mono);font-size:13px;font-weight:700;text-decoration:none}.premium-close__primary{gap:7px;padding:0 17px;background:#fff;color:#0b5f35}.premium-close__secondary{padding:0 15px;border:1px solid rgba(255,255,255,.24);color:#dff7e8;background:rgba(255,255,255,.04)}
-  .premium-close__signals{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:20px;font-family:var(--font-mono);font-size:12.5px;color:rgba(235,255,243,.62)}
-  .premium-close__package{overflow:hidden;border:1px solid rgba(255,255,255,.15);border-radius:22px;background:#f8fbf9;color:#14261c;box-shadow:0 26px 60px rgba(0,0,0,.22);transform:rotate(1.3deg)}.package-preview__top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:0 16px;border-bottom:1px solid #dfe7e1;background:#edf4ef;font-family:var(--font-mono);font-size:12.5px;color:#5f6e65}.package-preview__top span{font-weight:700;color:#0d7140}.package-preview__top b{font-weight:700}.package-preview__headline{padding:20px 18px 10px;font-size:19px;font-weight:700;line-height:1.16;letter-spacing:-.02em}.package-preview__price{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:0 18px 14px}.package-preview__price strong{font-family:var(--font-mono);font-size:28px;letter-spacing:-.04em;color:#0b5e35}.package-preview__price span{padding-bottom:3px;font-family:var(--font-mono);font-size:12.5px;color:#6c796f}.premium-close__package ul{margin:0;padding:0 14px 14px;list-style:none}.premium-close__package li{display:grid;grid-template-columns:30px 1fr 20px;gap:8px;align-items:center;min-height:38px;border-bottom:1px solid #e7ece8;font-size:12.5px}.premium-close__package li:last-child{border-bottom:0}.premium-close__package li>span{font-family:var(--font-mono);font-size:12.5px;color:#829087}.premium-close__package li>b{font-weight:600}.premium-close__package li>i{font-style:normal;color:#0e7a42}.package-preview__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:#edf5f0;border-top:1px solid #dfe7e1;font-family:var(--font-mono);font-size:12.5px;color:#64736a;text-decoration:none}.package-preview__bottom strong{color:#0d6f3e}
-  @media(max-width:980px){.premium-close__shell{grid-template-columns:1fr;gap:34px}.premium-close__package{transform:none;max-width:650px}}
-  @media(max-width:640px){.premium-close{padding-block:46px}.premium-close__shell{padding:28px 20px;border-radius:22px;gap:26px}.premium-close h2{font-size:35px}.premium-close__copy>p{font-size:12.5px;line-height:1.55}.premium-close__actions{margin-top:20px}.premium-close__primary,.premium-close__secondary{min-height:42px;font-size:13px}.premium-close__signals{font-size:12.5px}.premium-close__package{border-radius:16px}.package-preview__headline{font-size:16px;padding:16px 14px 8px}.package-preview__price{padding:0 14px 11px}.package-preview__price strong{font-size:24px}.premium-close__package ul{padding-inline:10px}.premium-close__package li{grid-template-columns:26px 1fr 16px;min-height:34px;font-size:12.5px}.package-preview__bottom{padding:11px 12px;flex-direction:column;align-items:flex-start;gap:5px}}
+  .problem-nav { padding-block: clamp(64px, 8vw, 104px); background: #f6f9f7; border-top: 1px solid #dce6e0; }
+  .problem-nav__head { max-width: 720px; }
+  .problem-nav__head span { font-family: var(--font-mono); font-size: 10px; font-weight: 800; letter-spacing: .12em; color: #0d7040; }
+  .problem-nav h2 { margin: 12px 0 0; font-family: var(--font-display); font-size: clamp(30px, 4vw, 48px); line-height: 1.05; letter-spacing: -.04em; color: #14291d; }
+  .problem-nav__head p { margin: 14px 0 0; font-size: 15px; line-height: 1.65; color: #5b6b62; }
+  .problem-nav__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 32px 0 0; padding: 0; list-style: none; }
+  .problem-nav__grid a { display: grid; gap: 8px; min-height: 132px; padding: 20px; border: 1px solid #d7e2db; border-radius: 16px; background: #fff; color: #173023; text-decoration: none; }
+  .problem-nav__grid a:hover { border-color: #0d7040; }
+  .problem-nav__grid strong { font-size: 16px; line-height: 1.3; }
+  .problem-nav__grid small { font-size: 12px; color: #66756c; }
+  .problem-nav__finder { margin: 22px 0 0; font-size: 13px; color: #5b6b62; }
+  .problem-nav__finder a { font-weight: 800; color: #0d7040; }
+  @media (max-width: 900px) { .problem-nav__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .problem-nav__grid { grid-template-columns: 1fr; } .problem-nav__grid a { min-height: 0; } }
 </style>

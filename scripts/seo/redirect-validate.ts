@@ -7,8 +7,24 @@ const EXIT = Object.freeze({ PASS: 0, BLOCK: 1, CONFIG: 4 });
 type Redirect = { from: string; to: string; type: 301 | 302; createdAt: string; reason: string };
 type Ledger = { canonicalHost: string; trailingSlash: boolean; redirects: Redirect[] };
 type FirebaseHeader = { source?: string; headers?: Array<{key?: string; value?: string}> };
-type FirebaseConfig = { hosting?: { cleanUrls?: boolean; trailingSlash?: boolean; headers?: FirebaseHeader[] } };
+type FirebaseRedirect = { source?: string; destination?: string; type?: number };
+type FirebaseHosting = {
+  target?: string;
+  cleanUrls?: boolean;
+  trailingSlash?: boolean;
+  headers?: FirebaseHeader[];
+  redirects?: FirebaseRedirect[];
+};
+type FirebaseConfig = { hosting?: FirebaseHosting | FirebaseHosting[] };
 function readJson<T>(path: string): T { return JSON.parse(readFileSync(resolve(ROOT, path), 'utf8')) as T; }
+function hostingTargets(config: FirebaseConfig): FirebaseHosting[] {
+  const hosting = config.hosting;
+  if (Array.isArray(hosting)) return hosting;
+  return hosting ? [hosting] : [];
+}
+function siteHosting(config: FirebaseConfig): FirebaseHosting | undefined {
+  return hostingTargets(config).find((item) => item.target === 'excelarsiv') ?? hostingTargets(config)[0];
+}
 function validateLedger(ledger: Ledger): string[] {
   const errors: string[] = [];
   const byFrom = new Map<string, Redirect>();
@@ -21,15 +37,25 @@ function validateLedger(ledger: Ledger): string[] {
   for (const redirect of ledger.redirects) if (byFrom.has(redirect.to)) errors.push(`INV-2.2 redirect zinciri: ${redirect.from} -> ${redirect.to}`);
   return errors;
 }
-function validateFirebase(config: FirebaseConfig): string[] {
+function validateFirebase(config: FirebaseConfig, ledger?: Ledger): string[] {
   const errors: string[] = [];
-  if (config.hosting?.cleanUrls !== true) errors.push('INV-2.5 cleanUrls=true değil');
-  if (config.hosting?.trailingSlash !== false) errors.push('INV-2.5 trailingSlash=false değil');
-  for (const group of config.hosting?.headers ?? []) for (const header of group.headers ?? []) {
+  const hosting = siteHosting(config);
+  if (hosting?.cleanUrls !== true) errors.push('INV-2.5 cleanUrls=true değil');
+  if (hosting?.trailingSlash !== false) errors.push('INV-2.5 trailingSlash=false değil');
+  for (const group of hosting?.headers ?? []) for (const header of group.headers ?? []) {
     const key = (header.key ?? '').toLowerCase();
     const value = header.value ?? '';
     if (key === 'strict-transport-security' && /(?:^|;)\s*preload(?:;|$)/i.test(value)) errors.push('INV-2.3 HSTS preload onaysız');
     if (key === 'vary' && /user-agent/i.test(value)) errors.push('INV-2.5 Vary: User-Agent yasak');
+  }
+  if (ledger) {
+    const hosted = new Map((hosting?.redirects ?? []).map((item) => [item.source ?? '', item]));
+    for (const redirect of ledger.redirects) {
+      const match = hosted.get(redirect.from);
+      if (!match) errors.push(`INV-2.1 firebase redirect eksik: ${redirect.from}`);
+      else if (match.type !== 301) errors.push(`INV-2.1 firebase redirect 301 değil: ${redirect.from}`);
+      else if (match.destination !== redirect.to) errors.push(`INV-2.1 firebase hedef uyumsuz: ${redirect.from}`);
+    }
   }
   return errors;
 }
@@ -41,7 +67,16 @@ function fixture(name: string, ledger: Ledger, firebase: FirebaseConfig): {ledge
     {from:'/a',to:'/b',type:301,createdAt:'2026-08-09T00:00:00Z',reason:'fixture'},
     {from:'/b',to:'/c',type:301,createdAt:'2026-08-09T00:00:00Z',reason:'fixture'}
   ];
-  else if (name === 'preload') nextFirebase.hosting = {...nextFirebase.hosting, headers:[...(nextFirebase.hosting?.headers ?? []),{source:'/**',headers:[{key:'Strict-Transport-Security',value:'max-age=31536000; includeSubDomains; preload'}]}]};
+  else if (name === 'preload') {
+    const targets = hostingTargets(nextFirebase);
+    const target = targets.find((item) => item.target === 'excelarsiv') ?? targets[0] ?? {};
+    target.headers = [...(target.headers ?? []), { source:'/**', headers:[{key:'Strict-Transport-Security',value:'max-age=31536000; includeSubDomains; preload'}] }];
+    if (Array.isArray(nextFirebase.hosting)) {
+      nextFirebase.hosting = targets.map((item) => item === target ? target : item);
+    } else {
+      nextFirebase.hosting = target;
+    }
+  }
   else if (name === 'dual-variant') extraErrors.push('INV-2.5 aynı içerik iki URL varyantında 200');
   else if (name === 'non301') nextLedger.redirects = [{from:'/old',to:'/new',type:302,createdAt:'2026-08-09T00:00:00Z',reason:'fixture'}];
   else if (name !== 'none') throw new Error(`UNKNOWN_FIXTURE:${name}`);
@@ -55,11 +90,11 @@ function main(): void {
     const ledger=readJson<Ledger>('data/seo/redirects.json');
     const firebase=readJson<FirebaseConfig>('firebase.json');
     const fx=fixture(arg('--fixture')??'none',ledger,firebase);
-    const errors=[...validateLedger(fx.ledger),...validateFirebase(fx.firebase),...fx.extraErrors];
+    const errors=[...validateLedger(fx.ledger),...validateFirebase(fx.firebase, fx.ledger),...fx.extraErrors];
     if(errors.length){console.error(errors.join('\n'));process.exit(EXIT.BLOCK);}
     console.log(`SEO REDIRECT LEDGER PASS — ${ledger.redirects.length} özel redirect — canonical ${ledger.canonicalHost}`);
     process.exit(EXIT.PASS);
   } catch(error){console.error(error instanceof Error?error.message:String(error));process.exit(EXIT.CONFIG);}
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url))main();
-export {validateLedger,validateFirebase};
+export {hostingTargets,siteHosting,validateLedger,validateFirebase};

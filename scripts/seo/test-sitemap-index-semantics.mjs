@@ -90,7 +90,7 @@ function liveMapOf(children, lastmod = '2026-08-01T00:00:00.000Z') {
 
 // 3-7. Değişiklik algılama: hash + index lastmod birlikte değişmeli.
 {
-  const baseMods = { '/': NOW, '/sss': NOW, '/paketler': NOW };
+  const baseMods = { '/': NOW, '/sss': NOW, '/nasil-calisir': NOW };
   const xmlBase = buildChild(baseMods);
   const baseChildren = makeChildren('sitemap-pages.xml', xmlBase);
   const liveMap = liveMapOf(baseChildren);
@@ -114,11 +114,11 @@ function liveMapOf(children, lastmod = '2026-08-01T00:00:00.000Z') {
   });
 
   test('5. URL canonical değişti -> hash + lastmod değişir', () => {
-    expectChanged('canonical', buildChild({ '/': NOW, '/sss-yeni': NOW, '/paketler': NOW }));
+    expectChanged('canonical', buildChild({ '/': NOW, '/sss-yeni': NOW, '/nasil-calisir': NOW }));
   });
 
   test('6. URL semantic lastmod değişti -> hash + lastmod değişir', () => {
-    expectChanged('semantic lastmod', buildChild({ '/': NOW, '/sss': '2026-08-07', '/paketler': NOW }));
+    expectChanged('semantic lastmod', buildChild({ '/': NOW, '/sss': '2026-08-07', '/nasil-calisir': NOW }));
   });
 
   test('7. İlgisiz değişiklik -> sitemap hash değişmez', () => {
