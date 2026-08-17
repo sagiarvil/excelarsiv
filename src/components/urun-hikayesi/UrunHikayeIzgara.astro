@@ -1,0 +1,62 @@
+---
+import UrunHikayeKarti from './UrunHikayeKarti.astro';
+import type { TemplateViewModel } from '../../lib/templates.ts';
+import { urunHikayeKatalogOgesi } from '../../data/urunGorselManifestleri.ts';
+
+interface Props {
+  templates: TemplateViewModel[];
+}
+
+const { templates } = Astro.props;
+const ogeler = templates.map((t) => urunHikayeKatalogOgesi(t));
+---
+
+<div class="template-grid-wrap" data-template-grid-wrap>
+  <ul class="template-grid" data-template-grid>
+    {
+      ogeler.map((oge, index) => (
+        <li data-template-item data-priority={index === 0 ? 'true' : undefined}>
+          <UrunHikayeKarti item={oge} priority={index === 0} />
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<script>
+  import { mountCatalogFilter } from '../../scripts/catalog-filter';
+  mountCatalogFilter();
+</script>
+
+<style>
+  .template-grid-wrap {
+    min-width: 0;
+  }
+  .template-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .template-grid > li {
+    min-width: 0;
+  }
+  .template-grid li:not([data-priority='true']) {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px;
+  }
+  .template-grid li[hidden] {
+    display: none;
+  }
+  @media (max-width: 900px) {
+    .template-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .template-grid li:not([data-priority='true']) {
+      contain-intrinsic-size: 620px;
+    }
+  }
+</style>

@@ -1,0 +1,186 @@
+---
+import Icon from '../Icon.astro';
+import type { UrunHikayeKatalogOgesi } from '../../lib/urun-hikayesi/turler.ts';
+import SahneGosterici from './SahneGosterici.astro';
+
+interface Props {
+  item: UrunHikayeKatalogOgesi;
+  priority?: boolean;
+}
+
+const { item, priority = false } = Astro.props;
+---
+
+<a
+  href={item.href}
+  class="hikaye-karti"
+  data-story-card
+  data-story-slug={item.slug}
+  data-template-card
+  data-category={item.categorySlug}
+  data-name={item.title}
+  data-summary={item.visual.story}
+  data-category-label={item.categoryLabel}
+  aria-label={`${item.title} — ${item.visual.story}`}
+>
+  <div class="hikaye-karti__icerik">
+    <div>
+      <span class="hikaye-karti__rozet">
+        <Icon name="excel-sheet" size={14} label="Excel" />
+        {item.badge ?? 'Excel Şablonu'}
+      </span>
+      <h3 class="hikaye-karti__baslik">{item.title}</h3>
+      <p class="hikaye-karti__oyku">{item.visual.story}</p>
+    </div>
+    <div class="hikaye-karti__alt">
+      <span class="hikaye-karti__sinyal">{item.visual.resultSignal}</span>
+      <div class="hikaye-karti__cta">
+        {item.priceText ? <span class="hikaye-karti__fiyat">{item.priceText}</span> : null}
+        <span class="hikaye-karti__ok" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10"></path>
+            <path d="M9 4l4 4-4 4"></path>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="hikaye-karti__sahne">
+    <SahneGosterici visual={item.visual} />
+  </div>
+</a>
+
+<script>
+  import { izleUrunKartiTiklamasi } from '../../lib/urun-hikayesi/izleme.ts';
+
+  for (const kart of document.querySelectorAll<HTMLElement>('[data-story-card]')) {
+    kart.addEventListener('click', () => {
+      izleUrunKartiTiklamasi(kart.dataset.storySlug ?? '');
+    });
+  }
+</script>
+
+<style>
+  .hikaye-karti {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    min-height: 292px;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid var(--xl-border);
+    background: #ffffff;
+    box-shadow: 0 14px 40px rgba(27, 27, 31, 0.07);
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .hikaye-karti:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 52px rgba(27, 27, 31, 0.12);
+  }
+  .hikaye-karti:focus-visible {
+    outline: 2px solid var(--xl-green-dark);
+    outline-offset: 2px;
+  }
+  .hikaye-karti__icerik {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 22px 20px 20px 24px;
+    min-width: 0;
+  }
+  .hikaye-karti__rozet {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 14px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--xl-green-tint);
+    color: var(--xl-green-dark);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .hikaye-karti__baslik {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(21px, 1.9vw, 27px);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: var(--xl-ink-900);
+  }
+  .hikaye-karti__oyku {
+    margin: 10px 0 0;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--xl-ink-3);
+  }
+  .hikaye-karti__alt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .hikaye-karti__sinyal {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--xl-green-tint);
+    color: var(--xl-green-dark);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+  .hikaye-karti__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hikaye-karti__fiyat {
+    font-family: var(--font-mono);
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--xl-ink-900);
+    white-space: nowrap;
+  }
+  .hikaye-karti__ok {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--xl-grid);
+    color: var(--xl-ink-900);
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .hikaye-karti:hover .hikaye-karti__ok {
+    background: var(--xl-green-dark);
+    color: #ffffff;
+  }
+  .hikaye-karti__sahne {
+    display: grid;
+    place-items: center;
+    min-width: 0;
+    padding: 16px;
+    background:
+      radial-gradient(420px 200px at 100% 0%, color-mix(in srgb, var(--xl-green) 7%, transparent), transparent 70%),
+      linear-gradient(160deg, #f6f8f5, #eef1ee 60%, #e9ede9);
+  }
+  @media (max-width: 900px) {
+    .hikaye-karti {
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+    .hikaye-karti__sahne {
+      padding: 12px 14px;
+    }
+  }
+</style>

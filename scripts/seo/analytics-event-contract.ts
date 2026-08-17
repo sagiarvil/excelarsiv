@@ -32,6 +32,11 @@ const EVENT_CONTRACT = Object.freeze({
     payload: Object.freeze(['packId']),
     emitFiles: Object.freeze(['src/components/CheckoutPanel.astro']),
   }),
+  templateCardClick: Object.freeze({
+    name: analytics.events.templateCardClick,
+    payload: Object.freeze(['templateSlug', 'variant']),
+    emitFiles: Object.freeze(['src/lib/urun-hikayesi/izleme.ts']),
+  }),
 });
 
 type EventKey = keyof typeof EVENT_CONTRACT;

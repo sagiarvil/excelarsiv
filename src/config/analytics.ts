@@ -5,6 +5,7 @@ export const analytics = Object.freeze({
     downloadComplete: 'download_complete',
     signup: 'signup',
     checkoutIntent: 'checkout_intent',
+    templateCardClick: 'template_card_click',
   }),
 });
 

@@ -10,17 +10,19 @@ test('A1 event names are centralized and exact', () => {
     downloadComplete: 'download_complete',
     signup: 'signup',
     checkoutIntent: 'checkout_intent',
+    templateCardClick: 'template_card_click',
   });
 });
 
 test('A1 event map covers every required funnel event and payload', () => {
   const rows = buildEventMap();
-  assert.equal(rows.length, 5);
+  assert.equal(rows.length, 6);
   assert.deepEqual(rows.map((row) => row.name).sort(), [
     'checkout_intent',
     'download_complete',
     'download_start',
     'signup',
+    'template_card_click',
     'template_view',
   ]);
   assert.deepEqual(validateEventContract(), []);

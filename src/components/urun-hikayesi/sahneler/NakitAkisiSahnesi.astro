@@ -1,0 +1,52 @@
+---
+import type { UrunGorselManifest } from '../../../lib/urun-hikayesi/turler.ts';
+import { accentRenk } from '../../../lib/urun-hikayesi/marka-tokenleri.ts';
+
+interface Props {
+  visual: UrunGorselManifest;
+}
+
+const { visual } = Astro.props;
+const vurgu = accentRenk(visual.fingerprint.accent);
+const olcutler = visual.ui.metrics ?? [];
+
+const haftalar = [
+  { giris: 46, cikis: 30 }, { giris: 52, cikis: 40 }, { giris: 38, cikis: 44 },
+  { giris: 58, cikis: 36 }, { giris: 44, cikis: 34 }, { giris: 50, cikis: 48 },
+  { giris: 34, cikis: 54 }, { giris: 62, cikis: 38 }, { giris: 48, cikis: 30 },
+  { giris: 56, cikis: 42 }, { giris: 40, cikis: 52 }, { giris: 60, cikis: 34 },
+  { giris: 66, cikis: 40 },
+];
+---
+
+<div class="sahne-kok" style={`--sahne-vurgu:${vurgu}`}>
+  <div class="sahne-cerceve">
+    <div class="sahne-baslik">
+      <span class="sahne-rozet">13 HAFTALIK NAKİT</span>
+      <span class="sahne-dosya">{visual.slug}.xlsx</span>
+    </div>
+    <div class="sahne-govde">
+      <div class="sahne-kpi-grid">
+        {olcutler.map((o) => (
+          <div class="sahne-kpi">
+            <span class="sahne-kpi-label">{o.label}</span>
+            <strong class="sahne-kpi-deger">{o.value}</strong>
+          </div>
+        ))}
+      </div>
+      <div class="sahne-cubuk-grup">
+        {haftalar.map((h, i) => (
+          <div key={i} style="display:flex;flex-direction:column;justify-content:flex-end;gap:2px;flex:1;height:100%;min-width:0">
+            <div class="sahne-cubuk" style={`height:${h.giris}%;background:var(--sahne-vurgu)`}></div>
+            <div class="sahne-cubuk" style={`height:${h.cikis}%;background:#c9d4cf`}></div>
+          </div>
+        ))}
+      </div>
+      <div class="sahne-cip sahne-sinyal">{visual.resultSignal}</div>
+    </div>
+    <div class="sahne-alt">
+      <span>✓ Formül Güvencesi</span>
+      <span>EXCEL ARŞİV</span>
+    </div>
+  </div>
+</div>

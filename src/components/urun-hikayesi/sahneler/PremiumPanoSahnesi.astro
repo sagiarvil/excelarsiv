@@ -1,0 +1,49 @@
+---
+import type { UrunGorselManifest } from '../../../lib/urun-hikayesi/turler.ts';
+import { accentRenk } from '../../../lib/urun-hikayesi/marka-tokenleri.ts';
+
+interface Props {
+  visual: UrunGorselManifest;
+}
+
+const { visual } = Astro.props;
+const vurgu = accentRenk(visual.fingerprint.accent);
+const olcutler = visual.ui.metrics ?? [];
+
+// Yedek görsel: eksik ölçütleri şablonun gerçek kapasitesiyle tamamlar.
+const yedekDolgu = [
+  { label: 'Formül', value: 'Hazır' },
+  { label: 'Otomasyon', value: 'Aktif' },
+];
+const gorunum = [...olcutler, ...yedekDolgu].slice(0, 4);
+const cubuklar = [40, 62, 50, 74, 58, 44, 68];
+---
+
+<div class="sahne-kok" style={`--sahne-vurgu:${vurgu}`}>
+  <div class="sahne-cerceve">
+    <div class="sahne-baslik">
+      <span class="sahne-rozet">YÖNETİM PANOSU</span>
+      <span class="sahne-dosya">{visual.slug}.xlsx</span>
+    </div>
+    <div class="sahne-govde">
+      <div class="sahne-kpi-grid">
+        {gorunum.map((o) => (
+          <div class="sahne-kpi">
+            <span class="sahne-kpi-label">{o.label}</span>
+            <strong class:list={['sahne-kpi-deger', o.tone === 'uyari' ? 'sahne-uyari' : '']}>{o.value}</strong>
+          </div>
+        ))}
+      </div>
+      <div class="sahne-cubuk-grup">
+        {cubuklar.map((yukseklik, i) => (
+          <div key={i} class="sahne-cubuk" style={`height:${yukseklik}%;background:${i % 3 === 0 ? vurgu : i % 3 === 1 ? '#93b4a5' : '#c9d4cf'};flex:1`}></div>
+        ))}
+      </div>
+      <div class="sahne-cip sahne-sinyal">{visual.resultSignal}</div>
+    </div>
+    <div class="sahne-alt">
+      <span>✓ Formül Güvencesi</span>
+      <span>EXCEL ARŞİV</span>
+    </div>
+  </div>
+</div>

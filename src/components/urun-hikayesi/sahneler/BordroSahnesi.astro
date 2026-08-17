@@ -1,0 +1,59 @@
+---
+import type { UrunGorselManifest } from '../../../lib/urun-hikayesi/turler.ts';
+import { accentRenk } from '../../../lib/urun-hikayesi/marka-tokenleri.ts';
+
+interface Props {
+  visual: UrunGorselManifest;
+}
+
+const { visual } = Astro.props;
+const vurgu = accentRenk(visual.fingerprint.accent);
+const satirlar = visual.ui.rows ?? [];
+const olcutler = visual.ui.metrics ?? [];
+
+// Bordro yükü dağılımı: Maaş / SGK / Vergi (deterministik oranlar)
+const dilimler = [
+  { oran: 64, renk: 'var(--xl-green)' },
+  { oran: 21, renk: '#8fa8f2' },
+  { oran: 15, renk: vurgu },
+];
+const dilimRenkleri = ['var(--xl-green)', '#8fa8f2', vurgu];
+---
+
+<div class="sahne-kok" style={`--sahne-vurgu:${vurgu}`}>
+  <div class="sahne-cerceve">
+    <div class="sahne-baslik">
+      <span class="sahne-rozet">BORDRO YÜKÜ</span>
+      <span class="sahne-dosya">{visual.slug}.xlsx</span>
+    </div>
+    <div class="sahne-govde">
+      <div class="sahne-kpi-grid">
+        {olcutler.map((o) => (
+          <div class="sahne-kpi">
+            <span class="sahne-kpi-label">{o.label}</span>
+            <strong class:list={['sahne-kpi-deger', o.tone === 'uyari' ? 'sahne-uyari' : '']}>{o.value}</strong>
+          </div>
+        ))}
+      </div>
+      <div style="display:flex;flex-direction:column;gap:7px;flex:1;justify-content:center;min-height:0">
+        <div style="display:flex;width:100%;height:18px;border-radius:6px;overflow:hidden;background:#eef1ee">
+          {dilimler.map((d, i) => (
+            <div key={i} style={`width:${d.oran}%;background:${d.renk}`}></div>
+          ))}
+        </div>
+        {satirlar.map((satir, i) => (
+          <div key={i} style="display:flex;align-items:center;gap:7px">
+            <span style={`width:9px;height:9px;border-radius:3px;background:${dilimRenkleri[i] ?? '#c9d4cf'}`}></span>
+            <span style="flex:1;font-size:9px;font-weight:800;color:var(--xl-ink-3)">{satir.left}</span>
+            <strong class:list={[satir.tone === 'uyari' ? 'sahne-uyari' : satir.tone === 'olumlu' ? 'sahne-olumlu' : '']} style="font-size:10px">{satir.right}</strong>
+          </div>
+        ))}
+      </div>
+      <div class="sahne-cip sahne-sinyal">{visual.resultSignal}</div>
+    </div>
+    <div class="sahne-alt">
+      <span>✓ Formül Güvencesi</span>
+      <span>EXCEL ARŞİV</span>
+    </div>
+  </div>
+</div>

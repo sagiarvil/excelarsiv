@@ -1,0 +1,58 @@
+---
+import type { UrunGorselManifest } from '../../../lib/urun-hikayesi/turler.ts';
+import { accentRenk } from '../../../lib/urun-hikayesi/marka-tokenleri.ts';
+
+interface Props {
+  visual: UrunGorselManifest;
+}
+
+const { visual } = Astro.props;
+const vurgu = accentRenk(visual.fingerprint.accent);
+const satirlar = visual.ui.rows ?? [];
+const olcutler = visual.ui.metrics ?? [];
+
+// Kâr köprüsü: Gelir → Gider → Net Kâr (deterministik oranlar)
+const kopru = [
+  { genislik: 100, ton: 'olumlu' },
+  { genislik: 76, ton: 'notr' },
+  { genislik: 25, ton: 'olumlu' },
+];
+---
+
+<div class="sahne-kok" style={`--sahne-vurgu:${vurgu}`}>
+  <div class="sahne-cerceve">
+    <div class="sahne-baslik">
+      <span class="sahne-rozet">KÂR KÖPRÜSÜ</span>
+      <span class="sahne-dosya">{visual.slug}.xlsx</span>
+    </div>
+    <div class="sahne-govde">
+      <div class="sahne-kpi-grid">
+        {olcutler.map((o) => (
+          <div class="sahne-kpi">
+            <span class="sahne-kpi-label">{o.label}</span>
+            <strong class:list={['sahne-kpi-deger', o.tone === 'uyari' ? 'sahne-uyari' : '']}>{o.value}</strong>
+          </div>
+        ))}
+      </div>
+      <div style="display:flex;flex-direction:column;gap:7px;flex:1;justify-content:center;min-height:0">
+        {satirlar.map((satir, i) => (
+          <div key={i} style="display:flex;align-items:center;gap:8px">
+            <span style="width:58px;flex:0 0 auto;font-size:9px;font-weight:800;color:var(--xl-ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{satir.left}</span>
+            <div style="flex:1;height:14px;border-radius:999px;background:#eef1ee;overflow:hidden">
+              <div
+                class:list={[i === 2 ? 'sahne-olumlu' : '']}
+                style={`width:${kopru[i]?.genislik ?? 50}%;height:100%;border-radius:999px;background:${i === 0 ? vurgu : i === 1 ? '#c9d4cf' : 'var(--xl-green)'}`}
+              ></div>
+            </div>
+            <strong style="flex:0 0 auto;font-size:10px;color:var(--xl-ink-900)">{satir.right}</strong>
+          </div>
+        ))}
+      </div>
+      <div class="sahne-cip sahne-sinyal">{visual.resultSignal}</div>
+    </div>
+    <div class="sahne-alt">
+      <span>✓ Formül Güvencesi</span>
+      <span>EXCEL ARŞİV</span>
+    </div>
+  </div>
+</div>
