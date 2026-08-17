@@ -25,6 +25,7 @@
     "seo:live": "node scripts/seo/live-contract.mjs",
     "seo:preflight": "node --experimental-strip-types scripts/seo/preflight.ts --site excelarsiv",
     "seo:conformance": "node --experimental-strip-types --test tests/conformance/*.test.ts tests/conformance/invariants/*.test.ts",
+    "test:story": "node --experimental-strip-types --test tests/conformance/urun-hikaye-parmak-izi.test.ts",
     "seo:coldstart-check": "node --experimental-strip-types scripts/seo/coldstart-check.ts --site excelarsiv",
     "seo:analytics-events": "node --experimental-strip-types scripts/seo/analytics-event-contract.ts",
     "seo:consent": "node --experimental-strip-types scripts/seo/consent-contract.ts",

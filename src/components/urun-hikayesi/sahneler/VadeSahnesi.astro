@@ -1,0 +1,55 @@
+---
+import type { UrunGorselManifest } from '../../../lib/urun-hikayesi/turler.ts';
+import { accentRenk } from '../../../lib/urun-hikayesi/marka-tokenleri.ts';
+
+interface Props {
+  visual: UrunGorselManifest;
+}
+
+const { visual } = Astro.props;
+const vurgu = accentRenk(visual.fingerprint.accent);
+const olcutler = visual.ui.metrics ?? [];
+
+// Vade takvimi: 14 günlük pencere, riskli günler vurgu renginde (deterministik)
+const gunler = [
+  { gun: 'Pzt', riskli: false }, { gun: 'Sal', riskli: false }, { gun: 'Çar', riskli: false }, { gun: 'Per', riskli: false },
+  { gun: 'Cum', riskli: false }, { gun: 'Cmt', riskli: false }, { gun: 'Paz', riskli: true },
+  { gun: 'Pzt', riskli: false }, { gun: 'Sal', riskli: true }, { gun: 'Çar', riskli: false }, { gun: 'Per', riskli: false },
+  { gun: 'Cum', riskli: false }, { gun: 'Cmt', riskli: false }, { gun: 'Paz', riskli: false },
+];
+---
+
+<div class="sahne-kok" style={`--sahne-vurgu:${vurgu}`}>
+  <div class="sahne-cerceve">
+    <div class="sahne-baslik">
+      <span class="sahne-rozet">VADE TAKVİMİ</span>
+      <span class="sahne-dosya">{visual.slug}.xlsx</span>
+    </div>
+    <div class="sahne-govde">
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px">
+        {gunler.map((g, i) => (
+          <div
+            key={i}
+            style={`display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 2px;border-radius:7px;background:${g.riskli ? 'color-mix(in srgb, var(--sahne-vurgu) 16%, #ffffff)' : '#f8faf9'};border:1px solid ${g.riskli ? 'var(--sahne-vurgu)' : 'var(--xl-grid)'}`}
+          >
+            <span style="font-size:7px;font-weight:800;color:var(--xl-ink-3)">{g.gun}</span>
+            <span style={`font-size:10px;font-weight:900;${g.riskli ? 'color:var(--sahne-vurgu)' : 'color:var(--xl-ink-700)'}`}>{i + 3}</span>
+          </div>
+        ))}
+      </div>
+      <div class="sahne-kpi-grid">
+        {olcutler.map((o) => (
+          <div class="sahne-kpi">
+            <span class="sahne-kpi-label">{o.label}</span>
+            <strong class:list={['sahne-kpi-deger', o.tone === 'uyari' ? 'sahne-uyari' : '']}>{o.value}</strong>
+          </div>
+        ))}
+      </div>
+      <div class="sahne-cip sahne-sinyal">{visual.resultSignal}</div>
+    </div>
+    <div class="sahne-alt">
+      <span>✓ Formül Güvencesi</span>
+      <span>EXCEL ARŞİV</span>
+    </div>
+  </div>
+</div>
