@@ -1,22 +1,22 @@
 {
   "tiers": {
     "PRO": {
-      "priceTL": 990,
+      "priceTL": 499,
       "shopierProductId": "49652321",
       "shopierUrl": "https://www.shopier.com/49652321"
     },
     "PREMIUM": {
-      "priceTL": 1490,
+      "priceTL": 799,
       "shopierProductId": "49652403",
       "shopierUrl": "https://www.shopier.com/49652403"
     },
     "ENTERPRISE": {
-      "priceTL": 2490,
+      "priceTL": 999,
       "shopierProductId": "49653399",
       "shopierUrl": "https://www.shopier.com/49653399"
     },
     "EXCLUSIVE": {
-      "priceTL": 7900,
+      "priceTL": 1499,
       "shopierProductId": "49653437",
       "shopierUrl": "https://www.shopier.com/49653437"
     }

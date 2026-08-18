@@ -302,7 +302,7 @@ jobs:
           const required = ['checkoutId', 'checkoutSecret', 'productSlug', 'tier', 'amountTL', 'shopierUrl'];
           for (const key of required) if (!x[key]) throw new Error(`checkout response missing ${key}`);
           if (!/^https:\/\/www\.shopier\.com\/\d+$/.test(x.shopierUrl)) throw new Error('shopierUrl invalid');
-          if (x.amountTL !== 2490) throw new Error('ENTERPRISE amount mismatch');
+          if (x.amountTL !== 999) throw new Error('ENTERPRISE amount mismatch');
           console.log(`REAL CHECKOUT 201 OK: ${x.productSlug} tier=${x.tier} amount=${x.amountTL} shopier=${x.shopierUrl}`);
           NODE
           rm -f "$response_file"
