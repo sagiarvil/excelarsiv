@@ -144,6 +144,8 @@ const orgLd = JSON.stringify({
   </head>
   <body class="font-body text-ink-700 antialiased">
     <Fragment set:html={iconSprite} />
+    <AnalyticsBootstrap measurementId={ga4MeasurementId} />
+    <ConsentBanner />
     <a href="#icerik" class="sr-only focus:not-sr-only focus:absolute focus:left-0 focus:top-0 focus:z-50 focus:bg-accent-primary focus:px-4 focus:py-3 focus:text-white">İçeriğe geç</a>
     <AnnouncementBar />
     <SiteHeader pageTitle={resolvedTitle} />
@@ -159,8 +161,6 @@ const orgLd = JSON.stringify({
     )}
     <SiteFooter />
     <MobileCommerceBar />
-    <AnalyticsBootstrap measurementId={ga4MeasurementId} />
-    <ConsentBanner />
   </body>
 </html>
 
