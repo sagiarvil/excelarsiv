@@ -37,7 +37,7 @@ jobs:
         run: npm install --prefix functions --ignore-scripts --no-audit --no-fund
 
       - name: Install workbook validation engine
-        timeout-minutes: 8
+        timeout-minutes: 25
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
