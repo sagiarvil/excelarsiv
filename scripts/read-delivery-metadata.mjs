@@ -68,7 +68,7 @@ function readZipEntry(buffer, targetPath) {
 
 function parseSheetNames(workbookXml) {
   // <sheet name="X" sheetId="N" r:id="rIdM"/> sıralı listesi
-  const matches = [...workbookXml.toString('utf8').matchAll(/<sheet\s+name="([^"]+)"/g)];
+  const matches = [...workbookXml.toString('utf8').matchAll(/<(?:[A-Za-z_][\w.-]*:)?sheet\b[^>]*\bname="([^"]+)"/g)];
   return matches.map((m) => m[1]);
 }
 
