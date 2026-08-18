@@ -14,6 +14,7 @@ export interface Props {
   screenshotUrl: string;
   screenshotAlt: string;
   screenshotFocus?: 'result' | 'top' | 'center';
+  kapakUrl?: string;
   sheetTabs?: string[];
   detailUrl: string;
   orderUrl: string;
@@ -34,6 +35,7 @@ const {
   screenshotUrl,
   screenshotAlt,
   screenshotFocus = 'result',
+  kapakUrl,
   sheetTabs,
   detailUrl,
   orderUrl,
@@ -82,7 +84,19 @@ const shotOdak = catalogShotOdak(screenshotUrl);
         <span class="card__fx-track"></span>
       </span>
       <span class="card__stage">
-        {screenshotUrl ? (
+        {kapakUrl ? (
+          <img
+            class="card__screenshot card__screenshot--kapak"
+            src={kapakUrl}
+            alt={screenshotAlt}
+            loading={priority ? 'eager' : 'lazy'}
+            fetchpriority={priority ? 'high' : 'auto'}
+            decoding="async"
+            width="640"
+            height="480"
+          />
+        ) : null}
+        {!kapakUrl && screenshotUrl ? (
           <img
             class="card__screenshot"
             src={screenshotUrl}
@@ -270,6 +284,11 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  .card__screenshot--kapak {
+    object-fit: contain;
+    background: #fff;
   }
 
   .card__sheets {

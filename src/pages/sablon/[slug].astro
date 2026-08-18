@@ -10,6 +10,7 @@ import FaqAccordion from '../../components/FaqAccordion.astro';
 import KatalogUrunKarti from '../../components/catalog/KatalogUrunKarti.astro';
 import CellGrid from '../../components/CellGrid.astro';
 import { toTemplateViewModel } from '../../lib/templates';
+import { kapakYolu } from '../../lib/kapak';
 import PurchaseBar from '../../components/PurchaseBar.astro';
 import Notice from '../../components/Notice.astro';
 import ProductHeroPremium from '../../components/product/ProductHeroPremium.astro';
@@ -33,6 +34,8 @@ interface Props {
 const { template } = Astro.props;
 const t = template.data;
 const commerceProduct = getCommerceProduct(template.id);
+const kapak = kapakYolu(template.id);
+const kapakUrl = kapak ? new URL(kapak, Astro.site).href : undefined;
 
 const categoryLabels: Record<string, string> = {
   'finansal-analiz': 'Finansal Analiz',
@@ -69,7 +72,7 @@ const jsonLd = {
       name: t.name,
       description: t.summary,
       sku: template.id,
-      image: t.screenshots.map((image) => new URL(image.src, Astro.site).href),
+      image: kapakUrl ? [kapakUrl, ...t.screenshots.map((image) => new URL(image.src, Astro.site).href)] : t.screenshots.map((image) => new URL(image.src, Astro.site).href),
       brand: { '@id': brandId },
       creator: { '@id': personId },
       author: { '@id': personId },
@@ -123,6 +126,7 @@ const jsonLd = {
 <CommerceLayout
   title={`${t.name} — Excel Arşiv`}
   description={`${t.summary} Ücretsiz demo ile deneyin; Shopier ile güvenli ödeme sonrası ExcelArşiv üzerinden doğrudan indirin.`}
+  ogImage={kapakUrl}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -144,6 +148,7 @@ const jsonLd = {
       categoryLabel={categoryLabel}
       priceTL={t.priceTL}
       screenshots={t.screenshots}
+      kapakUrl={kapakUrl}
       outputs={t.outputs}
       sheetCount={t.sheetCount}
       minExcelVersion={t.minExcelVersion}
