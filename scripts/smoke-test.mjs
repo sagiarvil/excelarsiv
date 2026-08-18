@@ -77,31 +77,50 @@ for (const page of pages) {
     if (!html.includes('data-template-grid-wrap')) {
       failures.push(`${page}: filtre boş durumu için data-template-grid-wrap yok`);
     }
-    const cards = html.match(/<article\b[^>]*\bdata-template-card\b/g)?.length ?? 0;
+    const storyCards = html.match(/<a\b[^>]*\bdata-story-card\b/g)?.length ?? 0;
+    const articleCards = html.match(/<article\b[^>]*\bdata-template-card\b/g)?.length ?? 0;
+    const cards = storyCards + articleCards;
     if (cards < 1) failures.push(`${page}: katalog kartı yok`);
+    if (storyCards > 0 && articleCards > 0) {
+      failures.push(`${page}: iki kart varyantı aynı anda render edilmiş`);
+    }
     const fakeVisual = html.match(/product-visual|pv-kpi|●\s*Canlı/g);
     if (fakeVisual) failures.push(`${page}: sahte KPI/Canlı rozeti -> ${fakeVisual[0]}`);
     const canli = html.match(/Canlı/g)?.length ?? 0;
     if (canli > 0) failures.push(`${page}: Gate 2 Canlı=${canli}`);
-    const orders = [...html.matchAll(/class="card__cta card__cta--primary"[^>]*href="([^"]+)"/g)];
-    if (orders.length !== cards) {
-      failures.push(`${page}: Satın Al CTA sayısı ${orders.length}, kart ${cards}`);
-    }
-    for (const match of orders) {
-      const href = match[1];
-      if (!/^https:\/\/www\.shopier\.com\/\d+$/.test(href)) {
-        failures.push(`${page}: Satın Al Shopier ürün linkine gitmiyor -> ${href}`);
+
+    if (storyCards > 0) {
+      const storyLinks = [...html.matchAll(/<a\b[^>]*\bdata-story-card\b[^>]*href="([^"]+)"/g)];
+      for (const match of storyLinks) {
+        if (!match[1].startsWith('/sablon/')) {
+          failures.push(`${page}: story kart detay slug'a gitmiyor -> ${match[1]}`);
+        }
       }
-    }
-    const details = [...html.matchAll(/class="card__cta card__cta--ghost"[^>]*href="([^"]+)"/g)];
-    for (const match of details) {
-      if (!match[1].startsWith('/sablon/')) {
-        failures.push(`${page}: Detay slug'a gitmiyor -> ${match[1]}`);
+      const storySlugs = html.match(/data-story-slug="[^"]*"/g)?.length ?? 0;
+      if (storySlugs !== storyCards) {
+        failures.push(`${page}: data-story-slug ${storySlugs}/${storyCards}`);
       }
-    }
-    const focuses = html.match(/data-focus="result"/g)?.length ?? 0;
-    if (focuses !== cards) {
-      failures.push(`${page}: screenshotFocus=result ${focuses}/${cards}`);
+    } else {
+      const orders = [...html.matchAll(/class="card__cta card__cta--primary"[^>]*href="([^"]+)"/g)];
+      if (orders.length !== articleCards) {
+        failures.push(`${page}: Satın Al CTA sayısı ${orders.length}, kart ${articleCards}`);
+      }
+      for (const match of orders) {
+        const href = match[1];
+        if (!/^https:\/\/www\.shopier\.com\/\d+$/.test(href)) {
+          failures.push(`${page}: Satın Al Shopier ürün linkine gitmiyor -> ${href}`);
+        }
+      }
+      const details = [...html.matchAll(/class="card__cta card__cta--ghost"[^>]*href="([^"]+)"/g)];
+      for (const match of details) {
+        if (!match[1].startsWith('/sablon/')) {
+          failures.push(`${page}: Detay slug'a gitmiyor -> ${match[1]}`);
+        }
+      }
+      const focuses = html.match(/data-focus="result"/g)?.length ?? 0;
+      if (focuses !== articleCards) {
+        failures.push(`${page}: screenshotFocus=result ${focuses}/${articleCards}`);
+      }
     }
   }
 
