@@ -37,9 +37,22 @@ jobs:
         run: npm install --prefix functions --ignore-scripts --no-audit --no-fund
 
       - name: Install workbook validation engine
+        timeout-minutes: 8
+        env:
+          DEBIAN_FRONTEND: noninteractive
         run: |
-          sudo apt-get update
-          sudo apt-get install -y libreoffice-calc
+          set -euxo pipefail
+
+          if command -v libreoffice >/dev/null 2>&1; then
+            libreoffice --headless --version
+            exit 0
+          fi
+
+          sudo -E apt-get             -o Acquire::Retries=5             -o Acquire::http::Timeout=30             -o Acquire::https::Timeout=30             update
+
+          sudo -E apt-get             -y             --no-install-recommends             -o DPkg::Lock::Timeout=120             -o Acquire::Retries=5             -o Acquire::http::Timeout=30             -o Acquire::https::Timeout=30             install libreoffice-calc
+
+          libreoffice --headless --version
 
       - name: Test commerce and Proof Demo functions
         run: npm --prefix functions test
