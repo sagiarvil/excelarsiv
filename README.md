@@ -24,10 +24,10 @@ npm run dev
 
 Shopier'de her Excel için ayrı ürün açılmaz. Dört sabit ödeme ürünü vardır:
 
-- PRO — 990 TL
-- PREMIUM — 1.490 TL
-- ENTERPRISE — 2.490 TL
-- EXCLUSIVE — 7.900 TL
+- PRO — 499 TL
+- PREMIUM — 799 TL
+- ENTERPRISE — 999 TL
+- EXCLUSIVE — 1.499 TL
 
 Tek gerçek ticaret kaynağı `commerce/catalog.json` dosyasıdır. Burada Excel ürün slug'ı → fiyat seviyesi → Shopier ürün ID → private Storage yolu eşleştirilir.
 

@@ -6,8 +6,8 @@ Kaynak: ../excelarsiv-automation/urunler/<slug>/ (SEVK_KARARI + xlsx + SPEC.yaml
 Hedef: delivery + commerce/catalog.json + functions/catalog.json + MDX +
        proof-demo-specs.js + productSeo.ts + ekran görüntüsü yer tutucu
 
-Shopier fiyat seviyeleri sabit (990/1490/2490/7900). SEVK SPEC fiyatları
-≥4900 olduğu için tüm 54 ürün EXCLUSIVE (7900 TL) olarak listelenir.
+Shopier fiyat seviyeleri sabit (499/799/999/1499). SEVK SPEC fiyatları
+≥4900 olduğu için tüm 54 ürün EXCLUSIVE (1499 TL) olarak listelenir.
 """
 from __future__ import annotations
 
@@ -130,7 +130,7 @@ def mdx_uret(slug: str, bilgi: dict, meta: dict, iliskili: list[str]) -> str:
         f"name: '{yq(ad)}'",
         f"summary: '{yq(bilgi['ozet'])}'",
         f"category: '{kategori}'",
-        "priceTL: 7900",
+        "priceTL: 1499",
         "vatIncluded: true",
         f"fileFormat: {meta['fileFormat']}",
         f"sizeMB: {meta['sizeMB']}",

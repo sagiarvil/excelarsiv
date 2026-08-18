@@ -20,7 +20,7 @@ const {
 test('four Shopier price tiers are exact and unique', () => {
   assert.deepEqual(
     Object.values(TIERS).map((tier) => tier.priceTL).sort((a, b) => a - b),
-    [990, 1490, 2490, 7900],
+    [499, 799, 999, 1499],
   );
   assert.equal(new Set(Object.values(TIERS).map((tier) => tier.shopierProductId)).size, 4);
 });
@@ -42,8 +42,8 @@ test('Shopier product ids map to tiers', () => {
 
 test('normalizers handle Turkish price strings and email casing', () => {
   assert.equal(normalizeEmail('  Test.User@Example.COM '), 'test.user@example.com');
-  assert.equal(numericValue('1.490,00 TL'), 1490);
-  assert.equal(numericValue('2490.00'), 2490);
+  assert.equal(numericValue('1.499,00 TL'), 1499);
+  assert.equal(numericValue('999.00'), 999);
 });
 
 test('order parser accepts documented Shopier order shape', () => {
@@ -52,14 +52,14 @@ test('order parser accepts documented Shopier order shape', () => {
     paymentStatus: 'paid',
     dateCreated: '2026-08-07T14:00:00+0300',
     currency: 'TRY',
-    totals: { total: '1490.00' },
+    totals: { total: '799.00' },
     shippingInfo: { email: 'buyer@example.com' },
-    lineItems: [{ productId: '49652403', quantity: 1, price: '1490.00' }],
+    lineItems: [{ productId: '49652403', quantity: 1, price: '799.00' }],
   };
   const order = normalizeShopierOrder(raw);
   assert.equal(order.id, 'ORDER-123');
   assert.equal(order.tier, 'PREMIUM');
-  assert.equal(order.amount, 1490);
+  assert.equal(order.amount, 799);
   assert.equal(order.knownQuantity, 1);
 });
 
@@ -69,7 +69,7 @@ test('order matching rejects wrong amount, email and quantity', () => {
     paymentStatus: 'paid',
     dateCreated: '2026-08-07T14:00:00+0300',
     currency: 'TRY',
-    totals: { total: '1490.00' },
+    totals: { total: '799.00' },
     shippingInfo: { email: 'buyer@example.com' },
     lineItems: [{ productId: '49652403', quantity: 1 }],
   };
@@ -78,12 +78,12 @@ test('order matching rejects wrong amount, email and quantity', () => {
   const checkout = {
     emailHash,
     tier: 'PREMIUM',
-    expectedAmountTL: 1490,
+    expectedAmountTL: 799,
     createdAt: { toMillis: () => Date.parse('2026-08-07T13:55:00+0300') },
   };
 
   assert.equal(orderMatchesCheckout(normalizeShopierOrder(baseRaw), checkout), true);
-  assert.equal(orderMatchesCheckout(normalizeShopierOrder({ ...baseRaw, totals: { total: '990.00' } }), checkout), false);
+  assert.equal(orderMatchesCheckout(normalizeShopierOrder({ ...baseRaw, totals: { total: '499.00' } }), checkout), false);
   assert.equal(orderMatchesCheckout(normalizeShopierOrder({ ...baseRaw, shippingInfo: { email: 'other@example.com' } }), checkout), false);
   assert.equal(orderMatchesCheckout(normalizeShopierOrder({ ...baseRaw, lineItems: [{ productId: '49652403', quantity: 2 }] }), checkout), false);
 });

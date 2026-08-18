@@ -358,7 +358,7 @@ def mdx_uret(slug, bilgi, meta):
     satirlar.append(f"name: '{yaml_deger(bilgi['ad'])}'")
     satirlar.append(f"summary: '{yaml_deger(bilgi['ozet'])}'")
     satirlar.append(f"category: '{yaml_deger(bilgi['kategori'])}'")
-    fiyat = {"PRO": 990, "PREMIUM": 1490, "ENTERPRISE": 2490, "EXCLUSIVE": 7900}
+    fiyat = {"PRO": 499, "PREMIUM": 799, "ENTERPRISE": 999, "EXCLUSIVE": 1499}
     import json as _json
     katalog = _json.load(open(os.path.join(KOK, "commerce/catalog.json")))
     tier = katalog["products"][slug]["tier"]
