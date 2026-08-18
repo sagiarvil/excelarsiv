@@ -48,9 +48,8 @@ jobs:
             exit 0
           fi
 
-          sudo -E apt-get             -o Acquire::Retries=5             -o Acquire::http::Timeout=30             -o Acquire::https::Timeout=30             update
-
-          sudo -E apt-get             -y             --no-install-recommends             -o DPkg::Lock::Timeout=120             -o Acquire::Retries=5             -o Acquire::http::Timeout=30             -o Acquire::https::Timeout=30             install libreoffice-calc
+          sudo -E apt-get -o Acquire::Retries=5 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 update
+          sudo -E apt-get -y --no-install-recommends -o DPkg::Lock::Timeout=120 -o Acquire::Retries=5 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install libreoffice-calc
 
           libreoffice --headless --version
 
