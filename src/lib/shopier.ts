@@ -1,4 +1,10 @@
-import catalog from '../../commerce/catalog.json';
+import baseCatalog from '../../commerce/catalog.json';
+import extraCatalog from '../../commerce/catalog-extra.json';
+
+const catalog = {
+  tiers: baseCatalog.tiers,
+  products: { ...baseCatalog.products, ...extraCatalog.products },
+} as const;
 
 export type ShopierTierName = keyof typeof catalog.tiers;
 
