@@ -4211,7 +4211,7 @@
       "pageId": "excelarsiv:urun-bulucu",
       "route": "/urun-bulucu",
       "type": "landing",
-      "status": "live",
+      "status": "unlisted",
       "primaryQueryClusterId": null,
       "primaryEntity": "Ürün Bulucu",
       "searchIntent": null,
