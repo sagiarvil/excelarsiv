@@ -290,6 +290,7 @@ export function urunHikayeKatalogOgesi(template: TemplateViewModel): UrunHikayeK
     badge: 'Excel Şablonu',
     categorySlug: template.categorySlug,
     categoryLabel: template.categoryName,
+    kapak: template.kapak,
     visual: gorsel,
   };
 }

@@ -88,5 +88,6 @@ export interface UrunHikayeKatalogOgesi {
   badge?: string;
   categorySlug: string;
   categoryLabel: string;
+  kapak?: string;
   visual: UrunGorselManifest;
 }
