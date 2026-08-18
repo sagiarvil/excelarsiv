@@ -20,6 +20,7 @@ interface Props {
   description?: string;
   robots?: string;
   ogType?: string;
+  ogImage?: string;
 }
 
 const {
@@ -27,10 +28,11 @@ const {
   description,
   robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
   ogType = 'website',
+  ogImage,
 } = Astro.props;
 const site = Astro.site ?? new URL('https://excelarsiv.com/');
 const canonical = new URL(Astro.url.pathname, site).toString();
-const ogImage = new URL('/og.png', site).toString();
+const resolvedOgImage = ogImage ?? new URL('/og.png', site).toString();
 const productSeo = getProductSeoByPath(Astro.url.pathname);
 const resolvedTitle = productSeo?.title ?? title;
 const resolvedDescription = productSeo?.description ?? description ?? '';
@@ -50,7 +52,7 @@ const orgLd = JSON.stringify({
       description: orgDescription,
       logo: {
         '@type': 'ImageObject',
-        url: ogImage,
+        url: new URL('/og.png', site).toString(),
         width: 1200,
         height: 1200,
       },
@@ -120,14 +122,14 @@ const orgLd = JSON.stringify({
     <meta property="og:description" content={resolvedDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="tr_TR" />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="1200" />
-    <meta property="og:image:alt" content="Excel Arşiv — işletmeler için finansal Excel çalışma sistemleri" />
+    <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:image:width" content={ogImage ? '1200' : '1200'} />
+    <meta property="og:image:height" content={ogImage ? '900' : '1200'} />
+    <meta property="og:image:alt" content={ogImage ? resolvedTitle : 'Excel Arşiv — işletmeler için finansal Excel çalışma sistemleri'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={resolvedTitle} />
     <meta name="twitter:description" content={resolvedDescription} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={resolvedOgImage} />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
