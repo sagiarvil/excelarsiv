@@ -38,6 +38,17 @@ const { templates } = Astro.props;
   }
   .template-grid > *,
   .template-grid li { min-width: 0; }
+
+  /* Tüm katalog kartları aynı satır yüksekliğini eksiksiz doldurur. */
+  .template-grid > li {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .template-grid > li > :global(.card) {
+    width: 100%;
+    height: 100%;
+  }
   /* The first card is the mobile LCP candidate and must remain immediately
      renderable. Following cards preserve their footprint while deferring
      style/layout/paint until they approach the viewport. */
