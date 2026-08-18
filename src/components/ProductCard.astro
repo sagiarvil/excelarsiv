@@ -479,4 +479,24 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     outline: 2px solid var(--ea-clay);
     outline-offset: 2px;
   }
+
+  /* CATALOG_PREMIUM_COVER_VISUAL_FILL_V1
+     Premium katalog kapakları paneli daha güçlü doldurur.
+     Crop/stretch yok; kaynak görsel oranı korunur. */
+  .card__screenshot--kapak {
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  @media (max-width: 720px) {
+    .card__screenshot--kapak {
+      width: calc(100% - 16px);
+      height: calc(100% - 16px);
+    }
+  }
+
 </style>
