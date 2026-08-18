@@ -72,7 +72,7 @@ const jsonLd = {
       name: t.name,
       description: t.summary,
       sku: template.id,
-      image: kapakUrl ? [kapakUrl, ...t.screenshots.map((image) => new URL(image.src, Astro.site).href)] : t.screenshots.map((image) => new URL(image.src, Astro.site).href),
+      image: t.screenshots.map((image) => new URL(image.src, Astro.site).href),
       brand: { '@id': brandId },
       creator: { '@id': personId },
       author: { '@id': personId },
