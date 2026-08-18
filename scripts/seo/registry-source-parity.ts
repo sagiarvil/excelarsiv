@@ -22,6 +22,8 @@ function staticAstroRoutes(dir = resolve(ROOT, 'src/pages')): string[] {
       continue;
     }
     if (!entry.endsWith('.astro') || entry.includes('[')) continue;
+    const source = readFileSync(path, 'utf8');
+    if (/\brobots\s*=\s*["']noindex/.test(source)) continue;
     const sourceRelative = relative(resolve(ROOT, 'src/pages'), path).split(sep).join('/');
     const withoutExt = sourceRelative.replace(/\.astro$/, '');
     if (withoutExt === '404') continue;
