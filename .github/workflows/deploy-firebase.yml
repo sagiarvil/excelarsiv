@@ -35,6 +35,7 @@ env:
   FIREBASE_PROJECT_ID: carbon-web-1265b
   FIREBASE_HOSTING_SITE: excelarsiv
   FUNCTIONS_REGION: europe-west1
+  PUBLIC_TEMPLATE_CARD_VARIANT: product-story
 
 jobs:
   deploy:
