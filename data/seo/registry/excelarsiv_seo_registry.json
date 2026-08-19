@@ -1717,20 +1717,6 @@
       "notes": "Registry parity sync — otomatik eklendi."
     },
     {
-      "pageId": "excelarsiv:ortaklik-mali-musavir",
-      "route": "/ortaklik-mali-musavir",
-      "type": "legal",
-      "status": "live",
-      "primaryQueryClusterId": null,
-      "primaryEntity": "/ortaklik-mali-musavir",
-      "searchIntent": null,
-      "templateId": null,
-      "serpFeatureTargets": [],
-      "canonical": "https://excelarsiv.com/ortaklik-mali-musavir",
-      "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
-    },
-    {
       "pageId": "excelarsiv:paketler",
       "route": "/paketler",
       "type": "landing",
@@ -4230,7 +4216,11 @@
       "primaryEntity": "Logo SQL Cari Yaşlandırma & Tahsilat Karar Motoru",
       "searchIntent": "transactional",
       "templateId": "product-detail-v1",
-      "serpFeatureTargets": ["product", "merchant_listing", "image"],
+      "serpFeatureTargets": [
+        "product",
+        "merchant_listing",
+        "image"
+      ],
       "canonical": "https://excelarsiv.com/sablon/logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
       "ownerRoute": "/sablon/logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
       "notes": null
