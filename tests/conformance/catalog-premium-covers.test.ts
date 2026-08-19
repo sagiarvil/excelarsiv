@@ -10,7 +10,7 @@ test('satıştaki her ürünün premium katalog kapağı vardır', () => {
   const catalog = JSON.parse(readFileSync(resolve(ROOT, 'commerce/catalog.json'), 'utf8'));
   const slugs = Object.keys(catalog.products ?? {});
   const missing = slugs.filter((slug) => !existsSync(resolve(ROOT, 'public/images/kapak', `${slug}.webp`)));
-  assert.equal(slugs.length, 50);
+  assert.equal(slugs.length, 51);
   assert.deepEqual(missing, []);
 });
 
