@@ -138,25 +138,40 @@ jobs:
               exit 1
             fi
 
-            measured=0
-            for attempt in 1 2 3; do
-              rm -f "${PROOF_DIR}/lighthouse-${label}.json"
-              if lighthouse "$url" \
-                --output=json \
-                --output-path="${PROOF_DIR}/lighthouse-${label}.json" \
-                --only-categories=performance \
-                --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' \
-                --quiet; then
-                measured=1
-                break
+            # Sentetik Lighthouse ölçüm oynaklığını azalt:
+            # 3 başarılı ölçüm al, ham raporları alt klasörde sakla,
+            # median LCP'ye sahip GERÇEK raporu canonical proof olarak seç.
+            mkdir -p "${PROOF_DIR}/lighthouse-runs"
+            rm -f "${PROOF_DIR}/lighthouse-${label}.json"
+
+            for run in 1 2 3; do
+              report="${PROOF_DIR}/lighthouse-runs/lighthouse-${label}-run-${run}.json"
+              measured=0
+
+              for attempt in 1 2 3; do
+                rm -f "$report"
+
+                if lighthouse "$url" \
+                  --output=json \
+                  --output-path="$report" \
+                  --only-categories=performance \
+                  --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' \
+                  --quiet; then
+                  measured=1
+                  break
+                fi
+
+                echo "LIGHTHOUSE RETRY ${label}: run=${run} attempt=${attempt}"
+                sleep $((attempt * 5))
+              done
+
+              if [[ "$measured" != "1" ]]; then
+                echo "Lighthouse ölçümü alınamadı: ${url} run=${run}" >&2
+                exit 1
               fi
-              echo "LIGHTHOUSE RETRY ${label}: attempt=${attempt}"
-              sleep $((attempt * 5))
             done
-            if [[ "$measured" != "1" ]]; then
-              echo "Lighthouse ölçümü alınamadı: ${url}" >&2
-              exit 1
-            fi
+
+            LABEL="$label" PROOF_DIR="$PROOF_DIR" node -e 'const fs=require("fs");const path=require("path");const label=process.env.LABEL;const dir=process.env.PROOF_DIR;const rows=[1,2,3].map(n=>{const file=path.join(dir,"lighthouse-runs",`lighthouse-${label}-run-${n}.json`);const j=JSON.parse(fs.readFileSync(file,"utf8"));const lcp=j.audits?.["largest-contentful-paint"]?.numericValue;if(!Number.isFinite(lcp))throw new Error(`LIGHTHOUSE_LCP_MISSING:${file}`);return{file,lcp};}).sort((a,b)=>a.lcp-b.lcp);const selected=rows[1];fs.copyFileSync(selected.file,path.join(dir,`lighthouse-${label}.json`));console.log(`LIGHTHOUSE MEDIAN ${label}: ${rows.map(x=>Math.round(x.lcp)).join(",")} => ${Math.round(selected.lcp)}ms`);'
           done
 
       - name: Consent network gate and synthetic INP lab interaction
