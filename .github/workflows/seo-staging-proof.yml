@@ -79,7 +79,7 @@ jobs:
         run: |
           set -euo pipefail
           PROOF_DIR="$RUNNER_TEMP/seo-staging-proof"
-          CHANNEL_ID="seo-proof-${GITHUB_RUN_ID}"
+          CHANNEL_ID="seo-proof-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           mkdir -p "$PROOF_DIR"
           firebase hosting:channel:deploy "$CHANNEL_ID" \
             --project "$FIREBASE_PROJECT_ID" \
@@ -297,7 +297,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: seo-staging-proof-${{ github.run_id }}
+          name: seo-staging-proof-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/seo-staging-proof
           if-no-files-found: error
           retention-days: 30
