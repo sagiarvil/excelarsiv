@@ -23,7 +23,6 @@ const PREMIUM_KAPAK_SLUGS = new Set<string>([
   "akilli-kasa-defteri-ve-nakit-kontrol-sistemi",
   "amortisman-2026-yeniden-degerleme",
   "amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti",
-  "kobi-finans-yonetim-paketi",
   "asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli",
   "asiri-dusuk-teklif-savunma-robotu",
   "aylik-patron-finans-paneli",

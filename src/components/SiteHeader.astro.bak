@@ -224,9 +224,4 @@ const isActive = (href: string) =>
     .site-header__wordmark { font-size: 15px; }
     .site-header__cta { padding-inline: 10px; }
   }
-
-.site-header {
-  position: relative;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 6px 16px -8px rgba(0, 0, 0, 0.18);
-}
 </style>
