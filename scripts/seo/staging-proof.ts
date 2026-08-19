@@ -96,6 +96,7 @@ function evaluateLighthouseReport(report: LighthouseReport, thresholds: Threshol
   if (typeof lcp !== 'number' || !Number.isFinite(lcp)) throw new Error('LIGHTHOUSE_LCP_MISSING');
   if (typeof cls !== 'number' || !Number.isFinite(cls)) throw new Error('LIGHTHOUSE_CLS_MISSING');
   const url = report.finalUrl ?? report.requestedUrl ?? 'unknown';
+
   return { url, lcpMs: lcp, cls, lcpBudgetMs: thresholds.lcpP75Ms, clsBudget: thresholds.clsP75, pass: lcp <= thresholds.lcpP75Ms && cls <= thresholds.clsP75 };
 }
 
@@ -108,7 +109,7 @@ function evaluateInpLab(inp: InpLab, thresholds: Thresholds): { inpLabMs: number
 const sleep = (ms: number) => new Promise<void>((resolveWait) => setTimeout(resolveWait, ms));
 
 async function get(url: string): Promise<HttpSnapshot> {
-  const timeouts = [4_000, 8_000, 12_000];
+  const timeouts = [10_000, 20_000, 30_000];
   let lastError: unknown;
   for (let attempt = 0; attempt < timeouts.length; attempt += 1) {
     try {
@@ -117,7 +118,7 @@ async function get(url: string): Promise<HttpSnapshot> {
         signal: AbortSignal.timeout(timeouts[attempt]),
         headers: { 'user-agent': 'ExcelArsiv-SEO-Staging-Proof/1.0' },
       });
-      if ([502, 503, 504].includes(response.status) && attempt < timeouts.length - 1) {
+      if ([429, 500, 502, 503, 504].includes(response.status) && attempt < timeouts.length - 1) {
         await response.body?.cancel().catch(() => undefined);
         await sleep(750 * (attempt + 1));
         continue;
@@ -125,7 +126,7 @@ async function get(url: string): Promise<HttpSnapshot> {
       return { status: response.status, url: response.url, text: await response.text() };
     } catch (error) {
       lastError = error;
-      if (attempt === timeouts.length - 1) throw error;
+      if (attempt === timeouts.length - 1) { const detail = error instanceof Error ? `${error.name}:${error.message}` : String(error); throw new Error(`HTTP_FETCH_FAILED url=${url} attempts=${timeouts.length} last=${detail}`); }
       await sleep(750 * (attempt + 1));
     }
   }
