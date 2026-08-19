@@ -37,7 +37,7 @@ jobs:
         run: npm install --prefix functions --ignore-scripts --no-audit --no-fund
 
       - name: Install workbook validation engine
-        timeout-minutes: 5
+        timeout-minutes: 6
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -48,10 +48,14 @@ jobs:
             exit 0
           fi
 
-          timeout 240s sudo -n apt-get install -y --no-install-recommends \
-            -o DPkg::Lock::Timeout=60 \
-            -o Acquire::Retries=2 \
-            libreoffice-calc
+          sudo mkdir -p /tmp/apt-disabled
+          sudo find /etc/apt/sources.list.d -maxdepth 1 -type f \
+            ! -name 'ubuntu.sources' \
+            -exec mv {} /tmp/apt-disabled/ \;
+
+          timeout 120s sudo apt-get update             -o Acquire::Retries=2             -o Acquire::http::Timeout=20             -o Acquire::https::Timeout=20
+
+          timeout 180s sudo apt-get install -y --no-install-recommends libreoffice-calc
 
           libreoffice --headless --version
 
