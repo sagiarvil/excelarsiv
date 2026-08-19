@@ -17,8 +17,6 @@ const supportLinks = [
   { label: 'Hakkında', href: '/hakkinda' },
   { label: 'Neden Excel Arşiv', href: '/neden-excel-arsiv' },
   { label: 'Başarı Hikâyeleri', href: '/basari-hikayeleri' },
-  { label: 'Kurumsal Lisans', href: '/kurumsal-lisans' },
-  { label: 'Mali Müşavir Ortaklık', href: '/ortaklik-mali-musavir' },
   { label: 'İletişim', href: '/iletisim' },
   { label: 'Sık Sorulan Sorular', href: '/sss' },
   { label: 'Teslimat ve İade', href: '/teslimat-ve-iade' },
@@ -39,7 +37,7 @@ const trustSignals = ['Shopier güvenli ödeme', 'KDV dahil', 'E-posta teslimat'
     <div class="site-footer__grid site-footer__desktop">
       <div class="site-footer__brand">
         <div class="site-footer__logo"><img src="/images/excel-logo.png" alt="Excel Arşiv logosu" width="30" height="28" loading="lazy" /><span>Excel Arşiv</span></div>
-        <p class="site-footer__desc">İşletmeler için finans, muhasebe ve operasyon odaklı hazır Excel sistemleri.</p>
+        <p class="site-footer__desc">İşletmeler için indirilebilir, hazır dijital Excel çalışma kitapları ve sistemleri.</p>
         <ul class="site-footer__social" aria-label="Sosyal profiller">
           {
             sosyalProfiller.map((link) => (
@@ -78,7 +76,7 @@ const trustSignals = ['Shopier güvenli ödeme', 'KDV dahil', 'E-posta teslimat'
 
     <div class="site-footer__mobile">
       <div class="site-footer__logo"><img src="/images/excel-logo.png" alt="Excel Arşiv logosu" width="28" height="26" loading="lazy" /><span>Excel Arşiv</span></div>
-      <p class="site-footer__desc">Hazır finansal Excel sistemleri.</p>
+      <p class="site-footer__desc">İndirilebilir hazır dijital Excel sistemleri.</p>
       <div class="site-footer__mobile-links">
         <details><summary>Ürünler <span>+</span></summary><nav>{productLinks.map((link)=><a href={link.href}>{link.label}</a>)}</nav></details>
         <details><summary>Destek <span>+</span></summary><nav>{supportLinks.map((link)=><a href={link.href}>{link.label}</a>)}</nav></details>

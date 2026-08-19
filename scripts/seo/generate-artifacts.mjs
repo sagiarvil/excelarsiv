@@ -141,10 +141,8 @@ const TRUST_PATHS = new Set([
   '/kvkk-aydinlatma',
   '/shopier-veri-aktarimi',
   '/lisans',
-  '/kurumsal-lisans',
   '/cerez-politikasi',
   '/pazarlama-acik-riza',
-  '/ortaklik-mali-musavir',
   '/demo-kullanim-kosullari',
 ]);
 const KIND_RANK = {
