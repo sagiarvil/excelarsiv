@@ -37,7 +37,7 @@ jobs:
         run: npm install --prefix functions --ignore-scripts --no-audit --no-fund
 
       - name: Install workbook validation engine
-        timeout-minutes: 25
+        timeout-minutes: 8
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -48,8 +48,11 @@ jobs:
             exit 0
           fi
 
-          sudo -E apt-get -o Acquire::Retries=5 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 update
-          sudo -E apt-get -y --no-install-recommends -o DPkg::Lock::Timeout=120 -o Acquire::Retries=5 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install libreoffice-calc
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            libreoffice-core \
+            libreoffice-calc \
+            python3-uno
 
           libreoffice --headless --version
 
