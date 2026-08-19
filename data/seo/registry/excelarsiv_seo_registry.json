@@ -1633,20 +1633,6 @@
       "notes": null
     },
     {
-      "pageId": "excelarsiv:kurumsal-lisans",
-      "route": "/kurumsal-lisans",
-      "type": "legal",
-      "status": "live",
-      "primaryQueryClusterId": null,
-      "primaryEntity": "/kurumsal-lisans",
-      "searchIntent": null,
-      "templateId": null,
-      "serpFeatureTargets": [],
-      "canonical": "https://excelarsiv.com/kurumsal-lisans",
-      "ownerRoute": null,
-      "notes": "Registry parity sync — otomatik eklendi."
-    },
-    {
       "pageId": "excelarsiv:kvkk-aydinlatma",
       "route": "/kvkk-aydinlatma",
       "type": "legal",

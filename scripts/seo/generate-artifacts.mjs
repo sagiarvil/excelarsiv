@@ -141,7 +141,6 @@ const TRUST_PATHS = new Set([
   '/kvkk-aydinlatma',
   '/shopier-veri-aktarimi',
   '/lisans',
-  '/kurumsal-lisans',
   '/cerez-politikasi',
   '/pazarlama-acik-riza',
   '/demo-kullanim-kosullari',
