@@ -16,8 +16,8 @@
   },
   "mode": "DEGRADED_PUBLIC",
   "source": {
-    "builtIndexableUrlCount": 155,
-    "commercialProductCount": 50,
+    "builtIndexableUrlCount": 157,
+    "commercialProductCount": 51,
     "guideCount": 4,
     "phase0Artifact": "data/seo/tam_map.json"
   },
@@ -4220,6 +4220,34 @@
       "canonical": "https://excelarsiv.com/urun-bulucu",
       "ownerRoute": null,
       "notes": "Dönüşüm aracı; noindex. SEO route üretmez."
+    },
+    {
+      "pageId": "excelarsiv:sablon:logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
+      "route": "/sablon/logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
+      "type": "product",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "Logo SQL Cari Yaşlandırma & Tahsilat Karar Motoru",
+      "searchIntent": "transactional",
+      "templateId": "product-detail-v1",
+      "serpFeatureTargets": ["product", "merchant_listing", "image"],
+      "canonical": "https://excelarsiv.com/sablon/logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
+      "ownerRoute": "/sablon/logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
+      "notes": null
+    },
+    {
+      "pageId": "excelarsiv:demo:logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
+      "route": "/demo/logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/demo/logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/demo/logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — otomatik eklendi."
     }
   ]
 }

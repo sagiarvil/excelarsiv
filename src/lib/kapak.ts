@@ -49,6 +49,7 @@ const PREMIUM_KAPAK_SLUGS = new Set<string>([
   "kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti",
   "kobi-finans-yonetim-paketi",
   "konkordato-nakit-akis-on-projesi",
+  "logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
   "mutfak-kayip-kacak-hesaplayici",
   "nakliye-maliyeti-hesaplayici",
   "ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici",

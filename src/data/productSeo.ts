@@ -57,6 +57,7 @@ export const productSeo: Record<string, ProductSeoEntry> = {
   'tesvikli-bordro-optimizasyon': { title:'Teşvikli Bordro Optimizasyon Excel | Senaryo', description:'Kişi ve teşvik kodu matrisinde çok senaryolu bordro setini Excel üzerinde optimize edin.', primaryQuery:'teşvikli bordro optimizasyon excel' },
   'trendyol-komisyon-sonrasi-net-kar': { title:'Trendyol Net Kâr Excel | Komisyon Sonrası', description:'Trendyol komisyon, TY Plus, flash, reklam ve kargo sonrası net kârı Excel üzerinde hesaplayın; SAT, ZAM veya ÇEKİL kararını görün.', primaryQuery:'trendyol net kâr excel' },
   'ymm-tasdik-kontrol-robotu': { title:'YMM Tasdik Kontrol Excel | Kanıt Paketi', description:'YMM tasdik kontrol listesini, eksik belge kuyruğunu ve kanıt paketini Excel üzerinde yönetin; TASDİK, EKSİK veya DURDUR kararını üretin.', primaryQuery:'ymm tasdik kontrol excel' },
+  'logo-sql-cari-yaslandirma-tahsilat-karar-motoru': { title:'Logo SQL Cari Yaşlandırma Excel | Tahsilat Karar Motoru', description:'Logo/SQL cari hareket çıktısını FIFO açık kalem ve yaşlandırma ile tahsilat kararına dönüştüren Excel karar motorunu inceleyin; VUK 323 ön-elemesi ve 13 haftalık tahsilat planı içerir.', primaryQuery:'logo sql cari yaşlandırma excel' },
 };
 
 export function getProductSeoByPath(pathname: string): ProductSeoEntry | null {
