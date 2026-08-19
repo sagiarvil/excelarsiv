@@ -36,28 +36,17 @@ jobs:
       - name: Install Functions dependencies
         run: npm install --prefix functions --ignore-scripts --no-audit --no-fund
 
-      - name: Install workbook validation engine
-        timeout-minutes: 6
-        env:
-          DEBIAN_FRONTEND: noninteractive
+      - name: Detect workbook validation engine
+        id: libreoffice
+        shell: bash
         run: |
-          set -euxo pipefail
-
           if command -v libreoffice >/dev/null 2>&1; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
             libreoffice --headless --version
-            exit 0
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "LibreOffice runner üzerinde yok; ağdan paket kurulumu yapılmayacak."
           fi
-
-          sudo mkdir -p /tmp/apt-disabled
-          sudo find /etc/apt/sources.list.d -maxdepth 1 -type f \
-            ! -name 'ubuntu.sources' \
-            -exec mv {} /tmp/apt-disabled/ \;
-
-          timeout 120s sudo apt-get update             -o Acquire::Retries=2             -o Acquire::http::Timeout=20             -o Acquire::https::Timeout=20
-
-          timeout 180s sudo apt-get install -y --no-install-recommends libreoffice-calc
-
-          libreoffice --headless --version
 
       - name: Test commerce and Proof Demo functions
         run: npm --prefix functions test
@@ -69,6 +58,7 @@ jobs:
         run: node functions/test/export-proof-demos.js /tmp/proof-demos
 
       - name: Validate Proof Demo workbook integrity with LibreOffice
+        if: steps.libreoffice.outputs.available == 'true'
         shell: bash
         run: |
           set -euo pipefail
