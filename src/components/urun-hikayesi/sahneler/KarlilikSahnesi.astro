@@ -38,10 +38,10 @@ const kopru = [
         {satirlar.map((satir, i) => (
           <div key={i} style="display:flex;align-items:center;gap:8px">
             <span style="width:58px;flex:0 0 auto;font-size:9px;font-weight:800;color:var(--xl-ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{satir.left}</span>
-            <div style="flex:1;height:14px;border-radius:999px;background:#eef1ee;overflow:hidden">
+            <div style="flex:1;height:14px;border-radius: 0;background:#eef1ee;overflow:hidden">
               <div
                 class:list={[i === 2 ? 'sahne-olumlu' : '']}
-                style={`width:${kopru[i]?.genislik ?? 50}%;height:100%;border-radius:999px;background:${i === 0 ? vurgu : i === 1 ? '#c9d4cf' : 'var(--xl-green)'}`}
+                style={`width:${kopru[i]?.genislik ?? 50}%;height:100%;border-radius: 0;background:${i === 0 ? vurgu : i === 1 ? '#c9d4cf' : 'var(--xl-green)'}`}
               ></div>
             </div>
             <strong style="flex:0 0 auto;font-size:10px;color:var(--xl-ink-900)">{satir.right}</strong>

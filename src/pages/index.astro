@@ -1,108 +1,410 @@
 ---
 import CommerceLayout from '../layouts/CommerceLayout.astro';
-import HeroSection from '../components/home/HeroSection.astro';
-import TrustStrip from '../components/home/TrustStrip.astro';
-import PremiumFeaturedTemplates from '../components/home/PremiumFeaturedTemplates.astro';
-import CategorySection from '../components/home/CategorySection.astro';
-import MoatStrip from '../components/home/MoatStrip.astro';
-import ProofGallery from '../components/home/ProofGallery.astro';
-import ValueSection from '../components/home/ValueSection.astro';
-import PurchaseProcess from '../components/home/PurchaseProcess.astro';
-import FinalCTA from '../components/home/FinalCTA.astro';
-import YazarKutusu from '../components/YazarKutusu.astro';
-import { getAllTemplates, getTemplateSearchIndex } from '../lib/templates';
+import { PAKETLER } from '../data/paketler';
+import { SATICI } from '../data/satici';
+import { yazarPersonId } from '../data/yazar';
 
-const allTemplates = await getAllTemplates();
-const featuredTemplates = allTemplates.slice(0, 4);
-const searchIndex = await getTemplateSearchIndex();
-const showcaseTitle = 'Her ürün kendi karar ekranıyla gelir.';
-const homeItemListLd = JSON.stringify({
+const personId = yazarPersonId(Astro.site ?? 'https://excelarsiv.com/');
+const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
+
+const faqItems = [
+  {
+    q: 'Excel sistemlerini satın aldıktan sonra nasıl teslim alırım?',
+    a: 'Shopier üzerinden güvenli ödemenizi tamamladığınız anda teslimat ekranı açılır ve indirme bağlantınız anında e-posta adresinize gönderilir. Bekleme veya manuel onay süresi yoktur.',
+  },
+  {
+    q: 'Dosyalarda makro veya VBA kodu bulunuyor mu? Güvenlik riski var mı?',
+    a: 'Hayır, sistemlerimizin tamamı %100 açık formüllerle çalışır. Makro içermez; bu sayede güvenlik uyarısı vermez ve tüm formül mantığını şeffaf biçimde inceleyebilirsiniz.',
+  },
+  {
+    q: 'Mac ve Microsoft 365 ile tam uyumlu mu?',
+    a: 'Evet, hem Windows hem de macOS üzerindeki Microsoft Excel (2016 ve üzeri) ile tam uyumludur. Ayrıca Türkçe ve İngilizce Excel sürümlerinde formül standardı korunur.',
+  },
+  {
+    q: 'Kendi şirket verilerimi sisteme nasıl aktarabilirim?',
+    a: 'Her dosya, renkle ayrılmış girdi disiplini (mavi hücreler veri girişi, gri hücreler hesaplama) ve adım adım hızlı başlangıç kılavuzuyla birlikte gelir. ERP ve Logo çıktılarınızı kolayca yapıştırabilirsiniz.',
+  },
+  {
+    q: 'Mevzuat değişikliklerinde dosyalar güncelleniyor mu?',
+    a: 'Vergi, SGK ve TTK mevzuat güncellemelerinde şablon revizyonları yapılarak satın alan kullanıcılara güncel sürümler e-posta ile ücretsiz olarak ulaştırılır.',
+  },
+];
+
+const homeJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  '@id': new URL('/#itemlist', Astro.site).toString(),
-  name: showcaseTitle,
-  numberOfItems: featuredTemplates.length,
-  itemListElement: featuredTemplates.map((template, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    url: new URL(`/sablon/${template.slug}`, Astro.site).toString(),
-    name: template.name,
-  })),
-});
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': new URL('/#website', siteUrl).href,
+      url: siteUrl,
+      name: 'Excel Arşiv',
+      description: 'Mevzuata ve sahaya göre denetlenmiş Excel karar sistemleri.',
+      publisher: {
+        '@type': 'Organization',
+        '@id': new URL('/#organization', siteUrl).href,
+        name: 'Excel Arşiv',
+        url: siteUrl,
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': new URL('/#faq', siteUrl).href,
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+
+const kategoriler = [
+  { ad: 'Nakit Akışı', href: '/sablonlar/nakit-akisi' },
+  { ad: 'Finansal Analiz', href: '/sablonlar/finansal-analiz' },
+  { ad: 'Muhasebe ve Vergi', href: '/sablonlar/muhasebe-ve-vergi' },
+  { ad: 'Bütçe ve Planlama', href: '/sablonlar/butce-ve-planlama' },
+  { ad: 'Stok ve Üretim', href: '/sablonlar/stok-ve-uretim' },
+  { ad: 'Satış ve Fiyatlama', href: '/sablonlar/satis-ve-fiyatlama' },
+  { ad: 'Personel ve Bordro', href: '/sablonlar/personel-ve-bordro' },
+];
+
+const sektorler = [
+  { ad: 'Kafe & Restoran', href: '/sektor/kafe-restoran-nakit' },
+  { ad: 'İnşaat & Taahhüt', href: '/sektor/insaat-hakedis' },
+  { ad: 'E-Ticaret & Pazaryeri', href: '/sektor/e-ticaret-karlilik' },
+];
 ---
 
 <CommerceLayout
-  title="Excel Şablonları ve Finans Yönetim Sistemleri | Excel Arşiv"
-  description="KOBİ kasa defteri, nakit akış, cari hesap ve kârlılık Excel şablonları. Demo ile inceleyin."
+  title="Mevzuata ve Sahaya Göre Denetlenmiş Excel Karar Sistemleri | Excel Arşiv"
+  description="KDV iadesinden TTK 376'ya, nakit akışından Logo cari yaşlandırmasına kadar 51 profesyonel Excel karar sistemi. Açık formül, anında teslimat."
 >
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={homeItemListLd} />
+    <script type="application/ld+json" set:html={JSON.stringify(homeJsonLd)} />
   </Fragment>
-  <HeroSection searchIndex={searchIndex} />
-  <TrustStrip />
 
-  <div id="urunler" data-experience-stage>
-    <PremiumFeaturedTemplates templates={featuredTemplates} />
-  </div>
+  {/* BÖLÜM 1: OTORİTE HERO */}
+  <section class="border-b border-neutral-200 bg-white py-12 sm:py-16">
+    <div class="site-container">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7">
+          <p class="font-mono text-xs font-bold uppercase tracking-widest text-emerald-800 mb-3">
+            51 DENETLENMİŞ FİNANSAL KARAR SİSTEMİ
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 leading-[1.12]">
+            Mevzuata ve sahaya göre denetlenmiş Excel karar sistemleri.
+          </h1>
+          <p class="mt-5 text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
+            KDV iadesinden TTK 376'ya, konkordato ön projesinden Logo cari yaşlandırmasına kadar 51 sistem. Her biri açık formül, girdi disiplini ve yöneticiye sunulabilir karar çıktısıyla.
+          </p>
 
-  <div id="kategoriler" data-experience-stage>
-    <CategorySection />
-  </div>
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href="/sablonlar"
+              class="inline-flex items-center justify-center bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-3.5 text-sm transition-colors"
+            >
+              51 sistemi inceleyin →
+            </a>
+            <a
+              href="/demo"
+              class="inline-flex items-center justify-center border border-neutral-300 hover:border-neutral-400 bg-neutral-50 hover:bg-neutral-100 text-neutral-800 font-semibold px-6 py-3.5 text-sm transition-colors"
+            >
+              Ücretsiz demo
+            </a>
+          </div>
 
-  <div id="sistem" data-experience-stage data-mobile-deferred-rich>
-    <MoatStrip />
-  </div>
+          <div class="mt-8 pt-6 border-t border-neutral-200">
+            <p class="font-mono text-xs text-neutral-600 flex flex-wrap items-center gap-x-2 gap-y-1">
+              <span>51 sistem</span>
+              <span>·</span>
+              <span>7 işletme alanı</span>
+              <span>·</span>
+              <span>13–24 sayfa</span>
+              <span>·</span>
+              <span>açık formül</span>
+              <span>·</span>
+              <span class="text-neutral-800 font-semibold">KDV dahil · tek ödeme</span>
+            </p>
+          </div>
+        </div>
 
-  <div id="kanit" data-experience-stage data-mobile-deferred-rich>
-    <ProofGallery />
-  </div>
-
-  <div id="deger" data-experience-stage data-mobile-deferred-rich>
-    <ValueSection />
-  </div>
-
-  <div id="satin-alma" data-experience-stage>
-    <div data-mobile-deferred-rich>
-      <PurchaseProcess />
+        <div class="lg:col-span-5">
+          <div class="border border-neutral-300 bg-neutral-50 p-5">
+            <div class="border-b border-neutral-200 pb-3 mb-4 flex items-center justify-between">
+              <span class="font-mono text-xs font-bold text-neutral-700">13-haftalik-nakit-akisi.xlsx</span>
+              <span class="font-mono text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 font-bold uppercase">SONUÇ EKRANI</span>
+            </div>
+            <div class="space-y-3 font-mono text-xs">
+              <div class="flex justify-between p-2.5 bg-white border border-neutral-200">
+                <span class="text-neutral-500">NET NAKİT POZİSYONU:</span>
+                <strong class="text-emerald-800">+1.482.500 TL</strong>
+              </div>
+              <div class="flex justify-between p-2.5 bg-white border border-neutral-200">
+                <span class="text-neutral-500">TOPLAM GİRİŞ / ÇIKIŞ:</span>
+                <strong class="text-neutral-800">4.210.000 / 2.727.500 TL</strong>
+              </div>
+              <div class="flex justify-between p-2.5 bg-white border border-neutral-200">
+                <span class="text-neutral-500">KRİTİK EKSİ HAFTA:</span>
+                <strong class="text-amber-800">7. Hafta (-145.000 TL)</strong>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-neutral-200 flex justify-between items-center text-xs">
+              <span class="text-neutral-500 font-mono">18 Hesaplama Sayfası</span>
+              <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="text-emerald-800 font-semibold hover:underline">
+                Modeli incele →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <FinalCTA />
-    <div class="home-yazar">
-      <YazarKutusu varyant="sablon" />
+  </section>
+
+  {/* BÖLÜM 2: TASARLAYAN + ÖLÇEK ŞERİDİ */}
+  <section class="border-b border-neutral-200 bg-neutral-50 py-10">
+    <div class="site-container">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-5">
+          <p class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-1">MİMARİ VE TASARIM</p>
+          <h2 class="text-xl font-bold text-neutral-900">Barış Bağırlar</h2>
+          <p class="text-sm text-neutral-600 mt-2 leading-relaxed">
+            Finansal modelleme ve mevzuat denetimi tecrübesiyle KOBİ'lerin karar altyapısını kuran sistemler.
+            Detaylı vizyon için <a href="/neden-excel-arsiv" class="text-emerald-800 font-medium underline">neden Excel Arşiv</a> ve <a href="/hakkinda" class="text-emerald-800 font-medium underline">hakkında</a> sayfalarını inceleyin.
+          </p>
+        </div>
+        <div class="md:col-span-7 grid grid-cols-3 gap-4">
+          <div class="border border-neutral-200 bg-white p-4">
+            <span class="block text-2xl sm:text-3xl font-extrabold text-neutral-900 font-mono">51</span>
+            <span class="text-xs text-neutral-600">Denetlenmiş Sistem</span>
+          </div>
+          <div class="border border-neutral-200 bg-white p-4">
+            <span class="block text-2xl sm:text-3xl font-extrabold text-neutral-900 font-mono">7</span>
+            <span class="text-xs text-neutral-600">İşletme Alanı</span>
+          </div>
+          <div class="border border-neutral-200 bg-white p-4">
+            <span class="block text-2xl sm:text-3xl font-extrabold text-neutral-900 font-mono">%100</span>
+            <span class="text-xs text-neutral-600">Açık Formül & Güvenli</span>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  {/* BÖLÜM 3: FARKLILAŞTIRICI (TEK KOYU BLOK) */}
+  <section class="border-b border-neutral-900 bg-neutral-950 text-white py-16 sm:py-20">
+    <div class="site-container">
+      <div class="max-w-3xl">
+        <span class="font-mono text-xs text-emerald-400 uppercase tracking-widest block mb-3">
+          TEMEL FARKLILAŞTIRICI
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          ChatGPT tablo üretir. Biz denetlenmiş karar sistemi satarız.
+        </h2>
+        <p class="mt-6 text-base sm:text-lg text-neutral-300 leading-relaxed">
+          Yapay zekâ araçları görsel olarak düzgün görünen ancak Türk vergi mevzuatı, KDV iade kuralları, TTK 376 sermaye kaybı hesabı veya gerçek banka kredi amortisman mantığı içermeyen şablonlar üretir. Excel Arşiv sistemleri ise sahada test edilmiş, çapraz kontrolleri kurulu ve mevzuatla birebir uyumlu kararlar üretir.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4 text-xs font-mono text-neutral-400">
+          <span class="border border-neutral-800 px-3 py-1.5 bg-neutral-900 text-neutral-200">✓ Formül mantığı gizlenmez</span>
+          <span class="border border-neutral-800 px-3 py-1.5 bg-neutral-900 text-neutral-200">✓ Girdi hata kontrolleri</span>
+          <span class="border border-neutral-800 px-3 py-1.5 bg-neutral-900 text-neutral-200">✓ Yönetici karar çıktıları</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* BÖLÜM 4: FİYAT MERDİVENİ */}
+  <section class="border-b border-neutral-200 bg-white py-16">
+    <div class="site-container">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">
+            Fiyatlandırma & Paket Merdiveni
+          </h2>
+          <p class="text-sm sm:text-base text-neutral-600 mt-2">
+            İhtiyacınıza göre tekil sistemlerden çoklu karar paketlerine kadar esnek lisanslama.
+          </p>
+        </div>
+        <a href="/kurumsal-lisans" class="text-xs sm:text-sm font-semibold text-emerald-800 hover:underline shrink-0">
+          Kurumsal Lisans & Çoklu Kullanıcı Teklifi Al →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {PAKETLER.map((paket) => (
+          <article class="border border-neutral-300 bg-neutral-50 p-6 flex flex-col justify-between hover:border-emerald-800 transition-colors">
+            <div>
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5">
+                {paket.urun_adedi} SİSTEM
+              </span>
+              <h3 class="text-lg font-bold text-neutral-900 mt-3">
+                <a href={`/paket/${paket.slug}`} class="hover:underline">{paket.ad}</a>
+              </h3>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+                {paket.aciklama}
+              </p>
+              <div class="mt-4 pt-4 border-t border-neutral-200 text-xs text-neutral-500 space-y-1">
+                <p>· Toplam {paket.toplam_sayfa_sayisi} Excel Sayfası</p>
+                <p>· %{Math.round((paket.tasarruf_tl / paket.tekil_toplam_tl) * 100)} Paket Avantajı</p>
+                <p>· 12 Ay Ücretsiz Mevzuat Güncellemesi</p>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-neutral-200">
+              <div class="flex items-baseline justify-between mb-3">
+                <div>
+                  <span class="text-2xl font-extrabold text-neutral-900 font-mono">
+                    {paket.fiyat_tl.toLocaleString('tr-TR')} TL
+                  </span>
+                  <span class="block text-[11px] text-neutral-500">KDV dahil · tek ödeme</span>
+                </div>
+                <span class="text-xs text-neutral-400 line-through font-mono">
+                  {paket.tekil_toplam_tl.toLocaleString('tr-TR')} TL
+                </span>
+              </div>
+              <a
+                href={`/paket/${paket.slug}`}
+                class="block w-full text-center bg-emerald-800 hover:bg-emerald-900 text-white font-semibold py-2.5 text-xs transition-colors"
+              >
+                Paketi İncele & Satın Al →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="mt-8 p-4 border border-neutral-200 bg-neutral-50 text-center">
+        <p class="text-sm text-neutral-700">
+          Tekil sistem ihtiyacınız mı var? 
+          <a href="/sablonlar" class="font-bold text-emerald-800 hover:underline ml-1">
+            51 tekil finans sistemini inceleyin →
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* BÖLÜM 5: KARAR MOTORU / PROBLEM SEÇİCİ (GATE-K4'te karar motoru yerleşecek) */}
+  <section id="karar-yardimi" class="border-b border-neutral-200 bg-neutral-50 py-16">
+    <div class="site-container">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">
+          Hangi sistemi almanız gerektiğini bilmiyorsanız, sorunuzu seçin.
+        </h2>
+        <p class="text-sm text-neutral-600 mt-3">
+          KOBİ nakit akışından vergi iadesine, şube kârlılığından personel tazminat yüküne kadar 18 satın alma sorusuna doğrudan yanıt veren karar rehberi.
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-3 text-xs">
+          <a href="/urun-bulucu" class="bg-white border border-neutral-300 px-3 py-1.5 font-medium text-neutral-800 hover:border-emerald-700">Ürün Bulucu →</a>
+          <a href="/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">Akıllı Kasa Defteri</a>
+          <a href="/sablon/aylik-patron-finans-paneli" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">Aylık Patron Paneli</a>
+          <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">Cari Risk Takip</a>
+          <a href="/sablon/kdv-iade-listesi-robotu-gib7" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">KDV İade Robotu</a>
+          <a href="/sablon/sube-karlilik-ve-nakit-hesaplayici" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">Şube Kârlılık</a>
+          <a href="/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">TTK 376 Sermaye</a>
+          <a href="/sablon/pos-komisyon-ve-net-tahsilat-kontrol-sistemi" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">POS Komisyon</a>
+          <a href="/sablon/trendyol-komisyon-sonrasi-net-kar" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">Trendyol Net Kâr</a>
+        </div>
+        <div class="mt-6">
+          <a href="/sablonlar" class="inline-flex items-center text-sm font-bold text-emerald-800 hover:underline">
+            Tüm sistemleri ve kategorileri listeleyin →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* BÖLÜM 6: KURUMSAL LİSANS ŞERİDİ */}
+  <section class="border-b border-neutral-200 bg-white py-14">
+    <div class="site-container">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-8">
+          <h2 class="text-2xl font-bold text-neutral-900">
+            Çok kullanıcılı lisans, kurumsal fatura ve özel uyarlama
+          </h2>
+          <p class="text-sm sm:text-base text-neutral-600 mt-2 leading-relaxed">
+            10+ kişilik ekipler, holdingler ve denetim firmaları için kurumsal paket teklifleri ve resmi faturalandırma süreci. Mali müşavir ve YMM ortaklık programıyla portföyünüze çözümler sunun.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-4 text-xs font-medium">
+            <a href="/kurumsal-lisans" class="text-emerald-800 hover:underline font-semibold">Kurumsal Lisans Talebi →</a>
+            <a href="/ortaklik-mali-musavir" class="text-emerald-800 hover:underline font-semibold">Mali Müşavir Ortaklık →</a>
+            <a href="/basari-hikayeleri" class="text-neutral-700 hover:underline">Başarı Hikâyeleri →</a>
+            <a href="/nasil-calisir" class="text-neutral-700 hover:underline">Nasıl Çalışır? →</a>
+          </div>
+        </div>
+        <div class="md:col-span-4 text-left md:text-right">
+          <a
+            href="/kurumsal-lisans"
+            class="inline-block bg-neutral-900 hover:bg-neutral-800 text-white font-semibold px-6 py-3 text-sm transition-colors"
+          >
+            Kurumsal Teklif Al →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* BÖLÜM 7: GÜVEN + SSS + KAPANIŞ CTA */}
+  <section class="bg-white py-16">
+    <div class="site-container">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">
+            Sık Sorulan Sorular
+          </h2>
+          <p class="text-sm text-neutral-600 mt-2">
+            Ödeme, teslimat, formül yapısı ve teknik uyumluluk hakkında merak edilenler.
+          </p>
+        </div>
+
+        <div class="divide-y divide-neutral-200 border-y border-neutral-200 mb-12">
+          {faqItems.map((item) => (
+            <details class="group py-4">
+              <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+                <span>{item.q}</span>
+                <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+              </summary>
+              <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+                {item.a}
+              </p>
+            </details>
+          ))}
+        </div>
+
+        <div class="bg-neutral-50 border border-neutral-300 p-8 text-center">
+          <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 mb-2">
+            Finansal kararlarınızı tesadüfe bırakmayın.
+          </h3>
+          <p class="text-xs sm:text-sm text-neutral-600 max-w-xl mx-auto mb-6">
+            51 denetlenmiş sistem arasından ihtiyacınız olanı seçin; anında indirin ve kullanmaya başlayın.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="/sablonlar"
+              class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
+            >
+              51 Sistemi İnceleyin →
+            </a>
+            <a
+              href="/demo"
+              class="border border-neutral-300 bg-white hover:bg-neutral-100 text-neutral-800 font-semibold px-8 py-3 text-sm transition-colors"
+            >
+              Ücretsiz Demo İndir
+            </a>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-neutral-200 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-neutral-500 font-mono">
+            {kategoriler.map((k) => (
+              <a href={k.href} class="hover:text-emerald-800 hover:underline">{k.ad}</a>
+            ))}
+            {sektorler.map((s) => (
+              <a href={s.href} class="hover:text-emerald-800 hover:underline">{s.ad}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </CommerceLayout>
-
-<style>
-  :root {
-    --font-sans: ui-sans-serif, system-ui, sans-serif;
-    --font-mono-face: ui-monospace, SFMono-Regular, Menlo, monospace;
-  }
-
-  [data-experience-stage] {
-    scroll-margin-top: 92px;
-    content-visibility: auto;
-    contain-intrinsic-size: auto 760px;
-  }
-
-  [data-mobile-deferred-rich] {
-    display: none;
-  }
-
-  @media (min-width: 721px) {
-    [data-mobile-deferred-rich] {
-      display: block;
-    }
-  }
-
-  .home-yazar {
-    width: min(1180px, calc(100% - 48px));
-    margin: 0 auto 72px;
-  }
-
-  @media (max-width: 720px) {
-    .home-yazar {
-      width: calc(100% - 32px);
-      margin-bottom: 48px;
-    }
-  }
-</style>

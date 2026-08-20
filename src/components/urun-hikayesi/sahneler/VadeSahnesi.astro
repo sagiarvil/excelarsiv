@@ -30,7 +30,7 @@ const gunler = [
         {gunler.map((g, i) => (
           <div
             key={i}
-            style={`display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 2px;border-radius:7px;background:${g.riskli ? 'color-mix(in srgb, var(--sahne-vurgu) 16%, #ffffff)' : '#f8faf9'};border:1px solid ${g.riskli ? 'var(--sahne-vurgu)' : 'var(--xl-grid)'}`}
+            style={`display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 2px;border-radius: 0;background:${g.riskli ? 'color-mix(in srgb, var(--sahne-vurgu) 16%, #ffffff)' : '#f8faf9'};border:1px solid ${g.riskli ? 'var(--sahne-vurgu)' : 'var(--xl-grid)'}`}
           >
             <span style="font-size:7px;font-weight:800;color:var(--xl-ink-3)">{g.gun}</span>
             <span style={`font-size:10px;font-weight:900;${g.riskli ? 'color:var(--sahne-vurgu)' : 'color:var(--xl-ink-700)'}`}>{i + 3}</span>

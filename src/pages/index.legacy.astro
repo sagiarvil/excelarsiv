@@ -1,0 +1,116 @@
+---
+import CommerceLayout from '../layouts/CommerceLayout.astro';
+import HeroSection from '../components/home/HeroSection.astro';
+import TrustStrip from '../components/home/TrustStrip.astro';
+import PremiumFeaturedTemplates from '../components/home/PremiumFeaturedTemplates.astro';
+import CategorySection from '../components/home/CategorySection.astro';
+import MoatStrip from '../components/home/MoatStrip.astro';
+import ProofGallery from '../components/home/ProofGallery.astro';
+import ValueSection from '../components/home/ValueSection.astro';
+import PurchaseProcess from '../components/home/PurchaseProcess.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+import YazarKutusu from '../components/YazarKutusu.astro';
+import { getAllTemplates, getTemplateSearchIndex } from '../lib/templates';
+
+const allTemplates = await getAllTemplates();
+const featuredSlugs = ['13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+  'akilli-kasa-defteri-ve-nakit-kontrol-sistemi',
+  'amortisman-2026-yeniden-degerleme',
+  'amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti',
+  'kobi-finans-yonetim-paketi',
+];
+const featuredTemplates = featuredSlugs
+  .map((slug) => allTemplates.find((t) => t.slug === slug))
+  .filter(Boolean);
+const searchIndex = await getTemplateSearchIndex();
+const showcaseTitle = 'Her ürün kendi karar ekranıyla gelir.';
+const homeItemListLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': new URL('/#itemlist', Astro.site).toString(),
+  name: showcaseTitle,
+  numberOfItems: featuredTemplates.length,
+  itemListElement: featuredTemplates.map((template, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: new URL(`/sablon/${template.slug}`, Astro.site).toString(),
+    name: template.name,
+  })),
+});
+---
+
+<CommerceLayout
+  title="Excel Şablonları ve Finans Yönetim Sistemleri | Excel Arşiv"
+  description="KOBİ kasa defteri, nakit akış, cari hesap ve kârlılık Excel şablonları. Demo ile inceleyin."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={homeItemListLd} />
+  </Fragment>
+  <HeroSection searchIndex={searchIndex} />
+  <TrustStrip />
+
+  <div id="urunler" data-experience-stage>
+    <PremiumFeaturedTemplates templates={featuredTemplates} />
+  </div>
+
+  <div id="kategoriler" data-experience-stage>
+    <CategorySection />
+  </div>
+
+  <div id="sistem" data-experience-stage data-mobile-deferred-rich>
+    <MoatStrip />
+  </div>
+
+  <div id="kanit" data-experience-stage data-mobile-deferred-rich>
+    <ProofGallery />
+  </div>
+
+  <div id="deger" data-experience-stage data-mobile-deferred-rich>
+    <ValueSection />
+  </div>
+
+  <div id="satin-alma" data-experience-stage>
+    <div data-mobile-deferred-rich>
+      <PurchaseProcess />
+    </div>
+    <FinalCTA />
+    <div class="home-yazar">
+      <YazarKutusu varyant="sablon" />
+    </div>
+  </div>
+</CommerceLayout>
+
+<style>
+  :root {
+    --font-sans: ui-sans-serif, system-ui, sans-serif;
+    --font-mono-face: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  [data-experience-stage] {
+    scroll-margin-top: 92px;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 760px;
+  }
+
+  [data-mobile-deferred-rich] {
+    display: none;
+  }
+
+  @media (min-width: 721px) {
+    [data-mobile-deferred-rich] {
+      display: block;
+    }
+  }
+
+  .home-yazar {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto 72px;
+  }
+
+  @media (max-width: 720px) {
+    .home-yazar {
+      width: calc(100% - 32px);
+      margin-bottom: 48px;
+    }
+  }
+</style>

@@ -1,0 +1,109 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const seoTitle = 'ExcelArşiv vs ChatGPT vs Boş Excel | Hangisi Ne Zaman?';
+const seoDescription = 'Hazır denetlenmiş Excel sistemi, ChatGPT ile oluşturulan tablo ve boş Excel dosyasını hız, tekrar edilebilirlik, denetim ve esneklik açısından karşılaştırın.';
+---
+
+<CommerceLayout title={seoTitle} description={seoDescription}>
+  <main class="compare-page">
+    <div class="site-container">
+      <Breadcrumbs
+        crumbs={[
+          { label: 'Karşılaştırma' }
+        ]}
+      />
+      <header class="compare-hero">
+        <p class="section-kicker">KARŞILAŞTIRMA</p>
+        <h1>ExcelArşiv, ChatGPT ve boş Excel: hangi iş için hangisi doğru?</h1>
+        <p class="hero-desc">ChatGPT keşif, soru-cevap, ilk taslak ve tek seferlik analizde güçlüdür. Boş Excel, çok basit veya tamamen özgün bir modelde en esnek başlangıçtır. ExcelArşiv'in avantajı, tekrar edilen belirli bir iş probleminde hazır girdi→kontrol→çıktı→karar yapısının bulunmasıdır.</p>
+      </header>
+
+      <section class="compare-table-section">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Kriter</th>
+                <th>ExcelArşiv</th>
+                <th>ChatGPT</th>
+                <th>Boş Excel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>İlk kurulum hızı</td>
+                <td>Yüksek</td>
+                <td>Çok yüksek</td>
+                <td>Düşük</td>
+              </tr>
+              <tr>
+                <td>Tekrarlanabilir iş akışı</td>
+                <td>Yüksek</td>
+                <td>Orta</td>
+                <td>Kullanıcıya bağlı</td>
+              </tr>
+              <tr>
+                <td>Hazır kontrol/karar mantığı</td>
+                <td>Ürüne göre hazır</td>
+                <td>Prompt'a bağlı</td>
+                <td>Yok</td>
+              </tr>
+              <tr>
+                <td>Denetlenebilir formül yapısı</td>
+                <td>Açık formül ürünlerde yüksek</td>
+                <td>Üretilen çıktıya bağlı</td>
+                <td>Kullanıcıya bağlı</td>
+              </tr>
+              <tr>
+                <td>Ad-hoc keşif</td>
+                <td>Orta</td>
+                <td>Çok yüksek</td>
+                <td>Düşük</td>
+              </tr>
+              <tr>
+                <td>Tam özgür özelleştirme</td>
+                <td>Yüksek</td>
+                <td>Yüksek</td>
+                <td>Çok yüksek</td>
+              </tr>
+              <tr>
+                <td>En iyi kullanım</td>
+                <td>Tekrarlanan finans/operasyon işi</td>
+                <td>Keşif, açıklama, ilk taslak</td>
+                <td>Çok basit veya tamamen özel iş</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="compare-conclusion">
+        <h2>Hangisini Seçmelisiniz?</h2>
+        <p>Eğer benzersiz, daha önce çözülmemiş bir veri modelleme yapıyorsanız <strong>Boş Excel</strong> ile yola çıkın. Hızlı bir veri analizi, ilk taslak, karmaşık bir formülün açıklaması veya tek seferlik bir ad-hoc iş için <strong>ChatGPT</strong> rakipsizdir.</p>
+        <p>Ancak, her ay düzenli olarak aynı veri setiyle bordro tahakkuku yapıyorsanız, aynı formata sahip bir üretim reçetesi güncelliyorsanız veya KOBİ'nizin periyodik nakit akışını yönetiyorsanız, <strong>ExcelArşiv</strong> hazır mimarisiyle size vakit kazandırır, hata oranını düşürür ve kanıtlanmış bir karar şeması sunar.</p>
+      </section>
+    </div>
+  </main>
+</CommerceLayout>
+
+<style>
+  .compare-page { padding: 40px 0 100px; }
+  .compare-hero { margin-top: 24px; max-width: 800px; }
+  .section-kicker { margin: 0 0 12px; font-family: var(--font-mono); font-size: 10px; font-weight: 800; letter-spacing: .1em; color: #0b7440; }
+  .compare-hero h1 { margin: 0 0 16px; font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -.03em; color: #16291e; }
+  .hero-desc { font-size: 16px; line-height: 1.6; color: #46534b; }
+  
+  .compare-table-section { margin-top: 48px; }
+  .table-container { overflow-x: auto; border: 1px solid #dde5e0; border-radius: 0; background: #fff; }
+  table { width: 100%; min-width: 700px; border-collapse: collapse; text-align: left; }
+  th, td { padding: 16px 20px; border-bottom: 1px solid #dde5e0; font-size: 14px; }
+  th { background: #f9fbf9; font-weight: 700; color: #16291e; }
+  td { color: #46534b; line-height: 1.4; }
+  tr:last-child td { border-bottom: none; }
+  
+  .compare-conclusion { margin-top: 54px; max-width: 800px; }
+  .compare-conclusion h2 { font-size: 24px; margin-bottom: 16px; color: #16291e; }
+  .compare-conclusion p { margin-bottom: 16px; font-size: 15px; line-height: 1.6; color: #46534b; }
+</style>

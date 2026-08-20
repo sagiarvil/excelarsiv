@@ -93,7 +93,7 @@
   line-height:1.25!important;
   min-height:48px!important;
   padding:0 18px!important;
-  border-radius:11px!important;
+  border-radius: 0;
 }
 /* Primary: satın al — dolu yeşil */
 .product-page .checkout-card__form>button,

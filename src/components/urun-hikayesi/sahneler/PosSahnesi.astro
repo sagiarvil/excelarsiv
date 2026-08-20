@@ -31,7 +31,7 @@ const huni = [
           <div key={i} style="display:flex;flex-direction:column;gap:2px;align-items:center">
             <div
               class:list={[satir.tone === 'uyari' ? 'sahne-uyari' : satir.tone === 'olumlu' ? 'sahne-olumlu' : '']}
-              style={`width:${huni[i]?.genislik ?? 80}%;height:16px;border-radius:6px;background:${huni[i]?.renk ?? '#c9d4cf'};color:#fff;display:grid;place-items:center;font-size:9px;font-weight:800`}
+              style={`width:${huni[i]?.genislik ?? 80}%;height:16px;border-radius: 0;background:${huni[i]?.renk ?? '#c9d4cf'};color:#fff;display:grid;place-items:center;font-size:9px;font-weight:800`}
             >{satir.left}</div>
             <span style="font-size:9px;font-weight:800;color:var(--xl-ink-3)">{satir.right}</span>
           </div>

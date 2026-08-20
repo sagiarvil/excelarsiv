@@ -112,17 +112,17 @@
   --xl-ink: #1b1b1f;
   --xl-ink-2: #44444a;
   --xl-ink-3: #616166;
-  --xl-blue: #0f6cbd;
+  --xl-blue: #166534;
   /* Koşullu biçimlendirme (CF) paleti */
   --cf-good-bg: #c6efce;
   --cf-good-tx: #006100;
-  --cf-warn-bg: #ffeb9c;
-  --cf-warn-tx: #8f5d00; /* AA ≥4.5: #ffeb9c zeminde 4.72:1 (referans #9c6500 4.12 koyulaştırıldı) */
-  --cf-bad-bg: #ffc7ce;
-  --cf-bad-tx: #9c0006;
+  --cf-warn-bg: #166534;
+  --cf-warn-tx: #166534; /* AA ≥4.5: #166534 zeminde 4.72:1 (referans #166534 4.12 koyulaştırıldı) */
+  --cf-bad-bg: #166534;
+  --cf-bad-tx: #166534;
   /* Chart renkleri */
-  --ch-1: #4472c4;
-  --ch-2: #ed7d31;
+  --ch-1: #166534;
+  --ch-2: #166534;
   --ch-6: #70ad47;
 
   /* v5 alias (türetme aşamasındaki adlar — referansa bağlanır, SSOT) */
@@ -142,8 +142,8 @@
   --xl-cf-amber-ink: var(--cf-warn-tx);
   --xl-cf-green-soft: var(--cf-good-bg);
   --xl-cf-green-ink: var(--cf-good-tx);
-  --xl-cf-red: #f8696b; /* referans dışı orta ton (alias uyumu) */
-  --xl-cf-amber: #ffeb84;
+  --xl-cf-red: #166534; /* referans dışı orta ton (alias uyumu) */
+  --xl-cf-amber: #166534;
   --xl-cf-green: #63be7b;
 
   /* Zemin — v5: surface-0 = sayfa zemini (paper), elevated = pencere/kart (canvas) */
@@ -163,8 +163,8 @@
   --accent-primary: var(--xl-green);
   --accent-hover: var(--xl-green-dark);
   --accent-subtle: var(--xl-green-tint);
-  --accent-gold: #a67c3d; /* @deprecated — v5'te kullanılmaz (I6) */
-  --accent-gold-tint: #f5efe3; /* @deprecated — v5'te kullanılmaz (I6) */
+  --accent-gold: #166534; /* @deprecated — v5'te kullanılmaz (I6) */
+  --accent-gold-tint: #166534; /* @deprecated — v5'te kullanılmaz (I6) */
 
   /* Durum renkleri — CF paleti (I6), metin kontrastı güvenli */
   --signal-up: var(--cf-good-tx);
@@ -389,7 +389,7 @@
   *,
   *::before,
   *::after {
-    border-radius: var(--r-none);
+    border-radius: 0;
   }
 }
 
@@ -689,7 +689,7 @@ body::after {
     font-size: 0.8125em;
     background: var(--surface-1);
     border: 1px solid var(--rule-hairline);
-    border-radius: var(--r-sm);
+    border-radius: 0;
     padding: 0.1em 0.35em;
     color: var(--ink-700);
   }
@@ -698,7 +698,7 @@ body::after {
   .excel-window {
     border: 1px solid var(--rule-strong);
     background: var(--surface-elevated);
-    border-radius: var(--r-xl);
+    border-radius: 0;
     box-shadow: 0 1px 2px rgba(11, 15, 25, 0.04);
   }
   .excel-titlebar {
@@ -723,7 +723,7 @@ body::after {
     padding: 0.375rem 0.625rem;
     background: var(--accent-primary);
     color: #ffffff;
-    border-radius: var(--r-sm);
+    border-radius: 0;
     font-size: var(--t-xs);
     font-weight: 600;
   }
@@ -755,7 +755,7 @@ body::after {
     background: var(--surface-elevated);
     color: var(--accent-primary);
     box-shadow: inset 0 2px 0 var(--accent-primary);
-    border-radius: var(--r-sm) var(--r-sm) 0 0;
+    border-radius: 0;
   }
 
   /* §4.1 Ribbon Bar — navigation tab'ları (Dosya/Giriş/Ekle dili) */
@@ -794,7 +794,7 @@ body::after {
     position: relative;
     border: 1px solid var(--rule-strong);
     background: var(--surface-elevated);
-    border-radius: var(--r-base);
+    border-radius: 0;
   }
   .cell-highlight::before {
     content: "";
@@ -805,7 +805,7 @@ body::after {
     height: 0.75rem;
     border-right: 2px solid var(--accent-primary);
     border-bottom: 2px solid var(--accent-primary);
-    border-radius: 0 0 var(--r-base) 0;
+    border-radius: 0;
   }
 
   /* §4.1 Status Bar — footer'da sistem durumu */
@@ -926,7 +926,7 @@ body::after {
     color: #ffffff;
     font-family: var(--font-mono);
     font-size: var(--t-small);
-    border-radius: var(--r-base);
+    border-radius: 0;
     transition:
       background-color var(--duration-fast) var(--ease-enter),
       transform var(--duration-instant) var(--ease-enter),
@@ -953,7 +953,7 @@ body::after {
     color: var(--ink-700);
     font-family: var(--font-mono);
     font-size: var(--t-small);
-    border-radius: var(--r-base);
+    border-radius: 0;
     transition:
       border-color var(--duration-fast) var(--ease-enter),
       color var(--duration-fast) var(--ease-enter),
@@ -981,7 +981,7 @@ body::after {
     font-family: var(--font-mono);
     font-size: var(--t-small);
     font-weight: 500;
-    border-radius: var(--r-base);
+    border-radius: 0;
     transition:
       background-color var(--duration-fast) var(--ease-enter),
       border-color var(--duration-fast) var(--ease-enter),
@@ -1020,7 +1020,7 @@ body::after {
     position: relative;
     border: 1px solid var(--xl-grid-strong);
     background: var(--xl-paper);
-    border-radius: var(--r-lg);
+    border-radius: 0;
     box-shadow: 0 1px 2px rgba(22, 37, 28, 0.05);
     overflow: hidden;
   }
@@ -1042,7 +1042,7 @@ body::after {
   .dots span {
     width: 0.5rem;
     height: 0.5rem;
-    border-radius: var(--r-sm);
+    border-radius: 0;
     background: rgba(255, 255, 255, 0.85);
   }
   .file {
@@ -1064,7 +1064,7 @@ body::after {
   .pulse {
     width: 0.375rem;
     height: 0.375rem;
-    border-radius: var(--r-sm);
+    border-radius: 0;
     background: var(--xl-cf-green-soft);
   }
   .upar {
@@ -1091,7 +1091,7 @@ body::after {
     font-family: var(--font-mono);
     font-size: var(--t-xs);
     color: var(--xl-ink-500);
-    border-radius: var(--r-sm);
+    border-radius: 0;
   }
   .tab:hover {
     background: var(--xl-accent-soft);
@@ -1192,7 +1192,7 @@ body::after {
     position: relative;
     border: 1px solid var(--xl-grid);
     background: var(--xl-paper);
-    border-radius: var(--r-lg);
+    border-radius: 0;
   }
   .za-head {
     display: flex;
@@ -1231,7 +1231,7 @@ body::after {
   }
   .netcell {
     background: var(--xl-accent-soft);
-    border-radius: var(--r-sm);
+    border-radius: 0;
   }
   .calcfx {
     font-family: var(--font-mono);
@@ -1263,7 +1263,7 @@ body::after {
     position: relative;
     border: 1px solid var(--xl-grid);
     background: var(--xl-canvas);
-    border-radius: var(--r-base);
+    border-radius: 0;
     padding: 0.5rem 0.625rem;
     font-size: var(--t-small);
     color: var(--xl-ink-700);
@@ -1306,7 +1306,7 @@ body::after {
   .dash {
     border: 1px solid var(--xl-grid);
     background: var(--xl-paper);
-    border-radius: var(--r-lg);
+    border-radius: 0;
     overflow: hidden;
   }
   .dash-tabs {
@@ -1326,7 +1326,7 @@ body::after {
   }
   .kpi {
     border: 1px solid var(--xl-grid);
-    border-radius: var(--r-base);
+    border-radius: 0;
     padding: 0.5rem 0.625rem;
     background: var(--xl-paper);
   }
@@ -1351,7 +1351,7 @@ body::after {
   }
   .livebar {
     height: 0.375rem;
-    border-radius: var(--r-sm);
+    border-radius: 0;
     background: var(--xl-cf-green-soft);
     position: relative;
     overflow: hidden;
@@ -1374,7 +1374,7 @@ body::after {
     content: "";
     width: 0.375rem;
     height: 0.375rem;
-    border-radius: var(--r-sm);
+    border-radius: 0;
     background: var(--xl-accent);
   }
   .charts {
@@ -1384,7 +1384,7 @@ body::after {
   }
   .panel {
     border: 1px solid var(--xl-grid);
-    border-radius: var(--r-base);
+    border-radius: 0;
     padding: 0.625rem;
     background: var(--xl-paper);
   }
@@ -1430,13 +1430,13 @@ body::after {
     grid-template-columns: repeat(4, 1fr);
     gap: 0.5rem;
     border: 1px solid var(--xl-grid);
-    border-radius: var(--r-lg);
+    border-radius: 0;
     padding: 0.5rem;
     background: var(--xl-canvas);
   }
   .tile {
     border: 1px solid var(--xl-grid);
-    border-radius: var(--r-base);
+    border-radius: 0;
     padding: 0.75rem;
     background: var(--xl-paper);
   }
@@ -1445,7 +1445,7 @@ body::after {
     align-items: center;
     gap: 0.25rem;
     padding: 0.125rem 0.375rem;
-    border-radius: var(--r-sm);
+    border-radius: 0;
     font-family: var(--font-mono);
     font-size: var(--t-micro);
     color: var(--xl-accent-dark);
@@ -1478,7 +1478,7 @@ body::after {
   }
   .hm span {
     height: 0.75rem;
-    border-radius: var(--r-sm);
+    border-radius: 0;
     background: var(--xl-cf-green-soft);
   }
   .cards {
@@ -1493,7 +1493,7 @@ body::after {
     flex-direction: column;
     border: 1px solid var(--xl-grid);
     background: var(--xl-paper);
-    border-radius: var(--r-lg);
+    border-radius: 0;
     overflow: hidden;
     transition:
       border-color var(--duration-fast) var(--ease-enter),
@@ -1518,7 +1518,7 @@ body::after {
     justify-content: center;
     min-width: 2.25rem;
     height: 2.25rem;
-    border-radius: var(--r-base);
+    border-radius: 0;
     background: var(--xl-accent);
     color: #ffffff;
     font-family: var(--font-mono);
@@ -1599,7 +1599,7 @@ body::after {
     margin: 0 auto;
     background: var(--xl-canvas);
     border: 1px solid var(--xl-border);
-    border-radius: 10px;
+    border-radius: 0;
     overflow: hidden;
     box-shadow: 0 40px 100px rgba(27, 27, 31, 0.22);
   }
@@ -1621,13 +1621,13 @@ body::after {
   .dots i {
     width: 12px;
     height: 12px;
-    border-radius: 50%;
+    border-radius: 0;
   }
   .dots i:nth-child(1) {
-    background: #ff5f57;
+    background: #166534;
   }
   .dots i:nth-child(2) {
-    background: #febc2e;
+    background: #166534;
   }
   .dots i:nth-child(3) {
     background: #28c840;
@@ -1644,7 +1644,7 @@ body::after {
   .cf {
     display: inline-block;
     padding: 3px 8px;
-    border-radius: 2px;
+    border-radius: 0;
     font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 600;
@@ -1669,7 +1669,7 @@ body::after {
     display: inline-block;
     width: 7px;
     height: 7px;
-    border-radius: 50%;
+    border-radius: 0;
     background: var(--cf-good-tx);
     margin-right: 6px;
     animation: blink 2s infinite;
@@ -1703,7 +1703,7 @@ body::after {
     padding: 9px 18px;
     font-size: 14px;
     color: var(--xl-ink-2);
-    border-radius: 6px 6px 0 0;
+    border-radius: 0;
     border: 1px solid transparent;
     border-bottom: 0;
     transition: background 0.15s;
@@ -1736,7 +1736,7 @@ body::after {
     color: var(--xl-ink-2);
     background: var(--xl-paper);
     border: 1px solid var(--xl-border);
-    border-radius: 3px;
+    border-radius: 0;
     padding: 5px 8px;
   }
 
@@ -1889,7 +1889,7 @@ body::after {
     color: var(--xl-blue);
     background: var(--xl-paper);
     border: 1px dashed var(--xl-border);
-    border-radius: 3px;
+    border-radius: 0;
     padding: 3px 8px;
     transition: transform 0.15s var(--ease-out);
   }
@@ -1950,7 +1950,7 @@ body::after {
     grid-column: 1 / -1;
     margin: 2px 0 0;
     border: 1px solid var(--xl-border);
-    border-radius: 8px;
+    border-radius: 0;
     overflow: hidden;
     box-shadow: 0 18px 48px rgba(27, 27, 31, 0.14);
     background: #fff;
@@ -1968,7 +1968,7 @@ body::after {
     align-self: start;
     background: #fff;
     border: 1px solid var(--xl-border);
-    border-radius: 6px;
+    border-radius: 0;
     box-shadow: 0 14px 36px rgba(27, 27, 31, 0.08);
     overflow: hidden;
   }
@@ -2093,7 +2093,7 @@ body::after {
     right: 0;
     width: 0;
     height: 0;
-    border-top: 7px solid #e5484d;
+    border-top: 7px solid #166534;
     border-left: 7px solid transparent;
     opacity: 0;
     animation: fadein 0.3s 4.8s forwards;
@@ -2123,7 +2123,7 @@ body::after {
     position: absolute;
     background: #fff;
     border: 1px solid var(--xl-border);
-    border-radius: 6px;
+    border-radius: 0;
     box-shadow: 0 8px 20px rgba(27, 27, 31, 0.14);
     padding: 6px 10px;
     font-family: var(--font-mono);
@@ -2189,7 +2189,7 @@ body::after {
     font-size: 14px;
     font-weight: 600;
     padding: 12px 22px;
-    border-radius: 4px;
+    border-radius: 0;
     border: 1px solid var(--xl-border);
     background: #fff;
     transition: transform 150ms var(--ease-out), background 150ms, border-color 150ms, box-shadow 150ms;
@@ -2273,7 +2273,7 @@ body::after {
     z-index: 1;
     background: #fff;
     border: 1px solid var(--xl-border);
-    border-radius: 6px;
+    border-radius: 0;
     box-shadow: 0 16px 40px rgba(27, 27, 31, 0.1);
     overflow: hidden;
     align-self: start;
@@ -2293,7 +2293,7 @@ body::after {
     background: var(--xl-paper);
     border: 1px solid var(--xl-border);
     border-bottom: 0;
-    border-radius: 5px 5px 0 0;
+    border-radius: 0;
     padding: 5px 12px;
   }
   .dash-tabs a.active {
@@ -2314,7 +2314,7 @@ body::after {
   .kpi {
     background: var(--xl-paper);
     border: 1px solid var(--xl-grid);
-    border-radius: 4px;
+    border-radius: 0;
     padding: 10px 10px 8px;
     transition: border-color 0.15s;
   }
@@ -2375,7 +2375,7 @@ body::after {
     padding: 8px 10px;
     background: var(--xl-paper);
     border: 1px dashed var(--xl-border);
-    border-radius: 4px;
+    border-radius: 0;
     font-size: 10.5px;
     color: var(--xl-ink-2);
   }
@@ -2429,7 +2429,7 @@ body::after {
   }
   .panel {
     border: 1px solid var(--xl-grid);
-    border-radius: 4px;
+    border-radius: 0;
     padding: 12px;
     background: #fff;
   }
@@ -2525,7 +2525,7 @@ body::after {
     width: 100px;
     height: 100px;
     margin: 4px auto 0;
-    border-radius: 50%;
+    border-radius: 0;
     background: conic-gradient(var(--xl-green) var(--p), var(--xl-grid) 0);
     animation: pie 1.8s 1s var(--ease-out) forwards;
     position: relative;
@@ -2540,7 +2540,7 @@ body::after {
     position: absolute;
     inset: 13px;
     background: #fff;
-    border-radius: 50%;
+    border-radius: 0;
   }
   .donut::after {
     content: "%72";
@@ -2563,10 +2563,10 @@ body::after {
   }
   .bars i {
     flex: 1;
-    border-radius: 2px 2px 0 0;
+    border-radius: 0;
     transform: scaleY(0);
     transform-origin: bottom;
-    background: linear-gradient(180deg, var(--ch-1), #2f5596);
+    background: linear-gradient(180deg, var(--ch-1), #166534);
     animation: grow 0.9s var(--ease-out) forwards, breathe 5s 2.5s ease-in-out infinite alternate;
   }
   .bars i:nth-child(even) {
@@ -2621,7 +2621,7 @@ body::after {
   .legend i {
     width: 9px;
     height: 9px;
-    border-radius: 2px;
+    border-radius: 0;
     display: inline-block;
     margin-right: 5px;
   }
@@ -2641,7 +2641,7 @@ body::after {
     background: var(--xl-paper);
     border: 1px solid var(--xl-border);
     border-bottom: 0;
-    border-radius: 6px 6px 0 0;
+    border-radius: 0;
     padding: 7px 14px;
     transition: background 0.15s;
   }
@@ -2658,7 +2658,7 @@ body::after {
     margin: 0 0 4px 8px;
     padding: 3px 10px;
     border: 1px dashed var(--xl-border);
-    border-radius: 4px;
+    border-radius: 0;
     color: var(--xl-ink-3);
     font-family: var(--font-mono);
     font-size: 12px;
@@ -2703,7 +2703,7 @@ body::after {
   .tile {
     background: #fff;
     border: 1px solid var(--xl-border);
-    border-radius: 6px;
+    border-radius: 0;
     padding: 16px;
     transition: transform 150ms var(--ease-out);
   }
@@ -2800,7 +2800,7 @@ body::after {
   }
   .hm i {
     height: 20px;
-    border-radius: 2px;
+    border-radius: 0;
     background: rgba(16, 124, 65, var(--a));
     opacity: 0;
     animation: fadein 0.5s forwards;
@@ -2818,7 +2818,7 @@ body::after {
     position: relative;
     background: #fff;
     border: 1px solid var(--xl-border);
-    border-radius: 6px;
+    border-radius: 0;
     overflow: hidden;
     transition: transform 150ms var(--ease-out);
   }
@@ -2854,7 +2854,7 @@ body::after {
     width: 16px;
     height: 16px;
     background: var(--xl-green);
-    border-radius: 3px;
+    border-radius: 0;
     color: #fff;
     display: grid;
     place-items: center;
@@ -2921,7 +2921,7 @@ body::after {
     font-size: 11.5px;
     background: #fff;
     border: 1px solid var(--xl-border);
-    border-radius: 5px 5px 0 0;
+    border-radius: 0;
     padding: 4px 10px;
     color: var(--xl-green-dark);
     font-weight: 600;
@@ -2999,7 +2999,7 @@ body::after {
     width: 8px;
     height: 8px;
     background: #fff;
-    border-radius: 50%;
+    border-radius: 0;
   }
 
   /* ==========================================================================
@@ -3008,7 +3008,7 @@ body::after {
   .titlebar-logo {
     width: 18px;
     height: 17px;
-    border-radius: 3px;
+    border-radius: 0;
     flex-shrink: 0;
   }
 

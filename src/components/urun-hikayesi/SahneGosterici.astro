@@ -55,7 +55,7 @@ const Sahne = sahneHaritasi[visual.sceneKey] ?? PremiumPanoSahnesi;
     overflow: hidden;
     background: #ffffff;
     border: 1px solid var(--xl-border);
-    border-radius: 16px;
+    border-radius: 0;
     box-shadow: 0 14px 34px rgba(27, 27, 31, 0.08);
   }
   .sahne-baslik {
@@ -68,7 +68,7 @@ const Sahne = sahneHaritasi[visual.sceneKey] ?? PremiumPanoSahnesi;
   }
   .sahne-rozet {
     padding: 3px 9px;
-    border-radius: 6px;
+    border-radius: 0;
     background: color-mix(in srgb, var(--sahne-vurgu) 14%, #ffffff);
     color: var(--sahne-vurgu);
     font-size: 10px;
@@ -118,7 +118,7 @@ const Sahne = sahneHaritasi[visual.sceneKey] ?? PremiumPanoSahnesi;
     gap: 2px;
     min-width: 0;
     padding: 6px 7px;
-    border-radius: 9px;
+    border-radius: 0;
     background: #f8faf9;
   }
   .sahne-kpi-label {
@@ -166,7 +166,7 @@ const Sahne = sahneHaritasi[visual.sceneKey] ?? PremiumPanoSahnesi;
     color: var(--xl-green-dark) !important;
   }
   .sahne-uyari {
-    color: #b45309 !important;
+    color: #14532d !important;
   }
   .sahne-cip {
     display: inline-flex;
@@ -174,7 +174,7 @@ const Sahne = sahneHaritasi[visual.sceneKey] ?? PremiumPanoSahnesi;
     gap: 6px;
     align-self: flex-start;
     padding: 5px 10px;
-    border-radius: 999px;
+    border-radius: 0;
     background: color-mix(in srgb, var(--sahne-vurgu) 10%, #ffffff);
     color: var(--sahne-vurgu);
     font-size: 10px;
@@ -188,6 +188,6 @@ const Sahne = sahneHaritasi[visual.sceneKey] ?? PremiumPanoSahnesi;
     min-height: 48px;
   }
   .sahne-cubuk {
-    border-radius: 3px 3px 0 0;
+    border-radius: 0;
   }
 </style>

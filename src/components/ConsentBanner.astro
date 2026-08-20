@@ -1,5 +1,5 @@
 <div class="consent-layer" data-consent-layer>
-  <section class="consent-card" role="dialog" aria-modal="true" aria-labelledby="consent-title" aria-describedby="consent-description">
+  <aside class="consent-card" role="dialog" aria-modal="true" aria-labelledby="consent-title" aria-describedby="consent-description">
     <p class="consent-kicker">GİZLİLİK TERCİHLERİ</p>
     <h2 id="consent-title">Ölçüm izninizi siz belirleyin.</h2>
     <p id="consent-description">
@@ -11,7 +11,7 @@
       <button type="button" class="consent-secondary" data-consent-reject>Yalnızca Gerekli</button>
       <button type="button" class="consent-primary" data-consent-accept>Tümünü Kabul Et</button>
     </div>
-  </section>
+  </aside>
 </div>
 
 <button type="button" class="consent-manage" data-consent-manage hidden>Çerez Tercihleri</button>
@@ -53,12 +53,12 @@
 <style>
   .consent-layer{position:fixed;inset:0;z-index:1000;display:grid;place-items:end center;padding:20px;background:rgba(14,29,20,.34)}
   .consent-layer[hidden],.consent-manage[hidden]{display:none!important}
-  .consent-card{width:min(720px,100%);padding:22px;border:1px solid #cbdad1;border-radius:18px;background:#fff;box-shadow:0 24px 70px rgba(12,42,25,.24);contain:layout paint style}
+  .consent-card{width:min(720px,100%);padding:22px;border:1px solid #cbdad1;border-radius: 0;background:#fff;box-shadow:0 24px 70px rgba(12,42,25,.24);contain:layout paint style}
   .consent-kicker{margin:0;font-family:var(--font-mono);font-size:12px;font-weight:800;letter-spacing:.12em;color:#0b7440}
   .consent-card h2{margin:7px 0 0;font-family:var(--font-display);font-size:28px;line-height:1.05;color:#14271d}
   .consent-card p:not(.consent-kicker){margin:11px 0 0;font-size:16px;line-height:1.65;color:#3f4f46}
   .consent-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}
-  .consent-actions button,.consent-manage{min-height:48px;border-radius:9px;padding:0 18px;font-family:var(--font-body);font-size:15px;font-weight:700;cursor:pointer}
+  .consent-actions button,.consent-manage{min-height:48px;border-radius: 0;padding:0 18px;font-family:var(--font-body);font-size:15px;font-weight:700;cursor:pointer}
   .consent-primary{border:1px solid #0b7440;background:#0b7440;color:#fff}.consent-primary:hover{background:#075f34}
   .consent-secondary{border:1px solid #cbdad1;background:#fff;color:#294535}.consent-secondary:hover{border-color:#0b7440}
   .consent-manage{position:fixed;right:14px;bottom:14px;z-index:900;min-height:36px!important;border:1px solid #cbdad1;background:#fff;color:#355443;box-shadow:0 8px 24px rgba(12,42,25,.12)}
