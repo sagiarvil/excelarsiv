@@ -1,6 +1,7 @@
 // Canlı SEO sözleşmesi (madde 17): production sonrası tüm sitemap URL'lerini doğrular.
 // robots.txt -> sitemap.xml -> her child 200 -> her URL 200 + self-canonical
 // + noindex yok + H1 + JSON-LD. Index lastmod ISO + future değil.
+// + Answer Graph kritik crawler/retired-route sözleşmeleri.
 import { resolve } from 'node:path';
 import { isImageSitemapChild } from './validate-gates.mjs';
 
@@ -9,6 +10,7 @@ const RETRY = 6;
 const RETRY_DELAY_MS = 2000;
 const FUTURE_GRACE_MS = 5 * 60 * 1000;
 const TRANSIENT_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
+const RETIRED_ROUTES = ['/excel-araclari', '/paketler'];
 
 const failures = [];
 let checks = 0;
@@ -76,6 +78,12 @@ function parseUrls(xml) {
 const robots = await get(`${BASE}/robots.txt`);
 check(robots.status === 200, `robots.txt HTTP ${robots.status}`);
 check(robots.text.includes(`Sitemap: ${BASE}/sitemap.xml`), 'robots.txt sitemap.xml bildirmiyor');
+check(/User-agent:\s*OAI-SearchBot[\s\S]*?Allow:\s*\//i.test(robots.text), 'robots.txt OAI-SearchBot için Allow: / içermiyor');
+
+for (const route of RETIRED_ROUTES) {
+  const retired = await get(`${BASE}${route}`);
+  check(retired.status !== 200, `retired route indexable 200 dönüyor: ${route}`);
+}
 
 const indexRes = await get(`${BASE}/sitemap.xml`);
 check(indexRes.status === 200, `sitemap.xml HTTP ${indexRes.status}`);
@@ -90,16 +98,10 @@ const indexEntries = indexRes.status === 200 ? parseIndex(indexRes.text) : [];
 check(indexEntries.length > 0, 'sitemap index boş');
 const seenChildren = new Set();
 for (const entry of indexEntries) {
-  if (seenChildren.has(entry.loc)) {
-    check(false, `index duplicate child: ${entry.loc}`);
-  }
+  if (seenChildren.has(entry.loc)) check(false, `index duplicate child: ${entry.loc}`);
   seenChildren.add(entry.loc);
-  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(entry.lastmod ?? '')) {
-    check(false, `index child lastmod ISO değil: ${entry.loc}`);
-  }
-  if (Date.parse(entry.lastmod ?? '') > Date.now() + FUTURE_GRACE_MS) {
-    check(false, `index child future lastmod: ${entry.loc}`);
-  }
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(entry.lastmod ?? '')) check(false, `index child lastmod ISO değil: ${entry.loc}`);
+  if (Date.parse(entry.lastmod ?? '') > Date.now() + FUTURE_GRACE_MS) check(false, `index child future lastmod: ${entry.loc}`);
 }
 
 const allUrls = new Set();
@@ -114,8 +116,6 @@ for (const entry of indexEntries) {
   const urls = parseUrls(child.text);
   check(urls.length > 0, `child 0 URL: ${entry.loc}`);
 
-  // Google image sitemap, ürün sayfa URL'sini products child ile yeniden listeler.
-  // Bu protokol gereği doğru; sayfa <loc> duplicate sayılmaz (enterprise-guard ile aynı).
   if (isImageSitemapChild(entry.loc, child.text)) {
     imageSitemapCount += 1;
     check(child.text.includes('xmlns:image='), `image sitemap namespace eksik: ${entry.loc}`);
@@ -124,15 +124,14 @@ for (const entry of indexEntries) {
   }
 
   for (const loc of urls) {
-    if (allUrls.has(loc)) {
-      check(false, `duplicate URL: ${loc}`);
-    }
+    if (allUrls.has(loc)) check(false, `duplicate URL: ${loc}`);
     allUrls.add(loc);
   }
 }
 check(imageSitemapCount > 0, 'sitemap index içinde image sitemap child yok');
-
 check(allUrls.has(`${BASE}/`), 'homepage sitemap içinde yok');
+check(allUrls.has(`${BASE}/karsilastir/excelarsiv-vs-chatgpt-vs-bos-excel`), 'karşılaştırma sayfası sitemap içinde yok');
+for (const route of RETIRED_ROUTES) check(!allUrls.has(`${BASE}${route}`), `retired route sitemap içinde: ${route}`);
 
 const homepage = await get(`${BASE}/`);
 check(homepage.status === 200, `homepage HTTP ${homepage.status}`);

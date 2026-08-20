@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run guard:source && npm run seo:forbidden && astro build && npm run seo:generate && npm run seo:validate && npm run seo:test && npm run seo:guard",
+    "build": "npm run guard:source && npm run seo:forbidden && npm run seo:answer-graph && astro build && npm run seo:generate && npm run seo:validate && npm run seo:test && npm run seo:guard",
     "preview": "astro preview",
     "astro": "astro",
     "generate": "node scripts/validate-commerce.mjs",
@@ -21,7 +21,8 @@
     "seo:guard": "node scripts/seo/enterprise-guard.mjs && node --experimental-strip-types scripts/seo/forbidden-routes.ts && node --experimental-strip-types scripts/seo/intent-ownership.ts",
     "seo:forbidden": "node --experimental-strip-types scripts/seo/forbidden-routes.ts --source-only",
     "seo:intent": "node --experimental-strip-types scripts/seo/intent-ownership.ts",
-    "seo:full-audit": "npm run seo:forbidden && npm run seo:validate-registry && npm run seo:intent && npm run seo:validate && npm run seo:test && npm run seo:guard && npm run seo:link-graph -- --check",
+    "seo:answer-graph": "node --experimental-strip-types scripts/seo/validate-answer-graph.ts",
+    "seo:full-audit": "npm run seo:forbidden && npm run seo:validate-registry && npm run seo:intent && npm run seo:answer-graph && npm run seo:validate && npm run seo:test && npm run seo:guard && npm run seo:link-graph -- --check",
     "seo:live": "node scripts/seo/live-contract.mjs",
     "seo:preflight": "node --experimental-strip-types scripts/seo/preflight.ts --site excelarsiv",
     "seo:conformance": "node --experimental-strip-types --test tests/conformance/*.test.ts tests/conformance/invariants/*.test.ts",
