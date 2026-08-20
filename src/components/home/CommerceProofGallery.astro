@@ -1,0 +1,77 @@
+---
+import type { TemplateViewModel } from '../../lib/templates';
+
+interface Props {
+  templates: TemplateViewModel[];
+}
+
+const { templates } = Astro.props;
+const bySlug = new Map(templates.map((template) => [template.slug, template]));
+const proofSpecs = [
+  {
+    slug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    kicker: 'NAKİT GÖRÜNÜRLÜĞÜ',
+    title: '13 Haftalık Nakit Akışı',
+    outcome: 'Kritik haftayı önceden görün',
+    image: '/screenshots/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi-3.png',
+    alt: '13 Haftalık Nakit Akışı sisteminin kritik hafta uyarıları ve ödeme planı ekranı',
+  },
+  {
+    slug: 'aylik-patron-finans-paneli',
+    kicker: 'YÖNETİM ÖZETİ',
+    title: 'Aylık Patron Finans Paneli',
+    outcome: 'Karar için tek bakış',
+    image: '/screenshots/aylik-patron-finans-paneli-3.png',
+    alt: 'Aylık Patron Finans Paneli yönetim özeti ve trend ekranı',
+  },
+  {
+    slug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi',
+    kicker: 'GÜNLÜK KONTROL',
+    title: 'Akıllı Kasa Defteri',
+    outcome: 'Farkı aynı gün yakalayın',
+    image: '/screenshots/akilli-kasa-defteri-ve-nakit-kontrol-sistemi-3.png',
+    alt: 'Akıllı Kasa Defteri sisteminin aylık özet ve dönem sonu kontrol ekranı',
+  },
+];
+
+const proofs = proofSpecs.map((spec) => {
+  const template = bySlug.get(spec.slug);
+  if (!template) throw new Error(`HOME_PROOF_TEMPLATE_MISSING:${spec.slug}`);
+  return { ...spec, template };
+});
+---
+
+<section class="commerce-proof" aria-labelledby="commerce-proof-title" data-home="proof">
+  <div class="site-container">
+    <div class="commerce-proof__head">
+      <div>
+        <span>GERÇEK ÜRÜN EKRANLARI</span>
+        <h2 id="commerce-proof-title">Fiyat da ürün verisi de tek kaynaktan gelir.</h2>
+      </div>
+      <p>Bu alandaki fiyatlar elle yazılmaz. Katalog ve ürün sayfalarının kullandığı aynı ürün verisinden build sırasında üretilir.</p>
+    </div>
+    <div class="commerce-proof__grid">
+      {proofs.map(({ template, ...proof }) => (
+        <article>
+          <div class="commerce-proof__visual">
+            <img src={proof.image} alt={proof.alt} loading="lazy" decoding="async" width="1200" height="750" />
+          </div>
+          <div class="commerce-proof__copy">
+            <span>{proof.kicker}</span>
+            <h3>{proof.title}</h3>
+            <p>{template.summary}</p>
+            <dl>
+              <div><dt>Sonuç</dt><dd>{proof.outcome}</dd></div>
+              <div><dt>Fiyat</dt><dd>{template.priceTL.toLocaleString('tr-TR')} TL</dd></div>
+            </dl>
+            <a href={template.url}>Sistemi ayrıntılı inceleyin →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .commerce-proof{padding-block:clamp(70px,8vw,110px);background:#eef3f0;border-block:1px solid #dbe4de}.commerce-proof__head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:42px;align-items:end;margin-bottom:28px}.commerce-proof__head span,.commerce-proof__copy>span{font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:.1em;color:#0b7440}.commerce-proof__head h2{max-width:760px;margin:8px 0 0;font-family:var(--font-display);font-size:clamp(34px,4.5vw,56px);line-height:1;letter-spacing:-.04em;color:#15291d}.commerce-proof__head p{margin:0;font-size:13px;line-height:1.7;color:#5d6c63}.commerce-proof__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.commerce-proof article{overflow:hidden;border:1px solid #d2ddd6;border-radius:20px;background:#fff;box-shadow:0 18px 44px rgba(28,63,41,.07)}.commerce-proof__visual{aspect-ratio:16/10;background:#f5f8f6;overflow:hidden}.commerce-proof__visual img{width:100%;height:100%;object-fit:cover}.commerce-proof__copy{padding:20px}.commerce-proof__copy h3{margin:8px 0 0;font-family:var(--font-display);font-size:24px;line-height:1.05;letter-spacing:-.03em;color:#173022}.commerce-proof__copy p{min-height:64px;margin:11px 0 0;font-size:12px;line-height:1.6;color:#647168}.commerce-proof dl{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0 0}.commerce-proof dl div{padding:10px;border:1px solid #e0e7e2;border-radius:11px;background:#f8faf8}.commerce-proof dt{font-family:var(--font-mono);font-size:7px;color:#708078}.commerce-proof dd{margin:4px 0 0;font-size:11px;font-weight:800;color:#173022}.commerce-proof a{display:block;margin-top:14px;font-size:11px;font-weight:800;color:#0b7440;text-decoration:none}@media(max-width:900px){.commerce-proof__grid{grid-template-columns:1fr}.commerce-proof__copy p{min-height:0}}@media(max-width:720px){.commerce-proof__head{grid-template-columns:1fr;gap:12px}}
+</style>
