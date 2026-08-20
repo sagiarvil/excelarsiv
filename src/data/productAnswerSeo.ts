@@ -13,6 +13,10 @@ function buildAnswerQuestion(primaryQuery: string): string {
   return `${normalized.charAt(0).toLocaleUpperCase('tr-TR')}${normalized.slice(1)} hangi ihtiyacı çözer?`;
 }
 
+function buildAnswerSummary(description: string): string {
+  return /excel/i.test(description) ? description : `${description} Excel üzerinde uygulanır.`;
+}
+
 export const productAnswerSeo: Record<string, ProductAnswerSeoEntry> = Object.fromEntries(
   Object.entries(productSeo).map(([slug, entry]) => [
     slug,
@@ -20,7 +24,7 @@ export const productAnswerSeo: Record<string, ProductAnswerSeoEntry> = Object.fr
       ...entry,
       intent: 'commercial-investigation' as const,
       answerQuestion: buildAnswerQuestion(entry.primaryQuery),
-      answerSummary: entry.description,
+      answerSummary: buildAnswerSummary(entry.description),
     },
   ]),
 );
