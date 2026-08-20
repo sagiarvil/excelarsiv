@@ -1,0 +1,410 @@
+[
+  {
+    "slug": "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi",
+    "ad": "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi",
+    "kategori": "nakit-akisi",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "akilli-kasa-defteri-ve-nakit-kontrol-sistemi",
+    "ad": "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi",
+    "kategori": "nakit-akisi",
+    "sayfa_sayisi": 21,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "amortisman-2026-yeniden-degerleme",
+    "ad": "Amortisman + 2026 Yeniden Değerleme",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 13,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti",
+    "ad": "Amortisman & Sabit Kıymet Satış Zamanlama Stratejisti",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 17,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli",
+    "ad": "Asgari Ücret Zam Etkisi & Fiyat Ayarlama Cetveli",
+    "kategori": "personel-ve-bordro",
+    "sayfa_sayisi": 16,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "asiri-dusuk-teklif-savunma-robotu",
+    "ad": "İhale Elinden Gidiyor Mu? (Aşırı Düşük Teklif Savunma Robotu)",
+    "kategori": "satis-ve-fiyatlama",
+    "sayfa_sayisi": 19,
+    "fiyat_tl": 1499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "aylik-patron-finans-paneli",
+    "ad": "Aylık Patron Finans Paneli",
+    "kategori": "finansal-analiz",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "banka-kredi-ve-taksit-takip-sistemi",
+    "ad": "Banka, Kredi ve Taksit Takip Sistemi",
+    "kategori": "nakit-akisi",
+    "sayfa_sayisi": 24,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "cari-ba-bs-toplu-mutabakat",
+    "ad": "Cari ve Ba-Bs Toplu Mutabakat Motoru",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 15,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi",
+    "ad": "Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 23,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "cek-senet-ve-vade-risk-sistemi",
+    "ad": "Çek–Senet ve Vade Risk Sistemi",
+    "kategori": "nakit-akisi",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "defter-beyan-e-arsiv-aktarim",
+    "ad": "Defter Beyan e-Arşiv Aktarım Düzenleyici",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 16,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "doviz-acik-pozisyonu-ve-kur-riski-stres-testi",
+    "ad": "Döviz Açık Pozisyonu ve Kur Riski Stres Testi",
+    "kategori": "finansal-analiz",
+    "sayfa_sayisi": 17,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "e-fatura-satir-defteri-pdf-kaniti",
+    "ad": "Toplu e-Fatura Satır Defteri ve PDF Kanıtı",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 15,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "e-fatura-toplu-donusturucu",
+    "ad": "e-Fatura Toplu Dönüştürücü",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 15,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "fazla-mesai-ve-isci-dava-riski-tespit-dosyasi",
+    "ad": "Fazla Mesai ve İşçi Dava Riski Tespit Dosyası",
+    "kategori": "personel-ve-bordro",
+    "sayfa_sayisi": 16,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "gunluk-gelir-gider-ve-gercek-karlilik-sistemi",
+    "ad": "Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi",
+    "kategori": "satis-ve-fiyatlama",
+    "sayfa_sayisi": 20,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "hakedis-fiyat-farki-hak-kaybi-cetveli",
+    "ad": "Hakediş Fiyat Farkı ve Hak Kaybı Cetveli",
+    "kategori": "butce-ve-planlama",
+    "sayfa_sayisi": 19,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "ihaleye-kac-tl-teklif-vermeliyim",
+    "ad": "İhaleye Kaç TL Teklif Vermeliyim? (Sınır Değer Hesaplayıcı)",
+    "kategori": "satis-ve-fiyatlama",
+    "sayfa_sayisi": 19,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "insaat-hakedis-santiye-maliyet",
+    "ad": "İnşaat Hakediş ve Şantiye Maliyet Takip",
+    "kategori": "stok-ve-uretim",
+    "sayfa_sayisi": 13,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "ithalat-depo-teslim-rafa-gelen-net-birim-maliyet",
+    "ad": "İthalat Depo Teslim (Rafa Gelen) Net Birim Maliyet",
+    "kategori": "stok-ve-uretim",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi",
+    "ad": "Kaçırılan SGK Teşvikleri & Gerçek İşçilik Maliyeti Analizi",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "kdv-iade-listesi-robotu-gib7",
+    "ad": "KDV İade Listesi Robotu (GİB 7 Liste)",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 19,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici",
+    "ad": "KDV İadesi Azami Alacak Hesabı & Dosya Hazırlayıcı",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 17,
+    "fiyat_tl": 1499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "kdv-tevkifat-mahsup-iade-listesi",
+    "ad": "KDV Tevkifat Mahsup ve KDV İade Listesi",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 14,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici",
+    "ad": "Kıdem–İhbar Yükü ve Personel Çıkarma Maliyeti Hesaplayıcı",
+    "kategori": "personel-ve-bordro",
+    "sayfa_sayisi": 16,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "kira-avans-takip-dekont",
+    "ad": "Kira ve Avans Takip + Dekont",
+    "kategori": "finansal-analiz",
+    "sayfa_sayisi": 14,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti",
+    "ad": "KKEG ve Finansman Gider Kısıtlaması Vergi Savunma Seti",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 1499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "kobi-finans-yonetim-paketi",
+    "ad": "KOBİ Finans Yönetim Paketi",
+    "kategori": "butce-ve-planlama",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 1499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "konkordato-nakit-akis-on-projesi",
+    "ad": "Konkordato Nakit Akış Ön Projesi",
+    "kategori": "nakit-akisi",
+    "sayfa_sayisi": 14,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
+    "ad": "Logo SQL Cari Yaşlandırma & Tahsilat Karar Motoru",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 13,
+    "fiyat_tl": 1499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "mutfak-kayip-kacak-hesaplayici",
+    "ad": "Mutfak Kayıp/Kaçak Tespiti & Menü Kârlılık Analizi",
+    "kategori": "stok-ve-uretim",
+    "sayfa_sayisi": 17,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "nakliye-maliyeti-hesaplayici",
+    "ad": "Sefer Başına Nakliye Maliyeti & Fiyatlandırma Cetveli",
+    "kategori": "satis-ve-fiyatlama",
+    "sayfa_sayisi": 17,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici",
+    "ad": "Ortaklar Cari & Kasa Adat Faiz Faturası Hesaplayıcı",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "pazaryeri-net-kar-ve-eksik-hakedis-yakalayici",
+    "ad": "Pazaryeri Net Kâr & Eksik Hakediş Yakalayıcı",
+    "kategori": "satis-ve-fiyatlama",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "pos-komisyon-ve-net-tahsilat-kontrol-sistemi",
+    "ad": "POS, Komisyon ve Net Tahsilat Kontrol Sistemi",
+    "kategori": "satis-ve-fiyatlama",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "proje-ve-is-bazinda-gercek-karlilik-sistemi",
+    "ad": "Proje ve İş Bazında Gerçek Kârlılık Sistemi",
+    "kategori": "satis-ve-fiyatlama",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "restoran-recete-maliyet-fire",
+    "ad": "Restoran Reçete Maliyet + Fire Hesaplama",
+    "kategori": "stok-ve-uretim",
+    "sayfa_sayisi": 16,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli",
+    "ad": "Şirket Öz Kaynağı Eridi Mi? (TTK 376 Sermaye Tamamlama Cetveli)",
+    "kategori": "finansal-analiz",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 1499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "stok-satis-ve-nakit-baglanma-sistemi",
+    "ad": "Stok, Satış ve Nakit Bağlanma Sistemi",
+    "kategori": "stok-ve-uretim",
+    "sayfa_sayisi": 16,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "sube-karlilik-ve-nakit-hesaplayici",
+    "ad": "Bu Şubeyi Kapatmalı Mıyım? (Şube Kârlılık & Nakit Yakış Analizi)",
+    "kategori": "finansal-analiz",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "taseron-hakedis-kesinti-mutabakati",
+    "ad": "Taşeron/Alt Yüklenici Hakediş & Kesinti Mutabakatı",
+    "kategori": "finansal-analiz",
+    "sayfa_sayisi": 17,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "tesvikli-bordro-avantajli-tesvik",
+    "ad": "Teşvikli Bordro ve En Avantajlı Teşvik Seçen",
+    "kategori": "personel-ve-bordro",
+    "sayfa_sayisi": 13,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "tesvikli-bordro-optimizasyon",
+    "ad": "Teşvikli Bordro Optimizasyon",
+    "kategori": "personel-ve-bordro",
+    "sayfa_sayisi": 14,
+    "fiyat_tl": 1499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "trendyol-komisyon-sonrasi-net-kar",
+    "ad": "Trendyol Komisyon Sonrası Net Kâr Hesaplama",
+    "kategori": "satis-ve-fiyatlama",
+    "sayfa_sayisi": 15,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "uretim-recetesi-ve-zam-yansitma-hesaplayici",
+    "ad": "Üretim Reçetesi & Zam Yansıtma Hesaplayıcı",
+    "kategori": "stok-ve-uretim",
+    "sayfa_sayisi": 15,
+    "fiyat_tl": 799,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi",
+    "ad": "Vergi/SGK Borcunu Tecil Etmeli Miyim? (Kredi mi Tecil mi?)",
+    "kategori": "butce-ve-planlama",
+    "sayfa_sayisi": 17,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "vergi-sgk-ve-maas-karsilik-ayirma-sistemi",
+    "ad": "Vergi, SGK ve Maaş Karşılık Ayırma Sistemi",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 18,
+    "fiyat_tl": 499,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi",
+    "ad": "Yeniden Değerleme Yapmalı Mıyım? (Vergi Tasarruf Analizi)",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 17,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "yillara-sari-insaat-stopaj-nakit-akis-planlayici",
+    "ad": "Yıllara Sari İnşaat Stopaj & Nakit Akış Planlayıcı",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 20,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  },
+  {
+    "slug": "ymm-tasdik-kontrol-robotu",
+    "ad": "YMM Tasdik Kontrol Robotu",
+    "kategori": "muhasebe-ve-vergi",
+    "sayfa_sayisi": 13,
+    "fiyat_tl": 999,
+    "kdv_dahil": true
+  }
+]

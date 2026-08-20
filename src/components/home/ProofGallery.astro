@@ -1,7 +1,13 @@
 ---
-const proofs = [
+import { getCollection } from 'astro:content';
+
+const templates = await getCollection('templates');
+const templateMap = new Map(templates.map((t) => [t.id, t.data]));
+
+const rawProofs = [
   {
     key: 'cashflow',
+    slug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
     code: '01',
     kicker: 'NAKİT GÖRÜNÜRLÜĞÜ',
     title: '13 Haftalık Nakit Akışı',
@@ -9,11 +15,11 @@ const proofs = [
     image: '/screenshots/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi-3.png',
     alt: '13 Haftalık Nakit Akışı sisteminin kritik hafta uyarıları ve ödeme planı ekranı',
     href: '/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
-    price: '2.490 TL',
     outcome: 'Kritik haftayı önceden görün',
   },
   {
     key: 'owner',
+    slug: 'aylik-patron-finans-paneli',
     code: '02',
     kicker: 'YÖNETİM ÖZETİ',
     title: 'Aylık Patron Finans Paneli',
@@ -21,11 +27,11 @@ const proofs = [
     image: '/screenshots/aylik-patron-finans-paneli-3.png',
     alt: 'Aylık Patron Finans Paneli yönetim özeti ve trend ekranı',
     href: '/sablon/aylik-patron-finans-paneli',
-    price: '2.490 TL',
     outcome: 'Karar için tek bakış',
   },
   {
     key: 'cash',
+    slug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi',
     code: '03',
     kicker: 'GÜNLÜK KONTROL',
     title: 'Akıllı Kasa Defteri',
@@ -33,10 +39,18 @@ const proofs = [
     image: '/screenshots/akilli-kasa-defteri-ve-nakit-kontrol-sistemi-3.png',
     alt: 'Akıllı Kasa Defteri sisteminin aylık özet ve dönem sonu kontrol ekranı',
     href: '/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi',
-    price: '499 TL',
     outcome: 'Farkı aynı gün yakalayın',
   },
 ];
+
+const proofs = rawProofs.map((p) => {
+  const t = templateMap.get(p.slug);
+  const priceTL = t?.priceTL ?? 0;
+  return {
+    ...p,
+    price: `${priceTL.toLocaleString('tr-TR')} TL`,
+  };
+});
 ---
 
 <section class="proof-gallery" aria-labelledby="proof-gallery-title" data-proof-gallery>
