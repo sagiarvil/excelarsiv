@@ -1,0 +1,177 @@
+---
+interface Props {
+  tip: 'kurumsal' | 'mali-musavir';
+  baslik?: string;
+}
+
+const { tip, baslik = tip === 'kurumsal' ? 'Kurumsal Lisans Teklif Talebi' : 'Mali Müşavir Ortaklık Başvurusu' } = Astro.props;
+---
+
+<div class="kurumsal-form-kapsayici border border-neutral-300 bg-white p-6 sm:p-8" data-teklif-formu data-form-tip={tip}>
+  <h2 class="text-xl font-bold text-neutral-900 mb-2">{baslik}</h2>
+  <p class="text-sm text-neutral-600 mb-6">
+    {tip === 'kurumsal' 
+      ? '10+ kullanıcı veya şirket çapında lisanslama için proforma teklifinizi 1 iş günü içinde iletiyoruz.' 
+      : 'KOBİ portföyünüze Excel Arşiv çözümleri önermek ve komisyon modeli için bilgilerinizi iletin.'}
+  </p>
+
+  <form class="space-y-4" data-form novalidate>
+    <div>
+      <label for={`firma-unvani-${tip}`} class="block text-xs font-semibold uppercase tracking-wider text-neutral-700 mb-1">
+        Firma Unvanı <span class="text-emerald-700">*</span>
+      </label>
+      <input
+        type="text"
+        id={`firma-unvani-${tip}`}
+        name="firma_unvani"
+        required
+        minlength="3"
+        placeholder="Örn: ABC Finansal Danışmanlık A.Ş."
+        class="w-full border border-neutral-300 px-3 py-2 text-sm text-neutral-900 focus:border-emerald-700 focus:outline-none"
+      />
+      <span class="text-xs text-red-600 hidden" data-error="firma_unvani">Lütfen geçerli bir firma unvanı girin.</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for={`vkn-${tip}`} class="block text-xs font-semibold uppercase tracking-wider text-neutral-700 mb-1">
+          Vergi Kimlik No (VKN) <span class="text-emerald-700">*</span>
+        </label>
+        <input
+          type="text"
+          id={`vkn-${tip}`}
+          name="vkn"
+          required
+          pattern="[0-9]{10}"
+          maxlength="10"
+          inputmode="numeric"
+          placeholder="10 haneli VKN"
+          class="w-full border border-neutral-300 px-3 py-2 text-sm text-neutral-900 focus:border-emerald-700 focus:outline-none font-mono"
+        />
+        <span class="text-xs text-red-600 hidden" data-error="vkn">VKN tam olarak 10 haneli rakam olmalıdır.</span>
+      </div>
+
+      <div>
+        <label for={`kullanici-sayisi-${tip}`} class="block text-xs font-semibold uppercase tracking-wider text-neutral-700 mb-1">
+          Kullanıcı Sayısı <span class="text-emerald-700">*</span>
+        </label>
+        <input
+          type="number"
+          id={`kullanici-sayisi-${tip}`}
+          name="kullanici_sayisi"
+          required
+          min="1"
+          max="5000"
+          placeholder="Örn: 15"
+          class="w-full border border-neutral-300 px-3 py-2 text-sm text-neutral-900 focus:border-emerald-700 focus:outline-none"
+        />
+        <span class="text-xs text-red-600 hidden" data-error="kullanici_sayisi">En az 1 kullanıcı belirtilmelidir.</span>
+      </div>
+    </div>
+
+    <div>
+      <label for={`eposta-${tip}`} class="block text-xs font-semibold uppercase tracking-wider text-neutral-700 mb-1">
+        Yetkili E-posta Adresi <span class="text-emerald-700">*</span>
+      </label>
+      <input
+        type="email"
+        id={`eposta-${tip}`}
+        name="eposta"
+        required
+        placeholder="ad.soyad@sirket.com"
+        class="w-full border border-neutral-300 px-3 py-2 text-sm text-neutral-900 focus:border-emerald-700 focus:outline-none"
+      />
+      <span class="text-xs text-red-600 hidden" data-error="eposta">Geçerli bir kurumsal e-posta adresi girin.</span>
+    </div>
+
+    <div>
+      <label for={`ihtiyac-${tip}`} class="block text-xs font-semibold uppercase tracking-wider text-neutral-700 mb-1">
+        İhtiyaç & Talep Detayları <span class="text-emerald-700">*</span>
+      </label>
+      <textarea
+        id={`ihtiyac-${tip}`}
+        name="ihtiyac"
+        required
+        rows="3"
+        minlength="10"
+        placeholder="Örn: Nakit akışı ve KDV iadesi şablonları için 10 kişilik ekibe kurumsal lisans ve fatura talep ediyoruz."
+        class="w-full border border-neutral-300 px-3 py-2 text-sm text-neutral-900 focus:border-emerald-700 focus:outline-none"
+      ></textarea>
+      <span class="text-xs text-red-600 hidden" data-error="ihtiyac">Lütfen ihtiyacınızı kısaca özetleyin (en az 10 karakter).</span>
+    </div>
+
+    <div class="pt-2">
+      <button
+        type="submit"
+        class="w-full sm:w-auto bg-emerald-800 hover:bg-emerald-900 text-white font-medium px-6 py-2.5 text-sm transition-colors duration-150"
+      >
+        Teklif Talebini Gönder →
+      </button>
+    </div>
+
+    <div class="text-xs text-neutral-500 pt-2 border-t border-neutral-200 mt-4">
+      <span>🔒 Verileriniz KVKK Aydınlatma Metni uyarınca yalnızca teklif oluşturma amacıyla işlenir.</span>
+    </div>
+
+    <div class="mesaj-alani hidden mt-4 p-3 bg-emerald-50 border border-emerald-300 text-emerald-900 text-sm" data-success-msg>
+      ✓ Talebiniz başarıyla alındı. 1 iş günü içerisinde e-posta adresinize proforma teklif iletilecektir.
+    </div>
+  </form>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-teklif-formu]').forEach((wrapper) => {
+    const form = wrapper.querySelector<HTMLFormElement>('form');
+    const successMsg = wrapper.querySelector<HTMLElement>('[data-success-msg]');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const firma = (formData.get('firma_unvani') as string || '').trim();
+      const vkn = (formData.get('vkn') as string || '').trim();
+      const kullanici = (formData.get('kullanici_sayisi') as string || '').trim();
+      const eposta = (formData.get('eposta') as string || '').trim();
+      const ihtiyac = (formData.get('ihtiyac') as string || '').trim();
+
+      // Validation
+      let hasError = false;
+      const setErr = (field: string, show: boolean) => {
+        const el = wrapper.querySelector(`[data-error="${field}"]`);
+        if (el) el.classList.toggle('hidden', !show);
+        if (show) hasError = true;
+      };
+
+      setErr('firma_unvani', firma.length < 3);
+      setErr('vkn', !/^[0-9]{10}$/.test(vkn));
+      setErr('kullanici_sayisi', !kullanici || parseInt(kullanici, 10) < 1);
+      setErr('eposta', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(eposta));
+      setErr('ihtiyac', ihtiyac.length < 10);
+
+      if (hasError) return;
+
+      // Rate limit check (60s cooldown per client)
+      const lastSubmit = localStorage.getItem('kurumsal_form_last_submit');
+      const now = Date.now();
+      if (lastSubmit && now - parseInt(lastSubmit, 10) < 60000) {
+        alert('Lütfen yeni talep göndermeden önce 1 dakika bekleyin.');
+        return;
+      }
+      localStorage.setItem('kurumsal_form_last_submit', now.toString());
+
+      // Track event
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'kurumsal_form_submit', {
+          firma_unvani: firma,
+          kullanici_sayisi: kullanici,
+        });
+      }
+
+      form.reset();
+      if (successMsg) {
+        successMsg.classList.remove('hidden');
+      }
+    });
+  });
+</script>

@@ -1,6 +1,7 @@
 ---
 import CommerceLayout from '../layouts/CommerceLayout.astro';
 import SectionLabel from '../components/SectionLabel.astro';
+import KurumsalTeklifFormu from '../components/KurumsalTeklifFormu.astro';
 import { SATICI } from '../data/satici';
 ---
 
@@ -47,6 +48,9 @@ import { SATICI } from '../data/satici';
           segmentinizi ekleyin.
         </p>
       </section>
+      <div class="mt-8">
+        <KurumsalTeklifFormu tip="mali-musavir" baslik="Mali Müşavir Ortaklık Başvurusu" />
+      </div>
     </div>
   </section>
 </CommerceLayout>

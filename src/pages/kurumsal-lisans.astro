@@ -2,6 +2,7 @@
 import CommerceLayout from '../layouts/CommerceLayout.astro';
 import SectionLabel from '../components/SectionLabel.astro';
 import Button from '../components/Button.astro';
+import KurumsalTeklifFormu from '../components/KurumsalTeklifFormu.astro';
 import { SATICI } from '../data/satici';
 ---
 
@@ -23,7 +24,7 @@ import { SATICI } from '../data/satici';
       <p>· Ortaklık kanalı için <a class="underline underline-offset-4" href="/ortaklik-mali-musavir">mali müşavir programı</a>.</p>
     </div>
     <div class="mt-10">
-      <Button href="/iletisim">Kurumsal talep gönder</Button>
+      <KurumsalTeklifFormu tip="kurumsal" baslik="Kurumsal Lisans ve Fatura Talebi" />
     </div>
   </section>
 </CommerceLayout>
