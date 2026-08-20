@@ -1,0 +1,280 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+
+const primarySlug = "ihaleye-kac-tl-teklif-vermeliyim";
+const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
+const pageUrl = new URL('/karar/ihale-teklif-sinir-deger-excel', siteUrl).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageUrl}#breadcrumb`,
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': siteUrl },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Kararlar', 'item': new URL('/karar', siteUrl).href },
+        { '@type': 'ListItem', 'position': 3, 'name': "İhale teklif ve sınır değer hesaplama Excel'i: Kamu ihaleleri", 'item': pageUrl }
+      ]
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      'mainEntity': [{"@type": "Question", "name": "KİK sınır değer katsayıları güncel mi?", "acceptedAnswer": {"@type": "Answer", "text": "Yapım işleri ve hizmet alımları için KİK tebliğlerindeki güncel R katsayıları tanımlıdır."}}, {"@type": "Question", "name": "Rakip teklif simülasyonu nasıl çalışır?", "acceptedAnswer": {"@type": "Answer", "text": "Muhtemel rakip teklifleri girilerek sınır değerin hangi aralığa oturacağı test edilir."}}, {"@type": "Question", "name": "Aşırı düşük sınırının hemen üstündeki teklif bulunur mu?", "acceptedAnswer": {"@type": "Answer", "text": "Sistem sorgulamaya kalmadan ihaleyi kazanabilecek en optimize fiyatı önerir."}}, {"@type": "Question", "name": "Hizmet ve yapım ihaleleri için ayrı formüller var mı?", "acceptedAnswer": {"@type": "Answer", "text": "Evet, hizmet ve yapım işleri için farklı KİK sınır değer formülleri seçilebilir."}}, {"@type": "Question", "name": "Kârlılık analizi içeriyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Teklif tutarınız ile tahmini imalat maliyetiniz arasındaki net kârı raporlar."}}]
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${pageUrl}#itemlist`,
+      'name': "İhale teklif ve sınır değer hesaplama Excel'i: Kamu ihaleleri",
+      'itemListElement': [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "İhaleye Kaç TL Teklif Vermeliyim Sistemi", "url": "https://excelarsiv.com/sablon/ihaleye-kac-tl-teklif-vermeliyim", "offers": {"@type": "Offer", "price": 999, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "İhale Elinden Gidiyor Mu? (Aşırı Düşük Teklif Savunma Robotu)", "url": "https://excelarsiv.com/sablon/asiri-dusuk-teklif-savunma-robotu", "offers": {"@type": "Offer", "price": 1499, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "İnşaat Hakediş ve Şantiye Maliyet Takip", "url": "https://excelarsiv.com/sablon/insaat-hakedis-santiye-maliyet", "offers": {"@type": "Offer", "price": 799, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}]
+    }
+  ]
+};
+---
+
+<CommerceLayout
+  title="İhale Teklif Sınır Değer Excel | Excel Arşiv"
+  description="KİK kamu ihalelerinde sınır değer, yaklaşık maliyet katsayısı ve aşırı düşük teklif savunma riski hesaplayan profesyonel Excel karar sistemi."
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={pageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <main class="mx-auto max-w-4xl px-4 py-12">
+    <nav class="text-xs text-neutral-500 mb-4 font-mono" aria-label="Breadcrumb">
+      <a href="/" class="hover:underline">Ana Sayfa</a> / <a href="/karar" class="hover:underline">Kararlar</a> / <span>ihale-teklif-sinir-deger-excel</span>
+    </nav>
+
+    <article>
+      <header class="border-b border-neutral-200 pb-4 mb-6">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight leading-tight">
+          İhale teklif ve sınır değer hesaplama Excel'i: Kamu ihaleleri
+        </h1>
+        <div class="mt-3 flex items-center gap-3 text-xs text-neutral-500 font-mono">
+          <time datetime="2026-08-20">Son güncelleme: 2026-08-20</time>
+          <span>·</span>
+          <span>Excel Arşiv Finansal Denetim Masası</span>
+        </div>
+      </header>
+
+      {/* CEVAP BLOĞU (40-60 KELİME) */}
+      <div class="p-5 bg-emerald-50 border-l-4 border-emerald-800 my-6">
+        <p class="text-base text-emerald-950 font-medium leading-relaxed">
+          Kamu ve özel sektör ihalelerinde en karlı ve elenmeyen teklif tutarını belirlemek isteyen müteahhitler için İhaleye Kaç TL Teklif Vermeliyim Sistemi (999 TL, 16 sayfa) uygundur. KİK sınır değer formüllerine göre teklifinizin sınır altında kalma riskini detaylıca analiz eder ve kârı hesaplar.
+        </p>
+      </div>
+
+      {/* KARAR TABLOSU */}
+      <section class="my-8" aria-label="Karar Tablosu">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Kullanım Durumuna Göre Sistem Karşılaştırması</h2>
+        <div class="overflow-x-auto border border-neutral-200">
+          <table class="w-full text-left text-sm divide-y divide-neutral-200">
+            <thead class="bg-neutral-100 text-xs font-mono uppercase text-neutral-700">
+              <tr>
+                <th class="p-3">Durumunuz</th>
+                <th class="p-3">Önerilen sistem</th>
+                <th class="p-3">Fiyat</th>
+                <th class="p-3">Neden</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-200 bg-white">
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">İhale teklif fiyatı simülasyonu</td>
+                <td class="p-3 font-semibold text-emerald-800">İhaleye Kaç TL Teklif Vermeliyim</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">999 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Sınır değer ve kârlılık dengesini optimize eder</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Aşırı düşük teklif savunma dosyası</td>
+                <td class="p-3 font-semibold text-emerald-800">Aşırı Düşük Teklif Savunma Robotu</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">999 TL</td>
+                <td class="p-3 text-xs text-neutral-600">KİK mevzuatına uygun analiz formatı üretir</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">İhale sonrası hakediş kontrolü</td>
+                <td class="p-3 font-semibold text-emerald-800">İnşaat Hakediş ve Şantiye Maliyet</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">799 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Kazanılan ihalenin şantiye maliyetlerini izler</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* BİRİNCİL ÖNERİ */}
+      <section class="my-8 border border-neutral-300 bg-neutral-50 p-6 sm:p-8" aria-label="Birincil Öneri">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">BİRİNCİL SİSTEM TAVSİYESİ</span>
+        <h2 class="text-2xl font-bold text-neutral-900 mt-2">İhaleye Kaç TL Teklif Vermeliyim Sistemi</h2>
+        <p class="text-sm text-neutral-700 mt-3 leading-relaxed">
+          Mevzuata ve sahaya tam uyumlu finansal karar sistemi.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-neutral-200">
+          <div>
+            <span class="text-2xl font-extrabold text-neutral-900 font-mono">999 TL</span>
+            <span class="block text-xs text-neutral-500 font-mono">KDV dahil · tek ödeme</span>
+          </div>
+          <a
+            href="/sablon/ihaleye-kac-tl-teklif-vermeliyim"
+            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-3 text-sm transition-colors"
+          >
+            Sistemi İnceleyin →
+          </a>
+        </div>
+      </section>
+
+      {/* ALTERNATİFLER */}
+      <section class="my-8" aria-label="Alternatif Sistemler">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Alternatif Karar Seçenekleri</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="border border-neutral-200 p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900">
+              <a href="/sablon/asiri-dusuk-teklif-savunma-robotu" class="hover:text-emerald-800 hover:underline">İhale Elinden Gidiyor Mu? (Aşırı Düşük Teklif Savunma Robotu)</a>
+            </h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Aşırı düşük teklif sorgulamasına savunma dosyası hazırlamak için Aşırı Düşük Savunma Robotunu seçin.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+              <span class="font-mono text-neutral-500">1.499 TL</span>
+              <a href="/sablon/asiri-dusuk-teklif-savunma-robotu" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+            </div>
+          </div>
+          <div class="border border-neutral-200 p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900">
+              <a href="/sablon/insaat-hakedis-santiye-maliyet" class="hover:text-emerald-800 hover:underline">İnşaat Hakediş ve Şantiye Maliyet Takip</a>
+            </h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">İhale sonrası şantiye imalat ve hakediş takibi için İnşaat Hakediş sistemini kullanın.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+              <span class="font-mono text-neutral-500">799 TL</span>
+              <a href="/sablon/insaat-hakedis-santiye-maliyet" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DÜRÜST SINIR BLOĞU: BU SİSTEMİ ALMAYIN EĞER... */}
+      <section class="my-8 border-l-4 border-amber-600 bg-amber-50/50 p-6" aria-label="Dürüst Sınır">
+        <h2 class="text-lg font-bold text-neutral-900 mb-3">Bu sistemi almayın eğer…</h2>
+        <ul class="space-y-2 text-sm text-neutral-700">
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>EKAP sisteminden ihaleleri otomatik tarayıp belge indiren web botu arıyorsanız.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Birim fiyat analizlerini bayındırlık pozlarına göre sıfırdan yazan yazılım istiyorsanız.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Yaklaşık maliyet ve rakip teklif tahminlerini girmeden sonuç bekliyorsanız.</span>
+          </li>
+        </ul>
+      </section>
+
+      {/* DETAYLI İÇERİK METNİ */}
+      <section class="prose prose-neutral max-w-none my-8 text-sm sm:text-base leading-relaxed text-neutral-700 space-y-4">
+        <h2 class="text-xl font-bold text-neutral-900">Karar Modelinin Metodolojisi ve Uygulama Alanları</h2>
+        <p>Kamu ihalelerinde teklif hazırlama süreci matematiksel bir optimizasyon gerektirir. Çok düşük teklif vermek aşırı düşük sorgulamasına takılarak elenme riskini doğururken, çok yüksek teklif vermek ihaleyi kaybettirir.</p>
+        <p>İhaleye Kaç TL Teklif Vermeliyim sistemi, Kamu İhale Kurumu sınır değer formüllerini ve yaklaşık maliyet katsayılarını simüle eder. Muhtemel rakip teklif dağılımlarına göre sınır değer eşiğini hesaplar.</p>
+        <p>Aşırı düşük sorgulama sınırının hemen üstünde kalarak ihaleyi kazanma ihtimalini en üst düzeye çıkaran optimize teklif tutarı belirlenir. İhale kârlılığı ve nakit akışı güvenceye alınır.</p>
+        <p>İhale teminat mektubu komisyonları, sözleşme damga vergisi ve KİK payı gibi zorunlu ihale maliyetleri teklif kârlılık cetveline doğrudan yansıtılır.</p>
+        <p>Geçmiş ihalelerdeki rakip tenzilat ortalamaları modele girilerek istatistiki kazanma ihtimali hesaplanır. Firmanın nakit akışına en uygun teklif tutarı tespit edilir.</p>
+        <p>İhale komisyonu tarafından açıklanan yaklaşık maliyet ile sınır değer arasındaki hassasiyet aralığı modellenerek teklif dosyasının risk derecesi puanlanır.</p>
+        <p>Kamu ihalelerinde yaklaşık maliyet tahmininin doğru modellenmesi, sınır değer katsayısı (R) üzerinden hesaplanan sınır değerin hangi aralığa oturacağını yüksek isabetle tahmin etmeyi sağlar. Müteahhit teklif zarfını bu veriye göre hazırlar.</p>
+        <p>Aşırı düşük teklif sorgulaması gelmesi durumunda analiz formatında malzeme, işçilik ve makine analizleri KİK tebliğ kurallarına göre hızlıca savunma dosyasına dönüştürülür.</p>
+        <p>Kamu ihalelerinde teklif hazırlama süreci matematiksel bir optimizasyon gerektirir. Çok düşük teklif vermek aşırı düşük sorgulamasına takılarak elenme riskini doğururken, çok yüksek teklif vermek ihaleyi kaybettirir. İhaleye Kaç TL Teklif Vermeliyim sistemi, Kamu İhale Kurumu sınır değer formüllerini ve yaklaşık maliyet katsayılarını simüle eder.</p>
+        <p>Aşırı düşük sorgulama sınırının hemen üstünde kalarak ihaleyi kazanma ihtimalini en üst düzeye çıkaran optimize teklif tutarı belirlenir. İhale kârlılığı ve nakit akışı güvenceye alınır. İhale teminat mektubu komisyonları, sözleşme damga vergisi ve KİK payı gibi zorunlu ihale maliyetleri teklif kârlılık cetveline doğrudan yansıtılır.</p>
+        <p>Geçmiş ihalelerdeki rakip tenzilat ortalamaları modele girilerek istatistiki kazanma ihtimali hesaplanır. Firmanın nakit akışına en uygun teklif tutarı tespit edilir. İhale komisyonu tarafından açıklanan yaklaşık maliyet ile sınır değer arasındaki hassasiyet aralığı modellenerek teklif dosyasının risk derecesi puanlanır.</p>
+        <p>Birim fiyat analizleri ve analiz girdi cetvelleri sayfası, aşırı düşük savunması istenmesi durumunda KİK mevzuatına uygun analiz formatında savunma dosyası hazırlanmasına olanak tanır.</p>
+        <p>Kamu ihalelerinde yaklaşık maliyet tahmininin doğru modellenmesi, sınır değer katsayısı (R) üzerinden hesaplanan sınır değerin hangi aralığa oturacağını yüksek isabetle tahmin etmeyi sağlar. Müteahhit teklif zarfını bu veriye göre hazırlar.</p>
+        <p>Aşırı düşük teklif sorgulaması gelmesi durumunda analiz formatında malzeme, işçilik ve makine analizleri KİK tebliğ kurallarına göre hızlıca savunma dosyasına dönüştürülür.</p>
+      </section>
+
+      {/* SSS */}
+      <section class="my-8" aria-label="Sık Sorulan Sorular">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Sık Sorulan Sorular</h2>
+        <div class="divide-y divide-neutral-200 border-y border-neutral-200">
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>KİK sınır değer katsayıları güncel mi?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Yapım işleri ve hizmet alımları için KİK tebliğlerindeki güncel R katsayıları tanımlıdır.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Rakip teklif simülasyonu nasıl çalışır?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Muhtemel rakip teklifleri girilerek sınır değerin hangi aralığa oturacağı test edilir.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Aşırı düşük sınırının hemen üstündeki teklif bulunur mu?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Sistem sorgulamaya kalmadan ihaleyi kazanabilecek en optimize fiyatı önerir.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Hizmet ve yapım ihaleleri için ayrı formüller var mı?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Evet, hizmet ve yapım işleri için farklı KİK sınır değer formülleri seçilebilir.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Kârlılık analizi içeriyor mu?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Teklif tutarınız ile tahmini imalat maliyetiniz arasındaki net kârı raporlar.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      {/* İLGİLİ KARARLAR */}
+      <section class="my-8 bg-neutral-50 border border-neutral-200 p-6" aria-label="İlgili Kararlar">
+        <h2 class="text-sm font-mono uppercase tracking-wider text-neutral-500 mb-3">İLGİLİ KARAR REHBERLERİ</h2>
+        <div class="flex flex-wrap gap-3 text-xs">
+          <a href="/karar/insaat-hakedis-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/insaat-hakedis-excel →
+          </a>
+          <a href="/karar/sube-karlilik-analizi-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/sube-karlilik-analizi-excel →
+          </a>
+          <a href="/karar/kobi-nakit-akisi-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/kobi-nakit-akisi-excel →
+          </a>
+        </div>
+      </section>
+
+      {/* KAPANIŞ CTA */}
+      <footer class="my-10 text-center border-t border-neutral-200 pt-8">
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Doğru Excel karar altyapısını hemen kurun.</h3>
+        <p class="text-xs sm:text-sm text-neutral-600 mb-6">Açık formüllü, denetlenmiş ve kullanıma hazır sistemi anında indirin.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="/sablon/ihaleye-kac-tl-teklif-vermeliyim"
+            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
+          >
+            İhaleye Kaç TL Teklif Vermeliyim Sistemi İncele →
+          </a>
+          <a
+            href="/demo"
+            class="border border-neutral-300 bg-white hover:bg-neutral-100 text-neutral-800 font-semibold px-8 py-3 text-sm transition-colors"
+          >
+            Ücretsiz Demo İndir
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</CommerceLayout>

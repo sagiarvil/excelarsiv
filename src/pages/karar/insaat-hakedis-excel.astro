@@ -1,0 +1,280 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+
+const primarySlug = "insaat-hakedis-santiye-maliyet";
+const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
+const pageUrl = new URL('/karar/insaat-hakedis-excel', siteUrl).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageUrl}#breadcrumb`,
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': siteUrl },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Kararlar', 'item': new URL('/karar', siteUrl).href },
+        { '@type': 'ListItem', 'position': 3, 'name': "İnşaat hakediş ve şantiye maliyeti takip Excel'i", 'item': pageUrl }
+      ]
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      'mainEntity': [{"@type": "Question", "name": "Yeşil defter ve metraj sayfaları var mı?", "acceptedAnswer": {"@type": "Answer", "text": "Evet, standart imalat kalemleri için metraj giriş ve yeşil defter şablonları dahildir."}}, {"@type": "Question", "name": "Stopaj ve teminat kesintileri nasıl yapılır?", "acceptedAnswer": {"@type": "Answer", "text": "Yıllara sari inşaat stopajı ve nakit teminat kesintisi otomatik düşülür."}}, {"@type": "Question", "name": "Kümülatif hakediş takibi yapılabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Önceki hakediş toplamları düşülerek bu hakedişte ödenecek net tutar hesaplanır."}}, {"@type": "Question", "name": "Taşeron bazında ayrı icmal alınabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Demir, kalıp, sıva, mekanik gibi farklı taşeronlar için bağımsız hakediş sayfaları vardır."}}, {"@type": "Question", "name": "Kamu ihale sözleşmelerine uygun mu?", "acceptedAnswer": {"@type": "Answer", "text": "KİK ve Çevre Şehircilik Bakanlığı hakediş formatlarına uyarlanabilir yapıdadır."}}]
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${pageUrl}#itemlist`,
+      'name': "İnşaat hakediş ve şantiye maliyeti takip Excel'i",
+      'itemListElement': [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "İnşaat Hakediş ve Şantiye Maliyet Sistemi", "url": "https://excelarsiv.com/sablon/insaat-hakedis-santiye-maliyet", "offers": {"@type": "Offer", "price": 799, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "Hakediş Fiyat Farkı ve Hak Kaybı Cetveli", "url": "https://excelarsiv.com/sablon/hakedis-fiyat-farki-hak-kaybi-cetveli", "offers": {"@type": "Offer", "price": 499, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "Taşeron/Alt Yüklenici Hakediş & Kesinti Mutabakatı", "url": "https://excelarsiv.com/sablon/taseron-hakedis-kesinti-mutabakati", "offers": {"@type": "Offer", "price": 799, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}]
+    }
+  ]
+};
+---
+
+<CommerceLayout
+  title="İnşaat Hakediş Takip Excel Şablonu | Excel Arşiv"
+  description="Müteahhit ve taşeronlar için yeşil defter, hakediş icmali, fiyat farkı ve şantiye maliyet kontrolü sağlayan profesyonel Excel hesaplama sistemi."
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={pageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <main class="mx-auto max-w-4xl px-4 py-12">
+    <nav class="text-xs text-neutral-500 mb-4 font-mono" aria-label="Breadcrumb">
+      <a href="/" class="hover:underline">Ana Sayfa</a> / <a href="/karar" class="hover:underline">Kararlar</a> / <span>insaat-hakedis-excel</span>
+    </nav>
+
+    <article>
+      <header class="border-b border-neutral-200 pb-4 mb-6">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight leading-tight">
+          İnşaat hakediş ve şantiye maliyeti takip Excel'i
+        </h1>
+        <div class="mt-3 flex items-center gap-3 text-xs text-neutral-500 font-mono">
+          <time datetime="2026-08-20">Son güncelleme: 2026-08-20</time>
+          <span>·</span>
+          <span>Excel Arşiv Finansal Denetim Masası</span>
+        </div>
+      </header>
+
+      {/* CEVAP BLOĞU (40-60 KELİME) */}
+      <div class="p-5 bg-emerald-50 border-l-4 border-emerald-800 my-6">
+        <p class="text-base text-emerald-950 font-medium leading-relaxed">
+          İnşaat projelerinde şantiye harcamalarını, taşeron ödemelerini ve hakediş kesintilerini yönetmek isteyen müteahhitler için İnşaat Hakediş ve Şantiye Maliyet Sistemi (799 TL, 16 sayfa) geliştirilmiştir. İmalat metrajlarını ve yasal stopaj kesintilerini düzenli hakediş raporuna dönüştürür ve kontrolü eksiksiz sağlar.
+        </p>
+      </div>
+
+      {/* KARAR TABLOSU */}
+      <section class="my-8" aria-label="Karar Tablosu">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Kullanım Durumuna Göre Sistem Karşılaştırması</h2>
+        <div class="overflow-x-auto border border-neutral-200">
+          <table class="w-full text-left text-sm divide-y divide-neutral-200">
+            <thead class="bg-neutral-100 text-xs font-mono uppercase text-neutral-700">
+              <tr>
+                <th class="p-3">Durumunuz</th>
+                <th class="p-3">Önerilen sistem</th>
+                <th class="p-3">Fiyat</th>
+                <th class="p-3">Neden</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-200 bg-white">
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Şantiye hakediş ve metraj icmali</td>
+                <td class="p-3 font-semibold text-emerald-800">İnşaat Hakediş ve Şantiye Maliyet</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">799 TL</td>
+                <td class="p-3 text-xs text-neutral-600">İmalat metrajları ve kesintiler sonrası net ödemeyi verir</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">TÜİK endeksli fiyat farkı hesabı</td>
+                <td class="p-3 font-semibold text-emerald-800">Hakediş Fiyat Farkı Cetveli</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">799 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Resmi endekslere göre hak edilen fiyat farkını hesaplar</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Taşeron avans ve ceza mutabakatı</td>
+                <td class="p-3 font-semibold text-emerald-800">Taşeron Hakediş Kesinti Mutabakatı</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">499 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Taşeron bazında kümülatif hak ediş ve kalan bakiyeyi tutar</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* BİRİNCİL ÖNERİ */}
+      <section class="my-8 border border-neutral-300 bg-neutral-50 p-6 sm:p-8" aria-label="Birincil Öneri">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">BİRİNCİL SİSTEM TAVSİYESİ</span>
+        <h2 class="text-2xl font-bold text-neutral-900 mt-2">İnşaat Hakediş ve Şantiye Maliyet Sistemi</h2>
+        <p class="text-sm text-neutral-700 mt-3 leading-relaxed">
+          Mevzuata ve sahaya tam uyumlu finansal karar sistemi.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-neutral-200">
+          <div>
+            <span class="text-2xl font-extrabold text-neutral-900 font-mono">799 TL</span>
+            <span class="block text-xs text-neutral-500 font-mono">KDV dahil · tek ödeme</span>
+          </div>
+          <a
+            href="/sablon/insaat-hakedis-santiye-maliyet"
+            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-3 text-sm transition-colors"
+          >
+            Sistemi İnceleyin →
+          </a>
+        </div>
+      </section>
+
+      {/* ALTERNATİFLER */}
+      <section class="my-8" aria-label="Alternatif Sistemler">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Alternatif Karar Seçenekleri</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="border border-neutral-200 p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900">
+              <a href="/sablon/hakedis-fiyat-farki-hak-kaybi-cetveli" class="hover:text-emerald-800 hover:underline">Hakediş Fiyat Farkı ve Hak Kaybı Cetveli</a>
+            </h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Kamu ve özel sektör fiyat farkı endekslerini hesaplamak için Fiyat Farkı Cetvelini seçin.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+              <span class="font-mono text-neutral-500">499 TL</span>
+              <a href="/sablon/hakedis-fiyat-farki-hak-kaybi-cetveli" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+            </div>
+          </div>
+          <div class="border border-neutral-200 p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900">
+              <a href="/sablon/taseron-hakedis-kesinti-mutabakati" class="hover:text-emerald-800 hover:underline">Taşeron/Alt Yüklenici Hakediş & Kesinti Mutabakatı</a>
+            </h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Taşeron avans ve teminat kesintilerini netleştirmek için Taşeron Mutabakat modelini kullanın.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+              <span class="font-mono text-neutral-500">799 TL</span>
+              <a href="/sablon/taseron-hakedis-kesinti-mutabakati" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DÜRÜST SINIR BLOĞU: BU SİSTEMİ ALMAYIN EĞER... */}
+      <section class="my-8 border-l-4 border-amber-600 bg-amber-50/50 p-6" aria-label="Dürüst Sınır">
+        <h2 class="text-lg font-bold text-neutral-900 mb-3">Bu sistemi almayın eğer…</h2>
+        <ul class="space-y-2 text-sm text-neutral-700">
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>BIM ve AutoCAD projelerini 3 boyutlu okuyan mimari yazılım arıyorsanız.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Şantiye işçilerine GPS ile puantaj basan mobil uygulama istiyorsanız.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Metraj ve pursantaj verilerini girmeden hakediş üretmek istiyorsanız.</span>
+          </li>
+        </ul>
+      </section>
+
+      {/* DETAYLI İÇERİK METNİ */}
+      <section class="prose prose-neutral max-w-none my-8 text-sm sm:text-base leading-relaxed text-neutral-700 space-y-4">
+        <h2 class="text-xl font-bold text-neutral-900">Karar Modelinin Metodolojisi ve Uygulama Alanları</h2>
+        <p>İnşaat ve taahhüt projelerinde şantiye harcamalarının ve taşeron hakedişlerinin denetlenmesi proje kârlılığını belirleyen temel unsurdur. Yapılmayan imalatların hakedişe yazılması veya avans kesintilerinin unutulması projeleri zarara sürükler.</p>
+        <p>İnşaat Hakediş Sistemi, yeşil defter ve metraj cetvellerini doğrudan hakediş icmaline bağlar. İmalat pursantajları, ihzarat, fiyat farkı, stopaj ve teminat kesintileri yasal kurallara uygun olarak düşülür.</p>
+        <p>Şantiye malzeme alımları ve makine yakıt giderleri proje maliyet kodlarına bağlanarak bütçelenen metraj maliyetleri ile gerçekleşen faturalar arasındaki sapmalar düzenli raporlanır.</p>
+        <p>Taşeron mutabakat sayfaları, her taşeronun kümülatif hak edişini, ödenen avansları ve kalan kesin teminat bakiyelerini şeffaf şekilde tutarak iş teslimindeki anlaşmazlıkları önler.</p>
+        <p>Proje nakit akışı ve hak ediş tahsilat takvimi eşleştirilerek malzeme tedarikçilerine yapılacak ödemeler finansman krizine yol açmadan planlanır.</p>
+        <p>Resmi kamu ihaleleri için TÜİK girdi endeksleri üzerinden hesaplanan fiyat farkı cetveli, hakediş dosyasına otomatik eklenerek idareden hak kaybı yaşanmadan ödeme alınmasını sağlar.</p>
+        <p>Şantiye maliyet kontrolünde yeşil defter ve ataşman kayıtlarının hakediş raporlarına günü gününe bağlanması, proje bitiminde taşeronlarla yaşanacak hukuki ihtilafları kökünden çözer. İmalat metrajları şeffafça onaylanır.</p>
+        <p>Proje bazında gerçekleşen malzeme, işçilik ve taşeron harcamaları bütçelenen birim fiyatlarla kıyaslanarak hangi imalat kaleminde maliyet aşımı yaşandığı anında tespit edilir.</p>
+        <p>İnşaat ve taahhüt projelerinde kârlılığın korunması, şantiye harcamalarının ve taşeron hakedişlerinin kuruşu kuruşuna denetlenmesine bağlıdır. Yapılmayan imalatların hakedişe yazılması veya avans kesintilerinin unutulması projeleri zarara sürükler. Yeşil defter ve metraj cetvelleri doğrudan hakediş icmaline bağlanarak imalat pursantajları şeffafça hesaplanır.</p>
+        <p>Resmi kamu ihaleleri için TÜİK girdi endeksleri üzerinden hesaplanan fiyat farkı cetveli, hakediş dosyasına otomatik eklenerek idareden hak kaybı yaşanmadan ödeme alınmasını sağlar. Yıllara sari inşaat stopajı, nakit teminat ve nefaset kesintileri mevzuata tam uyumlu olarak düşülür.</p>
+        <p>Taşeron mutabakat sayfaları, her taşeronun kümülatif hak edişini, ödenen avansları ve kalan kesin teminat bakiyelerini şeffaf şekilde tutarak iş teslimindeki anlaşmazlıkları önler. Şantiye bütçesinin gerçekleşme oranları düzenli raporlanır.</p>
+        <p>Şantiye malzeme alımları ve makine yakıt giderleri proje maliyet kodlarına bağlanarak bütçelenen metraj maliyetleri ile gerçekleşen faturalar arasındaki sapmalar düzenli raporlanır. Proje nakit akışı ve hak ediş tahsilat takvimi eşleştirilerek malzeme tedarikçilerine yapılacak ödemeler finansman krizine yol açmadan planlanır.</p>
+        <p>Şantiye maliyet kontrolünde yeşil defter ve ataşman kayıtlarının hakediş raporlarına günü gününe bağlanması, proje bitiminde taşeronlarla yaşanacak hukuki ihtilafları kökünden çözer. İmalat metrajları şeffafça onaylanır.</p>
+        <p>Proje bazında gerçekleşen malzeme, işçilik ve taşeron harcamaları bütçelenen birim fiyatlarla kıyaslanarak hangi imalat kaleminde maliyet aşımı yaşandığı anında tespit edilir.</p>
+      </section>
+
+      {/* SSS */}
+      <section class="my-8" aria-label="Sık Sorulan Sorular">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Sık Sorulan Sorular</h2>
+        <div class="divide-y divide-neutral-200 border-y border-neutral-200">
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Yeşil defter ve metraj sayfaları var mı?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Evet, standart imalat kalemleri için metraj giriş ve yeşil defter şablonları dahildir.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Stopaj ve teminat kesintileri nasıl yapılır?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Yıllara sari inşaat stopajı ve nakit teminat kesintisi otomatik düşülür.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Kümülatif hakediş takibi yapılabilir mi?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Önceki hakediş toplamları düşülerek bu hakedişte ödenecek net tutar hesaplanır.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Taşeron bazında ayrı icmal alınabilir mi?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Demir, kalıp, sıva, mekanik gibi farklı taşeronlar için bağımsız hakediş sayfaları vardır.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Kamu ihale sözleşmelerine uygun mu?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              KİK ve Çevre Şehircilik Bakanlığı hakediş formatlarına uyarlanabilir yapıdadır.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      {/* İLGİLİ KARARLAR */}
+      <section class="my-8 bg-neutral-50 border border-neutral-200 p-6" aria-label="İlgili Kararlar">
+        <h2 class="text-sm font-mono uppercase tracking-wider text-neutral-500 mb-3">İLGİLİ KARAR REHBERLERİ</h2>
+        <div class="flex flex-wrap gap-3 text-xs">
+          <a href="/karar/ihale-teklif-sinir-deger-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/ihale-teklif-sinir-deger-excel →
+          </a>
+          <a href="/karar/kobi-nakit-akisi-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/kobi-nakit-akisi-excel →
+          </a>
+          <a href="/karar/mali-musavir-cari-takip-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/mali-musavir-cari-takip-excel →
+          </a>
+        </div>
+      </section>
+
+      {/* KAPANIŞ CTA */}
+      <footer class="my-10 text-center border-t border-neutral-200 pt-8">
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Doğru Excel karar altyapısını hemen kurun.</h3>
+        <p class="text-xs sm:text-sm text-neutral-600 mb-6">Açık formüllü, denetlenmiş ve kullanıma hazır sistemi anında indirin.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="/sablon/insaat-hakedis-santiye-maliyet"
+            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
+          >
+            İnşaat Hakediş ve Şantiye Maliyet Sistemi İncele →
+          </a>
+          <a
+            href="/demo"
+            class="border border-neutral-300 bg-white hover:bg-neutral-100 text-neutral-800 font-semibold px-8 py-3 text-sm transition-colors"
+          >
+            Ücretsiz Demo İndir
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</CommerceLayout>

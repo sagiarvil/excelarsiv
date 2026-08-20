@@ -153,6 +153,7 @@ const KIND_RANK = {
   sektor: 2,
   kategori: 3,
   rehber: 4,
+  karsilastirma: 4.5,
   hesaplayici: 5,
   guven: 6,
   diger: 7,
@@ -163,6 +164,7 @@ const KIND_RANK = {
 function pageKind(pathname) {
   if (pathname === '/') return 'home';
   if (pathname.startsWith('/sablon/')) return 'urun';
+  if (pathname.startsWith('/karsilastir/')) return 'karsilastirma';
   if (pathname === '/demo' || pathname.startsWith('/demo/')) return 'demo';
   if (pathname.startsWith('/sektor/')) return 'sektor';
   if (pathname === '/sablonlar' || pathname.startsWith('/sablonlar/')) return 'kategori';
@@ -229,6 +231,7 @@ function buildLlmsShort(indexablePages, templateRecords) {
   const guides = pagesOf(indexablePages, 'rehber');
   const calculators = pagesOf(indexablePages, 'hesaplayici');
   const trust = pagesOf(indexablePages, 'guven');
+  const karsilastirmalar = pagesOf(indexablePages, 'karsilastirma');
   const other = pagesOf(indexablePages, 'diger');
   const products = pagesOf(indexablePages, 'urun');
   const lastUpdated = latestContentDate(indexablePages, templateRecords);
@@ -260,6 +263,7 @@ function buildLlmsShort(indexablePages, templateRecords) {
   appendPageSection(lines, 'Katalog ve kategoriler', categories);
   appendPageSection(lines, 'Uygulama rehberleri', guides);
   appendPageSection(lines, 'Ücretsiz hesaplayıcılar', calculators);
+  appendPageSection(lines, 'Karşılaştırmalar', karsilastirmalar);
   appendPageSection(lines, 'Güven, yasal ve uzmanlık', trust);
   appendPageSection(lines, 'Diğer public sayfalar', other);
 

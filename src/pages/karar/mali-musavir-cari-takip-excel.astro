@@ -1,0 +1,277 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+
+const primarySlug = "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi";
+const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
+const pageUrl = new URL('/karar/mali-musavir-cari-takip-excel', siteUrl).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageUrl}#breadcrumb`,
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': siteUrl },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Kararlar', 'item': new URL('/karar', siteUrl).href },
+        { '@type': 'ListItem', 'position': 3, 'name': "Mali müşavir için cari takip Excel'i: Müşteri risk yönetimi", 'item': pageUrl }
+      ]
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      'mainEntity': [{"@type": "Question", "name": "Yaşlandırma dilimleri nasıl belirlenir?", "acceptedAnswer": {"@type": "Answer", "text": "0-30, 31-60, 61-90 ve 90+ gün vadeli standart yaşlandırma matrisi üzerinden otomatik hesaplanır."}}, {"@type": "Question", "name": "Müşteri bazında kredi limiti tanımlanabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Evet, her müşteri kartında risk limiti belirlenebilir ve limit aşıldığında uyarı verilir."}}, {"@type": "Question", "name": "Dövizli cari hesaplar desteklenir mi?", "acceptedAnswer": {"@type": "Answer", "text": "TL ve yabancı para cinsinden borç-alacak hareketleri ayrı sütunlarda takip edilir."}}, {"@type": "Question", "name": "Mutabakat mektubu çıktısı alınabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Standart cari bakiye mutabakat formatında yazdırma alanı mevcuttur."}}, {"@type": "Question", "name": "Logo ve diğer ERP sistemlerinden aktarım yapılabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Excel mizan ve muavin dökümleri kopyalanarak sisteme kolayca entegre edilir."}}]
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${pageUrl}#itemlist`,
+      'name': "Mali müşavir için cari takip Excel'i: Müşteri risk yönetimi",
+      'itemListElement': [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi", "url": "https://excelarsiv.com/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi", "offers": {"@type": "Offer", "price": 799, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "Cari ve Ba-Bs Toplu Mutabakat Motoru", "url": "https://excelarsiv.com/sablon/cari-ba-bs-toplu-mutabakat", "offers": {"@type": "Offer", "price": 499, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "Çek–Senet ve Vade Risk Sistemi", "url": "https://excelarsiv.com/sablon/cek-senet-ve-vade-risk-sistemi", "offers": {"@type": "Offer", "price": 799, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}]
+    }
+  ]
+};
+---
+
+<CommerceLayout
+  title="Mali Müşavir Cari Takip Excel Şablonu | Excel Arşiv"
+  description="Mali müşavirler ve muhasebeciler için cari hesap, müşteri risk ve yaşlandırma Excel sistemi: Vadesi geçen alacakları ve riskleri hatasız yönetin."
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={pageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <main class="mx-auto max-w-4xl px-4 py-12">
+    <nav class="text-xs text-neutral-500 mb-4 font-mono" aria-label="Breadcrumb">
+      <a href="/" class="hover:underline">Ana Sayfa</a> / <a href="/karar" class="hover:underline">Kararlar</a> / <span>mali-musavir-cari-takip-excel</span>
+    </nav>
+
+    <article>
+      <header class="border-b border-neutral-200 pb-4 mb-6">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight leading-tight">
+          Mali müşavir için cari takip Excel'i: Müşteri risk yönetimi
+        </h1>
+        <div class="mt-3 flex items-center gap-3 text-xs text-neutral-500 font-mono">
+          <time datetime="2026-08-20">Son güncelleme: 2026-08-20</time>
+          <span>·</span>
+          <span>Excel Arşiv Finansal Denetim Masası</span>
+        </div>
+      </header>
+
+      {/* CEVAP BLOĞU (40-60 KELİME) */}
+      <div class="p-5 bg-emerald-50 border-l-4 border-emerald-800 my-6">
+        <p class="text-base text-emerald-950 font-medium leading-relaxed">
+          Müşteri bakiyelerini ve vadesi geçen alacakları kontrol etmek isteyen mali müşavirler için Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi (799 TL, 16 sayfa) en uygun çözümdür. 30-60-90 gün vadeli yaşlandırma yapar, tahsilat gecikmelerini ve müşteri bazlı risk limitlerini raporlar.
+        </p>
+      </div>
+
+      {/* KARAR TABLOSU */}
+      <section class="my-8" aria-label="Karar Tablosu">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Kullanım Durumuna Göre Sistem Karşılaştırması</h2>
+        <div class="overflow-x-auto border border-neutral-200">
+          <table class="w-full text-left text-sm divide-y divide-neutral-200">
+            <thead class="bg-neutral-100 text-xs font-mono uppercase text-neutral-700">
+              <tr>
+                <th class="p-3">Durumunuz</th>
+                <th class="p-3">Önerilen sistem</th>
+                <th class="p-3">Fiyat</th>
+                <th class="p-3">Neden</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-200 bg-white">
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Cari yaşlandırma ve risk puanı</td>
+                <td class="p-3 font-semibold text-emerald-800">Cari Hesap. Tahsilat ve Müşteri Risk Takip Sistemi</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">799 TL</td>
+                <td class="p-3 text-xs text-neutral-600">30-60-90 gün vade dilimlerine göre alacakları gruplar</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Ba-Bs toplu mutabakat kontrolü</td>
+                <td class="p-3 font-semibold text-emerald-800">Cari Ba-Bs Toplu Mutabakat</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">499 TL</td>
+                <td class="p-3 text-xs text-neutral-600">GİB sınırlarına göre fatura adet ve tutar farkını bulur</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Çek-senet portföy risk analizi</td>
+                <td class="p-3 font-semibold text-emerald-800">Çek–Senet ve Vade Risk Sistemi</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">799 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Karşılıksız çek riskini ve banka teminatlarını takip eder</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* BİRİNCİL ÖNERİ */}
+      <section class="my-8 border border-neutral-300 bg-neutral-50 p-6 sm:p-8" aria-label="Birincil Öneri">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">BİRİNCİL SİSTEM TAVSİYESİ</span>
+        <h2 class="text-2xl font-bold text-neutral-900 mt-2">Cari Hesap. Tahsilat ve Müşteri Risk Takip Sistemi</h2>
+        <p class="text-sm text-neutral-700 mt-3 leading-relaxed">
+          Mevzuata ve sahaya tam uyumlu finansal karar sistemi.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-neutral-200">
+          <div>
+            <span class="text-2xl font-extrabold text-neutral-900 font-mono">799 TL</span>
+            <span class="block text-xs text-neutral-500 font-mono">KDV dahil · tek ödeme</span>
+          </div>
+          <a
+            href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi"
+            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-3 text-sm transition-colors"
+          >
+            Sistemi İnceleyin →
+          </a>
+        </div>
+      </section>
+
+      {/* ALTERNATİFLER */}
+      <section class="my-8" aria-label="Alternatif Sistemler">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Alternatif Karar Seçenekleri</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="border border-neutral-200 p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900">
+              <a href="/sablon/cari-ba-bs-toplu-mutabakat" class="hover:text-emerald-800 hover:underline">Cari ve Ba-Bs Toplu Mutabakat Motoru</a>
+            </h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Ba-Bs mutabakat listelerini otomatik karşılaştırmak için Cari Ba-Bs Mutabakat modelini seçin.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+              <span class="font-mono text-neutral-500">499 TL</span>
+              <a href="/sablon/cari-ba-bs-toplu-mutabakat" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+            </div>
+          </div>
+          <div class="border border-neutral-200 p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900">
+              <a href="/sablon/cek-senet-ve-vade-risk-sistemi" class="hover:text-emerald-800 hover:underline">Çek–Senet ve Vade Risk Sistemi</a>
+            </h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Vadeli çek ve senetlerin tahsilat takvimini izlemek için Çek-Senet Risk sistemini kullanın.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+              <span class="font-mono text-neutral-500">799 TL</span>
+              <a href="/sablon/cek-senet-ve-vade-risk-sistemi" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DÜRÜST SINIR BLOĞU: BU SİSTEMİ ALMAYIN EĞER... */}
+      <section class="my-8 border-l-4 border-amber-600 bg-amber-50/50 p-6" aria-label="Dürüst Sınır">
+        <h2 class="text-lg font-bold text-neutral-900 mb-3">Bu sistemi almayın eğer…</h2>
+        <ul class="space-y-2 text-sm text-neutral-700">
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>E-fatura entegratörüne doğrudan bağlı bulut ön muhasebe yazılımı arıyorsanız.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Otomatik SMS ve e-posta ihtarname gönderen CRM motoru istiyorsanız.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Müşteri cari ekstrelerini elle girmek yerine otomatik banka çekimi bekliyorsanız.</span>
+          </li>
+        </ul>
+      </section>
+
+      {/* DETAYLI İÇERİK METNİ */}
+      <section class="prose prose-neutral max-w-none my-8 text-sm sm:text-base leading-relaxed text-neutral-700 space-y-4">
+        <h2 class="text-xl font-bold text-neutral-900">Karar Modelinin Metodolojisi ve Uygulama Alanları</h2>
+        <p>Mali müşavirlerin ve kurumsal muhasebe departmanlarının karşılaştığı en büyük risk, vadesi geçen müşteri alacaklarının yaşlandırma yapılmadan takip edilmesidir. Alacakların vadesi uzadıkça tahsil edilme olasılığı hızla düşer ve şüpheli ticari alacak karşılığı ayırma zorunluluğu doğar. Cari Yaşlandırma Sistemi, tüm müşteri hesaplarını 30, 60, 90 ve 90 üzeri gün dilimlerine göre anında gruplar.</p>
+        <p>Müşteri bazlı kredi limiti ve risk skoru mekanizması, borcunu düzenli ödemeyen müşterilere yeni vadeli satış yapılmasını engeller. Finans birimi ve satış ekibi arasındaki koordinasyon somut kurallara bağlanır.</p>
+        <p>Dövizli cari hesaplar için kur değerleme modülü, yabancı para alacak ve borçların değerleme tarihindeki kur farkı kâr veya zararını otomatik hesaplar. Dönem sonu mizan mutabakatları dakikalar içinde tamamlanır.</p>
+        <p>Otomatik mutabakat mektubu ve hesap ekstresi şablonları, müşterilere düzenli bakiye teyidi gönderilmesini sağlar. Hatalı fatura kayıtları veya eksik ödemeler erken aşamada çözüme kavuşturulur.</p>
+        <p>VUK 323 şüpheli ticari alacak karşılığı ayırma şartları modelde kontrol edilebilir. İcra veya dava aşamasına gelen alacaklar için ayrılacak karşılık tutarı ve vergi matrahına etkisi hesaplanır.</p>
+        <p>Toplu müşteri risk skoru dağılımı grafiği, şirketin toplam alacak portföyünün ne kadarının güvenli, ne kadarının ise kritik risk bandında olduğunu tek bakışta gösterir. Finansman yöneticisi faktoring veya teminat kararlarını bu tabloya göre alır.</p>
+        <p>Müşteri risk analizi raporları, satış ekibi ile muhasebe departmanı arasındaki bilgi kopukluğunu giderir. Hangi müşterinin risk sınırına ulaştığı ve tahsilat yapılmadan yeni sipariş verilmemesi gerektiği tek ekranda netleşir. Bu şeffaflık şirket alacaklarının kalitesini yükseltir.</p>
+        <p>Müşteri tahsilat performansının objektif kriterlerle ölçülmesi, şirketin nakit döngüsünü kısaltan en etkili yöntemdir. Cari takip sistemi, müşterilerin fatura ödeme disiplinini DSO (Günlük Satışların Tahsilat Süresi) metriğiyle hesaplar. Sektör ortalamasının üzerinde vade kullanan veya ödemelerini sürekli erteleyen cari hesaplar için risk katsayısı otomatik olarak yükseltilir ve yeni sipariş onaylarında finans onayı zorunlu tutulur.</p>
+        <p>Hukuki takip ve şüpheli alacak yönetim modülü, vadesi 90 günü aşan problemli alacaklar için avukat bildirim listeleri ve icra takip dosyası özetleri üretir. VUK 323 sayılı kanun uyarınca dava ve icra safhasına gelen alacaklar için ayrılması gereken karşılık tutarı ve bu karşılığın kurumlar vergisi matrahına etkisi hesaplanır.</p>
+        <p>Toplu cari bakiye mutabakatı ve e-posta bildirim sayfası, ay sonlarında tüm müşterilere standart formatta bakiye mutabakat mektupları gönderilmesini kolaylaştırır. Müşteriden gelen itirazlar ve fatura uyuşmazlıkları mutabakat tablosunda kayıt altına alınarak karşılıklı hesap farkları hızla çözülür.</p>
+        <p>Müşteri risk analizi raporları, satış ekibi ile muhasebe departmanı arasındaki bilgi kopukluğunu giderir. Hangi müşterinin risk sınırına ulaştığı ve tahsilat yapılmadan yeni sipariş verilmemesi gerektiği tek ekranda netleşir. Bu şeffaflık şirket alacaklarının kalitesini yükseltir.</p>
+      </section>
+
+      {/* SSS */}
+      <section class="my-8" aria-label="Sık Sorulan Sorular">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Sık Sorulan Sorular</h2>
+        <div class="divide-y divide-neutral-200 border-y border-neutral-200">
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Yaşlandırma dilimleri nasıl belirlenir?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              0-30, 31-60, 61-90 ve 90+ gün vadeli standart yaşlandırma matrisi üzerinden otomatik hesaplanır.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Müşteri bazında kredi limiti tanımlanabilir mi?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Evet, her müşteri kartında risk limiti belirlenebilir ve limit aşıldığında uyarı verilir.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Dövizli cari hesaplar desteklenir mi?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              TL ve yabancı para cinsinden borç-alacak hareketleri ayrı sütunlarda takip edilir.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Mutabakat mektubu çıktısı alınabilir mi?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Standart cari bakiye mutabakat formatında yazdırma alanı mevcuttur.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Logo ve diğer ERP sistemlerinden aktarım yapılabilir mi?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Excel mizan ve muavin dökümleri kopyalanarak sisteme kolayca entegre edilir.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      {/* İLGİLİ KARARLAR */}
+      <section class="my-8 bg-neutral-50 border border-neutral-200 p-6" aria-label="İlgili Kararlar">
+        <h2 class="text-sm font-mono uppercase tracking-wider text-neutral-500 mb-3">İLGİLİ KARAR REHBERLERİ</h2>
+        <div class="flex flex-wrap gap-3 text-xs">
+          <a href="/karar/kobi-nakit-akisi-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/kobi-nakit-akisi-excel →
+          </a>
+          <a href="/karar/logo-erp-cari-yaslandirma-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/logo-erp-cari-yaslandirma-excel →
+          </a>
+          <a href="/karar/doviz-acik-pozisyon-kur-riski-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/doviz-acik-pozisyon-kur-riski-excel →
+          </a>
+        </div>
+      </section>
+
+      {/* KAPANIŞ CTA */}
+      <footer class="my-10 text-center border-t border-neutral-200 pt-8">
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Doğru Excel karar altyapısını hemen kurun.</h3>
+        <p class="text-xs sm:text-sm text-neutral-600 mb-6">Açık formüllü, denetlenmiş ve kullanıma hazır sistemi anında indirin.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi"
+            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
+          >
+            Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi İncele →
+          </a>
+          <a
+            href="/demo"
+            class="border border-neutral-300 bg-white hover:bg-neutral-100 text-neutral-800 font-semibold px-8 py-3 text-sm transition-colors"
+          >
+            Ücretsiz Demo İndir
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</CommerceLayout>

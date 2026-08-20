@@ -77,6 +77,25 @@ const robots = await get(`${BASE}/robots.txt`);
 check(robots.status === 200, `robots.txt HTTP ${robots.status}`);
 check(robots.text.includes(`Sitemap: ${BASE}/sitemap.xml`), 'robots.txt sitemap.xml bildirmiyor');
 
+check(robots.text.includes('User-agent: OAI-SearchBot') && robots.text.includes('Allow: /'), 'robots.txt OAI-SearchBot için Allow / içermiyor');
+
+const aiTestUrls = ['/', '/sablonlar', '/rehber'];
+for (const url of aiTestUrls) {
+  const res = await get(`${BASE}${url}`);
+  check(res.status === 200, `AI representative URL HTTP ${res.status}: ${url}`);
+  if (res.status === 200) {
+    const robotsMeta = res.text.match(/<meta[^>]+name=["']robots["'][^>]*content=["']([^"']+)["']/i)?.[1] ?? '';
+    check(!robotsMeta.toLowerCase().includes('noindex'), `noindex AI representative URL: ${url}`);
+  }
+}
+
+const RETIRED_ROUTES = ['/excel-araclari', '/paketler'];
+for (const route of RETIRED_ROUTES) {
+  const res = await fetch(`${BASE}${route}`, { redirect: 'manual' });
+  check(res.status === 301 || res.status === 410, `Retired route ${route} returned ${res.status}. Must be 410 or 301.`);
+}
+
+
 const indexRes = await get(`${BASE}/sitemap.xml`);
 check(indexRes.status === 200, `sitemap.xml HTTP ${indexRes.status}`);
 check(indexRes.text.includes('<sitemapindex'), 'sitemap.xml sitemapindex köküne sahip değil');

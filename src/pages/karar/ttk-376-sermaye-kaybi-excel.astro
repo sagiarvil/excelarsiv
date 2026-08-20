@@ -1,0 +1,280 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+
+const primarySlug = "sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli";
+const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
+const pageUrl = new URL('/karar/ttk-376-sermaye-kaybi-excel', siteUrl).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageUrl}#breadcrumb`,
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': siteUrl },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Kararlar', 'item': new URL('/karar', siteUrl).href },
+        { '@type': 'ListItem', 'position': 3, 'name': "TTK 376 sermaye kaybı ve borca batıklık hesaplama Excel'i", 'item': pageUrl }
+      ]
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      'mainEntity': [{"@type": "Question", "name": "TTK 376/1, 376/2 ve 376/3 durumları nedir?", "acceptedAnswer": {"@type": "Answer", "text": "Sermaye ve kanuni yedeklerin 1/2'sinin kaybı (376/1), 2/3'ünün kaybı (376/2) ve borca batıklık (376/3) yasal durumlarıdır."}}, {"@type": "Question", "name": "Kur farkı zararları sermaye kaybından düşülebilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "6102 sayılı Kanun tebliğindeki henüz ifa edilmemiş yabancı para borç kur farkı muafiyeti formüllerde dikkate alınır."}}, {"@type": "Question", "name": "Sermaye tamamlama fonu nasıl hesaplanır?", "acceptedAnswer": {"@type": "Answer", "text": "Şirketi yasal sınıra çekmek için ortakların koyması gereken asgari nakit tutarını verir."}}, {"@type": "Question", "name": "Genel kurul çağrı zorunluluğu uyarısı var mı?", "acceptedAnswer": {"@type": "Answer", "text": "Özkaynak kaybı yasal eşiğe ulaştığında yönetim kurulunun alması gereken aksiyonları listeler."}}, {"@type": "Question", "name": "Bilanço ve mizan aktarımı nasıl yapılır?", "acceptedAnswer": {"@type": "Answer", "text": "Standart mizan kalemleri kopyalanarak bilanço özkaynak tablosu otomatik üretilir."}}]
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${pageUrl}#itemlist`,
+      'name': "TTK 376 sermaye kaybı ve borca batıklık hesaplama Excel'i",
+      'itemListElement': [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "Şirket Öz Kaynağı Eridi mi? TTK 376 Sermaye Tamamlama Cetveli", "url": "https://excelarsiv.com/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli", "offers": {"@type": "Offer", "price": 1499, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "Konkordato Nakit Akış Ön Projesi", "url": "https://excelarsiv.com/sablon/konkordato-nakit-akis-on-projesi", "offers": {"@type": "Offer", "price": 799, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "Döviz Açık Pozisyonu ve Kur Riski Stres Testi", "url": "https://excelarsiv.com/sablon/doviz-acik-pozisyonu-ve-kur-riski-stres-testi", "offers": {"@type": "Offer", "price": 999, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}]
+    }
+  ]
+};
+---
+
+<CommerceLayout
+  title="TTK 376 Sermaye Kaybı Excel Şablonu | Excel Arşiv"
+  description="Türk Ticaret Kanunu 376. madde kapsamında sermaye kaybı, borca batıklık cetveli ve sermaye tamamlama fonu hesaplayan mevzuat uyumlu Excel sistemi."
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={pageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <main class="mx-auto max-w-4xl px-4 py-12">
+    <nav class="text-xs text-neutral-500 mb-4 font-mono" aria-label="Breadcrumb">
+      <a href="/" class="hover:underline">Ana Sayfa</a> / <a href="/karar" class="hover:underline">Kararlar</a> / <span>ttk-376-sermaye-kaybi-excel</span>
+    </nav>
+
+    <article>
+      <header class="border-b border-neutral-200 pb-4 mb-6">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight leading-tight">
+          TTK 376 sermaye kaybı ve borca batıklık hesaplama Excel'i
+        </h1>
+        <div class="mt-3 flex items-center gap-3 text-xs text-neutral-500 font-mono">
+          <time datetime="2026-08-20">Son güncelleme: 2026-08-20</time>
+          <span>·</span>
+          <span>Excel Arşiv Finansal Denetim Masası</span>
+        </div>
+      </header>
+
+      {/* CEVAP BLOĞU (40-60 KELİME) */}
+      <div class="p-5 bg-emerald-50 border-l-4 border-emerald-800 my-6">
+        <p class="text-base text-emerald-950 font-medium leading-relaxed">
+          Şirket özkaynaklarının erimesi, sermaye kaybı ve borca batıklık durumunu denetlemek isteyen şirket yöneticileri için Şirket Öz Kaynağı Eridi mi? TTK 376 Sermaye Tamamlama Cetveli (1.499 TL, 18 sayfa) tasarlanmıştır. Bilanço kalemlerinden sermaye koruma oranını net olarak verir ve çözümleri sunar.
+        </p>
+      </div>
+
+      {/* KARAR TABLOSU */}
+      <section class="my-8" aria-label="Karar Tablosu">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Kullanım Durumuna Göre Sistem Karşılaştırması</h2>
+        <div class="overflow-x-auto border border-neutral-200">
+          <table class="w-full text-left text-sm divide-y divide-neutral-200">
+            <thead class="bg-neutral-100 text-xs font-mono uppercase text-neutral-700">
+              <tr>
+                <th class="p-3">Durumunuz</th>
+                <th class="p-3">Önerilen sistem</th>
+                <th class="p-3">Fiyat</th>
+                <th class="p-3">Neden</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-200 bg-white">
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">TTK 376 sermaye kaybı denetimi</td>
+                <td class="p-3 font-semibold text-emerald-800">TTK 376 Sermaye Tamamlama Cetveli</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">1.499 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Sermaye + kanuni yedek akçelerin korunma oranını verir</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Konkordato nakit akış ön projesi</td>
+                <td class="p-3 font-semibold text-emerald-800">Konkordato Nakit Akış Ön Projesi</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">2.490 TL</td>
+                <td class="p-3 text-xs text-neutral-600">İflas erteleme ve borç yapılandırma simülasyonu yapar</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Kur şoku ve özkaynak stres testi</td>
+                <td class="p-3 font-semibold text-emerald-800">Döviz Açık Pozisyonu ve Kur Riski</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">999 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Kur artışının bilanço özkaynağına etkisini hesaplar</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* BİRİNCİL ÖNERİ */}
+      <section class="my-8 border border-neutral-300 bg-neutral-50 p-6 sm:p-8" aria-label="Birincil Öneri">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">BİRİNCİL SİSTEM TAVSİYESİ</span>
+        <h2 class="text-2xl font-bold text-neutral-900 mt-2">Şirket Öz Kaynağı Eridi mi? TTK 376 Sermaye Tamamlama Cetveli</h2>
+        <p class="text-sm text-neutral-700 mt-3 leading-relaxed">
+          Mevzuata ve sahaya tam uyumlu finansal karar sistemi.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-neutral-200">
+          <div>
+            <span class="text-2xl font-extrabold text-neutral-900 font-mono">1.499 TL</span>
+            <span class="block text-xs text-neutral-500 font-mono">KDV dahil · tek ödeme</span>
+          </div>
+          <a
+            href="/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli"
+            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-3 text-sm transition-colors"
+          >
+            Sistemi İnceleyin →
+          </a>
+        </div>
+      </section>
+
+      {/* ALTERNATİFLER */}
+      <section class="my-8" aria-label="Alternatif Sistemler">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Alternatif Karar Seçenekleri</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="border border-neutral-200 p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900">
+              <a href="/sablon/konkordato-nakit-akis-on-projesi" class="hover:text-emerald-800 hover:underline">Konkordato Nakit Akış Ön Projesi</a>
+            </h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Mahkemeye sunulacak konkordato nakit akış ön projesi hazırlamak için Konkordato modelini seçin.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+              <span class="font-mono text-neutral-500">799 TL</span>
+              <a href="/sablon/konkordato-nakit-akis-on-projesi" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+            </div>
+          </div>
+          <div class="border border-neutral-200 p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900">
+              <a href="/sablon/doviz-acik-pozisyonu-ve-kur-riski-stres-testi" class="hover:text-emerald-800 hover:underline">Döviz Açık Pozisyonu ve Kur Riski Stres Testi</a>
+            </h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Döviz borçlarının özkaynak üzerindeki kur baskısını ölçmek için Kur Riski sistemini kullanın.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+              <span class="font-mono text-neutral-500">999 TL</span>
+              <a href="/sablon/doviz-acik-pozisyonu-ve-kur-riski-stres-testi" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DÜRÜST SINIR BLOĞU: BU SİSTEMİ ALMAYIN EĞER... */}
+      <section class="my-8 border-l-4 border-amber-600 bg-amber-50/50 p-6" aria-label="Dürüst Sınır">
+        <h2 class="text-lg font-bold text-neutral-900 mb-3">Bu sistemi almayın eğer…</h2>
+        <ul class="space-y-2 text-sm text-neutral-700">
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Yeminli mali müşavir veya bağımsız denetçi resmi mühür ve imza raporu istiyorsanız.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Ticaret sicil gazetesine otomatik tescil ilanı gönderen platform arıyorsanız.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Şirketin güncel bilanço ve mizan verilerini modele girmek istemiyorsanız.</span>
+          </li>
+        </ul>
+      </section>
+
+      {/* DETAYLI İÇERİK METNİ */}
+      <section class="prose prose-neutral max-w-none my-8 text-sm sm:text-base leading-relaxed text-neutral-700 space-y-4">
+        <h2 class="text-xl font-bold text-neutral-900">Karar Modelinin Metodolojisi ve Uygulama Alanları</h2>
+        <p>Türk Ticaret Kanunu 376. maddesi, şirket yönetim kurullarına sermaye kaybı ve borca batıklık durumunda ağır yasal sorumluluklar yükler. Sermaye ve yedek akçelerin karşılıksız kalması halinde acil genel kurul çağrısı zorunludur.</p>
+        <p>TTK 376 Cetveli, şirketin bilanço kalemlerini yasal tebliğ standartlarıyla analiz eder. Yabancı para borçlardan doğan kur farkı zararlarının hesaplama dışı bırakılması opsiyonunu mevzuata uygun şekilde uygular.</p>
+        <p>Sermaye koruma oranını kuruşu kuruşuna belirler ve şirketin borca batıklıktan çıkması için gereken asgari sermaye artırımı veya sermaye tamamlama fonu tutarını hesaplar.</p>
+        <p>Ortaklar kuruluna sunulacak resmi durum tespit raporu ve iyileştirme tedbirleri tablosu, yasal denetimlerde şirket yöneticilerini hukuki güvence altına alır.</p>
+        <p>Ara dönem bilançoları üzerinden yapılan projeksiyonlar, yıl sonu kapanışında şirketin hangi hukuki statüde yer alacağını önceden gösterir.</p>
+        <p>Bağımsız denetim standartlarına uygun borca batıklık ara bilançosu tablosu, aktiflerin olası tasfiye değerleri üzerinden şirketin borçlarını karşılama gücünü matematiksel olarak belgeler.</p>
+        <p>Sermaye kaybı ve borca batıklık hesaplamalarında tebliğde tanınan kur farkı zararlarının hesaplama dışı bırakılması imkanı şirketleri gereksiz sermaye artırımı yapmaktan veya tasfiye riskinden korur.</p>
+        <p>Ortaklar kuruluna sunulacak TTK 376 durum raporu, şirketin yasal durumunu ve sermaye tamamlama fonu ihtiyacını net bir şekilde ortaya koyarak yöneticilerin hukuki sorumluluğunu güvenceye alır.</p>
+        <p>Türk Ticaret Kanunu 376. maddesi, şirket yönetim kurullarına sermaye kaybı ve borca batıklık durumunda ağır yasal sorumluluklar yükler. Sermaye ve yedek akçelerin karşılıksız kalması halinde acil genel kurul çağrısı zorunludur. TTK 376 Cetveli, şirketin bilanço kalemlerini yasal tebliğ standartlarıyla analiz eder.</p>
+        <p>Yabancı para borçlardan doğan kur farkı zararlarının hesaplama dışı bırakılması opsiyonunu mevzuata uygun şekilde uygular. Sermaye koruma oranını kuruşu kuruşuna belirler ve şirketin borca batıklıktan çıkması için gereken asgari sermaye artırımı veya sermaye tamamlama fonu tutarını hesaplar.</p>
+        <p>Ortaklar kuruluna sunulacak resmi durum tespit raporu ve iyileştirme tedbirleri tablosu, yasal denetimlerde şirket yöneticilerini hukuki güvence altına alır. Ara dönem bilançoları üzerinden yapılan projeksiyonlar, yıl sonu kapanışında şirketin hangi hukuki statüde yer alacağını önceden gösterir.</p>
+        <p>Bağımsız denetim standartlarına uygun borca batıklık ara bilançosu tablosu, aktiflerin olası tasfiye değerleri üzerinden şirketin borçlarını karşılama gücünü matematiksel olarak belgeler.</p>
+        <p>Sermaye kaybı ve borca batıklık hesaplamalarında tebliğde tanınan kur farkı zararlarının hesaplama dışı bırakılması imkanı şirketleri gereksiz sermaye artırımı yapmaktan veya tasfiye riskinden korur.</p>
+        <p>Ortaklar kuruluna sunulacak TTK 376 durum raporu, şirketin yasal durumunu ve sermaye tamamlama fonu ihtiyacını net bir şekilde ortaya koyarak yöneticilerin hukuki sorumluluğunu güvenceye alır.</p>
+      </section>
+
+      {/* SSS */}
+      <section class="my-8" aria-label="Sık Sorulan Sorular">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Sık Sorulan Sorular</h2>
+        <div class="divide-y divide-neutral-200 border-y border-neutral-200">
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>TTK 376/1, 376/2 ve 376/3 durumları nedir?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Sermaye ve kanuni yedeklerin 1/2'sinin kaybı (376/1), 2/3'ünün kaybı (376/2) ve borca batıklık (376/3) yasal durumlarıdır.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Kur farkı zararları sermaye kaybından düşülebilir mi?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              6102 sayılı Kanun tebliğindeki henüz ifa edilmemiş yabancı para borç kur farkı muafiyeti formüllerde dikkate alınır.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Sermaye tamamlama fonu nasıl hesaplanır?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Şirketi yasal sınıra çekmek için ortakların koyması gereken asgari nakit tutarını verir.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Genel kurul çağrı zorunluluğu uyarısı var mı?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Özkaynak kaybı yasal eşiğe ulaştığında yönetim kurulunun alması gereken aksiyonları listeler.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Bilanço ve mizan aktarımı nasıl yapılır?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Standart mizan kalemleri kopyalanarak bilanço özkaynak tablosu otomatik üretilir.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      {/* İLGİLİ KARARLAR */}
+      <section class="my-8 bg-neutral-50 border border-neutral-200 p-6" aria-label="İlgili Kararlar">
+        <h2 class="text-sm font-mono uppercase tracking-wider text-neutral-500 mb-3">İLGİLİ KARAR REHBERLERİ</h2>
+        <div class="flex flex-wrap gap-3 text-xs">
+          <a href="/karar/mali-musavir-cari-takip-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/mali-musavir-cari-takip-excel →
+          </a>
+          <a href="/karar/doviz-acik-pozisyon-kur-riski-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/doviz-acik-pozisyon-kur-riski-excel →
+          </a>
+          <a href="/karar/sube-karlilik-analizi-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/sube-karlilik-analizi-excel →
+          </a>
+        </div>
+      </section>
+
+      {/* KAPANIŞ CTA */}
+      <footer class="my-10 text-center border-t border-neutral-200 pt-8">
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Doğru Excel karar altyapısını hemen kurun.</h3>
+        <p class="text-xs sm:text-sm text-neutral-600 mb-6">Açık formüllü, denetlenmiş ve kullanıma hazır sistemi anında indirin.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli"
+            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
+          >
+            Şirket Öz Kaynağı Eridi mi? TTK 376 Sermaye Tamamlama Cetveli İncele →
+          </a>
+          <a
+            href="/demo"
+            class="border border-neutral-300 bg-white hover:bg-neutral-100 text-neutral-800 font-semibold px-8 py-3 text-sm transition-colors"
+          >
+            Ücretsiz Demo İndir
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</CommerceLayout>

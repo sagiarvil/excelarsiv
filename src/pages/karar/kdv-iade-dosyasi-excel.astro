@@ -1,0 +1,279 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+
+const primarySlug = "kdv-iade-listesi-robotu-gib7";
+const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
+const pageUrl = new URL('/karar/kdv-iade-dosyasi-excel', siteUrl).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageUrl}#breadcrumb`,
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': siteUrl },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Kararlar', 'item': new URL('/karar', siteUrl).href },
+        { '@type': 'ListItem', 'position': 3, 'name': "KDV iade listesi hazırlama Excel'i: GİB 7 liste robotu", 'item': pageUrl }
+      ]
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      'mainEntity': [{"@type": "Question", "name": "GİB İnternet Vergi Dairesi şablonlarıyla uyumlu mu?", "acceptedAnswer": {"@type": "Answer", "text": "Evet, GİB'in talep ettiği sütun sıralaması, tarih ve VKN formatına birebir uyumludur."}}, {"@type": "Question", "name": "Mükerrer fatura kontrolü yapıyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Aynı fatura numarası ve VKN kombinasyonu mükerrer girildiğinde uyarı verir."}}, {"@type": "Question", "name": "İhracat istisnası KDV iadesi için uygun mu?", "acceptedAnswer": {"@type": "Answer", "text": "Tam istisna kapsamındaki ihracat teslimleri ve ihraç kayıtlı satışlar için uygundur."}}, {"@type": "Question", "name": "Yüklenilen KDV dağıtım anahtarı içeriyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Girdilerin üretim ve satış paylarına göre yüklenim dağıtımını formüllerle otomatik yapar."}}, {"@type": "Question", "name": "Büyük fatura listelerinde performans sorunu yaşanır mı?", "acceptedAnswer": {"@type": "Answer", "text": "Makrosuz hafif formül mimarisi sayesinde uzun listelerde hızlı çalışır."}}]
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${pageUrl}#itemlist`,
+      'name': "KDV iade listesi hazırlama Excel'i: GİB 7 liste robotu",
+      'itemListElement': [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "KDV İade Listesi Robotu GİB 7", "url": "https://excelarsiv.com/sablon/kdv-iade-listesi-robotu-gib7", "offers": {"@type": "Offer", "price": 799, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "KDV İadesi Azami Alacak Hesabı & Dosya Hazırlayıcı", "url": "https://excelarsiv.com/sablon/kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici", "offers": {"@type": "Offer", "price": 1499, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "KDV Tevkifat Mahsup ve KDV İade Listesi", "url": "https://excelarsiv.com/sablon/kdv-tevkifat-mahsup-iade-listesi", "offers": {"@type": "Offer", "price": 799, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}]
+    }
+  ]
+};
+---
+
+<CommerceLayout
+  title="KDV İade Listesi Hazırlama Excel | Excel Arşiv"
+  description="GİB internet vergi dairesi formatında indirilecek KDV, yüklenilen KDV ve satış faturaları listelerini hatasız hazırlayan profesyonel Excel sistemi."
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={pageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <main class="mx-auto max-w-4xl px-4 py-12">
+    <nav class="text-xs text-neutral-500 mb-4 font-mono" aria-label="Breadcrumb">
+      <a href="/" class="hover:underline">Ana Sayfa</a> / <a href="/karar" class="hover:underline">Kararlar</a> / <span>kdv-iade-dosyasi-excel</span>
+    </nav>
+
+    <article>
+      <header class="border-b border-neutral-200 pb-4 mb-6">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight leading-tight">
+          KDV iade listesi hazırlama Excel'i: GİB 7 liste robotu
+        </h1>
+        <div class="mt-3 flex items-center gap-3 text-xs text-neutral-500 font-mono">
+          <time datetime="2026-08-20">Son güncelleme: 2026-08-20</time>
+          <span>·</span>
+          <span>Excel Arşiv Finansal Denetim Masası</span>
+        </div>
+      </header>
+
+      {/* CEVAP BLOĞU (40-60 KELİME) */}
+      <div class="p-5 bg-emerald-50 border-l-4 border-emerald-800 my-6">
+        <p class="text-base text-emerald-950 font-medium leading-relaxed">
+          GİB İnternet Vergi Dairesi standartlarına uygun KDV iade listesi hazırlamak isteyen mükellefler için KDV İade Listesi Robotu GİB 7 (799 TL, 15 sayfa) tasarlanmıştır. İndirilecek ve yüklenilen KDV listelerini formatlar, mükerrer fatura ve VKN hatalarını denetler ve listeleri hazırlar.
+        </p>
+      </div>
+
+      {/* KARAR TABLOSU */}
+      <section class="my-8" aria-label="Karar Tablosu">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Kullanım Durumuna Göre Sistem Karşılaştırması</h2>
+        <div class="overflow-x-auto border border-neutral-200">
+          <table class="w-full text-left text-sm divide-y divide-neutral-200">
+            <thead class="bg-neutral-100 text-xs font-mono uppercase text-neutral-700">
+              <tr>
+                <th class="p-3">Durumunuz</th>
+                <th class="p-3">Önerilen sistem</th>
+                <th class="p-3">Fiyat</th>
+                <th class="p-3">Neden</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-200 bg-white">
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">GİB 7 liste hazırlama robotu</td>
+                <td class="p-3 font-semibold text-emerald-800">KDV İade Listesi Robotu GİB 7</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">799 TL</td>
+                <td class="p-3 text-xs text-neutral-600">GİB yükleme şablonuna birebir uyumlu Excel listesi üretir</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Azami iade alacağı tavan hesabı</td>
+                <td class="p-3 font-semibold text-emerald-800">KDV İadesi Azami Alacak Hesabı</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">1.499 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Mevzuattaki azami iade tutarını ve sınırlarını denetler</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Tevkifat mahsup ve iade cetveli</td>
+                <td class="p-3 font-semibold text-emerald-800">KDV Tevkifat Mahsup İade Listesi</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">799 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Tevkifata tabi işlemlerde mahsup sürecini hızlandırır</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* BİRİNCİL ÖNERİ */}
+      <section class="my-8 border border-neutral-300 bg-neutral-50 p-6 sm:p-8" aria-label="Birincil Öneri">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">BİRİNCİL SİSTEM TAVSİYESİ</span>
+        <h2 class="text-2xl font-bold text-neutral-900 mt-2">KDV İade Listesi Robotu GİB 7</h2>
+        <p class="text-sm text-neutral-700 mt-3 leading-relaxed">
+          Mevzuata ve sahaya tam uyumlu finansal karar sistemi.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-neutral-200">
+          <div>
+            <span class="text-2xl font-extrabold text-neutral-900 font-mono">799 TL</span>
+            <span class="block text-xs text-neutral-500 font-mono">KDV dahil · tek ödeme</span>
+          </div>
+          <a
+            href="/sablon/kdv-iade-listesi-robotu-gib7"
+            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-3 text-sm transition-colors"
+          >
+            Sistemi İnceleyin →
+          </a>
+        </div>
+      </section>
+
+      {/* ALTERNATİFLER */}
+      <section class="my-8" aria-label="Alternatif Sistemler">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Alternatif Karar Seçenekleri</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="border border-neutral-200 p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900">
+              <a href="/sablon/kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici" class="hover:text-emerald-800 hover:underline">KDV İadesi Azami Alacak Hesabı & Dosya Hazırlayıcı</a>
+            </h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Azami talep edilebilir iade tavanını hesaplamak için KDV İadesi Azami Alacak modelini seçin.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+              <span class="font-mono text-neutral-500">1.499 TL</span>
+              <a href="/sablon/kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+            </div>
+          </div>
+          <div class="border border-neutral-200 p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900">
+              <a href="/sablon/kdv-tevkifat-mahsup-iade-listesi" class="hover:text-emerald-800 hover:underline">KDV Tevkifat Mahsup ve KDV İade Listesi</a>
+            </h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Kısmi tevkifattan doğan mahsup ve nakden iade için KDV Tevkifat Mahsup sistemini kullanın.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+              <span class="font-mono text-neutral-500">799 TL</span>
+              <a href="/sablon/kdv-tevkifat-mahsup-iade-listesi" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DÜRÜST SINIR BLOĞU: BU SİSTEMİ ALMAYIN EĞER... */}
+      <section class="my-8 border-l-4 border-amber-600 bg-amber-50/50 p-6" aria-label="Dürüst Sınır">
+        <h2 class="text-lg font-bold text-neutral-900 mb-3">Bu sistemi almayın eğer…</h2>
+        <ul class="space-y-2 text-sm text-neutral-700">
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>GİB sistemine doğrudan e-imza ile giriş yapıp otomatik XML yükleyen web botu arıyorsanız.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>YMM rapor metnini yapay zekâya otomatik yazdıran doküman robotu istiyorsanız.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Fatura listesini Excel'e aktarmadan sıfırdan otomatik fatura üretmek istiyorsanız.</span>
+          </li>
+        </ul>
+      </section>
+
+      {/* DETAYLI İÇERİK METNİ */}
+      <section class="prose prose-neutral max-w-none my-8 text-sm sm:text-base leading-relaxed text-neutral-700 space-y-4">
+        <h2 class="text-xl font-bold text-neutral-900">Karar Modelinin Metodolojisi ve Uygulama Alanları</h2>
+        <p>KDV iadesi dosyalarının vergi daireleri tarafından reddedilmesinin veya incelemeye sevk edilmesinin başlıca sebebi, yüklenen Excel listelerindeki biçimsel ve matematiksel tutarsızlıklardır. VKN hataları, mükerrer faturalar ve intaç tarihi uyuşmazlıkları süreci aylarca kilitler.</p>
+        <p>GİB 7 Liste Robotu, muhasebe kayıtlarından aktarılan indirilecek KDV, yüklenilen KDV, satış faturaları ve gümrük beyannameleri listelerini İnternet Vergi Dairesi yükleme şablonuna birebir uyumlu hale getirir. Tüm alanlar otomatik doğrulanır.</p>
+        <p>Yüklenilen KDV dağıtım anahtarı modülü, genel imalat ve yönetim giderlerinin ihracat veya indirimli oranlı teslimlere düşen payını yasal mevzuata tam uyumlu formüllerle dağıtır.</p>
+        <p>Karşıt inceleme ve mükellef risk denetim sayfaları, listedeki tedarikçilerin vergi uyum durumlarını ön kontrolden geçirerek YMM raporunun ve nakden iade talebinin hızla onaylanmasını sağlar.</p>
+        <p>Gümrük çıkış beyannamesi (GÇB) kapanış tarihleri ile fatura intaç tarihleri arasındaki uyum otomatik test edilir. İade talep dönemine ait olmayan teslimler listeden ayıklanır.</p>
+        <p>KDV iade kontrol raporu sayfası, vergi dairesi kontrol memurlarının en sık sorguladığı oran ve matrah tutarlılıklarını önceden denetleyerek dosyanın ilk seferde eksiksiz kabul edilmesini sağlar.</p>
+        <p>KDV iade listelerindeki fatura sıra ve seri numarası formatlarının GİB İnternet Vergi Dairesi sistemine tam uyumu, liste onay aşamasında oluşabilecek teknik yükleme hatalarını ortadan kaldırır. İndirilecek ve yüklenilen listeler dakikalar içinde hazır hale getirilir.</p>
+        <p>İade tutarının mahsuben elektrik, SGK ve vergi borçlarına aktarılması süreçlerinde vergi dairesinin talep edeceği mahsup talep dilekçesi ekleri mevzuat formatında otomatik doldurulur.</p>
+        <p>KDV iade taleplerinde vergi inceleme riskini en aza indirmek için yüklenim dağıtım anahtarlarının matematiksel ve mevzuatsal tutarlılığı eksiksiz kurulmalıdır. Üretim işletmelerinde doğrudan ilk madde ve malzeme giderleri ile genel üretim ve amortisman payları ihracat teslimlerine formüllerle paylaştırılır. Vergi müfettişlerinin talep edeceği tüm ara hesap tabloları şeffaf biçimde sunulur.</p>
+        <p>GİB İnternet Vergi Dairesi sistemine yüklenecek Excel dosyalarındaki mükerrer fatura, geçersiz vergi kimlik numarası, kapalı mükellef ve hatalı KDV oranı uyarıları dosya oluşturulurken anında yakalanır. Hatalı kayıtlar liste dışına alınarak vergi dairesi otomasyon sisteminin dosyayı ilk yüklemede kabul etmesi sağlanır.</p>
+        <p>Yeminli Mali Müşavir (YMM) KDV iadesi tasdik raporu çalışma kağıtları formatında hazırlanan özet tablolar, denetim sürecini hızlandırır. Mahsuben KDV iade talepleri ile nakden KDV iade talepleri arasındaki teminat mektubu ve YMM raporu gereksinimleri mevzuat kurallarına göre listelenir.</p>
+        <p>KDV iade listelerindeki fatura sıra ve seri numarası formatlarının GİB İnternet Vergi Dairesi sistemine tam uyumu, liste onay aşamasında oluşabilecek teknik yükleme hatalarını ortadan kaldırır. İndirilecek ve yüklenilen listeler dakikalar içinde hazır hale getirilir.</p>
+        <p>İade tutarının mahsuben elektrik, SGK ve vergi borçlarına aktarılması süreçlerinde vergi dairesinin talep edeceği mahsup talep dilekçesi ekleri mevzuat formatında otomatik doldurulur.</p>
+      </section>
+
+      {/* SSS */}
+      <section class="my-8" aria-label="Sık Sorulan Sorular">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Sık Sorulan Sorular</h2>
+        <div class="divide-y divide-neutral-200 border-y border-neutral-200">
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>GİB İnternet Vergi Dairesi şablonlarıyla uyumlu mu?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Evet, GİB'in talep ettiği sütun sıralaması, tarih ve VKN formatına birebir uyumludur.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Mükerrer fatura kontrolü yapıyor mu?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Aynı fatura numarası ve VKN kombinasyonu mükerrer girildiğinde uyarı verir.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>İhracat istisnası KDV iadesi için uygun mu?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Tam istisna kapsamındaki ihracat teslimleri ve ihraç kayıtlı satışlar için uygundur.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Yüklenilen KDV dağıtım anahtarı içeriyor mu?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Girdilerin üretim ve satış paylarına göre yüklenim dağıtımını formüllerle otomatik yapar.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Büyük fatura listelerinde performans sorunu yaşanır mı?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Makrosuz hafif formül mimarisi sayesinde uzun listelerde hızlı çalışır.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      {/* İLGİLİ KARARLAR */}
+      <section class="my-8 bg-neutral-50 border border-neutral-200 p-6" aria-label="İlgili Kararlar">
+        <h2 class="text-sm font-mono uppercase tracking-wider text-neutral-500 mb-3">İLGİLİ KARAR REHBERLERİ</h2>
+        <div class="flex flex-wrap gap-3 text-xs">
+          <a href="/karar/mali-musavir-cari-takip-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/mali-musavir-cari-takip-excel →
+          </a>
+          <a href="/karar/amortisman-yeniden-degerleme-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/amortisman-yeniden-degerleme-excel →
+          </a>
+          <a href="/karar/doviz-acik-pozisyon-kur-riski-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/doviz-acik-pozisyon-kur-riski-excel →
+          </a>
+        </div>
+      </section>
+
+      {/* KAPANIŞ CTA */}
+      <footer class="my-10 text-center border-t border-neutral-200 pt-8">
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Doğru Excel karar altyapısını hemen kurun.</h3>
+        <p class="text-xs sm:text-sm text-neutral-600 mb-6">Açık formüllü, denetlenmiş ve kullanıma hazır sistemi anında indirin.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="/sablon/kdv-iade-listesi-robotu-gib7"
+            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
+          >
+            KDV İade Listesi Robotu GİB 7 İncele →
+          </a>
+          <a
+            href="/demo"
+            class="border border-neutral-300 bg-white hover:bg-neutral-100 text-neutral-800 font-semibold px-8 py-3 text-sm transition-colors"
+          >
+            Ücretsiz Demo İndir
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</CommerceLayout>

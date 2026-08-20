@@ -1,0 +1,287 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+
+const primarySlug = "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi";
+const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
+const pageUrl = new URL('/karar/hangi-excel-sistemini-almaliyim', siteUrl).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageUrl}#breadcrumb`,
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': siteUrl },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Kararlar', 'item': new URL('/karar', siteUrl).href },
+        { '@type': 'ListItem', 'position': 3, 'name': "Hangi Excel sistemini almalıyım: İhtiyacınıza göre rehber", 'item': pageUrl }
+      ]
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      'mainEntity': [{"@type": "Question", "name": "Dosyalar makrosuz mu çalışıyor?", "acceptedAnswer": {"@type": "Answer", "text": "Evet, tüm karar modellerimiz tamamen açık formüllerle çalışır, makro veya gizli kod barındırmaz."}}, {"@type": "Question", "name": "İade ve destek süreci nasıl işler?", "acceptedAnswer": {"@type": "Answer", "text": "Dijital teslimat anında gerçekleşir, kurulum ve kullanım konusunda teknik rehberler her dosya içinde yer alır."}}, {"@type": "Question", "name": "Mac üzerinde Excel ile uyumlu mu?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft Excel 2016 ve üzeri Mac ve Windows sürümleriyle tam uyumlu çalışmaktadır."}}, {"@type": "Question", "name": "Kendi hesap planıma uyarlayabilir miyim?", "acceptedAnswer": {"@type": "Answer", "text": "Açık formül yapısı sayesinde sütun ve satırları işletmenizin mali kodlarına göre serbestçe genişletebilirsiniz."}}, {"@type": "Question", "name": "Tekil mi yoksa paket lisans mı almalıyım?", "acceptedAnswer": {"@type": "Answer", "text": "Birden fazla alanda ihtiyacınız varsa avantajlı paketleri tercih ederek tasarruf sağlayabilirsiniz."}}]
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${pageUrl}#itemlist`,
+      'name': "Hangi Excel sistemini almalıyım: İhtiyacınıza göre rehber",
+      'itemListElement': [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi", "url": "https://excelarsiv.com/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi", "offers": {"@type": "Offer", "price": 999, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi", "url": "https://excelarsiv.com/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi", "offers": {"@type": "Offer", "price": 499, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "Aylık Patron Finans Paneli", "url": "https://excelarsiv.com/sablon/aylik-patron-finans-paneli", "offers": {"@type": "Offer", "price": 999, "priceCurrency": "TRY", "availability": "https://schema.org/InStock"}}}]
+    }
+  ]
+};
+---
+
+<CommerceLayout
+  title="Hangi Excel Sistemini Almalıyım? | Excel Arşiv"
+  description="İşletmenizin nakit, bütçe, vergi ve kârlılık ihtiyacına göre hangi hazır Excel karar sistemini seçmeniz gerektiğini adım adım rehberimizle hemen öğrenin."
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={pageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <main class="mx-auto max-w-4xl px-4 py-12">
+    <nav class="text-xs text-neutral-500 mb-4 font-mono" aria-label="Breadcrumb">
+      <a href="/" class="hover:underline">Ana Sayfa</a> / <a href="/karar" class="hover:underline">Kararlar</a> / <span>hangi-excel-sistemini-almaliyim</span>
+    </nav>
+
+    <article>
+      <header class="border-b border-neutral-200 pb-4 mb-6">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight leading-tight">
+          Hangi Excel sistemini almalıyım: İhtiyacınıza göre rehber
+        </h1>
+        <div class="mt-3 flex items-center gap-3 text-xs text-neutral-500 font-mono">
+          <time datetime="2026-08-20">Son güncelleme: 2026-08-20</time>
+          <span>·</span>
+          <span>Excel Arşiv Finansal Denetim Masası</span>
+        </div>
+      </header>
+
+      {/* CEVAP BLOĞU (40-60 KELİME) */}
+      <div class="p-5 bg-emerald-50 border-l-4 border-emerald-800 my-6">
+        <p class="text-base text-emerald-950 font-medium leading-relaxed">
+          İşletmenizin öncelikli darboğazına göre doğru Excel sistemini seçmek nakit kaybını önler. Günlük kasa hareketleri için Akıllı Kasa Defteri, haftalık nakit planlaması için 13 Haftalık Nakit Akışı, KDV iade süreçleri için GİB 7 Robotu, şirket değer ve sermaye kontrolleri için TTK 376 Cetveli tercih edilmelidir.
+        </p>
+      </div>
+
+      {/* KARAR TABLOSU */}
+      <section class="my-8" aria-label="Karar Tablosu">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Kullanım Durumuna Göre Sistem Karşılaştırması</h2>
+        <div class="overflow-x-auto border border-neutral-200">
+          <table class="w-full text-left text-sm divide-y divide-neutral-200">
+            <thead class="bg-neutral-100 text-xs font-mono uppercase text-neutral-700">
+              <tr>
+                <th class="p-3">Durumunuz</th>
+                <th class="p-3">Önerilen sistem</th>
+                <th class="p-3">Fiyat</th>
+                <th class="p-3">Neden</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-200 bg-white">
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Günlük nakit ve kasa takibi</td>
+                <td class="p-3 font-semibold text-emerald-800">Akıllı Kasa Defteri ve Nakit Kontrol Sistemi</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">499 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Günlük fiili sayım ile bakiye farkını aynı anda gösterir</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">13 haftalık nakit projeksiyonu</td>
+                <td class="p-3 font-semibold text-emerald-800">13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">999 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Eksiye düşen haftayı ve ödeme önceliklerini raporlar</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Müşteri tahsilat ve yaşlandırma</td>
+                <td class="p-3 font-semibold text-emerald-800">Cari Hesap. Tahsilat ve Müşteri Risk Takip Sistemi</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">799 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Vadesi geçen alacakları ve risk limitlerini takip eder</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">KDV iade listesi hazırlama</td>
+                <td class="p-3 font-semibold text-emerald-800">KDV İade Listesi Robotu GİB 7</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">799 TL</td>
+                <td class="p-3 text-xs text-neutral-600">GİB formatında indirilecek ve yüklenilecek listeleri hazırlar</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-neutral-900">Şirket kârlılık ve patron paneli</td>
+                <td class="p-3 font-semibold text-emerald-800">Aylık Patron Finans Paneli</td>
+                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">999 TL</td>
+                <td class="p-3 text-xs text-neutral-600">Yöneticiye tek ekranda net kâr ve nakit pozisyonu verir</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* BİRİNCİL ÖNERİ */}
+      <section class="my-8 border border-neutral-300 bg-neutral-50 p-6 sm:p-8" aria-label="Birincil Öneri">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">BİRİNCİL SİSTEM TAVSİYESİ</span>
+        <h2 class="text-2xl font-bold text-neutral-900 mt-2">13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi</h2>
+        <p class="text-sm text-neutral-700 mt-3 leading-relaxed">
+          Mevzuata ve sahaya tam uyumlu finansal karar sistemi.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-neutral-200">
+          <div>
+            <span class="text-2xl font-extrabold text-neutral-900 font-mono">999 TL</span>
+            <span class="block text-xs text-neutral-500 font-mono">KDV dahil · tek ödeme</span>
+          </div>
+          <a
+            href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi"
+            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-3 text-sm transition-colors"
+          >
+            Sistemi İnceleyin →
+          </a>
+        </div>
+      </section>
+
+      {/* ALTERNATİFLER */}
+      <section class="my-8" aria-label="Alternatif Sistemler">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Alternatif Karar Seçenekleri</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="border border-neutral-200 p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900">
+              <a href="/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi" class="hover:text-emerald-800 hover:underline">Akıllı Kasa Defteri ve Nakit Kontrol Sistemi</a>
+            </h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Yalnızca günlük kasa ve banka giriş çıkışlarını tutmak istiyorsanız Akıllı Kasa Defteri daha pratiktir.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+              <span class="font-mono text-neutral-500">499 TL</span>
+              <a href="/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+            </div>
+          </div>
+          <div class="border border-neutral-200 p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900">
+              <a href="/sablon/aylik-patron-finans-paneli" class="hover:text-emerald-800 hover:underline">Aylık Patron Finans Paneli</a>
+            </h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Tüm departmanların ciro. kâr ve bilanço özetini tek tabloda görmek isteyen şirket sahipleri için Aylık Patron Paneli daha uygundur.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+              <span class="font-mono text-neutral-500">999 TL</span>
+              <a href="/sablon/aylik-patron-finans-paneli" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DÜRÜST SINIR BLOĞU: BU SİSTEMİ ALMAYIN EĞER... */}
+      <section class="my-8 border-l-4 border-amber-600 bg-amber-50/50 p-6" aria-label="Dürüst Sınır">
+        <h2 class="text-lg font-bold text-neutral-900 mb-3">Bu sistemi almayın eğer…</h2>
+        <ul class="space-y-2 text-sm text-neutral-700">
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Tek bir dosya ile tüm resmi defterleri ve yevmiye fişlerini otomatik tutmak istiyorsanız.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Çok kullanıcılı bulut ERP yazılımı arıyorsanız ve yerel Excel disiplini kurmak istemiyorsanız.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-amber-700 font-bold">✕</span>
+            <span>Veri girişi yapmadan yalnızca yapay zekânın otomatik veri çekmesini bekliyorsanız.</span>
+          </li>
+        </ul>
+      </section>
+
+      {/* DETAYLI İÇERİK METNİ */}
+      <section class="prose prose-neutral max-w-none my-8 text-sm sm:text-base leading-relaxed text-neutral-700 space-y-4">
+        <h2 class="text-xl font-bold text-neutral-900">Karar Modelinin Metodolojisi ve Uygulama Alanları</h2>
+        <p>Şirketlerin finansal operasyonlarında yaşadığı temel zorluk, doğru zamanda doğru analitik araca başvurmamaktır. Birçok işletme basit bir kasa hareketini takip etmek için karmaşık ERP modüllerine yüksek bütçeler ayırmakta veya tersine, nakit açığını basit bir not defteriyle yönetmeye çalışarak ödeme krizine girmektedir. Excel Arşiv karar modelleri, işletmelerin karşılaştığı temel operasyonel alanlarda geliştirilmiş, mevzuat ve pratik saha kurallarıyla test edilmiş analitik araçlar sunar.</p>
+        <p>Seçim yaparken ilk olarak şirketinizin mevcut aşamadaki en acil darboğazını belirlemeniz gerekir. Nakit sıkışıklığı yaşayan firmalar için 13 haftalık dinamik planlama ilk adımdır. Tahsilat gecikmeleri ve alacak riski taşıyan işletmeler için cari yaşlandırma ve risk puanlama sistemleri devreye alınmalıdır. Vergi ve denetim tarafında ise KDV iadesi, tevkifat ve Ba-Bs kontrolleri gibi yasal zorunluluklar gelir. Bu modeller, muhasebe personeli ve mali müşavirlerin günlerce süren kontrol işlemlerini dakikalara indirir.</p>
+        <p>İşletmenizin operasyonel hacmine göre tekil ürün veya paket seçimi yapmak maliyet avantajı sağlar. Örneğin tek bir şantiyenin hakedişini tutmak için inşaat hakediş dosyası yeterliyken, genel şirket finansmanını yönetmek isteyen KOBİ'ler için Kasa, Banka, Çek ve Bütçe modellerini içeren KOBİ Finans Paketi daha doğru bir yatırımdır. Her model birbirini tamamlayacak şekilde standart hücre ve formül disipliniyle inşa edilmiştir.</p>
+        <p>Finansal karar süreçlerinde güvenilirlik, modellerin şeffaf formül mimarisinden kaynaklanır. Karmaşık makrolar veya gizli yazılımlar yerine tamamen açık Excel formülleri kullanılır. Bu durum denetim firmaları ve mali müşavirlerin tüm hesaplama adımlarını adım adım doğrulamasına imkan tanır. Hata payı en aza indirilir.</p>
+        <p>Tüm modeller açık kaynak mantığıyla sunulur; hiçbir formül kilitli veya şifreli değildir. Doğru sistemi seçtikten sonra girdi disiplinini oturtmak kritik önem taşır. Renk kodlu hücre yapısı sayesinde veri giriş alanları ile hesaplama motoru birbirinden ayrılmıştır. Bu ayrım, formüllerin kazara bozulmasını önler ve yöneticilerin güvenle karar almasını sağlar. Şirketinizin büyüklüğüne göre tekil modellerden paket çözümlere geçiş yapabilirsiniz.</p>
+        <p>Finansal model seçimi yaparken şirketin işlem sıklığı ile raporlama periyodu arasındaki denge iyi kurgulanmalıdır. Günlük perakende satışı olan işletmeler için anlık kasa ve POS modelleri öncelik taşırken, proje bazlı çalışan taahhüt firmaları için hakediş ve sınır değer modelleri ön plana çıkar. Excel Arşiv sistemleri her sektörün kendine özgü operasyonel ritmine uyum sağlayacak esneklikte tasarlanmıştır.</p>
+        <p>Ayrıca paket sistem tercihi yapan işletmeler, kasa, nakit akışı, bütçe ve bilanço modelleri arasında standart veri akışı sağlayarak kurum içi finansal entegrasyonu en düşük maliyetle tamamlar. Açık formül mimarisi sayesinde tüm modeller birbirine formülle bağlanabilir.</p>
+        <p>Finansal model seçimi yaparken şirketin işlem sıklığı ile raporlama periyodu arasındaki denge iyi kurgulanmalıdır. Günlük perakende satışı olan işletmeler için anlık kasa ve POS modelleri öncelik taşırken, proje bazlı çalışan taahhüt firmaları için hakediş ve sınır değer modelleri ön plana çıkar. Excel Arşiv sistemleri her sektörün kendine özgü operasyonel ritmine uyum sağlayacak esneklikte tasarlanmıştır.</p>
+        <p>Ayrıca paket sistem tercihi yapan işletmeler, kasa, nakit akışı, bütçe ve bilanço modelleri arasında standart veri akışı sağlayarak kurum içi finansal entegrasyonu en düşük maliyetle tamamlar. Açık formül mimarisi sayesinde tüm modeller birbirine formülle bağlanabilir.</p>
+      </section>
+
+      {/* SSS */}
+      <section class="my-8" aria-label="Sık Sorulan Sorular">
+        <h2 class="text-xl font-bold text-neutral-900 mb-3">Sık Sorulan Sorular</h2>
+        <div class="divide-y divide-neutral-200 border-y border-neutral-200">
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Dosyalar makrosuz mu çalışıyor?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Evet, tüm karar modellerimiz tamamen açık formüllerle çalışır, makro veya gizli kod barındırmaz.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>İade ve destek süreci nasıl işler?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Dijital teslimat anında gerçekleşir, kurulum ve kullanım konusunda teknik rehberler her dosya içinde yer alır.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Mac üzerinde Excel ile uyumlu mu?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Microsoft Excel 2016 ve üzeri Mac ve Windows sürümleriyle tam uyumlu çalışmaktadır.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Kendi hesap planıma uyarlayabilir miyim?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Açık formül yapısı sayesinde sütun ve satırları işletmenizin mali kodlarına göre serbestçe genişletebilirsiniz.
+            </p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+              <span>Tekil mi yoksa paket lisans mı almalıyım?</span>
+              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+              Birden fazla alanda ihtiyacınız varsa avantajlı paketleri tercih ederek tasarruf sağlayabilirsiniz.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      {/* İLGİLİ KARARLAR */}
+      <section class="my-8 bg-neutral-50 border border-neutral-200 p-6" aria-label="İlgili Kararlar">
+        <h2 class="text-sm font-mono uppercase tracking-wider text-neutral-500 mb-3">İLGİLİ KARAR REHBERLERİ</h2>
+        <div class="flex flex-wrap gap-3 text-xs">
+          <a href="/karar/kobi-nakit-akisi-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/kobi-nakit-akisi-excel →
+          </a>
+          <a href="/karar/kasa-defteri-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/kasa-defteri-excel →
+          </a>
+          <a href="/karar/mali-musavir-cari-takip-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+            /karar/mali-musavir-cari-takip-excel →
+          </a>
+        </div>
+      </section>
+
+      {/* KAPANIŞ CTA */}
+      <footer class="my-10 text-center border-t border-neutral-200 pt-8">
+        <h3 class="text-xl font-bold text-neutral-900 mb-2">Doğru Excel karar altyapısını hemen kurun.</h3>
+        <p class="text-xs sm:text-sm text-neutral-600 mb-6">Açık formüllü, denetlenmiş ve kullanıma hazır sistemi anında indirin.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi"
+            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
+          >
+            13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi İncele →
+          </a>
+          <a
+            href="/demo"
+            class="border border-neutral-300 bg-white hover:bg-neutral-100 text-neutral-800 font-semibold px-8 py-3 text-sm transition-colors"
+          >
+            Ücretsiz Demo İndir
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</CommerceLayout>
