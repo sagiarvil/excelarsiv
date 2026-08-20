@@ -1,0 +1,17 @@
+{
+  "gate": "GATE-K5",
+  "period": "30_gunluk_geo_olcum",
+  "start_date": "2026-08-21",
+  "target_date": "2026-09-20",
+  "status": "BEKLEMEDE",
+  "karar_sayfalari_toplam": 18,
+  "metrikler": {
+    "google_sge_ve_ai_overviews_kaynak_gosterilme": null,
+    "chatgpt_search_ve_perplexity_alinti_sayisi": null,
+    "karar_sayfalari_toplam_organik_tiklama": null,
+    "karar_sayfalarindan_sablon_sayfasina_gecis_sayisi": null,
+    "karar_sayfasi_kaynakli_donusum_adedi": null,
+    "karar_sayfasi_kaynakli_ciro_tl": null
+  },
+  "hedef": "18 karar sayfasından en az 6'sının AI arama motorları veya organik aramalarda ilk 3'e girmesi."
+}

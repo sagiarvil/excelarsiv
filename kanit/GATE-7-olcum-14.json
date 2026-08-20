@@ -1,0 +1,21 @@
+{
+  "gate": "GATE-7",
+  "period": "14_gunluk_olcum",
+  "start_date": "2026-08-21",
+  "target_date": "2026-09-04",
+  "status": "BEKLEMEDE",
+  "metrikler": {
+    "organik_oturum_anasayfa": null,
+    "tekil_satis_adedi": null,
+    "paket_satis_adedi": null,
+    "kurumsal_teklif_formu_gonderim": null,
+    "toplam_ciro_tl": null,
+    "paket_click_orani": null,
+    "karar_sayfalari_organik_giris": null
+  },
+  "erken_uyari_esikleri": {
+    "organik_oturum_dusus_maks_yuzde": -15,
+    "tekil_satis_dusus_maks_yuzde": -25,
+    "hedef_paket_donusum_orani_yuzde": 3.0
+  }
+}
