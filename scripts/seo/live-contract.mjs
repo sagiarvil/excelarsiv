@@ -10,7 +10,10 @@ const RETRY = 6;
 const RETRY_DELAY_MS = 2000;
 const FUTURE_GRACE_MS = 5 * 60 * 1000;
 const TRANSIENT_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
-const RETIRED_ROUTES = ['/excel-araclari', '/paketler'];
+const RETIRED_ROUTES = new Map([
+  ['/excel-araclari', '/sablonlar'],
+  ['/paketler', '/sablon/kobi-finans-yonetim-paketi'],
+]);
 const COMPARISON_ROUTE = '/neden-excel-arsiv';
 
 const failures = [];
@@ -26,16 +29,17 @@ function errorLabel(error) {
   return String(error.cause?.code || error.code || error.message || 'fetch_failed');
 }
 
-async function get(url) {
+async function get(url, { redirect = 'follow' } = {}) {
   let lastError = '';
   for (let attempt = 1; attempt <= RETRY; attempt++) {
     const timeoutMs = attempt === RETRY ? 45_000 : 20_000;
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetch(url, { signal: controller.signal, redirect: 'follow' });
+      const res = await fetch(url, { signal: controller.signal, redirect });
       const payload = {
         status: res.status,
+        location: res.headers.get('location') ?? '',
         contentType: res.headers.get('content-type') ?? '',
         text: await res.text(),
         error: '',
@@ -47,13 +51,13 @@ async function get(url) {
       return payload;
     } catch (error) {
       lastError = errorLabel(error);
-      if (attempt === RETRY) return { status: 0, contentType: '', text: '', error: lastError };
+      if (attempt === RETRY) return { status: 0, location: '', contentType: '', text: '', error: lastError };
       await sleep(RETRY_DELAY_MS * attempt);
     } finally {
       clearTimeout(timer);
     }
   }
-  return { status: 0, contentType: '', text: '', error: lastError };
+  return { status: 0, location: '', contentType: '', text: '', error: lastError };
 }
 
 function check(ok, message) {
@@ -81,9 +85,12 @@ check(robots.status === 200, `robots.txt HTTP ${robots.status}`);
 check(robots.text.includes(`Sitemap: ${BASE}/sitemap.xml`), 'robots.txt sitemap.xml bildirmiyor');
 check(/User-agent:\s*OAI-SearchBot[\s\S]*?Allow:\s*\//i.test(robots.text), 'robots.txt OAI-SearchBot için Allow: / içermiyor');
 
-for (const route of RETIRED_ROUTES) {
-  const retired = await get(`${BASE}${route}`);
-  check(retired.status !== 200, `retired route indexable 200 dönüyor: ${route}`);
+for (const [route, destination] of RETIRED_ROUTES) {
+  const retired = await get(`${BASE}${route}`, { redirect: 'manual' });
+  check(retired.status === 301, `retired route 301 dönmüyor: ${route} (HTTP ${retired.status})`);
+  const expectedLocation = new URL(destination, BASE).href;
+  const actualLocation = retired.location ? new URL(retired.location, BASE).href : '';
+  check(actualLocation === expectedLocation, `retired route yanlış hedefe yönleniyor: ${route} -> ${retired.location || 'Location yok'}`);
 }
 
 const indexRes = await get(`${BASE}/sitemap.xml`);
@@ -132,7 +139,7 @@ for (const entry of indexEntries) {
 check(imageSitemapCount > 0, 'sitemap index içinde image sitemap child yok');
 check(allUrls.has(`${BASE}/`), 'homepage sitemap içinde yok');
 check(allUrls.has(`${BASE}${COMPARISON_ROUTE}`), 'karşılaştırma otorite sayfası sitemap içinde yok');
-for (const route of RETIRED_ROUTES) check(!allUrls.has(`${BASE}${route}`), `retired route sitemap içinde: ${route}`);
+for (const route of RETIRED_ROUTES.keys()) check(!allUrls.has(`${BASE}${route}`), `retired route sitemap içinde: ${route}`);
 
 const homepage = await get(`${BASE}/`);
 check(homepage.status === 200, `homepage HTTP ${homepage.status}`);
