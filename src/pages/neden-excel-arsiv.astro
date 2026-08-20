@@ -2,55 +2,91 @@
 import CommerceLayout from '../layouts/CommerceLayout.astro';
 import SectionLabel from '../components/SectionLabel.astro';
 import Button from '../components/Button.astro';
+
+const comparisonRows = [
+  ['Hazır iş akışı', 'Güçlü', 'Orta', 'Zayıf'],
+  ['Tekrarlanabilir süreç', 'Güçlü', 'Orta', 'Kullanıcının kurduğu yapıya bağlı'],
+  ['Serbest soru-cevap / fikir üretimi', 'Sınırlı', 'Güçlü', 'Sınırlı'],
+  ['Tamamen özel model kurma', 'Sınırlı', 'Destekleyici', 'Güçlü'],
+  ['Hazır girdi → çıktı disiplini', 'Güçlü', 'Prompt ve bağlama bağlı', 'Kullanıcının tasarımına bağlı'],
+  ['Satın almadan önce gerçek ürün ekranı', 'Var', 'Uygulanmaz', 'Uygulanmaz'],
+];
 ---
 
 <CommerceLayout
-  title="Neden Excel Arşiv? — Denetlenmiş Karar Sistemi"
-  description="Hazır Excel karar sistemi, serbest yapay zekâ kullanımı ve boş Excel yaklaşımı arasındaki farkı; denetim, iş akışı ve karar çıktısı açısından inceleyin."
+  title="ExcelArşiv vs ChatGPT vs Boş Excel | Neden Excel Arşiv?"
+  description="ExcelArşiv, ChatGPT ve boş Excel yaklaşımını kullanım amacı, tekrar edilebilirlik, özelleştirme, denetim ve karar desteği açısından tarafsız biçimde karşılaştırın."
 >
-  <section class="mx-auto max-w-3xl px-4 pb-24 pt-8">
-    <SectionLabel number={1} label="Moat" />
-    <h1 class="display mt-6">Yapay zekâ bedavaya şablon üretir. Biz karar sistemi satarız.</h1>
-    <p class="lead mt-6">
-      “Bana 13 haftalık nakit akışı yap” prompt’u bir tablo üretebilir. Excel Arşiv ürünü ise
-      girdi disiplini, denetlenebilir formül, senaryo/karar paneli ve satışa uygun rapor
-      katmanıyla işletmenin tekrar eden iş akışını standartlaştırmayı hedefler.
-    </p>
+  <main class="mx-auto max-w-5xl px-4 pb-24 pt-8">
+    <section class="max-w-3xl">
+      <SectionLabel number={1} label="Karşılaştırma" />
+      <h1 class="display mt-6">ExcelArşiv, ChatGPT ve boş Excel: hangi iş için hangisi doğru?</h1>
+      <p class="lead mt-6">
+        Üç yaklaşım birbirinin yerine geçmek zorunda değildir. Doğru seçim; işin tekrar sıklığına,
+        serbest analiz ihtiyacına ve hazır bir karar akışına ne kadar ihtiyaç duyduğunuza bağlıdır.
+      </p>
+    </section>
 
-    <div class="mt-12 space-y-10">
-      <section>
-        <h2 class="h3">1 · Denetim ve kanıt</h2>
-        <p class="body-sm mt-3">
-          Ürünler üretim mandası ve kapı testleriyle denetlenir. Formül teknolojisi bilinçli
-          olarak eski uyumluluk sınırlarında tutulur; rastgele XLOOKUP/LAMBDA yığını yoktur.
-        </p>
-      </section>
-      <section>
-        <h2 class="h3">2 · Mevzuat ve Türkiye iş dili</h2>
-        <p class="body-sm mt-3">
-          KDV, SGK, VUK, TTK ve saha diline uygun etiketler. Güncelleme politikası ürün
-          sayfasında yazılıdır; “bir kez üretildi ve unutuldu” modeli yoktur.
-        </p>
-      </section>
-      <section>
-        <h2 class="h3">3 · Karar çıktısı</h2>
-        <p class="body-sm mt-3">
-          Yönetici özeti, risk/güven göstergeleri ve aksiyon önerileri — ham hücre yığını değil.
-          Demo ile satın almadan önce gerçek ekranı görürsünüz.
-        </p>
-      </section>
-      <section>
-        <h2 class="h3">4 · Teslimat ve sorumluluk</h2>
-        <p class="body-sm mt-3">
-          Shopier ile ödeme, ExcelArşiv ile sunucu tarafı doğrulama, güvenli indirme ve yasal
-          metinler ürün teslimat sürecinin parçasıdır.
-        </p>
-      </section>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <Button href="/sablonlar">Şablonları incele</Button>
-        <Button href="/karsilastir/excelarsiv-vs-chatgpt-vs-bos-excel" variant="secondary">ExcelArşiv, ChatGPT ve boş Excel'i karşılaştır</Button>
-        <Button href="/hakkinda" variant="secondary">Yazarı tanı</Button>
+    <section class="mt-12" aria-labelledby="comparison-title">
+      <h2 id="comparison-title" class="h3">Kısa karşılaştırma</h2>
+      <div class="table-wrap mt-5">
+        <table>
+          <thead><tr><th>Kriter</th><th>ExcelArşiv</th><th>ChatGPT</th><th>Boş Excel</th></tr></thead>
+          <tbody>{comparisonRows.map((row) => <tr>{row.map((cell) => <td>{cell}</td>)}</tr>)}</tbody>
+        </table>
       </div>
+    </section>
+
+    <section class="comparison-cards mt-10" aria-label="Hangi durumda hangisi">
+      <article>
+        <h2>ExcelArşiv ne zaman daha uygundur?</h2>
+        <p>Aynı finans, muhasebe, operasyon veya kontrol işini tekrar tekrar yürütüyor; girdi alanları, hesap akışı ve karar çıktıları önceden kurgulanmış bir Excel sistemi istiyorsanız.</p>
+      </article>
+      <article>
+        <h2>ChatGPT ne zaman daha uygundur?</h2>
+        <p>Bir problemi keşfetmek, soru sormak, alternatif üretmek, metin veya ilk taslak hazırlamak ve sabit bir şablona bağlı kalmadan analiz yapmak istiyorsanız.</p>
+      </article>
+      <article>
+        <h2>Boş Excel ne zaman daha uygundur?</h2>
+        <p>İhtiyacınız çok basitse veya modeli, formülleri, kontrolleri ve raporlamayı tamamen kendiniz tasarlamak istiyorsanız boş çalışma kitabı en esnek başlangıçtır.</p>
+      </article>
+    </section>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="h3">ExcelArşiv neden ayrı bir kategori?</h2>
+      <div class="mt-6 space-y-8">
+        <section>
+          <h3 class="font-semibold">1 · Denetim ve kanıt</h3>
+          <p class="body-sm mt-3">Ürünler üretim mandası ve kapı testleriyle denetlenir. Amaç, rastgele hücre toplamı yerine tekrar kullanılabilir ve kontrol edilebilir bir çalışma akışı sunmaktır.</p>
+        </section>
+        <section>
+          <h3 class="font-semibold">2 · Mevzuat ve Türkiye iş dili</h3>
+          <p class="body-sm mt-3">KDV, SGK, VUK, TTK ve saha diline uygun etiketler kullanılır. Güncelleme politikası ürün sayfasında görünürdür.</p>
+        </section>
+        <section>
+          <h3 class="font-semibold">3 · Karar çıktısı</h3>
+          <p class="body-sm mt-3">Yönetici özeti, risk/güven göstergeleri ve aksiyon odaklı çıktılar hedeflenir. Demo ile satın almadan önce gerçek ekranlar incelenebilir.</p>
+        </section>
+        <section>
+          <h3 class="font-semibold">4 · Teslimat ve sorumluluk</h3>
+          <p class="body-sm mt-3">Ödeme, güvenli indirme, lisans ve yasal metinler ürün teslimat sürecinin parçasıdır.</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="decision mt-12 max-w-3xl">
+      <h2 class="h3">Pratik seçim kuralı</h2>
+      <p class="body-sm mt-3"><strong>Keşif ve serbest düşünme:</strong> ChatGPT. <strong>Tam özel model:</strong> boş Excel. <strong>Tekrarlanan ve tanımlı bir iş akışını hazır sistemle yürütme:</strong> ExcelArşiv.</p>
+      <p class="body-sm mt-3">ExcelArşiv’in iddiası “her durumda daha iyi” olmak değildir; belirli iş akışlarında kurulum ve standardizasyon yükünü azaltan hazır dijital Excel sistemleri sunmaktır.</p>
+    </section>
+
+    <div class="mt-10 flex flex-wrap gap-3">
+      <Button href="/sablonlar">Excel sistemlerini incele</Button>
+      <Button href="/hakkinda" variant="secondary">Yazarı tanı</Button>
     </div>
-  </section>
+  </main>
 </CommerceLayout>
+
+<style>
+  .table-wrap{overflow-x:auto;border:1px solid var(--xl-grid);border-radius:16px;background:#fff}table{width:100%;border-collapse:collapse;min-width:720px}th,td{padding:15px 16px;border-bottom:1px solid var(--xl-grid);text-align:left;font-size:13px;line-height:1.45}th{background:#f5f8f6;font-size:11px;letter-spacing:.03em}tbody tr:last-child td{border-bottom:0}.comparison-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.comparison-cards article,.decision{padding:24px;border:1px solid var(--xl-grid);border-radius:16px;background:#fff}.comparison-cards h2{margin:0 0 12px;font-family:var(--font-display);font-size:22px;letter-spacing:-.02em}.comparison-cards p{font-size:13px;line-height:1.7;color:#526158}.decision{background:#f6f8f7}@media(max-width:780px){.comparison-cards{grid-template-columns:1fr}}
+</style>

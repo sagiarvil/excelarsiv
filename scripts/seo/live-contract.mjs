@@ -11,6 +11,7 @@ const RETRY_DELAY_MS = 2000;
 const FUTURE_GRACE_MS = 5 * 60 * 1000;
 const TRANSIENT_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
 const RETIRED_ROUTES = ['/excel-araclari', '/paketler'];
+const COMPARISON_ROUTE = '/neden-excel-arsiv';
 
 const failures = [];
 let checks = 0;
@@ -130,11 +131,15 @@ for (const entry of indexEntries) {
 }
 check(imageSitemapCount > 0, 'sitemap index içinde image sitemap child yok');
 check(allUrls.has(`${BASE}/`), 'homepage sitemap içinde yok');
-check(allUrls.has(`${BASE}/karsilastir/excelarsiv-vs-chatgpt-vs-bos-excel`), 'karşılaştırma sayfası sitemap içinde yok');
+check(allUrls.has(`${BASE}${COMPARISON_ROUTE}`), 'karşılaştırma otorite sayfası sitemap içinde yok');
 for (const route of RETIRED_ROUTES) check(!allUrls.has(`${BASE}${route}`), `retired route sitemap içinde: ${route}`);
 
 const homepage = await get(`${BASE}/`);
 check(homepage.status === 200, `homepage HTTP ${homepage.status}`);
+
+const comparison = await get(`${BASE}${COMPARISON_ROUTE}`);
+check(comparison.status === 200, `karşılaştırma otorite sayfası HTTP ${comparison.status}`);
+check(comparison.text.includes('ExcelArşiv') && comparison.text.includes('ChatGPT') && comparison.text.includes('Boş Excel'), 'karşılaştırma otorite sayfası üç yaklaşımı birlikte açıklamıyor');
 
 for (const url of allUrls) {
   const res = await get(url);
