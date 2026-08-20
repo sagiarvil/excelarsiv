@@ -1,0 +1,54 @@
+[
+  {
+    "slug": "mali-musavir-vergi-paketi",
+    "ad": "Mali Müşavir Vergi Paketi",
+    "fiyat_tl": 3490,
+    "shopier_id": "49655001",
+    "icerik_slugs": [
+      "kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici",
+      "kdv-iade-listesi-robotu-gib7",
+      "kdv-tevkifat-mahsup-iade-listesi",
+      "cari-ba-bs-toplu-mutabakat",
+      "ymm-tasdik-kontrol-robotu"
+    ],
+    "aciklama": "KDV iadesi, tevkifat, Ba-Bs ve YMM kontrol süreçleri için 5 parçalı mevzuat ve denetim seti.",
+    "tekil_toplam_tl": 4595,
+    "toplam_sayfa_sayisi": 78,
+    "tasarruf_tl": 1105,
+    "urun_adedi": 5
+  },
+  {
+    "slug": "patron-karar-paketi",
+    "ad": "Patron Karar Paketi",
+    "fiyat_tl": 3490,
+    "shopier_id": "49655002",
+    "icerik_slugs": [
+      "aylik-patron-finans-paneli",
+      "sube-karlilik-ve-nakit-hesaplayici",
+      "proje-ve-is-bazinda-gercek-karlilik-sistemi",
+      "sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli"
+    ],
+    "aciklama": "Şirket sahibi ve genel müdürler için konsolide finans, şube/proje kârlılığı ve TTK 376 sermaye koruma karar seti.",
+    "tekil_toplam_tl": 4496,
+    "toplam_sayfa_sayisi": 72,
+    "tasarruf_tl": 1006,
+    "urun_adedi": 4
+  },
+  {
+    "slug": "nakit-kontrol-paketi",
+    "ad": "Nakit Kontrol Paketi",
+    "fiyat_tl": 2490,
+    "shopier_id": "49655003",
+    "icerik_slugs": [
+      "akilli-kasa-defteri-ve-nakit-kontrol-sistemi",
+      "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi",
+      "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi",
+      "cek-senet-ve-vade-risk-sistemi"
+    ],
+    "aciklama": "Günlük kasa hareketinden 13 haftalık nakit projeksiyonuna, cari riskten çek-senet vadelerine kadar tam nakit hakimiyeti.",
+    "tekil_toplam_tl": 3096,
+    "toplam_sayfa_sayisi": 80,
+    "tasarruf_tl": 606,
+    "urun_adedi": 4
+  }
+]

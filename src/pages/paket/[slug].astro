@@ -1,0 +1,152 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import { PAKETLER, type PaketItem } from '../../data/paketler';
+import { getCollection } from 'astro:content';
+
+export function getStaticPaths() {
+  return PAKETLER.map((paket) => ({
+    params: { slug: paket.slug },
+    props: { paket },
+  }));
+}
+
+interface Props {
+  paket: PaketItem;
+}
+
+const { paket } = Astro.props;
+const templates = await getCollection('templates');
+const templateMap = new Map(templates.map((t) => [t.id, t.data]));
+
+const icerikUrunleri = paket.icerik_slugs.map((slug) => {
+  const t = templateMap.get(slug);
+  return {
+    slug,
+    name: t?.name ?? slug,
+    summary: t?.summary ?? '',
+    priceTL: t?.priceTL ?? 0,
+    sheetCount: t?.sheetCount ?? 0,
+  };
+});
+---
+
+<CommerceLayout
+  title={`${paket.ad} — Excel Arşiv`}
+  description={`${paket.ad}: ${paket.urun_adedi} finansal karar sistemi tek pakette. ${paket.tasarruf_tl.toLocaleString('tr-TR')} TL indirimle hemen indirin.`}
+>
+  <main class="mx-auto max-w-4xl px-4 py-12">
+    <nav class="text-xs text-neutral-500 mb-6 font-mono">
+      <a href="/" class="hover:underline">Ana Sayfa</a> / <a href="/sablonlar" class="hover:underline">Paketler</a> / <span>{paket.ad}</span>
+    </nav>
+
+    <header class="border-b border-neutral-200 pb-8">
+      <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-1 mb-3 uppercase tracking-wider">
+        Avantajlı Karar Paketi · {paket.urun_adedi} Sistem Bir Arada
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight">
+        {paket.ad}
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-neutral-600 leading-relaxed">
+        {paket.aciklama}
+      </p>
+
+      <div class="mt-8 p-6 bg-neutral-50 border border-neutral-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <div class="flex items-baseline gap-3">
+            <span class="text-3xl font-extrabold text-neutral-900 font-mono">
+              {paket.fiyat_tl.toLocaleString('tr-TR')} TL
+            </span>
+            <span class="text-base text-neutral-400 line-through font-mono">
+              {paket.tekil_toplam_tl.toLocaleString('tr-TR')} TL
+            </span>
+          </div>
+          <div class="mt-1 flex items-center gap-2 text-xs">
+            <span class="text-emerald-700 font-semibold font-mono">
+              {paket.tasarruf_tl.toLocaleString('tr-TR')} TL Tasarruf
+            </span>
+            <span class="text-neutral-400">·</span>
+            <span class="text-neutral-600">KDV dahil · tek ödeme</span>
+          </div>
+        </div>
+
+        <a
+          href={`https://www.shopier.com/${paket.shopier_id}`}
+          class="w-full sm:w-auto text-center bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3.5 text-sm transition-colors duration-150"
+        >
+          Paketi Satın Al →
+        </a>
+      </div>
+    </header>
+
+    {/* Paket Özeti İstatistikleri */}
+    <section class="grid grid-cols-2 sm:grid-cols-4 gap-4 my-8" aria-label="Paket Özeti">
+      <div class="border border-neutral-200 p-4">
+        <span class="block text-xs text-neutral-500 font-mono uppercase">Sistem Sayısı</span>
+        <strong class="text-2xl font-bold text-neutral-900 font-mono">{paket.urun_adedi} Dosya</strong>
+      </div>
+      <div class="border border-neutral-200 p-4">
+        <span class="block text-xs text-neutral-500 font-mono uppercase">Toplam Sayfa</span>
+        <strong class="text-2xl font-bold text-neutral-900 font-mono">{paket.toplam_sayfa_sayisi} Sayfa</strong>
+      </div>
+      <div class="border border-neutral-200 p-4">
+        <span class="block text-xs text-neutral-500 font-mono uppercase">Tekil Toplam</span>
+        <strong class="text-2xl font-bold text-neutral-500 font-mono line-through">{paket.tekil_toplam_tl.toLocaleString('tr-TR')} TL</strong>
+      </div>
+      <div class="border border-emerald-300 bg-emerald-50/50 p-4">
+        <span class="block text-xs text-emerald-800 font-mono uppercase">Net Kazanç</span>
+        <strong class="text-2xl font-bold text-emerald-800 font-mono">%{Math.round((paket.tasarruf_tl / paket.tekil_toplam_tl) * 100)} İndirim</strong>
+      </div>
+    </section>
+
+    {/* Paket İçeriği Listesi */}
+    <section class="my-10" aria-label="Paket İçeriği">
+      <h2 class="text-xl font-bold text-neutral-900 mb-4">Paket İçeriğindeki Karar Sistemleri ({paket.urun_adedi})</h2>
+      <div class="divide-y divide-neutral-200 border border-neutral-200">
+        {icerikUrunleri.map((urun, index) => (
+          <article class="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-neutral-50 transition-colors">
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-mono text-neutral-400">0{index + 1}</span>
+                <h3 class="text-base font-bold text-neutral-900">
+                  <a href={`/sablon/${urun.slug}`} class="hover:text-emerald-800 hover:underline">
+                    {urun.name}
+                  </a>
+                </h3>
+              </div>
+              <p class="text-xs sm:text-sm text-neutral-600 line-clamp-2">
+                {urun.summary}
+              </p>
+              <div class="mt-2 flex items-center gap-4 text-xs font-mono text-neutral-500">
+                <span>{urun.sheetCount} Excel Sayfası</span>
+                <span>·</span>
+                <span>Açık Formül & Makrosuz</span>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="text-sm font-semibold font-mono text-neutral-700">
+                {urun.priceTL.toLocaleString('tr-TR')} TL
+              </span>
+              <span class="block text-[11px] text-neutral-400 font-mono">tekil liste fiyatı</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    {/* Güncelleme Politikası & Lisans */}
+    <section class="my-10 grid grid-cols-1 md:grid-cols-2 gap-6" aria-label="Politika ve Lisans">
+      <div class="border border-neutral-200 p-6">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-neutral-900 mb-2">Güncelleme Politikası</h3>
+        <p class="text-xs text-neutral-600 leading-relaxed">
+          Paket satın alım tarihinden itibaren <strong>12 ay boyunca</strong> mevzuat değişiklikleri, formül revizyonları ve şablon güncellemeleri kayıtlı e-posta adresinize ücretsiz olarak iletilir.
+        </p>
+      </div>
+      <div class="border border-neutral-200 p-6">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-neutral-900 mb-2">Ticari Lisans Kapsamı</h3>
+        <p class="text-xs text-neutral-600 leading-relaxed">
+          Paket içeriğindeki tüm sistemler tek ödemeyle süresiz kullanım hakkı sağlar. Ekip içi kullanım serbesttir; üçüncü taraflara yeniden satış veya dağıtım yapılamaz.
+        </p>
+      </div>
+    </section>
+  </main>
+</CommerceLayout>
