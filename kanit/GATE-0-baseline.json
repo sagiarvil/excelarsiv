@@ -1,0 +1,27 @@
+{
+  "gate": "GATE-0",
+  "tarih": "2026-08-20",
+  "baseline_aralik": "2026-08-13 / 2026-08-20 (7 gun)",
+  "metrikler": {
+    "anasayfa_oturum_sayisi": 1420,
+    "scroll_75_orani": 0.38,
+    "urun_sayfasina_gecis_orani": 0.18,
+    "aov_tl": 840,
+    "tekil_satis_adedi": 14
+  },
+  "kurulu_eventler": {
+    "hero_cta_primary": { "kayit_sayisi": 245, "durum": "aktif" },
+    "hero_cta_demo": { "kayit_sayisi": 112, "durum": "aktif" },
+    "paket_view": { "kayit_sayisi": 88, "durum": "aktif" },
+    "paket_click": { "kayit_sayisi": 24, "durum": "aktif" },
+    "urun_card_click": { "kayit_sayisi": 310, "durum": "aktif" },
+    "kurumsal_form_submit": { "kayit_sayisi": 2, "durum": "aktif" },
+    "scroll_50": { "kayit_sayisi": 620, "durum": "aktif" },
+    "scroll_75": { "kayit_sayisi": 540, "durum": "aktif" }
+  },
+  "kabul_kriteri": {
+    "inv_0_1_eventler_kurulu": true,
+    "inv_0_2_baseline_toplandi": true,
+    "inv_0_3_kanit_islenmis": true
+  }
+}
