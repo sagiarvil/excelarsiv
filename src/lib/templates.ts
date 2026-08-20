@@ -85,6 +85,8 @@ export async function getTemplateSearchIndex(): Promise<SearchItem[]> {
     url: t.url,
     kind: 'product',
     keywords: `${t.categorySlug} ${t.outputs?.join(' ') ?? ''}`,
+    priceTL: t.priceTL,
+    sheetCount: t.sheetCount,
   }));
   const categoryItems: SearchItem[] = categories.map((category) => ({
     name: `${category.name} Excel şablonları`,

@@ -5,6 +5,8 @@ export interface SearchItem {
   url: string;
   kind?: 'product' | 'category' | 'guide' | 'problem';
   keywords?: string;
+  priceTL?: number;
+  sheetCount?: number;
 }
 
 const normalize = (text: string): string => text.toLocaleLowerCase('tr-TR');
