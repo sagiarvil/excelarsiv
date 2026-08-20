@@ -216,75 +216,99 @@ const sektorler = [
   </section>
 
   {/* BÖLÜM 5: KARAR MOTORU / PROBLEM SEÇİCİ */}
-  <section id="karar-yardimi" class="border-b border-neutral-200 bg-neutral-50 py-16">
+  <section id="karar-yardimi" class="border-b border-neutral-200 bg-neutral-50 py-16 sm:py-20">
     <div class="site-container">
-      <div class="max-w-4xl mx-auto text-center">
-        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2.5 py-1">
+      <div class="max-w-5xl mx-auto text-center">
+        <span class="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-3 py-1.5 inline-block">
           KARAR MOTORU & REHBERLER
         </span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight mt-3">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral-900 tracking-tight mt-4 leading-tight">
           Hangi sistemi almanız gerektiğini bilmiyorsanız, sorunuzu seçin.
         </h2>
-        <p class="text-sm text-neutral-600 mt-3 max-w-2xl mx-auto">
+        <p class="text-base sm:text-lg text-neutral-600 mt-4 max-w-3xl mx-auto leading-relaxed">
           KOBİ nakit akışından vergi iadesine, şube kârlılığından personel tazminat yüküne kadar 18 satın alma sorusuna doğrudan yanıt veren karar rehberi.
         </p>
 
-        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-left">
-          <a href="/karar/hangi-excel-sistemini-almaliyim" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
-            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Hangi Excel Sistemini Almalıyım?</span>
-            <span class="text-[11px] text-neutral-500 mt-1 block">İhtiyaca göre seçim rehberi →</span>
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
+          <a href="/karar/hangi-excel-sistemini-almaliyim" class="bg-white border border-neutral-200 p-5 sm:p-6 hover:border-emerald-800 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <span class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-800 leading-snug block">Hangi Excel Sistemini Almalıyım?</span>
+              <span class="text-xs sm:text-sm text-neutral-500 mt-2 block group-hover:text-neutral-700">İhtiyaca göre seçim rehberi →</span>
+            </div>
           </a>
-          <a href="/karar/kobi-nakit-akisi-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
-            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">KOBİ Nakit Akışı ve Planlama</span>
-            <span class="text-[11px] text-neutral-500 mt-1 block">13 haftalık nakit modeli →</span>
+          <a href="/karar/kobi-nakit-akisi-excel" class="bg-white border border-neutral-200 p-5 sm:p-6 hover:border-emerald-800 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <span class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-800 leading-snug block">KOBİ Nakit Akışı ve Planlama</span>
+              <span class="text-xs sm:text-sm text-neutral-500 mt-2 block group-hover:text-neutral-700">13 haftalık nakit modeli →</span>
+            </div>
           </a>
-          <a href="/karar/kasa-defteri-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
-            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Günlük Kasa ve Sayım Farkı</span>
-            <span class="text-[11px] text-neutral-500 mt-1 block">Fiili sayım ve bakiye kontrolü →</span>
+          <a href="/karar/kasa-defteri-excel" class="bg-white border border-neutral-200 p-5 sm:p-6 hover:border-emerald-800 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <span class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-800 leading-snug block">Günlük Kasa ve Sayım Farkı</span>
+              <span class="text-xs sm:text-sm text-neutral-500 mt-2 block group-hover:text-neutral-700">Fiili sayım ve bakiye kontrolü →</span>
+            </div>
           </a>
-          <a href="/karar/mali-musavir-cari-takip-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
-            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Mali Müşavir Cari Yaşlandırma</span>
-            <span class="text-[11px] text-neutral-500 mt-1 block">30-60-90 gün vade takibi →</span>
+          <a href="/karar/mali-musavir-cari-takip-excel" class="bg-white border border-neutral-200 p-5 sm:p-6 hover:border-emerald-800 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <span class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-800 leading-snug block">Mali Müşavir Cari Yaşlandırma</span>
+              <span class="text-xs sm:text-sm text-neutral-500 mt-2 block group-hover:text-neutral-700">30-60-90 gün vade takibi →</span>
+            </div>
           </a>
-          <a href="/karar/pos-komisyon-kontrol-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
-            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">POS Komisyon ve Bloke Kontrolü</span>
-            <span class="text-[11px] text-neutral-500 mt-1 block">Net tahsilat ve kesinti hesabı →</span>
+          <a href="/karar/pos-komisyon-kontrol-excel" class="bg-white border border-neutral-200 p-5 sm:p-6 hover:border-emerald-800 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <span class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-800 leading-snug block">POS Komisyon ve Bloke Kontrolü</span>
+              <span class="text-xs sm:text-sm text-neutral-500 mt-2 block group-hover:text-neutral-700">Net tahsilat ve kesinti hesabı →</span>
+            </div>
           </a>
-          <a href="/karar/trendyol-pazaryeri-net-kar-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
-            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Trendyol Pazaryeri Net Kâr</span>
-            <span class="text-[11px] text-neutral-500 mt-1 block">Komisyon ve kargo sonrası marj →</span>
+          <a href="/karar/trendyol-pazaryeri-net-kar-excel" class="bg-white border border-neutral-200 p-5 sm:p-6 hover:border-emerald-800 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <span class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-800 leading-snug block">Trendyol Pazaryeri Net Kâr</span>
+              <span class="text-xs sm:text-sm text-neutral-500 mt-2 block group-hover:text-neutral-700">Komisyon ve kargo sonrası marj →</span>
+            </div>
           </a>
-          <a href="/karar/kdv-iade-dosyasi-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
-            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">KDV İade Listesi (GİB 7)</span>
-            <span class="text-[11px] text-neutral-500 mt-1 block">İndirilecek/yüklenilen KDV →</span>
+          <a href="/karar/kdv-iade-dosyasi-excel" class="bg-white border border-neutral-200 p-5 sm:p-6 hover:border-emerald-800 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <span class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-800 leading-snug block">KDV İade Listesi (GİB 7)</span>
+              <span class="text-xs sm:text-sm text-neutral-500 mt-2 block group-hover:text-neutral-700">İndirilecek/yüklenilen KDV →</span>
+            </div>
           </a>
-          <a href="/karar/sube-karlilik-analizi-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
-            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Şube Kârlılık ve Kapatma Eşiği</span>
-            <span class="text-[11px] text-neutral-500 mt-1 block">Başabaş noktası ve analiz →</span>
+          <a href="/karar/sube-karlilik-analizi-excel" class="bg-white border border-neutral-200 p-5 sm:p-6 hover:border-emerald-800 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <span class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-800 leading-snug block">Şube Kârlılık ve Kapatma Eşiği</span>
+              <span class="text-xs sm:text-sm text-neutral-500 mt-2 block group-hover:text-neutral-700">Başabaş noktası ve analiz →</span>
+            </div>
           </a>
-          <a href="/karar/ttk-376-sermaye-kaybi-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
-            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">TTK 376 Sermaye Kaybı</span>
-            <span class="text-[11px] text-neutral-500 mt-1 block">Borca batıklık ve tamamlama →</span>
+          <a href="/karar/ttk-376-sermaye-kaybi-excel" class="bg-white border border-neutral-200 p-5 sm:p-6 hover:border-emerald-800 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <span class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-800 leading-snug block">TTK 376 Sermaye Kaybı</span>
+              <span class="text-xs sm:text-sm text-neutral-500 mt-2 block group-hover:text-neutral-700">Borca batıklık ve tamamlama →</span>
+            </div>
           </a>
-          <a href="/karar/kidem-ihbar-maliyeti-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
-            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Kıdem ve İhbar Maliyeti</span>
-            <span class="text-[11px] text-neutral-500 mt-1 block">Personel çıkarma maliyet cetveli →</span>
+          <a href="/karar/kidem-ihbar-maliyeti-excel" class="bg-white border border-neutral-200 p-5 sm:p-6 hover:border-emerald-800 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <span class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-800 leading-snug block">Kıdem ve İhbar Maliyeti</span>
+              <span class="text-xs sm:text-sm text-neutral-500 mt-2 block group-hover:text-neutral-700">Personel çıkarma maliyet cetveli →</span>
+            </div>
           </a>
-          <a href="/karar/amortisman-yeniden-degerleme-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
-            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Amortisman & 2026 Değerleme</span>
-            <span class="text-[11px] text-neutral-500 mt-1 block">VUK 298/Ç vergi kalkanı →</span>
+          <a href="/karar/amortisman-yeniden-degerleme-excel" class="bg-white border border-neutral-200 p-5 sm:p-6 hover:border-emerald-800 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <span class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-800 leading-snug block">Amortisman & 2026 Değerleme</span>
+              <span class="text-xs sm:text-sm text-neutral-500 mt-2 block group-hover:text-neutral-700">VUK 298/Ç vergi kalkanı →</span>
+            </div>
           </a>
-          <a href="/karar/doviz-acik-pozisyon-kur-riski-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
-            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Döviz Açık Pozisyonu ve Kur Riski</span>
-            <span class="text-[11px] text-neutral-500 mt-1 block">Kur şoku ve nakit stres testi →</span>
+          <a href="/karar/doviz-acik-pozisyon-kur-riski-excel" class="bg-white border border-neutral-200 p-5 sm:p-6 hover:border-emerald-800 hover:shadow-md transition-all group flex flex-col justify-between">
+            <div>
+              <span class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-800 leading-snug block">Döviz Açık Pozisyonu ve Kur Riski</span>
+              <span class="text-xs sm:text-sm text-neutral-500 mt-2 block group-hover:text-neutral-700">Kur şoku ve nakit stres testi →</span>
+            </div>
           </a>
         </div>
 
-        <div class="mt-8 flex flex-wrap justify-center items-center gap-4 text-xs">
-          <a href="/karar" class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-2.5 transition-colors">
+        <div class="mt-10 flex flex-wrap justify-center items-center gap-4">
+          <a href="/karar" class="bg-emerald-800 hover:bg-emerald-900 text-white font-bold px-8 py-3.5 text-sm sm:text-base shadow-sm transition-all hover:shadow-md">
             Tüm 18 Karar Rehberini İnceleyin →
           </a>
-          <a href="/urun-bulucu" class="border border-neutral-300 bg-white px-5 py-2.5 font-medium text-neutral-800 hover:border-emerald-700">
+          <a href="/urun-bulucu" class="border border-neutral-300 bg-white px-7 py-3.5 font-semibold text-sm sm:text-base text-neutral-800 hover:border-emerald-800 hover:bg-neutral-50 transition-colors">
             İnteraktif Ürün Bulucu
           </a>
         </div>
