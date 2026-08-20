@@ -5,7 +5,8 @@ import TrustStrip from '../components/home/TrustStrip.astro';
 import PremiumFeaturedTemplates from '../components/home/PremiumFeaturedTemplates.astro';
 import CategorySection from '../components/home/CategorySection.astro';
 import MoatStrip from '../components/home/MoatStrip.astro';
-import ProofGallery from '../components/home/ProofGallery.astro';
+import CommerceProofGallery from '../components/home/CommerceProofGallery.astro';
+import ExternalTrustStrip from '../components/home/ExternalTrustStrip.astro';
 import ValueSection from '../components/home/ValueSection.astro';
 import PurchaseProcess from '../components/home/PurchaseProcess.astro';
 import FinalCTA from '../components/home/FinalCTA.astro';
@@ -54,8 +55,10 @@ const homeItemListLd = JSON.stringify({
   </div>
 
   <div id="kanit" data-experience-stage data-mobile-deferred-rich>
-    <ProofGallery />
+    <CommerceProofGallery templates={allTemplates} />
   </div>
+
+  <ExternalTrustStrip />
 
   <div id="deger" data-experience-stage data-mobile-deferred-rich>
     <ValueSection />
@@ -106,7 +109,6 @@ const homeItemListLd = JSON.stringify({
     }
   }
 </style>
-
 
 <style is:global>
 /* HOME SIMPLIFIED PREMIUM V2 */
