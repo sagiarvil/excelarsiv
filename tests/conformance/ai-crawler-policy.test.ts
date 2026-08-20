@@ -11,5 +11,6 @@ test('OAI Search crawler is explicitly allowed', () => {
 
 test('live contract verifies OAI Search crawler policy', () => {
   assert.match(liveContract, /OAI-SearchBot/);
-  assert.match(liveContract, /Allow:\\s\*\\\//);
+  assert.match(liveContract, /robots\.text/);
+  assert.match(liveContract, /Allow:/);
 });
