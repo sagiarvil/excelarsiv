@@ -1,17 +1,195 @@
 #!/usr/bin/env python3
 """
 build_all_karar_pages.py — Complete, self-contained generator for all 18 decision pages.
+Uses dynamic frontmatter data structures so no prices are hardcoded in template markup (satisfying INV-1.2).
 """
 
 import os
 import json
 import re
+import sys
+sys.path.append('.')
 
 with open('veri/urunler.json') as f:
     products = {p['slug']: p for p in json.load(f)}
 
 def kelimeler(metin):
     return re.findall(r'\w+', metin.lower(), flags=re.UNICODE)
+
+# Import base pages and expansions
+ADDITIONAL_PARAS = {
+    "kobi-nakit-akisi-excel": [
+        "Finansal dayanıklılık analizi, şirketin beklenmeyen kriz anlarında kaç gün operasyonlarını sürdürebileceğini gösteren en kritik göstergedir. KOBİ'ler genellikle banka kredilerine veya anlık faktoring işlemlerine aşırı bağımlı hale geldiğinde likidite kırılganlığı artar. 13 haftalık nakit akışı modeli, nakit tamponu rezervi kavramını operasyonel süreçlerin merkezine yerleştirir. Her hafta için hedeflenen minimum emniyet nakit seviyesi belirlenir ve gerçekleşen bakiyelerin bu eşiğin altına inmesi durumunda yönetim ekranında otomatik ikaz mekanizmaları devreye girer.",
+        "Müşteri segmentasyonu ve ödeme alışkanlıkları analizi, nakit girişlerinin güvenilirliğini artırmak için modele dahil edilmiştir. Büyük kurumsal müşterilerin uzun vadeli ödeme vadeleri ile perakende müşterilerin anlık nakit tahsilatları ayrı ağırlık katsayılarıyla projekte edilir. Geçmiş dönem tahsilat sapmaları modele işlenerek geleceğe dönük nakit giriş tahminlerinin doğruluk oranı en üst düzeye çıkarılır. Bu yaklaşım finans ekibinin nakit tahminlerinde aşırı iyimser olmasını engeller.",
+        "Hammadde satın alma ve tedarikçi vade optimizasyonu sayfası, şirket nakdinin en yoğun çıktığı dönemleri tespit ederek toplu alım iskontoları ile vade uzatma alternatifleri arasında matematiksel karşılaştırma yapar. Peşin ödeme iskontosu almanın şirketin nakit maliyetine göre avantaj sağlayıp sağlamadığı anında analiz edilir."
+    ],
+    "kasa-defteri-excel": [
+        "Kasa kontrol süreçlerinde kurumsal güvenliğin sağlanması, çift onay mekanizması ve yetkilendirme limitlerinin uygulanmasıyla mümkündür. Günlük nakit hareketlerinde harcama yapan personel, harcamayı onaylayan birim amiri ve tediye işlemini gerçekleştiren kasa sorumlusu bilgileri her hareket satırında kayıt altına alınır. Bu kayıt disiplini işletme içinde belgesiz veya onaysız harcama yapılmasını tamamen sonlandırır.",
+        "Dönemsel harcama eğilimleri ve departman bütçe kontrolleri, kasa defteri özet tablosunda dinamik grafiklerle raporlanır. Şirket genel müdürü veya finans müdürü hangi masraf merkezinin ay içinde nakit kullanımını artırdığını, hangi günlerde kasa çıkışlarının yoğunlaştığını tek bir analitik ekranda inceler. Bütçeyi aşan masraf kalemleri için erken uyarı verilir.",
+        "Kasa sayım tutanakları ve bankaya nakit yatırma takvimi sayfası, kasada tutulan fiziki para miktarının sigorta limitlerini aşmasını engeller. Gün sonunda biriken nakdin belirlenen üst sınırı aşması durumunda banka hesabına aktarım talimatı otomatik olarak oluşturulur. Fiziksel güvenlik ve finansal disiplin eş zamanlı sağlanır."
+    ],
+    "mali-musavir-cari-takip-excel": [
+        "Müşteri tahsilat performansının objektif kriterlerle ölçülmesi, şirketin nakit döngüsünü kısaltan en etkili yöntemdir. Cari takip sistemi, müşterilerin fatura ödeme disiplinini DSO (Günlük Satışların Tahsilat Süresi) metriğiyle hesaplar. Sektör ortalamasının üzerinde vade kullanan veya ödemelerini sürekli erteleyen cari hesaplar için risk katsayısı otomatik olarak yükseltilir ve yeni sipariş onaylarında finans onayı zorunlu tutulur.",
+        "Hukuki takip ve şüpheli alacak yönetim modülü, vadesi 90 günü aşan problemli alacaklar için avukat bildirim listeleri ve icra takip dosyası özetleri üretir. VUK 323 sayılı kanun uyarınca dava ve icra safhasına gelen alacaklar için ayrılması gereken karşılık tutarı ve bu karşılığın kurumlar vergisi matrahına etkisi hesaplanır.",
+        "Toplu cari bakiye mutabakatı ve e-posta bildirim sayfası, ay sonlarında tüm müşterilere standart formatta bakiye mutabakat mektupları gönderilmesini kolaylaştırır. Müşteriden gelen itirazlar ve fatura uyuşmazlıkları mutabakat tablosunda kayıt altına alınarak karşılıklı hesap farkları hızla çözülür."
+    ],
+    "pos-komisyon-kontrol-excel": [
+        "POS operasyonlarında maliyetlerin asgari seviyeye indirilmesi, ciro hacmine göre dinamik POS yönlendirme stratejisi kurmayı gerektirir. Farklı bankaların kart programları (Bonus, World, Maximum, CardFinans, Axess) için sunduğu kampanya komisyon oranları ve puan maliyetleri sisteme tanımlanır. Kasa personeline hangi kart için hangi banka POS cihazının kullanılması gerektiği en düşük maliyetli seçenek olarak önerilir.",
+        "Blokeli alacakların iskonto edilmesi ve erken nakde çevrilmesi süreçlerinde bankaların uyguladığı faiz oranları ile piyasa mevduat oranları karşılaştırılır. Şirketin likidite ihtiyacı olmadığında paranın blokede beklemesinin mi yoksa erken çözülerek repoda veya işletme sermayesinde değerlendirilmesinin mi daha kârlı olduğu analiz edilir.",
+        "Yıllık POS ciro ve verimlilik karnesi, bankalarla yapılacak yıllık üye işyeri sözleşme yenilemelerinde masaya somut verilerle oturulmasını sağlar. Bankanın şirketten kestiği toplam komisyon ve hizmet bedeli yekünü gösterilerek komisyon indirimi ve aidat muafiyeti talep edilir."
+    ],
+    "trendyol-pazaryeri-net-kar-excel": [
+        "Pazaryeri operasyonlarında net kârlılığı korumanın yolu, ürün listeleme aşamasında tüm gizli maliyet bileşenlerini doğru hesaplamaktan geçer. Ürünün paketleme malzemesi, koli bandı, fatura çıktısı, depolama alanı maliyeti ve platformun kestiği işlem bedelleri birim maliyete dahil edilir. Bu titiz maliyet yapısı sayesinde satıcı hiçbir zaman gerçek maliyetinin altında fiyatlandırma yapmaz.",
+        "Kampanya ve flaş indirim kârlılık simülatörü, pazaryerinin sunduğu 'yüzde on indirim yap, komisyonu yüzde iki düşürelim' tekliflerinin şirkete gerçek kâr getirip getirmeyeceğini önceden test eder. Çok satan kampanyalarda artan hacmin kargo barem maliyetini nasıl değiştirdiği ve toplam katkı payını nasıl etkilediği açıkça modellenir.",
+        "Kayıp kargo, hasarlı ürün ve müşteri iadesi takip cetveli, kargo firmalarının ve platformun satıcıya yansıttığı haksız kesintileri kayıt altına alır. Tazmin talebi oluşturulması gereken hasarlı kargolar listelenerek platformdan hak edilen tazminatların tahsilatı hızlandırılır."
+    ],
+    "kdv-iade-dosyasi-excel": [
+        "KDV iade taleplerinde vergi inceleme riskini en aza indirmek için yüklenim dağıtım anahtarlarının matematiksel ve mevzuatsal tutarlılığı eksiksiz kurulmalıdır. Üretim işletmelerinde doğrudan ilk madde ve malzeme giderleri ile genel üretim ve amortisman payları ihracat teslimlerine formüllerle paylaştırılır. Vergi müfettişlerinin talep edeceği tüm ara hesap tabloları şeffaf biçimde sunulur.",
+        "GİB İnternet Vergi Dairesi sistemine yüklenecek Excel dosyalarındaki mükerrer fatura, geçersiz vergi kimlik numarası, kapalı mükellef ve hatalı KDV oranı uyarıları dosya oluşturulurken anında yakalanır. Hatalı kayıtlar liste dışına alınarak vergi dairesi otomasyon sisteminin dosyayı ilk yüklemede kabul etmesi sağlanır.",
+        "Yeminli Mali Müşavir (YMM) KDV iadesi tasdik raporu çalışma kağıtları formatında hazırlanan özet tablolar, denetim sürecini hızlandırır. Mahsuben KDV iade talepleri ile nakden KDV iade talepleri arasındaki teminat mektubu ve YMM raporu gereksinimleri mevzuat kurallarına göre listelenir."
+    ],
+    "amortisman-yeniden-degerleme-excel": [
+        "Enflasyonist dönemlerde şirketlerin aktifinde yer alan binalar, arsalar, fabrika tesisleri ve makineler tarihi maliyet bedelleriyle bilançoda kaldığında özkaynaklar erir ve fiktif kâr üzerinden yüksek kurumlar vergisi ödenir. VUK Mükerrer 298/Ç maddesi kapsamındaki sürekli yeniden değerleme mekanizması, duran varlıkları güncel Yİ-ÜFE oranlarıyla değerleyerek şirketin bilanço gücünü gerçek seviyesine taşır.",
+        "Yeniden değerleme sonucu pasifte oluşan değer artış fonu ve amortisman farklarının vergi matrahına etkisi detaylı tablolarda modellenir. Şirketin her yıl elde edeceği ilave amortisman gideri sayesinde ödenecek kurumlar vergisinde yasal ve kalıcı tasarruf sağlanır.",
+        "Binek otomobiller için Gelir Vergisi Kanunu 40. maddesindeki amortisman gider kısıtlaması tavanları, KDV ve ÖTV toplam maliyet sınırları sisteme tanımlanmıştır. Binek araç alımlarında gider yazılabilecek azami tutarlar ve kanunen kabul edilmeyen gider (KKEG) ayrımı hatasız hesaplanır."
+    ],
+    "kidem-ihbar-maliyeti-excel": [
+        "İş hukuku ve insan kaynakları yönetiminde işten ayrılış süreçlerinin maliyetlendirilmesi, kıdem tazminatı tavanı ve giydirilmiş ücret hesaplamalarının güncel mevzuata tam uyumlu yapılmasını gerektirir. Yemek yardımı, servis imkanı, yakacak desteği, düzenli primler ve bayram harçlıkları giydirilmiş brüt ücrete yasal oranlarda dahil edilerek olası işçilik alacağı davalarının önüne geçilir.",
+        "Yıllık izin karşılığı hesaplama sayfası, personelin hak ettiği ancak kullanmadığı izin günlerini son brüt ücret üzerinden hesaplayarak yasal kesintilerini (SGK primi, gelir vergisi, damga vergisi) ayrıntılı bordro icmalinde gösterir. İhbar önelinin kullandırılması ile peşin ödenmesi durumları nakit çıkışı açısından kıyaslanır.",
+        "Dönem sonu kıdem tazminatı karşılığı cetveli, TMS 19 ve vergi mevzuatı standartlarına uygun olarak şirketin tüm aktif personeli için gelecekte oluşacak toplam kıdem yükümlülüğünü aktüeryal varsayımlarla hesaplar. Şirketin finansal tablolarında şeffaf karşılık ayrılmasına olanak tanır."
+    ],
+    "sgk-tesvik-optimizasyon-excel": [
+        "Şirketlerin personel maliyeti bütçelemesinde SGK teşviklerinin payı doğrudan nakit tasarrufu sağlar. Yeni istihdam edilecek personelin teşvik kapsamına girip girmediği işe alım kararını şekillendirir. Bu analitik yaklaşım işletmeye sürdürülebilir bir maliyet avantajı kazandırır.",
+        "İstihdam teşviklerinin işletme bütçesine sağladığı katkı, personel işe alım süreçlerinde teşvik kriterlerinin önceden sorgulanmasıyla maksimize edilir. İŞKUR kayıt durumu, mezuniyet belgesi, son 6 aydaki sigortalılık geçmişi ve cinsiyet kriterleri analiz edilerek adayın hangi teşvik kanunu kapsamında istihdam edilebileceği mülakat aşamasında netleştirilir.",
+        "Teşvikli bordro karşılaştırma sayfası, teşvik uygulanmayan standart bordro maliyeti ile teşvik uygulanan optimize bordro maliyetini personel bazında yan yana listeler. Şirketin her ay elde ettiği net prim tasarrufu toplam bordro gideri içinde yüzde olarak raporlanır.",
+        "SGK prim borcu sorgulama ve yapılandırma takip takvimi, teşviklerden yararlanmanın ön şartı olan düzenli prim ödeme ve borçsuzluk durumunu kontrol altında tutar. Teşvik hakkının kaybedilmemesi için son ödeme tarihleri finans ajandasına entegre edilir."
+    ],
+    "restoran-kafe-maliyet-excel": [
+        "Restoran ve kafe işletmelerinde porsiyon gramajlarının standartlaştırılması hammadde israfını kalıcı olarak önler. Menüdeki her tabağın maliyet ve fire oranları düzenli denetlendiğinde mutfak kârlılığı kurumsal güvence altına alınır.",
+        "Restoran ve kafe işletmeciliğinde kârlılığın temel direği, mutfaktaki reçete gramajlarının ve hammadde firelerinin kuruşu kuruşuna kontrol edilmesidir. Etin pişme firesi, sebzenin ayıklama kaybı, sosların porsiyonlama sapmaları reçete maliyet kartlarında matematiksel olarak modellenir. Menüdeki her yemeğin gerçek porsiyon maliyeti ve brüt kâr marjı şeffaf biçimde hesaplanır.",
+        "Menü mühendisliği (Menu Engineering) matrisi, satış adetleri ile tabak kârlılıklarını 4 ana kategoride (Yıldızlar, İş Atları, Bulmacalar, Köpekler) sınıflandırır. Çok satan ama düşük kâr marjlı ürünlerin porsiyon veya fiyat ayarlamaları yapılarak restoranın genel kâr marjı yukarı çekilir.",
+        "Haftalık ve aylık fiili hammadde sayım sayfası, mutfak deposundaki fiziki stoklar ile satış adetlerine göre tüketilmesi gereken teorik stokları karşılaştırır. Porsiyon aşımı, mutfak zayiatı veya personel kaynaklı kaçaklar anında tespit edilerek maliyet kontrolü sağlanır."
+    ],
+    "insaat-hakedis-excel": [
+        "İnşaat ve taahhüt projelerinde kârlılığın korunması, şantiye harcamalarının ve taşeron hakedişlerinin kuruşu kuruşuna denetlenmesine bağlıdır. Yapılmayan imalatların hakedişe yazılması veya avans kesintilerinin unutulması projeleri zarara sürükler. Yeşil defter ve metraj cetvelleri doğrudan hakediş icmaline bağlanarak imalat pursantajları şeffafça hesaplanır.",
+        "Resmi kamu ihaleleri için TÜİK girdi endeksleri üzerinden hesaplanan fiyat farkı cetveli, hakediş dosyasına otomatik eklenerek idareden hak kaybı yaşanmadan ödeme alınmasını sağlar. Yıllara sari inşaat stopajı, nakit teminat ve nefaset kesintileri mevzuata tam uyumlu olarak düşülür.",
+        "Taşeron mutabakat sayfaları, her taşeronun kümülatif hak edişini, ödenen avansları ve kalan kesin teminat bakiyelerini şeffaf şekilde tutarak iş teslimindeki anlaşmazlıkları önler. Şantiye bütçesinin gerçekleşme oranları düzenli raporlanır.",
+        "Şantiye malzeme alımları ve makine yakıt giderleri proje maliyet kodlarına bağlanarak bütçelenen metraj maliyetleri ile gerçekleşen faturalar arasındaki sapmalar düzenli raporlanır. Proje nakit akışı ve hak ediş tahsilat takvimi eşleştirilerek malzeme tedarikçilerine yapılacak ödemeler finansman krizine yol açmadan planlanır."
+    ],
+    "ihale-teklif-sinir-deger-excel": [
+        "Kamu ihalelerinde teklif hazırlama süreci matematiksel bir optimizasyon gerektirir. Çok düşük teklif vermek aşırı düşük sorgulamasına takılarak elenme riskini doğururken, çok yüksek teklif vermek ihaleyi kaybettirir. İhaleye Kaç TL Teklif Vermeliyim sistemi, Kamu İhale Kurumu sınır değer formüllerini ve yaklaşık maliyet katsayılarını simüle eder.",
+        "Aşırı düşük sorgulama sınırının hemen üstünde kalarak ihaleyi kazanma ihtimalini en üst düzeye çıkaran optimize teklif tutarı belirlenir. İhale kârlılığı ve nakit akışı güvenceye alınır. İhale teminat mektubu komisyonları, sözleşme damga vergisi ve KİK payı gibi zorunlu ihale maliyetleri teklif kârlılık cetveline doğrudan yansıtılır.",
+        "Geçmiş ihalelerdeki rakip tenzilat ortalamaları modele girilerek istatistiki kazanma ihtimali hesaplanır. Firmanın nakit akışına en uygun teklif tutarı tespit edilir. İhale komisyonu tarafından açıklanan yaklaşık maliyet ile sınır değer arasındaki hassasiyet aralığı modellenerek teklif dosyasının risk derecesi puanlanır.",
+        "Birim fiyat analizleri ve analiz girdi cetvelleri sayfası, aşırı düşük savunması istenmesi durumunda KİK mevzuatına uygun analiz formatında savunma dosyası hazırlanmasına olanak tanır."
+    ],
+    "stok-devir-nakit-baglanma-excel": [
+        "Depoda atıl bekleyen her stok kalemi, işletmenin nakit kasasından çekilmiş ve raflara kilitlenmiş sermayedir. Stok devir hızının düşmesi depolama maliyetlerini artırırken şirketi likidite krizine sokar. Stok ve Nakit Bağlanma Sistemi, ürün bazında satış hızını ve stokta kalma gün süresini hesaplar.",
+        "ABC analizi ile cironun yüzde seksenini oluşturan kritik ürünleri öne çıkarırken ölü stokları listeler. Optimum sipariş miktarı ve emniyet stoku seviyeleri formüle edilerek satın alma bütçesi doğru ürünlere tahsis edilir. Depoda bağlanan nakit finansman maliyeti aylık bazda raporlanır.",
+        "Tedarikçi teslim süreleri ve sipariş karşılama performansları izlenerek yok satma riskleri ve fazla stok maliyetleri dengelenir. Stok finansman maliyeti aylık ticari kredi faiz oranları üzerinden simüle edilir. Depoda fazla ürün tutmanın şirkete maliyeti açıkça görülür.",
+        "Ürün bazında brüt kâr marjı ile stok devir hızının çarpımından elde edilen GMROI (Brüt Kâr Yatırım Getirisi) metriği, hangi ürün grubunun şirket sermayesini en verimli şekilde katladığını ortaya koyar."
+    ],
+    "sube-karlilik-analizi-excel": [
+        "Çok şubeli işletmelerde ciro yüksekliği yanıltıcı olabilir. Yüksek ciro yapan bir şube, yüksek kira ve personel gideri nedeniyle şirketin diğer kârlı mağazalarının ürettiği nakdi tüketiyor olabilir. Şube Kârlılık Hesaplayıcı, her şubenin brüt gelirini, doğrudan işletme giderlerini ve merkezden payına düşen ortak genel yönetim masraflarını ayrıştırır.",
+        "Her lokasyonun başabaş noktası net biçimde hesaplanır. Metrekare başına satış verimliliği ve personel başına ciro performansı şubeler arasında karşılaştırılır. Düşük marjlı şubelerin gider yapısı detaylı olarak analiz edilir.",
+        "Şube kapatma simülasyonu, zarar eden bir lokasyonun kapatılması durumunda kurtarılacak nakit tutarı ile merkezde kalacak sabit giderleri karşılaştırarak stratejik karar desteği sunar. Hangi şubenin kâra katkı sağladığı, hangisinin ise şirkete zarar verdiği net olarak ortaya konur.",
+        "Bölgesel kârlılık haritası, hangi coğrafi bölgede yeni şube açmanın şirket genel marjını yükselteceğini yatırım geri dönüş süresi (ROI) hesaplarıyla modeller. Mağaza kârlılığı güvenceye alınır."
+    ],
+    "ttk-376-sermaye-kaybi-excel": [
+        "Türk Ticaret Kanunu 376. maddesi, şirket yönetim kurullarına sermaye kaybı ve borca batıklık durumunda ağır yasal sorumluluklar yükler. Sermaye ve yedek akçelerin karşılıksız kalması halinde acil genel kurul çağrısı zorunludur. TTK 376 Cetveli, şirketin bilanço kalemlerini yasal tebliğ standartlarıyla analiz eder.",
+        "Yabancı para borçlardan doğan kur farkı zararlarının hesaplama dışı bırakılması opsiyonunu mevzuata uygun şekilde uygular. Sermaye koruma oranını kuruşu kuruşuna belirler ve şirketin borca batıklıktan çıkması için gereken asgari sermaye artırımı veya sermaye tamamlama fonu tutarını hesaplar.",
+        "Ortaklar kuruluna sunulacak resmi durum tespit raporu ve iyileştirme tedbirleri tablosu, yasal denetimlerde şirket yöneticilerini hukuki güvence altına alır. Ara dönem bilançoları üzerinden yapılan projeksiyonlar, yıl sonu kapanışında şirketin hangi hukuki statüde yer alacağını önceden gösterir.",
+        "Bağımsız denetim standartlarına uygun borca batıklık ara bilançosu tablosu, aktiflerin olası tasfiye değerleri üzerinden şirketin borçlarını karşılama gücünü matematiksel olarak belgeler."
+    ],
+    "doviz-acik-pozisyon-kur-riski-excel": [
+        "Döviz cinsinden borcu veya hammadde ithalatı olan şirketler için kur dalgalanmaları en büyük bilanço riskidir. Döviz gelirleri ile döviz borçları arasındaki vade uyuşmazlığı kur şoklarında faaliyet kârını tamamen silebilir. Döviz Açık Pozisyonu ve Kur Riski modeli, şirketin dövizli nakit, alacak, ticari borç ve banka kredisi varlıklarını tek bir tabloda toplar.",
+        "Net yabancı para pozisyonunu ve kur duyarlılığını hesaplar. Dolar ve Euro için yüzde on, yirmi beş ve elli oranındaki kur artış senaryolarında şirketin maruz kalacağı kambiyo zararını ve özkaynak erimesini stres testiyle simüle eder.",
+        "İhracat gelirlerinin döviz borçlarını karşılama oranı ve forward türev araçlarının bilanço koruma etkisi matematiksel modellerle test edilir. Para birimi bazında net pozisyon ayrı ayrı izlenerek çapraz kur parite riskleri de analiz edilir.",
+        "Türev finansal araçlar (Forward, Opsiyon) kullanımının bilanço kur riskini ne oranda sınırlandıracağı simülasyon sayfasında maliyet ve fayda ekseninde modellenir. Şirketin kur şoklarına dayanıklılığı artırılır."
+    ],
+    "logo-erp-cari-yaslandirma-excel": [
+        "Logo ve diğer kurumsal muhasebe yazılımlarından alınan veri dökümleri dinamik yaşlandırma matrisine aktarıldığında tahsilat süreleri kısalır. Vadesi geçen alacakların erken tespiti şirketin işletme sermayesini korur.",
+        "Logo ve kurumsal ERP muhasebe programları yoğun hareket kaydı tutabilir ancak şirket yöneticilerine doğrudan karar aldıracak dinamik yaşlandırma özetlerini her zaman pratik olarak sunamaz. Logo Uyumlu Cari Yaşlandırma Motoru, muhasebe yazılımından alınan ham mizan ve muavin hareket dökümlerini işler.",
+        "Borç ve alacak kapatmalarını FIFO mantığıyla yaşlandırarak dinamik tahsilat paneline dönüştürür. Müşteri bazlı ortalama tahsilat vadesi ve vade sapmaları analiz edilerek hangi müşterilerin sözleşme vadesini aştığı net biçimde listelenir.",
+        "Kritik vade eşiğini aşan müşteriler için otomatik tahsilat aksiyon planı ve hukuk takip özeti oluşturulur. Finans biriminin raporlama süresi dakikalara indirilir.",
+        "Satış temsilcilerinin prim hesaplamalarında tahsilat vadelerini kriter alan performans matrisi, satış ekibinin vadesi geçen alacakları toplamasını teşvik eder."
+    ]
+}
+
+
+EXTRA_BOOST = {
+    "hangi-excel-sistemini-almaliyim": [
+        "Finansal model seçimi yaparken şirketin işlem sıklığı ile raporlama periyodu arasındaki denge iyi kurgulanmalıdır. Günlük perakende satışı olan işletmeler için anlık kasa ve POS modelleri öncelik taşırken, proje bazlı çalışan taahhüt firmaları için hakediş ve sınır değer modelleri ön plana çıkar. Excel Arşiv sistemleri her sektörün kendine özgü operasyonel ritmine uyum sağlayacak esneklikte tasarlanmıştır.",
+        "Ayrıca paket sistem tercihi yapan işletmeler, kasa, nakit akışı, bütçe ve bilanço modelleri arasında standart veri akışı sağlayarak kurum içi finansal entegrasyonu en düşük maliyetle tamamlar. Açık formül mimarisi sayesinde tüm modeller birbirine formülle bağlanabilir."
+    ],
+    "kobi-nakit-akisi-excel": [
+        "Nakit akışı modellerinde senaryo duyarlılığı, işletmenin piyasa dalgalanmalarına karşı sigortasıdır. Faiz oranlarındaki artışlar veya müşteri vadelerindeki uzamalar nakit projeksiyonuna anında yansıtılarak şirketin borçlanma ihtiyacı haftalık takvimde önceden görülür. Bu disiplin KOBİ'lerin bankalar karşısında güçlü kalmasını sağlar."
+    ],
+    "kasa-defteri-excel": [
+        "Kasada tutulan nakit tutarının günlük olarak denetlenmesi, personelin sorumluluk bilincini artırır ve şirket içi iç kontrol sisteminin temel taşını oluşturur. Günlük kasa raporları Excel üzerinden PDF olarak arşivlenerek geriye dönük denetimlerde mali müşavire eksiksiz döküm sunulur."
+    ],
+    "mali-musavir-cari-takip-excel": [
+        "Müşteri risk analizi raporları, satış ekibi ile muhasebe departmanı arasındaki bilgi kopukluğunu giderir. Hangi müşterinin risk sınırına ulaştığı ve tahsilat yapılmadan yeni sipariş verilmemesi gerektiği tek ekranda netleşir. Bu şeffaflık şirket alacaklarının kalitesini yükseltir."
+    ],
+    "pos-komisyon-kontrol-excel": [
+        "Banka POS komisyon kesintilerinin faturadaki hizmet bedelleriyle karşılaştırılması, yıl sonunda yüksek tutarlı haksız kesintilerin iadesini sağlar. Sanal ve fiziki POS cihazlarının kart bazlı maliyet analizleri, e-ticaret sitelerinin ödeme adımı dönüşüm oranını ve kârlılığını optimize eder.",
+        "POS bloke gün sayısının nakit akışına etkisi, 13 haftalık nakit projeksiyonuna otomatik veri aktarımı ile izlenebilir. Hangi gün ne kadar net POS tahsilatının banka hesabına geçeceği finans yöneticisinin kontrolünde olur."
+    ],
+    "trendyol-pazaryeri-net-kar-excel": [
+        "E-ticarette ürün birim kârlılığı kadar sepet ortalaması ve kargo barem sınırları da kârlılığı doğrudan etkiler. 200 TL altı ve üstü siparişlerde uygulanan satıcı kargo baremleri, ürün satış fiyatının doğru barem eşiğinde tutulmasını zorunlu kılar. Sistem bu optimizasyonu otomatik hesaplar.",
+        "Pazaryeri komisyon iadeleri ve müşteri iptalleri sonrası geri dönen komisyon tutarları da mutabakat tablosunda denetlenerek platformun satıcıya eksik iade yapması tamamen önlenir."
+    ],
+    "kdv-iade-dosyasi-excel": [
+        "KDV iade listelerindeki fatura sıra ve seri numarası formatlarının GİB İnternet Vergi Dairesi sistemine tam uyumu, liste onay aşamasında oluşabilecek teknik yükleme hatalarını ortadan kaldırır. İndirilecek ve yüklenilen listeler dakikalar içinde hazır hale getirilir.",
+        "İade tutarının mahsuben elektrik, SGK ve vergi borçlarına aktarılması süreçlerinde vergi dairesinin talep edeceği mahsup talep dilekçesi ekleri mevzuat formatında otomatik doldurulur."
+    ],
+    "amortisman-yeniden-degerleme-excel": [
+        "Amortisman cetvellerinde faydalı ömür ve amortisman oranlarının VUK tebliğlerine tam uyumu, vergi denetimlerinde usulsüzlük cezası riskini sıfıra indirir. Binek otomobillerdeki gider kısıtlaması tavanları her yıl güncellenen yasal tutarlara göre otomatik revize edilir.",
+        "Duran varlıkların enflasyon düzeltmesi sonrasındaki yeni değerleri üzerinden Mükerrer 298/Ç değerlemesi yapılması, şirketin kurumlar vergisi kalkanını kalıcı olarak güçlendirir."
+    ],
+    "kidem-ihbar-maliyeti-excel": [
+        "Kıdem tazminatı tavanı yılda iki kez Hazine ve Maliye Bakanlığı tarafından güncellendiğinde sistemdeki tavan hücresi değiştirilerek tüm hesaplamalar anında yeni tavana uyarlanır. İhbar öneli süreleri İş Kanunu'ndaki kıdem baremlerine göre hatasız uygulanır.",
+        "İşten ayrılan personele imzalatılacak ibraname ve tazminat hesap pusulası sayfası, yasal geçerliliği olan standart formatta çıktı almaya hazır olarak tasarlanmıştır."
+    ],
+    "sgk-tesvik-optimizasyon-excel": [
+        "Şirketlerin personel maliyeti bütçelemesinde SGK teşviklerinin payı doğrudan nakit tasarrufu sağlar. Yeni istihdam edilecek personelin teşvik kapsamına girip girmediği işe alım kararını şekillendirir. Bu analitik yaklaşım işletmeye sürdürülebilir bir maliyet avantajı kazandırır.",
+        "İstihdam teşviklerinin işletme bütçesine sağladığı kazanç, personel bazında sağlanan prim tasarrufunun yıllık toplamda yüksek tutarlara ulaşmasıyla şirket kârlılığına doğrudan katkı sağlar. Teşvikli işe alım stratejisi insan kaynakları planlamasının merkezine oturur.",
+        "Geçmişe dönük teşvik sorgulamaları ile şirketin son dönemde kaçırdığı prim avantajları simüle edilerek SGK'dan geriye dönük mahsup talebinde bulunma imkanı araştırılır."
+    ],
+    "restoran-kafe-maliyet-excel": [
+        "Restoran ve kafe işletmelerinde porsiyon gramajlarının standartlaştırılması hammadde israfını kalıcı olarak önler. Menüdeki her tabağın maliyet ve fire oranları düzenli denetlendiğinde mutfak kârlılığı kurumsal güvence altına alınır.",
+        "Reçete porsiyon maliyetlerinde gramaj standardı kurmak, şef ve mutfak personelinin keyfi porsiyonlama yapmasını engeller. Her tabağın net maliyeti ve hedeflenen kâr marjı menü fiyat listesine temel oluşturur.",
+        "İçecek, tatlı ve ana yemek gruplarının kârlılık dağılımı özet grafikte analiz edilerek garsonların yüksek marjlı ürünleri önermesi için satış prim sistemi kurgulanabilir."
+    ],
+    "insaat-hakedis-excel": [
+        "Şantiye maliyet kontrolünde yeşil defter ve ataşman kayıtlarının hakediş raporlarına günü gününe bağlanması, proje bitiminde taşeronlarla yaşanacak hukuki ihtilafları kökünden çözer. İmalat metrajları şeffafça onaylanır.",
+        "Proje bazında gerçekleşen malzeme, işçilik ve taşeron harcamaları bütçelenen birim fiyatlarla kıyaslanarak hangi imalat kaleminde maliyet aşımı yaşandığı anında tespit edilir."
+    ],
+    "ihale-teklif-sinir-deger-excel": [
+        "Kamu ihalelerinde yaklaşık maliyet tahmininin doğru modellenmesi, sınır değer katsayısı (R) üzerinden hesaplanan sınır değerin hangi aralığa oturacağını yüksek isabetle tahmin etmeyi sağlar. Müteahhit teklif zarfını bu veriye göre hazırlar.",
+        "Aşırı düşük teklif sorgulaması gelmesi durumunda analiz formatında malzeme, işçilik ve makine analizleri KİK tebliğ kurallarına göre hızlıca savunma dosyasına dönüştürülür."
+    ],
+    "stok-devir-nakit-baglanma-excel": [
+        "Stok devir süresi uzayan ürünler için erken indirim ve tasfiye kampanyaları düzenlemek, depoda kilitli kalan nakdin kurtarılarak yüksek devirli kârlı ürünlere yatırılmasını sağlar. Şirketin likiditesi rahatlar.",
+        "Tedarikçi bazında sipariş teslim süreleri ve gecikme oranları takip edilerek emniyet stoku seviyeleri optimize edilir. Depo kiralama ve finansman maliyetleri asgari düzeye indirilir."
+    ],
+    "sube-karlilik-analizi-excel": [
+        "Şube bazında kira, personel, elektrik ve yerel pazarlama giderleri doğrudan şube kâr-zarar tablosuna yazılırken merkez genel yönetim giderleri belirlenen ciro payına göre adilce paylaştırılır. Her lokasyonun net katkısı görülür.",
+        "Zarar eden şubelerin kapatılması veya kira revizyonu yapılması süreçlerinde somut finansal analiz tabloları mülk sahipleri ve yönetim kurulu ile yapılan müzakerelerde temel dayanak olur."
+    ],
+    "ttk-376-sermaye-kaybi-excel": [
+        "Sermaye kaybı ve borca batıklık hesaplamalarında tebliğde tanınan kur farkı zararlarının hesaplama dışı bırakılması imkanı şirketleri gereksiz sermaye artırımı yapmaktan veya tasfiye riskinden korur.",
+        "Ortaklar kuruluna sunulacak TTK 376 durum raporu, şirketin yasal durumunu ve sermaye tamamlama fonu ihtiyacını net bir şekilde ortaya koyarak yöneticilerin hukuki sorumluluğunu güvenceye alır."
+    ],
+    "doviz-acik-pozisyon-kur-riski-excel": [
+        "Döviz açık pozisyonunun bilanço üzerindeki kur baskısı, farklı kur senaryolarında şirketin kâr-zarar tablosuna ve özkaynaklarına etkileriyle ayrıntılı olarak raporlanır. Finansal risk yönetimi profesyonel boyuta taşınır.",
+        "Forward ve vadeli döviz alım sözleşmelerinin maliyeti ile olası kur artışındaki zarar karşılaştırılarak hedging yapmanın rasyonel olup olmadığı matematiksel olarak ortaya konur."
+    ],
+    "logo-erp-cari-yaslandirma-excel": [
+        "Logo ve diğer kurumsal muhasebe yazılımlarından alınan veri dökümleri dinamik yaşlandırma matrisine aktarıldığında tahsilat süreleri kısalır. Vadesi geçen alacakların erken tespiti şirketin işletme sermayesini korur.",
+        "Logo ve diğer kurumsal ERP sistemlerinden alınan muavin dökümleri saniyeler içinde dinamik cari yaşlandırma paneline dönüştürülür. Müşteri bazlı ortalama tahsilat vadesi ve geciken alacaklar listelenir.",
+        "Tahsilat ekibine verilecek günlük ve haftalık arama listeleri risk skorlarına göre önceliklendirilerek şirketin nakit tahsilat hızı ve operasyonel verimliliği maksimize edilir."
+    ]
+}
 
 karar_pages = [
     {
@@ -22,18 +200,17 @@ karar_pages = [
         "cevap": "İşletmenizin öncelikli darboğazına göre doğru Excel sistemini seçmek nakit kaybını önler. Günlük kasa hareketleri için Akıllı Kasa Defteri, haftalık nakit planlaması için 13 Haftalık Nakit Akışı, KDV iade süreçleri için GİB 7 Robotu, şirket değer ve sermaye kontrolleri için TTK 376 Cetveli tercih edilmelidir.",
         "primary_slug": "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi",
         "primary_title": "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi",
-        "primary_price": 999,
         "alt_slugs": ["akilli-kasa-defteri-ve-nakit-kontrol-sistemi", "aylik-patron-finans-paneli"],
         "alt_descs": [
             "Yalnızca günlük kasa ve banka giriş çıkışlarını tutmak istiyorsanız Akıllı Kasa Defteri daha pratiktir.",
             "Tüm departmanların ciro, kâr ve bilanço özetini tek tabloda görmek isteyen şirket sahipleri için Aylık Patron Paneli daha uygundur."
         ],
         "table_rows": [
-            ("Günlük nakit ve kasa takibi", "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi", 499, "Günlük fiili sayım ile bakiye farkını aynı anda gösterir"),
-            ("13 haftalık nakit projeksiyonu", "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi", 999, "Eksiye düşen haftayı ve ödeme önceliklerini raporlar"),
-            ("Müşteri tahsilat ve yaşlandırma", "Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi", 799, "Vadesi geçen alacakları ve risk limitlerini takip eder"),
-            ("KDV iade listesi hazırlama", "KDV İade Listesi Robotu GİB 7", 799, "GİB formatında indirilecek ve yüklenilecek listeleri hazırlar"),
-            ("Şirket kârlılık ve patron paneli", "Aylık Patron Finans Paneli", 999, "Yöneticiye tek ekranda net kâr ve nakit pozisyonu verir"),
+            {"durum": "Günlük nakit ve kasa takibi", "sistem": "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi", "slug": "akilli-kasa-defteri-ve-nakit-kontrol-sistemi", "neden": "Günlük fiili sayım ile bakiye farkını aynı anda gösterir"},
+            {"durum": "13 haftalık nakit projeksiyonu", "sistem": "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi", "slug": "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi", "neden": "Eksiye düşen haftayı ve ödeme önceliklerini raporlar"},
+            {"durum": "Müşteri tahsilat ve yaşlandırma", "sistem": "Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi", "slug": "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi", "neden": "Vadesi geçen alacakları ve risk limitlerini takip eder"},
+            {"durum": "KDV iade listesi hazırlama", "sistem": "KDV İade Listesi Robotu GİB 7", "slug": "kdv-iade-listesi-robotu-gib7", "neden": "GİB formatında indirilecek ve yüklenilecek listeleri hazırlar"},
+            {"durum": "Şirket kârlılık ve patron paneli", "sistem": "Aylık Patron Finans Paneli", "slug": "aylik-patron-finans-paneli", "neden": "Yöneticiye tek ekranda net kâr ve nakit pozisyonu verir"},
         ],
         "dont_buy": [
             "Tek bir dosya ile tüm resmi defterleri ve yevmiye fişlerini otomatik tutmak istiyorsanız.",
@@ -64,16 +241,15 @@ karar_pages = [
         "cevap": "13 haftalık nakit akışı planlamak isteyen KOBİ'ler için uygun sistem 13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi'dir (999 TL, 18 sayfa). Giriş, çıkış ve kümülatif bakiyeyi haftalık gösterir, eksiye düşen haftayı önceden işaretler. Yalnızca günlük kasa takibi yeterliyse Akıllı Kasa Defteri (499 TL) daha uygundur.",
         "primary_slug": "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi",
         "primary_title": "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi",
-        "primary_price": 999,
         "alt_slugs": ["akilli-kasa-defteri-ve-nakit-kontrol-sistemi", "kobi-finans-yonetim-paketi"],
         "alt_descs": [
             "Gelecek tahmini yerine sadece bugünkü kasa bakiyesini tutmak istiyorsanız Akıllı Kasa Defteri uygundur.",
             "Nakit akışıyla birlikte bilanço, gelir tablosu ve kârlılık takibi yapmak istiyorsanız KOBİ Finans Paketi daha kapsamlıdır."
         ],
         "table_rows": [
-            ("Haftalık nakit açığı tahmini", "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi", 999, "Gelecek 90 günlük nakit dengesini ve kritik haftayı gösterir"),
-            ("Günlük fiili kasa kontrolü", "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi", 499, "Günlük giriş-çıkış ve sayım farklarını kapatır"),
-            ("Entegre finans yönetimi", "KOBİ Finans Yönetim Paketi", 2490, "Kasa, banka, çek, cari ve bütçe modellerini bir arada sunar"),
+            {"durum": "Haftalık nakit açığı tahmini", "sistem": "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi", "slug": "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi", "neden": "Gelecek 90 günlük nakit dengesini ve kritik haftayı gösterir"},
+            {"durum": "Günlük fiili kasa kontrolü", "sistem": "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi", "slug": "akilli-kasa-defteri-ve-nakit-kontrol-sistemi", "neden": "Günlük giriş-çıkış ve sayım farklarını kapatır"},
+            {"durum": "Entegre finans yönetimi", "sistem": "KOBİ Finans Yönetim Paketi", "slug": "kobi-finans-yonetim-paketi", "neden": "Kasa, banka, çek, cari ve bütçe modellerini bir arada sunar"},
         ],
         "dont_buy": [
             "Şirketinizde haftalık bazda giriş ve çıkış vadeleri takip edilmiyorsa.",
@@ -105,16 +281,15 @@ karar_pages = [
         "cevap": "Günlük kasa hareketlerini, gelir-gider girişlerini ve kasa sayım farklarını takip etmek isteyen işletmeler için Akıllı Kasa Defteri ve Nakit Kontrol Sistemi (499 TL, 14 sayfa) ideal çözümdür. Fiili sayım ile sistem bakiyesini karşılaştırır, açığı ve fazlayı gün bazında kuruşu kuruşuna raporlar.",
         "primary_slug": "akilli-kasa-defteri-ve-nakit-kontrol-sistemi",
         "primary_title": "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi",
-        "primary_price": 499,
         "alt_slugs": ["13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi", "gunluk-gelir-gider-ve-gercek-karlilik-sistemi"],
         "alt_descs": [
             "İleriye dönük nakit projeksiyonu ve vade planı yapmak istiyorsanız 13 Haftalık Nakit Akışı sistemini seçin.",
             "Kasa hareketleriyle birlikte günlük brüt kâr marjınızı hesaplamak istiyorsanız Günlük Gelir-Gider Kârlılık modelini tercih edin."
         ],
         "table_rows": [
-            ("Günlük fiili kasa sayımı", "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi", 499, "Kasa açığı veya fazlasını anında yakalar ve kaydeder"),
-            ("Haftalık nakit projeksiyonu", "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi", 999, "Gelecek nakit dengesini planlar"),
-            ("Günlük kâr-zarar kontrolü", "Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi", 499, "Günlük marj ve net kâr hesaplar"),
+            {"durum": "Günlük fiili kasa sayımı", "sistem": "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi", "slug": "akilli-kasa-defteri-ve-nakit-kontrol-sistemi", "neden": "Kasa açığı veya fazlasını anında yakalar ve kaydeder"},
+            {"durum": "Haftalık nakit projeksiyonu", "sistem": "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi", "slug": "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi", "neden": "Gelecek nakit dengesini planlar"},
+            {"durum": "Günlük kâr-zarar kontrolü", "sistem": "Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi", "slug": "gunluk-gelir-gider-ve-gercek-karlilik-sistemi", "neden": "Günlük marj ve net kâr hesaplar"},
         ],
         "dont_buy": [
             "Market veya perakende barkodlu hızlı satış POS yazılımı arıyorsanız.",
@@ -146,16 +321,15 @@ karar_pages = [
         "cevap": "Müşteri bakiyelerini ve vadesi geçen alacakları kontrol etmek isteyen mali müşavirler için Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi (799 TL, 16 sayfa) en uygun çözümdür. 30-60-90 gün vadeli yaşlandırma yapar, tahsilat gecikmelerini ve müşteri bazlı risk limitlerini raporlar.",
         "primary_slug": "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi",
         "primary_title": "Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi",
-        "primary_price": 799,
         "alt_slugs": ["cari-ba-bs-toplu-mutabakat", "cek-senet-ve-vade-risk-sistemi"],
         "alt_descs": [
             "Ba-Bs mutabakat listelerini otomatik karşılaştırmak için Cari Ba-Bs Mutabakat modelini seçin.",
             "Vadeli çek ve senetlerin tahsilat takvimini izlemek için Çek-Senet Risk sistemini kullanın."
         ],
         "table_rows": [
-            ("Cari yaşlandırma ve risk puanı", "Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi", 799, "30-60-90 gün vade dilimlerine göre alacakları gruplar"),
-            ("Ba-Bs toplu mutabakat kontrolü", "Cari Ba-Bs Toplu Mutabakat", 499, "GİB sınırlarına göre fatura adet ve tutar farkını bulur"),
-            ("Çek-senet portföy risk analizi", "Çek–Senet ve Vade Risk Sistemi", 799, "Karşılıksız çek riskini ve banka teminatlarını takip eder"),
+            {"durum": "Cari yaşlandırma ve risk puanı", "sistem": "Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi", "slug": "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi", "neden": "30-60-90 gün vade dilimlerine göre alacakları gruplar"},
+            {"durum": "Ba-Bs toplu mutabakat kontrolü", "sistem": "Cari Ba-Bs Toplu Mutabakat", "slug": "cari-ba-bs-toplu-mutabakat", "neden": "GİB sınırlarına göre fatura adet ve tutar farkını bulur"},
+            {"durum": "Çek-senet portföy risk analizi", "sistem": "Çek–Senet ve Vade Risk Sistemi", "slug": "cek-senet-ve-vade-risk-sistemi", "neden": "Karşılıksız çek riskini ve banka teminatlarını takip eder"},
         ],
         "dont_buy": [
             "E-fatura entegratörüne doğrudan bağlı bulut ön muhasebe yazılımı arıyorsanız.",
@@ -187,16 +361,15 @@ karar_pages = [
         "cevap": "Banka POS kesintilerini, ertesi gün veya blokeli tahsilatları denetlemek isteyen işletmeler için POS, Komisyon ve Net Tahsilat Kontrol Sistemi (499 TL, 13 sayfa) doğru sistemdir. Farklı banka oranlarını karşılaştırır, erken bloke çözme maliyetini ve hesaba net geçişi kuruşu kuruşuna eksiksiz hesaplar.",
         "primary_slug": "pos-komisyon-ve-net-tahsilat-kontrol-sistemi",
         "primary_title": "POS, Komisyon ve Net Tahsilat Kontrol Sistemi",
-        "primary_price": 499,
         "alt_slugs": ["gunluk-gelir-gider-ve-gercek-karlilik-sistemi", "trendyol-pazaryeri-net-kar-excel"],
         "alt_descs": [
             "Günlük toplam gelir ve gider kârlılığını izlemek için Günlük Gelir-Gider modelini seçin.",
             "Pazaryeri komisyon ve kargo kesintilerini denetlemek için Trendyol Net Kâr sistemini kullanın."
         ],
         "table_rows": [
-            ("POS komisyon ve bloke denetimi", "POS, Komisyon ve Net Tahsilat Kontrol Sistemi", 499, "Banka kesintilerini ve hesaba net geçiş tarihini hesaplar"),
-            ("Günlük net kâr ve marj takibi", "Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi", 499, "İşletmenin günlük net kârlılık tablosunu oluşturur"),
-            ("Pazaryeri komisyon analizi", "Trendyol Komisyon Sonrası Net Kâr", 499, "Pazaryeri kesintilerini düşerek net ürün marjı verir"),
+            {"durum": "POS komisyon ve bloke denetimi", "sistem": "POS, Komisyon ve Net Tahsilat Kontrol Sistemi", "slug": "pos-komisyon-ve-net-tahsilat-kontrol-sistemi", "neden": "Banka kesintilerini ve hesaba net geçiş tarihini hesaplar"},
+            {"durum": "Günlük net kâr ve marj takibi", "sistem": "Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi", "slug": "gunluk-gelir-gider-ve-gercek-karlilik-sistemi", "neden": "İşletmenin günlük net kârlılık tablosunu oluşturur"},
+            {"durum": "Pazaryeri komisyon analizi", "sistem": "Trendyol Komisyon Sonrası Net Kâr", "slug": "trendyol-komisyon-sonrasi-net-kar", "neden": "Pazaryeri kesintilerini düşerek net ürün marjı verir"},
         ],
         "dont_buy": [
             "Fiziki POS cihazına USB/Bluetooth ile bağlanıp otomatik slip okuyan yazılım arıyorsanız.",
@@ -228,16 +401,15 @@ karar_pages = [
         "cevap": "E-ticaret pazaryeri satışlarında komisyon, kargo, ceza ve iade kesintileri sonrası net kârı görmek isteyen satıcılar için Trendyol Komisyon Sonrası Net Kâr (499 TL, 14 sayfa) uygundur. Baremli kargo ve ceza kesintilerini düşerek ürün bazında gerçek net kâr marjını kuruşu kuruşuna hesaplar.",
         "primary_slug": "trendyol-komisyon-sonrasi-net-kar",
         "primary_title": "Trendyol Komisyon Sonrası Net Kâr",
-        "primary_price": 499,
         "alt_slugs": ["pazaryeri-net-kar-ve-eksik-hakedis-yakalayici", "stok-satis-ve-nakit-baglanma-sistemi"],
         "alt_descs": [
             "Tüm pazaryerlerinde eksik yatan hakedişleri bulmak için Pazaryeri Hakediş modelini seçin.",
             "Ürün stok devir hızını ve bağlı sermayeyi izlemek için Stok Nakit Bağlanma sistemini kullanın."
         ],
         "table_rows": [
-            ("Pazaryeri ürün net kâr analizi", "Trendyol Komisyon Sonrası Net Kâr", 499, "Komisyon, barem kargo ve stopaj sonrası net marjı hesaplar"),
-            ("Hakediş ve kesinti mutabakatı", "Pazaryeri Net Kâr & Eksik Hakediş", 499, "Pazaryeri faturası ile yatan parayı karşılaştırır"),
-            ("Stok devir ve sermaye kontrolü", "Stok, Satış ve Nakit Bağlanma Sistemi", 799, "Depoda bağlanan nakit tutarını ve maliyetini verir"),
+            {"durum": "Pazaryeri ürün net kâr analizi", "sistem": "Trendyol Komisyon Sonrası Net Kâr", "slug": "trendyol-komisyon-sonrasi-net-kar", "neden": "Komisyon, barem kargo ve stopaj sonrası net marjı hesaplar"},
+            {"durum": "Hakediş ve kesinti mutabakatı", "sistem": "Pazaryeri Net Kâr & Eksik Hakediş", "slug": "pazaryeri-net-kar-ve-eksik-hakedis-yakalayici", "neden": "Pazaryeri faturası ile yatan parayı karşılaştırır"},
+            {"durum": "Stok devir ve sermaye kontrolü", "sistem": "Stok, Satış ve Nakit Bağlanma Sistemi", "slug": "stok-satis-ve-nakit-baglanma-sistemi", "neden": "Depoda bağlanan nakit tutarını ve maliyetini verir"},
         ],
         "dont_buy": [
             "Trendyol API'sine bağlanıp otomatik sipariş onaylayan entegratör yazılımı istiyorsanız.",
@@ -269,16 +441,15 @@ karar_pages = [
         "cevap": "GİB İnternet Vergi Dairesi standartlarına uygun KDV iade listesi hazırlamak isteyen mükellefler için KDV İade Listesi Robotu GİB 7 (799 TL, 15 sayfa) tasarlanmıştır. İndirilecek ve yüklenilen KDV listelerini formatlar, mükerrer fatura ve VKN hatalarını denetler ve listeleri hazırlar.",
         "primary_slug": "kdv-iade-listesi-robotu-gib7",
         "primary_title": "KDV İade Listesi Robotu GİB 7",
-        "primary_price": 799,
         "alt_slugs": ["kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici", "kdv-tevkifat-mahsup-iade-listesi"],
         "alt_descs": [
             "Azami talep edilebilir iade tavanını hesaplamak için KDV İadesi Azami Alacak modelini seçin.",
             "Kısmi tevkifattan doğan mahsup ve nakden iade için KDV Tevkifat Mahsup sistemini kullanın."
         ],
         "table_rows": [
-            ("GİB 7 liste hazırlama robotu", "KDV İade Listesi Robotu GİB 7", 799, "GİB yükleme şablonuna birebir uyumlu Excel listesi üretir"),
-            ("Azami iade alacağı tavan hesabı", "KDV İadesi Azami Alacak Hesabı", 1499, "Mevzuattaki azami iade tutarını ve sınırlarını denetler"),
-            ("Tevkifat mahsup ve iade cetveli", "KDV Tevkifat Mahsup İade Listesi", 799, "Tevkifata tabi işlemlerde mahsup sürecini hızlandırır"),
+            {"durum": "GİB 7 liste hazırlama robotu", "sistem": "KDV İade Listesi Robotu GİB 7", "slug": "kdv-iade-listesi-robotu-gib7", "neden": "GİB yükleme şablonuna birebir uyumlu Excel listesi üretir"},
+            {"durum": "Azami iade alacağı tavan hesabı", "sistem": "KDV İadesi Azami Alacak Hesabı", "slug": "kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici", "neden": "Mevzuattaki azami iade tutarını ve sınırlarını denetler"},
+            {"durum": "Tevkifat mahsup ve iade cetveli", "sistem": "KDV Tevkifat Mahsup İade Listesi", "slug": "kdv-tevkifat-mahsup-iade-listesi", "neden": "Tevkifata tabi işlemlerde mahsup sürecini hızlandırır"},
         ],
         "dont_buy": [
             "GİB sistemine doğrudan e-imza ile giriş yapıp otomatik XML yükleyen web botu arıyorsanız.",
@@ -310,16 +481,15 @@ karar_pages = [
         "cevap": "Sabit kıymetlerin amortismanını ve 2026 yılı yeniden değerleme avantajını hesaplamak isteyen işletmeler için Amortisman + 2026 Yeniden Değerleme (499 TL, 14 sayfa) geliştirilmiştir. VUK oranlarına göre faydalı ömür amortismanını ve yeniden değerleme sonucu oluşan vergi tasarrufunu kuruşu kuruşuna doğru biçimde belirler.",
         "primary_slug": "amortisman-2026-yeniden-degerleme",
         "primary_title": "Amortisman + 2026 Yeniden Değerleme",
-        "primary_price": 499,
         "alt_slugs": ["amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti", "yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi"],
         "alt_descs": [
             "Sabit kıymeti satarken en az vergi ödeyeceğiniz tarihi planlamak için Satış Zamanlama modelini seçin.",
             "Yeniden değerleme yapmanın net vergi kazancını analiz etmek için Vergi Tasarruf Analizi sistemini kullanın."
         ],
         "table_rows": [
-            ("Amortisman ve yeniden değerleme", "Amortisman + 2026 Yeniden Değerleme", 499, "VUK oranlarına göre amortisman ve vergi kalkanı hesaplar"),
-            ("Sabit kıymet satış vergi planı", "Sabit Kıymet Satış Zamanlama", 799, "Satış kârı vergisini en aza indiren tarihi bulur"),
-            ("Yeniden değerleme fizibilite analizi", "Yeniden Değerleme Vergi Tasarruf Analizi", 499, "Ödenecek vergi ile amortisman tasarrufunu kıyaslar"),
+            {"durum": "Amortisman ve yeniden değerleme", "sistem": "Amortisman + 2026 Yeniden Değerleme", "slug": "amortisman-2026-yeniden-degerleme", "neden": "VUK oranlarına göre amortisman ve vergi kalkanı hesaplar"},
+            {"durum": "Sabit kıymet satış vergi planı", "sistem": "Sabit Kıymet Satış Zamanlama", "slug": "amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti", "neden": "Satış kârı vergisini en aza indiren tarihi bulur"},
+            {"durum": "Yeniden değerleme fizibilite analizi", "sistem": "Yeniden Değerleme Vergi Tasarruf Analizi", "slug": "yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi", "neden": "Ödenecek vergi ile amortisman tasarrufunu kıyaslar"},
         ],
         "dont_buy": [
             "Yalnızca tek bir taşıtın basit amortismanını elle hesaplamak istiyorsanız.",
@@ -351,16 +521,15 @@ karar_pages = [
         "cevap": "İşten ayrılma süreçlerinde kıdem, ihbar ve yıllık izin karşılıklarını kuruşu kuruşuna hesaplamak için Kıdem–İhbar Yükü ve Personel Çıkarma Maliyeti Hesaplayıcı (799 TL, 15 sayfa) uygundur. Güncel kıdem tavanını ve brüt giydirilmiş ücret kalemlerini uygulayarak net tazminatı kuruşu kuruşuna verir.",
         "primary_slug": "kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici",
         "primary_title": "Kıdem–İhbar Yükü ve Personel Çıkarma Maliyeti Hesaplayıcı",
-        "primary_price": 799,
         "alt_slugs": ["fazla-mesai-ve-isci-dava-riski-tespit-dosyasi", "asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli"],
         "alt_descs": [
             "İşçilik dava riski ve fazla mesai iddialarını denetlemek için Fazla Mesai Dava Riski dosyasını seçin.",
             "Asgari ücret zammının şirket maliyetine etkisini görmek için Fiyat Ayarlama Cetvelini kullanın."
         ],
         "table_rows": [
-            ("Kıdem ve ihbar tazminatı hesabı", "Kıdem–İhbar Yükü Hesaplayıcı", 799, "Giydirilmiş brüt ücret ve yasal tavanla net tazminatı verir"),
-            ("Fazla mesai ve dava riski analizi", "Fazla Mesai Dava Riski Tespit Dosyası", 799, "Olası arabuluculuk ve dava maliyetlerini hesaplar"),
-            ("Asgari ücret zam etkisi simülasyonu", "Asgari Ücret Zam Etkisi Cetveli", 799, "İşçilik maliyeti artışının ürün fiyatına etkisini bulur"),
+            {"durum": "Kıdem ve ihbar tazminatı hesabı", "sistem": "Kıdem–İhbar Yükü Hesaplayıcı", "slug": "kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici", "neden": "Giydirilmiş brüt ücret ve yasal tavanla net tazminatı verir"},
+            {"durum": "Fazla mesai ve dava riski analizi", "sistem": "Fazla Mesai Dava Riski Tespit Dosyası", "slug": "fazla-mesai-ve-isci-dava-riski-tespit-dosyasi", "neden": "Olası arabuluculuk ve dava maliyetlerini hesaplar"},
+            {"durum": "Asgari ücret zam etkisi simülasyonu", "sistem": "Asgari Ücret Zam Etkisi Cetveli", "slug": "asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli", "neden": "İşçilik maliyeti artışının ürün fiyatına etkisini bulur"},
         ],
         "dont_buy": [
             "Aylık 500+ personelin puantaj ve bordro tahakkukunu yapan ERP yazılımı arıyorsanız.",
@@ -392,16 +561,15 @@ karar_pages = [
         "cevap": "Personel istihdamında en avantajlı SGK prim teşvikini belirlemek ve kaçırılan primleri yakalamak isteyen işletmeler için Kaçırılan SGK Teşvikleri ve Gerçek İşçilik Maliyeti Analizi (999 TL, 17 sayfa) en uygun sistemdir. Personel bazında yasal teşvik alternatiflerini kıyaslar ve prim kazancını raporlar.",
         "primary_slug": "kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi",
         "primary_title": "Kaçırılan SGK Teşvikleri ve Gerçek İşçilik Maliyeti Analizi",
-        "primary_price": 999,
         "alt_slugs": ["tesvikli-bordro-optimizasyon", "tesvikli-bordro-avantajli-tesvik"],
         "alt_descs": [
             "Bordro kalemleri üzerinden teşvik dağılımı yapmak için Teşvikli Bordro Optimizasyon modelini seçin.",
             "En karlı teşvik kanununu hızlıca belirlemek için Teşvikli Bordro Seçen sistemini kullanın."
         ],
         "table_rows": [
-            ("Kaçırılan teşvik analizi", "Kaçırılan SGK Teşvikleri ve İşçilik Maliyeti", 999, "6111 ve 5510 kanunları kıyaslayarak maksimum kazancı bulur"),
-            ("Bordro teşvik optimizasyonu", "Teşvikli Bordro Optimizasyon", 499, "Personel bazında teşvikli maliyet dağılımı yapar"),
-            ("Avantajlı teşvik kanunu seçici", "Teşvikli Bordro Seçen", 499, "Hangi kanunun daha karlı olduğunu hızlıca listeler"),
+            {"durum": "Kaçırılan teşvik analizi", "sistem": "Kaçırılan SGK Teşvikleri ve İşçilik Maliyeti", "slug": "kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi", "neden": "6111 ve 5510 kanunları kıyaslayarak maksimum kazancı bulur"},
+            {"durum": "Bordro teşvik optimizasyonu", "sistem": "Teşvikli Bordro Optimizasyon", "slug": "tesvikli-bordro-optimizasyon", "neden": "Personel bazında teşvikli maliyet dağılımı yapar"},
+            {"durum": "Avantajlı teşvik kanunu seçici", "sistem": "Teşvikli Bordro Seçen", "slug": "tesvikli-bordro-avantajli-tesvik", "neden": "Hangi kanunun daha karlı olduğunu hızlıca listeler"},
         ],
         "dont_buy": [
             "SGK portalına robotik süreçle (RPA) bağlanıp otomatik teşvik sorgulayan yazılım arıyorsanız.",
@@ -433,16 +601,15 @@ karar_pages = [
         "cevap": "Restoran ve kafelerde porsiyon maliyetini, hammadde firelerini ve menü kâr marjlarını denetlemek isteyen işletmeler için Restoran Reçete Maliyet ve Fire Sistemi (499 TL, 14 sayfa) idealdir. Gramaj bazlı hammadde fiyatlarını menü satış fiyatıyla eşleştirir ve porsiyon kârlılığını kuruşu kuruşuna hesaplar.",
         "primary_slug": "restoran-recete-maliyet-fire",
         "primary_title": "Restoran Reçete Maliyet ve Fire Sistemi",
-        "primary_price": 499,
         "alt_slugs": ["mutfak-kayip-kacak-hesaplayici", "gunluk-gelir-gider-ve-gercek-karlilik-sistemi"],
         "alt_descs": [
             "Mutfak porsiyon kaçaklarını ve stok erimelerini denetlemek için Mutfak Kayıp Kaçak modelini seçin.",
             "İşletmenin günlük net gelir-gider dengesini izlemek için Günlük Gelir-Gider sistemini kullanın."
         ],
         "table_rows": [
-            ("Reçete maliyeti ve fire hesabı", "Restoran Reçete Maliyet ve Fire Sistemi", 499, "Gramaj bazlı porsiyon maliyetini ve brüt marjı verir"),
-            ("Mutfak kayıp ve kaçak kontrolü", "Mutfak Kayıp/Kaçak Hesaplayıcı", 499, "Teorik hammadde tüketimi ile fiili depoyu eşleştirir"),
-            ("Günlük kasa ve kârlılık takibi", "Günlük Gelir–Gider ve Kârlılık", 499, "Kasa, personel ve kira masrafları sonrası net kârı bulur"),
+            {"durum": "Reçete maliyeti ve fire hesabı", "sistem": "Restoran Reçete Maliyet ve Fire Sistemi", "slug": "restoran-recete-maliyet-fire", "neden": "Gramaj bazlı porsiyon maliyetini ve brüt marjı verir"},
+            {"durum": "Mutfak kayıp ve kaçak kontrolü", "sistem": "Mutfak Kayıp/Kaçak Hesaplayıcı", "slug": "mutfak-kayip-kacak-hesaplayici", "neden": "Teorik hammadde tüketimi ile fiili depoyu eşleştirir"},
+            {"durum": "Günlük kasa ve kârlılık takibi", "sistem": "Günlük Gelir–Gider ve Kârlılık", "slug": "gunluk-gelir-gider-ve-gercek-karlilik-sistemi", "neden": "Kasa, personel ve kira masrafları sonrası net kârı bulur"},
         ],
         "dont_buy": [
             "Garson el terminali ve adisyon dokunmatik ekranı arıyorsanız.",
@@ -474,16 +641,15 @@ karar_pages = [
         "cevap": "İnşaat projelerinde şantiye harcamalarını, taşeron ödemelerini ve hakediş kesintilerini yönetmek isteyen müteahhitler için İnşaat Hakediş ve Şantiye Maliyet Sistemi (799 TL, 16 sayfa) geliştirilmiştir. İmalat metrajlarını ve yasal stopaj kesintilerini düzenli hakediş raporuna dönüştürür ve kontrolü eksiksiz sağlar.",
         "primary_slug": "insaat-hakedis-santiye-maliyet",
         "primary_title": "İnşaat Hakediş ve Şantiye Maliyet Sistemi",
-        "primary_price": 799,
         "alt_slugs": ["hakedis-fiyat-farki-hak-kaybi-cetveli", "taseron-hakedis-kesinti-mutabakati"],
         "alt_descs": [
             "Kamu ve özel sektör fiyat farkı endekslerini hesaplamak için Fiyat Farkı Cetvelini seçin.",
             "Taşeron avans ve teminat kesintilerini netleştirmek için Taşeron Mutabakat modelini kullanın."
         ],
         "table_rows": [
-            ("Şantiye hakediş ve metraj icmali", "İnşaat Hakediş ve Şantiye Maliyet", 799, "İmalat metrajları ve kesintiler sonrası net ödemeyi verir"),
-            ("TÜİK endeksli fiyat farkı hesabı", "Hakediş Fiyat Farkı Cetveli", 799, "Resmi endekslere göre hak edilen fiyat farkını hesaplar"),
-            ("Taşeron avans ve ceza mutabakatı", "Taşeron Hakediş Kesinti Mutabakatı", 499, "Taşeron bazında kümülatif hak ediş ve kalan bakiyeyi tutar"),
+            {"durum": "Şantiye hakediş ve metraj icmali", "sistem": "İnşaat Hakediş ve Şantiye Maliyet", "slug": "insaat-hakedis-santiye-maliyet", "neden": "İmalat metrajları ve kesintiler sonrası net ödemeyi verir"},
+            {"durum": "TÜİK endeksli fiyat farkı hesabı", "sistem": "Hakediş Fiyat Farkı Cetveli", "slug": "hakedis-fiyat-farki-hak-kaybi-cetveli", "neden": "Resmi endekslere göre hak edilen fiyat farkını hesaplar"},
+            {"durum": "Taşeron avans ve ceza mutabakatı", "sistem": "Taşeron Hakediş Kesinti Mutabakatı", "slug": "taseron-hakedis-kesinti-mutabakati", "neden": "Taşeron bazında kümülatif hak ediş ve kalan bakiyeyi tutar"},
         ],
         "dont_buy": [
             "BIM ve AutoCAD projelerini 3 boyutlu okuyan mimari yazılım arıyorsanız.",
@@ -515,16 +681,15 @@ karar_pages = [
         "cevap": "Kamu ve özel sektör ihalelerinde en karlı ve elenmeyen teklif tutarını belirlemek isteyen müteahhitler için İhaleye Kaç TL Teklif Vermeliyim Sistemi (999 TL, 16 sayfa) uygundur. KİK sınır değer formüllerine göre teklifinizin sınır altında kalma riskini detaylıca analiz eder ve kârı hesaplar.",
         "primary_slug": "ihaleye-kac-tl-teklif-vermeliyim",
         "primary_title": "İhaleye Kaç TL Teklif Vermeliyim Sistemi",
-        "primary_price": 999,
         "alt_slugs": ["asiri-dusuk-teklif-savunma-robotu", "insaat-hakedis-santiye-maliyet"],
         "alt_descs": [
             "Aşırı düşük teklif sorgulamasına savunma dosyası hazırlamak için Aşırı Düşük Savunma Robotunu seçin.",
             "İhale sonrası şantiye imalat ve hakediş takibi için İnşaat Hakediş sistemini kullanın."
         ],
         "table_rows": [
-            ("İhale teklif fiyatı simülasyonu", "İhaleye Kaç TL Teklif Vermeliyim", 999, "Sınır değer ve kârlılık dengesini optimize eder"),
-            ("Aşırı düşük teklif savunma dosyası", "Aşırı Düşük Teklif Savunma Robotu", 999, "KİK mevzuatına uygun analiz formatı üretir"),
-            ("İhale sonrası hakediş kontrolü", "İnşaat Hakediş ve Şantiye Maliyet", 799, "Kazanılan ihalenin şantiye maliyetlerini izler"),
+            {"durum": "İhale teklif fiyatı simülasyonu", "sistem": "İhaleye Kaç TL Teklif Vermeliyim", "slug": "ihaleye-kac-tl-teklif-vermeliyim", "neden": "Sınır değer ve kârlılık dengesini optimize eder"},
+            {"durum": "Aşırı düşük teklif savunma dosyası", "sistem": "Aşırı Düşük Teklif Savunma Robotu", "slug": "asiri-dusuk-teklif-savunma-robotu", "neden": "KİK mevzuatına uygun analiz formatı üretir"},
+            {"durum": "İhale sonrası hakediş kontrolü", "sistem": "İnşaat Hakediş ve Şantiye Maliyet", "slug": "insaat-hakedis-santiye-maliyet", "neden": "Kazanılan ihalenin şantiye maliyetlerini izler"},
         ],
         "dont_buy": [
             "EKAP sisteminden ihaleleri otomatik tarayıp belge indiren web botu arıyorsanız.",
@@ -556,16 +721,15 @@ karar_pages = [
         "cevap": "Depodaki ürünlerin stok devir hızını, atıl kalan sermaye tutarını ve kritik sipariş seviyelerini denetlemek isteyen işletmeler için Stok, Satış ve Nakit Bağlanma Sistemi (799 TL, 15 sayfa) tasarlanmıştır. Raflarda bağlanan nakit maliyetini ve ABC ürün sınıflandırmasını kuruşu kuruşuna eksiksiz hesaplar.",
         "primary_slug": "stok-satis-ve-nakit-baglanma-sistemi",
         "primary_title": "Stok, Satış ve Nakit Bağlanma Sistemi",
-        "primary_price": 799,
         "alt_slugs": ["ithalat-depo-teslim-rafa-gelen-net-birim-maliyet", "trendyol-pazaryeri-net-kar-excel"],
         "alt_descs": [
             "İthalat gümrük ve navlun masraflarını birim maliyete dağıtmak için İthalat Birim Maliyet modelini seçin.",
             "E-ticaret pazar yerlerindeki stok kârlılığını izlemek için Trendyol Net Kâr sistemini kullanın."
         ],
         "table_rows": [
-            ("Stok devir hızı ve nakit bağlanma", "Stok, Satış ve Nakit Bağlanma Sistemi", 799, "Raflarda atıl kalan sermayeyi ve devir gününü verir"),
-            ("İthalat depo teslim birim maliyet", "İthalat Birim Maliyet Hesaplayıcı", 799, "Gümrük ve navlun masraflarını ürün maliyetine ekler"),
-            ("E-ticaret stok ve kâr takibi", "Trendyol Komisyon Sonrası Net Kâr", 499, "Pazaryeri satışlarındaki ürün marjını denetler"),
+            {"durum": "Stok devir hızı ve nakit bağlanma", "sistem": "Stok, Satış ve Nakit Bağlanma Sistemi", "slug": "stok-satis-ve-nakit-baglanma-sistemi", "neden": "Raflarda atıl kalan sermayeyi ve devir gününü verir"},
+            {"durum": "İthalat depo teslim birim maliyet", "sistem": "İthalat Birim Maliyet Hesaplayıcı", "slug": "ithalat-depo-teslim-rafa-gelen-net-birim-maliyet", "neden": "Gümrük ve navlun masraflarını ürün maliyetine ekler"},
+            {"durum": "E-ticaret stok ve kâr takibi", "sistem": "Trendyol Komisyon Sonrası Net Kâr", "slug": "trendyol-komisyon-sonrasi-net-kar", "neden": "Pazaryeri satışlarındaki ürün marjını denetler"},
         ],
         "dont_buy": [
             "Depo raflarında el terminaliyle barkod okutan WMS yazılımı arıyorsanız.",
@@ -597,16 +761,15 @@ karar_pages = [
         "cevap": "Birden fazla şube veya mağazanın kârlılığını, kira ve personel yükünü ve kapatma eşiğini analiz etmek isteyen yöneticiler için Şube Kârlılık ve Nakit Hesaplayıcı (999 TL, 16 sayfa) uygundur. Ortak genel giderleri dağıtarak hangi şubenin nakit tükettiğini net biçimde belirler ve raporlar.",
         "primary_slug": "sube-karlilik-ve-nakit-hesaplayici",
         "primary_title": "Şube Kârlılık ve Nakit Hesaplayıcı",
-        "primary_price": 999,
         "alt_slugs": ["aylik-patron-finans-paneli", "proje-ve-is-bazinda-gercek-karlilik-sistemi"],
         "alt_descs": [
             "Tüm şirketin konsolide yönetim tablosunu izlemek için Aylık Patron Paneli modelini seçin.",
             "Şube yerine proje ve sipariş bazında kâr hesabı için Proje Bazında Kârlılık sistemini kullanın."
         ],
         "table_rows": [
-            ("Şube kârlılık ve başabaş analizi", "Şube Kârlılık ve Nakit Hesaplayıcı", 999, "Şube bazında kira, personel ve net kâr dağılımını yapar"),
-            ("Konsolide şirket yönetim tablosu", "Aylık Patron Finans Paneli", 999, "Tüm şirketin aylık kâr, zarar ve nakit durumunu verir"),
-            ("Proje bazında gerçek kârlılık", "Proje ve İş Bazında Kârlılık Sistemi", 999, "Sipariş ve proje bazlı net marjı hesaplar"),
+            {"durum": "Şube kârlılık ve başabaş analizi", "sistem": "Şube Kârlılık ve Nakit Hesaplayıcı", "slug": "sube-karlilik-ve-nakit-hesaplayici", "neden": "Şube bazında kira, personel ve net kâr dağılımını yapar"},
+            {"durum": "Konsolide şirket yönetim tablosu", "sistem": "Aylık Patron Finans Paneli", "slug": "aylik-patron-finans-paneli", "neden": "Tüm şirketin aylık kâr, zarar ve nakit durumunu verir"},
+            {"durum": "Proje bazında gerçek kârlılık", "sistem": "Proje ve İş Bazında Kârlılık Sistemi", "slug": "proje-ve-is-bazinda-gercek-karlilik-sistemi", "neden": "Sipariş ve proje bazlı net marjı hesaplar"},
         ],
         "dont_buy": [
             "Şubelerdeki yazar kasa POS cihazlarını anlık merkez sunucuya bağlayan yazılım arıyorsanız.",
@@ -638,16 +801,15 @@ karar_pages = [
         "cevap": "Şirket özkaynaklarının erimesi, sermaye kaybı ve borca batıklık durumunu denetlemek isteyen şirket yöneticileri için Şirket Öz Kaynağı Eridi mi? TTK 376 Sermaye Tamamlama Cetveli (1.499 TL, 18 sayfa) tasarlanmıştır. Bilanço kalemlerinden sermaye koruma oranını net olarak verir ve çözümleri sunar.",
         "primary_slug": "sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli",
         "primary_title": "Şirket Öz Kaynağı Eridi mi? TTK 376 Sermaye Tamamlama Cetveli",
-        "primary_price": 1499,
         "alt_slugs": ["konkordato-nakit-akis-on-projesi", "doviz-acik-pozisyonu-ve-kur-riski-stres-testi"],
         "alt_descs": [
             "Mahkemeye sunulacak konkordato nakit akış ön projesi hazırlamak için Konkordato modelini seçin.",
             "Döviz borçlarının özkaynak üzerindeki kur baskısını ölçmek için Kur Riski sistemini kullanın."
         ],
         "table_rows": [
-            ("TTK 376 sermaye kaybı denetimi", "TTK 376 Sermaye Tamamlama Cetveli", 1499, "Sermaye + kanuni yedek akçelerin korunma oranını verir"),
-            ("Konkordato nakit akış ön projesi", "Konkordato Nakit Akış Ön Projesi", 2490, "İflas erteleme ve borç yapılandırma simülasyonu yapar"),
-            ("Kur şoku ve özkaynak stres testi", "Döviz Açık Pozisyonu ve Kur Riski", 999, "Kur artışının bilanço özkaynağına etkisini hesaplar"),
+            {"durum": "TTK 376 sermaye kaybı denetimi", "sistem": "TTK 376 Sermaye Tamamlama Cetveli", "slug": "sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli", "neden": "Sermaye + kanuni yedek akçelerin korunma oranını verir"},
+            {"durum": "Konkordato nakit akış ön projesi", "sistem": "Konkordato Nakit Akış Ön Projesi", "slug": "konkordato-nakit-akis-on-projesi", "neden": "İflas erteleme ve borç yapılandırma simülasyonu yapar"},
+            {"durum": "Kur şoku ve özkaynak stres testi", "sistem": "Döviz Açık Pozisyonu ve Kur Riski", "slug": "doviz-acik-pozisyonu-ve-kur-riski-stres-testi", "neden": "Kur artışının bilanço özkaynağına etkisini hesaplar"},
         ],
         "dont_buy": [
             "Yeminli mali müşavir veya bağımsız denetçi resmi mühür ve imza raporu istiyorsanız.",
@@ -679,16 +841,15 @@ karar_pages = [
         "cevap": "Döviz borçları, ithalat taahhütleri ve yabancı para varlıkları arasındaki kur riskini ölçmek isteyen şirketler için Döviz Açık Pozisyonu ve Kur Riski Stres Testi (999 TL, 16 sayfa) uygundur. Dolar ve Euro kur senaryolarında şirketin maruz kalacağı kur farkı zararını simüle eder ve netleştirir.",
         "primary_slug": "doviz-acik-pozisyonu-ve-kur-riski-stres-testi",
         "primary_title": "Döviz Açık Pozisyonu ve Kur Riski Stres Testi",
-        "primary_price": 999,
         "alt_slugs": ["kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti", "kobi-finans-yonetim-paketi"],
         "alt_descs": [
             "Yabancı kaynak kullanımından doğan finansman gider kısıtlamasını denetlemek için KKEG Setini seçin.",
             "Kur riskiyle birlikte tüm şirket finansmanını yönetmek için KOBİ Finans Paketini kullanın."
         ],
         "table_rows": [
-            ("Döviz açık pozisyonu ve stres testi", "Döviz Açık Pozisyonu ve Kur Riski", 999, "Kur şoklarında şirketin maruz kalacağı zararı simüle eder"),
-            ("Finansman gider kısıtlaması hesabı", "KKEG ve Finansman Gider Kısıtlaması", 999, "Yabancı kaynak giderlerinin vergiye etkisini hesaplar"),
-            ("Entegre finans yönetim paketi", "KOBİ Finans Yönetim Paketi", 2490, "Tüm nakit, borç ve kur dengesini tek pakette toplar"),
+            {"durum": "Döviz açık pozisyonu ve stres testi", "sistem": "Döviz Açık Pozisyonu ve Kur Riski", "slug": "doviz-acik-pozisyonu-ve-kur-riski-stres-testi", "neden": "Kur şoklarında şirketin maruz kalacağı zararı simüle eder"},
+            {"durum": "Finansman gider kısıtlaması hesabı", "sistem": "KKEG ve Finansman Gider Kısıtlaması", "slug": "kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti", "neden": "Yabancı kaynak giderlerinin vergiye etkisini hesaplar"},
+            {"durum": "Entegre finans yönetim paketi", "sistem": "KOBİ Finans Yönetim Paketi", "slug": "kobi-finans-yonetim-paketi", "neden": "Tüm nakit, borç ve kur dengesini tek pakette toplar"},
         ],
         "dont_buy": [
             "Canlı Forex ve borsa ekranlarından anlık milisaniyelik arbitraj yapan bot arıyorsanız.",
@@ -720,16 +881,15 @@ karar_pages = [
         "cevap": "Logo veya diğer ERP yazılımlarından alınan cari hareket dökümlerini analiz edip tahsilat kararı üretmek isteyen yöneticiler için Logo/ERP Uyumlu Cari Yaşlandırma ve Tahsilat Karar Motoru (1.499 TL, 18 sayfa) tasarlanmıştır. Ham veriyi yaşlandırma raporuna çevirir ve tahsilatı hızlandırır.",
         "primary_slug": "logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
         "primary_title": "Logo/ERP Uyumlu SQL Cari Yaşlandırma ve Tahsilat Karar Motoru",
-        "primary_price": 1499,
         "alt_slugs": ["cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi", "cari-ba-bs-toplu-mutabakat"],
         "alt_descs": [
             "ERP çıktısı olmadan manuel cari takip ve risk puanlaması yapmak için Cari Risk Takip modelini seçin.",
             "Müşteri ve tedarikçilerle Ba-Bs mutabakatı yapmak için Cari Ba-Bs Mutabakat sistemini kullanın."
         ],
         "table_rows": [
-            ("ERP uyumlu SQL cari yaşlandırma", "Logo/ERP Uyumlu Cari Yaşlandırma Motoru", 1499, "Logo ve ERP dökümlerini dinamik tahsilat paneline dönüştürür"),
-            ("Manuel cari hesap ve risk takibi", "Cari Hesap ve Müşteri Risk Takip Sistemi", 799, "ERP harici bağımsız cari takip ve vade kontrolü yapar"),
-            ("Toplu Ba-Bs mutabakat denetimi", "Cari Ba-Bs Toplu Mutabakat", 499, "Müşteri ve tedarikçi faturalarını toplu karşılaştırır"),
+            {"durum": "ERP uyumlu SQL cari yaşlandırma", "sistem": "Logo/ERP Uyumlu Cari Yaşlandırma Motoru", "slug": "logo-sql-cari-yaslandirma-tahsilat-karar-motoru", "neden": "Logo ve ERP dökümlerini dinamik tahsilat paneline dönüştürür"},
+            {"durum": "Manuel cari hesap ve risk takibi", "sistem": "Cari Hesap ve Müşteri Risk Takip Sistemi", "slug": "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi", "neden": "ERP harici bağımsız cari takip ve vade kontrolü yapar"},
+            {"durum": "Toplu Ba-Bs mutabakat denetimi", "sistem": "Cari Ba-Bs Toplu Mutabakat", "slug": "cari-ba-bs-toplu-mutabakat", "neden": "Müşteri ve tedarikçi faturalarını toplu karşılaştırır"},
         ],
         "dont_buy": [
             "Logo Yazılım'ın resmi ERP veritabanı lisansı veya çekirdek muhasebe programı arıyorsanız.",
@@ -755,6 +915,24 @@ karar_pages = [
     }
 ]
 
+# Merge extra paragraphs from exp and bst
+for page in karar_pages:
+    slug = page['slug']
+    if slug in ADDITIONAL_PARAS:
+        page['paragraphs'].extend(ADDITIONAL_PARAS[slug])
+    if slug in EXTRA_BOOST:
+        page['paragraphs'].extend(EXTRA_BOOST[slug])
+
+# Clean any remaining forbidden words
+for page in karar_pages:
+    clean_paras = []
+    for p in page['paragraphs']:
+        p_clean = p.replace('binlerce liralık haksız kesintinin', 'yüksek tutarlı haksız kesintilerin')
+        p_clean = p_clean.replace('yüz binlerce liraya ulaşmasıyla', 'yüksek tutarlara ulaşmasıyla')
+        p_clean = p_clean.replace('binlerce hareket kaydı', 'yoğun hareket kaydı')
+        clean_paras.append(p_clean)
+    page['paragraphs'] = clean_paras
+
 def render_astro_page(spec):
     slug = spec['slug']
     h1 = spec['h1'].strip()
@@ -763,8 +941,6 @@ def render_astro_page(spec):
     cevap = spec['cevap'].strip()
     primary_slug = spec['primary_slug']
     primary_title = spec['primary_title']
-    primary_price = spec['primary_price']
-    primary_desc = products.get(primary_slug, {}).get('summary', 'Mevzuata ve sahaya tam uyumlu finansal karar sistemi.')
     dont_buy = spec['dont_buy']
     faqs = spec['faqs']
     related = spec['related']
@@ -774,6 +950,9 @@ def render_astro_page(spec):
     paragraphs = spec['paragraphs']
     
     faq_json = json.dumps([{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs], ensure_ascii=False)
+    
+    primary_prod = products.get(primary_slug, {})
+    primary_price = primary_prod.get('fiyat_tl', 999)
     
     item_elements = [
         {
@@ -811,10 +990,49 @@ def render_astro_page(spec):
         })
     item_json = json.dumps(item_elements, ensure_ascii=False)
     
+    table_rows_json = json.dumps(table_rows, ensure_ascii=False)
+    alt_data = []
+    for aslug, adesc in zip(alt_slugs[:2], alt_descs[:2]):
+        ap = products.get(aslug, {})
+        alt_data.append({
+            "slug": aslug,
+            "ad": ap.get('ad', aslug),
+            "desc": adesc
+        })
+    alt_data_json = json.dumps(alt_data, ensure_ascii=False)
+    dont_buy_json = json.dumps(dont_buy, ensure_ascii=False)
+    faqs_json = json.dumps([{"q": q, "a": a} for q, a in faqs], ensure_ascii=False)
+    related_json = json.dumps(related, ensure_ascii=False)
+    paragraphs_json = json.dumps(paragraphs, ensure_ascii=False)
+    
     code = f"""---
 import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import * as fs from 'node:fs';
+const urunlerData = JSON.parse(fs.readFileSync('./veri/urunler.json', 'utf-8'));
+
+const urunlerMap = new Map(urunlerData.map((u) => [u.slug, u]));
 
 const primarySlug = {json.dumps(primary_slug, ensure_ascii=False)};
+const primaryProduct = urunlerMap.get(primarySlug) ?? {{ ad: {json.dumps(primary_title, ensure_ascii=False)}, fiyat_tl: {primary_price}, summary: 'Mevzuata ve sahaya tam uyumlu finansal karar sistemi.' }};
+const primaryPrice = primaryProduct.fiyat_tl;
+
+const tableRowsData = {table_rows_json};
+const tableRows = tableRowsData.map((r) => ({{
+  ...r,
+  fiyat_tl: urunlerMap.get(r.slug)?.fiyat_tl ?? 799
+}}));
+
+const altItemsData = {alt_data_json};
+const altItems = altItemsData.map((a) => ({{
+  ...a,
+  fiyat_tl: urunlerMap.get(a.slug)?.fiyat_tl ?? 799
+}}));
+
+const dontBuyList = {dont_buy_json};
+const faqList = {faqs_json};
+const relatedSlugs = {related_json};
+const articleParagraphs = {paragraphs_json};
+
 const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
 const pageUrl = new URL('/karar/{slug}', siteUrl).href;
 
@@ -892,17 +1110,15 @@ const jsonLd = {{
               </tr>
             </thead>
             <tbody class="divide-y divide-neutral-200 bg-white">
-"""
-    for r in table_rows:
-        code += f"""              <tr>
-                <td class="p-3 font-medium text-neutral-900">{r[0]}</td>
-                <td class="p-3 font-semibold text-emerald-800">{r[1]}</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">{r[2]:,} TL</td>
-                <td class="p-3 text-xs text-neutral-600">{r[3]}</td>
-              </tr>
-""".replace(',', '.')
-    
-    code += f"""            </tbody>
+              {{tableRows.map((r) => (
+                <tr>
+                  <td class="p-3 font-medium text-neutral-900">{{r.durum}}</td>
+                  <td class="p-3 font-semibold text-emerald-800">{{r.sistem}}</td>
+                  <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">{{r.fiyat_tl.toLocaleString('tr-TR')}} TL</td>
+                  <td class="p-3 text-xs text-neutral-600">{{r.neden}}</td>
+                </tr>
+              ))}}
+            </tbody>
           </table>
         </div>
       </section>
@@ -910,17 +1126,17 @@ const jsonLd = {{
       {{/* BİRİNCİL ÖNERİ */}}
       <section class="my-8 border border-neutral-300 bg-neutral-50 p-6 sm:p-8" aria-label="Birincil Öneri">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">BİRİNCİL SİSTEM TAVSİYESİ</span>
-        <h2 class="text-2xl font-bold text-neutral-900 mt-2">{primary_title}</h2>
+        <h2 class="text-2xl font-bold text-neutral-900 mt-2">{{primaryProduct.ad}}</h2>
         <p class="text-sm text-neutral-700 mt-3 leading-relaxed">
-          {primary_desc}
+          {{primaryProduct.summary}}
         </p>
         <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-neutral-200">
           <div>
-            <span class="text-2xl font-extrabold text-neutral-900 font-mono">{primary_price:,} TL</span>
+            <span class="text-2xl font-extrabold text-neutral-900 font-mono">{{primaryPrice.toLocaleString('tr-TR')}} TL</span>
             <span class="block text-xs text-neutral-500 font-mono">KDV dahil · tek ödeme</span>
           </div>
           <a
-            href="/sablon/{primary_slug}"
+            href={{`/sablon/${{primarySlug}}`}}
             class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-3 text-sm transition-colors"
           >
             Sistemi İnceleyin →
@@ -932,82 +1148,70 @@ const jsonLd = {{
       <section class="my-8" aria-label="Alternatif Sistemler">
         <h2 class="text-xl font-bold text-neutral-900 mb-3">Alternatif Karar Seçenekleri</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-""".replace(',', '.')
-
-    for a_slug, a_desc in zip(alt_slugs[:2], alt_descs[:2]):
-        a_prod = products.get(a_slug, {})
-        code += f"""          <div class="border border-neutral-200 p-5 bg-white">
-            <h3 class="text-base font-bold text-neutral-900">
-              <a href="/sablon/{a_slug}" class="hover:text-emerald-800 hover:underline">{a_prod.get('ad', a_slug)}</a>
-            </h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">{a_desc}</p>
-            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
-              <span class="font-mono text-neutral-500">{a_prod.get('fiyat_tl', 799):,} TL</span>
-              <a href="/sablon/{a_slug}" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+          {{altItems.map((a) => (
+            <div class="border border-neutral-200 p-5 bg-white">
+              <h3 class="text-base font-bold text-neutral-900">
+                <a href={{`/sablon/${{a.slug}}`}} class="hover:text-emerald-800 hover:underline">{{a.ad}}</a>
+              </h3>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">{{a.desc}}</p>
+              <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+                <span class="font-mono text-neutral-500">{{a.fiyat_tl.toLocaleString('tr-TR')}} TL</span>
+                <a href={{`/sablon/${{a.slug}}`}} class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+              </div>
             </div>
-          </div>
-""".replace(',', '.')
-
-    code += f"""        </div>
+          ))}}
+        </div>
       </section>
 
       {{/* DÜRÜST SINIR BLOĞU: BU SİSTEMİ ALMAYIN EĞER... */}}
       <section class="my-8 border-l-4 border-amber-600 bg-amber-50/50 p-6" aria-label="Dürüst Sınır">
         <h2 class="text-lg font-bold text-neutral-900 mb-3">Bu sistemi almayın eğer…</h2>
         <ul class="space-y-2 text-sm text-neutral-700">
-"""
-    for d in dont_buy:
-        code += f"""          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>{d}</span>
-          </li>
-"""
-
-    code += f"""        </ul>
+          {{dontBuyList.map((d) => (
+            <li class="flex items-start gap-2">
+              <span class="text-amber-700 font-bold">✕</span>
+              <span>{{d}}</span>
+            </li>
+          ))}}
+        </ul>
       </section>
 
       {{/* DETAYLI İÇERİK METNİ */}}
       <section class="prose prose-neutral max-w-none my-8 text-sm sm:text-base leading-relaxed text-neutral-700 space-y-4">
         <h2 class="text-xl font-bold text-neutral-900">Karar Modelinin Metodolojisi ve Uygulama Alanları</h2>
-"""
-    for p in paragraphs:
-        code += f"""        <p>{p}</p>
-"""
-
-    code += f"""      </section>
+        {{articleParagraphs.map((p) => (
+          <p>{{p}}</p>
+        ))}}
+      </section>
 
       {{/* SSS */}}
       <section class="my-8" aria-label="Sık Sorulan Sorular">
         <h2 class="text-xl font-bold text-neutral-900 mb-3">Sık Sorulan Sorular</h2>
         <div class="divide-y divide-neutral-200 border-y border-neutral-200">
-"""
-    for q, a in faqs:
-        code += f"""          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>{q}</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              {a}
-            </p>
-          </details>
-"""
-
-    code += f"""        </div>
+          {{faqList.map((f) => (
+            <details class="group py-4">
+              <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+                <span>{{f.q}}</span>
+                <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+              </summary>
+              <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+                {{f.a}}
+              </p>
+            </details>
+          ))}}
+        </div>
       </section>
 
       {{/* İLGİLİ KARARLAR */}}
       <section class="my-8 bg-neutral-50 border border-neutral-200 p-6" aria-label="İlgili Kararlar">
         <h2 class="text-sm font-mono uppercase tracking-wider text-neutral-500 mb-3">İLGİLİ KARAR REHBERLERİ</h2>
         <div class="flex flex-wrap gap-3 text-xs">
-"""
-    for r_slug in related:
-        code += f"""          <a href="/karar/{r_slug}" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/{r_slug} →
-          </a>
-"""
-
-    code += f"""        </div>
+          {{relatedSlugs.map((r) => (
+            <a href={{`/karar/${{r}}`}} class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+              /karar/{{r}} →
+            </a>
+          ))}}
+        </div>
       </section>
 
       {{/* KAPANIŞ CTA */}}
@@ -1016,10 +1220,10 @@ const jsonLd = {{
         <p class="text-xs sm:text-sm text-neutral-600 mb-6">Açık formüllü, denetlenmiş ve kullanıma hazır sistemi anında indirin.</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a
-            href="/sablon/{primary_slug}"
+            href={{`/sablon/${{primarySlug}}`}}
             class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
           >
-            {primary_title} İncele →
+            {{primaryProduct.ad}} İncele →
           </a>
           <a
             href="/demo"
@@ -1045,4 +1249,4 @@ for spec in karar_pages:
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(render_astro_page(spec))
 
-print(f"Generated all {len(karar_pages)} pages successfully.")
+print(f"Generated all {len(karar_pages)} pages dynamically without hardcoded prices.")

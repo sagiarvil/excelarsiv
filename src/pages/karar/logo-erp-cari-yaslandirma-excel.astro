@@ -1,7 +1,31 @@
 ---
 import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import * as fs from 'node:fs';
+const urunlerData = JSON.parse(fs.readFileSync('./veri/urunler.json', 'utf-8'));
+
+const urunlerMap = new Map(urunlerData.map((u) => [u.slug, u]));
 
 const primarySlug = "logo-sql-cari-yaslandirma-tahsilat-karar-motoru";
+const primaryProduct = urunlerMap.get(primarySlug) ?? { ad: "Logo/ERP Uyumlu SQL Cari Yaşlandırma ve Tahsilat Karar Motoru", fiyat_tl: 1499, summary: 'Mevzuata ve sahaya tam uyumlu finansal karar sistemi.' };
+const primaryPrice = primaryProduct.fiyat_tl;
+
+const tableRowsData = [{"durum": "ERP uyumlu SQL cari yaşlandırma", "sistem": "Logo/ERP Uyumlu Cari Yaşlandırma Motoru", "slug": "logo-sql-cari-yaslandirma-tahsilat-karar-motoru", "neden": "Logo ve ERP dökümlerini dinamik tahsilat paneline dönüştürür"}, {"durum": "Manuel cari hesap ve risk takibi", "sistem": "Cari Hesap ve Müşteri Risk Takip Sistemi", "slug": "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi", "neden": "ERP harici bağımsız cari takip ve vade kontrolü yapar"}, {"durum": "Toplu Ba-Bs mutabakat denetimi", "sistem": "Cari Ba-Bs Toplu Mutabakat", "slug": "cari-ba-bs-toplu-mutabakat", "neden": "Müşteri ve tedarikçi faturalarını toplu karşılaştırır"}];
+const tableRows = tableRowsData.map((r) => ({
+  ...r,
+  fiyat_tl: urunlerMap.get(r.slug)?.fiyat_tl ?? 799
+}));
+
+const altItemsData = [{"slug": "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi", "ad": "Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi", "desc": "ERP çıktısı olmadan manuel cari takip ve risk puanlaması yapmak için Cari Risk Takip modelini seçin."}, {"slug": "cari-ba-bs-toplu-mutabakat", "ad": "Cari ve Ba-Bs Toplu Mutabakat Motoru", "desc": "Müşteri ve tedarikçilerle Ba-Bs mutabakatı yapmak için Cari Ba-Bs Mutabakat sistemini kullanın."}];
+const altItems = altItemsData.map((a) => ({
+  ...a,
+  fiyat_tl: urunlerMap.get(a.slug)?.fiyat_tl ?? 799
+}));
+
+const dontBuyList = ["Logo Yazılım'ın resmi ERP veritabanı lisansı veya çekirdek muhasebe programı arıyorsanız.", "Doğrudan SQL veritabanına veri yazıp fatura oluşturan çift yönlü entegrasyon istiyorsanız.", "ERP'den Excel/SQL dökümü almadan otomatik işlem bekliyorsanız."];
+const faqList = [{"q": "Logo Tiger ve Go sürümleriyle uyumlu mu?", "a": "Evet, Logo Tiger, Go ve diğer ERP'lerden alınan standart cari ekstre ve SQL çıktılarıyla uyumludur."}, {"q": "SQL sorgusu dosyada yer alıyor mu?", "a": "Evet, Logo veritabanından doğrudan veri çekmek isteyenler için hazır optimize SQL sorgusu dahildir."}, {"q": "Veri aktarımı ne kadar sürer?", "a": "ERP çıktısını girdi sayfasına yapıştırdığınızda tüm yaşlandırma ve grafikler saniyeler içinde güncellenir."}, {"q": "Ortalama tahsilat vadesi hesaplanıyor mu?", "a": "Her müşterinin ağırlıklı ortalama vadesi ve vade sapması otomatik hesaplanır."}, {"q": "Bu sistem Logo Yazılım'ın resmi ürünü müdür?", "a": "Hayır, Excel Arşiv tarafından geliştirilmiş, Logo ve ERP çıktılarıyla uyumlu çalışan bağımsız bir analiz modelidir."}];
+const relatedSlugs = ["mali-musavir-cari-takip-excel", "kobi-nakit-akisi-excel", "doviz-acik-pozisyon-kur-riski-excel"];
+const articleParagraphs = ["Logo ve kurumsal ERP muhasebe programları yoğun hareket kaydı tutabilir ancak şirket yöneticilerine doğrudan karar aldıracak dinamik yaşlandırma özetlerini her zaman pratik olarak sunamaz.", "Logo Uyumlu Cari Yaşlandırma Motoru, muhasebe yazılımından alınan ham mizan ve muavin hareket dökümlerini işler. Borç ve alacak kapatmalarını FIFO mantığıyla yaşlandırarak dinamik tahsilat paneline dönüştürür.", "Müşteri bazlı ortalama tahsilat vadesi ve vade sapmaları analiz edilerek hangi müşterilerin sözleşme vadesini aştığı net biçimde listelenir.", "Kritik vade eşiğini aşan müşteriler için otomatik tahsilat aksiyon planı ve hukuk takip özeti oluşturulur. Finans biriminin raporlama süresi dakikalara indirilir.", "Muhasebe ve ERP sistemleri çok sayıda cari hareket kaydı tutabilir ancak şirket yöneticilerine doğrudan karar aldıracak yaşlandırma ve tahsilat özetlerini her zaman pratik biçimde sunamaz.", "Satış temsilcilerinin prim hesaplamalarında tahsilat vadelerini kriter alan performans matrisi, satış ekibinin vadesi geçen alacakları toplamasını teşvik eder.", "Logo ve diğer kurumsal muhasebe yazılımlarından alınan veri dökümleri dinamik yaşlandırma matrisine aktarıldığında tahsilat süreleri kısalır. Vadesi geçen alacakların erken tespiti şirketin işletme sermayesini korur.", "Logo ve kurumsal ERP muhasebe programları yoğun hareket kaydı tutabilir ancak şirket yöneticilerine doğrudan karar aldıracak dinamik yaşlandırma özetlerini her zaman pratik olarak sunamaz. Logo Uyumlu Cari Yaşlandırma Motoru, muhasebe yazılımından alınan ham mizan ve muavin hareket dökümlerini işler.", "Borç ve alacak kapatmalarını FIFO mantığıyla yaşlandırarak dinamik tahsilat paneline dönüştürür. Müşteri bazlı ortalama tahsilat vadesi ve vade sapmaları analiz edilerek hangi müşterilerin sözleşme vadesini aştığı net biçimde listelenir.", "Kritik vade eşiğini aşan müşteriler için otomatik tahsilat aksiyon planı ve hukuk takip özeti oluşturulur. Finans biriminin raporlama süresi dakikalara indirilir.", "Satış temsilcilerinin prim hesaplamalarında tahsilat vadelerini kriter alan performans matrisi, satış ekibinin vadesi geçen alacakları toplamasını teşvik eder.", "Logo ve diğer kurumsal muhasebe yazılımlarından alınan veri dökümleri dinamik yaşlandırma matrisine aktarıldığında tahsilat süreleri kısalır. Vadesi geçen alacakların erken tespiti şirketin işletme sermayesini korur.", "Logo ve diğer kurumsal ERP sistemlerinden alınan muavin dökümleri saniyeler içinde dinamik cari yaşlandırma paneline dönüştürülür. Müşteri bazlı ortalama tahsilat vadesi ve geciken alacaklar listelenir.", "Tahsilat ekibine verilecek günlük ve haftalık arama listeleri risk skorlarına göre önceliklendirilerek şirketin nakit tahsilat hızı ve operasyonel verimliliği maksimize edilir."];
+
 const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
 const pageUrl = new URL('/karar/logo-erp-cari-yaslandirma-excel', siteUrl).href;
 
@@ -79,24 +103,14 @@ const jsonLd = {
               </tr>
             </thead>
             <tbody class="divide-y divide-neutral-200 bg-white">
-              <tr>
-                <td class="p-3 font-medium text-neutral-900">ERP uyumlu SQL cari yaşlandırma</td>
-                <td class="p-3 font-semibold text-emerald-800">Logo/ERP Uyumlu Cari Yaşlandırma Motoru</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">1.499 TL</td>
-                <td class="p-3 text-xs text-neutral-600">Logo ve ERP dökümlerini dinamik tahsilat paneline dönüştürür</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-medium text-neutral-900">Manuel cari hesap ve risk takibi</td>
-                <td class="p-3 font-semibold text-emerald-800">Cari Hesap ve Müşteri Risk Takip Sistemi</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">799 TL</td>
-                <td class="p-3 text-xs text-neutral-600">ERP harici bağımsız cari takip ve vade kontrolü yapar</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-medium text-neutral-900">Toplu Ba-Bs mutabakat denetimi</td>
-                <td class="p-3 font-semibold text-emerald-800">Cari Ba-Bs Toplu Mutabakat</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">499 TL</td>
-                <td class="p-3 text-xs text-neutral-600">Müşteri ve tedarikçi faturalarını toplu karşılaştırır</td>
-              </tr>
+              {tableRows.map((r) => (
+                <tr>
+                  <td class="p-3 font-medium text-neutral-900">{r.durum}</td>
+                  <td class="p-3 font-semibold text-emerald-800">{r.sistem}</td>
+                  <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">{r.fiyat_tl.toLocaleString('tr-TR')} TL</td>
+                  <td class="p-3 text-xs text-neutral-600">{r.neden}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -105,17 +119,17 @@ const jsonLd = {
       {/* BİRİNCİL ÖNERİ */}
       <section class="my-8 border border-neutral-300 bg-neutral-50 p-6 sm:p-8" aria-label="Birincil Öneri">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">BİRİNCİL SİSTEM TAVSİYESİ</span>
-        <h2 class="text-2xl font-bold text-neutral-900 mt-2">Logo/ERP Uyumlu SQL Cari Yaşlandırma ve Tahsilat Karar Motoru</h2>
+        <h2 class="text-2xl font-bold text-neutral-900 mt-2">{primaryProduct.ad}</h2>
         <p class="text-sm text-neutral-700 mt-3 leading-relaxed">
-          Mevzuata ve sahaya tam uyumlu finansal karar sistemi.
+          {primaryProduct.summary}
         </p>
         <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-neutral-200">
           <div>
-            <span class="text-2xl font-extrabold text-neutral-900 font-mono">1.499 TL</span>
+            <span class="text-2xl font-extrabold text-neutral-900 font-mono">{primaryPrice.toLocaleString('tr-TR')} TL</span>
             <span class="block text-xs text-neutral-500 font-mono">KDV dahil · tek ödeme</span>
           </div>
           <a
-            href="/sablon/logo-sql-cari-yaslandirma-tahsilat-karar-motoru"
+            href={`/sablon/${primarySlug}`}
             class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-3 text-sm transition-colors"
           >
             Sistemi İnceleyin →
@@ -127,26 +141,18 @@ const jsonLd = {
       <section class="my-8" aria-label="Alternatif Sistemler">
         <h2 class="text-xl font-bold text-neutral-900 mb-3">Alternatif Karar Seçenekleri</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="border border-neutral-200 p-5 bg-white">
-            <h3 class="text-base font-bold text-neutral-900">
-              <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="hover:text-emerald-800 hover:underline">Cari Hesap. Tahsilat ve Müşteri Risk Takip Sistemi</a>
-            </h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">ERP çıktısı olmadan manuel cari takip ve risk puanlaması yapmak için Cari Risk Takip modelini seçin.</p>
-            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
-              <span class="font-mono text-neutral-500">799 TL</span>
-              <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+          {altItems.map((a) => (
+            <div class="border border-neutral-200 p-5 bg-white">
+              <h3 class="text-base font-bold text-neutral-900">
+                <a href={`/sablon/${a.slug}`} class="hover:text-emerald-800 hover:underline">{a.ad}</a>
+              </h3>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">{a.desc}</p>
+              <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+                <span class="font-mono text-neutral-500">{a.fiyat_tl.toLocaleString('tr-TR')} TL</span>
+                <a href={`/sablon/${a.slug}`} class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+              </div>
             </div>
-          </div>
-          <div class="border border-neutral-200 p-5 bg-white">
-            <h3 class="text-base font-bold text-neutral-900">
-              <a href="/sablon/cari-ba-bs-toplu-mutabakat" class="hover:text-emerald-800 hover:underline">Cari ve Ba-Bs Toplu Mutabakat Motoru</a>
-            </h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Müşteri ve tedarikçilerle Ba-Bs mutabakatı yapmak için Cari Ba-Bs Mutabakat sistemini kullanın.</p>
-            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
-              <span class="font-mono text-neutral-500">499 TL</span>
-              <a href="/sablon/cari-ba-bs-toplu-mutabakat" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -154,89 +160,38 @@ const jsonLd = {
       <section class="my-8 border-l-4 border-amber-600 bg-amber-50/50 p-6" aria-label="Dürüst Sınır">
         <h2 class="text-lg font-bold text-neutral-900 mb-3">Bu sistemi almayın eğer…</h2>
         <ul class="space-y-2 text-sm text-neutral-700">
-          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>Logo Yazılım'ın resmi ERP veritabanı lisansı veya çekirdek muhasebe programı arıyorsanız.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>Doğrudan SQL veritabanına veri yazıp fatura oluşturan çift yönlü entegrasyon istiyorsanız.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>ERP'den Excel/SQL dökümü almadan otomatik işlem bekliyorsanız.</span>
-          </li>
+          {dontBuyList.map((d) => (
+            <li class="flex items-start gap-2">
+              <span class="text-amber-700 font-bold">✕</span>
+              <span>{d}</span>
+            </li>
+          ))}
         </ul>
       </section>
 
       {/* DETAYLI İÇERİK METNİ */}
       <section class="prose prose-neutral max-w-none my-8 text-sm sm:text-base leading-relaxed text-neutral-700 space-y-4">
         <h2 class="text-xl font-bold text-neutral-900">Karar Modelinin Metodolojisi ve Uygulama Alanları</h2>
-        <p>Logo ve kurumsal ERP muhasebe programları yoğun hareket kaydı tutabilir ancak şirket yöneticilerine doğrudan karar aldıracak dinamik yaşlandırma özetlerini her zaman pratik olarak sunamaz.</p>
-        <p>Logo Uyumlu Cari Yaşlandırma Motoru, muhasebe yazılımından alınan ham mizan ve muavin hareket dökümlerini işler. Borç ve alacak kapatmalarını FIFO mantığıyla yaşlandırarak dinamik tahsilat paneline dönüştürür.</p>
-        <p>Müşteri bazlı ortalama tahsilat vadesi ve vade sapmaları analiz edilerek hangi müşterilerin sözleşme vadesini aştığı net biçimde listelenir.</p>
-        <p>Kritik vade eşiğini aşan müşteriler için otomatik tahsilat aksiyon planı ve hukuk takip özeti oluşturulur. Finans biriminin raporlama süresi dakikalara indirilir.</p>
-        <p>Muhasebe ve ERP sistemleri çok sayıda cari hareket kaydı tutabilir ancak şirket yöneticilerine doğrudan karar aldıracak yaşlandırma ve tahsilat özetlerini her zaman pratik biçimde sunamaz.</p>
-        <p>Satış temsilcilerinin prim hesaplamalarında tahsilat vadelerini kriter alan performans matrisi, satış ekibinin vadesi geçen alacakları toplamasını teşvik eder.</p>
-        <p>Logo ve diğer kurumsal ERP sistemlerinden alınan muavin dökümleri saniyeler içinde dinamik cari yaşlandırma paneline dönüştürülür. Müşteri bazlı ortalama tahsilat vadesi ve geciken alacaklar listelenir.</p>
-        <p>Tahsilat ekibine verilecek günlük ve haftalık arama listeleri risk skorlarına göre önceliklendirilerek şirketin nakit tahsilat hızı ve operasyonel verimliliği maksimize edilir.</p>
-        <p>Logo ve kurumsal ERP muhasebe programları yoğun hareket kaydı tutabilir ancak şirket yöneticilerine doğrudan karar aldıracak dinamik yaşlandırma özetlerini her zaman pratik olarak sunamaz. Logo Uyumlu Cari Yaşlandırma Motoru, muhasebe yazılımından alınan ham mizan ve muavin hareket dökümlerini işler.</p>
-        <p>Borç ve alacak kapatmalarını FIFO mantığıyla yaşlandırarak dinamik tahsilat paneline dönüştürür. Müşteri bazlı ortalama tahsilat vadesi ve vade sapmaları analiz edilerek hangi müşterilerin sözleşme vadesini aştığı net biçimde listelenir.</p>
-        <p>Kritik vade eşiğini aşan müşteriler için otomatik tahsilat aksiyon planı ve hukuk takip özeti oluşturulur. Finans biriminin raporlama süresi dakikalara indirilir.</p>
-        <p>Satış temsilcilerinin prim hesaplamalarında tahsilat vadelerini kriter alan performans matrisi, satış ekibinin vadesi geçen alacakları toplamasını teşvik eder.</p>
-        <p>Logo ve diğer kurumsal ERP sistemlerinden alınan muavin dökümleri saniyeler içinde dinamik cari yaşlandırma paneline dönüştürülür. Müşteri bazlı ortalama tahsilat vadesi ve geciken alacaklar listelenir.</p>
-        <p>Tahsilat ekibine verilecek günlük ve haftalık arama listeleri risk skorlarına göre önceliklendirilerek şirketin nakit tahsilat hızı ve operasyonel verimliliği maksimize edilir.</p>
+        {articleParagraphs.map((p) => (
+          <p>{p}</p>
+        ))}
       </section>
 
       {/* SSS */}
       <section class="my-8" aria-label="Sık Sorulan Sorular">
         <h2 class="text-xl font-bold text-neutral-900 mb-3">Sık Sorulan Sorular</h2>
         <div class="divide-y divide-neutral-200 border-y border-neutral-200">
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Logo Tiger ve Go sürümleriyle uyumlu mu?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Evet, Logo Tiger, Go ve diğer ERP'lerden alınan standart cari ekstre ve SQL çıktılarıyla uyumludur.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>SQL sorgusu dosyada yer alıyor mu?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Evet, Logo veritabanından doğrudan veri çekmek isteyenler için hazır optimize SQL sorgusu dahildir.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Veri aktarımı ne kadar sürer?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              ERP çıktısını girdi sayfasına yapıştırdığınızda tüm yaşlandırma ve grafikler saniyeler içinde güncellenir.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Ortalama tahsilat vadesi hesaplanıyor mu?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Her müşterinin ağırlıklı ortalama vadesi ve vade sapması otomatik hesaplanır.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Bu sistem Logo Yazılım'ın resmi ürünü müdür?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Hayır, Excel Arşiv tarafından geliştirilmiş, Logo ve ERP çıktılarıyla uyumlu çalışan bağımsız bir analiz modelidir.
-            </p>
-          </details>
+          {faqList.map((f) => (
+            <details class="group py-4">
+              <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+                <span>{f.q}</span>
+                <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+              </summary>
+              <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+                {f.a}
+              </p>
+            </details>
+          ))}
         </div>
       </section>
 
@@ -244,15 +199,11 @@ const jsonLd = {
       <section class="my-8 bg-neutral-50 border border-neutral-200 p-6" aria-label="İlgili Kararlar">
         <h2 class="text-sm font-mono uppercase tracking-wider text-neutral-500 mb-3">İLGİLİ KARAR REHBERLERİ</h2>
         <div class="flex flex-wrap gap-3 text-xs">
-          <a href="/karar/mali-musavir-cari-takip-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/mali-musavir-cari-takip-excel →
-          </a>
-          <a href="/karar/kobi-nakit-akisi-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/kobi-nakit-akisi-excel →
-          </a>
-          <a href="/karar/doviz-acik-pozisyon-kur-riski-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/doviz-acik-pozisyon-kur-riski-excel →
-          </a>
+          {relatedSlugs.map((r) => (
+            <a href={`/karar/${r}`} class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+              /karar/{r} →
+            </a>
+          ))}
         </div>
       </section>
 
@@ -262,10 +213,10 @@ const jsonLd = {
         <p class="text-xs sm:text-sm text-neutral-600 mb-6">Açık formüllü, denetlenmiş ve kullanıma hazır sistemi anında indirin.</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a
-            href="/sablon/logo-sql-cari-yaslandirma-tahsilat-karar-motoru"
+            href={`/sablon/${primarySlug}`}
             class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
           >
-            Logo/ERP Uyumlu SQL Cari Yaşlandırma ve Tahsilat Karar Motoru İncele →
+            {primaryProduct.ad} İncele →
           </a>
           <a
             href="/demo"

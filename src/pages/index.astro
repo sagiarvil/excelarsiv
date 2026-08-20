@@ -286,30 +286,77 @@ const sektorler = [
     </div>
   </section>
 
-  {/* BÖLÜM 5: KARAR MOTORU / PROBLEM SEÇİCİ (GATE-K4'te karar motoru yerleşecek) */}
+  {/* BÖLÜM 5: KARAR MOTORU / PROBLEM SEÇİCİ */}
   <section id="karar-yardimi" class="border-b border-neutral-200 bg-neutral-50 py-16">
     <div class="site-container">
-      <div class="max-w-2xl mx-auto text-center">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2.5 py-1">
+          KARAR MOTORU & REHBERLER
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight mt-3">
           Hangi sistemi almanız gerektiğini bilmiyorsanız, sorunuzu seçin.
         </h2>
-        <p class="text-sm text-neutral-600 mt-3">
+        <p class="text-sm text-neutral-600 mt-3 max-w-2xl mx-auto">
           KOBİ nakit akışından vergi iadesine, şube kârlılığından personel tazminat yüküne kadar 18 satın alma sorusuna doğrudan yanıt veren karar rehberi.
         </p>
-        <div class="mt-6 flex flex-wrap justify-center gap-3 text-xs">
-          <a href="/urun-bulucu" class="bg-white border border-neutral-300 px-3 py-1.5 font-medium text-neutral-800 hover:border-emerald-700">Ürün Bulucu →</a>
-          <a href="/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">Akıllı Kasa Defteri</a>
-          <a href="/sablon/aylik-patron-finans-paneli" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">Aylık Patron Paneli</a>
-          <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">Cari Risk Takip</a>
-          <a href="/sablon/kdv-iade-listesi-robotu-gib7" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">KDV İade Robotu</a>
-          <a href="/sablon/sube-karlilik-ve-nakit-hesaplayici" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">Şube Kârlılık</a>
-          <a href="/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">TTK 376 Sermaye</a>
-          <a href="/sablon/pos-komisyon-ve-net-tahsilat-kontrol-sistemi" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">POS Komisyon</a>
-          <a href="/sablon/trendyol-komisyon-sonrasi-net-kar" class="bg-white border border-neutral-300 px-3 py-1.5 text-neutral-700 hover:border-emerald-700">Trendyol Net Kâr</a>
+
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-left">
+          <a href="/karar/hangi-excel-sistemini-almaliyim" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
+            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Hangi Excel Sistemini Almalıyım?</span>
+            <span class="text-[11px] text-neutral-500 mt-1 block">İhtiyaca göre seçim rehberi →</span>
+          </a>
+          <a href="/karar/kobi-nakit-akisi-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
+            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">KOBİ Nakit Akışı ve Planlama</span>
+            <span class="text-[11px] text-neutral-500 mt-1 block">13 haftalık nakit modeli →</span>
+          </a>
+          <a href="/karar/kasa-defteri-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
+            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Günlük Kasa ve Sayım Farkı</span>
+            <span class="text-[11px] text-neutral-500 mt-1 block">Fiili sayım ve bakiye kontrolü →</span>
+          </a>
+          <a href="/karar/mali-musavir-cari-takip-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
+            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Mali Müşavir Cari Yaşlandırma</span>
+            <span class="text-[11px] text-neutral-500 mt-1 block">30-60-90 gün vade takibi →</span>
+          </a>
+          <a href="/karar/pos-komisyon-kontrol-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
+            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">POS Komisyon ve Bloke Kontrolü</span>
+            <span class="text-[11px] text-neutral-500 mt-1 block">Net tahsilat ve kesinti hesabı →</span>
+          </a>
+          <a href="/karar/trendyol-pazaryeri-net-kar-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
+            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Trendyol Pazaryeri Net Kâr</span>
+            <span class="text-[11px] text-neutral-500 mt-1 block">Komisyon ve kargo sonrası marj →</span>
+          </a>
+          <a href="/karar/kdv-iade-dosyasi-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
+            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">KDV İade Listesi (GİB 7)</span>
+            <span class="text-[11px] text-neutral-500 mt-1 block">İndirilecek/yüklenilen KDV →</span>
+          </a>
+          <a href="/karar/sube-karlilik-analizi-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
+            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Şube Kârlılık ve Kapatma Eşiği</span>
+            <span class="text-[11px] text-neutral-500 mt-1 block">Başabaş noktası ve analiz →</span>
+          </a>
+          <a href="/karar/ttk-376-sermaye-kaybi-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
+            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">TTK 376 Sermaye Kaybı</span>
+            <span class="text-[11px] text-neutral-500 mt-1 block">Borca batıklık ve tamamlama →</span>
+          </a>
+          <a href="/karar/kidem-ihbar-maliyeti-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
+            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Kıdem ve İhbar Maliyeti</span>
+            <span class="text-[11px] text-neutral-500 mt-1 block">Personel çıkarma maliyet cetveli →</span>
+          </a>
+          <a href="/karar/amortisman-yeniden-degerleme-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
+            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Amortisman & 2026 Değerleme</span>
+            <span class="text-[11px] text-neutral-500 mt-1 block">VUK 298/Ç vergi kalkanı →</span>
+          </a>
+          <a href="/karar/doviz-acik-pozisyon-kur-riski-excel" class="bg-white border border-neutral-200 p-4 hover:border-emerald-800 transition-colors group">
+            <span class="text-xs font-bold text-neutral-900 group-hover:text-emerald-800 block">Döviz Açık Pozisyonu ve Kur Riski</span>
+            <span class="text-[11px] text-neutral-500 mt-1 block">Kur şoku ve nakit stres testi →</span>
+          </a>
         </div>
-        <div class="mt-6">
-          <a href="/sablonlar" class="inline-flex items-center text-sm font-bold text-emerald-800 hover:underline">
-            Tüm sistemleri ve kategorileri listeleyin →
+
+        <div class="mt-8 flex flex-wrap justify-center items-center gap-4 text-xs">
+          <a href="/karar" class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-2.5 transition-colors">
+            Tüm 18 Karar Rehberini İnceleyin →
+          </a>
+          <a href="/urun-bulucu" class="border border-neutral-300 bg-white px-5 py-2.5 font-medium text-neutral-800 hover:border-emerald-700">
+            İnteraktif Ürün Bulucu
           </a>
         </div>
       </div>

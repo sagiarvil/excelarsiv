@@ -1,7 +1,31 @@
 ---
 import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import * as fs from 'node:fs';
+const urunlerData = JSON.parse(fs.readFileSync('./veri/urunler.json', 'utf-8'));
+
+const urunlerMap = new Map(urunlerData.map((u) => [u.slug, u]));
 
 const primarySlug = "kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi";
+const primaryProduct = urunlerMap.get(primarySlug) ?? { ad: "Kaçırılan SGK Teşvikleri ve Gerçek İşçilik Maliyeti Analizi", fiyat_tl: 999, summary: 'Mevzuata ve sahaya tam uyumlu finansal karar sistemi.' };
+const primaryPrice = primaryProduct.fiyat_tl;
+
+const tableRowsData = [{"durum": "Kaçırılan teşvik analizi", "sistem": "Kaçırılan SGK Teşvikleri ve İşçilik Maliyeti", "slug": "kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi", "neden": "6111 ve 5510 kanunları kıyaslayarak maksimum kazancı bulur"}, {"durum": "Bordro teşvik optimizasyonu", "sistem": "Teşvikli Bordro Optimizasyon", "slug": "tesvikli-bordro-optimizasyon", "neden": "Personel bazında teşvikli maliyet dağılımı yapar"}, {"durum": "Avantajlı teşvik kanunu seçici", "sistem": "Teşvikli Bordro Seçen", "slug": "tesvikli-bordro-avantajli-tesvik", "neden": "Hangi kanunun daha karlı olduğunu hızlıca listeler"}];
+const tableRows = tableRowsData.map((r) => ({
+  ...r,
+  fiyat_tl: urunlerMap.get(r.slug)?.fiyat_tl ?? 799
+}));
+
+const altItemsData = [{"slug": "tesvikli-bordro-optimizasyon", "ad": "Teşvikli Bordro Optimizasyon", "desc": "Bordro kalemleri üzerinden teşvik dağılımı yapmak için Teşvikli Bordro Optimizasyon modelini seçin."}, {"slug": "tesvikli-bordro-avantajli-tesvik", "ad": "Teşvikli Bordro ve En Avantajlı Teşvik Seçen", "desc": "En karlı teşvik kanununu hızlıca belirlemek için Teşvikli Bordro Seçen sistemini kullanın."}];
+const altItems = altItemsData.map((a) => ({
+  ...a,
+  fiyat_tl: urunlerMap.get(a.slug)?.fiyat_tl ?? 799
+}));
+
+const dontBuyList = ["SGK portalına robotik süreçle (RPA) bağlanıp otomatik teşvik sorgulayan yazılım arıyorsanız.", "İşkur kayıtlarını otomatik eşleyen web servisi entegrasyonu istiyorsanız.", "Personelin yaş, cinsiyet ve işsizlik süresi verilerini girmek istemiyorsanız."];
+const faqList = [{"q": "Hangi SGK kanunları kapsama dahildir?", "a": "5510 (5 puanlık indirim), 6111 (genç/kadın istihdamı), 7103 ve engelli istihdam teşvikleri dahildir."}, {"q": "Ortalama işçi sayısı şartı nasıl denetlenir?", "a": "İşe alım öncesi son 6 aylık ortalama personel sayısı girilerek ilave istihdam şartı kontrol edilir."}, {"q": "Aylık prim kazancı nasıl hesaplanır?", "a": "Her personel için kanunlar ayrı ayrı çalıştırılarak en yüksek prim tasarrufu sağlayan kanun işaretlenir."}, {"q": "Geçmişe dönük teşvik hesaplanabilir mi?", "a": "Geriye dönük dönemler için kaçırılan toplam teşvik tutarı simülasyonu yapılabilir."}, {"q": "Bordro programlarıyla uyumlu mu?", "a": "Bordro çıktıları Excel'e aktarılarak teşvikli ve teşviksiz maliyet farkı tek tabloda görülür."}];
+const relatedSlugs = ["kidem-ihbar-maliyeti-excel", "sube-karlilik-analizi-excel", "mali-musavir-cari-takip-excel"];
+const articleParagraphs = ["Türkiye'de uygulanan istihdam teşvikleri işletmelere ciddi işçilik maliyeti avantajı sağlar. Ancak 6111, 7103, 5510 gibi çok sayıda farklı kanunun bulunması ve ortalama personel sayısı şartı şirketlerin yüksek tutarlı prim avantajlarını kaçırmasına neden olur.", "Kaçırılan SGK Teşvikleri modeli, çalışanların yaş, cinsiyet, mesleki yeterlilik ve işsizlik geçmişi verilerini işleyerek her personel için en yüksek prim desteği sağlayan kanunu otomatik olarak seçer.", "İşe yeni alınacak adaylar için mülakat aşamasında teşvik uygunluk simülasyonu yapılır. Teşvikli bir adayın istihdam edilmesi durumunda şirketin sağlayacağı aylık ve yıllık bordro tasarrufu hesaplanır.", "Personel bazlı teşvik süreleri ve bitiş takvimi otomatik izlenerek teşvik süresi dolan personelin bir sonraki uygun kanuna aktarılması sağlanır. Şirketin prim yükü kalıcı olarak düşürülür.", "Personel devir hızının yüksek olduğu sektörlerde teşvik sürelerinin bitiş tarihleri otomatik takip edilerek prim kayıpları engellenir.", "İşletmenin SGK borçsuzluk ve düzenli prim ödeme şartları denetlenerek indirim hakkının kaybedilmemesi için finans takvimine uyarılar eklenir.", "Şirketlerin personel maliyeti bütçelemesinde SGK teşviklerinin payı doğrudan nakit tasarrufu sağlar. Yeni istihdam edilecek personelin teşvik kapsamına girip girmediği işe alım kararını şekillendirir. Bu analitik yaklaşım işletmeye sürdürülebilir bir maliyet avantajı kazandırır.", "İstihdam teşviklerinin işletme bütçesine sağladığı katkı, personel işe alım süreçlerinde teşvik kriterlerinin önceden sorgulanmasıyla maksimize edilir. İŞKUR kayıt durumu, mezuniyet belgesi, son 6 aydaki sigortalılık geçmişi ve cinsiyet kriterleri analiz edilerek adayın hangi teşvik kanunu kapsamında istihdam edilebileceği mülakat aşamasında netleştirilir.", "Teşvikli bordro karşılaştırma sayfası, teşvik uygulanmayan standart bordro maliyeti ile teşvik uygulanan optimize bordro maliyetini personel bazında yan yana listeler. Şirketin her ay elde ettiği net prim tasarrufu toplam bordro gideri içinde yüzde olarak raporlanır.", "SGK prim borcu sorgulama ve yapılandırma takip takvimi, teşviklerden yararlanmanın ön şartı olan düzenli prim ödeme ve borçsuzluk durumunu kontrol altında tutar. Teşvik hakkının kaybedilmemesi için son ödeme tarihleri finans ajandasına entegre edilir.", "Şirketlerin personel maliyeti bütçelemesinde SGK teşviklerinin payı doğrudan nakit tasarrufu sağlar. Yeni istihdam edilecek personelin teşvik kapsamına girip girmediği işe alım kararını şekillendirir. Bu analitik yaklaşım işletmeye sürdürülebilir bir maliyet avantajı kazandırır.", "İstihdam teşviklerinin işletme bütçesine sağladığı kazanç, personel bazında sağlanan prim tasarrufunun yıllık toplamda yüksek tutarlara ulaşmasıyla şirket kârlılığına doğrudan katkı sağlar. Teşvikli işe alım stratejisi insan kaynakları planlamasının merkezine oturur.", "Geçmişe dönük teşvik sorgulamaları ile şirketin son dönemde kaçırdığı prim avantajları simüle edilerek SGK'dan geriye dönük mahsup talebinde bulunma imkanı araştırılır."];
+
 const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
 const pageUrl = new URL('/karar/sgk-tesvik-optimizasyon-excel', siteUrl).href;
 
@@ -79,24 +103,14 @@ const jsonLd = {
               </tr>
             </thead>
             <tbody class="divide-y divide-neutral-200 bg-white">
-              <tr>
-                <td class="p-3 font-medium text-neutral-900">Kaçırılan teşvik analizi</td>
-                <td class="p-3 font-semibold text-emerald-800">Kaçırılan SGK Teşvikleri ve İşçilik Maliyeti</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">999 TL</td>
-                <td class="p-3 text-xs text-neutral-600">6111 ve 5510 kanunları kıyaslayarak maksimum kazancı bulur</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-medium text-neutral-900">Bordro teşvik optimizasyonu</td>
-                <td class="p-3 font-semibold text-emerald-800">Teşvikli Bordro Optimizasyon</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">499 TL</td>
-                <td class="p-3 text-xs text-neutral-600">Personel bazında teşvikli maliyet dağılımı yapar</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-medium text-neutral-900">Avantajlı teşvik kanunu seçici</td>
-                <td class="p-3 font-semibold text-emerald-800">Teşvikli Bordro Seçen</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">499 TL</td>
-                <td class="p-3 text-xs text-neutral-600">Hangi kanunun daha karlı olduğunu hızlıca listeler</td>
-              </tr>
+              {tableRows.map((r) => (
+                <tr>
+                  <td class="p-3 font-medium text-neutral-900">{r.durum}</td>
+                  <td class="p-3 font-semibold text-emerald-800">{r.sistem}</td>
+                  <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">{r.fiyat_tl.toLocaleString('tr-TR')} TL</td>
+                  <td class="p-3 text-xs text-neutral-600">{r.neden}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -105,17 +119,17 @@ const jsonLd = {
       {/* BİRİNCİL ÖNERİ */}
       <section class="my-8 border border-neutral-300 bg-neutral-50 p-6 sm:p-8" aria-label="Birincil Öneri">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">BİRİNCİL SİSTEM TAVSİYESİ</span>
-        <h2 class="text-2xl font-bold text-neutral-900 mt-2">Kaçırılan SGK Teşvikleri ve Gerçek İşçilik Maliyeti Analizi</h2>
+        <h2 class="text-2xl font-bold text-neutral-900 mt-2">{primaryProduct.ad}</h2>
         <p class="text-sm text-neutral-700 mt-3 leading-relaxed">
-          Mevzuata ve sahaya tam uyumlu finansal karar sistemi.
+          {primaryProduct.summary}
         </p>
         <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-neutral-200">
           <div>
-            <span class="text-2xl font-extrabold text-neutral-900 font-mono">999 TL</span>
+            <span class="text-2xl font-extrabold text-neutral-900 font-mono">{primaryPrice.toLocaleString('tr-TR')} TL</span>
             <span class="block text-xs text-neutral-500 font-mono">KDV dahil · tek ödeme</span>
           </div>
           <a
-            href="/sablon/kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi"
+            href={`/sablon/${primarySlug}`}
             class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-3 text-sm transition-colors"
           >
             Sistemi İnceleyin →
@@ -127,26 +141,18 @@ const jsonLd = {
       <section class="my-8" aria-label="Alternatif Sistemler">
         <h2 class="text-xl font-bold text-neutral-900 mb-3">Alternatif Karar Seçenekleri</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="border border-neutral-200 p-5 bg-white">
-            <h3 class="text-base font-bold text-neutral-900">
-              <a href="/sablon/tesvikli-bordro-optimizasyon" class="hover:text-emerald-800 hover:underline">Teşvikli Bordro Optimizasyon</a>
-            </h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Bordro kalemleri üzerinden teşvik dağılımı yapmak için Teşvikli Bordro Optimizasyon modelini seçin.</p>
-            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
-              <span class="font-mono text-neutral-500">1.499 TL</span>
-              <a href="/sablon/tesvikli-bordro-optimizasyon" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+          {altItems.map((a) => (
+            <div class="border border-neutral-200 p-5 bg-white">
+              <h3 class="text-base font-bold text-neutral-900">
+                <a href={`/sablon/${a.slug}`} class="hover:text-emerald-800 hover:underline">{a.ad}</a>
+              </h3>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">{a.desc}</p>
+              <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+                <span class="font-mono text-neutral-500">{a.fiyat_tl.toLocaleString('tr-TR')} TL</span>
+                <a href={`/sablon/${a.slug}`} class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+              </div>
             </div>
-          </div>
-          <div class="border border-neutral-200 p-5 bg-white">
-            <h3 class="text-base font-bold text-neutral-900">
-              <a href="/sablon/tesvikli-bordro-avantajli-tesvik" class="hover:text-emerald-800 hover:underline">Teşvikli Bordro ve En Avantajlı Teşvik Seçen</a>
-            </h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">En karlı teşvik kanununu hızlıca belirlemek için Teşvikli Bordro Seçen sistemini kullanın.</p>
-            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
-              <span class="font-mono text-neutral-500">799 TL</span>
-              <a href="/sablon/tesvikli-bordro-avantajli-tesvik" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -154,88 +160,38 @@ const jsonLd = {
       <section class="my-8 border-l-4 border-amber-600 bg-amber-50/50 p-6" aria-label="Dürüst Sınır">
         <h2 class="text-lg font-bold text-neutral-900 mb-3">Bu sistemi almayın eğer…</h2>
         <ul class="space-y-2 text-sm text-neutral-700">
-          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>SGK portalına robotik süreçle (RPA) bağlanıp otomatik teşvik sorgulayan yazılım arıyorsanız.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>İşkur kayıtlarını otomatik eşleyen web servisi entegrasyonu istiyorsanız.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>Personelin yaş, cinsiyet ve işsizlik süresi verilerini girmek istemiyorsanız.</span>
-          </li>
+          {dontBuyList.map((d) => (
+            <li class="flex items-start gap-2">
+              <span class="text-amber-700 font-bold">✕</span>
+              <span>{d}</span>
+            </li>
+          ))}
         </ul>
       </section>
 
       {/* DETAYLI İÇERİK METNİ */}
       <section class="prose prose-neutral max-w-none my-8 text-sm sm:text-base leading-relaxed text-neutral-700 space-y-4">
         <h2 class="text-xl font-bold text-neutral-900">Karar Modelinin Metodolojisi ve Uygulama Alanları</h2>
-        <p>Türkiye'de uygulanan istihdam teşvikleri işletmelere ciddi işçilik maliyeti avantajı sağlar. Ancak 6111, 7103, 5510 gibi çok sayıda farklı kanunun bulunması ve ortalama personel sayısı şartı şirketlerin yüksek tutarlı prim avantajlarını kaçırmasına neden olur.</p>
-        <p>Kaçırılan SGK Teşvikleri modeli, çalışanların yaş, cinsiyet, mesleki yeterlilik ve işsizlik geçmişi verilerini işleyerek her personel için en yüksek prim desteği sağlayan kanunu otomatik olarak seçer.</p>
-        <p>İşe yeni alınacak adaylar için mülakat aşamasında teşvik uygunluk simülasyonu yapılır. Teşvikli bir adayın istihdam edilmesi durumunda şirketin sağlayacağı aylık ve yıllık bordro tasarrufu hesaplanır.</p>
-        <p>Personel bazlı teşvik süreleri ve bitiş takvimi otomatik izlenerek teşvik süresi dolan personelin bir sonraki uygun kanuna aktarılması sağlanır. Şirketin prim yükü kalıcı olarak düşürülür.</p>
-        <p>Personel devir hızının yüksek olduğu sektörlerde teşvik sürelerinin bitiş tarihleri otomatik takip edilerek prim kayıpları engellenir.</p>
-        <p>İşletmenin SGK borçsuzluk ve düzenli prim ödeme şartları denetlenerek indirim hakkının kaybedilmemesi için finans takvimine uyarılar eklenir.</p>
-        <p>İstihdam teşviklerinin işletme bütçesine sağladığı kazanç, personel bazında sağlanan prim tasarrufunun yıllık toplamda yüksek tutarlara ulaşmasıyla şirket kârlılığına doğrudan katkı sağlar. Teşvikli işe alım stratejisi insan kaynakları planlamasının merkezine oturur.</p>
-        <p>Geçmişe dönük teşvik sorgulamaları ile şirketin son dönemde kaçırdığı prim avantajları simüle edilerek SGK'dan geriye dönük mahsup talebinde bulunma imkanı araştırılır.</p>
-        <p>İstihdam teşviklerinin işletme bütçesine sağladığı katkı, personel işe alım süreçlerinde teşvik kriterlerinin önceden sorgulanmasıyla maksimize edilir. İŞKUR kayıt durumu, mezuniyet belgesi, son 6 aydaki sigortalılık geçmişi ve cinsiyet kriterleri analiz edilerek adayın hangi teşvik kanunu kapsamında istihdam edilebileceği mülakat aşamasında netleştirilir.</p>
-        <p>Teşvikli bordro karşılaştırma sayfası, teşvik uygulanmayan standart bordro maliyeti ile teşvik uygulanan optimize bordro maliyetini personel bazında yan yana listeler. Şirketin her ay elde ettiği net prim tasarrufu toplam bordro gideri içinde yüzde olarak raporlanır.</p>
-        <p>SGK prim borcu sorgulama ve yapılandırma takip takvimi, teşviklerden yararlanmanın ön şartı olan düzenli prim ödeme ve borçsuzluk durumunu kontrol altında tutar. Teşvik hakkının kaybedilmemesi için son ödeme tarihleri finans ajandasına entegre edilir.</p>
-        <p>İstihdam teşviklerinin işletme bütçesine sağladığı kazanç, personel bazında sağlanan prim tasarrufunun yıllık toplamda yüksek tutarlara ulaşmasıyla şirket kârlılığına doğrudan katkı sağlar. Teşvikli işe alım stratejisi insan kaynakları planlamasının merkezine oturur.</p>
-        <p>Geçmişe dönük teşvik sorgulamaları ile şirketin son dönemde kaçırdığı prim avantajları simüle edilerek SGK'dan geriye dönük mahsup talebinde bulunma imkanı araştırılır.</p>
+        {articleParagraphs.map((p) => (
+          <p>{p}</p>
+        ))}
       </section>
 
       {/* SSS */}
       <section class="my-8" aria-label="Sık Sorulan Sorular">
         <h2 class="text-xl font-bold text-neutral-900 mb-3">Sık Sorulan Sorular</h2>
         <div class="divide-y divide-neutral-200 border-y border-neutral-200">
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Hangi SGK kanunları kapsama dahildir?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              5510 (5 puanlık indirim), 6111 (genç/kadın istihdamı), 7103 ve engelli istihdam teşvikleri dahildir.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Ortalama işçi sayısı şartı nasıl denetlenir?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              İşe alım öncesi son 6 aylık ortalama personel sayısı girilerek ilave istihdam şartı kontrol edilir.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Aylık prim kazancı nasıl hesaplanır?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Her personel için kanunlar ayrı ayrı çalıştırılarak en yüksek prim tasarrufu sağlayan kanun işaretlenir.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Geçmişe dönük teşvik hesaplanabilir mi?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Geriye dönük dönemler için kaçırılan toplam teşvik tutarı simülasyonu yapılabilir.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Bordro programlarıyla uyumlu mu?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Bordro çıktıları Excel'e aktarılarak teşvikli ve teşviksiz maliyet farkı tek tabloda görülür.
-            </p>
-          </details>
+          {faqList.map((f) => (
+            <details class="group py-4">
+              <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+                <span>{f.q}</span>
+                <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+              </summary>
+              <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+                {f.a}
+              </p>
+            </details>
+          ))}
         </div>
       </section>
 
@@ -243,15 +199,11 @@ const jsonLd = {
       <section class="my-8 bg-neutral-50 border border-neutral-200 p-6" aria-label="İlgili Kararlar">
         <h2 class="text-sm font-mono uppercase tracking-wider text-neutral-500 mb-3">İLGİLİ KARAR REHBERLERİ</h2>
         <div class="flex flex-wrap gap-3 text-xs">
-          <a href="/karar/kidem-ihbar-maliyeti-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/kidem-ihbar-maliyeti-excel →
-          </a>
-          <a href="/karar/sube-karlilik-analizi-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/sube-karlilik-analizi-excel →
-          </a>
-          <a href="/karar/mali-musavir-cari-takip-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/mali-musavir-cari-takip-excel →
-          </a>
+          {relatedSlugs.map((r) => (
+            <a href={`/karar/${r}`} class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+              /karar/{r} →
+            </a>
+          ))}
         </div>
       </section>
 
@@ -261,10 +213,10 @@ const jsonLd = {
         <p class="text-xs sm:text-sm text-neutral-600 mb-6">Açık formüllü, denetlenmiş ve kullanıma hazır sistemi anında indirin.</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a
-            href="/sablon/kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi"
+            href={`/sablon/${primarySlug}`}
             class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
           >
-            Kaçırılan SGK Teşvikleri ve Gerçek İşçilik Maliyeti Analizi İncele →
+            {primaryProduct.ad} İncele →
           </a>
           <a
             href="/demo"

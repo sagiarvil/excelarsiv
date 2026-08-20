@@ -1,7 +1,31 @@
 ---
 import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import * as fs from 'node:fs';
+const urunlerData = JSON.parse(fs.readFileSync('./veri/urunler.json', 'utf-8'));
+
+const urunlerMap = new Map(urunlerData.map((u) => [u.slug, u]));
 
 const primarySlug = "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi";
+const primaryProduct = urunlerMap.get(primarySlug) ?? { ad: "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi", fiyat_tl: 999, summary: 'Mevzuata ve sahaya tam uyumlu finansal karar sistemi.' };
+const primaryPrice = primaryProduct.fiyat_tl;
+
+const tableRowsData = [{"durum": "Haftalık nakit açığı tahmini", "sistem": "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi", "slug": "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi", "neden": "Gelecek 90 günlük nakit dengesini ve kritik haftayı gösterir"}, {"durum": "Günlük fiili kasa kontrolü", "sistem": "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi", "slug": "akilli-kasa-defteri-ve-nakit-kontrol-sistemi", "neden": "Günlük giriş-çıkış ve sayım farklarını kapatır"}, {"durum": "Entegre finans yönetimi", "sistem": "KOBİ Finans Yönetim Paketi", "slug": "kobi-finans-yonetim-paketi", "neden": "Kasa, banka, çek, cari ve bütçe modellerini bir arada sunar"}];
+const tableRows = tableRowsData.map((r) => ({
+  ...r,
+  fiyat_tl: urunlerMap.get(r.slug)?.fiyat_tl ?? 799
+}));
+
+const altItemsData = [{"slug": "akilli-kasa-defteri-ve-nakit-kontrol-sistemi", "ad": "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi", "desc": "Gelecek tahmini yerine sadece bugünkü kasa bakiyesini tutmak istiyorsanız Akıllı Kasa Defteri uygundur."}, {"slug": "kobi-finans-yonetim-paketi", "ad": "KOBİ Finans Yönetim Paketi", "desc": "Nakit akışıyla birlikte bilanço, gelir tablosu ve kârlılık takibi yapmak istiyorsanız KOBİ Finans Paketi daha kapsamlıdır."}];
+const altItems = altItemsData.map((a) => ({
+  ...a,
+  fiyat_tl: urunlerMap.get(a.slug)?.fiyat_tl ?? 799
+}));
+
+const dontBuyList = ["Şirketinizde haftalık bazda giriş ve çıkış vadeleri takip edilmiyorsa.", "Geleceğe dönük nakit planlaması yerine yalnızca geçmiş muhasebe fişlerini girmek istiyorsanız.", "Bankaların kredi limitlerini otomatik bağlayan API entegrasyonlu bulut yazılımı arıyorsanız."];
+const faqList = [{"q": "13 haftalık nakit akışı modeli neden standart kabul edilir?", "a": "Uluslararası finans yönetiminde 13 hafta (yaklaşık 1 çeyrek), işletmenin operasyonel nakit döngüsünü en net gösteren ufuktur."}, {"q": "Eksi bakiye uyarıları nasıl çalışır?", "a": "Kümülatif nakit dengesi sıfırın altına indiğinde ilgili hafta kırmızı alarm verir ve gereken likidite tutarını hesaplar."}, {"q": "Farklı banka hesaplarını ayrı ayrı tanımlayabilir miyim?", "a": "Evet, nakit giriş ve çıkış sayfalarında farklı banka ve kasa kaynakları tanımlanabilir."}, {"q": "Şablon verileri dışarıdan aktarılabilir mi?", "a": "ERP veya muhasebe programınızdan aldığınız Excel listelerini kopyala-yapıştır ile ilgili girdi alanlarına aktarabilirsiniz."}, {"q": "Formüllerde değişiklik yapabilir miyim?", "a": "Tüm formüller açıktır; satır ve sütun ekleyerek kendi şirket yapınıza göre uyarlayabilirsiniz."}];
+const relatedSlugs = ["kasa-defteri-excel", "mali-musavir-cari-takip-excel", "sube-karlilik-analizi-excel"];
+const articleParagraphs = ["KOBİ'lerin yaşadığı finansal tıkanıklıkların büyük bölümü yetersiz nakit planlamasından kaynaklanır. Kâğıt üzerinde kârlı gözüken bir şirket, alacak tahsilatları geciktiğinde veya tedarikçi ödemeleriyle vergi takvimi çakıştığında ödeme aczine düşebilir. Nakit akışı yönetimi, kâr-zarar tablosundan tamamen farklı bir likidite mantığına dayanır.", "13 Haftalık Nakit Akışı sistemi, yöneticilere çeyrek bazında bir erken uyarı mekanizması kazandırır. Nakit girişlerinin hangi kanallardan geleceği, hammadde alımları, personel maaşları, SGK ve vergi karşılıkları haftalık olarak dengelenir. Sistem kümülatif nakit eğrisini çizerek hangi haftada ek finansman ihtiyacı doğacağını netleştirir. Bu sayede panik borçlanmaların önüne geçilir.", "Nakit açığı yönetiminde en kritik faktör, vadesi gelen borçların şirketin gerçek tahsilat gücüyle uyumlandırılmasıdır. Çok sayıda işletme kâğıt üzerinde kâr elde ederken, nakit giriş ve çıkış vadelerindeki asimetri sebebiyle ani likidite krizine girer. 13 haftalık nakit akışı planlaması, her haftanın başlangıç bakiyesini, beklenen müşteri tahsilatlarını, zorunlu tedarikçi ödemelerini, personel maaşlarını ve vergi yükümlülüklerini tek bir dinamik projeksiyonda birleştirir.", "Senaryo analizi yeteneği sayesinde satışların yüzde yirmi düşmesi veya tahsilatların iki hafta gecikmesi gibi risk senaryolarında kasanın kaçıncı haftada eksiye düşeceği önceden simüle edilir. Bu öngörü, şirket yönetimine kredi limitlerini açtırma, vadeli mal alımlarını yeniden müzakere etme veya gereksiz nakit çıkışlarını dondurma imkanı tanır.", "Model içerisindeki ödeme önceliklendirme matrisi, yasal yükümlülükler ile ticari borçları risk derecelerine göre sınıflandırır. Gecikmesi durumunda ticari faiz veya itibar kaybı doğuracak ödemeler ilk sıraya alınırken ertelenebilir genel yönetim harcamaları net olarak ayrıştırılır.", "Finans yöneticisi her hafta gerçekleşen fiili rakamları sisteme girdiğinde model gelecek 12 haftayı otomatik olarak günceller. Bütçelenen nakit akışı ile gerçekleşen nakit akışı arasındaki sapmalar haftalık raporla şirket ortaklarına sunulur.", "Finansal dayanıklılık analizi, şirketin beklenmeyen kriz anlarında kaç gün operasyonlarını sürdürebileceğini gösteren en kritik göstergedir. KOBİ'ler genellikle banka kredilerine veya anlık faktoring işlemlerine aşırı bağımlı hale geldiğinde likidite kırılganlığı artar. 13 haftalık nakit akışı modeli, nakit tamponu rezervi kavramını operasyonel süreçlerin merkezine yerleştirir. Her hafta için hedeflenen minimum emniyet nakit seviyesi belirlenir ve gerçekleşen bakiyelerin bu eşiğin altına inmesi durumunda yönetim ekranında otomatik ikaz mekanizmaları devreye girer.", "Müşteri segmentasyonu ve ödeme alışkanlıkları analizi, nakit girişlerinin güvenilirliğini artırmak için modele dahil edilmiştir. Büyük kurumsal müşterilerin uzun vadeli ödeme vadeleri ile perakende müşterilerin anlık nakit tahsilatları ayrı ağırlık katsayılarıyla projekte edilir. Geçmiş dönem tahsilat sapmaları modele işlenerek geleceğe dönük nakit giriş tahminlerinin doğruluk oranı en üst düzeye çıkarılır. Bu yaklaşım finans ekibinin nakit tahminlerinde aşırı iyimser olmasını engeller.", "Hammadde satın alma ve tedarikçi vade optimizasyonu sayfası, şirket nakdinin en yoğun çıktığı dönemleri tespit ederek toplu alım iskontoları ile vade uzatma alternatifleri arasında matematiksel karşılaştırma yapar. Peşin ödeme iskontosu almanın şirketin nakit maliyetine göre avantaj sağlayıp sağlamadığı anında analiz edilir.", "Nakit akışı modellerinde senaryo duyarlılığı, işletmenin piyasa dalgalanmalarına karşı sigortasıdır. Faiz oranlarındaki artışlar veya müşteri vadelerindeki uzamalar nakit projeksiyonuna anında yansıtılarak şirketin borçlanma ihtiyacı haftalık takvimde önceden görülür. Bu disiplin KOBİ'lerin bankalar karşısında güçlü kalmasını sağlar."];
+
 const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
 const pageUrl = new URL('/karar/kobi-nakit-akisi-excel', siteUrl).href;
 
@@ -79,24 +103,14 @@ const jsonLd = {
               </tr>
             </thead>
             <tbody class="divide-y divide-neutral-200 bg-white">
-              <tr>
-                <td class="p-3 font-medium text-neutral-900">Haftalık nakit açığı tahmini</td>
-                <td class="p-3 font-semibold text-emerald-800">13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">999 TL</td>
-                <td class="p-3 text-xs text-neutral-600">Gelecek 90 günlük nakit dengesini ve kritik haftayı gösterir</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-medium text-neutral-900">Günlük fiili kasa kontrolü</td>
-                <td class="p-3 font-semibold text-emerald-800">Akıllı Kasa Defteri ve Nakit Kontrol Sistemi</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">499 TL</td>
-                <td class="p-3 text-xs text-neutral-600">Günlük giriş-çıkış ve sayım farklarını kapatır</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-medium text-neutral-900">Entegre finans yönetimi</td>
-                <td class="p-3 font-semibold text-emerald-800">KOBİ Finans Yönetim Paketi</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">2.490 TL</td>
-                <td class="p-3 text-xs text-neutral-600">Kasa. banka. çek. cari ve bütçe modellerini bir arada sunar</td>
-              </tr>
+              {tableRows.map((r) => (
+                <tr>
+                  <td class="p-3 font-medium text-neutral-900">{r.durum}</td>
+                  <td class="p-3 font-semibold text-emerald-800">{r.sistem}</td>
+                  <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">{r.fiyat_tl.toLocaleString('tr-TR')} TL</td>
+                  <td class="p-3 text-xs text-neutral-600">{r.neden}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -105,17 +119,17 @@ const jsonLd = {
       {/* BİRİNCİL ÖNERİ */}
       <section class="my-8 border border-neutral-300 bg-neutral-50 p-6 sm:p-8" aria-label="Birincil Öneri">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">BİRİNCİL SİSTEM TAVSİYESİ</span>
-        <h2 class="text-2xl font-bold text-neutral-900 mt-2">13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi</h2>
+        <h2 class="text-2xl font-bold text-neutral-900 mt-2">{primaryProduct.ad}</h2>
         <p class="text-sm text-neutral-700 mt-3 leading-relaxed">
-          Mevzuata ve sahaya tam uyumlu finansal karar sistemi.
+          {primaryProduct.summary}
         </p>
         <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-neutral-200">
           <div>
-            <span class="text-2xl font-extrabold text-neutral-900 font-mono">999 TL</span>
+            <span class="text-2xl font-extrabold text-neutral-900 font-mono">{primaryPrice.toLocaleString('tr-TR')} TL</span>
             <span class="block text-xs text-neutral-500 font-mono">KDV dahil · tek ödeme</span>
           </div>
           <a
-            href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi"
+            href={`/sablon/${primarySlug}`}
             class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-3 text-sm transition-colors"
           >
             Sistemi İnceleyin →
@@ -127,26 +141,18 @@ const jsonLd = {
       <section class="my-8" aria-label="Alternatif Sistemler">
         <h2 class="text-xl font-bold text-neutral-900 mb-3">Alternatif Karar Seçenekleri</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="border border-neutral-200 p-5 bg-white">
-            <h3 class="text-base font-bold text-neutral-900">
-              <a href="/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi" class="hover:text-emerald-800 hover:underline">Akıllı Kasa Defteri ve Nakit Kontrol Sistemi</a>
-            </h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Gelecek tahmini yerine sadece bugünkü kasa bakiyesini tutmak istiyorsanız Akıllı Kasa Defteri uygundur.</p>
-            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
-              <span class="font-mono text-neutral-500">499 TL</span>
-              <a href="/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+          {altItems.map((a) => (
+            <div class="border border-neutral-200 p-5 bg-white">
+              <h3 class="text-base font-bold text-neutral-900">
+                <a href={`/sablon/${a.slug}`} class="hover:text-emerald-800 hover:underline">{a.ad}</a>
+              </h3>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">{a.desc}</p>
+              <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+                <span class="font-mono text-neutral-500">{a.fiyat_tl.toLocaleString('tr-TR')} TL</span>
+                <a href={`/sablon/${a.slug}`} class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+              </div>
             </div>
-          </div>
-          <div class="border border-neutral-200 p-5 bg-white">
-            <h3 class="text-base font-bold text-neutral-900">
-              <a href="/sablon/kobi-finans-yonetim-paketi" class="hover:text-emerald-800 hover:underline">KOBİ Finans Yönetim Paketi</a>
-            </h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Nakit akışıyla birlikte bilanço. gelir tablosu ve kârlılık takibi yapmak istiyorsanız KOBİ Finans Paketi daha kapsamlıdır.</p>
-            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
-              <span class="font-mono text-neutral-500">1.499 TL</span>
-              <a href="/sablon/kobi-finans-yonetim-paketi" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -154,86 +160,38 @@ const jsonLd = {
       <section class="my-8 border-l-4 border-amber-600 bg-amber-50/50 p-6" aria-label="Dürüst Sınır">
         <h2 class="text-lg font-bold text-neutral-900 mb-3">Bu sistemi almayın eğer…</h2>
         <ul class="space-y-2 text-sm text-neutral-700">
-          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>Şirketinizde haftalık bazda giriş ve çıkış vadeleri takip edilmiyorsa.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>Geleceğe dönük nakit planlaması yerine yalnızca geçmiş muhasebe fişlerini girmek istiyorsanız.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>Bankaların kredi limitlerini otomatik bağlayan API entegrasyonlu bulut yazılımı arıyorsanız.</span>
-          </li>
+          {dontBuyList.map((d) => (
+            <li class="flex items-start gap-2">
+              <span class="text-amber-700 font-bold">✕</span>
+              <span>{d}</span>
+            </li>
+          ))}
         </ul>
       </section>
 
       {/* DETAYLI İÇERİK METNİ */}
       <section class="prose prose-neutral max-w-none my-8 text-sm sm:text-base leading-relaxed text-neutral-700 space-y-4">
         <h2 class="text-xl font-bold text-neutral-900">Karar Modelinin Metodolojisi ve Uygulama Alanları</h2>
-        <p>KOBİ'lerin yaşadığı finansal tıkanıklıkların büyük bölümü yetersiz nakit planlamasından kaynaklanır. Kâğıt üzerinde kârlı gözüken bir şirket, alacak tahsilatları geciktiğinde veya tedarikçi ödemeleriyle vergi takvimi çakıştığında ödeme aczine düşebilir. Nakit akışı yönetimi, kâr-zarar tablosundan tamamen farklı bir likidite mantığına dayanır.</p>
-        <p>13 Haftalık Nakit Akışı sistemi, yöneticilere çeyrek bazında bir erken uyarı mekanizması kazandırır. Nakit girişlerinin hangi kanallardan geleceği, hammadde alımları, personel maaşları, SGK ve vergi karşılıkları haftalık olarak dengelenir. Sistem kümülatif nakit eğrisini çizerek hangi haftada ek finansman ihtiyacı doğacağını netleştirir. Bu sayede panik borçlanmaların önüne geçilir.</p>
-        <p>Nakit açığı yönetiminde en kritik faktör, vadesi gelen borçların şirketin gerçek tahsilat gücüyle uyumlandırılmasıdır. Çok sayıda işletme kâğıt üzerinde kâr elde ederken, nakit giriş ve çıkış vadelerindeki asimetri sebebiyle ani likidite krizine girer. 13 haftalık nakit akışı planlaması, her haftanın başlangıç bakiyesini, beklenen müşteri tahsilatlarını, zorunlu tedarikçi ödemelerini, personel maaşlarını ve vergi yükümlülüklerini tek bir dinamik projeksiyonda birleştirir.</p>
-        <p>Senaryo analizi yeteneği sayesinde satışların yüzde yirmi düşmesi veya tahsilatların iki hafta gecikmesi gibi risk senaryolarında kasanın kaçıncı haftada eksiye düşeceği önceden simüle edilir. Bu öngörü, şirket yönetimine kredi limitlerini açtırma, vadeli mal alımlarını yeniden müzakere etme veya gereksiz nakit çıkışlarını dondurma imkanı tanır.</p>
-        <p>Model içerisindeki ödeme önceliklendirme matrisi, yasal yükümlülükler ile ticari borçları risk derecelerine göre sınıflandırır. Gecikmesi durumunda ticari faiz veya itibar kaybı doğuracak ödemeler ilk sıraya alınırken ertelenebilir genel yönetim harcamaları net olarak ayrıştırılır.</p>
-        <p>Finans yöneticisi her hafta gerçekleşen fiili rakamları sisteme girdiğinde model gelecek 12 haftayı otomatik olarak günceller. Bütçelenen nakit akışı ile gerçekleşen nakit akışı arasındaki sapmalar haftalık raporla şirket ortaklarına sunulur.</p>
-        <p>Nakit akışı modellerinde senaryo duyarlılığı, işletmenin piyasa dalgalanmalarına karşı sigortasıdır. Faiz oranlarındaki artışlar veya müşteri vadelerindeki uzamalar nakit projeksiyonuna anında yansıtılarak şirketin borçlanma ihtiyacı haftalık takvimde önceden görülür. Bu disiplin KOBİ'lerin bankalar karşısında güçlü kalmasını sağlar.</p>
-        <p>Finansal dayanıklılık analizi, şirketin beklenmeyen kriz anlarında kaç gün operasyonlarını sürdürebileceğini gösteren en kritik göstergedir. KOBİ'ler genellikle banka kredilerine veya anlık faktoring işlemlerine aşırı bağımlı hale geldiğinde likidite kırılganlığı artar. 13 haftalık nakit akışı modeli, nakit tamponu rezervi kavramını operasyonel süreçlerin merkezine yerleştirir. Her hafta için hedeflenen minimum emniyet nakit seviyesi belirlenir ve gerçekleşen bakiyelerin bu eşiğin altına inmesi durumunda yönetim ekranında otomatik ikaz mekanizmaları devreye girer.</p>
-        <p>Müşteri segmentasyonu ve ödeme alışkanlıkları analizi, nakit girişlerinin güvenilirliğini artırmak için modele dahil edilmiştir. Büyük kurumsal müşterilerin uzun vadeli ödeme vadeleri ile perakende müşterilerin anlık nakit tahsilatları ayrı ağırlık katsayılarıyla projekte edilir. Geçmiş dönem tahsilat sapmaları modele işlenerek geleceğe dönük nakit giriş tahminlerinin doğruluk oranı en üst düzeye çıkarılır. Bu yaklaşım finans ekibinin nakit tahminlerinde aşırı iyimser olmasını engeller.</p>
-        <p>Hammadde satın alma ve tedarikçi vade optimizasyonu sayfası, şirket nakdinin en yoğun çıktığı dönemleri tespit ederek toplu alım iskontoları ile vade uzatma alternatifleri arasında matematiksel karşılaştırma yapar. Peşin ödeme iskontosu almanın şirketin nakit maliyetine göre avantaj sağlayıp sağlamadığı anında analiz edilir.</p>
-        <p>Nakit akışı modellerinde senaryo duyarlılığı, işletmenin piyasa dalgalanmalarına karşı sigortasıdır. Faiz oranlarındaki artışlar veya müşteri vadelerindeki uzamalar nakit projeksiyonuna anında yansıtılarak şirketin borçlanma ihtiyacı haftalık takvimde önceden görülür. Bu disiplin KOBİ'lerin bankalar karşısında güçlü kalmasını sağlar.</p>
+        {articleParagraphs.map((p) => (
+          <p>{p}</p>
+        ))}
       </section>
 
       {/* SSS */}
       <section class="my-8" aria-label="Sık Sorulan Sorular">
         <h2 class="text-xl font-bold text-neutral-900 mb-3">Sık Sorulan Sorular</h2>
         <div class="divide-y divide-neutral-200 border-y border-neutral-200">
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>13 haftalık nakit akışı modeli neden standart kabul edilir?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Uluslararası finans yönetiminde 13 hafta (yaklaşık 1 çeyrek), işletmenin operasyonel nakit döngüsünü en net gösteren ufuktur.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Eksi bakiye uyarıları nasıl çalışır?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Kümülatif nakit dengesi sıfırın altına indiğinde ilgili hafta kırmızı alarm verir ve gereken likidite tutarını hesaplar.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Farklı banka hesaplarını ayrı ayrı tanımlayabilir miyim?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Evet, nakit giriş ve çıkış sayfalarında farklı banka ve kasa kaynakları tanımlanabilir.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Şablon verileri dışarıdan aktarılabilir mi?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              ERP veya muhasebe programınızdan aldığınız Excel listelerini kopyala-yapıştır ile ilgili girdi alanlarına aktarabilirsiniz.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Formüllerde değişiklik yapabilir miyim?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Tüm formüller açıktır; satır ve sütun ekleyerek kendi şirket yapınıza göre uyarlayabilirsiniz.
-            </p>
-          </details>
+          {faqList.map((f) => (
+            <details class="group py-4">
+              <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+                <span>{f.q}</span>
+                <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+              </summary>
+              <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+                {f.a}
+              </p>
+            </details>
+          ))}
         </div>
       </section>
 
@@ -241,15 +199,11 @@ const jsonLd = {
       <section class="my-8 bg-neutral-50 border border-neutral-200 p-6" aria-label="İlgili Kararlar">
         <h2 class="text-sm font-mono uppercase tracking-wider text-neutral-500 mb-3">İLGİLİ KARAR REHBERLERİ</h2>
         <div class="flex flex-wrap gap-3 text-xs">
-          <a href="/karar/kasa-defteri-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/kasa-defteri-excel →
-          </a>
-          <a href="/karar/mali-musavir-cari-takip-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/mali-musavir-cari-takip-excel →
-          </a>
-          <a href="/karar/sube-karlilik-analizi-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/sube-karlilik-analizi-excel →
-          </a>
+          {relatedSlugs.map((r) => (
+            <a href={`/karar/${r}`} class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+              /karar/{r} →
+            </a>
+          ))}
         </div>
       </section>
 
@@ -259,10 +213,10 @@ const jsonLd = {
         <p class="text-xs sm:text-sm text-neutral-600 mb-6">Açık formüllü, denetlenmiş ve kullanıma hazır sistemi anında indirin.</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a
-            href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi"
+            href={`/sablon/${primarySlug}`}
             class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
           >
-            13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi İncele →
+            {primaryProduct.ad} İncele →
           </a>
           <a
             href="/demo"

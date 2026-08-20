@@ -1,0 +1,148 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+
+const kararListesi = [
+  {
+    kategori: 'Finans ve Nakit Yönetimi',
+    kararlar: [
+      { slug: 'hangi-excel-sistemini-almaliyim', baslik: 'Hangi Excel Sistemini Almalıyım?', ozet: 'İşletmenizin öncelikli darboğazına göre doğru karar modelini seçme rehberi.' },
+      { slug: 'kobi-nakit-akisi-excel', baslik: 'KOBİ Nakit Akışı ve 13 Haftalık Planlama', ozet: 'Gelecek 90 günlük nakit dengesini ve kritik eksi haftaları önceden yakalayın.' },
+      { slug: 'kasa-defteri-excel', baslik: 'Günlük Kasa Defteri ve Nakit Kontrol', ozet: 'Gün sonu fiili sayım farklarını ve kasa devir bakiyesini takip edin.' },
+      { slug: 'pos-komisyon-kontrol-excel', baslik: 'POS Komisyon ve Net Tahsilat Kontrolü', ozet: 'Banka POS kesintilerini, blokeli günleri ve net tahsilatı kuruşu kuruşuna denetleyin.' },
+      { slug: 'doviz-acik-pozisyon-kur-riski-excel', baslik: 'Döviz Açık Pozisyonu ve Kur Riski', ozet: 'Döviz borç ve varlıklarını eşleştirip kur artışlarında nakit stres testini hesaplayın.' },
+    ]
+  },
+  {
+    kategori: 'Muhasebe, Vergi ve Mevzuat',
+    kararlar: [
+      { slug: 'mali-musavir-cari-takip-excel', baslik: 'Mali Müşavir Cari Takip ve Yaşlandırma', ozet: '30-60-90 gün vadeli yaşlandırma ve müşteri bazlı risk limitleri.' },
+      { slug: 'kdv-iade-dosyasi-excel', baslik: 'KDV İade Listesi Hazırlama (GİB 7)', ozet: 'GİB formatında indirilecek ve yüklenilen KDV listelerini hatasız hazırlayın.' },
+      { slug: 'amortisman-yeniden-degerleme-excel', baslik: 'Amortisman ve 2026 Yeniden Değerleme', ozet: 'VUK geçici 32 ve mükerrer 298/Ç amortisman ve vergi kalkanı hesabı.' },
+      { slug: 'ttk-376-sermaye-kaybi-excel', baslik: 'TTK 376 Sermaye Kaybı ve Borca Batıklık', ozet: 'Sermaye koruma oranı ve sermaye tamamlama fonu cetveli.' },
+      { slug: 'logo-erp-cari-yaslandirma-excel', baslik: 'Logo/ERP Uyumlu Cari Yaşlandırma', ozet: 'Logo ve ERP çıktılarından dinamik cari yaşlandırma ve tahsilat kararı.' },
+    ]
+  },
+  {
+    kategori: 'İnsan Kaynakları ve İstihdam',
+    kararlar: [
+      { slug: 'kidem-ihbar-maliyeti-excel', baslik: 'Kıdem ve İhbar Tazminatı Hesaplama', ozet: 'Giydirilmiş brüt ücret ve yasal tavanla personel çıkarma maliyeti.' },
+      { slug: 'sgk-tesvik-optimizasyon-excel', baslik: 'SGK Teşvik Hesaplama ve Optimizasyon', ozet: '6111, 7103 ve 5510 teşviklerini kıyaslayıp en avantajlı kanunu seçin.' },
+    ]
+  },
+  {
+    kategori: 'Sektörel ve Operasyonel Sistemler',
+    kararlar: [
+      { slug: 'trendyol-pazaryeri-net-kar-excel', baslik: 'Trendyol ve Pazaryeri Net Kâr', ozet: 'Komisyon, barem kargo ve iade sonrası gerçek net ürün kârı.' },
+      { slug: 'restoran-kafe-maliyet-excel', baslik: 'Restoran ve Kafe Reçete Maliyeti', ozet: 'Gramaj bazlı porsiyon maliyeti, mutfak firesi ve menü kârlılığı.' },
+      { slug: 'insaat-hakedis-excel', baslik: 'İnşaat Hakediş ve Şantiye Maliyeti', ozet: 'Yeşil defter, hakediş icmali, fiyat farkı ve taşeron mutabakatı.' },
+      { slug: 'ihale-teklif-sinir-deger-excel', baslik: 'İhale Teklif ve KİK Sınır Değer', ozet: 'Kamu ihalelerinde sınır değer ve aşırı düşük teklif savunma riski.' },
+      { slug: 'stok-devir-nakit-baglanma-excel', baslik: 'Stok Takip ve Devir Hızı (Nakit Bağlanma)', ozet: 'Depodaki atıl stoklar, stok devir süresi ve bağlanan sermaye.' },
+      { slug: 'sube-karlilik-analizi-excel', baslik: 'Şube Kârlılık Analizi (Başabaş Noktası)', ozet: 'Çok şubeli işletmeler için lokasyon kârlılığı ve kapatma eşiği.' },
+    ]
+  }
+];
+
+const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
+const pageUrl = new URL('/karar', siteUrl).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageUrl}#breadcrumb`,
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': siteUrl },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Karar Rehberleri', 'item': pageUrl }
+      ]
+    },
+    {
+      '@type': 'CollectionPage',
+      '@id': `${pageUrl}#collection`,
+      'name': 'Excel Karar Rehberleri ve İhtiyaç Analiz Dizini',
+      'description': 'İşletmenizin mali darboğazına, sektörüne ve ölçeğine göre doğru Excel karar sistemini seçmeniz için 18 kapsamlı rehber.',
+      'url': pageUrl
+    }
+  ]
+};
+---
+
+<CommerceLayout
+  title="Excel Karar Rehberleri | Excel Arşiv"
+  description="İşletmenizin nakit, bütçe, vergi ve kârlılık ihtiyacına göre hangi hazır Excel sistemini seçmeniz gerektiğini gösteren 18 kapsamlı karar rehberi."
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={pageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <main class="mx-auto max-w-5xl px-4 py-12">
+    <nav class="text-xs text-neutral-500 mb-4 font-mono" aria-label="Breadcrumb">
+      <a href="/" class="hover:underline">Ana Sayfa</a> / <span class="text-neutral-800 font-semibold">Karar Rehberleri</span>
+    </nav>
+
+    <header class="border-b border-neutral-200 pb-6 mb-10">
+      <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">KARAR REHBERLERİ DİZİNİ</span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 mt-2 tracking-tight">
+        Hangi Excel Sistemine İhtiyacınız Var?
+      </h1>
+      <p class="text-sm sm:text-base text-neutral-600 mt-3 max-w-3xl leading-relaxed">
+        İşletmenizin karşılaştığı mali veya operasyonel darboğaza göre hazırlanmış 18 analitik karar rehberini inceleyin. Her rehber, mevzuata ve sahaya tam uyumlu modellerin tarafsız karşılaştırmasını ve dürüst sınırlarını sunar.
+      </p>
+    </header>
+
+    <div class="space-y-12">
+      {kararListesi.map((grup) => (
+        <section aria-label={grup.kategori}>
+          <h2 class="text-xl font-bold text-neutral-900 border-b border-neutral-200 pb-2 mb-6 flex items-center justify-between">
+            <span>{grup.kategori}</span>
+            <span class="text-xs font-mono text-neutral-400 font-normal">{grup.kararlar.length} Rehber</span>
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {grup.kararlar.map((k) => (
+              <a
+                href={`/karar/${k.slug}`}
+                class="block border border-neutral-200 p-5 bg-white hover:border-emerald-800 transition-colors group"
+              >
+                <div class="flex items-start justify-between gap-2">
+                  <h3 class="text-base font-bold text-neutral-900 group-hover:text-emerald-800 transition-colors">
+                    {k.baslik}
+                  </h3>
+                  <span class="text-emerald-800 font-mono text-sm font-semibold group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+                  {k.ozet}
+                </p>
+                <span class="inline-block mt-3 text-[11px] font-mono text-neutral-400">
+                  /karar/{k.slug}
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <footer class="mt-16 border-t border-neutral-200 pt-10 text-center">
+      <h3 class="text-xl font-bold text-neutral-900 mb-2">Tüm Hazır Sistemleri İncelemek İster misiniz?</h3>
+      <p class="text-xs sm:text-sm text-neutral-600 mb-6 max-w-xl mx-auto">
+        Kasa, bütçe, vergi ve e-ticaret alanlarında 51 hazır profesyonel Excel sistemi anında indirilmeye hazır.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/#urunler"
+          class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
+        >
+          Tüm Sistemleri İncele →
+        </a>
+        <a
+          href="/demo"
+          class="border border-neutral-300 bg-white hover:bg-neutral-100 text-neutral-800 font-semibold px-8 py-3 text-sm transition-colors"
+        >
+          Ücretsiz Demo İndir
+        </a>
+      </div>
+    </footer>
+  </main>
+</CommerceLayout>

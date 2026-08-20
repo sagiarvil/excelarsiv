@@ -1,7 +1,31 @@
 ---
 import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import * as fs from 'node:fs';
+const urunlerData = JSON.parse(fs.readFileSync('./veri/urunler.json', 'utf-8'));
+
+const urunlerMap = new Map(urunlerData.map((u) => [u.slug, u]));
 
 const primarySlug = "pos-komisyon-ve-net-tahsilat-kontrol-sistemi";
+const primaryProduct = urunlerMap.get(primarySlug) ?? { ad: "POS, Komisyon ve Net Tahsilat Kontrol Sistemi", fiyat_tl: 499, summary: 'Mevzuata ve sahaya tam uyumlu finansal karar sistemi.' };
+const primaryPrice = primaryProduct.fiyat_tl;
+
+const tableRowsData = [{"durum": "POS komisyon ve bloke denetimi", "sistem": "POS, Komisyon ve Net Tahsilat Kontrol Sistemi", "slug": "pos-komisyon-ve-net-tahsilat-kontrol-sistemi", "neden": "Banka kesintilerini ve hesaba net geçiş tarihini hesaplar"}, {"durum": "Günlük net kâr ve marj takibi", "sistem": "Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi", "slug": "gunluk-gelir-gider-ve-gercek-karlilik-sistemi", "neden": "İşletmenin günlük net kârlılık tablosunu oluşturur"}, {"durum": "Pazaryeri komisyon analizi", "sistem": "Trendyol Komisyon Sonrası Net Kâr", "slug": "trendyol-komisyon-sonrasi-net-kar", "neden": "Pazaryeri kesintilerini düşerek net ürün marjı verir"}];
+const tableRows = tableRowsData.map((r) => ({
+  ...r,
+  fiyat_tl: urunlerMap.get(r.slug)?.fiyat_tl ?? 799
+}));
+
+const altItemsData = [{"slug": "gunluk-gelir-gider-ve-gercek-karlilik-sistemi", "ad": "Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi", "desc": "Günlük toplam gelir ve gider kârlılığını izlemek için Günlük Gelir-Gider modelini seçin."}, {"slug": "trendyol-pazaryeri-net-kar-excel", "ad": "trendyol-pazaryeri-net-kar-excel", "desc": "Pazaryeri komisyon ve kargo kesintilerini denetlemek için Trendyol Net Kâr sistemini kullanın."}];
+const altItems = altItemsData.map((a) => ({
+  ...a,
+  fiyat_tl: urunlerMap.get(a.slug)?.fiyat_tl ?? 799
+}));
+
+const dontBuyList = ["Fiziki POS cihazına USB/Bluetooth ile bağlanıp otomatik slip okuyan yazılım arıyorsanız.", "Banka hesap hareketlerini açık bankacılık API'siyle anlık çeken platform istiyorsanız.", "Tek çekim ve taksitli oranları girmeden otomatik tahmin bekliyorsanız."];
+const faqList = [{"q": "Blokeli gün ve erken çözme faizi nasıl hesaplanır?", "a": "Banka sözleşmenizdeki gün sayısı ve erken çözme iskonto oranı girildiğinde net tutar otomatik hesaplanır."}, {"q": "Taksitli çekim oranları ayrı ayrı tanımlanabilir mi?", "a": "Evet, 2'den 12 taksite kadar farklı komisyon baremleri desteklenmektedir."}, {"q": "Birden fazla banka POS'u karşılaştırılabilir mi?", "a": "Farklı bankaların maliyetlerini yan yana koyarak en avantajlı POS'u gösteren analiz sayfası mevcuttur."}, {"q": "Hatalı banka kesintilerini nasıl tespit eder?", "a": "Beklenen net tahsilat ile hesaba geçen tutarı karşılaştırarak eksik yatan tutarları listeler."}, {"q": "Restoran ve perakende için uygun mu?", "a": "Hem fiziki mağazalar hem de sanal POS kullanan e-ticaret siteleri için uygundur."}];
+const relatedSlugs = ["kasa-defteri-excel", "trendyol-pazaryeri-net-kar-excel", "gunluk-gelir-gider-ve-gercek-karlilik-sistemi"];
+const articleParagraphs = ["Kredi kartı ve POS cihazları üzerinden tahsilat yapan işletmelerin en sık yaşadığı finansal kayıp, banka komisyon oranlarının ve bloke sürelerinin doğru denetlenmemesidir. Anlaşma şartlarındaki oran değişiklikleri veya hesaba geçiş tarihlerindeki kaymalar yıllık bazda kârlılığı eritir.", "POS Kontrol Sistemi, bankadan gelen günlük ve aylık slipleri sözleşmedeki komisyon baremleriyle eşleştirir. Ertesi gün hesaba geçmesi gereken net tutar ile banka ekstresindeki fiili bakiye kuruşu kuruşuna karşılaştırılır. Hatalı kesintiler hemen listelenir.", "Farklı bankaların sunduğu taksitli çekim komisyonları ve bloke gün şartları yan yana kıyaslanır. Müşteriye uygulanacak taksit farkı ve vade maliyeti en kârlı şekilde belirlenir.", "Erken bloke çözme faiz maliyeti simülasyonu, işletmenin acil nakit ihtiyacında POS blokesini çözmenin ticari kredi kullanmaktan daha avantajlı olup olmadığını matematiksel olarak hesaplar.", "Farklı bankaların POS teklifleri arasında simülasyon yaparak yıllık ciro hacminizde hangi bankanın daha az komisyon keseceği hesaplanır. Bu rapor banka pazarlıklarında işletmeye güçlü bir koz sunar.", "Banka üye işyeri sözleşmelerindeki aidat, yazılım bedeli ve operasyonel kesintiler de ek maliyet sekmesinde toplanarak fiili efektif komisyon oranı hesaplanır. Böylece gizli maliyetler net biçimde görünür hale gelir.", "POS operasyonlarında maliyetlerin asgari seviyeye indirilmesi, ciro hacmine göre dinamik POS yönlendirme stratejisi kurmayı gerektirir. Farklı bankaların kart programları (Bonus, World, Maximum, CardFinans, Axess) için sunduğu kampanya komisyon oranları ve puan maliyetleri sisteme tanımlanır. Kasa personeline hangi kart için hangi banka POS cihazının kullanılması gerektiği en düşük maliyetli seçenek olarak önerilir.", "Blokeli alacakların iskonto edilmesi ve erken nakde çevrilmesi süreçlerinde bankaların uyguladığı faiz oranları ile piyasa mevduat oranları karşılaştırılır. Şirketin likidite ihtiyacı olmadığında paranın blokede beklemesinin mi yoksa erken çözülerek repoda veya işletme sermayesinde değerlendirilmesinin mi daha kârlı olduğu analiz edilir.", "Yıllık POS ciro ve verimlilik karnesi, bankalarla yapılacak yıllık üye işyeri sözleşme yenilemelerinde masaya somut verilerle oturulmasını sağlar. Bankanın şirketten kestiği toplam komisyon ve hizmet bedeli yekünü gösterilerek komisyon indirimi ve aidat muafiyeti talep edilir.", "Banka POS komisyon kesintilerinin faturadaki hizmet bedelleriyle karşılaştırılması, yıl sonunda yüksek tutarlı haksız kesintilerin iadesini sağlar. Sanal ve fiziki POS cihazlarının kart bazlı maliyet analizleri, e-ticaret sitelerinin ödeme adımı dönüşüm oranını ve kârlılığını optimize eder.", "POS bloke gün sayısının nakit akışına etkisi, 13 haftalık nakit projeksiyonuna otomatik veri aktarımı ile izlenebilir. Hangi gün ne kadar net POS tahsilatının banka hesabına geçeceği finans yöneticisinin kontrolünde olur."];
+
 const siteUrl = Astro.site ?? 'https://excelarsiv.com/';
 const pageUrl = new URL('/karar/pos-komisyon-kontrol-excel', siteUrl).href;
 
@@ -79,24 +103,14 @@ const jsonLd = {
               </tr>
             </thead>
             <tbody class="divide-y divide-neutral-200 bg-white">
-              <tr>
-                <td class="p-3 font-medium text-neutral-900">POS komisyon ve bloke denetimi</td>
-                <td class="p-3 font-semibold text-emerald-800">POS. Komisyon ve Net Tahsilat Kontrol Sistemi</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">499 TL</td>
-                <td class="p-3 text-xs text-neutral-600">Banka kesintilerini ve hesaba net geçiş tarihini hesaplar</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-medium text-neutral-900">Günlük net kâr ve marj takibi</td>
-                <td class="p-3 font-semibold text-emerald-800">Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">499 TL</td>
-                <td class="p-3 text-xs text-neutral-600">İşletmenin günlük net kârlılık tablosunu oluşturur</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-medium text-neutral-900">Pazaryeri komisyon analizi</td>
-                <td class="p-3 font-semibold text-emerald-800">Trendyol Komisyon Sonrası Net Kâr</td>
-                <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">499 TL</td>
-                <td class="p-3 text-xs text-neutral-600">Pazaryeri kesintilerini düşerek net ürün marjı verir</td>
-              </tr>
+              {tableRows.map((r) => (
+                <tr>
+                  <td class="p-3 font-medium text-neutral-900">{r.durum}</td>
+                  <td class="p-3 font-semibold text-emerald-800">{r.sistem}</td>
+                  <td class="p-3 font-mono text-neutral-700 whitespace-nowrap">{r.fiyat_tl.toLocaleString('tr-TR')} TL</td>
+                  <td class="p-3 text-xs text-neutral-600">{r.neden}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -105,17 +119,17 @@ const jsonLd = {
       {/* BİRİNCİL ÖNERİ */}
       <section class="my-8 border border-neutral-300 bg-neutral-50 p-6 sm:p-8" aria-label="Birincil Öneri">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">BİRİNCİL SİSTEM TAVSİYESİ</span>
-        <h2 class="text-2xl font-bold text-neutral-900 mt-2">POS. Komisyon ve Net Tahsilat Kontrol Sistemi</h2>
+        <h2 class="text-2xl font-bold text-neutral-900 mt-2">{primaryProduct.ad}</h2>
         <p class="text-sm text-neutral-700 mt-3 leading-relaxed">
-          Mevzuata ve sahaya tam uyumlu finansal karar sistemi.
+          {primaryProduct.summary}
         </p>
         <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-neutral-200">
           <div>
-            <span class="text-2xl font-extrabold text-neutral-900 font-mono">499 TL</span>
+            <span class="text-2xl font-extrabold text-neutral-900 font-mono">{primaryPrice.toLocaleString('tr-TR')} TL</span>
             <span class="block text-xs text-neutral-500 font-mono">KDV dahil · tek ödeme</span>
           </div>
           <a
-            href="/sablon/pos-komisyon-ve-net-tahsilat-kontrol-sistemi"
+            href={`/sablon/${primarySlug}`}
             class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-6 py-3 text-sm transition-colors"
           >
             Sistemi İnceleyin →
@@ -127,26 +141,18 @@ const jsonLd = {
       <section class="my-8" aria-label="Alternatif Sistemler">
         <h2 class="text-xl font-bold text-neutral-900 mb-3">Alternatif Karar Seçenekleri</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="border border-neutral-200 p-5 bg-white">
-            <h3 class="text-base font-bold text-neutral-900">
-              <a href="/sablon/gunluk-gelir-gider-ve-gercek-karlilik-sistemi" class="hover:text-emerald-800 hover:underline">Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi</a>
-            </h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Günlük toplam gelir ve gider kârlılığını izlemek için Günlük Gelir-Gider modelini seçin.</p>
-            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
-              <span class="font-mono text-neutral-500">799 TL</span>
-              <a href="/sablon/gunluk-gelir-gider-ve-gercek-karlilik-sistemi" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+          {altItems.map((a) => (
+            <div class="border border-neutral-200 p-5 bg-white">
+              <h3 class="text-base font-bold text-neutral-900">
+                <a href={`/sablon/${a.slug}`} class="hover:text-emerald-800 hover:underline">{a.ad}</a>
+              </h3>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">{a.desc}</p>
+              <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
+                <span class="font-mono text-neutral-500">{a.fiyat_tl.toLocaleString('tr-TR')} TL</span>
+                <a href={`/sablon/${a.slug}`} class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
+              </div>
             </div>
-          </div>
-          <div class="border border-neutral-200 p-5 bg-white">
-            <h3 class="text-base font-bold text-neutral-900">
-              <a href="/sablon/trendyol-pazaryeri-net-kar-excel" class="hover:text-emerald-800 hover:underline">trendyol-pazaryeri-net-kar-excel</a>
-            </h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Pazaryeri komisyon ve kargo kesintilerini denetlemek için Trendyol Net Kâr sistemini kullanın.</p>
-            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between items-center text-xs">
-              <span class="font-mono text-neutral-500">799 TL</span>
-              <a href="/sablon/trendyol-pazaryeri-net-kar-excel" class="text-emerald-800 font-semibold hover:underline">Detaylar →</a>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -154,88 +160,38 @@ const jsonLd = {
       <section class="my-8 border-l-4 border-amber-600 bg-amber-50/50 p-6" aria-label="Dürüst Sınır">
         <h2 class="text-lg font-bold text-neutral-900 mb-3">Bu sistemi almayın eğer…</h2>
         <ul class="space-y-2 text-sm text-neutral-700">
-          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>Fiziki POS cihazına USB/Bluetooth ile bağlanıp otomatik slip okuyan yazılım arıyorsanız.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>Banka hesap hareketlerini açık bankacılık API'siyle anlık çeken platform istiyorsanız.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-amber-700 font-bold">✕</span>
-            <span>Tek çekim ve taksitli oranları girmeden otomatik tahmin bekliyorsanız.</span>
-          </li>
+          {dontBuyList.map((d) => (
+            <li class="flex items-start gap-2">
+              <span class="text-amber-700 font-bold">✕</span>
+              <span>{d}</span>
+            </li>
+          ))}
         </ul>
       </section>
 
       {/* DETAYLI İÇERİK METNİ */}
       <section class="prose prose-neutral max-w-none my-8 text-sm sm:text-base leading-relaxed text-neutral-700 space-y-4">
         <h2 class="text-xl font-bold text-neutral-900">Karar Modelinin Metodolojisi ve Uygulama Alanları</h2>
-        <p>Kredi kartı ve POS cihazları üzerinden tahsilat yapan işletmelerin en sık yaşadığı finansal kayıp, banka komisyon oranlarının ve bloke sürelerinin doğru denetlenmemesidir. Anlaşma şartlarındaki oran değişiklikleri veya hesaba geçiş tarihlerindeki kaymalar yıllık bazda kârlılığı eritir.</p>
-        <p>POS Kontrol Sistemi, bankadan gelen günlük ve aylık slipleri sözleşmedeki komisyon baremleriyle eşleştirir. Ertesi gün hesaba geçmesi gereken net tutar ile banka ekstresindeki fiili bakiye kuruşu kuruşuna karşılaştırılır. Hatalı kesintiler hemen listelenir.</p>
-        <p>Farklı bankaların sunduğu taksitli çekim komisyonları ve bloke gün şartları yan yana kıyaslanır. Müşteriye uygulanacak taksit farkı ve vade maliyeti en kârlı şekilde belirlenir.</p>
-        <p>Erken bloke çözme faiz maliyeti simülasyonu, işletmenin acil nakit ihtiyacında POS blokesini çözmenin ticari kredi kullanmaktan daha avantajlı olup olmadığını matematiksel olarak hesaplar.</p>
-        <p>Farklı bankaların POS teklifleri arasında simülasyon yaparak yıllık ciro hacminizde hangi bankanın daha az komisyon keseceği hesaplanır. Bu rapor banka pazarlıklarında işletmeye güçlü bir koz sunar.</p>
-        <p>Banka üye işyeri sözleşmelerindeki aidat, yazılım bedeli ve operasyonel kesintiler de ek maliyet sekmesinde toplanarak fiili efektif komisyon oranı hesaplanır. Böylece gizli maliyetler net biçimde görünür hale gelir.</p>
-        <p>Banka POS komisyon kesintilerinin faturadaki hizmet bedelleriyle karşılaştırılması, yıl sonunda yüksek tutarlı haksız kesintilerin iadesini sağlar. Sanal ve fiziki POS cihazlarının kart bazlı maliyet analizleri, e-ticaret sitelerinin ödeme adımı dönüşüm oranını ve kârlılığını optimize eder.</p>
-        <p>POS bloke gün sayısının nakit akışına etkisi, 13 haftalık nakit projeksiyonuna otomatik veri aktarımı ile izlenebilir. Hangi gün ne kadar net POS tahsilatının banka hesabına geçeceği finans yöneticisinin kontrolünde olur.</p>
-        <p>POS operasyonlarında maliyetlerin asgari seviyeye indirilmesi, ciro hacmine göre dinamik POS yönlendirme stratejisi kurmayı gerektirir. Farklı bankaların kart programları (Bonus, World, Maximum, CardFinans, Axess) için sunduğu kampanya komisyon oranları ve puan maliyetleri sisteme tanımlanır. Kasa personeline hangi kart için hangi banka POS cihazının kullanılması gerektiği en düşük maliyetli seçenek olarak önerilir.</p>
-        <p>Blokeli alacakların iskonto edilmesi ve erken nakde çevrilmesi süreçlerinde bankaların uyguladığı faiz oranları ile piyasa mevduat oranları karşılaştırılır. Şirketin likidite ihtiyacı olmadığında paranın blokede beklemesinin mi yoksa erken çözülerek repoda veya işletme sermayesinde değerlendirilmesinin mi daha kârlı olduğu analiz edilir.</p>
-        <p>Yıllık POS ciro ve verimlilik karnesi, bankalarla yapılacak yıllık üye işyeri sözleşme yenilemelerinde masaya somut verilerle oturulmasını sağlar. Bankanın şirketten kestiği toplam komisyon ve hizmet bedeli yekünü gösterilerek komisyon indirimi ve aidat muafiyeti talep edilir.</p>
-        <p>Banka POS komisyon kesintilerinin faturadaki hizmet bedelleriyle karşılaştırılması, yıl sonunda yüksek tutarlı haksız kesintilerin iadesini sağlar. Sanal ve fiziki POS cihazlarının kart bazlı maliyet analizleri, e-ticaret sitelerinin ödeme adımı dönüşüm oranını ve kârlılığını optimize eder.</p>
-        <p>POS bloke gün sayısının nakit akışına etkisi, 13 haftalık nakit projeksiyonuna otomatik veri aktarımı ile izlenebilir. Hangi gün ne kadar net POS tahsilatının banka hesabına geçeceği finans yöneticisinin kontrolünde olur.</p>
+        {articleParagraphs.map((p) => (
+          <p>{p}</p>
+        ))}
       </section>
 
       {/* SSS */}
       <section class="my-8" aria-label="Sık Sorulan Sorular">
         <h2 class="text-xl font-bold text-neutral-900 mb-3">Sık Sorulan Sorular</h2>
         <div class="divide-y divide-neutral-200 border-y border-neutral-200">
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Blokeli gün ve erken çözme faizi nasıl hesaplanır?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Banka sözleşmenizdeki gün sayısı ve erken çözme iskonto oranı girildiğinde net tutar otomatik hesaplanır.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Taksitli çekim oranları ayrı ayrı tanımlanabilir mi?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Evet, 2'den 12 taksite kadar farklı komisyon baremleri desteklenmektedir.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Birden fazla banka POS'u karşılaştırılabilir mi?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Farklı bankaların maliyetlerini yan yana koyarak en avantajlı POS'u gösteren analiz sayfası mevcuttur.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Hatalı banka kesintilerini nasıl tespit eder?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Beklenen net tahsilat ile hesaba geçen tutarı karşılaştırarak eksik yatan tutarları listeler.
-            </p>
-          </details>
-          <details class="group py-4">
-            <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
-              <span>Restoran ve perakende için uygun mu?</span>
-              <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
-            </summary>
-            <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
-              Hem fiziki mağazalar hem de sanal POS kullanan e-ticaret siteleri için uygundur.
-            </p>
-          </details>
+          {faqList.map((f) => (
+            <details class="group py-4">
+              <summary class="flex justify-between items-center font-bold text-neutral-900 cursor-pointer text-sm sm:text-base list-none">
+                <span>{f.q}</span>
+                <span class="text-emerald-800 group-open:rotate-45 transition-transform text-lg">+</span>
+              </summary>
+              <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-6">
+                {f.a}
+              </p>
+            </details>
+          ))}
         </div>
       </section>
 
@@ -243,15 +199,11 @@ const jsonLd = {
       <section class="my-8 bg-neutral-50 border border-neutral-200 p-6" aria-label="İlgili Kararlar">
         <h2 class="text-sm font-mono uppercase tracking-wider text-neutral-500 mb-3">İLGİLİ KARAR REHBERLERİ</h2>
         <div class="flex flex-wrap gap-3 text-xs">
-          <a href="/karar/kasa-defteri-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/kasa-defteri-excel →
-          </a>
-          <a href="/karar/trendyol-pazaryeri-net-kar-excel" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/trendyol-pazaryeri-net-kar-excel →
-          </a>
-          <a href="/karar/gunluk-gelir-gider-ve-gercek-karlilik-sistemi" class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
-            /karar/gunluk-gelir-gider-ve-gercek-karlilik-sistemi →
-          </a>
+          {relatedSlugs.map((r) => (
+            <a href={`/karar/${r}`} class="bg-white border border-neutral-300 px-3 py-2 text-neutral-800 hover:border-emerald-800 font-medium">
+              /karar/{r} →
+            </a>
+          ))}
         </div>
       </section>
 
@@ -261,10 +213,10 @@ const jsonLd = {
         <p class="text-xs sm:text-sm text-neutral-600 mb-6">Açık formüllü, denetlenmiş ve kullanıma hazır sistemi anında indirin.</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a
-            href="/sablon/pos-komisyon-ve-net-tahsilat-kontrol-sistemi"
+            href={`/sablon/${primarySlug}`}
             class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-8 py-3 text-sm transition-colors"
           >
-            POS, Komisyon ve Net Tahsilat Kontrol Sistemi İncele →
+            {primaryProduct.ad} İncele →
           </a>
           <a
             href="/demo"
