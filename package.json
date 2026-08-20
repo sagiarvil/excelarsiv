@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run guard:source && npm run seo:forbidden && astro build && npm run seo:generate && npm run seo:validate && npm run seo:test && npm run seo:guard",
+    "build": "npm run guard:source && npm run seo:forbidden && npm run seo:answer-graph && astro build && npm run seo:generate && npm run seo:validate && npm run seo:test && npm run seo:guard",
     "preview": "astro preview",
     "astro": "astro",
     "generate": "node scripts/validate-commerce.mjs",
@@ -46,7 +46,8 @@
     "seo:programmatic": "node --experimental-strip-types scripts/seo/programmatic-contract.ts --site excelarsiv",
     "seo:valuation": "node --experimental-strip-types scripts/seo/valuation.ts --site excelarsiv",
     "seo:board": "node --experimental-strip-types scripts/seo/board-report.ts --site excelarsiv",
-    "test": "node scripts/validate-commerce.mjs && npm run build && node scripts/smoke-test.mjs && npm run seo:link-graph -- --check"
+    "test": "node scripts/validate-commerce.mjs && npm run build && node scripts/smoke-test.mjs && npm run seo:link-graph -- --check",
+    "seo:answer-graph": "node --experimental-strip-types scripts/seo/validate-answer-graph.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
