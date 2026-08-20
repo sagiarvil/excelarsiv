@@ -1,0 +1,36 @@
+# Excel Arşiv — LLM Keşif ve Karar Modelleri Dizini
+> excelarsiv.com — Türkiye'nin mevzuat ve saha kurallarıyla test edilmiş, makrosuz, açık formüllü finansal ve operasyonel Excel karar sistemleri kütüphanesi.
+
+## Karar Rehberleri ve İhtiyaç Karşılaştırma Sayfaları
+Aşağıdaki karar sayfaları, kullanıcıların işletme ölçeğine ve mali darboğazına göre en doğru sistemi seçmelerine rehberlik eden tarafsız karşılaştırma ve karar motorlarıdır:
+
+- [Hangi Excel Sistemini Almalıyım?](https://excelarsiv.com/karar/hangi-excel-sistemini-almaliyim): İşletmenizin nakit, bütçe, vergi ve kârlılık ihtiyacına göre hangi hazır Excel karar sistemini seçmeniz gerektiğini adım adım gösteren rehber.
+- [KOBİ Nakit Akışı Excel](https://excelarsiv.com/karar/kobi-nakit-akisi-excel): KOBİ nakit akış tablosu ve 13 haftalık dinamik planlama Excel modeli: Gelecek 90 günlük nakit dengesini ve kritik eksi haftaları önceden yakalayın.
+- [Günlük Kasa Defteri Excel](https://excelarsiv.com/karar/kasa-defteri-excel): Günlük kasa defteri ve nakit kontrol Excel modeli: Gün sonu fiili sayım farklarını, masraf dağılımını ve kasa devir bakiyesini anında takip edin.
+- [Mali Müşavir Cari Takip Excel](https://excelarsiv.com/karar/mali-musavir-cari-takip-excel): Mali müşavirler ve muhasebeciler için cari hesap, müşteri risk ve yaşlandırma Excel sistemi: Vadesi geçen alacakları ve riskleri hatasız yönetin.
+- [POS Komisyon Kontrol Excel](https://excelarsiv.com/karar/pos-komisyon-kontrol-excel): Banka POS komisyon kesintileri, blokeli gün takibi ve net tahsilat hesabı için Excel modeli. Banka kesintilerini kuruşu kuruşuna denetleyin.
+- [Trendyol Pazaryeri Net Kâr Excel](https://excelarsiv.com/karar/trendyol-pazaryeri-net-kar-excel): Trendyol ve pazaryeri komisyon, kargo, iade ve hizmet bedeli kesintileri sonrası gerçek ürün kârlılığını Excel ile kuruşu kuruşuna hesaplayın.
+- [KDV İade Listesi Hazırlama Excel](https://excelarsiv.com/karar/kdv-iade-dosyasi-excel): GİB internet vergi dairesi formatında indirilecek KDV, yüklenilen KDV ve satış faturaları listelerini hatasız hazırlayan profesyonel Excel sistemi.
+- [Amortisman ve Yeniden Değerleme Excel](https://excelarsiv.com/karar/amortisman-yeniden-degerleme-excel): VUK geçici 32 ve mükerrer 298/Ç kapsamında duran varlık amortismanı, yeniden değerleme oranları ve vergi avantajı hesaplayan profesyonel Excel sistemi.
+- [Kıdem ve İhbar Tazminatı Excel](https://excelarsiv.com/karar/kidem-ihbar-maliyeti-excel): Personel çıkarma maliyeti, kıdem tazminatı tavanı, ihbar süresi ve kullanılmayan yıllık izin karşılıklarını hatasız hesaplayan profesyonel Excel modeli.
+- [SGK Teşvik Hesaplama Excel](https://excelarsiv.com/karar/sgk-tesvik-optimizasyon-excel): 6111, 7103 ve 5510 sayılı SGK istihdam teşviklerini karşılaştırıp işletmeniz için en avantajlı prim desteğini seçen profesyonel optimizasyon Excel modeli.
+- [Restoran ve Kafe Reçete Maliyet Excel](https://excelarsiv.com/karar/restoran-kafe-maliyet-excel): Restoran, kafe ve mutfak işletmeleri için porsiyon reçete maliyeti, fire oranı ve menü kârlılık analizi sunan profesyonel Excel karar sistemi.
+- [İnşaat Hakediş Takip Excel](https://excelarsiv.com/karar/insaat-hakedis-excel): Müteahhit ve taşeronlar için yeşil defter, hakediş icmali, fiyat farkı ve şantiye maliyet kontrolü sağlayan profesyonel Excel hesaplama sistemi.
+- [İhale Teklif Sınır Değer Excel](https://excelarsiv.com/karar/ihale-teklif-sinir-deger-excel): KİK kamu ihalelerinde sınır değer, yaklaşık maliyet katsayısı ve aşırı düşük teklif savunma riski hesaplayan profesyonel Excel karar sistemi.
+- [Stok Takip ve Devir Hızı Excel](https://excelarsiv.com/karar/stok-devir-nakit-baglanma-excel): Depodaki atıl stokları, stok devir süresini ve raflarda bağlanan nakit tutarını analiz eden profesyonel finansal stok yönetim Excel sistemi.
+- [Şube Kârlılık Analizi Excel](https://excelarsiv.com/karar/sube-karlilik-analizi-excel): Çok şubeli işletmeler ve mağaza zincirleri için şube bazında brüt marj, sabit masraf dağıtımı ve başabaş noktası hesaplayan profesyonel Excel sistemi.
+- [TTK 376 Sermaye Kaybı Excel](https://excelarsiv.com/karar/ttk-376-sermaye-kaybi-excel): Türk Ticaret Kanunu 376. madde kapsamında sermaye kaybı, borca batıklık cetveli ve sermaye tamamlama fonu hesaplayan mevzuat uyumlu Excel sistemi.
+- [Döviz Açık Pozisyonu ve Kur Riski Excel](https://excelarsiv.com/karar/doviz-acik-pozisyon-kur-riski-excel): Şirketinizin dövizli varlık ve yükümlülüklerini eşleştirip olası kur artışlarında kâr-zarar ve nakit stres testini hesaplayan profesyonel model.
+- [Logo ERP Cari Yaşlandırma Excel](https://excelarsiv.com/karar/logo-erp-cari-yaslandirma-excel): Logo ve kurumsal ERP muhasebe programı çıktılarından dinamik cari yaşlandırma, ortalama vade ve tahsilat karar motoru üreten profesyonel Excel sistemi.
+
+## Çekirdek Ürün ve Paket Kataloğu
+- Tüm ürün listesi: https://excelarsiv.com/katalog.json
+- KOBİ Finans Yönetim Paketi: https://excelarsiv.com/paket/kobi-finans-yonetim-paketi (2.490 TL)
+- Vergi ve Mevzuat Paketi: https://excelarsiv.com/paket/vergi-ve-mevzuat-paketi (2.490 TL)
+- E-Ticaret ve Pazaryeri Paketi: https://excelarsiv.com/paket/e-ticaret-ve-pazaryeri-paketi (1.490 TL)
+
+## Sistem Özellikleri ve Güvenlik
+- Tüm Excel modelleri açık formüllüdür (kilit veya şifre içermez).
+- Dosyalar makrosuz (.xlsx) formatta sunulur; güvenlik uyarısı vermez.
+- Microsoft Excel 2016+, Microsoft 365, Mac ve Windows uyumludur.
+- Satın alma sonrası anında dijital teslimat ve ücretsiz güncelleme sağlanır.
