@@ -3,7 +3,7 @@
     "slug": "mali-musavir-vergi-paketi",
     "ad": "Mali Müşavir Vergi Paketi",
     "fiyat_tl": 3490,
-    "shopier_id": "49655001",
+    "shopier_id": "50087663",
     "icerik_slugs": [
       "kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici",
       "kdv-iade-listesi-robotu-gib7",
@@ -21,7 +21,7 @@
     "slug": "patron-karar-paketi",
     "ad": "Patron Karar Paketi",
     "fiyat_tl": 3490,
-    "shopier_id": "49655002",
+    "shopier_id": "50087662",
     "icerik_slugs": [
       "aylik-patron-finans-paneli",
       "sube-karlilik-ve-nakit-hesaplayici",
@@ -38,7 +38,7 @@
     "slug": "nakit-kontrol-paketi",
     "ad": "Nakit Kontrol Paketi",
     "fiyat_tl": 2490,
-    "shopier_id": "49655003",
+    "shopier_id": "50087664",
     "icerik_slugs": [
       "akilli-kasa-defteri-ve-nakit-kontrol-sistemi",
       "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi",
