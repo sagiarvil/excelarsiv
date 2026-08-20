@@ -1,4 +1,4 @@
-import { productSeo, type ProductSeoEntry } from './productSeo';
+import { productSeo, type ProductSeoEntry } from './productSeo.ts';
 
 export type ProductIntent = 'commercial-investigation';
 
