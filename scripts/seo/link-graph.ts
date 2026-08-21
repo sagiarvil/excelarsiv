@@ -88,7 +88,8 @@ function loadBuiltPages(): GraphPage[] {
 function loadRegistry(): Registry {
   const primary = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_seo_registry.json'), 'utf8')) as Registry;
   const decision = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_decision_registry.json'), 'utf8')) as Registry;
-  return { records: [...primary.records, ...decision.records] };
+  const landing = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_landing_registry.json'), 'utf8')) as Registry;
+  return { records: [...primary.records, ...decision.records, ...landing.records] };
 }
 
 function inferType(route: string): string {

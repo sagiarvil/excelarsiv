@@ -29,9 +29,9 @@ const homeDecisions = homeDecisionSlugs.map((slug) => kararPages.find((item) => 
 const faqItems = [
   { q: 'Satın almadan önce dosyayı inceleyebilir miyim?', a: 'Uygun ürünlerde ücretsiz demo ve gerçek ürün ekranları bulunur. Ürün detay sayfasından kapsamı, fiyatı ve demo bağlantısını satın almadan önce kontrol edebilirsiniz.' },
   { q: 'Fiyatlar ana sayfada elle mi yazılıyor?', a: 'Hayır. Bu sayfadaki ürün sayısı, başlangıç fiyatı ve örnek ürün fiyatları mevcut ürün veri kaynağından build sırasında hesaplanır.' },
-  { q: 'Ödeme nerede yapılıyor?', a: 'Ödeme Shopier üzerinde tamamlanır. Excel Arşiv kart bilgisi saklamaz; ödeme sonrasında teslimat akışı üzerinden ürün dosyasına erişilir.' },
-  { q: 'Hangi sistemi seçmem gerektiğini bilmiyorsam ne yapmalıyım?', a: 'Karar rehberlerinden işletme probleminize en yakın soruyu seçebilir veya ürün bulucuyu kullanabilirsiniz.' },
-  { q: 'Excel Arşiv bir ERP veya muhasebe programı mı?', a: 'Hayır. Ürünler belirli finans, muhasebe ve operasyon karar problemlerine odaklanan indirilebilir Excel çalışma sistemleridir.' },
+  { q: 'Size özel Excel sistemi de hazırlıyor musunuz?', a: 'Evet. Hazır ürün kapsamına girmeyen işlerde ihtiyaca göre Excel otomasyon, mini ERP, CRM ve yönetim sistemleri tasarlanır. Kapsam, teslim ve proje bedeli iş başlamadan netleştirilir.' },
+  { q: 'Ödeme nerede yapılıyor?', a: 'Hazır ürün ödemeleri Shopier üzerinde tamamlanır. Özel projelerde kapsam ve bedel netleştikten sonra güvenli ödeme bağlantısı paylaşılır.' },
+  { q: 'Hangi sistemi seçmem gerektiğini bilmiyorsam ne yapmalıyım?', a: 'Karar rehberlerinden işletme probleminize en yakın soruyu seçebilir, ürün bulucuyu kullanabilir veya özel sistem talebi bırakabilirsiniz.' },
 ];
 const homeJsonLd = {
   '@context': 'https://schema.org',
@@ -43,24 +43,20 @@ const homeJsonLd = {
 ---
 
 <CommerceLayout
-  title="Excel Karar Sistemleri ve Finans Şablonları | Excel Arşiv"
-  description="Nakit akışı, kasa, cari, KDV, stok, personel ve kârlılık için hazır Excel karar sistemleri. Gerçek ekranları görün, karar rehberlerinden doğru ürünü seçin."
+  title="Excel Karar Sistemleri, Otomasyon ve Özel ERP/CRM | Excel Arşiv"
+  description="Hazır Excel karar sistemleri veya işletmenize özel Excel otomasyon, mini ERP ve CRM çözümleri. Gerçek ekranları görün, karar rehberinden doğru çözümü seçin."
 >
   <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(homeJsonLd)} /></Fragment>
 
-  <div class="home-v1">
+  <div class="home-v2">
     <HeroSection searchIndex={searchIndex} />
-
-    <section class="authority" data-experience-stage>
-      <div class="home-shell authority-grid">
-        <div><p class="eyebrow">TASARLAYAN VE DENETLEYEN</p><h2>Barış Bağırlar</h2><p>Ürünler; işletme verisini düzenli girdiye, kontrol adımlarına ve yönetici tarafından okunabilir çıktıya dönüştürmek için hazırlanır.</p><div class="text-links"><a href="/hakkinda">Uzman profili →</a><a href="/neden-excel-arsiv">Yöntem ve farklar →</a></div></div>
-        <div class="metrics"><article><strong>{productCount}</strong><span>satışta sistem</span></article><article><strong>{categoryCount}</strong><span>işletme alanı</span></article><article><strong>{priceLevels.length}</strong><span>fiyat seviyesi</span></article></div>
-      </div>
-    </section>
 
     <section class="catalog-proof" data-experience-stage>
       <div class="home-shell">
-        <div class="section-head"><div><p class="eyebrow">KATALOG</p><h2>Fiyat ve ürün bilgisi tek kaynaktan gelir.</h2></div><a href="/sablonlar">Tüm kataloğu aç →</a></div>
+        <div class="section-head">
+          <div><p class="eyebrow">HAZIR SİSTEMLER</p><h2>Fiyat ve ürün bilgisi tek kaynaktan gelir.</h2><p>{productCount} hazır sistem, {categoryCount} işletme alanı. Başlangıç fiyatı {minPrice.toLocaleString('tr-TR')} TL.</p></div>
+          <a href="/sablonlar">Tüm kataloğu aç →</a>
+        </div>
         <div class="price-levels">{priceLevels.map((price) => <span>{price.toLocaleString('tr-TR')} TL</span>)}</div>
         <div class="featured-grid">{featured.map((item) => item && <article><a class="shot" href={item.url}><img class="premium-card__shot" src={item.kapak} alt={`${item.name} ürün kapağı`} width="1200" height="900" loading="lazy" /></a><div><small>{item.categoryName}</small><h3><a href={item.url}>{item.name}</a></h3><p>{item.summary}</p><strong>{item.priceTL.toLocaleString('tr-TR')} TL</strong></div></article>)}</div>
       </div>
@@ -69,27 +65,44 @@ const homeJsonLd = {
     <section class="difference" data-experience-stage>
       <div class="home-shell difference-grid">
         <div><p class="eyebrow">FARK</p><h2>Boş tablo değil; karar vermek için kurulmuş çalışma sistemi.</h2></div>
-        <div><p>Her ürünün amacı, girdileri ve çıktıları ürün sayfasında açıkça gösterilir. Uygun olan dosyalarda demo üzerinden gerçek çalışma yapısını satın almadan önce inceleyebilirsiniz.</p><ul><li>Açık ürün kapsamı</li><li>Gerçek Excel ekranları</li><li>Ürün bazlı karar çıktıları</li><li>Shopier üzerinden güvenli ödeme</li></ul></div>
+        <div><p>Her ürün, gerçek bir iş problemini çözecek akışla hazırlanır. Girdiler, kontroller ve yönetici çıktıları birbirinden ayrılır; kullanıcı formülle uğraşmaz, işini yapar.</p><ul><li>Açık ürün kapsamı</li><li>Gerçek Excel ekranları</li><li>Karar ve kontrol çıktıları</li><li>Satın almadan önce demo</li></ul></div>
+      </div>
+    </section>
+
+    <section class="custom-build" data-experience-stage>
+      <div class="home-shell custom-grid">
+        <div class="custom-copy">
+          <p class="eyebrow">SİZE ÖZEL</p>
+          <h2>Hazır şablon yetmiyorsa, işinize göre Excel otomasyon, mini ERP veya CRM kuruyoruz.</h2>
+          <p>İşi yalnız “hangi kolonlar olsun?” diye dinlemiyorum. Sürecin nerede tıkandığını, hangi bilginin tekrarlandığını, hangi hatanın para ve zaman kaybettirdiğini çözüp sistemi buna göre kuruyorum.</p>
+          <div class="custom-actions"><a class="primary" href="/ozel-excel-sistemleri">Özel sistem hizmetini inceleyin</a><a href="/iletisim">İhtiyacımı anlatayım →</a></div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-kicker">YAKIN TARİHLİ ÖZEL PROJE</span>
+          <strong>Muhasebe ofisi için özel yönetim sistemi</strong>
+          <div class="proof-stats"><div><b>6 saat</b><span>analiz + üretim</span></div><div><b>10.000 TL</b><span>proje bedeli</span></div></div>
+          <p>LinkedIn üzerinden gelen ihtiyaç, iş akışı okunup aynı gün çalışan sisteme dönüştürüldü. Hazır ürün değil; talebe göre tasarlanan özel çalışma.</p>
+        </div>
       </div>
     </section>
 
     <section class="decision-help" data-experience-stage>
       <div class="home-shell">
-        <div class="section-head"><div><p class="eyebrow">KARAR YARDIMI</p><h2>Hangi sistemi alacağınızı bilmiyorsanız, sorununuzu seçin.</h2></div><a href="/karar">18 karar rehberinin tamamı →</a></div>
-        <div class="decision-grid">{homeDecisions.map((page) => page && <a href={`/karar/${page.slug}`}><h3>{page.title}</h3><p>{page.description}</p><span>Kararı inceleyin →</span></a>)}</div>
+        <div class="decision-head"><div><p class="eyebrow">KARAR YARDIMI</p><h2>Hangi sistemi alacağınızı bilmiyorsanız, sorununuzu seçin.</h2><p>Ürün adı aramak yerine yaşadığınız problemi seçin. Her kart sizi doğrudan ilgili karar rehberine götürür.</p></div><a href="/karar">18 karar rehberinin tamamı →</a></div>
+        <div class="decision-grid">{homeDecisions.map((page, index) => page && <a href={`/karar/${page.slug}`}><span class="decision-no">{String(index + 1).padStart(2, '0')}</span><div><h3>{page.title}</h3><p>{page.description}</p></div><b>İncele →</b></a>)}</div>
       </div>
     </section>
 
-    <section class="trust" data-experience-stage>
-      <div class="home-shell trust-grid">
-        <div><p class="eyebrow">DOĞRULANABİLİR KİMLİK</p><h2>Marka, uzman ve ödeme yüzeyleri kendi sitemizin dışında da görülebilir.</h2><p>Bu bağlantılar üçüncü taraf puanı veya tavsiyesi değildir; kişi, kurum ve mağaza varlığını bağımsız platformlarda doğrulamak içindir.</p></div>
-        <div class="trust-links"><a href="https://www.linkedin.com/in/barisbagirlar/" target="_blank" rel="noopener noreferrer external"><small>PROFESYONEL KİMLİK</small><strong>LinkedIn</strong></a><a href="https://www.tarimkon.org/danisma-kurulu/" target="_blank" rel="noopener noreferrer external"><small>KURUMSAL KAYIT</small><strong>TARIMKON Danışma Kurulu</strong></a><a href="https://www.shopier.com/excelarsiv" target="_blank" rel="noopener noreferrer external"><small>ÖDEME / MAĞAZA</small><strong>Shopier · Excel Arşiv</strong></a><a href="https://github.com/sagiarvil/excelarsiv" target="_blank" rel="noopener noreferrer external"><small>TEKNİK ŞEFFAFLIK</small><strong>GitHub</strong></a></div>
+    <section class="expert-proof" data-experience-stage>
+      <div class="home-shell expert-shell">
+        <div class="expert-copy"><p class="eyebrow">TASARLAYAN / DENETLEYEN</p><h2>İşleyişi anlayan, sonra yazılıma çeviren yaklaşım.</h2><p><strong>Barış Bağırlar</strong> — uzun yıllar ticari bankacılık, saha ve işletme analizi tecrübesini yazılım üretimiyle birleştirir. Amaç Excel göstermek değil, işletmenin gerçekten kullanacağı sistemi kurmaktır.</p><div class="expert-links"><a href="/hakkinda">Uzman profili →</a><a href="/neden-excel-arsiv">Yöntem ve farklar →</a></div></div>
+        <div class="validation-strip"><a href="https://www.linkedin.com/in/barisbagirlar/" target="_blank" rel="noopener noreferrer external"><span>Profesyonel profil</span><strong>LinkedIn ↗</strong></a><a href="https://www.tarimkon.org/danisma-kurulu/" target="_blank" rel="noopener noreferrer external"><span>Kurumsal kayıt</span><strong>TARIMKON ↗</strong></a><a href="https://www.shopier.com/excelarsiv" target="_blank" rel="noopener noreferrer external"><span>Ödeme mağazası</span><strong>Shopier ↗</strong></a></div>
       </div>
     </section>
 
     <section class="faq-close" data-experience-stage>
       <div class="home-shell faq-grid">
-        <div><p class="eyebrow">SATIN ALMADAN ÖNCE</p><h2>Sık sorulan sorular</h2><p>Ürünü seçmeden önce kapsam, demo ve teslimat bilgilerini kontrol edin.</p><div class="close-actions"><a class="primary" href="/sablonlar">Sistemleri inceleyin</a><a href="/urun-bulucu">Ürün bulucu</a></div></div>
+        <div><p class="eyebrow">SATIN ALMADAN ÖNCE</p><h2>Sık sorulan sorular</h2><p>Hazır sistem ile özel proje arasında karar vermeden önce kapsam, demo ve teslimat bilgilerini kontrol edin.</p><div class="close-actions"><a class="primary" href="/sablonlar">Hazır sistemleri inceleyin</a><a href="/ozel-excel-sistemleri">Özel sistem talebi</a></div></div>
         <div class="faq-list">{faqItems.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
       </div>
     </section>
@@ -101,30 +114,18 @@ const homeJsonLd = {
     --font-sans: ui-sans-serif, system-ui, sans-serif;
     --font-mono-face: ui-monospace, SFMono-Regular, Menlo, monospace;
   }
-  [data-experience-stage] {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 760px;
-    scroll-margin-top: 92px;
-  }
-  .home-v1{--green:#166534;--green-dark:#14532d;--ink:#162019;--muted:#647068;--line:#dfe5e0;background:#fff;color:var(--ink)}
-  .home-shell{width:min(1180px,calc(100% - 48px));margin:0 auto}
-  .eyebrow{margin:0;font:800 10px/1.2 var(--font-mono);letter-spacing:.13em;color:var(--green)}
-  .hero-actions,.close-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-  .hero-actions a,.close-actions a{padding:13px 19px;border:1px solid #b9c5bc;color:var(--ink);font-weight:800;text-decoration:none}
-  .hero-actions .primary,.close-actions .primary{background:var(--green);border-color:var(--green);color:#fff}
-  .authority,.catalog-proof,.decision-help,.trust,.faq-close{padding:64px 0;border-bottom:1px solid var(--line)}
-  .authority-grid,.trust-grid,.faq-grid,.difference-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
-  .authority h2,.difference h2,.section-head h2,.trust h2,.faq-close h2{margin:10px 0 0;font-size:clamp(32px,4.5vw,52px);line-height:1.03;letter-spacing:-.045em}
-  .authority p,.trust p,.faq-close>div>div>p{color:var(--muted);line-height:1.7}
-  .text-links{display:flex;gap:18px;margin-top:18px}.text-links a,.section-head>a{color:var(--green-dark);font-weight:800}
-  .metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line)}.metrics article{padding:24px;border-right:1px solid var(--line)}.metrics article:last-child{border-right:0}.metrics strong{display:block;font-size:36px}.metrics span{font-size:11px;color:var(--muted)}
-  .difference{padding:66px 0;background:#111815;color:#fff}.difference .eyebrow{color:#7ee2a8}.difference p{color:#c3cec6;line-height:1.75}.difference ul{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 0;padding:0;list-style:none}.difference li{padding:12px;border:1px solid #344039;font-size:12px}
-  .section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:28px}
-  .price-levels{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.price-levels span{padding:7px 10px;background:#f2f5f2;border:1px solid var(--line);font:700 11px/1 var(--font-mono)}
-  .featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.featured-grid article{border:1px solid var(--line);background:#fff}.shot{display:block;aspect-ratio:4/3;overflow:hidden;border-bottom:1px solid var(--line)}.shot img{width:100%;height:100%;object-fit:cover}.featured-grid article>div{padding:18px}.featured-grid small{font:700 9px/1 var(--font-mono);color:var(--green)}.featured-grid h3{margin:8px 0;font-size:22px;line-height:1.05}.featured-grid h3 a{color:var(--ink);text-decoration:none}.featured-grid p{min-height:58px;font-size:12px;line-height:1.6;color:var(--muted)}.featured-grid strong{font-size:18px}
-  .decision-help{background:#f7f9f7}.decision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}.decision-grid>a{display:block;padding:22px;background:#fff;color:var(--ink);text-decoration:none}.decision-grid>a:hover{background:#f4f7f4}.decision-grid h3{margin:0;font-size:20px;line-height:1.08}.decision-grid p{margin:9px 0 16px;color:var(--muted);font-size:12px;line-height:1.6}.decision-grid span{font-size:11px;font-weight:800;color:var(--green-dark)}
-  .trust-links{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.trust-links a{display:flex;min-height:115px;flex-direction:column;justify-content:center;padding:18px;color:var(--ink);text-decoration:none;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.trust-links small{font:700 9px/1 var(--font-mono);color:var(--green);margin-bottom:8px}.trust-links strong{font-size:16px}
-  .faq-list{border-top:1px solid var(--line)}.faq-list details{padding:17px 0;border-bottom:1px solid var(--line)}.faq-list summary{font-weight:800;cursor:pointer}.faq-list p{margin:10px 0 0;color:var(--muted);line-height:1.65;font-size:13px}
-  @media(max-width:850px){.authority-grid,.trust-grid,.faq-grid,.difference-grid{grid-template-columns:1fr}.featured-grid{grid-template-columns:1fr}.metrics{grid-template-columns:1fr}.metrics article{border-right:0;border-bottom:1px solid var(--line)}.metrics article:last-child{border-bottom:0}.section-head{align-items:start;flex-direction:column}.trust-links{grid-template-columns:1fr}.decision-grid{grid-template-columns:1fr}}
-  @media(max-width:600px){.home-shell{width:calc(100% - 28px)}.difference ul{grid-template-columns:1fr}}
+  [data-experience-stage]{content-visibility:auto;contain-intrinsic-size:auto 760px;scroll-margin-top:92px}
+  .home-v2{--green:#166534;--green-dark:#14532d;--ink:#172019;--muted:#667169;--line:#dfe5e0;--soft:#f5f8f5;background:#fff;color:var(--ink)}
+  .home-shell{width:min(1180px,calc(100% - 48px));margin:0 auto}.eyebrow{margin:0;font:800 10px/1.2 var(--font-mono);letter-spacing:.13em;color:var(--green)}
+  .catalog-proof,.custom-build,.decision-help,.expert-proof,.faq-close{padding:68px 0;border-bottom:1px solid var(--line)}
+  .section-head,.decision-head{display:flex;justify-content:space-between;gap:32px;align-items:end;margin-bottom:28px}.section-head h2,.decision-head h2,.custom-copy h2,.expert-copy h2,.faq-close h2,.difference h2{margin:10px 0 0;font-size:clamp(30px,4vw,50px);line-height:1.03;letter-spacing:-.043em}.section-head p,.decision-head p{max-width:700px;color:var(--muted);line-height:1.65}.section-head>a,.decision-head>a{white-space:nowrap;color:var(--green-dark);font-weight:800}
+  .price-levels{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.price-levels span{padding:8px 11px;background:var(--soft);border:1px solid var(--line);font:800 11px/1 var(--font-mono)}
+  .featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.featured-grid article{border:1px solid var(--line);background:#fff;transition:transform .2s ease,box-shadow .2s ease}.featured-grid article:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(22,101,52,.08)}.shot{display:block;aspect-ratio:4/3;overflow:hidden;border-bottom:1px solid var(--line)}.shot img{width:100%;height:100%;object-fit:cover}.featured-grid article>div{padding:18px}.featured-grid small{font:800 9px/1 var(--font-mono);color:var(--green)}.featured-grid h3{margin:8px 0;font-size:22px;line-height:1.06}.featured-grid h3 a{color:var(--ink);text-decoration:none}.featured-grid p{min-height:58px;font-size:12px;line-height:1.6;color:var(--muted)}.featured-grid strong{font-size:18px}
+  .difference{padding:68px 0;background:#f2f6f2;border-bottom:1px solid var(--line)}.difference-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start}.difference p{color:var(--muted);line-height:1.72}.difference ul{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 0;padding:0;list-style:none}.difference li{padding:13px 14px;background:#fff;border:1px solid var(--line);font-size:12px;font-weight:700}
+  .custom-build{background:linear-gradient(135deg,#fff 0%,#f6faf6 70%,#eef7f0 100%)}.custom-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:46px;align-items:stretch}.custom-copy p:not(.eyebrow){max-width:760px;color:var(--muted);font-size:16px;line-height:1.72}.custom-actions,.close-actions,.expert-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.custom-actions a,.close-actions a{padding:13px 18px;border:1px solid #b8c6bb;color:var(--ink);font-weight:800;text-decoration:none}.custom-actions .primary,.close-actions .primary{background:var(--green);border-color:var(--green);color:#fff}.proof-card{padding:28px;border:1px solid #cbdacb;background:#fff;box-shadow:0 18px 50px rgba(27,74,40,.08)}.proof-kicker{font:800 9px/1 var(--font-mono);letter-spacing:.12em;color:var(--green)}.proof-card>strong{display:block;margin:12px 0 22px;font-size:25px;line-height:1.12}.proof-stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.proof-stats div{padding:18px 0}.proof-stats div+div{padding-left:18px;border-left:1px solid var(--line)}.proof-stats b{display:block;font-size:24px}.proof-stats span{font-size:11px;color:var(--muted)}.proof-card p{margin:18px 0 0;color:var(--muted);font-size:13px;line-height:1.65}
+  .decision-help{background:#fbfcfb}.decision-head{align-items:start}.decision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.decision-grid>a{position:relative;display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:start;min-height:150px;padding:22px;background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none;overflow:hidden;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}.decision-grid>a::before{content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:#2f855a}.decision-grid>a:nth-child(4n+2)::before{background:#2563eb}.decision-grid>a:nth-child(4n+3)::before{background:#d97706}.decision-grid>a:nth-child(4n+4)::before{background:#7c3aed}.decision-grid>a:hover{transform:translateY(-4px);border-color:#b8c9bb;box-shadow:0 18px 38px rgba(15,41,26,.08)}.decision-no{font:900 20px/1 var(--font-mono);color:#a3aea6}.decision-grid h3{margin:0;font-size:20px;line-height:1.12}.decision-grid p{margin:9px 0 0;color:var(--muted);font-size:12px;line-height:1.6}.decision-grid b{align-self:end;color:var(--green-dark);font-size:11px;white-space:nowrap}
+  .expert-proof{padding:50px 0}.expert-shell{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}.expert-copy h2{font-size:clamp(26px,3vw,38px)}.expert-copy p:not(.eyebrow){max-width:720px;color:var(--muted);line-height:1.68}.expert-links a{color:var(--green-dark);font-weight:800}.validation-strip{display:grid;grid-template-columns:1fr;gap:8px}.validation-strip a{display:flex;justify-content:space-between;gap:14px;padding:14px 16px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none}.validation-strip span{font-size:11px;color:var(--muted)}.validation-strip strong{font-size:12px}
+  .faq-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:start}.faq-grid>div>p{color:var(--muted);line-height:1.7}.faq-list{border-top:1px solid var(--line)}.faq-list details{padding:17px 0;border-bottom:1px solid var(--line)}.faq-list summary{font-weight:800;cursor:pointer}.faq-list p{margin:10px 0 0;color:var(--muted);line-height:1.65;font-size:13px}
+  @media(max-width:900px){.section-head,.decision-head{align-items:start;flex-direction:column}.featured-grid{grid-template-columns:1fr}.difference-grid,.custom-grid,.expert-shell,.faq-grid{grid-template-columns:1fr}.decision-grid{grid-template-columns:1fr}.proof-card{box-shadow:none}}
+  @media(max-width:600px){.home-shell{width:calc(100% - 28px)}.difference ul{grid-template-columns:1fr}.proof-stats{grid-template-columns:1fr}.proof-stats div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}.decision-grid>a{grid-template-columns:34px 1fr}.decision-grid b{grid-column:2}}
 </style>

@@ -1,10 +1,10 @@
 {
   "meta": {
     "artifact": "decision_seo_registry",
-    "schemaVersion": "1.0",
+    "schemaVersion": "1.1",
     "generatedAt": "2026-08-21T00:00:00Z",
     "siteId": "excelarsiv",
-    "purpose": "Dynamic /karar cluster source and link-graph registry supplement"
+    "purpose": "Supplemental registry for dynamic /karar cluster and explicit static commercial landing routes"
   },
   "records": [
     {"pageId":"excelarsiv:karar","route":"/karar","type":"decision-index","status":"live","primaryQueryClusterId":"excel-decision-guides","primaryEntity":"Excel karar rehberleri","searchIntent":"commercial-investigation","canonical":"https://excelarsiv.com/karar","ownerRoute":"/karar"},
@@ -25,6 +25,7 @@
     {"pageId":"excelarsiv:karar:sube-karlilik-analizi-excel","route":"/karar/sube-karlilik-analizi-excel","type":"decision","status":"live"},
     {"pageId":"excelarsiv:karar:ttk-376-sermaye-kaybi-excel","route":"/karar/ttk-376-sermaye-kaybi-excel","type":"decision","status":"live"},
     {"pageId":"excelarsiv:karar:doviz-acik-pozisyon-kur-riski-excel","route":"/karar/doviz-acik-pozisyon-kur-riski-excel","type":"decision","status":"live"},
-    {"pageId":"excelarsiv:karar:logo-erp-cari-yaslandirma-excel","route":"/karar/logo-erp-cari-yaslandirma-excel","type":"decision","status":"live"}
+    {"pageId":"excelarsiv:karar:logo-erp-cari-yaslandirma-excel","route":"/karar/logo-erp-cari-yaslandirma-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:ozel-excel-sistemleri","route":"/ozel-excel-sistemleri","type":"landing","status":"live","primaryQueryClusterId":null,"primaryEntity":"Özel Excel Otomasyon, Mini ERP ve CRM Sistemleri","searchIntent":"commercial","canonical":"https://excelarsiv.com/ozel-excel-sistemleri","ownerRoute":"/ozel-excel-sistemleri"}
   ]
 }
