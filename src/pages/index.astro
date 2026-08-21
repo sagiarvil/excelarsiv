@@ -58,18 +58,18 @@ const homeJsonLd = {
       </div>
     </section>
 
-    <section class="difference" data-experience-stage>
-      <div class="home-shell difference-grid">
-        <div><p class="eyebrow">FARK</p><h2>Boş tablo değil; karar vermek için kurulmuş çalışma sistemi.</h2></div>
-        <div><p>Her ürünün amacı, girdileri ve çıktıları ürün sayfasında açıkça gösterilir. Uygun olan dosyalarda demo üzerinden gerçek çalışma yapısını satın almadan önce inceleyebilirsiniz.</p><ul><li>Açık ürün kapsamı</li><li>Gerçek Excel ekranları</li><li>Ürün bazlı karar çıktıları</li><li>Shopier üzerinden güvenli ödeme</li></ul></div>
-      </div>
-    </section>
-
     <section class="catalog-proof" data-experience-stage>
       <div class="home-shell">
         <div class="section-head"><div><p class="eyebrow">KATALOG</p><h2>Fiyat ve ürün bilgisi tek kaynaktan gelir.</h2></div><a href="/sablonlar">Tüm kataloğu aç →</a></div>
         <div class="price-levels">{priceLevels.map((price) => <span>{price.toLocaleString('tr-TR')} TL</span>)}</div>
         <div class="featured-grid">{featured.map((item) => item && <article><a class="shot" href={item.url}><img class="premium-card__shot" src={item.kapak} alt={`${item.name} ürün kapağı`} width="1200" height="900" loading="lazy" /></a><div><small>{item.categoryName}</small><h3><a href={item.url}>{item.name}</a></h3><p>{item.summary}</p><strong>{item.priceTL.toLocaleString('tr-TR')} TL</strong></div></article>)}</div>
+      </div>
+    </section>
+
+    <section class="difference" data-experience-stage>
+      <div class="home-shell difference-grid">
+        <div><p class="eyebrow">FARK</p><h2>Boş tablo değil; karar vermek için kurulmuş çalışma sistemi.</h2></div>
+        <div><p>Her ürünün amacı, girdileri ve çıktıları ürün sayfasında açıkça gösterilir. Uygun olan dosyalarda demo üzerinden gerçek çalışma yapısını satın almadan önce inceleyebilirsiniz.</p><ul><li>Açık ürün kapsamı</li><li>Gerçek Excel ekranları</li><li>Ürün bazlı karar çıktıları</li><li>Shopier üzerinden güvenli ödeme</li></ul></div>
       </div>
     </section>
 
