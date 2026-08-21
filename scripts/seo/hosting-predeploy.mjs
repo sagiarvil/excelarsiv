@@ -17,15 +17,35 @@ function run(script) {
   if (result.status !== 0) process.exit(result.status ?? 1);
 }
 
-function git(args, { inherit = false } = {}) {
-  const result = spawnSync('git', args, {
+function gitSpawn(command, args, { inherit = false } = {}) {
+  return spawnSync(command, args, {
     cwd: process.cwd(),
     env: process.env,
     encoding: inherit ? undefined : 'utf8',
     stdio: inherit ? 'inherit' : ['ignore', 'pipe', 'pipe'],
   });
+}
+
+function git(args, { inherit = false } = {}) {
+  let result = gitSpawn('git', args, { inherit });
+  const firstError = inherit ? '' : String(result.stderr || '').trim();
+
+  // Firebase CLI macOS'ta Rosetta/x86_64 Node ile predeploy başlatabildiği için
+  // Apple Silicon sistemlerde /usr/bin/git -> xcrun yanlış mimaride yüklenebilir.
+  // Kilidi gevşetmek yerine yalnız bu bilinen mimari hatasında native arm64 git
+  // çağrısı denenir. Intel macOS veya diğer platformlarda normal git davranışı korunur.
+  const macRosettaGitFailure =
+    process.platform === 'darwin' &&
+    (result.error || result.status !== 0) &&
+    /(?:libxcrun|missing compatible architecture|need 'x86_64'|need 'arm64')/i.test(firstError);
+
+  if (macRosettaGitFailure) {
+    const nativeArgs = ['-arm64', '/usr/bin/git', ...args];
+    result = gitSpawn('/usr/bin/arch', nativeArgs, { inherit });
+  }
+
   if (result.error || result.status !== 0) {
-    const detail = inherit ? '' : String(result.stderr || '').trim();
+    const detail = inherit ? '' : String(result.stderr || firstError || '').trim();
     throw new Error(`git ${args.join(' ')} başarısız${detail ? `: ${detail}` : ''}`);
   }
   return inherit ? '' : String(result.stdout || '').trim();
