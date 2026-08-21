@@ -1,0 +1,160 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import { kararPages, type KararPageSpec } from '../../data/kararPages';
+import { getAllTemplates, type TemplateViewModel } from '../../lib/templates';
+
+export function getStaticPaths() {
+  return kararPages.map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+
+interface Props { page: KararPageSpec }
+const { page } = Astro.props;
+const templates = await getAllTemplates();
+const templateMap = new Map(templates.map((item) => [item.slug, item]));
+const resolveProduct = (slug?: string): TemplateViewModel | undefined => slug ? templateMap.get(slug) : undefined;
+const primary = resolveProduct(page.primaryProductSlug);
+const alternatives = page.alternativeProductSlugs.map(resolveProduct).filter((item): item is TemplateViewModel => Boolean(item));
+const tableRows = page.situations.map((row) => ({ ...row, product: resolveProduct(row.productSlug) })).filter((row) => Boolean(row.product));
+const related = kararPages.filter((item) => item.slug !== page.slug).slice(0, 3);
+const siteUrl = Astro.site ?? new URL('https://excelarsiv.com/');
+const pageUrl = new URL(`/karar/${page.slug}`, siteUrl).href;
+const dateModified = '2026-08-21';
+const itemProducts = [primary, ...alternatives].filter((item): item is TemplateViewModel => Boolean(item));
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: page.title,
+      description: page.description,
+      dateModified,
+      inLanguage: 'tr-TR',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageUrl}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Ana sayfa', item: new URL('/', siteUrl).href },
+        { '@type': 'ListItem', position: 2, name: 'Karar rehberleri', item: new URL('/karar', siteUrl).href },
+        { '@type': 'ListItem', position: 3, name: page.title, item: pageUrl },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      mainEntity: page.faq.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${pageUrl}#products`,
+      name: `${page.title} — ürün karşılaştırması`,
+      itemListElement: itemProducts.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'Product',
+          name: item.name,
+          url: new URL(item.url, siteUrl).href,
+          offers: {
+            '@type': 'Offer',
+            price: item.priceTL,
+            priceCurrency: 'TRY',
+            availability: 'https://schema.org/InStock',
+            url: new URL(item.url, siteUrl).href,
+          },
+        },
+      })),
+    },
+  ],
+};
+---
+
+<CommerceLayout title={`${page.title} | Excel Arşiv`} description={page.description}>
+  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(jsonLd)} /></Fragment>
+
+  <main class="decision-page">
+    <section class="decision-hero">
+      <div class="decision-shell">
+        <p class="eyebrow">KARAR REHBERİ</p>
+        <h1>{page.title}</h1>
+        <p class="answer">{page.intro}</p>
+        <p class="updated">Son güncelleme: <time datetime={dateModified}>{dateModified}</time></p>
+      </div>
+    </section>
+
+    <section class="decision-section">
+      <div class="decision-shell">
+        <h2>Durumunuza göre seçim</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Durumunuz</th><th>Önerilen sistem</th><th>Fiyat</th><th>Neden</th></tr></thead>
+            <tbody>
+              {tableRows.map(({ situation, reason, product }) => product && (
+                <tr>
+                  <td>{situation}</td>
+                  <td><a href={product.url}>{product.name}</a></td>
+                  <td>{product.priceTL.toLocaleString('tr-TR')} TL</td>
+                  <td>{reason}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    {primary && (
+      <section class="decision-section decision-primary">
+        <div class="decision-shell primary-grid">
+          <div>
+            <p class="eyebrow">BİRİNCİL ÖNERİ</p>
+            <h2>{primary.name}</h2>
+            <p>{primary.summary}</p>
+            {primary.outputs && primary.outputs.length > 0 && (
+              <ul>{primary.outputs.slice(0, 4).map((output) => <li>{output}</li>)}</ul>
+            )}
+            <div class="price">{primary.priceTL.toLocaleString('tr-TR')} TL <small>KDV dahil · tek ödeme</small></div>
+            <div class="actions"><a class="primary" href={primary.url}>Sistemi inceleyin</a><a href={`/demo/${primary.slug}`}>Ücretsiz demo</a></div>
+          </div>
+          {primary.kapak && <a href={primary.url} class="visual"><img src={primary.kapak} alt={`${primary.name} ürün görseli`} width="1200" height="900" loading="eager" /></a>}
+        </div>
+      </section>
+    )}
+
+    {alternatives.length > 0 && (
+      <section class="decision-section">
+        <div class="decision-shell">
+          <h2>Alternatifler</h2>
+          <div class="cards">
+            {alternatives.map((item) => (
+              <article><h3><a href={item.url}>{item.name}</a></h3><p>{item.summary}</p><strong>{item.priceTL.toLocaleString('tr-TR')} TL</strong></article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section class="decision-section not-for">
+      <div class="decision-shell"><h2>Bu sistem size uygun olmayabilir, eğer…</h2><ul>{page.notFor.map((item) => <li>{item}</li>)}</ul></div>
+    </section>
+
+    <section class="decision-section">
+      <div class="decision-shell"><h2>Sık sorulan sorular</h2><div class="faq">{page.faq.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div></div>
+    </section>
+
+    <section class="decision-section related">
+      <div class="decision-shell"><h2>İlgili karar rehberleri</h2><div class="related-links">{related.map((item) => <a href={`/karar/${item.slug}`}>{item.title}</a>)}</div><a class="all" href="/karar">Tüm karar rehberleri →</a></div>
+    </section>
+  </main>
+</CommerceLayout>
+
+<style>
+  .decision-page{background:#fff;color:#172019}.decision-shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.decision-hero{padding:76px 0 56px;border-bottom:1px solid #dfe5e0;background:#f7f9f7}.decision-hero h1{max-width:900px;margin:10px 0 0;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.045em}.eyebrow{margin:0;font:700 11px/1.2 var(--font-mono);letter-spacing:.12em;color:#166534}.answer{max-width:820px;margin:24px 0 0;font-size:18px;line-height:1.75;color:#48554b}.updated{margin:18px 0 0;font:500 11px/1.4 var(--font-mono);color:#6c786f}.decision-section{padding:54px 0;border-bottom:1px solid #e4e8e5}.decision-section h2{margin:0 0 22px;font-size:clamp(27px,4vw,40px);letter-spacing:-.035em}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:15px;text-align:left;border:1px solid #dfe5e0;vertical-align:top}th{background:#f3f6f4}td a,.cards a,.related a{color:#14532d;font-weight:700}.primary-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}.decision-primary p{font-size:16px;line-height:1.7;color:#526056}.decision-primary ul,.not-for ul{padding-left:20px;line-height:1.8}.price{margin-top:22px;font-size:26px;font-weight:800}.price small{display:block;margin-top:4px;font-size:11px;font-weight:500;color:#6b776e}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.actions a{padding:12px 18px;border:1px solid #b9c5bc;text-decoration:none;font-weight:800;color:#173022}.actions .primary{background:#166534;color:#fff;border-color:#166534}.visual img{display:block;width:100%;height:auto;border:1px solid #dfe5e0}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.cards article{padding:22px;border:1px solid #dfe5e0}.cards h3{margin:0 0 10px}.cards p{color:#5c685f;line-height:1.65}.not-for{background:#faf8f3}.faq{border-top:1px solid #dfe5e0}.faq details{padding:17px 0;border-bottom:1px solid #dfe5e0}.faq summary{font-weight:800;cursor:pointer}.faq p{max-width:820px;line-height:1.7;color:#59665c}.related-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.related-links a{padding:18px;border:1px solid #dfe5e0;text-decoration:none}.all{display:inline-block;margin-top:20px;color:#14532d;font-weight:800}@media(max-width:760px){.primary-grid,.cards,.related-links{grid-template-columns:1fr}.decision-shell{width:min(100% - 28px,1120px)}.decision-hero{padding-top:52px}th,td{min-width:150px}}
+</style>
