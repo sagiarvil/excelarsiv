@@ -35,18 +35,8 @@ const faqItems = [
 const homeJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    {
-      '@type': 'WebSite',
-      '@id': 'https://excelarsiv.com/#website',
-      name: 'Excel Arşiv',
-      url: 'https://excelarsiv.com/',
-      inLanguage: 'tr-TR',
-    },
-    {
-      '@type': 'FAQPage',
-      '@id': 'https://excelarsiv.com/#faq',
-      mainEntity: faqItems.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })),
-    },
+    { '@type': 'WebSite', '@id': 'https://excelarsiv.com/#website', name: 'Excel Arşiv', url: 'https://excelarsiv.com/', inLanguage: 'tr-TR' },
+    { '@type': 'FAQPage', '@id': 'https://excelarsiv.com/#faq', mainEntity: faqItems.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) },
   ],
 };
 ---
@@ -67,25 +57,33 @@ const homeJsonLd = {
           <div class="hero-actions"><a class="primary" href="/sablonlar">{productCount} sistemi inceleyin</a><a href="/demo">Ücretsiz demo</a></div>
           <div class="hero-proof"><span>{productCount} sistem</span><span>{categoryCount} işletme alanı</span><span>{minPrice.toLocaleString('tr-TR')} TL’den başlayan fiyat</span><span>KDV dahil · tek ödeme</span></div>
         </div>
-        {heroProduct && <a class="hero-visual" href={heroProduct.url}><img class="premium-card__shot" src={heroProduct.kapak} alt={`${heroProduct.name} gerçek ürün görseli`} width="1200" height="900" loading="eager" fetchpriority="high" /><span>{heroProduct.name}</span></a>}
+        {heroProduct && (
+          <a class="hero-visual" href={heroProduct.url}>
+            <picture>
+              <source media="(min-width: 721px)" srcset={heroProduct.kapak} />
+              <img class="premium-card__shot" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt={`${heroProduct.name} gerçek ürün görseli`} width="1200" height="900" loading="eager" fetchpriority="high" />
+            </picture>
+            <span>{heroProduct.name}</span>
+          </a>
+        )}
       </div>
     </section>
 
-    <section class="authority">
+    <section class="authority" data-experience-stage>
       <div class="home-shell authority-grid">
         <div><p class="eyebrow">TASARLAYAN VE DENETLEYEN</p><h2>Barış Bağırlar</h2><p>Ürünler; işletme verisini düzenli girdiye, kontrol adımlarına ve yönetici tarafından okunabilir çıktıya dönüştürmek için hazırlanır.</p><div class="text-links"><a href="/hakkinda">Uzman profili →</a><a href="/neden-excel-arsiv">Yöntem ve farklar →</a></div></div>
         <div class="metrics"><article><strong>{productCount}</strong><span>satışta sistem</span></article><article><strong>{categoryCount}</strong><span>işletme alanı</span></article><article><strong>{priceLevels.length}</strong><span>fiyat seviyesi</span></article></div>
       </div>
     </section>
 
-    <section class="difference">
+    <section class="difference" data-experience-stage>
       <div class="home-shell difference-grid">
         <div><p class="eyebrow">FARK</p><h2>Boş tablo değil; karar vermek için kurulmuş çalışma sistemi.</h2></div>
         <div><p>Her ürünün amacı, girdileri ve çıktıları ürün sayfasında açıkça gösterilir. Uygun olan dosyalarda demo üzerinden gerçek çalışma yapısını satın almadan önce inceleyebilirsiniz.</p><ul><li>Açık ürün kapsamı</li><li>Gerçek Excel ekranları</li><li>Ürün bazlı karar çıktıları</li><li>Shopier üzerinden güvenli ödeme</li></ul></div>
       </div>
     </section>
 
-    <section class="catalog-proof">
+    <section class="catalog-proof" data-experience-stage>
       <div class="home-shell">
         <div class="section-head"><div><p class="eyebrow">KATALOG</p><h2>Fiyat ve ürün bilgisi tek kaynaktan gelir.</h2></div><a href="/sablonlar">Tüm kataloğu aç →</a></div>
         <div class="price-levels">{priceLevels.map((price) => <span>{price.toLocaleString('tr-TR')} TL</span>)}</div>
@@ -93,21 +91,21 @@ const homeJsonLd = {
       </div>
     </section>
 
-    <section class="decision-help">
+    <section class="decision-help" data-experience-stage>
       <div class="home-shell">
         <div class="section-head"><div><p class="eyebrow">KARAR YARDIMI</p><h2>Hangi sistemi alacağınızı bilmiyorsanız, sorununuzu seçin.</h2></div><a href="/karar">18 karar rehberinin tamamı →</a></div>
         <div class="decision-grid">{homeDecisions.map((page) => page && <a href={`/karar/${page.slug}`}><h3>{page.title}</h3><p>{page.description}</p><span>Kararı inceleyin →</span></a>)}</div>
       </div>
     </section>
 
-    <section class="trust">
+    <section class="trust" data-experience-stage>
       <div class="home-shell trust-grid">
         <div><p class="eyebrow">DOĞRULANABİLİR KİMLİK</p><h2>Marka, uzman ve ödeme yüzeyleri kendi sitemizin dışında da görülebilir.</h2><p>Bu bağlantılar üçüncü taraf puanı veya tavsiyesi değildir; kişi, kurum ve mağaza varlığını bağımsız platformlarda doğrulamak içindir.</p></div>
         <div class="trust-links"><a href="https://www.linkedin.com/in/barisbagirlar/" target="_blank" rel="noopener noreferrer external"><small>PROFESYONEL KİMLİK</small><strong>LinkedIn</strong></a><a href="https://www.tarimkon.org/danisma-kurulu/" target="_blank" rel="noopener noreferrer external"><small>KURUMSAL KAYIT</small><strong>TARIMKON Danışma Kurulu</strong></a><a href="https://www.shopier.com/excelarsiv" target="_blank" rel="noopener noreferrer external"><small>ÖDEME / MAĞAZA</small><strong>Shopier · Excel Arşiv</strong></a><a href="https://github.com/sagiarvil/excelarsiv" target="_blank" rel="noopener noreferrer external"><small>TEKNİK ŞEFFAFLIK</small><strong>GitHub</strong></a></div>
       </div>
     </section>
 
-    <section class="faq-close">
+    <section class="faq-close" data-experience-stage>
       <div class="home-shell faq-grid">
         <div><p class="eyebrow">SATIN ALMADAN ÖNCE</p><h2>Sık sorulan sorular</h2><p>Ürünü seçmeden önce kapsam, demo ve teslimat bilgilerini kontrol edin.</p><div class="close-actions"><a class="primary" href="/sablonlar">Sistemleri inceleyin</a><a href="/urun-bulucu">Ürün bulucu</a></div></div>
         <div class="faq-list">{faqItems.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
@@ -117,5 +115,42 @@ const homeJsonLd = {
 </CommerceLayout>
 
 <style>
-  .home-v1{--green:#166534;--green-dark:#14532d;--ink:#162019;--muted:#647068;--line:#dfe5e0;background:#fff;color:var(--ink)}.home-shell{width:min(1180px,calc(100% - 48px));margin:0 auto}.eyebrow{margin:0;font:800 10px/1.2 var(--font-mono);letter-spacing:.13em;color:var(--green)}.home-hero{padding:70px 0 58px;background:#f4f7f4;border-bottom:1px solid var(--line)}.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:50px;align-items:center}.home-hero h1{max-width:780px;margin:14px 0 0;font-size:clamp(44px,6.2vw,76px);line-height:.98;letter-spacing:-.055em}.lead{max-width:760px;margin:24px 0 0;font-size:18px;line-height:1.7;color:var(--muted)}.hero-actions,.close-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.hero-actions a,.close-actions a{padding:13px 19px;border:1px solid #b9c5bc;color:var(--ink);font-weight:800;text-decoration:none}.hero-actions .primary,.close-actions .primary{background:var(--green);border-color:var(--green);color:#fff}.hero-proof{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:24px;font:600 11px/1.5 var(--font-mono);color:#657169}.hero-visual{position:relative;display:block;border:1px solid var(--line);background:#fff;text-decoration:none}.hero-visual img{display:block;width:100%;height:auto}.hero-visual span{display:block;padding:12px 14px;font-size:12px;font-weight:800;color:var(--ink)}.authority,.catalog-proof,.decision-help,.trust,.faq-close{padding:64px 0;border-bottom:1px solid var(--line)}.authority-grid,.trust-grid,.faq-grid,.difference-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}.authority h2,.difference h2,.section-head h2,.trust h2,.faq-close h2{margin:10px 0 0;font-size:clamp(32px,4.5vw,52px);line-height:1.03;letter-spacing:-.045em}.authority p,.trust p,.faq-close>div>div>p{color:var(--muted);line-height:1.7}.text-links{display:flex;gap:18px;margin-top:18px}.text-links a,.section-head>a{color:var(--green-dark);font-weight:800}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line)}.metrics article{padding:24px;border-right:1px solid var(--line)}.metrics article:last-child{border-right:0}.metrics strong{display:block;font-size:36px}.metrics span{font-size:11px;color:var(--muted)}.difference{padding:66px 0;background:#111815;color:#fff}.difference .eyebrow{color:#7ee2a8}.difference p{color:#c3cec6;line-height:1.75}.difference ul{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 0;padding:0;list-style:none}.difference li{padding:12px;border:1px solid #344039;font-size:12px}.section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:28px}.price-levels{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.price-levels span{padding:7px 10px;background:#f2f5f2;border:1px solid var(--line);font:700 11px/1 var(--font-mono)}.featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.featured-grid article{border:1px solid var(--line);background:#fff}.shot{display:block;aspect-ratio:4/3;overflow:hidden;border-bottom:1px solid var(--line)}.shot img{width:100%;height:100%;object-fit:cover}.featured-grid article>div{padding:18px}.featured-grid small{font:700 9px/1 var(--font-mono);color:var(--green)}.featured-grid h3{margin:8px 0;font-size:22px;line-height:1.05}.featured-grid h3 a{color:var(--ink);text-decoration:none}.featured-grid p{min-height:58px;font-size:12px;line-height:1.6;color:var(--muted)}.featured-grid strong{font-size:18px}.decision-help{background:#f7f9f7}.decision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}.decision-grid>a{display:block;padding:22px;background:#fff;color:var(--ink);text-decoration:none}.decision-grid>a:hover{background:#f4f7f4}.decision-grid h3{margin:0;font-size:20px;line-height:1.08}.decision-grid p{margin:9px 0 16px;color:var(--muted);font-size:12px;line-height:1.6}.decision-grid span{font-size:11px;font-weight:800;color:var(--green-dark)}.trust-links{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.trust-links a{display:flex;min-height:115px;flex-direction:column;justify-content:center;padding:18px;color:var(--ink);text-decoration:none;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.trust-links small{font:700 9px/1 var(--font-mono);color:var(--green);margin-bottom:8px}.trust-links strong{font-size:16px}.faq-list{border-top:1px solid var(--line)}.faq-list details{padding:17px 0;border-bottom:1px solid var(--line)}.faq-list summary{font-weight:800;cursor:pointer}.faq-list p{margin:10px 0 0;color:var(--muted);line-height:1.65;font-size:13px}@media(max-width:850px){.hero-grid,.authority-grid,.trust-grid,.faq-grid,.difference-grid{grid-template-columns:1fr}.featured-grid{grid-template-columns:1fr}.metrics{grid-template-columns:1fr}.metrics article{border-right:0;border-bottom:1px solid var(--line)}.metrics article:last-child{border-bottom:0}.section-head{align-items:start;flex-direction:column}.trust-links{grid-template-columns:1fr}.decision-grid{grid-template-columns:1fr}}@media(max-width:600px){.home-shell{width:calc(100% - 28px)}.home-hero{padding-top:48px}.home-hero h1{font-size:44px}.difference ul{grid-template-columns:1fr}}
+  :root {
+    --font-sans: ui-sans-serif, system-ui, sans-serif;
+    --font-mono-face: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  [data-experience-stage] {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 760px;
+    scroll-margin-top: 92px;
+  }
+  .home-v1{--green:#166534;--green-dark:#14532d;--ink:#162019;--muted:#647068;--line:#dfe5e0;background:#fff;color:var(--ink)}
+  .home-shell{width:min(1180px,calc(100% - 48px));margin:0 auto}
+  .eyebrow{margin:0;font:800 10px/1.2 var(--font-mono);letter-spacing:.13em;color:var(--green)}
+  .home-hero{padding:70px 0 58px;background:#f4f7f4;border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:50px;align-items:center}
+  .home-hero h1{max-width:780px;margin:14px 0 0;font-size:clamp(44px,6.2vw,76px);line-height:.98;letter-spacing:-.055em}
+  .lead{max-width:760px;margin:24px 0 0;font-size:18px;line-height:1.7;color:var(--muted)}
+  .hero-actions,.close-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .hero-actions a,.close-actions a{padding:13px 19px;border:1px solid #b9c5bc;color:var(--ink);font-weight:800;text-decoration:none}
+  .hero-actions .primary,.close-actions .primary{background:var(--green);border-color:var(--green);color:#fff}
+  .hero-proof{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:24px;font:600 11px/1.5 var(--font-mono);color:#657169}
+  .hero-visual{position:relative;display:block;border:1px solid var(--line);background:#fff;text-decoration:none}
+  .hero-visual picture,.hero-visual img{display:block;width:100%}.hero-visual img{height:auto}.hero-visual span{display:block;padding:12px 14px;font-size:12px;font-weight:800;color:var(--ink)}
+  .authority,.catalog-proof,.decision-help,.trust,.faq-close{padding:64px 0;border-bottom:1px solid var(--line)}
+  .authority-grid,.trust-grid,.faq-grid,.difference-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
+  .authority h2,.difference h2,.section-head h2,.trust h2,.faq-close h2{margin:10px 0 0;font-size:clamp(32px,4.5vw,52px);line-height:1.03;letter-spacing:-.045em}
+  .authority p,.trust p,.faq-close>div>div>p{color:var(--muted);line-height:1.7}
+  .text-links{display:flex;gap:18px;margin-top:18px}.text-links a,.section-head>a{color:var(--green-dark);font-weight:800}
+  .metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line)}.metrics article{padding:24px;border-right:1px solid var(--line)}.metrics article:last-child{border-right:0}.metrics strong{display:block;font-size:36px}.metrics span{font-size:11px;color:var(--muted)}
+  .difference{padding:66px 0;background:#111815;color:#fff}.difference .eyebrow{color:#7ee2a8}.difference p{color:#c3cec6;line-height:1.75}.difference ul{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 0;padding:0;list-style:none}.difference li{padding:12px;border:1px solid #344039;font-size:12px}
+  .section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:28px}
+  .price-levels{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.price-levels span{padding:7px 10px;background:#f2f5f2;border:1px solid var(--line);font:700 11px/1 var(--font-mono)}
+  .featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.featured-grid article{border:1px solid var(--line);background:#fff}.shot{display:block;aspect-ratio:4/3;overflow:hidden;border-bottom:1px solid var(--line)}.shot img{width:100%;height:100%;object-fit:cover}.featured-grid article>div{padding:18px}.featured-grid small{font:700 9px/1 var(--font-mono);color:var(--green)}.featured-grid h3{margin:8px 0;font-size:22px;line-height:1.05}.featured-grid h3 a{color:var(--ink);text-decoration:none}.featured-grid p{min-height:58px;font-size:12px;line-height:1.6;color:var(--muted)}.featured-grid strong{font-size:18px}
+  .decision-help{background:#f7f9f7}.decision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}.decision-grid>a{display:block;padding:22px;background:#fff;color:var(--ink);text-decoration:none}.decision-grid>a:hover{background:#f4f7f4}.decision-grid h3{margin:0;font-size:20px;line-height:1.08}.decision-grid p{margin:9px 0 16px;color:var(--muted);font-size:12px;line-height:1.6}.decision-grid span{font-size:11px;font-weight:800;color:var(--green-dark)}
+  .trust-links{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.trust-links a{display:flex;min-height:115px;flex-direction:column;justify-content:center;padding:18px;color:var(--ink);text-decoration:none;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.trust-links small{font:700 9px/1 var(--font-mono);color:var(--green);margin-bottom:8px}.trust-links strong{font-size:16px}
+  .faq-list{border-top:1px solid var(--line)}.faq-list details{padding:17px 0;border-bottom:1px solid var(--line)}.faq-list summary{font-weight:800;cursor:pointer}.faq-list p{margin:10px 0 0;color:var(--muted);line-height:1.65;font-size:13px}
+  @media(max-width:850px){.hero-grid,.authority-grid,.trust-grid,.faq-grid,.difference-grid{grid-template-columns:1fr}.featured-grid{grid-template-columns:1fr}.metrics{grid-template-columns:1fr}.metrics article{border-right:0;border-bottom:1px solid var(--line)}.metrics article:last-child{border-bottom:0}.section-head{align-items:start;flex-direction:column}.trust-links{grid-template-columns:1fr}.decision-grid{grid-template-columns:1fr}}
+  @media(max-width:720px){.hero-visual picture{display:none}}
+  @media(max-width:600px){.home-shell{width:calc(100% - 28px)}.home-hero{padding-top:48px}.home-hero h1{font-size:44px}.difference ul{grid-template-columns:1fr}}
 </style>
