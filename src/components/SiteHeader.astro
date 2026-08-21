@@ -24,10 +24,10 @@ const isActive = (href: string) =>
   <div class="site-container site-header__inner">
     <a href="/" class="site-header__brand" aria-label="Excel Arşiv ana sayfa">
       <img
-        src="/images/excel-logo.png"
+        src="/images/brand/excelarsiv-header-logo.png"
         alt="Excel Arşiv"
-        width="34"
-        height="32"
+        width="40"
+        height="40"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -95,7 +95,13 @@ const isActive = (href: string) =>
     text-decoration: none;
     flex-shrink: 0;
   }
-  .site-header__logo { border-radius: 6px; }
+  .site-header__logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+    flex: none;
+  }
   .site-header__brand-text {
     display: flex;
     flex-direction: column;
@@ -208,7 +214,7 @@ const isActive = (href: string) =>
       min-height: 56px;
       gap: 10px;
     }
-    .site-header__logo { width: 27px; height: auto; }
+    .site-header__logo { width: 32px; height: 32px; }
     .site-header__wordmark { font-size: 16px; }
     .site-header__cta {
       min-height: 36px;
