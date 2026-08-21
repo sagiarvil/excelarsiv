@@ -25,7 +25,7 @@ const contactLd = JSON.stringify({
 
 <CommerceLayout
   title="İletişim — Excel Arşiv | Satış, Lisans ve Fatura Desteği"
-  description="Excel Arşiv ile iletişime geçin. Satış, lisans, fatura ve uyarlama sorularınız için e-posta veya telefon ile ulaşın."
+  description="Excel Arşiv ile iletişime geçin. Satış, lisans, fatura ve özel Excel sistemleri için e-posta veya telefon ile ulaşın."
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={contactLd} />
@@ -35,8 +35,8 @@ const contactLd = JSON.stringify({
       <SectionLabel number={1} label="İletişim" />
       <h1 class="display mt-6">Size nasıl yardımcı olabiliriz?</h1>
       <p class="lead mt-6 max-w-xl">
-        Satış öncesi sorular, lisans ve fatura talepleri ya da bir dosyanın kendi hesap planınıza
-        uyarlanması hakkında yazın. İş günlerinde aynı gün yanıt veririz.
+        Satış öncesi sorular, lisans ve fatura talepleri, mevcut dosyanızın uyarlanması veya
+        işletmenize özel Excel otomasyon / mini ERP / CRM ihtiyacı için yazın.
       </p>
     </div>
   </section>
@@ -61,6 +61,13 @@ const contactLd = JSON.stringify({
             </a>
           </p>
           <p class="body-sm mt-2">Hafta içi 09.00–18.00 (Türkiye saati).</p>
+        </div>
+        <div class="col-span-12 border-t border-rule-hairline pt-6 lg:col-span-4">
+          <h2 class="h3">Özel sistem talebi</h2>
+          <p class="body-sm mt-3">Hazır ürünün yetmediği işler için özel Excel otomasyon, mini ERP ve CRM geliştirme hizmetinin kapsamını inceleyin.</p>
+          <div class="mt-6">
+            <Button href="/ozel-excel-sistemleri" variant="secondary">Özel sistem hizmeti</Button>
+          </div>
         </div>
         <div class="col-span-12 border-t border-rule-hairline pt-6 lg:col-span-4">
           <h2 class="h3">Satıcı / vergi</h2>
