@@ -83,10 +83,15 @@ function sourceIndexableRoutes(): string[] {
   ])].sort();
 }
 
+function readRegistryFile(path: string): Registry {
+  return JSON.parse(readFileSync(resolve(ROOT, path), 'utf8')) as Registry;
+}
+
 function loadSeoRegistry(): Registry {
-  const primary = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_seo_registry.json'), 'utf8')) as Registry;
-  const decision = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_decision_registry.json'), 'utf8')) as Registry;
-  return { records: [...primary.records, ...decision.records] };
+  const primary = readRegistryFile('data/seo/registry/excelarsiv_seo_registry.json');
+  const decision = readRegistryFile('data/seo/registry/excelarsiv_decision_registry.json');
+  const landing = readRegistryFile('data/seo/registry/excelarsiv_landing_registry.json');
+  return { records: [...primary.records, ...decision.records, ...landing.records] };
 }
 
 function registryParity(registry: Registry, sourceRoutes = sourceIndexableRoutes()): { missing: string[]; extra: string[] } {
