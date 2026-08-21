@@ -66,6 +66,11 @@ function sektorRoutes(): string[] {
   ];
 }
 
+function decisionRoutes(): string[] {
+  const text = readFileSync(resolve(ROOT, 'src/data/kararPages.ts'), 'utf8');
+  return [...text.matchAll(/\bslug:\s*['"]([^'"]+)['"]/g)].map((match) => `/karar/${match[1]}`);
+}
+
 function sourceIndexableRoutes(): string[] {
   return [...new Set([
     ...staticAstroRoutes(),
@@ -74,6 +79,7 @@ function sourceIndexableRoutes(): string[] {
     ...productRoutes(),
     ...demoRoutes(),
     ...sektorRoutes(),
+    ...decisionRoutes(),
   ])].sort();
 }
 
@@ -111,4 +117,4 @@ function main(): void {
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
 
-export { EXIT, categoryRoutes, demoRoutes, guideRoutes, loadSeoRegistry, normalizeRoute, productRoutes, registryParity, sektorRoutes, sourceIndexableRoutes, staticAstroRoutes };
+export { EXIT, categoryRoutes, decisionRoutes, demoRoutes, guideRoutes, loadSeoRegistry, normalizeRoute, productRoutes, registryParity, sektorRoutes, sourceIndexableRoutes, staticAstroRoutes };
