@@ -8,6 +8,7 @@ const templates = await getAllTemplates();
 const searchIndex = await getTemplateSearchIndex();
 const productCount = templates.length;
 const categoryCount = new Set(templates.map((item) => item.categorySlug)).size;
+const minPrice = Math.min(...templates.map((item) => item.priceTL));
 const priceLevels = [...new Set(templates.map((item) => item.priceTL))].sort((a, b) => a - b);
 const featured = [
   '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
@@ -132,7 +133,7 @@ const homeJsonLd = {
 
 <style>
   :root{--font-sans:ui-sans-serif,system-ui,sans-serif;--font-mono-face:ui-monospace,SFMono-Regular,Menlo,monospace}
-  [data-experience-stage]{content-visibility:auto;contain-intrinsic-size:auto 620px;scroll-margin-top:92px}
+  [data-experience-stage]{content-visibility:auto;contain-intrinsic-size:auto 760px;scroll-margin-top:92px}
   .home-v2{--green:#166534;--green-dark:#14532d;--ink:#162019;--muted:#647068;--line:#dfe5e0;--soft:#f6f8f6;background:#fff;color:var(--ink)}
   .home-shell{width:min(1180px,calc(100% - 48px));margin:0 auto}
   .eyebrow{margin:0;font:800 10px/1.2 var(--font-mono);letter-spacing:.14em;color:var(--green)}
