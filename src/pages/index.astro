@@ -67,7 +67,7 @@ const homeJsonLd = {
           <div class="hero-actions"><a class="primary" href="/sablonlar">{productCount} sistemi inceleyin</a><a href="/demo">Ücretsiz demo</a></div>
           <div class="hero-proof"><span>{productCount} sistem</span><span>{categoryCount} işletme alanı</span><span>{minPrice.toLocaleString('tr-TR')} TL’den başlayan fiyat</span><span>KDV dahil · tek ödeme</span></div>
         </div>
-        {heroProduct && <a class="hero-visual" href={heroProduct.url}><img src={heroProduct.kapak} alt={`${heroProduct.name} gerçek ürün görseli`} width="1200" height="900" loading="eager" fetchpriority="high" /><span>{heroProduct.name}</span></a>}
+        {heroProduct && <a class="hero-visual" href={heroProduct.url}><img class="premium-card__shot" src={heroProduct.kapak} alt={`${heroProduct.name} gerçek ürün görseli`} width="1200" height="900" loading="eager" fetchpriority="high" /><span>{heroProduct.name}</span></a>}
       </div>
     </section>
 
@@ -89,7 +89,7 @@ const homeJsonLd = {
       <div class="home-shell">
         <div class="section-head"><div><p class="eyebrow">KATALOG</p><h2>Fiyat ve ürün bilgisi tek kaynaktan gelir.</h2></div><a href="/sablonlar">Tüm kataloğu aç →</a></div>
         <div class="price-levels">{priceLevels.map((price) => <span>{price.toLocaleString('tr-TR')} TL</span>)}</div>
-        <div class="featured-grid">{featured.map((item) => item && <article><a class="shot" href={item.url}><img src={item.kapak} alt={`${item.name} ürün kapağı`} width="1200" height="900" loading="lazy" /></a><div><small>{item.categoryName}</small><h3><a href={item.url}>{item.name}</a></h3><p>{item.summary}</p><strong>{item.priceTL.toLocaleString('tr-TR')} TL</strong></div></article>)}</div>
+        <div class="featured-grid">{featured.map((item) => item && <article><a class="shot" href={item.url}><img class="premium-card__shot" src={item.kapak} alt={`${item.name} ürün kapağı`} width="1200" height="900" loading="lazy" /></a><div><small>{item.categoryName}</small><h3><a href={item.url}>{item.name}</a></h3><p>{item.summary}</p><strong>{item.priceTL.toLocaleString('tr-TR')} TL</strong></div></article>)}</div>
       </div>
     </section>
 
