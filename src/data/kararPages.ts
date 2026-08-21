@@ -11,392 +11,139 @@ export interface KararPageSpec {
   faq: Array<{ q: string; a: string }>;
 }
 
+type BaseSpec = Omit<KararPageSpec, 'notFor' | 'faq'> & { notFor?: string[]; faq?: KararPageSpec['faq'] };
+
+function makePage(spec: BaseSpec): KararPageSpec {
+  const primary = spec.primaryProductSlug ? 'önerilen ürünün' : 'seçim rehberinin';
+  return {
+    ...spec,
+    notFor: spec.notFor ?? [
+      'ERP veya bulut tabanlı çok kullanıcılı operasyon yazılımı arıyorsanız.',
+      'Uzman görüşü gerektiren hukuki veya vergisel sonucu yalnız bir Excel dosyasına bırakmak istiyorsanız.',
+      'Ürün sayfasındaki kapsam ve uyumluluk bilgisini incelemeden satın alma kararı vermek istiyorsanız.',
+    ],
+    faq: spec.faq ?? [
+      { q: 'Bu karar rehberi ne işe yarar?', a: `İşletme ihtiyacını ürün kapsamıyla eşleştirir ve ${primary} hangi durumda daha uygun olabileceğini açıklar. Kesin kapsam için ürün detay sayfası esas alınır.` },
+      { q: 'Fiyat bilgisi güncel mi?', a: 'Karar sayfasındaki fiyatlar ürün veri kaynağından build sırasında alınır; karar metnine elle yazılmaz.' },
+      { q: 'Satın almadan önce inceleyebilir miyim?', a: 'Uygun ürünlerde demo ve gerçek ekran örnekleri ürün detay sayfasında sunulur. Satın almadan önce kapsamı ve çıktıları kontrol edin.' },
+      { q: 'Bu sayfa uzman görüşünün yerine geçer mi?', a: 'Hayır. Sayfa ürün seçim rehberidir. Vergi, hukuk, ihale veya mevzuat sonucu doğuran konularda güncel düzenleme ve uzman değerlendirmesi ayrıca gerekir.' },
+      { q: 'Ürün sayfası ile karar sayfası farklıysa hangisi esas?', a: 'Ürün kapsamı, fiyat, uyumluluk ve satın alma bilgisi bakımından ürün detay sayfası esas kaynaktır.' },
+    ],
+  };
+}
+
 export const kararPages: KararPageSpec[] = [
-  {
+  makePage({
     slug: 'hangi-excel-sistemini-almaliyim',
-    title: "Hangi Excel sistemini almalıyım?",
+    title: 'Hangi Excel sistemini almalıyım?',
     description: 'Nakit, cari, stok, vergi, personel ve kârlılık ihtiyacınıza göre hangi Excel sisteminden başlamanız gerektiğini karşılaştırın.',
     primaryQuery: 'hangi Excel sistemini almalıyım',
     alternativeProductSlugs: ['13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi','akilli-kasa-defteri-ve-nakit-kontrol-sistemi','aylik-patron-finans-paneli'],
-    intro: 'Tek bir Excel sistemi herkes için doğru değildir. Önce çözmek istediğiniz işletme problemini belirleyin; sonra o probleme ait girdi, kontrol ve karar çıktısını sağlayan ürünü seçin. Nakit açığı, günlük kasa kontrolü ve yönetim özeti birbirinden farklı ihtiyaçlardır.',
+    intro: 'Tek bir Excel sistemi herkes için doğru değildir. Önce çözmek istediğiniz işletme problemini belirleyin; sonra o probleme ait girdi, kontrol ve karar çıktısını sağlayan ürünü seçin.',
     situations: [
       { situation: 'Önümüzdeki haftalarda nakit açığını görmek', productSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', reason: 'Haftalık giriş, çıkış ve kümülatif bakiyeyi birlikte gösterir.' },
       { situation: 'Günlük kasa hareketlerini kontrol etmek', productSlug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', reason: 'Günlük hareket ve sayım farkına odaklanır.' },
       { situation: 'Aylık yönetim özeti hazırlamak', productSlug: 'aylik-patron-finans-paneli', reason: 'Temel finans göstergelerini tek yönetim görünümünde toplar.' },
     ],
-    notFor: ['ERP yerine tam operasyon yazılımı arıyorsanız.', 'Bulut tabanlı çok kullanıcılı muhasebe sistemi istiyorsanız.', 'İhtiyacınız henüz tanımlı değilse önce ürün bulucuyu kullanın.'],
-    faq: [
-      { q: 'Tek bir dosya bütün işletmeyi yönetir mi?', a: 'Hayır. Her ürün belirli bir karar problemine odaklanır. Çok farklı süreçleri tek dosyada birleştirmek yerine ihtiyaca uygun sistemi seçmek daha sağlıklıdır.' },
-      { q: 'Satın almadan önce inceleyebilir miyim?', a: 'Uygun ürünlerde ücretsiz demo ve gerçek ekran örnekleri bulunur. Satın almadan önce ürün sayfasındaki kapsam ve çıktıları kontrol edin.' },
-      { q: 'Fiyatlar nereden geliyor?', a: 'Karar sayfalarında gösterilen fiyatlar ürün veri kaynağından alınır; sayfa metnine elle yazılmaz.' },
-      { q: 'Mac kullanıyorsam hangi ürünü seçmeliyim?', a: 'Ürün sayfasındaki uyumluluk bilgisini esas alın. Bazı ürünlerin platform veya Excel sürümü gereksinimleri farklı olabilir.' },
-      { q: 'Karar sayfası ürünün yerine geçer mi?', a: 'Hayır. Karar sayfası seçim rehberidir; kesin kapsam, dosya yapısı, fiyat ve demo için ürün detay sayfası esas alınır.' },
-    ],
-  },
-  {
-    slug: 'kobi-nakit-akisi-excel',
-    title: "KOBİ için nakit akışı Excel'i: hangisini seçmelisiniz?",
-    description: 'KOBİ nakit akışını haftalık planlamak için 13 haftalık model ile günlük kasa kontrolü arasındaki farkı görün.',
-    primaryQuery: "KOBİ için nakit akışı Excel'i",
-    primaryProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
-    alternativeProductSlugs: ['akilli-kasa-defteri-ve-nakit-kontrol-sistemi','kobi-finans-yonetim-paketi'],
-    intro: 'Gelecek haftalardaki tahsilat ve ödemeleri birlikte planlamak istiyorsanız haftalık nakit akışı modeli gerekir. Yalnız günlük kasayı izlemek istiyorsanız daha basit kasa sistemi yeterlidir. Seçimi kullanım ufkuna göre yapmak gerekir.',
-    situations: [
+  }),
+  makePage({
+    slug: 'kobi-nakit-akisi-excel', title: "KOBİ için nakit akışı Excel'i: hangisini seçmelisiniz?", description: 'KOBİ nakit akışını haftalık planlamak için 13 haftalık model ile günlük kasa kontrolü arasındaki farkı görün.', primaryQuery: "KOBİ için nakit akışı Excel'i", primaryProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', alternativeProductSlugs: ['akilli-kasa-defteri-ve-nakit-kontrol-sistemi','kobi-finans-yonetim-paketi'], intro: 'Gelecek haftalardaki tahsilat ve ödemeleri birlikte planlamak istiyorsanız haftalık nakit akışı modeli gerekir. Yalnız günlük kasayı izlemek istiyorsanız daha basit kasa sistemi yeterlidir.', situations: [
       { situation: '13 haftalık tahsilat ve ödeme planı', productSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', reason: 'Haftalık projeksiyon ve kritik bakiye görünümü sağlar.' },
       { situation: 'Günlük kasa kontrolü', productSlug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', reason: 'Fiili kasa hareketlerine odaklanır.' },
-      { situation: 'Birden çok finans sürecini tek dosyada görmek', productSlug: 'kobi-finans-yonetim-paketi', reason: 'Daha geniş finans yönetimi kapsamı sunar.' },
-    ],
-    notFor: ['Sadece geçmiş muhasebe fişlerini arşivlemek istiyorsanız.', 'Banka API entegrasyonu arıyorsanız.', 'Çok şirketli konsolidasyon yazılımına ihtiyacınız varsa.'],
-    faq: [
-      { q: '13 hafta neden kullanılıyor?', a: '13 hafta yaklaşık bir çeyreklik operasyonel görünüm verir. Amaç uzun vadeli bütçe yerine yaklaşan tahsilat ve ödemelerdeki likidite baskısını görünür kılmaktır.' },
-      { q: 'Kasa defteriyle farkı nedir?', a: 'Kasa defteri fiili günlük hareketi izler; 13 haftalık nakit akışı ise gelecekte beklenen giriş ve çıkışları planlar.' },
-      { q: 'Tahsilatlar gecikirse ne olur?', a: 'Modelde beklenen tarih ve tutarlar güncellendiğinde sonraki haftaların bakiye görünümü de değişir; karar güncel veriyle yeniden okunur.' },
-      { q: 'Kredi taksitlerini ekleyebilir miyim?', a: 'Ürünün giriş yapısının izin verdiği ödeme kalemleri dahilinde kredi taksitleri planlanan nakit çıkışı olarak işlenebilir.' },
-      { q: 'Satın almadan önce ekranı görebilir miyim?', a: 'Ürün detay sayfasında demo ve gerçek ekran seçenekleri varsa satın alma öncesinde inceleyebilirsiniz.' },
-    ],
-  },
-  {
-    slug: 'kasa-defteri-excel',
-    title: 'Günlük kasa defteri Excel: hangi sistemi seçmelisiniz?',
-    description: 'Günlük kasa hareketi, kapanış bakiyesi ve sayım farkını izlemek için uygun Excel sistemini karşılaştırın.',
-    primaryQuery: 'günlük kasa defteri Excel',
-    primaryProductSlug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi',
-    alternativeProductSlugs: ['13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi'],
-    intro: 'Günlük gelir ve giderlerin fiili kasa bakiyesiyle uyuşup uyuşmadığını görmek için kasa odaklı bir sistem gerekir. Gelecek haftaları tahmin etmek ayrı bir problemdir; günlük kasa kontrolü ile nakit projeksiyonunu karıştırmamak gerekir.',
-    situations: [
+      { situation: 'Daha geniş finans görünümü', productSlug: 'kobi-finans-yonetim-paketi', reason: 'Birden çok finans sürecini aynı çalışma yapısında toplar.' },
+    ] }),
+  makePage({
+    slug: 'kasa-defteri-excel', title: 'Günlük kasa defteri Excel: hangi sistemi seçmelisiniz?', description: 'Günlük kasa hareketi, kapanış bakiyesi ve sayım farkını izlemek için uygun Excel sistemini karşılaştırın.', primaryQuery: 'günlük kasa defteri Excel', primaryProductSlug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', alternativeProductSlugs: ['13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi'], intro: 'Günlük gelir ve giderlerin fiili kasa bakiyesiyle uyuşup uyuşmadığını görmek için kasa odaklı bir sistem gerekir. Gelecek haftaları tahmin etmek ayrı bir problemdir.', situations: [
       { situation: 'Günlük açılış-kapanış ve sayım farkı', productSlug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', reason: 'Kasa hareketi ve fark kontrolüne odaklanır.' },
       { situation: 'Gelecek ödeme baskısını görmek', productSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', reason: 'Günlük kayıt yerine haftalık projeksiyon sunar.' },
-    ],
-    notFor: ['Tam muhasebe programı arıyorsanız.', 'Stok ve satış hareketlerini tek ERP içinde yönetmek istiyorsanız.', 'Sadece banka ekstresi arşivlemek istiyorsanız.'],
-    faq: [
-      { q: 'Kasa sayım farkı neden önemlidir?', a: 'Kayıtlı bakiye ile fiili kasa arasında fark oluşması veri giriş hatası, eksik kayıt veya kontrol ihtiyacına işaret edebilir.' },
-      { q: 'Banka hesabı kasa sayılır mı?', a: 'Hayır. Kasa ve banka farklı nakit hesaplarıdır; ürün kapsamındaki alanlara göre ayrı takip edilmelidir.' },
-      { q: 'Her gün kayıt girmek gerekir mi?', a: 'Günlük kontrolün anlamlı olması için hareketlerin düzenli ve zamanında işlenmesi gerekir.' },
-      { q: 'Nakit akışı tahmini yapar mı?', a: 'Temel amacı günlük kasa kontrolüdür. Gelecek haftalar için 13 haftalık nakit akışı ürünü daha uygundur.' },
-      { q: 'Fiyat güncel mi?', a: 'Bu sayfadaki fiyat ürün veri kaynağından otomatik alınır; güncel ürün sayfasıyla aynı kaynağı kullanır.' },
-    ],
-  },
-  {
-    slug: 'mali-musavir-cari-takip-excel',
-    title: 'Cari hesap ve tahsilat takibi için hangi Excel sistemi?',
-    description: 'Cari bakiye, vade ve müşteri tahsilat riskini izlemek için uygun Excel sistemini karşılaştırın.',
-    primaryQuery: 'cari hesap takip Excel',
-    primaryProductSlug: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi',
-    alternativeProductSlugs: ['cari-ba-bs-toplu-mutabakat','cek-senet-ve-vade-risk-sistemi'],
-    intro: 'Cari takipte amaç yalnız bakiye görmek değil; vade, gecikme ve tahsilat önceliğini birlikte değerlendirmektir. Mutabakat veya çek-senet takibi farklı alt problemlerdir ve ayrı sistemler daha doğru sonuç verir.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'mali-musavir-cari-takip-excel', title: 'Cari hesap ve tahsilat takibi için hangi Excel sistemi?', description: 'Cari bakiye, vade ve müşteri tahsilat riskini izlemek için uygun Excel sistemini karşılaştırın.', primaryQuery: 'cari hesap takip Excel', primaryProductSlug: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', alternativeProductSlugs: ['cari-ba-bs-toplu-mutabakat','cek-senet-ve-vade-risk-sistemi'], intro: 'Cari takipte amaç yalnız bakiye görmek değil; vade, gecikme ve tahsilat önceliğini birlikte değerlendirmektir. Mutabakat ve çek-senet takibi farklı alt problemlerdir.', situations: [
       { situation: 'Müşteri bazlı bakiye ve gecikme', productSlug: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', reason: 'Tahsilat ve müşteri riskine odaklanır.' },
       { situation: 'Cari ile Ba-Bs mutabakatı', productSlug: 'cari-ba-bs-toplu-mutabakat', reason: 'Mutabakat farklarını ayırır.' },
       { situation: 'Çek-senet vade riski', productSlug: 'cek-senet-ve-vade-risk-sistemi', reason: 'Vadeli kıymetli evrak takibine odaklanır.' },
-    ],
-    notFor: ['Muhasebe fişlerini otomatik kaydetmek istiyorsanız.', 'Banka entegrasyonlu CRM arıyorsanız.', 'Hukuki tahsilat yönetimi yazılımı arıyorsanız.'],
-    faq: [
-      { q: 'Cari risk skoru ne işe yarar?', a: 'Gecikme ve bakiye yoğunluğu gibi göstergeleri aynı görünümde değerlendirerek tahsilat önceliğini destekler.' },
-      { q: 'Ba-Bs mutabakatıyla aynı şey mi?', a: 'Hayır. Mutabakat kayıt karşılaştırmasıdır; cari tahsilat sistemi ise bakiye, vade ve tahsilat riskine odaklanır.' },
-      { q: 'Çek ve senetleri burada takip etmeli miyim?', a: 'Çek-senet portföyünüz yoğunsa bu amaç için hazırlanmış ayrı vade risk sistemi daha uygundur.' },
-      { q: 'Müşteri bazında çalışır mı?', a: 'Ürün sayfasındaki kapsam ve ekranlarda müşteri bazlı alanlar gösteriliyorsa bu yapı üzerinden çalışır.' },
-      { q: 'Demo var mı?', a: 'Uygun ürünlerde demo bağlantısı ürün detay sayfasında sunulur.' },
-    ],
-  },
-  {
-    slug: 'pos-komisyon-kontrol-excel',
-    title: 'POS komisyon kontrolü için hangi Excel sistemi?',
-    description: 'POS brüt satış, komisyon, iade ve net tahsilatı karşılaştırmak için uygun Excel sistemini görün.',
-    primaryQuery: 'POS komisyon kontrol Excel',
-    primaryProductSlug: 'pos-komisyon-ve-net-tahsilat-kontrol-sistemi',
-    alternativeProductSlugs: ['gunluk-gelir-gider-ve-gercek-karlilik-sistemi'],
-    intro: 'POS cirosu bankaya geçen net tutarla aynı değildir. Komisyon, iade ve diğer kesintiler ayrı izlendiğinde kanalın gerçek tahsilat maliyeti görünür hale gelir.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'pos-komisyon-kontrol-excel', title: 'POS komisyon kontrolü için hangi Excel sistemi?', description: 'POS brüt satış, komisyon, iade ve net tahsilatı karşılaştırmak için uygun Excel sistemini görün.', primaryQuery: 'POS komisyon kontrol Excel', primaryProductSlug: 'pos-komisyon-ve-net-tahsilat-kontrol-sistemi', alternativeProductSlugs: ['gunluk-gelir-gider-ve-gercek-karlilik-sistemi'], intro: 'POS cirosu bankaya geçen net tutarla aynı değildir. Komisyon, iade ve diğer kesintiler ayrı izlendiğinde kanalın gerçek tahsilat maliyeti görünür hale gelir.', situations: [
       { situation: 'POS kanal bazlı net tahsilat', productSlug: 'pos-komisyon-ve-net-tahsilat-kontrol-sistemi', reason: 'Brüt satıştan net tahsilata geçişi gösterir.' },
       { situation: 'Günlük genel kârlılık', productSlug: 'gunluk-gelir-gider-ve-gercek-karlilik-sistemi', reason: 'POS dışındaki gelir-gider kalemlerini de kapsar.' },
-    ],
-    notFor: ['Banka POS API entegrasyonu istiyorsanız.', 'Kart saklayan ödeme altyapısı arıyorsanız.', 'Sadece satış cirosunu kaydetmek yeterliyse.'],
-    faq: [
-      { q: 'Komisyon oranı ile net tahsilat aynı şey mi?', a: 'Hayır. Net tahsilat brüt satıştan komisyon, iade ve ilgili kesintiler düşüldükten sonra bankaya geçen tutardır.' },
-      { q: 'Birden fazla POS kanalı karşılaştırılabilir mi?', a: 'Ürünün kanal bazlı giriş alanları doğrultusunda farklı POS kanallarının maliyetlerini karşılaştırabilirsiniz.' },
-      { q: 'İade etkisi görünür mü?', a: 'Ürün kapsamındaki iade alanları net tahsilat hesabına dahil edilerek kanal sonucunu etkiler.' },
-      { q: 'Kârlılık hesabı da yapar mı?', a: 'Temel amacı POS tahsilat kontrolüdür; tam kârlılık için günlük gelir-gider sistemi daha kapsamlıdır.' },
-      { q: 'Fiyat sayfada neden değişebilir?', a: 'Fiyat ürün kaynağından otomatik gelir; ürünün güncel fiyat seviyesi değişirse karar sayfası da aynı değeri gösterir.' },
-    ],
-  },
-  {
-    slug: 'trendyol-pazaryeri-net-kar-excel',
-    title: 'Pazaryeri net kârı için hangi Excel sistemi?',
-    description: 'Komisyon, kargo, reklam, iade ve hakediş sonrası pazaryeri net kârını izlemek için uygun Excel sistemini karşılaştırın.',
-    primaryQuery: 'Trendyol komisyon sonrası net kâr Excel',
-    primaryProductSlug: 'trendyol-komisyon-sonrasi-net-kar',
-    alternativeProductSlugs: ['pazaryeri-net-kar-ve-eksik-hakedis-yakalayici'],
-    intro: 'Pazaryerinde satış fiyatı tek başına kârlılığı göstermez. Komisyon, kargo, reklam, kampanya ve iadeler gerçek marjı aşağı çekebilir; hakediş kontrolü ise beklenen ödeme ile gerçekleşeni karşılaştırır.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'trendyol-pazaryeri-net-kar-excel', title: 'Pazaryeri net kârı için hangi Excel sistemi?', description: 'Komisyon, kargo, reklam, iade ve hakediş sonrası pazaryeri net kârını izlemek için uygun Excel sistemini karşılaştırın.', primaryQuery: 'Trendyol komisyon sonrası net kâr Excel', primaryProductSlug: 'trendyol-komisyon-sonrasi-net-kar', alternativeProductSlugs: ['pazaryeri-net-kar-ve-eksik-hakedis-yakalayici'], intro: 'Pazaryerinde satış fiyatı tek başına kârlılığı göstermez. Komisyon, kargo, reklam, kampanya ve iadeler gerçek marjı etkiler; hakediş kontrolü ise beklenen ödeme ile gerçekleşeni karşılaştırır.', situations: [
       { situation: 'Trendyol satışında net kâr', productSlug: 'trendyol-komisyon-sonrasi-net-kar', reason: 'Kanalın temel kesintileri sonrası karar çıktısı verir.' },
       { situation: 'Beklenen ve gerçek hakedişi karşılaştırmak', productSlug: 'pazaryeri-net-kar-ve-eksik-hakedis-yakalayici', reason: 'Eksik hakediş farkına odaklanır.' },
-    ],
-    notFor: ['Pazaryeri API entegrasyonu istiyorsanız.', 'Sipariş yönetim paneli arıyorsanız.', 'Sadece brüt satış raporu yeterliyse.'],
-    faq: [
-      { q: 'Komisyon sonrası kâr neden farklı çıkar?', a: 'Satış fiyatından yalnız ürün maliyeti değil, komisyon, kargo, reklam ve iade gibi kanal maliyetleri de düşülmelidir.' },
-      { q: 'Hakediş farkı nedir?', a: 'Beklenen net ödeme ile pazaryerinden fiilen gelen ödeme arasındaki farktır.' },
-      { q: 'İade maliyeti hesaba katılır mı?', a: 'Ürün kapsamındaki iade alanları kullanıldığında net sonuç üzerinde etkisi görünür.' },
-      { q: 'Başka pazaryerlerinde kullanılabilir mi?', a: 'Ürün adındaki kanal ve kapsamı esas alın. Genel pazaryeri ürünü farklı kanallar için daha uygun olabilir.' },
-      { q: 'Ürün sayfası mı karar sayfası mı esas?', a: 'Kapsam ve satın alma için ürün detay sayfası esas kaynaktır.' },
-    ],
-  },
-  {
-    slug: 'kdv-iade-dosyasi-excel',
-    title: 'KDV iade listesi hazırlamak için hangi Excel sistemi?',
-    description: 'KDV iade listeleri, azami alacak ve tevkifat mahsup süreçleri için uygun Excel sistemlerini karşılaştırın.',
-    primaryQuery: 'KDV iade listesi hazırlama Excel',
-    primaryProductSlug: 'kdv-iade-listesi-robotu-gib7',
-    alternativeProductSlugs: ['kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici','kdv-tevkifat-mahsup-iade-listesi'],
-    intro: 'KDV iade sürecinde liste hazırlama, azami iade alacağını hesaplama ve tevkifat/mahsup ayrımı farklı işlerdir. Doğru ürün, hangi çıktıyı hazırlamanız gerektiğine göre seçilmelidir.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'kdv-iade-dosyasi-excel', title: 'KDV iade listesi hazırlamak için hangi Excel sistemi?', description: 'KDV iade listeleri, azami alacak ve tevkifat mahsup süreçleri için uygun Excel sistemlerini karşılaştırın.', primaryQuery: 'KDV iade listesi hazırlama Excel', primaryProductSlug: 'kdv-iade-listesi-robotu-gib7', alternativeProductSlugs: ['kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici','kdv-tevkifat-mahsup-iade-listesi'], intro: 'KDV iade sürecinde liste hazırlama, azami iade alacağını hesaplama ve tevkifat/mahsup ayrımı farklı işlerdir. Doğru ürün, ihtiyaç duyduğunuz çıktıya göre seçilmelidir.', situations: [
       { situation: 'GİB iade listelerini hazırlamak', productSlug: 'kdv-iade-listesi-robotu-gib7', reason: 'Liste üretimine odaklanır.' },
       { situation: 'Azami iade alacağını hesaplamak', productSlug: 'kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici', reason: 'İade tutarı ve dosya hazırlığına odaklanır.' },
       { situation: 'Tevkifat mahsup/iade ayrımı', productSlug: 'kdv-tevkifat-mahsup-iade-listesi', reason: 'Tevkifat ve mahsup kararını destekler.' },
-    ],
-    notFor: ['Vergi danışmanlığı yerine otomatik hukuki görüş arıyorsanız.', 'GİB hesabınıza doğrudan API entegrasyonu istiyorsanız.', 'Kaynak belgeleriniz eksikse.'],
-    faq: [
-      { q: 'KDV iade listesi ile azami alacak aynı şey mi?', a: 'Hayır. Liste hazırlama veri düzenleme işidir; azami alacak hesabı iade edilebilir tutarın sınırlarını değerlendiren ayrı bir hesaplama problemidir.' },
-      { q: 'GİB formatı önemli mi?', a: 'Kullanacağınız ürünün güncel ürün sayfasındaki format ve kapsam bilgisini esas alın.' },
-      { q: 'Tevkifatlı işlemler için hangi ürün?', a: 'Tevkifat mahsup ve iade ayrımına özel ürün bu kullanım için daha uygundur.' },
-      { q: 'Mevzuat değişirse ne yapmalıyım?', a: 'Ürün sayfasındaki sürüm ve güncelleme politikasını kontrol edin; hukuki ve vergisel kararlar için güncel mevzuat ayrıca doğrulanmalıdır.' },
-      { q: 'Bu sayfa vergi danışmanlığı mı?', a: 'Hayır. Bu sayfa ürün seçim rehberidir; vergi danışmanlığı veya bağlayıcı hukuki görüş değildir.' },
-    ],
-  },
-  {
-    slug: 'amortisman-yeniden-degerleme-excel',
-    title: 'Amortisman ve yeniden değerleme için hangi Excel sistemi?',
-    description: 'Amortisman, yeniden değerleme ve sabit kıymet satış zamanlaması için uygun Excel sistemlerini karşılaştırın.',
-    primaryQuery: 'amortisman hesaplama Excel',
-    primaryProductSlug: 'amortisman-2026-yeniden-degerleme',
-    alternativeProductSlugs: ['amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti','yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi'],
-    intro: 'Amortisman hesabı, yeniden değerleme kararı ve sabit kıymetin hangi dönemde satılacağı aynı problem değildir. Kullanacağınız sistem, ihtiyaç duyduğunuz karar çıktısına göre seçilmelidir.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'amortisman-yeniden-degerleme-excel', title: 'Amortisman ve yeniden değerleme için hangi Excel sistemi?', description: 'Amortisman, yeniden değerleme ve sabit kıymet satış zamanlaması için uygun Excel sistemlerini karşılaştırın.', primaryQuery: 'amortisman hesaplama Excel', primaryProductSlug: 'amortisman-2026-yeniden-degerleme', alternativeProductSlugs: ['amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti','yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi'], intro: 'Amortisman hesabı, yeniden değerleme kararı ve sabit kıymetin hangi dönemde satılacağı aynı problem değildir. Kullanacağınız sistem ihtiyaç duyduğunuz karar çıktısına göre seçilmelidir.', situations: [
       { situation: 'Amortisman ve yeniden değerleme hesabı', productSlug: 'amortisman-2026-yeniden-degerleme', reason: 'Temel amortisman ve yeniden değerleme etkisini birlikte ele alır.' },
       { situation: 'Sabit kıymet satış zamanlaması', productSlug: 'amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti', reason: 'Dönemler arası satış etkisini karşılaştırır.' },
       { situation: 'Yeniden değerleme faydasını ölçmek', productSlug: 'yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi', reason: 'Vergi tasarrufu ve maliyet etkisine odaklanır.' },
-    ],
-    notFor: ['Sabit kıymet envanter yazılımı arıyorsanız.', 'Muhasebe fişlerini otomatik oluşturmak istiyorsanız.', 'Güncel mevzuatı ayrıca doğrulamadan kesin vergi kararı vermek istiyorsanız.'],
-    faq: [
-      { q: 'Amortisman ile yeniden değerleme aynı işlem mi?', a: 'Hayır. Amortisman varlığın maliyetinin dönemlere dağıtılmasıdır; yeniden değerleme ise mevzuat koşullarına bağlı ayrı bir değerleme işlemidir.' },
-      { q: 'Satış zamanlaması neden ayrı ürün?', a: 'Satış dönemi, birikmiş amortisman ve vergi etkisi gibi değişkenleri farklı senaryolarda karşılaştırmayı gerektirir.' },
-      { q: '2026 ifadesi ne anlama geliyor?', a: 'Ürün adındaki dönem bilgisidir. Güncel kullanım için ürün sayfasındaki sürüm ve mevzuat notlarını kontrol edin.' },
-      { q: 'Vergi danışmanlığı yerine geçer mi?', a: 'Hayır. Hesaplama aracı karar desteği sağlar; bağlayıcı vergi görüşü değildir.' },
-      { q: 'Fiyat nereden alınır?', a: 'Ürün veri kaynağından otomatik alınır ve ürün sayfasıyla aynı değeri kullanır.' },
-    ],
-  },
-  {
-    slug: 'kidem-ihbar-maliyeti-excel',
-    title: 'Kıdem ve ihbar maliyeti için hangi Excel sistemi?',
-    description: 'Personel çıkış maliyeti ve fazla mesai riskini ayrı değerlendirerek uygun Excel sistemini seçin.',
-    primaryQuery: 'kıdem ihbar hesaplama Excel',
-    primaryProductSlug: 'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici',
-    alternativeProductSlugs: ['fazla-mesai-ve-isci-dava-riski-tespit-dosyasi'],
-    intro: 'Personel çıkışında kıdem ve ihbar yükü ile fazla mesai alacağı aynı hesap değildir. Çıkış maliyetini planlamak için tazminat odaklı sistem; çalışma süresi uyuşmazlıklarını değerlendirmek için farklı sistem gerekir.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'kidem-ihbar-maliyeti-excel', title: 'Kıdem ve ihbar maliyeti için hangi Excel sistemi?', description: 'Personel çıkış maliyeti ve fazla mesai riskini ayrı değerlendirerek uygun Excel sistemini seçin.', primaryQuery: 'kıdem ihbar hesaplama Excel', primaryProductSlug: 'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici', alternativeProductSlugs: ['fazla-mesai-ve-isci-dava-riski-tespit-dosyasi'], intro: 'Personel çıkışında kıdem ve ihbar yükü ile fazla mesai alacağı aynı hesap değildir. Çıkış maliyetini planlamak için tazminat odaklı sistem; çalışma süresi uyuşmazlıkları için farklı sistem gerekir.', situations: [
       { situation: 'Personel çıkış maliyetini planlamak', productSlug: 'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici', reason: 'Kıdem ve ihbar yüküne odaklanır.' },
       { situation: 'Fazla mesai kaynaklı riskleri görmek', productSlug: 'fazla-mesai-ve-isci-dava-riski-tespit-dosyasi', reason: 'Çalışma süresi ve olası alacak riskine odaklanır.' },
-    ],
-    notFor: ['Bordro programı arıyorsanız.', 'Hukuki görüş veya dava sonucu tahmini istiyorsanız.', 'Personel özlük dosyası yönetim sistemi istiyorsanız.'],
-    faq: [
-      { q: 'Kıdem ve ihbar aynı hesap mı?', a: 'Hayır. Hak kazanma koşulları ve hesaplama bileşenleri farklıdır; birlikte toplam maliyet görünümünde değerlendirilebilir.' },
-      { q: 'Bu araç hukuki görüş verir mi?', a: 'Hayır. Finansal/operasyonel hesaplama desteğidir; iş hukuku değerlendirmesi ayrıca yapılmalıdır.' },
-      { q: 'Toplu çıkış senaryosu için kullanılabilir mi?', a: 'Ürünün çalışan bazlı giriş yapısı elverdiği ölçüde toplam yük görünümü oluşturulabilir.' },
-      { q: 'Fazla mesaiyi de hesaplar mı?', a: 'Temel ürün kıdem ve ihbar yüküne odaklanır; fazla mesai için ayrı ürün daha uygundur.' },
-      { q: 'Güncel ücret verisini kim girer?', a: 'Hesaplama, kullanıcının girdiği güncel veriler üzerinden çalışır; veri doğruluğu kullanıcı sorumluluğundadır.' },
-    ],
-  },
-  {
-    slug: 'sgk-tesvik-optimizasyon-excel',
-    title: 'SGK teşvik analizi için hangi Excel sistemi?',
-    description: 'Kaçırılan SGK teşviklerini ve teşvikli bordro seçeneklerini değerlendirmek için uygun Excel sistemini karşılaştırın.',
-    primaryQuery: 'SGK teşvik hesaplama Excel',
-    primaryProductSlug: 'kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi',
-    alternativeProductSlugs: ['tesvikli-bordro-optimizasyon','tesvikli-bordro-avantajli-tesvik'],
-    intro: 'SGK teşvik analizinde iki ayrı soru vardır: geçmişte veya mevcut dönemde kaçırılan avantajı görmek ve çalışan bazında hangi teşvik setinin daha avantajlı olduğunu değerlendirmek. Ürün seçimi bu ayrıma göre yapılmalıdır.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'sgk-tesvik-optimizasyon-excel', title: 'SGK teşvik analizi için hangi Excel sistemi?', description: 'Kaçırılan SGK teşviklerini ve teşvikli bordro seçeneklerini değerlendirmek için uygun Excel sistemini karşılaştırın.', primaryQuery: 'SGK teşvik hesaplama Excel', primaryProductSlug: 'kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi', alternativeProductSlugs: ['tesvikli-bordro-optimizasyon','tesvikli-bordro-avantajli-tesvik'], intro: 'SGK teşvik analizinde kaçırılan avantajı görmek ve çalışan bazında hangi teşvik setinin daha avantajlı olduğunu değerlendirmek farklı sorulardır. Ürün seçimi bu ayrıma göre yapılmalıdır.', situations: [
       { situation: 'Kaçırılan teşvik ve gerçek işçilik maliyeti', productSlug: 'kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi', reason: 'Teşvik etkisini toplam işçilik maliyetiyle birlikte gösterir.' },
       { situation: 'Çoklu teşvik senaryosu', productSlug: 'tesvikli-bordro-optimizasyon', reason: 'Farklı teşvik kombinasyonlarını karşılaştırmaya odaklanır.' },
       { situation: 'Çalışan için avantajlı teşvik seçimi', productSlug: 'tesvikli-bordro-avantajli-tesvik', reason: 'Kişi bazlı seçim problemine odaklanır.' },
-    ],
-    notFor: ['SGK sistemine doğrudan entegrasyon arıyorsanız.', 'Mevzuat uygunluğunu ayrıca kontrol etmeyecekseniz.', 'Tam bordro yazılımı istiyorsanız.'],
-    faq: [
-      { q: 'Teşvik tutarı sabit midir?', a: 'Hayır. Çalışan, dönem ve mevzuat koşullarına göre değişebilir; güncel girişlerin ve mevzuatın doğrulanması gerekir.' },
-      { q: 'Bordro programının yerine geçer mi?', a: 'Hayır. Ürünler teşvik ve maliyet karar desteğine odaklanır.' },
-      { q: 'Birden fazla teşvik karşılaştırılabilir mi?', a: 'Optimizasyon ürünü bu senaryo karşılaştırmasına odaklanır.' },
-      { q: 'Geçmiş dönem teşviklerini gösterir mi?', a: 'Ürün kapsamı içindeki dönem ve veri yapısına göre analiz yapılabilir; kesin hak sahipliği ayrıca doğrulanmalıdır.' },
-      { q: 'Bu sayfa resmi SGK görüşü mü?', a: 'Hayır. Ürün seçim rehberidir; resmi kurum görüşü değildir.' },
-    ],
-  },
-  {
-    slug: 'restoran-kafe-maliyet-excel',
-    title: 'Restoran ve kafe maliyeti için hangi Excel sistemi?',
-    description: 'Reçete maliyeti, fire ve mutfak kayıp-kaçak analizi için uygun Excel sistemlerini karşılaştırın.',
-    primaryQuery: 'restoran reçete maliyet Excel',
-    primaryProductSlug: 'restoran-recete-maliyet-fire',
-    alternativeProductSlugs: ['mutfak-kayip-kacak-hesaplayici'],
-    intro: 'Restoran maliyetinde reçete bazlı teorik maliyet ile fiili tüketim farkı iki ayrı kontroldür. Menü fiyatlaması için reçete/fire hesabı; mutfak sapmasını görmek için kayıp-kaçak analizi gerekir.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'restoran-kafe-maliyet-excel', title: 'Restoran ve kafe maliyeti için hangi Excel sistemi?', description: 'Reçete maliyeti, fire ve mutfak kayıp-kaçak analizi için uygun Excel sistemlerini karşılaştırın.', primaryQuery: 'restoran reçete maliyet Excel', primaryProductSlug: 'restoran-recete-maliyet-fire', alternativeProductSlugs: ['mutfak-kayip-kacak-hesaplayici'], intro: 'Restoran maliyetinde reçete bazlı teorik maliyet ile fiili tüketim farkı iki ayrı kontroldür. Menü fiyatlaması için reçete/fire hesabı; mutfak sapmasını görmek için kayıp-kaçak analizi gerekir.', situations: [
       { situation: 'Porsiyon ve reçete maliyetini hesaplamak', productSlug: 'restoran-recete-maliyet-fire', reason: 'Reçete ve fire maliyetine odaklanır.' },
       { situation: 'Teorik tüketim ile fiili tüketimi karşılaştırmak', productSlug: 'mutfak-kayip-kacak-hesaplayici', reason: 'Kayıp ve kaçak farkını görünür kılar.' },
-    ],
-    notFor: ['POS/restoran otomasyon sistemi arıyorsanız.', 'Stok girişlerini otomatik entegrasyonla almak istiyorsanız.', 'Sadece satış adedi raporu istiyorsanız.'],
-    faq: [
-      { q: 'Fire reçete maliyetini etkiler mi?', a: 'Evet. Kullanılabilir ürün miktarı ve gerçek porsiyon maliyeti üzerinde fire oranının etkisi olabilir.' },
-      { q: 'Kayıp-kaçak hesabıyla aynı mı?', a: 'Hayır. Reçete maliyeti teorik tüketimi kurar; kayıp-kaçak analizi teorik ile fiili tüketim arasındaki farkı inceler.' },
-      { q: 'Menü fiyatı otomatik çıkar mı?', a: 'Ürün kapsamındaki fiyatlama alanları varsa maliyet üzerine hedeflenen marjla karar desteği sağlanabilir.' },
-      { q: 'Stok programı yerine geçer mi?', a: 'Hayır. Belirli maliyet ve kontrol problemlerine odaklanır.' },
-      { q: 'Demo var mı?', a: 'Ürün detay sayfasındaki demo ve ekran bağlantılarını kontrol edin.' },
-    ],
-  },
-  {
-    slug: 'insaat-hakedis-excel',
-    title: 'İnşaat hakediş takibi için hangi Excel sistemi?',
-    description: 'Şantiye maliyeti, hakediş fiyat farkı ve taşeron mutabakatı için uygun Excel sistemlerini karşılaştırın.',
-    primaryQuery: 'inşaat hakediş takip Excel',
-    primaryProductSlug: 'insaat-hakedis-santiye-maliyet',
-    alternativeProductSlugs: ['hakedis-fiyat-farki-hak-kaybi-cetveli','taseron-hakedis-kesinti-mutabakati'],
-    intro: 'İnşaatta hakediş takibi, fiyat farkı hesabı ve taşeron mutabakatı aynı süreç içinde görünse de farklı kontrol noktalarıdır. Ana ihtiyacınıza göre ilgili sistemi seçmek gerekir.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'insaat-hakedis-excel', title: 'İnşaat hakediş takibi için hangi Excel sistemi?', description: 'Şantiye maliyeti, hakediş fiyat farkı ve taşeron mutabakatı için uygun Excel sistemlerini karşılaştırın.', primaryQuery: 'inşaat hakediş takip Excel', primaryProductSlug: 'insaat-hakedis-santiye-maliyet', alternativeProductSlugs: ['hakedis-fiyat-farki-hak-kaybi-cetveli','taseron-hakedis-kesinti-mutabakati'], intro: 'İnşaatta hakediş takibi, fiyat farkı hesabı ve taşeron mutabakatı aynı süreç içinde görünse de farklı kontrol noktalarıdır. Ana ihtiyacınıza göre ilgili sistemi seçmek gerekir.', situations: [
       { situation: 'Hakediş ve şantiye maliyetini birlikte izlemek', productSlug: 'insaat-hakedis-santiye-maliyet', reason: 'Hakediş ve maliyet sapmasına odaklanır.' },
       { situation: 'Fiyat farkı ve hak kaybını hesaplamak', productSlug: 'hakedis-fiyat-farki-hak-kaybi-cetveli', reason: 'Endeks/fiyat farkı hesabına odaklanır.' },
       { situation: 'Taşeron hakediş-kesinti mutabakatı', productSlug: 'taseron-hakedis-kesinti-mutabakati', reason: 'Alt yüklenici mutabakatına odaklanır.' },
-    ],
-    notFor: ['Proje yönetim yazılımı arıyorsanız.', 'Metrajı otomatik BIM entegrasyonundan almak istiyorsanız.', 'Sözleşme hukuku değerlendirmesini otomatikleştirmek istiyorsanız.'],
-    faq: [
-      { q: 'Hakediş ve şantiye maliyeti aynı tabloda izlenmeli mi?', a: 'Birlikte görünmesi gelir ve maliyet ilişkisinin değerlendirilmesini kolaylaştırır; detay kapsam ürün yapısına bağlıdır.' },
-      { q: 'Fiyat farkı ayrı ürün mü?', a: 'Evet. Endeks ve sözleşme parametreleriyle fiyat farkı hesabı ayrı bir karar problemidir.' },
-      { q: 'Taşeron kesintileri nasıl izlenir?', a: 'Taşeron mutabakat ürünü hakediş, ödeme ve kesinti farklarını karşılaştırmaya odaklanır.' },
-      { q: 'Bu araç resmi hakediş belgesi üretir mi?', a: 'Ürün sayfasındaki çıktı kapsamını esas alın; resmi belge gereklilikleri ayrıca doğrulanmalıdır.' },
-      { q: 'Fiyatlar güncel mi?', a: 'Karar sayfası fiyatları ürün veri kaynağından otomatik alır.' },
-    ],
-  },
-  {
-    slug: 'ihale-teklif-sinir-deger-excel',
-    title: 'İhale teklif ve sınır değer hesabı için hangi Excel sistemi?',
-    description: 'Sınır değer, teklif aralığı ve aşırı düşük teklif savunması için uygun Excel sistemlerini karşılaştırın.',
-    primaryQuery: 'ihaleye kaç TL teklif vermeliyim',
-    primaryProductSlug: 'ihaleye-kac-tl-teklif-vermeliyim',
-    alternativeProductSlugs: ['asiri-dusuk-teklif-savunma-robotu'],
-    intro: 'Teklif fiyatını belirlemek ile aşırı düşük teklif sorgusuna açıklama hazırlamak farklı aşamalardır. İlk aşamada sınır değer ve güvenli teklif aralığı; ikinci aşamada açıklama ve savunma yapısı önem kazanır.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'ihale-teklif-sinir-deger-excel', title: 'İhale teklif ve sınır değer hesabı için hangi Excel sistemi?', description: 'Sınır değer, teklif aralığı ve aşırı düşük teklif savunması için uygun Excel sistemlerini karşılaştırın.', primaryQuery: 'ihaleye kaç TL teklif vermeliyim', primaryProductSlug: 'ihaleye-kac-tl-teklif-vermeliyim', alternativeProductSlugs: ['asiri-dusuk-teklif-savunma-robotu'], intro: 'Teklif fiyatını belirlemek ile aşırı düşük teklif sorgusuna açıklama hazırlamak farklı aşamalardır. İlk aşamada sınır değer ve teklif aralığı; ikinci aşamada açıklama ve savunma yapısı önem kazanır.', situations: [
       { situation: 'Teklif aralığını ve sınır değeri hesaplamak', productSlug: 'ihaleye-kac-tl-teklif-vermeliyim', reason: 'Teklif öncesi karar problemine odaklanır.' },
       { situation: 'Aşırı düşük teklif açıklamasını hazırlamak', productSlug: 'asiri-dusuk-teklif-savunma-robotu', reason: 'Sorgu sonrası savunma yapısına odaklanır.' },
-    ],
-    notFor: ['EKAP entegrasyonu arıyorsanız.', 'Hukuki ihale danışmanlığı yerine otomatik karar istiyorsanız.', 'Yaklaşık maliyet veya teklif verileriniz yoksa.'],
-    faq: [
+    ], faq: [
       { q: 'Sınır değer hesabı teklif kararını tek başına belirler mi?', a: 'Hayır. Maliyet, rekabet, şartname ve riskler ayrıca değerlendirilmelidir.' },
       { q: 'Aşırı düşük teklif savunması aynı ürün mü?', a: 'Hayır. Savunma, teklif sonrası farklı bir süreçtir ve ayrı ürünle ele alınır.' },
-      { q: 'Resmi ihale sonucu garantiler mi?', a: 'Hayır. Araç karar desteği sağlar; idarenin değerlendirmesi veya hukuki sonuç garanti edilemez.' },
+      { q: 'Resmi ihale sonucunu önceden belirler mi?', a: 'Hayır. Araç karar desteği sağlar; idarenin değerlendirmesi ve hukuki sonuç ayrı süreçlerdir.' },
       { q: 'Rakip teklifleri girmek gerekir mi?', a: 'Ürünün hesap yapısında istenen veri alanlarını ürün detay sayfasından kontrol edin.' },
-      { q: 'Fiyat hardcode mu?', a: 'Hayır. Karar sayfasında ürün fiyatı mevcut ürün verisinden alınır.' },
-    ],
-  },
-  {
-    slug: 'stok-devir-nakit-baglanma-excel',
-    title: 'Stok devir ve stokta bağlı nakit için hangi Excel sistemi?',
-    description: 'Stok devir hızı, ortalama maliyet ve stokta bağlı nakdi görmek için uygun Excel sistemini karşılaştırın.',
-    primaryQuery: 'stok devir nakit bağlanma Excel',
-    primaryProductSlug: 'stok-satis-ve-nakit-baglanma-sistemi',
-    alternativeProductSlugs: ['ithalat-depo-teslim-rafa-gelen-net-birim-maliyet'],
-    intro: 'Stok miktarını bilmek tek başına yeterli değildir. Devir hızı ve stokta bağlı nakit işletmenin finansman yükünü gösterir. İthal ürünlerde ise rafa gelen birim maliyet ayrı bir hesaplama problemidir.',
-    situations: [
+      { q: 'Ürün fiyatı nasıl belirleniyor?', a: 'Karar sayfasındaki ürün fiyatı mevcut ürün veri kaynağından alınır.' },
+    ] }),
+  makePage({
+    slug: 'stok-devir-nakit-baglanma-excel', title: 'Stok devir ve stokta bağlı nakit için hangi Excel sistemi?', description: 'Stok devir hızı, ortalama maliyet ve stokta bağlı nakdi görmek için uygun Excel sistemini karşılaştırın.', primaryQuery: 'stok devir nakit bağlanma Excel', primaryProductSlug: 'stok-satis-ve-nakit-baglanma-sistemi', alternativeProductSlugs: ['ithalat-depo-teslim-rafa-gelen-net-birim-maliyet'], intro: 'Stok miktarını bilmek tek başına yeterli değildir. Devir hızı ve stokta bağlı nakit işletmenin finansman yükünü gösterir. İthal ürünlerde rafa gelen birim maliyet ayrı bir hesaplama problemidir.', situations: [
       { situation: 'Stok devir hızı ve bağlı nakit', productSlug: 'stok-satis-ve-nakit-baglanma-sistemi', reason: 'Stok hareketi ile nakit bağlanmasını birlikte gösterir.' },
       { situation: 'İthal ürünün depo teslim birim maliyeti', productSlug: 'ithalat-depo-teslim-rafa-gelen-net-birim-maliyet', reason: 'İthalat maliyet bileşenlerine odaklanır.' },
-    ],
-    notFor: ['Barkodlu depo yönetim sistemi arıyorsanız.', 'Canlı ERP stok entegrasyonu istiyorsanız.', 'Sadece ürün listesini arşivlemek istiyorsanız.'],
-    faq: [
-      { q: 'Stok devir hızı neden önemlidir?', a: 'Stokun ne kadar hızlı satışa dönüştüğünü ve sermayenin ne kadar süre stokta bağlı kaldığını değerlendirmeye yardımcı olur.' },
-      { q: 'Ortalama maliyet kullanılır mı?', a: 'Ürün sayfasındaki hesap metodunu esas alın; stok sistemi ortalama maliyet ve bağlı nakit görünümü sunar.' },
-      { q: 'İthalat maliyeti aynı sistemde mi?', a: 'İthalatın vergi ve lojistik maliyetleri ayrı ürünle daha ayrıntılı ele alınır.' },
-      { q: 'Depo programı yerine geçer mi?', a: 'Hayır. Karar ve analiz odaklı Excel sistemidir.' },
-      { q: 'Fiyat nereden geliyor?', a: 'Ürün kaynağındaki güncel fiyat otomatik kullanılır.' },
-    ],
-  },
-  {
-    slug: 'sube-karlilik-analizi-excel',
-    title: 'Şube kârlılık analizi için hangi Excel sistemi?',
-    description: 'Şube bazlı gelir, gider, nakit ve kârlılık kararını değerlendirmek için uygun Excel sistemini karşılaştırın.',
-    primaryQuery: 'şube kârlılık analizi Excel',
-    primaryProductSlug: 'sube-karlilik-ve-nakit-hesaplayici',
-    alternativeProductSlugs: ['aylik-patron-finans-paneli','proje-ve-is-bazinda-gercek-karlilik-sistemi'],
-    intro: 'Şubenin cirosu yüksek olsa bile gider, ortak maliyet ve nakit etkisi nedeniyle gerçek kârlılık zayıf olabilir. Şube kararı için şube bazlı sonuç; genel yönetim için patron paneli; iş bazlı değerlendirme için proje kârlılığı ayrı araçlardır.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'sube-karlilik-analizi-excel', title: 'Şube kârlılık analizi için hangi Excel sistemi?', description: 'Şube bazlı gelir, gider, nakit ve kârlılık kararını değerlendirmek için uygun Excel sistemini karşılaştırın.', primaryQuery: 'şube kârlılık analizi Excel', primaryProductSlug: 'sube-karlilik-ve-nakit-hesaplayici', alternativeProductSlugs: ['aylik-patron-finans-paneli','proje-ve-is-bazinda-gercek-karlilik-sistemi'], intro: 'Şubenin cirosu yüksek olsa bile gider, ortak maliyet ve nakit etkisi nedeniyle gerçek kârlılık zayıf olabilir. Şube kararı için şube bazlı sonuç; genel yönetim ve proje kârlılığı için farklı araçlar gerekir.', situations: [
       { situation: 'Şube bazında kâr ve nakit', productSlug: 'sube-karlilik-ve-nakit-hesaplayici', reason: 'Şube kararına odaklanır.' },
       { situation: 'Şirket genel yönetim özeti', productSlug: 'aylik-patron-finans-paneli', reason: 'Şube dışındaki genel finans göstergelerini toplar.' },
       { situation: 'Proje veya iş bazlı kârlılık', productSlug: 'proje-ve-is-bazinda-gercek-karlilik-sistemi', reason: 'Şube yerine iş/proje boyutuna odaklanır.' },
-    ],
-    notFor: ['Şube POS/ERP otomasyonu istiyorsanız.', 'Gayrimenkul kapatma kararı için hukuki değerleme arıyorsanız.', 'Ortak giderleri dağıtacak veri bulunmuyorsa.'],
-    faq: [
-      { q: 'Ciro yüksekse şube kârlı mıdır?', a: 'Hayır. Giderler, personel, kira, stok ve nakit etkisi birlikte değerlendirilmelidir.' },
-      { q: 'Kapatma kararını otomatik verir mi?', a: 'Sistem finansal göstergeler üretir; nihai yönetim kararı diğer stratejik ve hukuki faktörlerle birlikte verilmelidir.' },
-      { q: 'Birden fazla şube karşılaştırılabilir mi?', a: 'Ürün yapısındaki şube girişleri ve çıktı kapsamına göre karşılaştırma yapılabilir.' },
-      { q: 'Patron panelinden farkı nedir?', a: 'Patron paneli genel şirket görünümüne, şube kârlılık sistemi ise şube bazlı karara odaklanır.' },
-      { q: 'Ürün fiyatı nereden gelir?', a: 'Ürün verisinden otomatik gelir ve detay sayfasıyla aynı kaynağı kullanır.' },
-    ],
-  },
-  {
-    slug: 'ttk-376-sermaye-kaybi-excel',
-    title: 'TTK 376 sermaye kaybı için hangi Excel sistemi?',
-    description: 'Öz kaynak erimesi, sermaye kaybı ve borca batıklık göstergelerini değerlendirmek için uygun Excel sistemini görün.',
-    primaryQuery: 'TTK 376 sermaye kaybı hesaplama Excel',
-    primaryProductSlug: 'sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli',
-    alternativeProductSlugs: ['konkordato-nakit-akis-on-projesi'],
-    intro: 'TTK 376 kapsamında sermaye kaybı ve öz kaynak durumu, nakit sıkışıklığı veya konkordato projeksiyonuyla aynı değildir. Önce bilanço göstergelerinin hangi eşiğe geldiğini görmek gerekir; farklı hukuki süreçler ayrıca değerlendirilmelidir.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'ttk-376-sermaye-kaybi-excel', title: 'TTK 376 sermaye kaybı için hangi Excel sistemi?', description: 'Öz kaynak erimesi, sermaye kaybı ve borca batıklık göstergelerini değerlendirmek için uygun Excel sistemini görün.', primaryQuery: 'TTK 376 sermaye kaybı hesaplama Excel', primaryProductSlug: 'sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli', alternativeProductSlugs: ['konkordato-nakit-akis-on-projesi'], intro: 'TTK 376 kapsamında sermaye kaybı ve öz kaynak durumu, nakit sıkışıklığı veya konkordato projeksiyonuyla aynı değildir. Önce bilanço göstergelerinin hangi eşiğe geldiğini görmek gerekir.', situations: [
       { situation: 'Öz kaynak ve sermaye kaybı eşiğini izlemek', productSlug: 'sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli', reason: 'TTK 376 göstergelerine odaklanır.' },
-      { situation: 'Konkordato için nakit akış ön projesi', productSlug: 'konkordato-nakit-akis-on-projesi', reason: 'Farklı bir finansal/hukuki süreç için projeksiyon sunar.' },
-    ],
-    notFor: ['Hukuki mütalaa yerine otomatik sonuç istiyorsanız.', 'Bilanço verileriniz güncel değilse.', 'Konkordato sürecinin tamamını tek dosyayla yönetmek istiyorsanız.'],
-    faq: [
-      { q: 'TTK 376 hesabı hukuki karar mıdır?', a: 'Hayır. Finansal göstergelerin hesaplanması karar desteğidir; hukuki yükümlülükler güncel mevzuat ve uzman görüşüyle ayrıca değerlendirilmelidir.' },
-      { q: 'Borca batıklık ile nakit açığı aynı şey mi?', a: 'Hayır. Likidite sorunu nakit akışına, borca batıklık ise bilanço ve varlık-borç yapısına ilişkin farklı kavramlardır.' },
-      { q: 'Konkordato dosyasının yerine geçer mi?', a: 'Hayır. Konkordato farklı ve daha geniş bir süreçtir.' },
-      { q: 'Hangi veriler gerekir?', a: 'Ürün detay sayfasındaki giriş alanlarını esas alın; doğru ve güncel bilanço verisi kritik önemdedir.' },
-      { q: 'Fiyat otomatik mi?', a: 'Evet. Karar sayfasındaki fiyat ürün kaynağından alınır.' },
-    ],
-  },
-  {
-    slug: 'doviz-acik-pozisyon-kur-riski-excel',
-    title: 'Döviz açık pozisyonu ve kur riski için hangi Excel sistemi?',
-    description: 'Döviz varlık ve borçlarını netleştirip kur şoku etkisini görmek için uygun Excel sistemini karşılaştırın.',
-    primaryQuery: 'döviz açık pozisyon Excel',
-    primaryProductSlug: 'doviz-acik-pozisyonu-ve-kur-riski-stres-testi',
-    alternativeProductSlugs: ['kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti'],
-    intro: 'Kur riski için önce döviz cinsinden varlık ve yükümlülüklerin net pozisyonu çıkarılmalıdır. Finansman gider kısıtlaması ise ayrı bir vergi problemidir; borç yapısı ile kur riskini aynı hesap sanmamak gerekir.',
-    situations: [
+      { situation: 'Konkordato için nakit akış ön projesi', productSlug: 'konkordato-nakit-akis-on-projesi', reason: 'Farklı bir finansal ve hukuki süreç için projeksiyon sunar.' },
+    ] }),
+  makePage({
+    slug: 'doviz-acik-pozisyon-kur-riski-excel', title: 'Döviz açık pozisyonu ve kur riski için hangi Excel sistemi?', description: 'Döviz varlık ve borçlarını netleştirip kur şoku etkisini görmek için uygun Excel sistemini karşılaştırın.', primaryQuery: 'döviz açık pozisyon Excel', primaryProductSlug: 'doviz-acik-pozisyonu-ve-kur-riski-stres-testi', alternativeProductSlugs: ['kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti'], intro: 'Kur riski için önce döviz cinsinden varlık ve yükümlülüklerin net pozisyonu çıkarılmalıdır. Finansman gider kısıtlaması ise ayrı bir vergi problemidir.', situations: [
       { situation: 'Net döviz pozisyonu ve kur şoku', productSlug: 'doviz-acik-pozisyonu-ve-kur-riski-stres-testi', reason: 'Döviz açık pozisyonuna odaklanır.' },
       { situation: 'Finansman gider kısıtlaması', productSlug: 'kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti', reason: 'Vergisel finansman gideri problemine odaklanır.' },
-    ],
-    notFor: ['Canlı kur API entegrasyonu istiyorsanız.', 'Türev ürün fiyatlama sistemi arıyorsanız.', 'Yatırım tavsiyesi bekliyorsanız.'],
-    faq: [
-      { q: 'Açık pozisyon neyi gösterir?', a: 'Döviz cinsinden varlık ve yükümlülüklerin net farkını göstererek kur değişimine duyarlı pozisyonu görünür kılar.' },
-      { q: 'Kur şoku neden test edilir?', a: 'Farklı kur seviyelerinde pozisyonun finansal etkisini önceden görmek için senaryo analizi yapılır.' },
-      { q: 'Hedge önerisi verir mi?', a: 'Ürün karar desteği sağlar; yatırım veya türev ürün tavsiyesi değildir.' },
-      { q: 'Finansman gider kısıtlaması aynı şey mi?', a: 'Hayır. O konu vergisel bir hesaplama problemidir ve ayrı ürünle ele alınır.' },
-      { q: 'Fiyat canlı ürünle aynı mı?', a: 'Evet. Aynı ürün veri kaynağından alınır.' },
-    ],
-  },
-  {
-    slug: 'logo-erp-cari-yaslandirma-excel',
-    title: 'Logo/ERP cari yaşlandırma için hangi Excel sistemi?',
-    description: 'Logo veya ERP cari hareket çıktısını yaşlandırma ve tahsilat kararına dönüştürmek için uygun Excel sistemini değerlendirin.',
-    primaryQuery: 'Logo cari yaşlandırma raporu Excel',
-    primaryProductSlug: 'logo-sql-cari-yaslandirma-tahsilat-karar-motoru',
-    alternativeProductSlugs: ['cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi'],
-    intro: 'ERP çıktısı tek başına tahsilat önceliğini göstermez. Cari hareketlerin yaşlandırılması, açık kalemlerin sınıflandırılması ve aksiyon sırasına dönüştürülmesi ayrı bir analiz katmanıdır. Logo adı burada uyumluluk bağlamında kullanılır; marka sahibiyle resmi ilişki ima edilmez.',
-    situations: [
+    ] }),
+  makePage({
+    slug: 'logo-erp-cari-yaslandirma-excel', title: 'Logo/ERP cari yaşlandırma için hangi Excel sistemi?', description: 'Logo veya ERP cari hareket çıktısını yaşlandırma ve tahsilat kararına dönüştürmek için uygun Excel sistemini değerlendirin.', primaryQuery: 'Logo cari yaşlandırma raporu Excel', primaryProductSlug: 'logo-sql-cari-yaslandirma-tahsilat-karar-motoru', alternativeProductSlugs: ['cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi'], intro: 'ERP çıktısı tek başına tahsilat önceliğini göstermez. Cari hareketlerin yaşlandırılması, açık kalemlerin sınıflandırılması ve aksiyon sırasına dönüştürülmesi ayrı bir analiz katmanıdır. Logo adı burada uyumluluk bağlamında kullanılır; marka sahibiyle resmi ilişki ima edilmez.', situations: [
       { situation: 'Logo/SQL cari hareketinden yaşlandırma üretmek', productSlug: 'logo-sql-cari-yaslandirma-tahsilat-karar-motoru', reason: 'ERP çıktısından tahsilat odaklı yaşlandırma üretir.' },
       { situation: 'Genel cari ve müşteri risk takibi', productSlug: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', reason: 'Belirli ERP çıktısına bağlı olmadan cari risk yönetimine odaklanır.' },
-    ],
-    notFor: ['Logo ERP eklentisi veya resmi çözüm ortağı ürünü arıyorsanız.', 'Mac uyumluluğu zorunluysa ürün sayfasındaki platform bilgisini kontrol etmeden satın almayın.', 'ERP veritabanına doğrudan yazma yapan entegrasyon arıyorsanız.'],
-    faq: [
-      { q: 'Bu ürün Logo tarafından mı geliştirilmiştir?', a: 'Hayır. Logo adı uyumluluk ve veri kaynağı bağlamında kullanılır; marka sahibiyle resmi ortaklık veya onay ima edilmez.' },
-      { q: 'ERP veritabanına bağlanır mı?', a: 'Ürün sayfasındaki teknik kapsamı esas alın. Amaç ERP çıktısını Excel karar görünümüne dönüştürmektir.' },
-      { q: 'Cari yaşlandırma ne sağlar?', a: 'Açık alacakların vade/gecikme aralıklarına göre sınıflandırılmasını ve tahsilat önceliğinin daha görünür olmasını sağlar.' },
-      { q: 'Genel cari takip ürününden farkı nedir?', a: 'Bu ürün belirli ERP/SQL çıktı senaryosuna odaklanır; genel cari sistem daha geniş ve kaynak bağımsız bir takip yaklaşımıdır.' },
-      { q: 'Fiyat nereden alınır?', a: 'Ürün veri kaynağından otomatik alınır.' },
-    ],
-  },
+    ], notFor: ['Logo ERP eklentisi veya resmi çözüm ortağı ürünü arıyorsanız.', 'Mac uyumluluğu zorunluysa ürün sayfasındaki platform bilgisini kontrol etmeden satın almayın.', 'ERP veritabanına doğrudan yazma yapan entegrasyon arıyorsanız.'] }),
 ];
 
 export const kararPageBySlug = new Map(kararPages.map((page) => [page.slug, page]));
