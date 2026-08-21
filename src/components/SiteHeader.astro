@@ -8,6 +8,7 @@ const pathname = Astro.url.pathname;
 
 const menu = [
   { label: 'Şablonlar', href: '/sablonlar' },
+  { label: 'Size Özel', href: '/ozel-excel-sistemleri' },
   { label: 'Ücretsiz Demo', href: '/demo' },
   { label: 'Nasıl Çalışır', href: '/nasil-calisir' },
   { label: 'Rehber', href: '/rehber' },
@@ -116,14 +117,14 @@ const isActive = (href: string) =>
   .site-header__nav {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     margin-inline: auto;
   }
   .site-header__link {
-    padding: 9px 11px;
+    padding: 9px 9px;
     border-radius: 9px;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 550;
     color: var(--xl-ink-3);
     text-decoration: none;
     transition: color 150ms ease-out, background 150ms ease-out;
@@ -157,7 +158,7 @@ const isActive = (href: string) =>
   .site-header__cta-mobile,
   .site-header__menu { display: none; }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1020px) {
     .site-header__nav { display: none; }
     .site-header__menu { display: block; position: relative; }
     .site-header__menu summary {
@@ -185,7 +186,7 @@ const isActive = (href: string) =>
       top: 46px;
       right: 0;
       display: grid;
-      min-width: 210px;
+      min-width: 220px;
       padding: 8px;
       border: 1px solid var(--xl-border);
       border-radius: 14px;
