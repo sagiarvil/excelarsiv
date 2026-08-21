@@ -11,149 +11,50 @@ const { searchIndex } = Astro.props;
 
 <section class="hero-section" aria-labelledby="hero-title">
   <div class="hero-shell">
-    <div class="hero-mobile-copy">
-      <p class="hero-mobile-copy__eyebrow">İŞLETMELER İÇİN EXCEL SİSTEMLERİ</p>
-      <h1 id="hero-title" class="hero-title">İşletmeler İçin Hazır Excel Şablonları ve Karar Sistemleri</h1>
-      <p class="hero-mobile-copy__summary">Nakit akışı, kasa, cari hesap, stok, maliyet ve kârlılık için hazır çalışma sistemlerini bulun; satın almadan önce gerçek ekranları ve demoyu inceleyin.</p>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">İŞLETMELER VE MUHASEBE OFİSLERİ İÇİN ÖZEL EXCEL SİSTEMLERİ</p>
+        <h1 id="hero-title" class="hero-title">İşinizi hazır tabloya uydurmayın. Excel sistemini işinize göre hazırlayalım.</h1>
+        <p class="hero-summary">Cari takip, tahsilat, nakit akışı, müşteri yönetimi, stok, teklif, bordro, maliyet ve yönetim raporlaması gibi gerçek iş ihtiyaçlarınıza göre çalışan Excel sistemleri tasarlıyoruz. Hazır ürün uygun değilse mevcut dosyanızı dönüştürüyor veya sıfırdan size özel sistem kuruyoruz.</p>
+        <div class="hero-actions">
+          <a class="hero-primary" href="/ozel-excel-sistemleri">İhtiyacımı anlatmak istiyorum</a>
+          <a class="hero-secondary" href="#hazir-sistemler">Hazır sistemleri de inceleyin</a>
+        </div>
+        <div class="hero-audience" aria-label="Kimler için">
+          <span>İşletmeler</span>
+          <span>Muhasebe ofisleri</span>
+          <span>Mali müşavirler</span>
+          <span>Finans ve operasyon ekipleri</span>
+        </div>
+      </div>
+
+      <aside class="hero-proof" aria-label="Gerçek özel proje örneği">
+        <p class="hero-proof__eyebrow">GERÇEK ÖZEL PROJE</p>
+        <h2>Muhasebe ofisinin günlük işleyişine göre kurulan yönetim sistemi</h2>
+        <p>Müşteri, sözleşme, tahsilat ve yönetim takibi hazır bir şablona zorlanmadan, ofisin gerçek çalışma biçimine göre tek yapıda kurgulandı.</p>
+        <div class="hero-proof__stats">
+          <div><strong>6 saat</strong><span>ihtiyaç analizi + üretim</span></div>
+          <div><strong>10.000 TL</strong><span>gerçekleşen proje bedeli</span></div>
+        </div>
+        <small>Gerçekleşmiş proje örneğidir; her özel çalışma ayrıca kapsamlandırılır.</small>
+      </aside>
     </div>
 
-    <picture class="hero-artwork">
-      <source media="(min-width: 721px)" srcset="/images/hero.jpg" />
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-        alt="Excel şablonları ve finansal işletme çözümleri"
-        width="1600"
-        height="533"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      />
-    </picture>
-
-    <div class="hero-search-rail" id="hero-search">
-      <HeroSearch searchIndex={searchIndex} />
+    <div class="hero-search-block" id="hero-search">
+      <div class="hero-search-copy">
+        <span>HAZIR ÇÖZÜM ARAYANLAR İÇİN</span>
+        <strong>İhtiyacınıza uygun hazır bir sistem varsa katalogda bulun.</strong>
+      </div>
+      <div class="hero-search-rail"><HeroSearch searchIndex={searchIndex} /></div>
     </div>
   </div>
 </section>
 
 <style>
-  .hero-section {
-    margin-top: 28px;
-    margin-bottom: 46px;
-  }
-  .hero-shell {
-    position: relative;
-    width: min(1680px, calc(100% - 64px));
-    margin-inline: auto;
-    padding-bottom: 28px;
-  }
-  .hero-mobile-copy {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-  .hero-artwork {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    width: 100%;
-    margin-inline: auto;
-    aspect-ratio: 3 / 1;
-    border: 1px solid rgba(16, 124, 65, 0.12);
-    border-radius: 24px;
-    background: #eef3f6;
-    box-shadow: 0 24px 60px rgba(24, 55, 38, 0.13);
-  }
-  .hero-artwork img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-  .hero-search-rail {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    z-index: 10;
-    width: min(690px, calc(100% - 48px));
-    transform: translateX(-50%);
-    scroll-margin-top: 90px;
-  }
-
-  @media (min-width: 721px) and (max-width: 1180px) {
-    .hero-shell {
-      width: calc(100% - 40px);
-    }
-  }
-
-  @media (max-width: 720px) {
-    .hero-section {
-      margin-top: 12px;
-      margin-bottom: 0;
-    }
-    .hero-shell {
-      width: calc(100% - 24px);
-      padding-bottom: 0;
-    }
-    .hero-mobile-copy {
-      position: relative;
-      width: auto;
-      height: auto;
-      padding: 22px 18px 20px;
-      margin: 0;
-      overflow: visible;
-      clip: auto;
-      white-space: normal;
-      border: 1px solid rgba(16, 124, 65, .13);
-      border-radius: 18px;
-      background: linear-gradient(145deg, #f8fcf9 0%, #eef7f1 100%);
-      box-shadow: 0 14px 34px rgba(24, 55, 38, .08);
-    }
-    .hero-mobile-copy__eyebrow {
-      margin: 0;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 12.5px;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: .09em;
-      color: #107c41;
-    }
-    .hero-title {
-      max-width: 520px;
-      margin: 8px 0 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: clamp(29px, 8.8vw, 38px);
-      font-weight: 760;
-      line-height: 1.01;
-      letter-spacing: -.045em;
-      color: #13271b;
-    }
-    .hero-mobile-copy__summary {
-      max-width: 560px;
-      margin: 11px 0 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 12px;
-      line-height: 1.52;
-      color: #596960;
-    }
-    .hero-artwork {
-      display: none;
-    }
-    .hero-search-rail {
-      position: relative;
-      left: auto;
-      bottom: auto;
-      transform: none;
-      width: calc(100% - 24px);
-      margin: 12px auto 0;
-      scroll-margin-top: 72px;
-    }
-  }
+  .hero-section{padding:54px 0 28px;background:radial-gradient(circle at 84% 10%,#e9f5ec 0,transparent 28%),linear-gradient(135deg,#fff 0%,#f8fbf8 64%,#f1f7f2 100%);border-bottom:1px solid #dfe8e1}
+  .hero-shell{width:min(1180px,calc(100% - 48px));margin:0 auto}.hero-grid{display:grid;grid-template-columns:1.13fr .87fr;gap:46px;align-items:center}.hero-copy{padding:28px 0}.hero-eyebrow,.hero-proof__eyebrow{margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:850;line-height:1.2;letter-spacing:.14em;color:#166534}.hero-title{max-width:780px;margin:14px 0 20px;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:clamp(45px,5.7vw,74px);font-weight:820;line-height:.98;letter-spacing:-.055em;color:#162219}.hero-summary{max-width:760px;margin:0;color:#617067;font-size:17px;line-height:1.72}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.hero-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 19px;border-radius:12px;font-size:13px;font-weight:820;text-decoration:none}.hero-primary{background:#166534;color:#fff;border:1px solid #166534;box-shadow:0 12px 28px rgba(22,101,52,.16)}.hero-primary:hover{background:#14532d}.hero-secondary{background:#fff;color:#172019;border:1px solid #becbc1}.hero-secondary:hover{border-color:#166534;color:#14532d}.hero-audience{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.hero-audience span{padding:8px 10px;border:1px solid #d8e3db;background:#fff;color:#55645a;font-size:11px;font-weight:750}
+  .hero-proof{padding:30px;border:1px solid #cfdcd2;border-radius:22px;background:#fff;box-shadow:0 24px 64px rgba(22,101,52,.11)}.hero-proof h2{margin:11px 0 13px;font-size:29px;line-height:1.04;letter-spacing:-.04em;color:#162219}.hero-proof>p:not(.hero-proof__eyebrow){margin:0;color:#667269;font-size:13px;line-height:1.7}.hero-proof__stats{display:grid;grid-template-columns:1fr 1fr;margin:24px 0 16px;border-top:1px solid #dfe8e1;border-bottom:1px solid #dfe8e1}.hero-proof__stats div{padding:18px 0}.hero-proof__stats div+div{padding-left:20px;border-left:1px solid #dfe8e1}.hero-proof__stats strong{display:block;font-size:26px;color:#14532d}.hero-proof__stats span{display:block;margin-top:3px;color:#748078;font-size:10px}.hero-proof small{display:block;color:#7a857d;font-size:10px;line-height:1.5}
+  .hero-search-block{display:grid;grid-template-columns:.72fr 1.28fr;gap:22px;align-items:center;margin-top:32px;padding:18px;border:1px solid #dbe5dd;border-radius:18px;background:#fff;box-shadow:0 14px 34px rgba(24,55,38,.06);scroll-margin-top:90px}.hero-search-copy span{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;font-weight:850;letter-spacing:.12em;color:#166534}.hero-search-copy strong{display:block;margin-top:6px;font-size:14px;line-height:1.35;color:#26332a}.hero-search-rail{min-width:0}
+  @media(max-width:920px){.hero-grid{grid-template-columns:1fr}.hero-copy{padding-bottom:0}.hero-proof{box-shadow:none}.hero-search-block{grid-template-columns:1fr}.hero-search-copy{text-align:center}}
+  @media(max-width:620px){.hero-section{padding:28px 0 18px}.hero-shell{width:calc(100% - 28px)}.hero-title{font-size:clamp(36px,11vw,48px)}.hero-summary{font-size:14px}.hero-actions{display:grid}.hero-actions a{width:100%}.hero-audience{gap:6px}.hero-proof{padding:22px}.hero-proof h2{font-size:25px}.hero-proof__stats{grid-template-columns:1fr}.hero-proof__stats div+div{padding-left:0;border-left:0;border-top:1px solid #dfe8e1}.hero-search-block{padding:14px}}
 </style>
