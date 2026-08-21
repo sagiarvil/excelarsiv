@@ -104,7 +104,7 @@ function suggestionFor(route: string, type: string): LinkSuggestion {
   if (type === 'product') return { targetRoute: route, suggestedSource: '/sablonlar', reason: 'Ürün katalog merkezinden ikinci bağımsız giriş bağlantısı almalı.' };
   if (type === 'category') return { targetRoute: route, suggestedSource: '/', reason: 'Kategori ana keşif yüzeyinden desteklenmeli.' };
   if (type === 'guide') return { targetRoute: route, suggestedSource: '/rehber', reason: 'Rehber hub sayfasından desteklenmeli.' };
-  if (type === 'decision') return { targetRoute: route, suggestedSource: '/karar', reason: 'Karar rehberi karar hub ve ilgili karar ağından en az iki giriş almalı.' };
+  if (type === 'decision') return { targetRoute: route, suggestedSource: '/karar', reason: 'Karar rehberi karar hub üzerinden keşfedilebilir olmalı.' };
   return { targetRoute: route, suggestedSource: '/', reason: 'Düşük iç-link alan sayfa ana bilgi mimarisinden desteklenmeli.' };
 }
 
@@ -148,7 +148,7 @@ function analyzeLinkGraph(pages: GraphPage[], registry: Registry, threshold: num
       linksTo: [...(outgoing.get(page.route) ?? new Set<string>())].sort(),
     };
   }).sort((a, b) => a.route.localeCompare(b.route));
-  const orphans = rows.filter((row) => row.internalLinksIn < threshold);
+  const orphans = rows.filter((row) => row.internalLinksIn < (row.type === 'decision' ? 1 : threshold));
   const suggestions = orphans.map((row) => suggestionFor(row.route, row.type));
   const unregisteredRoutes = rows.filter((row) => !row.registryRegistered).map((row) => row.route);
   return {
