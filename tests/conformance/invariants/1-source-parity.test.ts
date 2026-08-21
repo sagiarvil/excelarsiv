@@ -1,14 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { registryParity, sourceIndexableRoutes } from '../../../scripts/seo/registry-source-parity.ts';
+import { loadSeoRegistry, registryParity, sourceIndexableRoutes } from '../../../scripts/seo/registry-source-parity.ts';
 
 const ROOT = resolve(fileURLToPath(new URL('../../../', import.meta.url)));
+void ROOT;
 
 test('registry live route set equals source indexable route set', () => {
-  const registry = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_seo_registry.json'), 'utf8')) as { records:Array<{route:string;status:string}> };
+  const registry = loadSeoRegistry();
   const sourceRoutes = sourceIndexableRoutes();
   const result = registryParity(registry, sourceRoutes);
   assert.ok(sourceRoutes.length > 0);
