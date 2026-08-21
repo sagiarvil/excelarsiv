@@ -79,7 +79,7 @@ const jsonLd = {
 <CommerceLayout title={`${page.title} | Excel Arşiv`} description={page.description}>
   <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(jsonLd)} /></Fragment>
 
-  <main class="decision-page">
+  <div class="decision-page">
     <section class="decision-hero">
       <div class="decision-shell">
         <p class="eyebrow">KARAR REHBERİ</p>
@@ -152,7 +152,7 @@ const jsonLd = {
     <section class="decision-section related">
       <div class="decision-shell"><h2>İlgili karar rehberleri</h2><div class="related-links">{related.map((item) => <a href={`/karar/${item.slug}`}>{item.title}</a>)}</div><a class="all" href="/karar">Tüm karar rehberleri →</a></div>
     </section>
-  </main>
+  </div>
 </CommerceLayout>
 
 <style>
