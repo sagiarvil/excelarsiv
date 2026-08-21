@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "artifact": "landing_registry",
+    "schemaVersion": "1.0",
+    "siteId": "excelarsiv",
+    "scope": "explicit-static-commercial-landings"
+  },
+  "records": [
+    {
+      "pageId": "excelarsiv:ozel-excel-sistemleri",
+      "route": "/ozel-excel-sistemleri",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "Özel Excel Otomasyon, Mini ERP ve CRM Sistemleri",
+      "searchIntent": "commercial",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/ozel-excel-sistemleri",
+      "ownerRoute": "/ozel-excel-sistemleri",
+      "notes": "Özel Excel otomasyon, mini ERP ve CRM hizmet landing sayfası."
+    }
+  ]
+}
