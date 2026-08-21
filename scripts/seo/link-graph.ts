@@ -85,11 +85,18 @@ function loadBuiltPages(): GraphPage[] {
   return walkHtml(DIST).map((path) => ({ route: routeFromHtmlPath(path), html: readFileSync(path, 'utf8') }));
 }
 
+function loadRegistry(): Registry {
+  const primary = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_seo_registry.json'), 'utf8')) as Registry;
+  const decision = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_decision_registry.json'), 'utf8')) as Registry;
+  return { records: [...primary.records, ...decision.records] };
+}
+
 function inferType(route: string): string {
   if (route === '/') return 'home';
   if (route === '/sablonlar' || route.startsWith('/sablonlar/')) return 'category';
   if (route.startsWith('/sablon/')) return 'product';
   if (route === '/rehber' || route.startsWith('/rehber/')) return 'guide';
+  if (route === '/karar' || route.startsWith('/karar/')) return 'decision';
   return 'other';
 }
 
@@ -97,6 +104,7 @@ function suggestionFor(route: string, type: string): LinkSuggestion {
   if (type === 'product') return { targetRoute: route, suggestedSource: '/sablonlar', reason: 'Ürün katalog merkezinden ikinci bağımsız giriş bağlantısı almalı.' };
   if (type === 'category') return { targetRoute: route, suggestedSource: '/', reason: 'Kategori ana keşif yüzeyinden desteklenmeli.' };
   if (type === 'guide') return { targetRoute: route, suggestedSource: '/rehber', reason: 'Rehber hub sayfasından desteklenmeli.' };
+  if (type === 'decision') return { targetRoute: route, suggestedSource: '/karar', reason: 'Karar rehberi karar hub üzerinden keşfedilebilir olmalı.' };
   return { targetRoute: route, suggestedSource: '/', reason: 'Düşük iç-link alan sayfa ana bilgi mimarisinden desteklenmeli.' };
 }
 
@@ -140,7 +148,7 @@ function analyzeLinkGraph(pages: GraphPage[], registry: Registry, threshold: num
       linksTo: [...(outgoing.get(page.route) ?? new Set<string>())].sort(),
     };
   }).sort((a, b) => a.route.localeCompare(b.route));
-  const orphans = rows.filter((row) => row.internalLinksIn < threshold);
+  const orphans = rows.filter((row) => row.internalLinksIn < (row.type === 'decision' ? 1 : threshold));
   const suggestions = orphans.map((row) => suggestionFor(row.route, row.type));
   const unregisteredRoutes = rows.filter((row) => !row.registryRegistered).map((row) => row.route);
   return {
@@ -157,7 +165,7 @@ function analyzeLinkGraph(pages: GraphPage[], registry: Registry, threshold: num
 function main(): void {
   try {
     const defaults = JSON.parse(readFileSync(resolve(ROOT, 'seo.config.defaults.json'), 'utf8')) as { thresholds: { internalLinksInMin: number } };
-    const registry = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_seo_registry.json'), 'utf8')) as Registry;
+    const registry = loadRegistry();
     const result = analyzeLinkGraph(loadBuiltPages(), registry, defaults.thresholds.internalLinksInMin);
     console.log(`LINK GRAPH pages=${result.rows.length} edges=${result.edges} threshold=${result.threshold} orphans=${result.orphans.length}`);
     console.log(`REGISTRY COVERAGE registered=${result.registeredPages} unregistered=${result.unregisteredRoutes.length}`);
@@ -168,7 +176,7 @@ function main(): void {
       writeFileSync(resolve(ROOT, 'data/seo/link_graph.json'), `${JSON.stringify(result, null, 2)}\n`, 'utf8');
       console.log('LINK GRAPH WRITE PASS');
     }
-    if (process.argv.includes('--check') && result.orphans.length > 0) process.exit(EXIT.BLOCK);
+    if (process.argv.includes('--check') && (result.orphans.length > 0 || result.unregisteredRoutes.length > 0)) process.exit(EXIT.BLOCK);
     console.log('LINK GRAPH PASS');
     process.exit(EXIT.PASS);
   } catch (error) {
@@ -179,4 +187,4 @@ function main(): void {
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
 
-export { EXIT, analyzeLinkGraph, extractInternalRoutes, inferType, isIndexableHtml, normalizeRoute, routeFromHtmlPath };
+export { EXIT, analyzeLinkGraph, extractInternalRoutes, inferType, isIndexableHtml, loadRegistry, normalizeRoute, routeFromHtmlPath };

@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "artifact": "decision_seo_registry",
+    "schemaVersion": "1.0",
+    "generatedAt": "2026-08-21T00:00:00Z",
+    "siteId": "excelarsiv",
+    "purpose": "Dynamic /karar cluster source and link-graph registry supplement"
+  },
+  "records": [
+    {"pageId":"excelarsiv:karar","route":"/karar","type":"decision-index","status":"live","primaryQueryClusterId":"excel-decision-guides","primaryEntity":"Excel karar rehberleri","searchIntent":"commercial-investigation","canonical":"https://excelarsiv.com/karar","ownerRoute":"/karar"},
+    {"pageId":"excelarsiv:karar:hangi-excel-sistemini-almaliyim","route":"/karar/hangi-excel-sistemini-almaliyim","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:kobi-nakit-akisi-excel","route":"/karar/kobi-nakit-akisi-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:kasa-defteri-excel","route":"/karar/kasa-defteri-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:mali-musavir-cari-takip-excel","route":"/karar/mali-musavir-cari-takip-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:pos-komisyon-kontrol-excel","route":"/karar/pos-komisyon-kontrol-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:trendyol-pazaryeri-net-kar-excel","route":"/karar/trendyol-pazaryeri-net-kar-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:kdv-iade-dosyasi-excel","route":"/karar/kdv-iade-dosyasi-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:amortisman-yeniden-degerleme-excel","route":"/karar/amortisman-yeniden-degerleme-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:kidem-ihbar-maliyeti-excel","route":"/karar/kidem-ihbar-maliyeti-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:sgk-tesvik-optimizasyon-excel","route":"/karar/sgk-tesvik-optimizasyon-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:restoran-kafe-maliyet-excel","route":"/karar/restoran-kafe-maliyet-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:insaat-hakedis-excel","route":"/karar/insaat-hakedis-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:ihale-teklif-sinir-deger-excel","route":"/karar/ihale-teklif-sinir-deger-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:stok-devir-nakit-baglanma-excel","route":"/karar/stok-devir-nakit-baglanma-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:sube-karlilik-analizi-excel","route":"/karar/sube-karlilik-analizi-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:ttk-376-sermaye-kaybi-excel","route":"/karar/ttk-376-sermaye-kaybi-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:doviz-acik-pozisyon-kur-riski-excel","route":"/karar/doviz-acik-pozisyon-kur-riski-excel","type":"decision","status":"live"},
+    {"pageId":"excelarsiv:karar:logo-erp-cari-yaslandirma-excel","route":"/karar/logo-erp-cari-yaslandirma-excel","type":"decision","status":"live"}
+  ]
+}

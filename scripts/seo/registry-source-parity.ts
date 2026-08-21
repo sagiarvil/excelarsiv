@@ -5,7 +5,8 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(fileURLToPath(new URL('../../', import.meta.url)));
 const EXIT = Object.freeze({ PASS: 0, BLOCK: 1, CONFIG: 4 });
 
-type Registry = { records: Array<{ route: string; status: string }> };
+type RegistryRecord = { route: string; status: string };
+type Registry = { records: RegistryRecord[] };
 type Catalog = { products: Record<string, unknown> };
 
 function normalizeRoute(route: string): string {
@@ -58,12 +59,16 @@ function demoRoutes(): string[] {
 }
 
 function sektorRoutes(): string[] {
-  // Keep in sync with src/data/sektorler.ts (CI cannot import Astro src easily).
   return [
     '/sektor/kafe-restoran-nakit',
     '/sektor/insaat-hakedis',
     '/sektor/e-ticaret-karlilik',
   ];
+}
+
+function decisionRoutes(): string[] {
+  const text = readFileSync(resolve(ROOT, 'src/data/kararPages.ts'), 'utf8');
+  return [...text.matchAll(/\bslug:\s*['"]([^'"]+)['"]/g)].map((match) => `/karar/${match[1]}`);
 }
 
 function sourceIndexableRoutes(): string[] {
@@ -74,7 +79,14 @@ function sourceIndexableRoutes(): string[] {
     ...productRoutes(),
     ...demoRoutes(),
     ...sektorRoutes(),
+    ...decisionRoutes(),
   ])].sort();
+}
+
+function loadSeoRegistry(): Registry {
+  const primary = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_seo_registry.json'), 'utf8')) as Registry;
+  const decision = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_decision_registry.json'), 'utf8')) as Registry;
+  return { records: [...primary.records, ...decision.records] };
 }
 
 function registryParity(registry: Registry, sourceRoutes = sourceIndexableRoutes()): { missing: string[]; extra: string[] } {
@@ -88,7 +100,7 @@ function registryParity(registry: Registry, sourceRoutes = sourceIndexableRoutes
 
 function main(): void {
   try {
-    const registry = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_seo_registry.json'), 'utf8')) as Registry;
+    const registry = loadSeoRegistry();
     const routes = sourceIndexableRoutes();
     const result = registryParity(registry, routes);
     console.log(`REGISTRY SOURCE PARITY expected=${routes.length} registry=${registry.records.filter((record) => record.status === 'live').length} missing=${result.missing.length} extra=${result.extra.length}`);
@@ -105,4 +117,4 @@ function main(): void {
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
 
-export { EXIT, categoryRoutes, demoRoutes, guideRoutes, normalizeRoute, productRoutes, registryParity, sektorRoutes, sourceIndexableRoutes, staticAstroRoutes };
+export { EXIT, categoryRoutes, decisionRoutes, demoRoutes, guideRoutes, loadSeoRegistry, normalizeRoute, productRoutes, registryParity, sektorRoutes, sourceIndexableRoutes, staticAstroRoutes };

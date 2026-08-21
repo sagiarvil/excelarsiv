@@ -141,7 +141,9 @@ async function runStagingProof(baseUrl: string, lighthouseDir: string, inpJsonPa
   const base = new URL(baseUrl);
   if (base.protocol !== 'https:') throw new Error('STAGING_URL_MUST_BE_HTTPS');
   const defaults = JSON.parse(readFileSync(resolve(ROOT, 'seo.config.defaults.json'), 'utf8')) as { thresholds: Thresholds };
-  const registry = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_seo_registry.json'), 'utf8')) as Registry;
+  const primaryRegistry = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_seo_registry.json'), 'utf8')) as Registry;
+  const decisionRegistry = JSON.parse(readFileSync(resolve(ROOT, 'data/seo/registry/excelarsiv_decision_registry.json'), 'utf8')) as Registry;
+  const registry: Registry = { records: [...primaryRegistry.records, ...decisionRegistry.records] };
   const live = registry.records.filter((record) => record.status === 'live').sort((a, b) => a.route.localeCompare(b.route));
   if (live.length === 0) throw new Error('REGISTRY_EMPTY');
   const cache = new Map<string, HttpSnapshot>();
