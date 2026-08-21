@@ -57,7 +57,7 @@ const homeJsonLd = {
 >
   <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(homeJsonLd)} /></Fragment>
 
-  <main class="home-v1">
+  <div class="home-v1">
     <section class="home-hero">
       <div class="home-shell hero-grid">
         <div>
@@ -113,7 +113,7 @@ const homeJsonLd = {
         <div class="faq-list">{faqItems.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
       </div>
     </section>
-  </main>
+  </div>
 </CommerceLayout>
 
 <style>
