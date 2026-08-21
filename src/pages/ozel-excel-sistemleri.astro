@@ -14,11 +14,7 @@ const serviceLd = {
       serviceType: 'İhtiyaca özel Excel çalışma sistemi tasarımı ve süreç otomasyonu',
       url: 'https://excelarsiv.com/ozel-excel-sistemleri',
       areaServed: { '@type': 'Country', name: 'Türkiye' },
-      provider: {
-        '@type': 'Person',
-        name: SATICI.gercekKisi,
-        url: 'https://excelarsiv.com/hakkinda',
-      },
+      provider: { '@type': 'Person', name: SATICI.gercekKisi, url: 'https://excelarsiv.com/hakkinda' },
       description: 'Hazır şablon satışı değil; işletmenin veya muhasebe ofisinin mevcut işleyişi analiz edilerek ihtiyaca özel Excel çalışma sistemi hazırlanması.',
     },
     {
@@ -30,206 +26,207 @@ const serviceLd = {
     },
   ],
 };
+
+const officeNeeds = [
+  ['01', 'Müşteri / Mükellef Takibi', 'Mükellef bilgileri, sorumlu personel, hizmet kapsamı, dönem ve kritik notların tek yapıda izlenmesi.'],
+  ['02', 'Sözleşme ve Tahsilat', 'Ücret, sözleşme dönemi, tahsil edilen / bekleyen tutar ve gecikmelerin görünür hale gelmesi.'],
+  ['03', 'Görev ve Dönem Kontrolü', 'Tekrarlayan işlerin, son tarihlerin, eksik evrakların ve tamamlanma durumlarının kontrollü takibi.'],
+  ['04', 'Ofis Yönetim Paneli', 'Müşteri, iş yükü, tahsilat ve görev durumunun yöneticinin tek bakışta okuyacağı özet ekrana dönüşmesi.'],
+  ['05', 'Veri Düzenleme ve Aktarım', 'Farklı kaynaklardan gelen verilerin temizlenmesi, eşleştirilmesi ve kullanılabilir yapıya getirilmesi.'],
+  ['06', 'Mevcut Dosyanın Yeniden Kurulması', 'Yıllardır kullanılan ofis Excel’inin daha sade, kontrollü ve raporlanabilir hale getirilmesi.'],
+];
+
+const businessNeeds = [
+  ['01', 'Nakit Akışı ve Ödeme Planı', 'Tahsilat, ödeme, kredi taksiti ve nakit durumunu işletmenin kendi verisine göre izleyen çalışma.'],
+  ['02', 'Cari / Tahsilat / Risk Takibi', 'Müşteri bazlı alacak, vade, gecikme ve tahsilat durumunun tek ekranda görünmesi.'],
+  ['03', 'Teklif ve Gerçek Kârlılık', 'Maliyet, iskonto, komisyon ve hedef marjınıza göre işletmenize özel teklif / fiyatlama tablosu.'],
+  ['04', 'Stok ve Üretim Kontrolü', 'Stok, reçete, tüketim, üretim ve maliyet verilerinin ihtiyaç duyulan ayrıntıda izlenmesi.'],
+  ['05', 'Yönetim Raporu / Dashboard', 'Dağınık verinin KPI, özet, trend ve yönetim karar ekranına dönüştürülmesi.'],
+  ['06', 'Size Özgü Operasyon', 'Hazır yazılımların tam karşılamadığı, yalnız sizin işletmenize özgü süreçlerin Excel’e taşınması.'],
+];
 ---
 
 <CommerceLayout
   title="İşletme ve Muhasebe Ofislerine Özel Excel Çalışmaları | Excel Arşiv"
-  description="Hazır şablon değil. İşletmenizin veya muhasebe ofisinizin gerçek iş akışını analiz ediyor; kullandığınız verilere, kontrollere ve raporlama ihtiyacına göre size özel Excel çalışma sistemi hazırlıyoruz."
+  description="Hazır şablon değil. İşletmenizin veya muhasebe ofisinizin gerçek iş akışını analiz ediyor; size özel Excel takip, kontrol, otomasyon ve raporlama çalışmaları hazırlıyoruz."
 >
   <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(serviceLd)} /></Fragment>
 
-  <main class="custom-service-page">
-    <section class="service-strip">
-      <div class="shell strip-inner">
-        <strong>HAZIR ŞABLON DEĞİL</strong>
-        <span>İşletmenizin veya muhasebe ofisinizin kendi işleyişine göre hazırlanan özel Excel çalışma sistemleri.</span>
-      </div>
-    </section>
-
+  <div class="custom-service-page">
     <section class="hero">
       <div class="shell hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">İŞLETMELER · KOBİ'LER · MUHASEBE / SMMM OFİSLERİ</p>
-          <h1>İşinizi bize anlatın. <span>Excel çalışmasını işinize göre biz kuralım.</span></h1>
-          <p class="lead">Elinizdeki hazır bir tabloyu size satmıyoruz. Hangi bilgiyi nereden aldığınızı, hangi işi hâlâ elle yaptığınızı, nerede hata çıktığını ve hangi rapora ihtiyaç duyduğunuzu anlayıp Excel dosyasını buna göre hazırlıyoruz.</p>
+          <p class="eyebrow">İŞLETMELER · KOBİ’LER · MUHASEBE / SMMM OFİSLERİ</p>
+          <h1>İşinizi anlatın. <span>Excel çalışmasını işleyişinize göre biz kuralım.</span></h1>
+          <p class="lead">Hazır bir dosyayı size uydurmuyoruz. Hangi bilgiyi nereden aldığınızı, hangi işi hâlâ elle yaptığınızı, nerede hata çıktığını ve hangi sonucu görmek istediğinizi anlayıp çalışma yapısını buna göre kuruyoruz.</p>
 
-          <div class="hero-points">
-            <div><b>01</b><span><strong>Mevcut işleyişinizi okuruz.</strong> Teknik şartname yazmanız gerekmez.</span></div>
-            <div><b>02</b><span><strong>Excel'i işinize göre tasarlarız.</strong> Sizi hazır şablona uydurmaya çalışmayız.</span></div>
-            <div><b>03</b><span><strong>Kontrol ve raporlamayı sisteme taşırız.</strong> Tekrarlı işi ve manuel kontrolü azaltırız.</span></div>
+          <div class="hero-trust">
+            <div><strong>Hazır şablon değil</strong><span>İhtiyaca göre tasarlanan çalışma</span></div>
+            <div><strong>Tek kaynaklı veri</strong><span>Tekrarlı girişleri azaltan yapı</span></div>
+            <div><strong>Kontrol + raporlama</strong><span>Yönetilebilir, okunabilir çıktı</span></div>
           </div>
 
           <div class="actions">
             <a class="btn primary" href={mailHref}>İhtiyacımı anlatmak istiyorum</a>
-            <a class="btn secondary" href={SATICI.telefonTelHref}>Telefonla görüşelim</a>
+            <a class="btn secondary" href="#calisma-alanlari">Çalışma alanlarını görün</a>
           </div>
-
-          <p class="micro">Mevcut Excel dosyanızı, ekran görüntüsünü veya çalışma biçiminizi paylaşmanız yeterli. Önce ihtiyacı netleştirir, sonra kapsam ve proje bedelini yazılı olarak belirleriz.</p>
+          <p class="micro">Mevcut Excel dosyanızı, ekran görüntüsünü veya örnek verinizi paylaşmanız yeterli. Önce kapsamı netleştirir, sonra proje bedelini yazılı olarak belirleriz.</p>
         </div>
 
-        <aside class="proof-card">
-          <span class="proof-label">GERÇEK PROJE ÖRNEĞİ</span>
-          <p class="proof-type">Muhasebe ofisine özel çalışma</p>
-          <h2>Hazır ürün seçilmedi. Ofisin ihtiyacı dinlendi ve çalışma sıfırdan kuruldu.</h2>
+        <aside class="proof-card" aria-label="Gerçek proje örneği">
+          <div class="proof-top"><span>GERÇEK PROJE ÖRNEĞİ</span><small>Muhasebe ofisi</small></div>
+          <h2>Hazır ürün seçilmedi. Ofisin gerçek işleyişi dinlendi ve çalışma sıfırdan kuruldu.</h2>
           <div class="proof-metrics">
-            <div><strong>6 saat</strong><small>ihtiyaç analizi + üretim</small></div>
-            <div><strong>10.000 TL</strong><small>gerçekleşen proje bedeli</small></div>
+            <div><strong>6 saat</strong><span>ihtiyaç analizi + üretim</span></div>
+            <div><strong>10.000 TL</strong><span>gerçekleşen proje bedeli</span></div>
           </div>
-          <ol>
-            <li><b>1</b><span>Ofisin müşteri ve çalışma düzeni anlatıldı.</span></li>
-            <li><b>2</b><span>Müşteri, sözleşme, tahsilat ve yönetim ihtiyacı birlikte ele alındı.</span></li>
-            <li><b>3</b><span>İhtiyaca göre çalışan özel Excel sistemi üretildi.</span></li>
-          </ol>
-          <small class="proof-note">Bu örnek sabit fiyat veya standart teslim süresi değildir; gerçekleşmiş bir proje örneğidir.</small>
+          <div class="proof-flow">
+            <div><b>1</b><p><strong>İşleyiş dinlendi</strong><span>Müşteri, sözleşme, tahsilat ve yönetim akışı çıkarıldı.</span></p></div>
+            <div><b>2</b><p><strong>Yapı tasarlandı</strong><span>Giriş, kontrol ve raporlama ekranları ihtiyaca göre kurgulandı.</span></p></div>
+            <div><b>3</b><p><strong>Çalışma teslim edildi</strong><span>Hazır ürün değil, ofisin kendi düzenine göre çalışan dosya üretildi.</span></p></div>
+          </div>
+          <p class="proof-note">Bu örnek sabit fiyat veya standart teslim süresi değildir; gerçekleşmiş bir proje örneğidir.</p>
         </aside>
       </div>
     </section>
 
-    <section class="distinction">
-      <div class="shell">
-        <div class="section-head narrow">
-          <p class="eyebrow">BURADAKİ HİZMET NEDİR?</p>
-          <h2>ExcelArşiv'deki hazır ürünlerden farklı bir çalışma.</h2>
-          <p>Hazır sistemlerde ihtiyacı önceden tanımlanmış bir Excel çalışmasını satın alırsınız. Bu sayfadaki hizmette ise önce sizin işiniz analiz edilir; dosya, ekranlar, hesap mantığı ve raporlama yapısı ihtiyacınıza göre hazırlanır.</p>
+    <section class="service-definition">
+      <div class="shell definition-grid">
+        <div class="definition-copy">
+          <p class="eyebrow">BU HİZMETİN FARKI</p>
+          <h2>Önce dosyayı değil, işi inceliyoruz.</h2>
+          <p>Hazır ürünlerde önceden tanımlanmış bir ihtiyaca yönelik çalışma satın alınır. Burada ise önce sizin iş akışınız, veri kaynaklarınız, kontrol noktalarınız ve kullanıcı alışkanlıklarınız anlaşılır.</p>
         </div>
-
-        <div class="difference-grid">
-          <article class="muted-card">
-            <small>HAZIR ÜRÜNLER</small>
-            <h3>Önceden tanımlanmış ihtiyaca hazır Excel sistemi</h3>
-            <p>Nakit akışı, cari takip, stok, maliyet gibi belirli bir problem için önceden hazırlanmış çalışma.</p>
+        <div class="definition-cards">
+          <article>
+            <span>HAZIR ÜRÜN</span>
+            <h3>Önceden tanımlanmış probleme hazır çözüm</h3>
+            <p>Nakit akışı, cari, stok veya maliyet gibi belirli bir ihtiyaç için hazırlanmış standart çalışma.</p>
             <a href="/sablonlar">Hazır sistemleri inceleyin →</a>
           </article>
-          <article class="accent-card">
-            <small>SİZE ÖZEL HİZMET</small>
-            <h3>Sizin iş akışınıza göre sıfırdan hazırlanan Excel çalışması</h3>
-            <p>İşletmenizin veya muhasebe ofisinizin mevcut düzeni, veri kaynakları, kontrol ihtiyacı ve kullanıcı alışkanlıklarına göre tasarlanır.</p>
-            <a href={mailHref}>Özel çalışmayı anlatın →</a>
+          <article class="featured">
+            <span>SİZE ÖZEL HİZMET</span>
+            <h3>İş akışınıza göre tasarlanan özel Excel çalışması</h3>
+            <p>Ekranlar, hesap yapısı, kontrol mantığı ve raporlama ihtiyacınız mevcut işleyişinize göre belirlenir.</p>
+            <a href={mailHref}>İhtiyacınızı anlatın →</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="persona-section" id="muhasebe-ofisleri">
-      <div class="shell persona-grid">
-        <div class="persona-intro">
-          <p class="eyebrow">MUHASEBE / SMMM OFİSLERİ</p>
-          <h2>Ofisinizde her ay tekrar edilen işi Excel'e bırakın.</h2>
-          <p>Muhasebe ofislerinde sorun çoğu zaman “Excel bilmeme” değildir. Aynı veriyi tekrar tekrar girmek, mükellefleri farklı dosyalarda izlemek, tahsilatı ayrı takip etmek ve dönemsel kontrolleri kişiye bağlı yürütmektir.</p>
-          <p>Bu işleyişi dinleyip ofisinize özel takip ve yönetim tabloları hazırlıyoruz.</p>
+    <section class="audience" id="calisma-alanlari">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">MUHASEBE / SMMM OFİSLERİ</p>
+            <h2>Her ay tekrar eden işi daha kontrollü bir yapıya taşıyın.</h2>
+          </div>
+          <p>Mükellef takibi, tahsilat, dönem kontrolü ve yönetim görünümü birbirinden kopuk dosyalarda yürüyorsa, çalışmayı ofisinizin gerçek düzenine göre kuruyoruz.</p>
         </div>
-
-        <div class="needs-grid">
-          <article><span>01</span><h3>Müşteri / Mükellef Takibi</h3><p>Mükellef bilgileri, sorumlu personel, hizmet kapsamı, dönem ve kritik notların tek yapıda izlenmesi.</p></article>
-          <article><span>02</span><h3>Sözleşme ve Tahsilat</h3><p>Ücret, sözleşme dönemi, tahsil edilen / bekleyen tutar ve gecikmelerin görünür hale gelmesi.</p></article>
-          <article><span>03</span><h3>Görev ve Dönem Kontrolü</h3><p>Tekrarlayan işlerin, son tarihlerin, eksik evrakların ve tamamlanma durumlarının kontrollü takibi.</p></article>
-          <article><span>04</span><h3>Ofis Yönetim Paneli</h3><p>Müşteri, iş yükü, tahsilat ve görev durumunun yöneticinin tek bakışta okuyacağı özet ekrana dönüşmesi.</p></article>
-          <article><span>05</span><h3>Veri Düzenleme ve Aktarım Hazırlığı</h3><p>Farklı kaynaklardan gelen verilerin Excel içinde temizlenmesi, eşleştirilmesi ve kullanılabilir yapıya getirilmesi.</p></article>
-          <article><span>06</span><h3>Mevcut Dosyanın Yeniden Kurulması</h3><p>Yıllardır kullanılan ofis Excel'inin daha kontrollü, sade ve raporlanabilir hale getirilmesi.</p></article>
+        <div class="need-grid">
+          {officeNeeds.map(([no, title, desc]) => (
+            <article class="need-card"><span>{no}</span><h3>{title}</h3><p>{desc}</p></article>
+          ))}
         </div>
       </div>
     </section>
 
-    <section class="persona-section business" id="isletmeler">
-      <div class="shell persona-grid reverse">
-        <div class="persona-intro">
-          <p class="eyebrow">İŞLETMELER / KOBİ'LER</p>
-          <h2>İşletmenizde Excel ile yürüyen günlük işleri daha kontrollü hale getirin.</h2>
-          <p>Birçok işletmede muhasebe programı veya farklı iş yazılımları kullanılır; ancak teklif, tahsilat, stok kontrolü, nakit planı, maliyet, saha verisi ve yönetim raporları çoğu zaman hâlâ ayrı Excel dosyalarında yürür.</p>
-          <p>Biz o boşluğu hedefleriz: işletmenin gerçekten kullandığı ara süreci daha kontrollü, hızlı ve yönetilebilir hale getiririz.</p>
+    <section class="audience audience-alt">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">İŞLETMELER / KOBİ’LER</p>
+            <h2>Excel ile yürüyen günlük işleri tek tek değil, sistem olarak ele alın.</h2>
+          </div>
+          <p>Teklif, tahsilat, stok, nakit planı, maliyet ve yönetim raporları ayrı dosyalara dağılmışsa; ihtiyaç duyduğunuz ara süreci daha görünür ve yönetilebilir hale getiriyoruz.</p>
         </div>
-
-        <div class="needs-grid">
-          <article><span>01</span><h3>Nakit Akışı ve Ödeme Planı</h3><p>Tahsilat, ödeme, kredi taksiti ve nakit durumunu işletmenin kendi verisine göre izleyen çalışma.</p></article>
-          <article><span>02</span><h3>Cari / Tahsilat / Risk Takibi</h3><p>Müşteri bazlı alacak, vade, gecikme ve tahsilat durumunun tek ekranda görünmesi.</p></article>
-          <article><span>03</span><h3>Teklif ve Gerçek Kârlılık</h3><p>Maliyet, iskonto, komisyon ve hedef marjınıza göre işletmenize özel teklif / fiyatlama tablosu.</p></article>
-          <article><span>04</span><h3>Stok ve Üretim Kontrolü</h3><p>Stok, reçete, tüketim, üretim ve maliyet verilerinin ihtiyaç duyulan ayrıntıda izlenmesi.</p></article>
-          <article><span>05</span><h3>Yönetim Raporu / Dashboard</h3><p>Dağınık verinin KPI, özet, trend ve yönetim karar ekranına dönüştürülmesi.</p></article>
-          <article><span>06</span><h3>Size Özgü Operasyon</h3><p>Piyasadaki hazır yazılımların tam karşılamadığı, yalnız sizin işletmenize özgü süreçlerin Excel'e taşınması.</p></article>
+        <div class="need-grid">
+          {businessNeeds.map(([no, title, desc]) => (
+            <article class="need-card"><span>{no}</span><h3>{title}</h3><p>{desc}</p></article>
+          ))}
         </div>
       </div>
     </section>
 
-    <section class="method">
-      <div class="shell method-grid">
-        <div>
+    <section class="process">
+      <div class="shell">
+        <div class="process-head">
           <p class="eyebrow">NASIL ÇALIŞIYORUZ?</p>
-          <h2>Önce dosyayı değil, işi inceliyoruz.</h2>
-          <p>Bir Excel çalışmasının gerçekten işe yaraması için hesap kadar kullanıcı davranışını, veri kaynağını ve kontrol noktalarını da anlamak gerekir.</p>
+          <h2>Teknik şartname yazmanız gerekmez.</h2>
+          <p>İşinizi anlatmanız yeterli. İhtiyacı teknik yapıya biz çeviriyoruz.</p>
         </div>
-        <div class="method-steps">
-          <div><b>1</b><strong>İhtiyacı anlatın</strong><span>Şu an nasıl çalıştığınızı, nerede zorlandığınızı ve görmek istediğiniz sonucu anlatın.</span></div>
-          <div><b>2</b><strong>Mevcut yapıyı inceleyelim</strong><span>Varsa Excel dosyanız, ekran görüntüsü veya örnek veriniz üzerinden gerçek akışı okuyalım.</span></div>
-          <div><b>3</b><strong>Kapsamı yazılı netleştirelim</strong><span>Hangi ekranların, kontrollerin, hesapların ve raporların hazırlanacağı net olsun.</span></div>
-          <div><b>4</b><strong>Çalışmayı üretip test edelim</strong><span>Excel sistemi hazırlanır; kritik hesaplar ve kullanıcı akışı test edilerek teslim edilir.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="why-us">
-      <div class="shell why-grid">
-        <div class="why-copy">
-          <p class="eyebrow">NEDEN BU YAKLAŞIM?</p>
-          <h2>İşletme dilini anlayan Excel çalışması.</h2>
-          <p>Ticari bankacılık ve saha tecrübesi sayesinde yalnız “hangi formül lazım?” sorusuna bakmıyoruz. Paranın, tahsilatın, stokun, satışın ve kontrolün işletmede nasıl hareket ettiğini okuyup teknik yapıyı buna göre kuruyoruz.</p>
-        </div>
-        <div class="why-cards">
-          <article><strong>İş akışını anlama</strong><p>Talebi teknik terim beklemeden, işletmenin günlük çalışma dili üzerinden çözümleme.</p></article>
-          <article><strong>Kontrollü kullanım</strong><p>Girdi, hesap ve rapor alanlarını birbirinden ayıran; kullanıcı hatası riskini azaltan yapı.</p></article>
-          <article><strong>Yönetim görünürlüğü</strong><p>Ham satırları yalnız saklamak yerine sonuç, alarm ve karar bilgisine dönüştürme.</p></article>
+        <div class="process-grid">
+          <article><b>01</b><h3>İşleyişi dinleriz</h3><p>Şu an neyi nasıl yaptığınızı ve nerede zorlandığınızı anlarız.</p></article>
+          <article><b>02</b><h3>Kapsamı çıkarırız</h3><p>Hangi girişlerin, hesapların, kontrollerin ve raporların gerektiğini netleştiririz.</p></article>
+          <article><b>03</b><h3>Çalışmayı kurarız</h3><p>Excel yapısını gerçek kullanım akışına göre üretir ve kritik noktaları test ederiz.</p></article>
+          <article><b>04</b><h3>Teslim ederiz</h3><p>Kullanım akışını açıklarız; kapsam ve teslim yapısı yazılı olarak net kalır.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="pricing">
-      <div class="shell pricing-box">
+    <section class="principles">
+      <div class="shell principles-grid">
         <div>
-          <p class="eyebrow">PROJE BEDELİ NASIL BELİRLENİR?</p>
-          <h2>Fiyatı dosyanın sayfa sayısı değil, çözülecek iş belirler.</h2>
-          <p>Basit bir takip tablosu ile çok kullanıcılı, çok veri kaynaklı bir yönetim sistemi aynı kapsamda değildir. Bu nedenle önce ihtiyacı inceler, teslim kapsamını yazar ve proje bedelini işe başlamadan önce netleştiririz.</p>
+          <p class="eyebrow">NEDEN FARKLI?</p>
+          <h2>Formül yazmaktan önce iş kararını anlamaya odaklanıyoruz.</h2>
         </div>
-        <div class="pricing-proof">
-          <small>GERÇEKLEŞMİŞ PROJE ÖRNEĞİ</small>
-          <strong>10.000 TL</strong>
-          <span>Muhasebe ofisine özel yönetim sistemi</span>
-          <p>6 saatlik analiz + üretim çalışması. Her yeni proje kendi ihtiyacına göre ayrıca kapsamlandırılır.</p>
+        <div class="principle-cards">
+          <article><span>01</span><h3>İş akışı odaklı</h3><p>Hangi hücrenin değil, hangi adımın zaman ve kontrol kaybettirdiğine bakarız.</p></article>
+          <article><span>02</span><h3>Finansal bakış</h3><p>Nakit, tahsilat, maliyet ve yönetim görünümünü yalnız veri girişi değil karar açısından ele alırız.</p></article>
+          <article><span>03</span><h3>Kontrollü teslim</h3><p>Girdi alanları, hesaplar, uyarılar ve rapor ekranları birbirini destekleyen tek akışta kurulur.</p></article>
         </div>
       </div>
     </section>
 
     <section class="final-cta">
-      <div class="shell cta-box">
+      <div class="shell cta-panel">
         <div>
-          <p class="eyebrow">SİZİN İŞİNİZ NASIL ÇALIŞIYOR?</p>
-          <h2>“Bize özel bir Excel lazım” diyorsanız, önce neyi çözmek istediğinizi konuşalım.</h2>
-          <p>Hazır ürün seçmek zorunda değilsiniz. İşletmenizin veya muhasebe ofisinizin mevcut işleyişini anlatın; Excel ile gerçekten çözülebilecek kısmı birlikte netleştirelim.</p>
+          <p class="eyebrow light">BAŞLANGIÇ</p>
+          <h2>İhtiyacınızı kısa yazın. Çalışmanın kapsamını birlikte netleştirelim.</h2>
+          <p>“Biz bunu hâlâ Excel + e-posta + elle kontrol ile yürütüyoruz” dediğiniz süreç varsa, mevcut düzeni görüp daha kontrollü bir çalışma yapısı önerebiliriz.</p>
         </div>
         <div class="cta-actions">
-          <a class="btn primary light" href={mailHref}>İhtiyacımı anlatmak istiyorum</a>
-          <a class="btn outline" href={SATICI.telefonTelHref}>{SATICI.telefon}</a>
-          <small>Paylaştığınız bilgiler yalnızca talebinizi değerlendirmek amacıyla kullanılır. Gerekirse proje öncesinde karşılıklı gizlilik sözleşmesi (NDA) yapılabilir.</small>
+          <a class="btn light-btn" href={mailHref}>İhtiyacımı anlatmak istiyorum</a>
+          <a class="phone-link" href={SATICI.telefonTelHref}>{SATICI.telefon} · Telefonla görüşelim</a>
+          <small>Gerekirse mevcut dosyanız önce incelenir. Kapsam, teslim ve proje bedeli çalışma başlamadan önce yazılı olarak netleştirilir.</small>
         </div>
       </div>
     </section>
-  </main>
+  </div>
 </CommerceLayout>
 
 <style>
-  .custom-service-page{--ink:#162019;--muted:#66716a;--green:#166534;--green-dark:#0b3d24;--soft:#f4f8f5;--soft2:#edf6ef;--line:#dbe5dd;--gold:#b96d0d;background:#fff;color:var(--ink)}
-  .shell{width:min(1160px,calc(100% - 48px));margin:0 auto}.eyebrow{margin:0 0 10px;font-size:11px;font-weight:900;letter-spacing:.14em;color:var(--green)}
-  .service-strip{background:#102019;color:#d6e2da;border-bottom:1px solid #294235}.strip-inner{min-height:45px;display:flex;gap:14px;align-items:center;justify-content:center;font-size:12px}.strip-inner strong{color:#fff;font-size:10px;letter-spacing:.12em;background:#1f6a42;padding:5px 8px;border-radius:6px}.strip-inner span{line-height:1.45}
-  .hero{padding:78px 0 72px;background:radial-gradient(circle at 89% 8%,#e7f4ea 0,transparent 31%),linear-gradient(135deg,#fff 0%,#f8fbf8 70%,#eef6f0 100%);border-bottom:1px solid var(--line)}
-  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center}.hero-copy h1{margin:0 0 20px;max-width:760px;font-size:clamp(44px,5.2vw,70px);line-height:1;letter-spacing:-.055em}.hero-copy h1 span{color:var(--green)}.lead{max-width:760px;margin:0;color:var(--muted);font-size:18px;line-height:1.72}
-  .hero-points{display:grid;gap:9px;margin-top:26px}.hero-points>div{display:grid;grid-template-columns:34px 1fr;gap:11px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:12px}.hero-points b{color:var(--green);font-size:11px}.hero-points span{font-size:14px;color:#526057;line-height:1.5}.hero-points strong{color:var(--ink)}
-  .actions,.cta-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 19px;border-radius:12px;font-size:14px;font-weight:850;text-decoration:none;border:1px solid transparent}.primary{background:var(--green);color:#fff}.secondary{background:#fff;color:var(--ink);border-color:#bdc9c0}.micro{max-width:700px;margin:14px 0 0;color:#7a857d;font-size:12px;line-height:1.55}
-  .proof-card{position:relative;background:#102019;color:#fff;border-radius:22px;padding:30px;box-shadow:0 24px 60px rgba(16,32,25,.18)}.proof-label{display:inline-block;padding:6px 9px;border-radius:7px;background:#d4881f;color:#201506;font-size:10px;font-weight:950;letter-spacing:.11em}.proof-type{margin:20px 0 5px;color:#9fbaaa;font-size:12px;font-weight:800}.proof-card h2{margin:0;font-size:29px;line-height:1.16;letter-spacing:-.03em}.proof-metrics{display:grid;grid-template-columns:1fr 1fr;margin:24px 0;border:1px solid #2b4738;border-radius:14px;overflow:hidden}.proof-metrics div{padding:18px}.proof-metrics div+div{border-left:1px solid #2b4738}.proof-metrics strong{display:block;font-size:24px}.proof-metrics small{display:block;margin-top:4px;color:#9fbaaa}.proof-card ol{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:10px}.proof-card li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;color:#d9e5dd;font-size:13px}.proof-card li b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#214a34;color:#bfe0ca}.proof-note{color:#8ea195;line-height:1.5}
-  .distinction{padding:68px 0;background:#fff;border-bottom:1px solid var(--line)}.section-head.narrow{max-width:820px}.section-head h2,.persona-intro h2,.method h2,.why-copy h2,.pricing-box h2,.cta-box h2{margin:0 0 12px;font-size:clamp(32px,3.8vw,50px);line-height:1.08;letter-spacing:-.04em}.section-head>p,.persona-intro>p,.method p,.why-copy p,.pricing-box>div>p,.cta-box>div>p{color:var(--muted);line-height:1.7}
-  .difference-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}.difference-grid article{padding:28px;border-radius:18px;border:1px solid var(--line)}.difference-grid small{font-size:10px;font-weight:900;letter-spacing:.12em;color:#7a857e}.difference-grid h3{margin:9px 0 10px;font-size:22px;line-height:1.2}.difference-grid p{color:var(--muted);line-height:1.6}.difference-grid a{font-weight:850;color:var(--green);text-decoration:none}.muted-card{background:#f7f9f7}.accent-card{background:linear-gradient(135deg,#edf7ef,#f9fcfa);border-color:#b9d5c1!important}
-  .persona-section{padding:82px 0;background:var(--soft);border-bottom:1px solid var(--line)}.persona-section.business{background:#fff}.persona-grid{display:grid;grid-template-columns:.74fr 1.26fr;gap:52px;align-items:start}.persona-grid.reverse{grid-template-columns:.74fr 1.26fr}.persona-intro{position:sticky;top:110px}.persona-intro p{font-size:15px}.needs-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.needs-grid article{background:#fff;border:1px solid var(--line);border-radius:16px;padding:23px}.business .needs-grid article{background:#f7faf8}.needs-grid span{display:inline-block;color:var(--green);font-size:10px;font-weight:900;letter-spacing:.1em}.needs-grid h3{margin:9px 0 8px;font-size:18px}.needs-grid p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
-  .method{padding:82px 0;background:#0e1d16;color:#fff}.method-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:58px}.method .eyebrow{color:#75bd8c}.method h2{color:#fff}.method p{color:#aebdb3}.method-steps{display:grid;gap:10px}.method-steps>div{display:grid;grid-template-columns:38px 190px 1fr;gap:14px;align-items:center;padding:17px 18px;border:1px solid #284236;border-radius:13px;background:#14271d}.method-steps b{color:#75bd8c}.method-steps strong{font-size:14px}.method-steps span{color:#aebdb3;font-size:13px;line-height:1.5}
-  .why-us{padding:76px 0;background:#fff;border-bottom:1px solid var(--line)}.why-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center}.why-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.why-cards article{padding:22px;border-radius:15px;background:var(--soft);border:1px solid var(--line)}.why-cards strong{display:block;margin-bottom:8px;font-size:16px}.why-cards p{margin:0;color:var(--muted);font-size:12px;line-height:1.55}
-  .pricing{padding:72px 0;background:#f5f8f5}.pricing-box{display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:center}.pricing-proof{padding:26px;border-radius:18px;background:#fff;border:1px solid var(--line)}.pricing-proof small{display:block;color:var(--green);font-size:10px;font-weight:900;letter-spacing:.11em}.pricing-proof strong{display:block;margin:8px 0 2px;font-size:34px}.pricing-proof span{font-weight:800}.pricing-proof p{margin-bottom:0;color:var(--muted);font-size:13px;line-height:1.55}
-  .final-cta{padding:76px 0;background:#fff}.cta-box{display:grid;grid-template-columns:1.25fr .75fr;gap:44px;padding:42px;border-radius:24px;background:linear-gradient(135deg,#103622,#166534);color:#fff}.cta-box .eyebrow{color:#b9dfc4}.cta-box h2{color:#fff}.cta-box>div>p{color:#d2e1d6}.cta-actions{align-content:flex-start}.light{background:#fff;color:#11482c}.outline{background:transparent;color:#fff;border-color:#73a484}.cta-actions small{width:100%;color:#c0d2c5;line-height:1.55;margin-top:3px}
-  @media(max-width:980px){.hero-grid,.persona-grid,.persona-grid.reverse,.method-grid,.why-grid,.pricing-box,.cta-box{grid-template-columns:1fr}.persona-intro{position:static}.why-cards{grid-template-columns:1fr 1fr 1fr}.proof-card{max-width:720px}}
-  @media(max-width:680px){.shell{width:calc(100% - 28px)}.service-strip{display:none}.hero{padding:54px 0}.hero-copy h1{font-size:42px}.lead{font-size:16px}.difference-grid,.needs-grid,.why-cards{grid-template-columns:1fr}.method-steps>div{grid-template-columns:32px 1fr}.method-steps span{grid-column:2}.proof-metrics{grid-template-columns:1fr}.proof-metrics div+div{border-left:0;border-top:1px solid #2b4738}.persona-section,.method{padding:60px 0}.btn{width:100%}.cta-box{padding:25px}.section-head h2,.persona-intro h2,.method h2,.why-copy h2,.pricing-box h2,.cta-box h2{font-size:34px}}
+  .custom-service-page{--green:#107c41;--green-dark:#0b5b31;--green-soft:#eef7f1;--ink:#132119;--muted:#66736b;--line:#dfe7e1;--canvas:#f6f8f6;--dark:#0b281b;background:#fff;color:var(--ink)}
+  .shell{width:min(1180px,calc(100% - 48px));margin:0 auto}
+  .eyebrow{margin:0 0 14px;font:800 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em;color:var(--green)}
+  .hero{padding:72px 0 68px;background:linear-gradient(135deg,#fff 0%,#f7fbf8 58%,#edf7f0 100%);border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr);gap:54px;align-items:center}
+  .hero-copy h1{max-width:760px;margin:0;font-size:clamp(46px,5.2vw,72px);line-height:.98;letter-spacing:-.055em}
+  .hero-copy h1 span{display:block;color:var(--green)}
+  .lead{max-width:720px;margin:24px 0 0;font-size:18px;line-height:1.7;color:var(--muted)}
+  .hero-trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:30px}
+  .hero-trust div{padding:16px 17px;border:1px solid var(--line);background:rgba(255,255,255,.78)}
+  .hero-trust strong{display:block;font-size:13px}.hero-trust span{display:block;margin-top:5px;font-size:11px;line-height:1.45;color:var(--muted)}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 21px;border-radius:10px;font-weight:800;text-decoration:none;border:1px solid transparent}
+  .btn.primary{background:var(--green);color:#fff}.btn.primary:hover{background:var(--green-dark)}
+  .btn.secondary{border-color:#bfcac2;background:#fff;color:var(--ink)}
+  .micro{max-width:720px;margin:16px 0 0;font-size:12px;line-height:1.55;color:#7a867f}
+  .proof-card{padding:32px;border-radius:24px;background:var(--dark);color:#fff;box-shadow:0 28px 70px rgba(9,41,27,.18)}
+  .proof-top{display:flex;align-items:center;justify-content:space-between;gap:20px}.proof-top span{padding:8px 10px;border-radius:7px;background:#d78b14;color:#1b1609;font:800 10px/1 ui-monospace,monospace;letter-spacing:.08em}.proof-top small{color:#9fb5a8}
+  .proof-card h2{margin:24px 0 0;font-size:31px;line-height:1.08;letter-spacing:-.035em}
+  .proof-metrics{display:grid;grid-template-columns:1fr 1fr;margin-top:26px;border:1px solid #2d4b3c;border-radius:14px;overflow:hidden}.proof-metrics div{padding:20px}.proof-metrics div+div{border-left:1px solid #2d4b3c}.proof-metrics strong{display:block;font-size:28px}.proof-metrics span{display:block;margin-top:6px;font-size:11px;color:#95ad9f}
+  .proof-flow{display:grid;gap:15px;margin-top:25px}.proof-flow>div{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}.proof-flow b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#1d5d3d;color:#dff4e7;font-size:12px}.proof-flow p{margin:0}.proof-flow strong{display:block;font-size:13px}.proof-flow span{display:block;margin-top:4px;color:#aac0b3;font-size:12px;line-height:1.5}.proof-note{display:block;margin-top:24px;color:#81988b;line-height:1.55}
+  .service-definition,.audience,.process,.principles,.final-cta{padding:82px 0}
+  .service-definition{background:#fff}
+  .definition-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}.definition-copy h2,.section-head h2,.process-head h2,.principles-grid h2,.cta-panel h2{margin:0;font-size:clamp(38px,4.3vw,56px);line-height:1.02;letter-spacing:-.045em}.definition-copy p:last-child,.section-head>p,.process-head>p,.cta-panel>div>p{color:var(--muted);font-size:16px;line-height:1.7}
+  .definition-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}.definition-cards article{padding:27px;border:1px solid var(--line);border-radius:18px;background:#fff}.definition-cards article.featured{background:#f1f8f3;border-color:#cfe2d4}.definition-cards span{font:800 10px/1 ui-monospace,monospace;letter-spacing:.12em;color:var(--green)}.definition-cards h3{margin:13px 0 10px;font-size:22px;line-height:1.1}.definition-cards p{color:var(--muted);line-height:1.65;font-size:13px}.definition-cards a{display:inline-block;margin-top:9px;color:var(--green-dark);font-weight:800;text-decoration:none}
+  .audience{background:var(--canvas);border-top:1px solid var(--line)}.audience-alt{background:#fff}
+  .section-head{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:end;margin-bottom:34px}.section-head>p{margin:0}
+  .need-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.need-card{min-height:220px;padding:25px;border:1px solid var(--line);border-radius:18px;background:#fff;transition:transform .16s ease,border-color .16s ease}.need-card:hover{transform:translateY(-2px);border-color:#b9d3c0}.need-card>span{font:800 10px/1 ui-monospace,monospace;color:var(--green);letter-spacing:.1em}.need-card h3{margin:17px 0 10px;font-size:23px;line-height:1.08;letter-spacing:-.025em}.need-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+  .process{background:var(--dark);color:#fff}.process-head{max-width:760px}.process-head .eyebrow{color:#8fd9ad}.process-head>p{color:#a9beb2}.process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:40px;background:#294437;border:1px solid #294437}.process-grid article{padding:28px;background:#102f21}.process-grid b{font:800 11px/1 ui-monospace,monospace;color:#77c596}.process-grid h3{margin:18px 0 10px;font-size:21px}.process-grid p{margin:0;color:#a9beb2;font-size:13px;line-height:1.65}
+  .principles{background:#fff}.principles-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}.principle-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.principle-cards article{padding:24px;border-top:3px solid var(--green);background:#f7faf8}.principle-cards span{font:800 10px/1 ui-monospace,monospace;color:var(--green)}.principle-cards h3{margin:15px 0 9px;font-size:20px}.principle-cards p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
+  .final-cta{padding-top:30px}.cta-panel{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;padding:48px;border-radius:26px;background:#0c2c1e;color:#fff}.cta-panel .light{color:#8fd9ad}.cta-panel h2{font-size:clamp(36px,4vw,52px)}.cta-panel>div>p{color:#acc1b5}.cta-actions{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:15px}.light-btn{background:#fff;color:#123020}.phone-link{color:#d8eadf;font-weight:800;text-decoration:none}.cta-actions small{color:#8fa79a;line-height:1.55}
+  @media(max-width:980px){.hero-grid,.definition-grid,.section-head,.principles-grid,.cta-panel{grid-template-columns:1fr}.hero-grid{gap:36px}.proof-card{max-width:760px}.need-grid{grid-template-columns:1fr 1fr}.process-grid{grid-template-columns:1fr 1fr}.principle-cards{grid-template-columns:1fr 1fr 1fr}.section-head{gap:20px}.definition-grid,.principles-grid{gap:30px}}
+  @media(max-width:680px){.shell{width:calc(100% - 28px)}.hero{padding:46px 0}.hero-copy h1{font-size:43px}.lead{font-size:16px}.hero-trust,.definition-cards,.need-grid,.process-grid,.principle-cards{grid-template-columns:1fr}.hero-trust{gap:8px}.actions{flex-direction:column}.btn{width:100%}.proof-card{padding:24px;border-radius:18px}.proof-card h2{font-size:26px}.proof-metrics{grid-template-columns:1fr}.proof-metrics div+div{border-left:0;border-top:1px solid #2d4b3c}.service-definition,.audience,.process,.principles,.final-cta{padding:58px 0}.need-card{min-height:0}.section-head h2,.definition-copy h2,.process-head h2,.principles-grid h2,.cta-panel h2{font-size:34px}.cta-panel{padding:28px;border-radius:18px}}
 </style>
