@@ -8,16 +8,18 @@ import { analyzeLinkGraph } from '../../scripts/seo/link-graph.ts';
 const ROOT = resolve(fileURLToPath(new URL('../../', import.meta.url)));
 
 test('link graph counts incoming links and identifies orphan routes', () => {
-  const pages = new Map([
-    ['/', '<a href="/a">A</a>'],
-    ['/a', '<a href="/b">B</a>'],
-    ['/b', '<a href="/a">A</a><a href="/">Home</a>'],
-  ]);
-  const registry = [
-    { route: '/', status: 'live' },
-    { route: '/a', status: 'live' },
-    { route: '/b', status: 'live' },
+  const pages = [
+    { route: '/', html: '<a href="/a">A</a><a href="/b">B</a>' },
+    { route: '/a', html: '<a href="/b">B</a>' },
+    { route: '/b', html: '<a href="/a">A</a><a href="/">Home</a>' },
   ];
+  const registry = {
+    records: [
+      { pageId: 'home', route: '/', status: 'live', type: 'home' },
+      { pageId: 'a', route: '/a', status: 'live', type: 'other' },
+      { pageId: 'b', route: '/b', status: 'live', type: 'other' },
+    ],
+  };
   const result = analyzeLinkGraph(pages, registry, 2);
   assert.equal(result.rows.find((row) => row.route === '/a')?.internalLinksIn, 2);
   assert.equal(result.rows.find((row) => row.route === '/b')?.internalLinksIn, 2);
