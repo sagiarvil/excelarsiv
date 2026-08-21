@@ -89,9 +89,8 @@ function readRegistryFile(path: string): Registry {
 
 function loadSeoRegistry(): Registry {
   const primary = readRegistryFile('data/seo/registry/excelarsiv_seo_registry.json');
-  const decision = readRegistryFile('data/seo/registry/excelarsiv_decision_registry.json');
-  const landing = readRegistryFile('data/seo/registry/excelarsiv_landing_registry.json');
-  return { records: [...primary.records, ...decision.records, ...landing.records] };
+  const supplemental = readRegistryFile('data/seo/registry/excelarsiv_decision_registry.json');
+  return { records: [...primary.records, ...supplemental.records] };
 }
 
 function registryParity(registry: Registry, sourceRoutes = sourceIndexableRoutes()): { missing: string[]; extra: string[] } {
