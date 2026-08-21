@@ -2,14 +2,14 @@
 import CommerceLayout from '../layouts/CommerceLayout.astro';
 import { SATICI } from '../data/satici';
 
-const mailHref = `mailto:${SATICI.eposta}?subject=${encodeURIComponent('Özel Excel Sistem Talebi')}&body=${encodeURIComponent('İşletmem / işim:\nÇözmek istediğim sorun:\nŞu an nasıl takip ediyorum:\nYaklaşık kullanıcı sayısı:\nVarsa örnek dosya / ekran:\n')}`;
+const mailHref = `mailto:${SATICI.eposta}?subject=${encodeURIComponent('Özel Excel / ERP / CRM Sistem Talebi')}&body=${encodeURIComponent('İşletmem / işim:\nÇözmek istediğim sorun:\nŞu an nasıl takip ediyorum:\nEn çok zaman kaybettiren adım:\nEn sık yapılan hata / kontrol sorunu:\nYaklaşık kullanıcı sayısı:\nVarsa örnek dosya / ekran:\n')}`;
 const serviceLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'Service',
       '@id': 'https://excelarsiv.com/ozel-excel-sistemleri#service',
-      name: 'Özel Excel Otomasyon, Mini ERP ve CRM Sistemleri',
+      name: 'İşletmeye Özel Excel Otomasyon, Mini ERP ve CRM Sistemleri',
       serviceType: 'İşletmeye özel Excel otomasyon, mini ERP, CRM ve yönetim sistemi geliştirme',
       url: 'https://excelarsiv.com/ozel-excel-sistemleri',
       areaServed: { '@type': 'Country', name: 'Türkiye' },
@@ -27,8 +27,8 @@ const serviceLd = {
 ---
 
 <CommerceLayout
-  title="Özel Excel Otomasyon, Mini ERP ve CRM Sistemleri | Excel Arşiv"
-  description="İşletmenizin gerçek işleyişine göre Excel otomasyon, mini ERP, CRM ve yönetim sistemi tasarımı. İhtiyacı anlayıp hızlı, ölçülebilir ve kullanılabilir çözüme dönüştürün."
+  title="Size Özel Excel Otomasyon, Mini ERP ve CRM | Excel Arşiv"
+  description="Hazır şablonun yetmediği işlerde, gerçek iş akışınıza göre özel Excel otomasyon, mini ERP, CRM ve yönetim sistemi tasarımı. İhtiyacı anlayalım, kapsamı netleştirelim, çalışan sistemi hızlıca kuralım."
 >
   <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(serviceLd)} /></Fragment>
 
@@ -36,88 +36,139 @@ const serviceLd = {
     <section class="service-hero">
       <div class="service-shell hero-grid">
         <div>
-          <p class="kicker">ÖZEL EXCEL SİSTEMLERİ · OTOMASYON · MİNİ ERP · CRM</p>
-          <h1>İşinizi Excel’e uydurmayın. Excel sistemini işinize uyduralım.</h1>
-          <p class="lead">Hazır şablonun yetmediği yerde sıfırdan başlıyoruz. İşleyişinizi, tekrar eden işleri, hata noktalarını ve yönetim ihtiyacını okuyup size özel çalışan bir sistem kuruyoruz.</p>
-          <div class="hero-actions"><a class="primary" href={mailHref}>İhtiyacımı anlatmak istiyorum</a><a href={SATICI.telefonTelHref}>Telefonla görüşelim</a></div>
-          <p class="micro">Kapsam, teslim ve proje bedeli işe başlamadan önce yazılı olarak netleştirilir.</p>
+          <p class="kicker">SİZE ÖZEL EXCEL · OTOMASYON · MİNİ ERP · CRM</p>
+          <h1>İşinizi anlatın. Size nasıl çalışmanız gerektiğini değil, işinizin nasıl çalıştığını anlayıp sistemi ona göre kuralım.</h1>
+          <p class="lead">Hazır şablonun yetmediği yerde; tekrar eden işleri, görünmeyen riskleri, manuel kontrolleri, raporlama ihtiyacını ve yöneticinin görmek istediği sonucu tek akışta çözüyoruz. Amaç daha fazla Excel değil; daha az hata, daha az tekrar ve daha hızlı karar.</p>
+          <div class="hero-actions">
+            <a class="primary" href={mailHref}>İhtiyacımı anlatmak istiyorum</a>
+            <a href={SATICI.telefonTelHref}>Telefonla görüşelim</a>
+          </div>
+          <div class="hero-flow" aria-label="Özel proje akışı">
+            <span>1 · İhtiyaç</span><b>→</b><span>2 · Kapsam</span><b>→</b><span>3 · Teklif</span><b>→</b><span>4 · Güvenli ödeme</span><b>→</b><span>5 · Üretim</span>
+          </div>
+          <p class="micro">Kapsam, teslim şekli ve proje bedeli işe başlamadan önce yazılı olarak netleştirilir. Ödeme, kapsam onayından sonra güvenli ödeme bağlantısıyla tamamlanır.</p>
         </div>
+
         <aside class="hero-proof">
-          <span>SON ÖZEL PROJE ÖRNEĞİ</span>
+          <span>GERÇEK PROJE ÖRNEĞİ</span>
           <h2>Muhasebe ofisi için özel yönetim sistemi</h2>
-          <div class="hero-proof-grid"><div><strong>6 saat</strong><small>analiz + üretim</small></div><div><strong>10.000 TL</strong><small>proje bedeli</small></div></div>
-          <p>LinkedIn üzerinden gelen özel ihtiyaç, süreç okunup aynı gün çalışan sisteme dönüştürüldü. Müşterinin hazır ürüne uyması beklenmedi; sistem müşterinin işine göre kuruldu.</p>
+          <div class="hero-proof-grid">
+            <div><strong>6 saat</strong><small>ihtiyaç analizi + üretim</small></div>
+            <div><strong>10.000 TL</strong><small>gerçekleşen proje bedeli</small></div>
+          </div>
+          <p>LinkedIn üzerinden gelen ihtiyaçta hazır bir şablon satılmadı. Ofisin müşteri, sözleşme, tahsilat ve yönetim akışı okunarak, ihtiyaca göre çalışan sistem aynı gün içinde kuruldu ve ödeme tamamlandı.</p>
+          <small class="note">Bu örnek sabit fiyat veya standart teslim süresi değildir; gerçekleşmiş bir proje örneğidir.</small>
         </aside>
       </div>
     </section>
 
-    <section class="problem-section">
-      <div class="service-shell two-col">
-        <div><p class="kicker">NEDEN FARKLI?</p><h2>İlk işim Excel açmak değil, işi anlamaktır.</h2></div>
-        <div class="problem-copy"><p>Ticari bankacılıkta farklı sektörlerin nakit akışını, tahsilat yapısını, stok davranışını, kredi ihtiyacını ve işletme sorunlarını yıllarca içeriden gördüm. Saha ve danışmanlık tarafında bu problemlerin işletme içinde nasıl yaşandığını analiz ettim. Yazılım tecrübesi bu birikimle birleştiğinde ihtiyaç çok daha hızlı ve doğru okunabiliyor.</p><p>Bu nedenle görüşmede “hangi buton olsun?” sorusundan önce “nerede zaman kaybediyorsunuz, nerede hata oluyor, patron neyi göremiyor, hangi kayıt iki kez giriliyor?” sorularına bakıyorum.</p></div>
+    <section class="diagnosis-section">
+      <div class="service-shell diagnosis-grid">
+        <div>
+          <p class="kicker">ASIL FARK</p>
+          <h2>İlk iş Excel açmak değil; sorunun neden oluştuğunu anlamak.</h2>
+        </div>
+        <div class="diagnosis-copy">
+          <p>Ticari bankacılık ve saha tecrübesi; işletmelerde paranın, stokun, tahsilatın, kredinin, satışın ve operasyonun nerede tıkandığını yalnız ekrandan değil gerçek işleyişten okumayı sağlar. Danışmanlık ve yazılım tarafı bu birikimle birleştiğinde ihtiyaç, teknik tarif beklemeden çok daha hızlı netleşir.</p>
+          <p>Bu yüzden görüşmede “hangi butonu yapalım?” diye başlamıyoruz. Önce şu sorulara bakıyoruz:</p>
+          <ul>
+            <li>Hangi veri iki kez giriliyor?</li>
+            <li>Hangi kontrol hâlâ elle yapılıyor?</li>
+            <li>Hangi hata geç fark edildiğinde para kaybettiriyor?</li>
+            <li>Yönetici bugün hangi bilgiyi görmekte zorlanıyor?</li>
+            <li>Hangi rapor her ay yeniden hazırlanıyor?</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section class="fit-section">
       <div class="service-shell">
-        <div class="section-head"><p class="kicker">NE TÜR SİSTEMLER?</p><h2>Excel içinde çalışan, günlük işi gerçekten taşıyan sistemler.</h2></div>
+        <div class="section-head"><p class="kicker">NE YAPABİLİRİZ?</p><h2>Tek bir tablo değil; işinize göre çalışan modüler sistem.</h2></div>
         <div class="fit-grid">
-          <article><span>01</span><h3>Muhasebe Ofisi / Müşteri Yönetimi</h3><p>Müşteri, sözleşme, tahsilat, görev, dönem, belge ve yönetim ekranlarını tek akışta toplayan mini ERP yapıları.</p></article>
-          <article><span>02</span><h3>Cari, Tahsilat ve Nakit Yönetimi</h3><p>Alacak, vade, tahsilat, kasa/banka, nakit akışı, gecikme ve risk takibini yönetime okunabilir hale getiren sistemler.</p></article>
-          <article><span>03</span><h3>CRM / Satış / Teklif Takibi</h3><p>Müşteri adayından teklife, siparişten tahsilata kadar satış sürecini görünür ve takip edilebilir yapan yapılar.</p></article>
-          <article><span>04</span><h3>Stok / Üretim / Operasyon</h3><p>Stok, reçete, üretim, maliyet, iş emri, sevkiyat veya saha operasyonunu Excel üzerinde kontrollü hale getiren çözümler.</p></article>
-          <article><span>05</span><h3>Finans ve Yönetim Panoları</h3><p>Nakit, borç, kredi, kârlılık, bütçe ve kritik KPI’ları tek ekranda karar verilebilir hale getiren yönetim sistemleri.</p></article>
-          <article><span>06</span><h3>Size Özgü İş Akışı</h3><p>Hazır kategorilere girmeyen süreçler için mevcut Excel’inizi iyileştirme veya sıfırdan özel sistem kurma.</p></article>
+          <article><span>01</span><h3>Muhasebe Ofisi ERP</h3><p>Müşteri, sözleşme, tahsilat, görev, dönem, belge, gelir-gider ve yönetim görünümünü tek yapıda birleştiren sistemler.</p></article>
+          <article><span>02</span><h3>Cari / Tahsilat / Nakit</h3><p>Alacak, vade, tahsilat, kasa, banka, nakit akışı, gecikme ve riskleri tek karar ekranında görünür hale getiren yapılar.</p></article>
+          <article><span>03</span><h3>CRM / Satış / Teklif</h3><p>Müşteri adayından teklife, tekliften siparişe ve tahsilata kadar satış sürecini izleyen özel CRM akışları.</p></article>
+          <article><span>04</span><h3>Stok / Üretim / Operasyon</h3><p>Stok, reçete, üretim, maliyet, iş emri, sevkiyat ve saha operasyonlarını kontrol eden mini ERP çözümleri.</p></article>
+          <article><span>05</span><h3>Finans / Yönetim Paneli</h3><p>Nakit, borç, kredi, bütçe, kârlılık ve kritik KPI’ları yöneticinin tek bakışta okuyacağı panele dönüştüren sistemler.</p></article>
+          <article><span>06</span><h3>Mevcut Dosyanızı Dönüştürme</h3><p>Yıllardır kullandığınız Excel’i çöpe atmadan; formül, kontrol, rapor, otomasyon ve kullanıcı deneyimi açısından yeniden kurma.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="method-section">
+    <section class="outcome-section">
+      <div class="service-shell outcome-grid">
+        <div><p class="kicker">BİZİM İŞİMİZ NE?</p><h2>Dağınık süreci, çalışan bir sisteme çevirmek.</h2></div>
+        <div class="outcome-list">
+          <div><b>01</b><strong>Tekrarı azalt</strong><span>Aynı bilgiyi farklı dosya ve ekranlara tekrar tekrar girmeyi azalt.</span></div>
+          <div><b>02</b><strong>Kontrolü sisteme ver</strong><span>Eksik, hatalı veya riskli kayıtların gözden kaçmasını zorlaştır.</span></div>
+          <div><b>03</b><strong>Kararı görünür yap</strong><span>Ham satırların içinden sonuç aramak yerine KPI, alarm ve özet ekranı üret.</span></div>
+          <div><b>04</b><strong>Kullanıcıyı formülden kurtar</strong><span>Kullanıcı işi girsin; hesap, doğrulama ve raporlama sistem tarafından yapılsın.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-section">
       <div class="service-shell">
-        <p class="kicker">ÇALIŞMA BİÇİMİ</p>
-        <h2>Önce sorun netleşir. Sonra sistem kurulur.</h2>
-        <div class="method-grid">
-          <article><b>1</b><h3>İhtiyacı anlatırsınız</h3><p>Mevcut dosya, ekran görüntüsü veya iş akışı varsa incelenir. Ne yaptığınızdan çok nerede zorlandığınız netleştirilir.</p></article>
-          <article><b>2</b><h3>Kapsam ve fiyat netleşir</h3><p>Hangi modüllerin yapılacağı, neyin teslim edileceği, proje bedeli ve teslim çerçevesi yazılı olarak belirlenir.</p></article>
-          <article><b>3</b><h3>Sistem üretilir</h3><p>Girdi, hesap, kontrol, rapor ve yönetim ekranları gerçek iş akışına göre kurulur; kullanıcıyı formül yazmaya mecbur bırakmaz.</p></article>
-          <article><b>4</b><h3>Test edilip teslim edilir</h3><p>Kritik hesaplar, hata durumları ve kullanım akışı kontrol edilir. Çalışan dosya teslim edilir ve gerekiyorsa son ayarlar yapılır.</p></article>
+        <p class="kicker">ÇALIŞMA AKIŞI</p>
+        <h2>Uzun yazılım projeleri gibi başlamaz. Önce problemi daraltır, sonra çözümü hızla kurarız.</h2>
+        <div class="process-grid">
+          <article><b>1</b><h3>İşi anlatın</h3><p>Mevcut dosyanızı, ekran görüntüsünü veya çalışma biçiminizi gönderin. Teknik şartname hazırlamanız gerekmez.</p></article>
+          <article><b>2</b><h3>Kapsamı çıkaralım</h3><p>Girdi, hesap, kontrol, rapor ve kullanıcı akışı netleştirilir. Gereksiz modül eklenmez.</p></article>
+          <article><b>3</b><h3>Teklif + ödeme</h3><p>Teslim kapsamı ve proje bedeli yazılı olarak onaylanır; ardından güvenli ödeme bağlantısı paylaşılır.</p></article>
+          <article><b>4</b><h3>Üretim + test</h3><p>Sistem kurulur, kritik hesaplar ve hata senaryoları test edilir, çalışan dosya teslim edilir.</p></article>
         </div>
-      </div>
-    </section>
-
-    <section class="why-section">
-      <div class="service-shell why-grid">
-        <div><p class="kicker">NE SATIN ALIYORSUNUZ?</p><h2>“Güzel görünen Excel” değil, işinizi daha kontrollü çalıştıran sistem.</h2></div>
-        <div class="why-list"><div><strong>Tekrarı azaltır</strong><span>Aynı verinin farklı yerlerde yeniden girilmesini ve manuel kopyalamayı azaltacak akış kurulur.</span></div><div><strong>Hata yakalar</strong><span>Eksik, tutarsız veya riskli kayıtlar mümkün olduğunca sistem tarafından görünür hale getirilir.</span></div><div><strong>Yöneticiye sonuç verir</strong><span>Ham veri yerine karar verilecek KPI, alarm ve rapor üretilir.</span></div><div><strong>Sizin dilinizde çalışır</strong><span>Genel yazılım terminolojisi yerine işletmede gerçekten kullanılan kavram ve süreçlerle tasarlanır.</span></div></div>
       </div>
     </section>
 
     <section class="pricing-section">
       <div class="service-shell pricing-grid">
-        <div><p class="kicker">PROJE BEDELİ</p><h2>Her özel sistem aynı fiyat değildir.</h2><p>Fiyatı sayfa veya kolon sayısı değil; iş akışı, hesaplama derinliği, otomasyon, kontrol ve raporlama kapsamı belirler. Kapsam netleşmeden proje bedeli çıkarılmaz.</p></div>
-        <div class="pricing-proof"><span>REFERANS PROJE</span><strong>10.000 TL</strong><p>Muhasebe ofisi özel yönetim sistemi · 6 saatlik analiz ve üretim.</p><small>Bu tutar sabit tarife değildir; yalnız gerçekleşmiş proje örneğidir.</small></div>
+        <div>
+          <p class="kicker">PROJE BEDELİ</p>
+          <h2>Fiyatı sayfa sayısı değil, çözülen işin derinliği belirler.</h2>
+          <p>Bir iş yalnızca birkaç kontrollü ekran ve rapor gerektirebilir; başka bir işte müşteri, tahsilat, stok, görev, yetki, KPI ve yönetim panosu birlikte gerekir. Bu nedenle özel projelerde sabit paket fiyat yerine önce kapsam çıkarılır.</p>
+        </div>
+        <div class="pricing-card">
+          <span>REFERANS PROJE</span>
+          <strong>10.000 TL</strong>
+          <p>Muhasebe ofisi özel yönetim sistemi</p>
+          <div><b>6 saat</b><small>analiz + üretim</small></div>
+          <small>Gerçekleşmiş proje örneğidir; her yeni proje ayrıca kapsamlandırılır.</small>
+        </div>
       </div>
     </section>
 
     <section class="cta-section">
       <div class="service-shell cta-box">
-        <div><p class="kicker">İLK ADIM</p><h2>Şu an Excel’de, WhatsApp’ta veya kafanızda yürüyen işi anlatın.</h2><p>Dosyanız varsa gönderin. Sorunu ve hedefi netleştirip bunun hazır sistemle mi, uyarlamayla mı, yoksa sıfırdan özel yapıyla mı çözülmesi gerektiğini belirleyelim.</p></div>
-        <div class="cta-actions"><a class="primary" href={mailHref}>Özel sistem talebi gönder</a><a href={SATICI.telefonTelHref}>{SATICI.telefon}</a><a href="/sablonlar">Önce hazır sistemlere bak →</a></div>
+        <div>
+          <p class="kicker">İLK ADIM</p>
+          <h2>“Biz bunu hâlâ Excel + WhatsApp + elle kontrol ile yürütüyoruz” diyorsanız, başlayacağımız yer tam burası.</h2>
+          <p>Mevcut dosyayı veya süreci gönderin. Size hazır ürün mü, mevcut dosyanın dönüşümü mü, yoksa sıfırdan özel sistem mi gerektiğini netleştirelim.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="primary" href={mailHref}>Proje talebimi gönder</a>
+          <a href={SATICI.telefonTelHref}>{SATICI.telefon}</a>
+          <a href="/sablonlar">Hazır sistemleri inceleyin →</a>
+        </div>
       </div>
     </section>
   </main>
 </CommerceLayout>
 
 <style>
-  .custom-page{--green:#166534;--dark:#17301f;--ink:#172019;--muted:#667169;--line:#dfe5e0;--soft:#f5f8f5;background:#fff;color:var(--ink)}
+  .custom-page{--green:#166534;--green2:#0f7a45;--ink:#172019;--muted:#647068;--line:#dde6df;--soft:#f4f8f5;--soft2:#eef7f1;background:#fff;color:var(--ink)}
   .service-shell{width:min(1160px,calc(100% - 48px));margin:0 auto}.kicker{margin:0;font:800 10px/1.2 var(--font-mono);letter-spacing:.14em;color:var(--green)}
-  .service-hero{padding:84px 0 76px;background:linear-gradient(135deg,#fff 0%,#f6faf6 65%,#edf7ef 100%);border-bottom:1px solid var(--line)}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}.service-hero h1{max-width:780px;margin:14px 0 20px;font-size:clamp(46px,6vw,78px);line-height:.98;letter-spacing:-.055em}.lead{max-width:760px;color:var(--muted);font-size:18px;line-height:1.7}.hero-actions,.cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.hero-actions a,.cta-actions a{padding:14px 19px;border:1px solid #b7c5ba;color:var(--ink);font-weight:800;text-decoration:none}.hero-actions .primary,.cta-actions .primary{background:var(--green);border-color:var(--green);color:#fff}.micro{margin-top:15px;color:#788279;font-size:11px}.hero-proof{padding:30px;background:#fff;border:1px solid #cbd9cd;box-shadow:0 22px 60px rgba(20,83,45,.1)}.hero-proof>span,.pricing-proof>span{font:800 9px/1 var(--font-mono);letter-spacing:.12em;color:var(--green)}.hero-proof h2{margin:12px 0 24px;font-size:29px;line-height:1.1}.hero-proof-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.hero-proof-grid div{padding:19px 0}.hero-proof-grid div+div{padding-left:20px;border-left:1px solid var(--line)}.hero-proof-grid strong{display:block;font-size:26px}.hero-proof-grid small{color:var(--muted)}.hero-proof>p{margin:20px 0 0;color:var(--muted);font-size:13px;line-height:1.65}
-  .problem-section,.fit-section,.method-section,.why-section,.pricing-section,.cta-section{padding:76px 0;border-bottom:1px solid var(--line)}.two-col,.why-grid,.pricing-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}.problem-section h2,.section-head h2,.method-section h2,.why-section h2,.pricing-section h2,.cta-section h2{margin:10px 0 0;font-size:clamp(34px,4.4vw,54px);line-height:1.02;letter-spacing:-.045em}.problem-copy p{margin:0 0 18px;color:var(--muted);font-size:16px;line-height:1.75}
-  .fit-section{background:#fbfcfb}.section-head{max-width:820px;margin-bottom:32px}.fit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.fit-grid article{min-height:220px;padding:24px;border:1px solid var(--line);background:#fff}.fit-grid span{font:900 18px/1 var(--font-mono);color:#a1aca4}.fit-grid h3{margin:28px 0 10px;font-size:21px;line-height:1.12}.fit-grid p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
-  .method-section h2{max-width:760px}.method-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px}.method-grid article{padding:24px;border-top:3px solid #c9d8cc;background:var(--soft)}.method-grid b{font:900 28px/1 var(--font-mono);color:var(--green)}.method-grid h3{margin:28px 0 9px;font-size:20px}.method-grid p{margin:0;color:var(--muted);font-size:12px;line-height:1.65}
-  .why-section{background:#f4f8f4}.why-list{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}.why-list div{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:20px;background:#fff}.why-list strong{font-size:14px}.why-list span{color:var(--muted);font-size:13px;line-height:1.6}
-  .pricing-grid{align-items:center}.pricing-section p{color:var(--muted);line-height:1.7}.pricing-proof{padding:30px;border:1px solid var(--line);background:#fff}.pricing-proof strong{display:block;margin:12px 0 8px;font-size:48px;letter-spacing:-.04em}.pricing-proof p{margin:0 0 10px}.pricing-proof small{color:#7b857e}
-  .cta-section{padding:68px 0 88px;background:#fbfcfb}.cta-box{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;padding:44px;border:1px solid #cbd9cd;background:#fff;box-shadow:0 20px 60px rgba(20,83,45,.07)}.cta-box p:not(.kicker){max-width:760px;color:var(--muted);line-height:1.7}.cta-actions{align-content:start;margin-top:0}.cta-actions a{width:100%;text-align:center}
-  @media(max-width:900px){.hero-grid,.two-col,.why-grid,.pricing-grid,.cta-box{grid-template-columns:1fr}.fit-grid{grid-template-columns:1fr 1fr}.method-grid{grid-template-columns:1fr 1fr}.hero-proof{box-shadow:none}}
-  @media(max-width:600px){.service-shell{width:calc(100% - 28px)}.service-hero{padding-top:58px}.service-hero h1{font-size:43px}.fit-grid,.method-grid{grid-template-columns:1fr}.why-list div{grid-template-columns:1fr;gap:8px}.hero-proof-grid{grid-template-columns:1fr}.hero-proof-grid div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}.cta-box{padding:26px}}
+  .service-hero{padding:82px 0 72px;background:radial-gradient(circle at 88% 14%,#e7f5eb 0,transparent 31%),linear-gradient(135deg,#fff 0%,#f7faf7 64%,#eef7f0 100%);border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:52px;align-items:center}.service-hero h1{max-width:790px;margin:14px 0 20px;font-size:clamp(44px,5.7vw,74px);line-height:.99;letter-spacing:-.055em}.lead{max-width:770px;color:var(--muted);font-size:18px;line-height:1.72}
+  .hero-actions,.cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}.hero-actions a,.cta-actions a{padding:14px 19px;border:1px solid #b7c6ba;border-radius:12px;color:var(--ink);font-weight:800;text-decoration:none;background:#fff}.hero-actions .primary,.cta-actions .primary{background:var(--green);border-color:var(--green);color:#fff}.hero-actions a:hover,.cta-actions a:hover{transform:translateY(-1px)}
+  .hero-flow{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:22px;color:#4f6255;font:800 10px/1.4 var(--font-mono)}.hero-flow span{padding:7px 9px;border:1px solid #d2dfd4;background:#fff;border-radius:999px}.hero-flow b{color:#91a497}.micro{margin-top:13px;color:#7b877f;font-size:11px;line-height:1.55}
+  .hero-proof{padding:30px;border:1px solid #c9d8cc;border-radius:24px;background:#fff;box-shadow:0 24px 70px rgba(20,83,45,.11)}.hero-proof>span,.pricing-card>span{font:800 9px/1 var(--font-mono);letter-spacing:.12em;color:var(--green)}.hero-proof h2{margin:12px 0 24px;font-size:29px;line-height:1.08}.hero-proof-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.hero-proof-grid div{padding:19px 0}.hero-proof-grid div+div{padding-left:20px;border-left:1px solid var(--line)}.hero-proof-grid strong{display:block;font-size:27px}.hero-proof-grid small{display:block;margin-top:4px;color:var(--muted)}.hero-proof>p{margin:20px 0 10px;color:var(--muted);font-size:13px;line-height:1.7}.hero-proof .note{color:#879188;line-height:1.5}
+  .diagnosis-section,.fit-section,.outcome-section,.process-section,.pricing-section,.cta-section{padding:76px 0;border-bottom:1px solid var(--line)}.diagnosis-grid,.outcome-grid,.pricing-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}.diagnosis-section h2,.section-head h2,.outcome-section h2,.process-section h2,.pricing-section h2,.cta-section h2{margin:10px 0 0;font-size:clamp(34px,4.3vw,54px);line-height:1.02;letter-spacing:-.045em}.diagnosis-copy p{margin:0 0 16px;color:var(--muted);font-size:16px;line-height:1.75}.diagnosis-copy ul{display:grid;gap:8px;margin:20px 0 0;padding:0;list-style:none}.diagnosis-copy li{padding:12px 14px;border-left:3px solid #8ec9a3;background:var(--soft);font-weight:750;font-size:13px}
+  .fit-section{background:#fbfcfb}.section-head{max-width:830px;margin-bottom:32px}.fit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.fit-grid article{min-height:218px;padding:24px;border:1px solid var(--line);border-radius:18px;background:#fff;transition:transform .18s ease,box-shadow .18s ease}.fit-grid article:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(20,83,45,.08)}.fit-grid span{font:900 18px/1 var(--font-mono);color:#9daaa0}.fit-grid h3{margin:27px 0 10px;font-size:21px;line-height:1.08}.fit-grid p{margin:0;color:var(--muted);font-size:13px;line-height:1.68}
+  .outcome-section{background:linear-gradient(180deg,#fff,#f7faf7)}.outcome-list{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}.outcome-list>div{display:grid;grid-template-columns:42px 180px 1fr;gap:16px;align-items:center;padding:18px;background:#fff}.outcome-list b{font:900 12px/1 var(--font-mono);color:#92a096}.outcome-list strong{font-size:15px}.outcome-list span{color:var(--muted);font-size:13px;line-height:1.55}
+  .process-section h2{max-width:870px}.process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px}.process-grid article{padding:24px;border:1px solid var(--line);border-radius:18px;background:#fff}.process-grid b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#e7f4ea;color:var(--green);font:900 12px/1 var(--font-mono)}.process-grid h3{margin:22px 0 10px;font-size:20px}.process-grid p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
+  .pricing-section{background:var(--soft)}.pricing-section p{color:var(--muted);line-height:1.72}.pricing-card{padding:28px;border:1px solid #c9d8cc;border-radius:22px;background:#fff}.pricing-card>strong{display:block;margin:12px 0 6px;font-size:44px;letter-spacing:-.04em}.pricing-card>p{margin:0 0 20px;color:var(--ink);font-weight:800}.pricing-card>div{padding:17px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.pricing-card>div b{display:block;font-size:24px}.pricing-card>div small,.pricing-card>small{display:block;margin-top:4px;color:var(--muted)}.pricing-card>small{margin-top:15px;line-height:1.5}
+  .cta-section{background:#fff}.cta-box{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:34px;border:1px solid #cbd9cd;border-radius:26px;background:linear-gradient(135deg,#f8fbf8,#eef7f0)}.cta-box p{color:var(--muted);line-height:1.68}.cta-actions{align-content:start;justify-content:flex-start;margin-top:0}
+  @media(max-width:920px){.hero-grid,.diagnosis-grid,.outcome-grid,.pricing-grid,.cta-box{grid-template-columns:1fr}.fit-grid{grid-template-columns:1fr 1fr}.process-grid{grid-template-columns:1fr 1fr}.hero-proof{box-shadow:none}.cta-actions{margin-top:8px}}
+  @media(max-width:620px){.service-shell{width:calc(100% - 28px)}.service-hero{padding:58px 0}.service-hero h1{font-size:42px}.fit-grid,.process-grid{grid-template-columns:1fr}.outcome-list>div{grid-template-columns:34px 1fr}.outcome-list span{grid-column:2}.hero-proof-grid{grid-template-columns:1fr}.hero-proof-grid div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}.cta-box{padding:24px}.hero-flow b{display:none}}
 </style>
