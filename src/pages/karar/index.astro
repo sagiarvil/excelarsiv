@@ -1,0 +1,37 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import { kararPages } from '../../data/kararPages';
+---
+
+<CommerceLayout
+  title="Excel Karar Rehberleri | Excel Arşiv"
+  description="Nakit akışı, cari hesap, POS, KDV, stok, personel ve kârlılık için hangi Excel sistemini seçmeniz gerektiğini 18 karar rehberiyle karşılaştırın."
+>
+  <main class="decision-index">
+    <section class="decision-index__hero">
+      <div class="decision-index__shell">
+        <p>KARAR REHBERLERİ</p>
+        <h1>Hangi Excel sistemini seçmeniz gerektiğini ihtiyacınızdan başlayarak bulun.</h1>
+        <div>18 satın alma sorusu · görünür fiyat · ürün sayfasına doğrudan bağlantı · dürüst kullanım sınırları</div>
+      </div>
+    </section>
+    <section class="decision-index__list">
+      <div class="decision-index__shell">
+        <div class="decision-index__grid">
+          {kararPages.map((page, index) => (
+            <a href={`/karar/${page.slug}`}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h2>{page.title}</h2>
+              <p>{page.description}</p>
+              <strong>Kararı inceleyin →</strong>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</CommerceLayout>
+
+<style>
+  .decision-index{background:#fff;color:#172019}.decision-index__shell{width:min(1160px,calc(100% - 40px));margin:0 auto}.decision-index__hero{padding:82px 0 62px;background:#f4f7f4;border-bottom:1px solid #dfe5e0}.decision-index__hero>div>p{margin:0;font:800 11px/1.2 var(--font-mono);letter-spacing:.13em;color:#166534}.decision-index__hero h1{max-width:980px;margin:14px 0 18px;font-size:clamp(40px,6vw,72px);line-height:1;letter-spacing:-.05em}.decision-index__hero div div{color:#667168;font-size:14px}.decision-index__list{padding:50px 0 80px}.decision-index__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#dfe5e0;border:1px solid #dfe5e0}.decision-index__grid>a{display:flex;min-height:250px;flex-direction:column;padding:24px;background:#fff;color:#172019;text-decoration:none}.decision-index__grid>a:hover{background:#f6f8f6}.decision-index__grid span{font:700 10px/1 var(--font-mono);color:#166534}.decision-index__grid h2{margin:18px 0 10px;font-size:23px;line-height:1.08;letter-spacing:-.035em}.decision-index__grid p{margin:0;color:#667168;line-height:1.65;font-size:13px}.decision-index__grid strong{margin-top:auto;padding-top:18px;color:#14532d;font-size:12px}@media(max-width:900px){.decision-index__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.decision-index__shell{width:calc(100% - 28px)}.decision-index__grid{grid-template-columns:1fr}}
+</style>
