@@ -4,22 +4,25 @@ import { SATICI } from '../data/satici';
 
 const mailHref = `mailto:${SATICI.eposta}?subject=${encodeURIComponent('İşletmeye / Muhasebe Ofisine Özel Excel Çalışması Talebi')}&body=${encodeURIComponent('İşletme / ofis türü:\nÇözmek istediğimiz iş:\nŞu an nasıl takip ediyoruz:\nEn çok zaman kaybettiren adım:\nEn sık yaşanan hata / kontrol sorunu:\nYaklaşık kullanıcı sayısı:\nVarsa mevcut Excel / ekran görüntüsü / örnek veri:\n')}`;
 
-const officeNeeds = [
-  ['Müşteri / Mükellef Takibi', 'Mükellef, sorumlu personel, hizmet kapsamı ve kritik notları tek yapıda izleyin.'],
-  ['Sözleşme ve Tahsilat', 'Ücret, dönem, tahsil edilen / bekleyen tutar ve gecikmeleri görünür hale getirin.'],
-  ['Görev ve Dönem Kontrolü', 'Tekrarlayan işler, son tarihler, eksik evrak ve tamamlanma durumlarını takip edin.'],
-  ['Ofis Yönetim Görünümü', 'Müşteri, iş yükü, tahsilat ve görev durumunu tek yönetim ekranında okuyun.'],
-  ['Veri Düzenleme ve Aktarım', 'Farklı kaynaklardan gelen verileri temizleyin, eşleştirin ve kullanılabilir hale getirin.'],
-  ['Mevcut Dosyanın Yeniden Kurulması', 'Yıllardır kullanılan Excel dosyanızı daha sade, kontrollü ve raporlanabilir hale getirin.'],
+const painPoints = [
+  ['01', 'Saatler Süren Veri Temizliği', 'Banka Ekstreleri & Mizan Çilesi', 'Farklı kaynaklardan gelen verileri tek tek temizlemek, eşleştirmek ve yeniden biçimlendirmek yerine; tekrar eden veri hazırlama adımlarını kontrollü bir Excel akışına dönüştürüyoruz.'],
+  ['02', 'Karar Verememe Riski', 'Gerçek Nakit Akışını Görememek', 'Tahsilat, ödeme, kredi takvimi ve diğer yükümlülüklerin etkisini tek ekranda görünür hale getirerek yönetimin önünü görmesini kolaylaştırıyoruz.'],
+  ['03', 'İletişim Bariyeri', 'Finans Dilini Baştan Anlatmak', 'Mizan, nakit akışı, kredi, tahsilat, maliyet ve yönetim raporlaması gibi iş kavramlarını teknik ihtiyaçlara çevirirken finansal bağlamı kaybetmiyoruz.'],
 ];
 
-const businessNeeds = [
-  ['Nakit Akışı ve Ödeme Planı', 'Tahsilat, ödeme, kredi taksiti ve nakit durumunu kendi verinizle izleyin.'],
-  ['Cari / Tahsilat / Risk Takibi', 'Alacak, vade, gecikme ve tahsilat durumunu müşteri bazında görün.'],
-  ['Teklif ve Gerçek Kârlılık', 'Maliyet, iskonto, komisyon ve hedef marja göre doğru fiyatı hesaplayın.'],
-  ['Stok ve Üretim Kontrolü', 'Stok, reçete, tüketim, üretim ve maliyet verilerini ihtiyacınız kadar ayrıntılı izleyin.'],
-  ['Yönetim Raporu / Dashboard', 'Dağınık veriyi KPI, trend ve karar ekranına dönüştürün.'],
-  ['Size Özgü Operasyon', 'Hazır yazılımların karşılamadığı işletmeye özgü süreci Excel’e taşıyın.'],
+const solutions = [
+  ['01', 'Nakit Akış & Bütçe Yönetimi', 'Tahsilat, ödeme, kredi takvimi, senaryo ve dönemsel nakit görünümünü işletmenizin gerçek akışına göre birleştiren çalışma sistemleri.'],
+  ['02', 'Banka Ekstresi & Veri Düzenleme', 'Farklı banka ve kaynaklardan gelen verileri temizleme, sınıflandırma, eşleştirme ve muhasebe sürecine hazırlama çalışmaları.'],
+  ['03', 'Bilanço, Mizan & Finansal Analiz', 'Finansal tabloları oranlar, trendler, çalışma sermayesi ve yönetim göstergeleriyle daha okunabilir hale getiren analiz panelleri.'],
+  ['04', 'Maliyet & Kârlılık Modelleri', 'Hammadde, işçilik, kur, iskonto, komisyon ve hedef marj etkilerini ürün veya hizmet bazında görünür hale getiren modeller.'],
+  ['05', 'Ofis & Grup Raporlama', 'Birden fazla dosya, müşteri, şube veya şirketten gelen bilgileri tek yönetim görünümünde birleştiren kontrollü raporlama yapıları.'],
+  ['06', 'Size Özel Operasyon Çalışması', 'Bugün kopyala-yapıştır, manuel kontrol ve kişiye bağlı takip ile yürüyen işinizi daha hızlı ve ölçülebilir bir Excel çalışma sistemine dönüştürüyoruz.'],
+];
+
+const process = [
+  ['01', 'İhtiyaç ve dosya analizi', 'Mevcut Excel dosyanızı, kullandığınız veri kaynaklarını ve tıkandığınız süreci inceliyoruz.'],
+  ['02', 'Finansal mimari ve kurgu', 'Girdi, hesap, kontrol ve raporlama akışını işinizin gerçek çalışma biçimine göre tasarlıyoruz.'],
+  ['03', 'Test, teslim ve kullanım akışı', 'Çalışmayı örnek veya uygun gerçek veriyle kontrol ediyor, kullanım mantığını net biçimde teslim ediyoruz.'],
 ];
 
 const serviceLd = {
@@ -34,84 +37,95 @@ const serviceLd = {
 ---
 
 <CommerceLayout
-  title="İşletme ve Muhasebe Ofislerine Özel Excel Çalışmaları | Excel Arşiv"
-  description="Hazır şablon değil. İşletmenizin veya muhasebe ofisinizin gerçek iş akışını analiz ediyor; ihtiyaca özel Excel takip, kontrol, otomasyon ve raporlama çalışmaları hazırlıyoruz."
+  title="Özel Excel Finans ve Operasyon Sistemleri | Excel Arşiv"
+  description="Muhasebe ofisleri, SMMM'ler, finans ekipleri ve işletmeler için işleyişe özel Excel takip, kontrol, otomasyon ve raporlama sistemleri."
 >
   <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(serviceLd)} /></Fragment>
 
-  <div class="exclusive-page">
-    <section class="hero-dark">
+  <main class="custom-page">
+    <section class="hero-section">
       <div class="shell hero-grid">
         <div class="hero-copy">
-          <p class="kicker">İŞLETMELER · KOBİ’LER · MUHASEBE / SMMM OFİSLERİ</p>
-          <h1>Hazır şablon değil. <span>İşleyişinize göre kurulan özel Excel çalışması.</span></h1>
-          <p class="lead">Sizi mevcut bir dosyaya uydurmuyoruz. İşin nerede tekrar ettiğini, hangi kontrolün kişiye bağlı kaldığını, verinin nerede dağıldığını ve yönetimin neyi görmek istediğini analiz edip Excel yapısını buna göre kuruyoruz.</p>
+          <div class="audience-pill"><span></span>SMMM'ler, Mali Müşavirler, Finans Ekipleri ve İşletmeler İçin</div>
+          <h1>Yazılımcıya işinizi baştan anlatmak yerine, <em>finansı ve işletme akışını bilen</em> biriyle çalışın.</h1>
+          <p class="hero-lead">Esnaf kültüründen gelen, uzun yıllar ticari bankacılık ve şirket danışmanlığı deneyimi olan bir finans bakışıyla; işletmenizin veya muhasebe ofisinizin saatler harcadığı manuel Excel işlerini işleyişinize göre yeniden kuruyoruz.</p>
           <div class="hero-actions">
-            <a class="btn btn-light" href={mailHref}>İhtiyacımı anlatmak istiyorum</a>
-            <a class="btn btn-ghost" href="#cozumler">Çalışma alanlarını görün</a>
+            <a class="btn primary" href={mailHref}>Projenizi anlatın — teklif alın</a>
+            <a class="btn secondary" href="#neden-farkli">Neden farklı?</a>
           </div>
-          <div class="trust-row">
-            <span><b>01</b> İhtiyaç analizi</span>
-            <span><b>02</b> Özel yapı</span>
-            <span><b>03</b> Kontrol + raporlama</span>
+          <div class="proof-row" aria-label="Hizmet özellikleri">
+            <span><b>17 yıl</b> bankacılık tecrübesi</span>
+            <span><b>Gizlilik</b> ihtiyaca göre karşılıklı NDA</span>
+            <span><b>Teslim</b> kapsam + kullanım akışı</span>
           </div>
         </div>
-
-        <aside class="case-panel">
-          <div class="case-head">
-            <span>GERÇEK PROJE ÖRNEĞİ</span>
-            <small>Muhasebe ofisi</small>
+        <aside class="hero-proof">
+          <p class="mini-label">ÖZEL ÇALIŞMA YAKLAŞIMI</p>
+          <h2>Hazır dosyayı size uydurmuyoruz. Sistemi işinize göre kuruyoruz.</h2>
+          <div class="proof-flow">
+            <div><span>01</span><strong>İşi dinle</strong><small>Mevcut akışı ve darboğazı çıkar</small></div>
+            <div><span>02</span><strong>Yapıyı kur</strong><small>Girdi, kontrol ve raporu tasarla</small></div>
+            <div><span>03</span><strong>Test et</strong><small>Kullanıcı akışını ve sonuçları kontrol et</small></div>
           </div>
-          <h2>Hazır ürün seçilmedi. Ofisin çalışma biçimi dinlendi ve sistem sıfırdan kuruldu.</h2>
-          <div class="case-metrics">
-            <div><strong>6 saat</strong><small>ihtiyaç analizi + üretim</small></div>
-            <div><strong>10.000 TL</strong><small>gerçekleşen proje bedeli</small></div>
-          </div>
-          <div class="case-flow">
-            <p><b>01</b><span>Mevcut işleyiş ve tekrar eden işler çıkarıldı.</span></p>
-            <p><b>02</b><span>Müşteri, sözleşme, tahsilat ve yönetim ihtiyacı tek akışta kurgulandı.</span></p>
-            <p><b>03</b><span>Çalışan özel Excel sistemi üretildi ve teslim edildi.</span></p>
-          </div>
-          <small class="case-note">Bu örnek sabit fiyat veya standart teslim süresi değildir.</small>
+          <div class="proof-note"><strong>Hazır şablon değil.</strong><span>İşletmenize veya ofisinize özel çalışma.</span></div>
         </aside>
       </div>
     </section>
 
-    <section class="statement">
-      <div class="shell statement-grid">
-        <p class="index">01 / HİZMETİN TANIMI</p>
-        <div>
-          <h2>Önce dosyayı değil, işi inceliyoruz.</h2>
-          <p>Hazır ürünlerde problem önceden tanımlıdır. Bu hizmette ise önce sizin süreçleriniz, veri kaynaklarınız, kontrol noktalarınız ve kullanıcı alışkanlıklarınız anlaşılır. Sonra Excel çalışması sıfırdan veya mevcut dosyanız üzerinden yeniden kurulur.</p>
+    <section class="pain-section">
+      <div class="shell">
+        <div class="section-head compact">
+          <div>
+            <p class="eyebrow">NEREDE TIKANIYOR?</p>
+            <h2>Hazır şablonlar yetmiyor, büyük yazılımlar ise günlük işinize tam oturmuyor mu?</h2>
+          </div>
+          <p>Finans ve muhasebe operasyonlarında sorun çoğu zaman “Excel kullanmak” değil; verinin dağınık olması, tekrar eden işlerin kişiye bağlı kalması ve karar bilgisinin geç oluşmasıdır.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="audience-block" id="cozumler">
-      <div class="shell audience-layout">
-        <div class="audience-title">
-          <p class="index">02 / MUHASEBE & SMMM</p>
-          <h2>Ofiste her ay tekrar eden işi daha kontrollü hale getirin.</h2>
-          <p>Mükellef, tahsilat, görev ve dönem kontrolü farklı dosyalara dağılmışsa; çalışma yapısını ofisinizin gerçek düzenine göre kuruyoruz.</p>
-        </div>
-        <div class="solution-list">
-          {officeNeeds.map(([title, desc], i) => (
-            <article><span>{String(i + 1).padStart(2, '0')}</span><div><h3>{title}</h3><p>{desc}</p></div></article>
+        <div class="pain-grid">
+          {painPoints.map(([no, label, title, text]) => (
+            <article>
+              <span class="pain-index">{no} / {label}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
           ))}
         </div>
       </div>
     </section>
 
-    <section class="audience-block alt">
-      <div class="shell audience-layout">
-        <div class="audience-title">
-          <p class="index">03 / İŞLETMELER & KOBİ’LER</p>
-          <h2>Dağınık Excel işlerini tek tek değil, sistem olarak ele alın.</h2>
-          <p>Teklif, tahsilat, stok, nakit, maliyet ve yönetim raporları arasında elle köprü kuruyorsanız, ihtiyacınız olan ara süreci görünür ve yönetilebilir hale getiriyoruz.</p>
+    <section id="neden-farkli" class="authority-section">
+      <div class="shell authority-grid">
+        <div class="authority-copy">
+          <p class="eyebrow terracotta">FARK YARATAN DENEYİM</p>
+          <h2>Finansal ihtiyacı teknik gereksinime çevirmek işin yarısıdır.</h2>
+          <p><strong>{SATICI.gercekKisi}</strong> olarak yaklaşımım yalnız formül yazmak değil; işletmenin hangi veriyi neden tuttuğunu, hangi kontrolün karar için kritik olduğunu ve yönetimin hangi çıktıyı görmek istediğini anlamaktır.</p>
+          <p>Ticari bankacılık, kredi değerlendirme ve şirket danışmanlığı deneyimini Excel sistem mimarisiyle birleştirerek; kullanıcıya “hangi formülü istiyorsunuz?” diye sormak yerine iş sürecini birlikte çözümleriz.</p>
+          <div class="authority-links"><a href="/hakkinda">Uzman profili →</a><a href="/neden-excel-arsiv">Yöntem ve farklar →</a></div>
         </div>
-        <div class="solution-list">
-          {businessNeeds.map(([title, desc], i) => (
-            <article><span>{String(i + 1).padStart(2, '0')}</span><div><h3>{title}</h3><p>{desc}</p></div></article>
+        <div class="compare-card">
+          <div class="compare-head"><span>Yaklaşım</span><span>Standart geliştirme</span><span>Özel Excel çalışması</span></div>
+          <div class="compare-row"><strong>Sektörel terminoloji</strong><span>İş dilini sizin tarif etmeniz gerekir</span><b>Finans ve işletme bağlamı korunur</b></div>
+          <div class="compare-row"><strong>Çözüm yaklaşımı</strong><span>İstenen ekran veya formül uygulanır</span><b>İş akışı, kontrol ve karar çıktısı birlikte ele alınır</b></div>
+          <div class="compare-row"><strong>Revizyon riski</strong><span>Yanlış anlaşılan ihtiyaç yeniden anlatılır</span><b>Kapsam başlangıçta süreç üzerinden netleştirilir</b></div>
+          <div class="compare-row"><strong>Gizlilik</strong><span>Projeye göre değişir</span><b>Hassas veri için karşılıklı NDA uygulanabilir</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="solutions-section">
+      <div class="shell">
+        <div class="dark-head">
+          <p class="eyebrow light">NELER HAZIRLIYORUZ?</p>
+          <h2>İşletmenizin ve ofisinizin ihtiyacına göre sıfırdan kurgulanan Excel çalışma sistemleri.</h2>
+          <p>Tek bir hesaplama ekranından çok sayfalı yönetim sistemine kadar kapsam, gerçek ihtiyaca göre belirlenir.</p>
+        </div>
+        <div class="solution-grid">
+          {solutions.map(([no, title, text]) => (
+            <article>
+              <span>{no}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
           ))}
         </div>
       </div>
@@ -119,62 +133,58 @@ const serviceLd = {
 
     <section class="process-section">
       <div class="shell">
-        <div class="process-head">
-          <p class="index">04 / ÇALIŞMA AKIŞI</p>
-          <h2>Teknik şartname yazmanız gerekmez.</h2>
-          <p>İşi anlatmanız yeterli. İhtiyacı teknik yapıya biz çeviriyoruz.</p>
+        <div class="section-head centered">
+          <div><p class="eyebrow">NASIL ÇALIŞIYORUZ?</p><h2>Karmaşık teknik şartnameye gerek yok.</h2></div>
+          <p>İşi nasıl yürüttüğünüzü anlatın; teknik yapıyı birlikte netleştirelim.</p>
         </div>
-        <div class="process-line">
-          <article><b>01</b><h3>İşleyişi dinleriz</h3><p>Bugün neyi nasıl yaptığınızı ve nerede zorlandığınızı anlarız.</p></article>
-          <article><b>02</b><h3>Kapsamı çıkarırız</h3><p>Girişler, hesaplar, kontroller ve raporlar netleşir.</p></article>
-          <article><b>03</b><h3>Çalışmayı kurarız</h3><p>Excel yapısı gerçek kullanıcı akışına göre hazırlanır ve test edilir.</p></article>
-          <article><b>04</b><h3>Teslim ederiz</h3><p>Kullanım akışı ve proje kapsamı yazılı şekilde net kalır.</p></article>
+        <div class="process-grid">
+          {process.map(([no, title, text]) => (
+            <article><span>{no}</span><h3>{title}</h3><p>{text}</p></article>
+          ))}
         </div>
       </div>
     </section>
 
-    <section class="principle-band">
-      <div class="shell principle-grid">
-        <div><span>01</span><h3>İş akışı odaklı</h3><p>Hangi hücrenin değil, hangi adımın zaman ve kontrol kaybettirdiğine bakarız.</p></div>
-        <div><span>02</span><h3>Finansal bakış</h3><p>Nakit, tahsilat, maliyet ve yönetim görünümünü karar açısından ele alırız.</p></div>
-        <div><span>03</span><h3>Kontrollü teslim</h3><p>Girdi, hesap, uyarı ve rapor ekranlarını tek yönlü ve okunabilir akışta kurarız.</p></div>
+    <section class="request-section" id="talep-formu">
+      <div class="shell request-card">
+        <div class="request-copy">
+          <p class="eyebrow terracotta">HIZLI BAŞLANGIÇ</p>
+          <h2>Özel Excel çalışmanızı başlatın.</h2>
+          <p>Mevcut dosyanızı, ekran görüntüsünü veya birkaç satırlık örnek veriyi paylaşın. Önce problemi ve kapsamı netleştirelim; ardından proje bedeli ve teslim kapsamı yazılı olarak belirlensin.</p>
+          <div class="request-checks">
+            <span>İşletme / ofis türü</span><span>Bugünkü takip yöntemi</span><span>Zaman kaybettiren adım</span><span>İstenen çıktı / rapor</span>
+          </div>
+        </div>
+        <aside class="request-action">
+          <span class="request-number">01</span>
+          <h3>İhtiyacınızı e-posta ile anlatın</h3>
+          <p>Bağlantı, gerekli bilgileri içeren hazır bir talep metni açar. Dosya veya ekran görüntüsü ekleyebilirsiniz.</p>
+          <a class="btn primary full" href={mailHref}>Ücretsiz kapsam değerlendirmesi iste</a>
+          <a class="contact-link" href={SATICI.telefonTelHref}>{SATICI.telefon}</a>
+          <small>Paylaşılan bilgiler yalnız talebin değerlendirilmesi amacıyla kullanılır.</small>
+        </aside>
       </div>
     </section>
-
-    <section class="cta-section">
-      <div class="shell cta-card">
-        <div>
-          <p class="kicker green">BAŞLANGIÇ</p>
-          <h2>İhtiyacınızı kısa yazın. Çalışmanın kapsamını birlikte netleştirelim.</h2>
-          <p>Mevcut dosyanızı, ekran görüntüsünü veya örnek veriyi paylaşmanız yeterli. Önce ne yapılacağını netleştirir, sonra kapsam ve proje bedelini yazılı olarak belirleriz.</p>
-        </div>
-        <div class="cta-actions">
-          <a class="btn btn-green" href={mailHref}>İhtiyacımı anlatmak istiyorum</a>
-          <a class="phone" href={SATICI.telefonTelHref}>{SATICI.telefon}</a>
-          <a class="catalog" href="/sablonlar">Hazır sistemlere bakın →</a>
-        </div>
-      </div>
-    </section>
-  </div>
+  </main>
 </CommerceLayout>
 
 <style>
-  .exclusive-page{--ink:#101914;--green:#167a45;--green2:#22a861;--deep:#071a11;--deep2:#0d281b;--muted:#68746d;--line:#dbe4de;--soft:#f3f7f4;background:#fff;color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-  .shell{width:min(1220px,calc(100% - 56px));margin:0 auto}
-  .hero-dark{background:linear-gradient(135deg,var(--deep) 0%,#0b2418 55%,#103321 100%);color:#fff;padding:78px 0 66px;border-bottom:1px solid #183d29}
-  .hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(360px,.65fr);gap:70px;align-items:center}
-  .kicker,.index{margin:0;font:800 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.kicker{color:#7be3a5}.index{color:var(--green)}
-  .hero-copy h1{max-width:810px;margin:18px 0 22px;font-size:clamp(50px,6.2vw,82px);line-height:.95;letter-spacing:-.055em;font-weight:820}.hero-copy h1 span{color:#7be3a5}
-  .lead{max-width:760px;margin:0;color:#c7d4cc;font-size:18px;line-height:1.75}
-  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:10px;font-weight:800;text-decoration:none}.btn-light{background:#fff;color:#0c2116}.btn-ghost{border:1px solid #456552;color:#fff}.btn-green{background:var(--green);color:#fff}
-  .trust-row{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px;padding-top:22px;border-top:1px solid #294b37;color:#c3d2c9;font-size:13px}.trust-row b{color:#7be3a5;margin-right:6px}
-  .case-panel{background:#fff;color:var(--ink);padding:30px;border-radius:18px;box-shadow:0 22px 60px rgba(0,0,0,.22);border-top:4px solid #d2a34a}.case-head{display:flex;justify-content:space-between;gap:16px;align-items:center}.case-head span{font:800 10px/1 ui-monospace,monospace;letter-spacing:.12em;color:#9a6410}.case-head small{color:var(--muted)}.case-panel h2{margin:20px 0;font-size:28px;line-height:1.08;letter-spacing:-.035em}.case-metrics{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden}.case-metrics div{padding:17px}.case-metrics div+div{border-left:1px solid var(--line)}.case-metrics strong{display:block;font-size:27px}.case-metrics small{color:var(--muted)}.case-flow{margin-top:22px}.case-flow p{display:grid;grid-template-columns:30px 1fr;gap:10px;margin:0;padding:12px 0;border-bottom:1px solid #edf1ee}.case-flow b{color:var(--green)}.case-flow span{color:#4d5a52;line-height:1.5}.case-note{display:block;margin-top:15px;color:#7a847e;line-height:1.5}
-  .statement{padding:74px 0}.statement-grid{display:grid;grid-template-columns:260px 1fr;gap:44px;align-items:start}.statement h2,.audience-title h2,.process-head h2,.cta-card h2{margin:0;font-size:clamp(38px,4.4vw,58px);line-height:1;letter-spacing:-.045em}.statement p:not(.index){max-width:780px;color:var(--muted);font-size:17px;line-height:1.8;margin:20px 0 0}
-  .audience-block{padding:76px 0;border-top:1px solid var(--line)}.audience-block.alt{background:var(--soft)}.audience-layout{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}.audience-title{position:sticky;top:110px}.audience-title h2{margin-top:14px}.audience-title p:not(.index){margin:20px 0 0;color:var(--muted);line-height:1.75;font-size:16px}
-  .solution-list{border-top:1px solid var(--line)}.solution-list article{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:23px 0;border-bottom:1px solid var(--line)}.solution-list article>span{font:800 11px/1 ui-monospace,monospace;color:var(--green);padding-top:5px}.solution-list h3{margin:0;font-size:23px;letter-spacing:-.025em}.solution-list p{margin:7px 0 0;color:var(--muted);line-height:1.65}
-  .process-section{padding:82px 0;background:#fff}.process-head{max-width:700px}.process-head h2{margin-top:14px}.process-head p:not(.index){color:var(--muted);font-size:16px}.process-line{display:grid;grid-template-columns:repeat(4,1fr);margin-top:42px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.process-line article{padding:26px 24px 30px;border-right:1px solid var(--line)}.process-line article:last-child{border-right:0}.process-line b{color:var(--green);font:800 11px/1 ui-monospace,monospace}.process-line h3{font-size:21px;margin:15px 0 8px}.process-line p{margin:0;color:var(--muted);line-height:1.6;font-size:14px}
-  .principle-band{background:#0b2116;color:#fff;padding:52px 0}.principle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}.principle-grid>div{padding:8px 34px;border-right:1px solid #284536}.principle-grid>div:first-child{padding-left:0}.principle-grid>div:last-child{border-right:0}.principle-grid span{color:#7be3a5;font:800 11px/1 ui-monospace,monospace}.principle-grid h3{font-size:24px;margin:13px 0 8px}.principle-grid p{margin:0;color:#b9cbc0;line-height:1.6}
-  .cta-section{padding:72px 0}.cta-card{display:grid;grid-template-columns:1.4fr .6fr;gap:50px;align-items:center;padding:42px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 14px 42px rgba(18,54,33,.07)}.kicker.green{color:var(--green)}.cta-card h2{margin-top:14px}.cta-card p:not(.kicker){color:var(--muted);line-height:1.7;max-width:760px}.cta-actions{display:flex;flex-direction:column;gap:14px;align-items:stretch}.phone,.catalog{text-align:center;color:var(--ink);font-weight:800;text-decoration:none}.catalog{color:var(--green);font-size:14px}
-  @media(max-width:980px){.hero-grid,.statement-grid,.audience-layout,.cta-card{grid-template-columns:1fr}.hero-grid{gap:38px}.case-panel{max-width:720px}.audience-title{position:static}.process-line{grid-template-columns:1fr 1fr}.process-line article:nth-child(2){border-right:0}.process-line article:nth-child(-n+2){border-bottom:1px solid var(--line)}.principle-grid{grid-template-columns:1fr}.principle-grid>div{padding:24px 0;border-right:0;border-bottom:1px solid #284536}.principle-grid>div:last-child{border-bottom:0}}
-  @media(max-width:680px){.shell{width:calc(100% - 28px)}.hero-dark{padding:50px 0}.hero-copy h1{font-size:46px}.lead{font-size:16px}.hero-actions{flex-direction:column}.btn{width:100%}.trust-row{display:grid;grid-template-columns:1fr}.case-panel{padding:22px}.case-panel h2{font-size:25px}.case-metrics{grid-template-columns:1fr}.case-metrics div+div{border-left:0;border-top:1px solid var(--line)}.statement,.audience-block,.process-section,.cta-section{padding:56px 0}.statement h2,.audience-title h2,.process-head h2,.cta-card h2{font-size:36px}.process-line{grid-template-columns:1fr}.process-line article{border-right:0;border-bottom:1px solid var(--line)}.process-line article:last-child{border-bottom:0}.cta-card{padding:26px}.solution-list article{grid-template-columns:40px 1fr}}
+  .custom-page{--terracotta:#c85a32;--terracotta-dark:#a94424;--ink:#181512;--muted:#6d6761;--line:#e4ddd6;--stone:#f7f5f2;--stone2:#efebe6;--dark:#191816;--dark2:#24211e;background:#fff;color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  .shell{width:min(1160px,calc(100% - 48px));margin:0 auto}
+  .hero-section{padding:82px 0 72px;background:linear-gradient(180deg,#fff 0%,#fbf9f6 100%);border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(330px,.7fr);gap:68px;align-items:center}
+  .audience-pill{display:inline-flex;align-items:center;gap:9px;padding:8px 11px;border:1px solid #efc6b5;background:#fff7f2;border-radius:8px;color:#8c3c20;font-size:11px;font-weight:800;letter-spacing:.03em}.audience-pill span{width:8px;height:8px;border-radius:50%;background:var(--terracotta)}
+  .hero-copy h1{max-width:820px;margin:22px 0;font-size:clamp(44px,5.8vw,72px);line-height:.98;letter-spacing:-.052em;font-weight:850}.hero-copy h1 em{font-style:normal;color:var(--terracotta)}
+  .hero-lead{max-width:790px;margin:0;color:var(--muted);font-size:18px;line-height:1.72}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:11px;text-decoration:none;font-weight:850;font-size:14px}.btn.primary{background:var(--terracotta);color:#fff;box-shadow:0 12px 28px rgba(140,60,32,.18)}.btn.primary:hover{background:var(--terracotta-dark)}.btn.secondary{border:1px solid #cfc7bf;color:#39342f;background:#fff}.btn.full{width:100%}
+  .proof-row{display:flex;gap:22px;flex-wrap:wrap;margin-top:32px;padding-top:22px;border-top:1px solid var(--line);color:#746d66;font-size:12px}.proof-row b{color:#24352a;margin-right:4px}
+  .hero-proof{padding:30px;border:1px solid #ded6ce;background:#fff;border-radius:20px;box-shadow:0 24px 70px rgba(39,31,24,.1)}.mini-label,.eyebrow{margin:0;font:850 10px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.mini-label{color:var(--terracotta)}.hero-proof h2{margin:14px 0 24px;font-size:28px;line-height:1.08;letter-spacing:-.035em}.proof-flow{border-top:1px solid var(--line)}.proof-flow>div{display:grid;grid-template-columns:38px 1fr;gap:4px 12px;padding:16px 0;border-bottom:1px solid var(--line)}.proof-flow span{grid-row:1/3;color:var(--terracotta);font:850 11px/1.5 ui-monospace,monospace}.proof-flow strong{font-size:14px}.proof-flow small{color:var(--muted);font-size:11.5px}.proof-note{display:flex;justify-content:space-between;gap:14px;margin-top:18px;padding:14px;background:#fff4ee;border-left:3px solid var(--terracotta);font-size:12px}.proof-note span{color:var(--muted);text-align:right}
+  .pain-section{padding:72px 0;background:var(--stone);border-bottom:1px solid var(--line)}.section-head{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:end;margin-bottom:34px}.section-head h2{margin:10px 0 0;font-size:clamp(32px,4.2vw,50px);line-height:1.03;letter-spacing:-.042em}.section-head>p,.section-head div+ p{margin:0;color:var(--muted);line-height:1.7;font-size:14px}.eyebrow{color:#635b54}.eyebrow.terracotta{color:var(--terracotta)}.eyebrow.light{color:#f0a486}
+  .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.pain-grid article{padding:26px;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 7px 22px rgba(44,35,28,.04)}.pain-index{display:block;margin-bottom:14px;color:#a04425;font:850 10px/1.4 ui-monospace,monospace}.pain-grid h3{margin:0 0 10px;font-size:20px;letter-spacing:-.025em}.pain-grid p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+  .authority-section{padding:82px 0}.authority-grid{display:grid;grid-template-columns:.84fr 1.16fr;gap:62px;align-items:center}.authority-copy h2{margin:12px 0 20px;font-size:clamp(34px,4.1vw,51px);line-height:1.02;letter-spacing:-.045em}.authority-copy p{color:var(--muted);line-height:1.72;font-size:14px}.authority-copy strong{color:var(--ink)}.authority-links{display:flex;gap:20px;flex-wrap:wrap;margin-top:22px}.authority-links a{color:var(--terracotta-dark);font-weight:800;text-decoration:none}.compare-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 15px 42px rgba(35,27,21,.07)}.compare-head,.compare-row{display:grid;grid-template-columns:.72fr 1fr 1.1fr}.compare-head{background:var(--dark);color:#fff}.compare-head span{padding:16px;font-size:11px;font-weight:800}.compare-head span:nth-child(2){color:#aaa39d}.compare-head span:nth-child(3){color:#f0a486}.compare-row{background:#fff;border-top:1px solid var(--line)}.compare-row>*{padding:17px 16px;margin:0;font-size:12px;line-height:1.5}.compare-row strong{font-size:12px}.compare-row span{color:#7d746c}.compare-row b{background:#fff7f2;color:#362b25;font-weight:700}
+  .solutions-section{padding:76px 0;background:var(--dark);color:#fff}.dark-head{text-align:center;max-width:760px;margin:0 auto}.dark-head h2{margin:12px 0 14px;font-size:clamp(34px,4.2vw,50px);line-height:1.02;letter-spacing:-.04em}.dark-head>p{color:#aaa39d;font-size:14px;line-height:1.7}.solution-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}.solution-grid article{padding:24px;background:#24211e;border:1px solid #3a3632;border-radius:14px}.solution-grid span{display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:var(--terracotta);font-weight:850;font-size:12px}.solution-grid h3{margin:18px 0 9px;font-size:18px;letter-spacing:-.02em}.solution-grid p{margin:0;color:#afa9a3;font-size:12.5px;line-height:1.65}
+  .process-section{padding:78px 0;background:#fff}.section-head.centered{display:block;text-align:center;max-width:690px;margin:0 auto 40px}.section-head.centered>p{margin-top:12px}.process-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:16px;overflow:hidden}.process-grid article{padding:30px;text-align:center;border-right:1px solid var(--line)}.process-grid article:last-child{border-right:0}.process-grid span{display:grid;place-items:center;width:46px;height:46px;margin:0 auto 18px;border-radius:50%;background:var(--dark);color:#fff;font-weight:850}.process-grid article:nth-child(2) span{background:var(--terracotta)}.process-grid h3{margin:0 0 9px;font-size:17px}.process-grid p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.65}
+  .request-section{padding:74px 0;background:var(--stone);border-top:1px solid var(--line)}.request-card{display:grid;grid-template-columns:1.15fr .85fr;gap:58px;padding:46px;background:#fff;border:1px solid #d9d1c8;border-radius:24px;box-shadow:0 20px 52px rgba(48,38,30,.08)}.request-copy h2{margin:12px 0;font-size:clamp(34px,4vw,50px);line-height:1.02;letter-spacing:-.04em}.request-copy>p{color:var(--muted);line-height:1.75}.request-checks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.request-checks span{padding:12px 14px;background:var(--stone);border:1px solid var(--line);font-size:12px;font-weight:700}.request-action{padding:28px;background:#fbf8f5;border:1px solid var(--line);border-radius:16px}.request-number{color:var(--terracotta);font:850 12px/1 ui-monospace,monospace}.request-action h3{margin:12px 0 8px;font-size:23px}.request-action p{color:var(--muted);font-size:12.5px;line-height:1.65;margin-bottom:22px}.contact-link{display:block;margin:18px 0 12px;text-align:center;color:var(--ink);font-weight:850;text-decoration:none}.request-action small{display:block;text-align:center;color:#8c847d;line-height:1.5}
+  @media(max-width:980px){.hero-grid,.section-head,.authority-grid,.request-card{grid-template-columns:1fr}.hero-grid{gap:36px}.hero-proof{max-width:760px}.pain-grid,.solution-grid{grid-template-columns:1fr 1fr}.authority-grid{gap:38px}.request-card{gap:32px}}
+  @media(max-width:720px){.shell{width:calc(100% - 28px)}.hero-section{padding:54px 0}.hero-copy h1{font-size:45px}.hero-lead{font-size:16px}.hero-actions{flex-direction:column}.btn{width:100%}.proof-row{display:grid;grid-template-columns:1fr}.pain-section,.authority-section,.solutions-section,.process-section,.request-section{padding:54px 0}.pain-grid,.solution-grid,.process-grid,.request-checks{grid-template-columns:1fr}.process-grid article{border-right:0;border-bottom:1px solid var(--line)}.process-grid article:last-child{border-bottom:0}.compare-card{overflow-x:auto}.compare-head,.compare-row{min-width:720px}.request-card{padding:24px}.proof-note{flex-direction:column}.proof-note span{text-align:left}}
 </style>
