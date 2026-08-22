@@ -39,12 +39,22 @@ for (const token of forbiddenRefs) {
   if (special.includes(token)) failures.push({ path: 'src/pages/ozel-excel-sistemleri.astro', expected: `must not reference ${token}`, actual: 'REFERENCE_FOUND' });
 }
 
+const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+const buildScript = String(pkg?.scripts?.build || '');
+if (!buildScript.includes('PUBLIC_TEMPLATE_CARD_VARIANT=stable astro build')) {
+  failures.push({
+    path: 'package.json#scripts.build',
+    expected: 'production build must force PUBLIC_TEMPLATE_CARD_VARIANT=stable',
+    actual: buildScript || 'MISSING',
+  });
+}
+
 if (failures.length) {
   console.error('PROTECTED SURFACE CONTRACT BLOCKED');
-  console.error('Ana sayfa ve /sablonlar yüzeyleri özel sistem sayfasından izole edilmiştir.');
+  console.error('Ana sayfa ve /sablonlar yüzeyleri özel sistem sayfasından ve deneysel katalog varyantından izole edilmiştir.');
   for (const f of failures) console.error(`- ${f.path}: expected ${f.expected}, actual ${f.actual}`);
   console.error('Bu yüzeylerden biri bilinçli olarak yeniden tasarlanacaksa koruma baselineı ayrı ve açık bir PR ile güncellenmelidir.');
   process.exit(1);
 }
 
-console.log(`PROTECTED SURFACE CONTRACT PASS — ${Object.keys(PROTECTED).length} protected paths + special-page isolation`);
+console.log(`PROTECTED SURFACE CONTRACT PASS — ${Object.keys(PROTECTED).length} protected paths + special-page isolation + stable catalog variant`);
