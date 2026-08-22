@@ -1,16 +1,15 @@
 // Firebase Hosting deploy gate.
 // Any hosting deploy path (CI, local Firebase CLI, future automation) must carry a
-// finalized sitemap index. Local production deploys are additionally locked to a
-// clean, current main checkout so an old/feature branch cannot overwrite live.
+// finalized sitemap index AND a dist provenance manifest tied to the exact git SHA.
+// Local production deploys are additionally locked to a clean, current main checkout.
 import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DIST_DIR } from './lib.mjs';
 import { parseSitemapIndex } from './finalize-sitemap-index.mjs';
 
 function run(script) {
-  // firebase CLI'nin paketli node'u ESM'i require edemediği için predeploy
-  // sarmalayıcısı gerçek sistem node'unu PREDEPLOY_NODE olarak geçer.
   const node = process.env.PREDEPLOY_NODE || process.execPath;
   const result = spawnSync(node, [script], { cwd: process.cwd(), env: process.env, stdio: 'inherit' });
   if (result.error) throw result.error;
@@ -29,11 +28,6 @@ function gitSpawn(command, args, { inherit = false } = {}) {
 function git(args, { inherit = false } = {}) {
   let result = gitSpawn('git', args, { inherit });
   const firstError = inherit ? '' : String(result.stderr || '').trim();
-
-  // Firebase CLI macOS'ta Rosetta/x86_64 Node ile predeploy başlatabildiği için
-  // Apple Silicon sistemlerde /usr/bin/git -> xcrun yanlış mimaride yüklenebilir.
-  // Kilidi gevşetmek yerine yalnız bu bilinen mimari hatasında native arm64 git
-  // çağrısı denenir. Intel macOS veya diğer platformlarda normal git davranışı korunur.
   const macRosettaGitFailure =
     process.platform === 'darwin' &&
     (result.error || result.status !== 0) &&
@@ -51,40 +45,62 @@ function git(args, { inherit = false } = {}) {
   return inherit ? '' : String(result.stdout || '').trim();
 }
 
+function sha256(path) {
+  return createHash('sha256').update(readFileSync(path)).digest('hex');
+}
+
 export function assertLocalProductionReleaseLock() {
-  // GitHub Actions staging preview'ları feature/PR ref üzerinde çalışır; onlar CI
-  // provenance kapılarıyla korunur. Bu kilit özellikle elle yapılan production
-  // `firebase deploy --only hosting:excelarsiv` komutunu fail-closed korur.
   if (process.env.GITHUB_ACTIONS === 'true') return;
 
   try {
     const branch = git(['branch', '--show-current']);
-    if (branch !== 'main') {
-      throw new Error(`aktif branch "${branch || '(detached)'}"; production deploy yalnız main üzerinden yapılabilir`);
-    }
+    if (branch !== 'main') throw new Error(`aktif branch "${branch || '(detached)'}"; production deploy yalnız main üzerinden yapılabilir`);
 
-    // origin/main bilgisini stale bırakmamak için deploy öncesi uzak ref yenilenir.
     git(['fetch', '--quiet', 'origin', 'main']);
-
     const head = git(['rev-parse', 'HEAD']);
     const originMain = git(['rev-parse', 'origin/main']);
-    if (head !== originMain) {
-      throw new Error(`HEAD (${head.slice(0, 12)}) origin/main (${originMain.slice(0, 12)}) ile aynı değil`);
-    }
+    if (head !== originMain) throw new Error(`HEAD (${head.slice(0, 12)}) origin/main (${originMain.slice(0, 12)}) ile aynı değil`);
 
-    // Tracked dosyalardaki staged/unstaged değişiklikler eski veya doğrulanmamış
-    // dist üretimine yol açabilir. Untracked dosyalar build artefaktları nedeniyle
-    // burada bilinçli olarak kapsam dışıdır.
     const dirty = git(['status', '--porcelain', '--untracked-files=no']);
-    if (dirty) {
-      throw new Error('çalışma ağacında commitlenmemiş tracked değişiklik var');
-    }
+    if (dirty) throw new Error('çalışma ağacında commitlenmemiş tracked değişiklik var');
 
     console.log(`PRODUCTION RELEASE LOCK PASS — main @ ${head.slice(0, 12)} = origin/main, tracked tree clean`);
   } catch (error) {
     console.error('PRODUCTION RELEASE LOCK BLOCKED');
     console.error(error instanceof Error ? error.message : String(error));
     console.error('Çözüm: git checkout main && git pull --ff-only origin main && npm run build');
+    process.exit(1);
+  }
+}
+
+export function assertDistProvenance({ dist = DIST_DIR } = {}) {
+  const manifestPath = join(dist, '.build-provenance.json');
+  if (!existsSync(manifestPath)) {
+    console.error('DIST PROVENANCE BLOCKED — dist/.build-provenance.json yok. Bu dist hangi committen üretildiği kanıtlanamıyor.');
+    process.exit(1);
+  }
+
+  try {
+    const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+    const head = git(['rev-parse', 'HEAD']);
+    if (manifest.gitSha !== head) {
+      throw new Error(`dist gitSha ${String(manifest.gitSha).slice(0, 12)} != HEAD ${head.slice(0, 12)}`);
+    }
+
+    const requiredRoutes = ['/', '/sablonlar', '/ozel-excel-sistemleri'];
+    for (const route of requiredRoutes) {
+      const entry = manifest.routes?.[route];
+      if (!entry?.path || !entry?.sha256) throw new Error(`manifest route eksik: ${route}`);
+      if (!existsSync(entry.path)) throw new Error(`dist artefakt eksik: ${entry.path}`);
+      const actual = sha256(entry.path);
+      if (actual !== entry.sha256) throw new Error(`${route} dist hash değişmiş/stale: ${actual.slice(0, 12)} != ${entry.sha256.slice(0, 12)}`);
+    }
+
+    console.log(`DIST PROVENANCE PASS — dist exactly matches HEAD ${head.slice(0, 12)} and protected route hashes`);
+  } catch (error) {
+    console.error('DIST PROVENANCE BLOCKED');
+    console.error(error instanceof Error ? error.message : String(error));
+    console.error('Çözüm: npm run build komutunu mevcut HEAD üzerinde yeniden çalıştırın; eski dist ile deploy yasaktır.');
     process.exit(1);
   }
 }
@@ -113,6 +129,7 @@ export function finalizedBuildMatches({ dist = DIST_DIR } = {}) {
 
 async function main() {
   assertLocalProductionReleaseLock();
+  assertDistProvenance();
 
   if (!existsSync(join(DIST_DIR, 'seo-artifacts.json'))) {
     console.error('HOSTING PREDEPLOY KALDI: dist/seo-artifacts.json yok. Önce npm run build çalıştırılmalı.');
@@ -125,7 +142,7 @@ async function main() {
     run('scripts/seo/finalize-sitemap-index.mjs');
   }
   run('scripts/seo/validate-artifacts.mjs');
-  console.log('HOSTING PREDEPLOY PASS — release lock + finalized sitemap + artifact validation');
+  console.log('HOSTING PREDEPLOY PASS — release lock + dist provenance + finalized sitemap + artifact validation');
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) main();
