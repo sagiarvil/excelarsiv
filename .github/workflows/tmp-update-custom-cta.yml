@@ -1,0 +1,30 @@
+name: Temporary Custom CTA Patch
+
+on:
+  push:
+    branches:
+      - fix/cta-ihtiyaca-ozel-excel
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/cta-ihtiyaca-ozel-excel
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: python scripts/tmp-update-custom-cta.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/pages/ozel-excel-sistemleri.astro
+          git diff --cached --quiet && exit 0
+          git commit -m "fix(service): emphasize need-based Excel CTA"
+          git push origin HEAD:fix/cta-ihtiyaca-ozel-excel
