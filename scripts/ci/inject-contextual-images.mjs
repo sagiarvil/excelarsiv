@@ -122,18 +122,18 @@ const specialPremiumStyles = `
     line-height:1.45!important;
   }
   .special-premium main > section > div[class*="max-w-"]{
-    padding-top:3.55rem!important;
-    padding-bottom:3.55rem!important;
+    padding-top:1.25rem!important;
+    padding-bottom:1.25rem!important;
   }
   .special-premium main > section[class~="py-16"],
   .special-premium main > section[class~="py-20"],
   .special-premium main > section[class~="py-24"]{
-    padding-top:3.55rem!important;
-    padding-bottom:3.55rem!important;
+    padding-top:1.75rem!important;
+    padding-bottom:1.75rem!important;
   }
   .special-premium main > section:first-child > div[class*="max-w-"]{
-    padding-top:3.25rem!important;
-    padding-bottom:3.45rem!important;
+    padding-top:1.5rem!important;
+    padding-bottom:1.5rem!important;
   }
   .special-premium main .card{
     border-radius:20px;
@@ -168,7 +168,7 @@ const specialPremiumStyles = `
     .special-premium main > section > div[class*="max-w-"],
     .special-premium main > section[class~="py-16"],
     .special-premium main > section[class~="py-20"],
-    .special-premium main > section[class~="py-24"]{padding-top:3rem!important;padding-bottom:3rem!important}
+    .special-premium main > section[class~="py-24"]{padding-top:1.25rem!important;padding-bottom:1.25rem!important}
   }
   @media(max-width:620px){
     body.special-premium{font-size:16px;line-height:1.62}
@@ -177,7 +177,7 @@ const specialPremiumStyles = `
     .special-premium main > section > div[class*="max-w-"],
     .special-premium main > section[class~="py-16"],
     .special-premium main > section[class~="py-20"],
-    .special-premium main > section[class~="py-24"]{padding-top:2.35rem!important;padding-bottom:2.35rem!important}
+    .special-premium main > section[class~="py-24"]{padding-top:1rem!important;padding-bottom:1rem!important}
     .special-premium .text-sm{font-size:.94rem!important}
     .special-premium .text-xs{font-size:.8rem!important}
   }
