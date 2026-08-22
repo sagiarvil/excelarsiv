@@ -190,15 +190,9 @@ home = replaceOnce(
 );
 writeFileSync(routes.home, home, 'utf8');
 
-// Rehber: full-width symmetric banner under the existing intro stats; grid/cards remain untouched.
+// Rehber: keep common styles without the banner visual.
 let guides = readFileSync(routes.guides, 'utf8');
 guides = replaceOnce(guides, /<\/head>/g, `${commonStyles}</head>`, 'guide head');
-guides = replaceOnce(
-  guides,
-  /(<div[^>]*class="hub-stats mt-8"[^>]*>[\s\S]*?<strong[^>]*>1:1<\/strong><span[^>]*>rehber → ürün bağlantısı<\/span><\/div>\s*<\/div>)/g,
-  `$1<figure class="contextual-excel-visual contextual-excel-visual--guide" aria-label="Excel uygulama rehberleri görseli"><img src="/images/site/excel-guide-banner.webp" alt="Microsoft Excel çalışma ekranı ve Excel simgesi" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async"><figcaption class="contextual-excel-caption">Uygulama rehberleri · gerçek çalışma mantığı</figcaption></figure>`,
-  'guide intro stats',
-);
 writeFileSync(routes.guides, guides, 'utf8');
 
 // Special systems: visual becomes the top layer of the existing symptom card; no column/grid changes.
