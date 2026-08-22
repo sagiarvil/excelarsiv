@@ -1,7 +1,5 @@
 ---
 import CommerceLayout from '../layouts/CommerceLayout.astro';
-import SectionLabel from '../components/SectionLabel.astro';
-import Button from '../components/Button.astro';
 import { getCollection } from 'astro:content';
 import { categories } from '../lib/categories';
 
@@ -9,19 +7,34 @@ const guides = (await getCollection('guides')).sort((a, b) => a.data.title.local
 const templates = (await getCollection('templates')).sort((a, b) => a.data.name.localeCompare(b.data.name, 'tr'));
 const guideProductSlugs = new Set(guides.map((guide) => guide.data.productSlug));
 
-const categoryGroups = categories.map((category) => {
-  const categoryGuides = guides.filter((guide) => guide.data.category === category.slug);
-  const missingSlots = (3 - (categoryGuides.length % 3)) % 3;
-  const fillers = templates
-    .filter((template) => template.data.category === category.slug && !guideProductSlugs.has(template.id))
-    .slice(0, missingSlots);
+const categoryMap = Object.fromEntries(categories.map(c => [c.slug, c.name]));
 
-  return {
-    ...category,
-    guides: categoryGuides,
-    fillers,
-  };
-}).filter((group) => group.guides.length > 0);
+const allItems = [
+  ...guides.map((guide) => ({
+    type: 'guide',
+    id: guide.id,
+    title: guide.data.title,
+    description: guide.data.description,
+    category: guide.data.category,
+    categoryName: categoryMap[guide.data.category] || guide.data.category,
+    primaryQuery: guide.data.primaryQuery,
+    productSlug: guide.data.productSlug,
+    url: `/rehber/${guide.id}`,
+  })),
+  ...templates
+    .filter((template) => !guideProductSlugs.has(template.id))
+    .map((template) => ({
+      type: 'template',
+      id: template.id,
+      title: template.data.name,
+      description: template.data.summary,
+      category: template.data.category,
+      categoryName: categoryMap[template.data.category] || template.data.category,
+      primaryQuery: 'HAZIR SİSTEM',
+      productSlug: template.id,
+      url: `/sablon/${template.id}`,
+    }))
+].sort((a, b) => a.title.localeCompare(b.title, 'tr'));
 
 const guidesLd = JSON.stringify({
   '@context': 'https://schema.org',
@@ -57,8 +70,8 @@ const guidesBreadcrumbLd = JSON.stringify({
 ---
 
 <CommerceLayout
-  title="KOBİ ve İşletmeler İçin Excel Rehberleri | Excel Arşiv"
-  description="Nakit akışı, finansal analiz, bütçe, muhasebe, stok, satış ve personel yönetimini Excel'de kurmak için uygulamalı, ürün bağlantılı profesyonel rehberler."
+  title="KOBİ ve İşletmeler İçin Excel Rehberleri & Bilgi İndeksi | Excel Arşiv"
+  description="Nakit akışı, finansal analiz, bütçe, muhasebe, stok, satış ve personel yönetimini Excel'de kurmak için uygulamalı, ürün bağlantılı profesyonel rehberler dizini."
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={guidesLd} />
@@ -66,174 +79,299 @@ const guidesBreadcrumbLd = JSON.stringify({
     <script type="application/ld+json" set:html={guidesBreadcrumbLd} />
   </Fragment>
 
-  <!-- HERO SECTION -->
-  <section class="bg-gradient-to-b from-white via-slate-50/50 to-white border-b border-line py-12 md:py-16">
+  <!-- SCHOLAR HEADER & SEARCH BAR -->
+  <header class="bg-white border-b border-slate-200 py-6 md:py-8">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-blue bg-blue/10 border border-blue/20 px-3.5 py-1.5 rounded-full shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-blue animate-ping"></span>
-        UYGULAMA REHBERLERİ
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono text-slate-500 font-semibold">
+            <a href="/" class="hover:text-blue">Ana Sayfa</a>
+            <span>/</span>
+            <span class="text-navy font-bold">Rehber İndeksi & Bilgi Bankası</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-navy mt-1 tracking-tight">
+            Excel Arşiv Rehberler Dizin İndeksi
+          </h1>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-mono text-slate-600 bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span><strong>{guides.length}</strong> Uygulamalı Rehber İndekslendi</span>
+        </div>
       </div>
-      <h1 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.14] text-navy max-w-4xl">
-        İşletmenin kritik Excel sistemlerini <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue to-indigo-600">doğru yöntemle nasıl kurarsınız?</span>
-      </h1>
-      <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl">
-        Bu merkez, KOBİ'lerin ve finans ekiplerinin en sık karşılaştığı karar problemlerini yedi konu kümesinde toplar. Her rehber yalnız formülü anlatmaz; gerekli veri yapısını, kontrol mantığını, hata noktalarını, karar çıktısını ve ilgili hazır Excel sistemini birlikte gösterir.
-      </p>
 
-      <!-- İSTATİSTİK KARTLARI -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 max-w-3xl">
-        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm flex items-center gap-4">
-          <div class="w-12 h-12 rounded-2xl bg-blue/10 text-blue font-extrabold flex items-center justify-center text-xl shrink-0">
-            📚
+      <!-- SEARCH BAR -->
+      <div class="mt-5 relative">
+        <div class="relative flex items-center">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </div>
-          <div>
-            <strong class="block text-2xl md:text-3xl font-extrabold text-navy">{guides.length}+</strong>
-            <span class="text-xs font-semibold text-slate-500">Uygulamalı Rehber</span>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm flex items-center gap-4">
-          <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 font-extrabold flex items-center justify-center text-xl shrink-0">
-            🎯
-          </div>
-          <div>
-            <strong class="block text-2xl md:text-3xl font-extrabold text-navy">{categoryGroups.length}</strong>
-            <span class="text-xs font-semibold text-slate-500">Konu Kümesi</span>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm flex items-center gap-4">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 font-extrabold flex items-center justify-center text-xl shrink-0">
-            ⚡
-          </div>
-          <div>
-            <strong class="block text-2xl md:text-3xl font-extrabold text-navy">1:1</strong>
-            <span class="text-xs font-semibold text-slate-500">Rehber → Sistem Eşleşmesi</span>
-          </div>
+          <input
+            id="index-search"
+            type="search"
+            placeholder="Rehber, formül, konu veya hazır şablon adı ile dizinde arayın (örn: 13 haftalık nakit akışı, hakediş, cari yaşlandırma)..."
+            class="w-full pl-11 pr-28 py-3.5 bg-slate-50/80 hover:bg-white focus:bg-white border border-slate-300 focus:border-blue rounded-xl text-sm text-navy placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-blue/10 transition-all shadow-inner"
+          />
+          <button
+            type="button"
+            id="search-btn"
+            class="absolute right-1.5 px-5 py-2 bg-blue hover:bg-blue-600 text-white font-bold text-xs rounded-lg transition-all shadow-sm"
+          >
+            Dizinde Ara
+          </button>
         </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- KONU KÜMELERİ HIZLI GEZİNME -->
-  <section class="py-8 bg-slate-50/70 border-b border-line">
+  <!-- MAIN SCHOLAR INDEX LAYOUT -->
+  <main class="py-8 bg-[#F8F9FA] border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between gap-4 mb-4">
-        <p class="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-slate-400"></span>
-          KONU KÜMELERİ HIZLI ERİŞİM
-        </p>
-        <span class="text-[11px] font-semibold text-slate-400">Tıklayarak ilgili kümeye atlayın</span>
-      </div>
-      <nav class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5" aria-label="Rehber konu kümeleri">
-        {categoryGroups.map((group) => (
-          <a href={`#${group.slug}`} class="group flex flex-col justify-between p-3.5 rounded-2xl bg-white border border-slate-200/90 hover:border-blue hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 text-decoration-none">
-            <strong class="text-xs sm:text-sm font-extrabold text-navy group-hover:text-blue transition-colors leading-snug">{group.name}</strong>
-            <span class="text-[10px] font-mono font-bold text-slate-500 bg-slate-100 group-hover:bg-blue/10 group-hover:text-blue px-2 py-0.5 rounded-md mt-2 w-fit">{group.guides.length} rehber</span>
-          </a>
-        ))}
-      </nav>
-    </div>
-  </section>
+      <div class="grid lg:grid-cols-[240px_1fr] gap-8 items-start">
+        
+        <!-- SOL SIDEBAR: FİLTRELER & DİZİN KÜMELERİ -->
+        <aside class="space-y-6">
+          <!-- Konu Kümeleri Filtresi -->
+          <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm">
+            <h2 class="text-xs font-mono font-extrabold uppercase tracking-wider text-slate-600 pb-2 border-b border-slate-100 flex items-center justify-between">
+              <span>Konu Kümeleri</span>
+              <span class="text-[10px] font-normal text-slate-400">{categories.length} küme</span>
+            </h2>
+            <nav class="mt-3 space-y-1" id="category-filter-nav">
+              <button
+                type="button"
+                data-category="all"
+                class="category-btn w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-between bg-blue text-white shadow-sm"
+              >
+                <span>Tüm Konular</span>
+                <span class="text-[10px] font-mono bg-white/20 px-1.5 py-0.5 rounded">{allItems.length}</span>
+              </button>
+              {categories.map((cat) => {
+                const count = allItems.filter(i => i.category === cat.slug).length;
+                return (
+                  <button
+                    type="button"
+                    data-category={cat.slug}
+                    class="category-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue transition-all flex items-center justify-between"
+                  >
+                    <span class="truncate">{cat.name}</span>
+                    <span class="text-[10px] font-mono text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded shrink-0">{count}</span>
+                  </button>
+                );
+              })}
+            </nav>
+          </div>
 
-  <!-- KÜME BÖLÜMLERİ -->
-  {categoryGroups.map((group, groupIndex) => (
-    <section id={group.slug} class={`py-12 md:py-16 border-b border-line ${groupIndex % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'} scroll-mt-6`}>
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-slate-200/80">
-          <div>
-            <div class="inline-flex items-center gap-1.5 text-xs font-mono font-extrabold uppercase tracking-wide text-blue bg-blue/10 px-3 py-1 rounded-lg">
-              {String(groupIndex + 1).padStart(2, '0')} · {group.primaryQuery}
+          <!-- İçerik Türü Filtresi -->
+          <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm">
+            <h2 class="text-xs font-mono font-extrabold uppercase tracking-wider text-slate-600 pb-2 border-b border-slate-100">
+              İçerik Türü
+            </h2>
+            <div class="mt-3 space-y-1.5 text-xs" id="type-filter-group">
+              <label class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-slate-50 cursor-pointer">
+                <input type="radio" name="item-type" value="all" checked class="text-blue focus:ring-blue" />
+                <span class="font-bold text-slate-800">Tümü</span>
+              </label>
+              <label class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-slate-50 cursor-pointer">
+                <input type="radio" name="item-type" value="guide" class="text-blue focus:ring-blue" />
+                <span class="text-slate-700">Uygulamalı Rehberler ({guides.length})</span>
+              </label>
+              <label class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-slate-50 cursor-pointer">
+                <input type="radio" name="item-type" value="template" class="text-blue focus:ring-blue" />
+                <span class="text-slate-700">Hazır Excel Sistemleri</span>
+              </label>
             </div>
-            <h2 class="mt-2.5 text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy tracking-tight">{group.name}</h2>
-            <p class="mt-1.5 text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">{group.description}</p>
           </div>
-          <a href={`/sablonlar/${group.slug}`} class="inline-flex items-center gap-1.5 text-xs font-extrabold text-blue hover:text-indigo-700 bg-blue/5 hover:bg-blue/10 border border-blue/20 px-4 py-2.5 rounded-xl transition-all shrink-0 w-fit">
-            <span>{group.name} şablonlarını karşılaştır</span>
-            <span>→</span>
-          </a>
-        </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
-          {group.guides.map((guide, index) => (
-            <article class="group relative flex flex-col justify-between p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue/50 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
-              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div>
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-blue bg-blue/5 px-2.5 py-1 rounded-md inline-block">
-                  {String(index + 1).padStart(2, '0')} · {guide.data.primaryQuery}
-                </span>
-                <h3 class="mt-3.5 text-lg font-extrabold text-navy group-hover:text-blue transition-colors leading-snug">
-                  <a href={`/rehber/${guide.id}`} class="hover:underline">{guide.data.title}</a>
-                </h3>
-                <p class="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {guide.data.description}
-                </p>
-              </div>
-              <div class="mt-6 pt-3.5 border-t border-slate-100 flex items-center justify-between">
-                <a class="text-xs font-extrabold text-blue group-hover:text-indigo-600 flex items-center gap-1.5" href={`/rehber/${guide.id}`}>
-                  <span>Adım adım rehberi aç</span>
-                  <span class="group-hover:translate-x-1 transition-transform">→</span>
-                </a>
-              </div>
-            </article>
-          ))}
-          {group.fillers.map((template, fillerIndex) => (
-            <article class="group relative flex flex-col justify-between p-6 rounded-3xl bg-gradient-to-br from-emerald-50/50 via-white to-teal-50/30 border border-emerald-200/80 shadow-sm hover:shadow-xl hover:border-emerald-500 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
-              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              <div>
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/60 px-2.5 py-1 rounded-md inline-block">
-                  {String(group.guides.length + fillerIndex + 1).padStart(2, '0')} · HAZIR EXCEL SİSTEMİ
-                </span>
-                <h3 class="mt-3.5 text-lg font-extrabold text-navy group-hover:text-emerald-700 transition-colors leading-snug">
-                  <a href={`/sablon/${template.id}`} class="hover:underline">{template.data.name}</a>
-                </h3>
-                <p class="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {template.data.summary}
-                </p>
-              </div>
-              <div class="mt-6 pt-3.5 border-t border-emerald-100/80 flex items-center justify-between">
-                <a class="text-xs font-extrabold text-emerald-700 group-hover:text-emerald-800 flex items-center gap-1.5" href={`/sablon/${template.id}`}>
-                  <span>Hazır sistemi incele</span>
-                  <span class="group-hover:translate-x-1 transition-transform">→</span>
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  ))}
+          <!-- Özel Excel Çözüm Kutusu -->
+          <div class="bg-gradient-to-br from-[#0B192C] to-[#102A43] text-white rounded-2xl p-5 border border-slate-700 shadow-sm">
+            <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-400 block">ÖZEL EXCEL SİSTEMİ</span>
+            <h3 class="mt-1.5 text-sm font-bold text-white leading-snug">Standart formüller işinizi çözmüyor mu?</h3>
+            <p class="mt-2 text-xs text-slate-300 leading-relaxed">
+              İşleyişinizi anlatın, işletmenize özel kontrollü Excel mimarisini kuralım.
+            </p>
+            <a href="/ozel-excel-sistemleri" class="mt-3.5 inline-flex items-center justify-center gap-1.5 w-full bg-blue hover:bg-blue-600 text-white font-bold text-xs py-2.5 rounded-xl transition-all">
+              <span>Özel Sistem Talebi</span>
+              <span>→</span>
+            </a>
+          </div>
+        </aside>
 
-  <!-- BOTTOM CATALOG CTA SECTION -->
-  <section class="py-12 md:py-16 bg-canvas">
-    <div class="max-w-4xl mx-auto px-4">
-      <div class="relative rounded-3xl overflow-hidden border-2 border-gold/40 shadow-2xl bg-gradient-to-br from-navyDark via-[#132c48] to-navy text-white p-8 sm:p-12 text-center">
-        <div class="absolute -top-24 -left-24 w-72 h-72 bg-blue/30 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-gold/20 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- SAĞ ANA ALAN: AKADEMİK / PROFESYONEL İNDEKS LİSTESİ -->
+        <section class="space-y-4" aria-label="Rehber listesi">
+          <!-- Sonuç Sayacı ve Aktif Filtre Bilgisi -->
+          <div class="flex items-center justify-between text-xs text-slate-500 pb-2 border-b border-slate-200">
+            <div>
+              <span id="results-count" class="font-bold text-navy">{allItems.length}</span> sonuç listelendi (0.01 saniye)
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-slate-400">Aktif Filtre:</span>
+              <span id="active-filter-badge" class="font-bold text-blue bg-blue/10 px-2 py-0.5 rounded">Tüm Konular</span>
+            </div>
+          </div>
 
-        <div class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-goldLight bg-white/10 border border-gold/30 px-4 py-1.5 rounded-full shadow-inner relative z-10">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          HAZIR UYGULAMA KATMANI
-        </div>
+          <!-- İNDEKS KAYITLARI -->
+          <div id="index-entries" class="space-y-3.5">
+            {allItems.map((item) => (
+              <article
+                class="scholar-item p-5 bg-white rounded-2xl border border-slate-200 hover:border-blue-400 hover:shadow-md transition-all duration-200"
+                data-category={item.category}
+                data-type={item.type}
+                data-title={item.title.toLowerCase()}
+                data-description={item.description.toLowerCase()}
+              >
+                <!-- ÜST SATIR: TÜR ROZETİ + BAŞLIK LİNKİ -->
+                <div class="flex items-start justify-between gap-3">
+                  <div class="space-y-1 w-full">
+                    <div class="flex items-center gap-2 flex-wrap">
+                      {item.type === 'guide' ? (
+                        <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200 shrink-0">
+                          [REHBER]
+                        </span>
+                      ) : (
+                        <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 shrink-0">
+                          [EXCEL SİSTEMİ]
+                        </span>
+                      )}
+                      <h2 class="text-base sm:text-lg font-bold text-blue-700 hover:text-blue-900 leading-snug">
+                        <a href={item.url} class="hover:underline">
+                          {item.title}
+                        </a>
+                      </h2>
+                    </div>
 
-        <h2 class="mt-4 text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight relative z-10">
-          Yöntemi öğrendiniz; hazır sistemi karşılaştırın.
-        </h2>
+                    <!-- META / YAZAR / KÜME SATIRI (SCHOLAR YEŞİL SATIRI) -->
+                    <div class="text-xs text-[#006621] font-medium flex items-center gap-2 flex-wrap pt-0.5">
+                      <span>Barış Bağırlar</span>
+                      <span>·</span>
+                      <span class="text-slate-600">Excel Arşiv</span>
+                      <span>·</span>
+                      <span class="text-slate-600 font-semibold">{item.categoryName}</span>
+                      <span>·</span>
+                      <span class="text-slate-400">{item.primaryQuery}</span>
+                    </div>
 
-        <p class="mt-3 text-xs sm:text-sm md:text-base text-slate-200 max-w-2xl mx-auto leading-relaxed relative z-10">
-          Rehberler doğru yöntemi ve kontrol mantığını açıklar. Şablon kataloğu ise aynı problemlerin hazır Excel sistemlerini, gerçek ekranlarını, çıktılarını ve teknik kapsamını yan yana gösterir.
-        </p>
+                    <!-- ÖZET / SNIPPET -->
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed pt-1">
+                      {item.description}
+                    </p>
 
-        <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3.5 relative z-10">
-          <a href="/sablonlar" class="px-8 py-4 rounded-xl bg-gradient-to-r from-blue to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-extrabold text-sm sm:text-base shadow-xl shadow-blue/30 hover:scale-[1.02] transition-all flex items-center justify-center gap-2">
-            <span>Excel Sistemlerini Karşılaştırın</span>
-            <span>→</span>
-          </a>
-          <a href="/ozel-excel-sistemleri" class="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm flex items-center justify-center gap-2 transition-all">
-            <span>Özel Excel Sistemi Talebi</span>
-          </a>
-        </div>
+                    <!-- ALT AKSİYON / SCHOLAR METADATA BAĞLANTILARI -->
+                    <div class="flex items-center gap-4 pt-2.5 text-xs text-slate-500 flex-wrap border-t border-slate-100 mt-3">
+                      <a href={item.url} class="font-bold text-blue hover:text-blue-800 hover:underline flex items-center gap-1">
+                        <span>📖 {item.type === 'guide' ? 'Adım Adım Rehberi Oku' : 'Excel Sistemini İncele'}</span>
+                        <span>→</span>
+                      </a>
+
+                      {item.productSlug && item.type === 'guide' && (
+                        <a href={`/sablon/${item.productSlug}`} class="inline-flex items-center gap-1 font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded-md border border-emerald-200 hover:border-emerald-300 transition-all">
+                          <span class="text-emerald-600 font-black">★</span>
+                          <span>Hazır Excel Dosyası</span>
+                        </a>
+                      )}
+
+                      <a href={`/sablonlar/${item.category}`} class="text-slate-500 hover:text-blue hover:underline">
+                        Kategori Şablonları
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <!-- ARAMADA SONUÇ BULUNAMADI UYARISI -->
+          <div id="no-results" class="hidden p-10 bg-white rounded-2xl border border-slate-200 text-center">
+            <span class="text-3xl block mb-2">🔍</span>
+            <h3 class="text-base font-bold text-navy">Aramanıza uygun rehber bulunamadı</h3>
+            <p class="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+              Farklı bir anahtar kelime deneyebilir veya sol taraftaki tüm konular seçeneğine dönebilirsiniz.
+            </p>
+            <button type="button" id="reset-filter-btn" class="mt-4 px-4 py-2 bg-blue text-white rounded-xl text-xs font-bold">
+              Filtreleri Sıfırla
+            </button>
+          </div>
+        </section>
+
       </div>
     </div>
-  </section>
+  </main>
+
+  <!-- LIVE CLIENT JAVASCRIPT FOR INSTANT FILTERING & SEARCH -->
+  <script is:inline>
+    const searchInput = document.getElementById('index-search');
+    const searchBtn = document.getElementById('search-btn');
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const typeRadios = document.querySelectorAll('input[name="item-type"]');
+    const items = document.querySelectorAll('.scholar-item');
+    const resultsCount = document.getElementById('results-count');
+    const activeFilterBadge = document.getElementById('active-filter-badge');
+    const noResults = document.getElementById('no-results');
+    const resetFilterBtn = document.getElementById('reset-filter-btn');
+
+    let currentCategory = 'all';
+    let currentType = 'all';
+
+    function filterItems() {
+      const query = (searchInput.value || '').trim().toLowerCase();
+      let visibleCount = 0;
+
+      items.forEach((item) => {
+        const itemCategory = item.dataset.category;
+        const itemType = item.dataset.type;
+        const itemTitle = item.dataset.title;
+        const itemDesc = item.dataset.description;
+
+        const categoryMatch = currentCategory === 'all' || itemCategory === currentCategory;
+        const typeMatch = currentType === 'all' || itemType === currentType;
+        const searchMatch = !query || itemTitle.includes(query) || itemDesc.includes(query);
+
+        if (categoryMatch && typeMatch && searchMatch) {
+          item.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      resultsCount.textContent = visibleCount;
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    }
+
+    categoryButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        currentCategory = btn.dataset.category;
+        categoryButtons.forEach((b) => {
+          b.className = 'category-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue transition-all flex items-center justify-between';
+        });
+        btn.className = 'category-btn w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-between bg-blue text-white shadow-sm';
+        activeFilterBadge.textContent = btn.querySelector('span:first-child').textContent.trim();
+        filterItems();
+      });
+    });
+
+    typeRadios.forEach((radio) => {
+      radio.addEventListener('change', (e) => {
+        currentType = e.target.value;
+        filterItems();
+      });
+    });
+
+    searchInput.addEventListener('input', filterItems);
+    searchBtn.addEventListener('click', filterItems);
+    
+    if (resetFilterBtn) {
+      resetFilterBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        currentCategory = 'all';
+        currentType = 'all';
+        categoryButtons[0].click();
+        typeRadios[0].checked = true;
+        filterItems();
+      });
+    }
+  </script>
 </CommerceLayout>
