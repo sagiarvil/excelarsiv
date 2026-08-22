@@ -8,7 +8,6 @@ const pathname = Astro.url.pathname;
 
 const menu = [
   { label: 'Şablonlar', href: '/sablonlar' },
-  { label: 'Size Özel', href: '/ozel-excel-sistemleri' },
   { label: 'Ücretsiz Demo', href: '/demo' },
   { label: 'Nasıl Çalışır', href: '/nasil-calisir' },
   { label: 'Rehber', href: '/rehber' },
@@ -24,10 +23,10 @@ const isActive = (href: string) =>
   <div class="site-container site-header__inner">
     <a href="/" class="site-header__brand" aria-label="Excel Arşiv ana sayfa">
       <img
-        src="/images/brand/excelarsiv-header-logo.png"
+        src="/images/excel-logo.png"
         alt="Excel Arşiv"
-        width="40"
-        height="40"
+        width="34"
+        height="32"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -95,13 +94,7 @@ const isActive = (href: string) =>
     text-decoration: none;
     flex-shrink: 0;
   }
-  .site-header__logo {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    display: block;
-    flex: none;
-  }
+  .site-header__logo { border-radius: 6px; }
   .site-header__brand-text {
     display: flex;
     flex-direction: column;
@@ -123,14 +116,14 @@ const isActive = (href: string) =>
   .site-header__nav {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     margin-inline: auto;
   }
   .site-header__link {
-    padding: 9px 9px;
+    padding: 9px 11px;
     border-radius: 9px;
-    font-size: 13px;
-    font-weight: 550;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--xl-ink-3);
     text-decoration: none;
     transition: color 150ms ease-out, background 150ms ease-out;
@@ -164,7 +157,7 @@ const isActive = (href: string) =>
   .site-header__cta-mobile,
   .site-header__menu { display: none; }
 
-  @media (max-width: 1020px) {
+  @media (max-width: 900px) {
     .site-header__nav { display: none; }
     .site-header__menu { display: block; position: relative; }
     .site-header__menu summary {
@@ -192,7 +185,7 @@ const isActive = (href: string) =>
       top: 46px;
       right: 0;
       display: grid;
-      min-width: 220px;
+      min-width: 210px;
       padding: 8px;
       border: 1px solid var(--xl-border);
       border-radius: 14px;
@@ -214,7 +207,7 @@ const isActive = (href: string) =>
       min-height: 56px;
       gap: 10px;
     }
-    .site-header__logo { width: 32px; height: 32px; }
+    .site-header__logo { width: 27px; height: auto; }
     .site-header__wordmark { font-size: 16px; }
     .site-header__cta {
       min-height: 36px;
@@ -231,9 +224,4 @@ const isActive = (href: string) =>
     .site-header__wordmark { font-size: 15px; }
     .site-header__cta { padding-inline: 10px; }
   }
-
-.site-header {
-  position: relative;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 6px 16px -8px rgba(0, 0, 0, 0.18);
-}
 </style>
