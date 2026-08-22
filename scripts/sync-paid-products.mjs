@@ -54,8 +54,23 @@ try {
 } catch {
   throw new Error('firebase-admin gerekli: npm ci --prefix scripts');
 }
-if (admin.apps.length === 0) admin.initializeApp();
 const bucketName = process.env.STORAGE_BUCKET || 'carbon-web-1265b.firebasestorage.app';
+if (admin.apps.length === 0) {
+  const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (credPath && existsSync(credPath)) {
+    try {
+      const cred = JSON.parse(readFileSync(credPath, 'utf8'));
+      admin.initializeApp({
+        credential: admin.credential.cert(cred),
+        storageBucket: bucketName
+      });
+    } catch {
+      admin.initializeApp();
+    }
+  } else {
+    admin.initializeApp();
+  }
+}
 const bucket = admin.storage().bucket(bucketName);
 
 let uploaded = 0;
