@@ -208,7 +208,7 @@ special = replaceOnce(special, /<body class="/g, '<body class="special-premium '
 special = replaceOnce(special, /<\/head>/g, `${commonStyles}${specialPremiumStyles}</head>`, 'special head');
 special = replaceOnce(
   special,
-  /(<aside[^>]*class="card overflow-hidden shadow-xl shadow-slate-200\/60"[^>]*>)/g,
+  /(<aside[^>]*class="[^"]*card overflow-hidden shadow-xl shadow-slate-200\/60[^"]*"[^>]*>)/g,
   `$1<figure class="contextual-excel-visual contextual-excel-visual--special" aria-label="İhtiyaca özel Excel sistemi görseli"><img src="/images/site/excel-special-systems-hero.webp" alt="Dizüstü bilgisayarda Excel çalışma ekranı ve Excel simgesi" width="1280" height="720" fetchpriority="high" decoding="async"><figcaption class="contextual-excel-caption">İşleyişinize göre kurulan Excel sistemi</figcaption></figure>`,
   'special symptom card',
 );
