@@ -683,3 +683,46 @@ main > section p,
     font-size: 13px !important;
   }
 }
+
+/* ==========================================================================
+   KOYU ARKA PLANLI ALANLAR İÇİN BEYAZ VE YÜKSEK KONTRAST METİN ZORUNLULUĞU
+   ========================================================================== */
+.bg-navyDark,
+.bg-navy,
+[class*="bg-navy"],
+[class*="bg-slate-900"],
+[class*="bg-slate-800"],
+[class*="bg-slate-950"],
+[class*="from-navy"],
+[class*="via-navy"],
+[class*="to-navy"],
+.proof-panel__copy,
+.lab-detail,
+.special-hero-aside,
+.dark-card {
+  color: #ffffff !important;
+}
+
+.bg-navyDark p,
+.bg-navy p,
+[class*="bg-navy"] p,
+[class*="bg-slate-900"] p,
+[class*="bg-slate-800"] p,
+[class*="bg-slate-950"] p,
+[class*="from-navy"] p,
+[class*="via-navy"] p,
+[class*="to-navy"] p,
+.proof-panel__copy p,
+.lab-detail p {
+  color: #ffffff !important;
+}
+
+.bg-navyDark span:not([class*="bg-"]):not([class*="badge"]),
+.bg-navy span:not([class*="bg-"]):not([class*="badge"]),
+[class*="bg-navy"] span:not([class*="bg-"]):not([class*="badge"]),
+[class*="from-navy"] span:not([class*="bg-"]):not([class*="badge"]),
+[class*="to-navy"] span:not([class*="bg-"]):not([class*="badge"]),
+.proof-panel__copy span:not([class*="bg-"]):not([class*="badge"]) {
+  color: #ffffff !important;
+}
+
