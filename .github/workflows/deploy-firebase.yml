@@ -271,6 +271,8 @@ jobs:
               firebase hosting:channel:delete "$ch" --project "$FIREBASE_PROJECT_ID" --site "$FIREBASE_HOSTING_SITE" --force || true
             fi
           done
+          echo "Purging old versions to release storage quota..."
+          node scripts/ci/cleanup-hosting-storage.mjs || true
           set -e
 
       - name: Deploy Firebase Hosting
