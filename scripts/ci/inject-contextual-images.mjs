@@ -138,6 +138,11 @@ const specialPremiumStyles = `
   .special-premium main .card{
     border-radius:20px;
   }
+  .special-premium main aside.card{
+    background: linear-gradient(180deg, #0B192C 0%, #102A43 50%, #0F2942 100%) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(51, 65, 85, 0.8) !important;
+  }
   .special-premium main .card p + p{
     margin-top:.45rem;
   }
