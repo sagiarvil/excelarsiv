@@ -3,745 +3,549 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Özel Excel Sistemleri & Finansal Otomasyon | Barış Bağırlar</title>
+  <title>İhtiyaca Özel Excel Sistemleri | Excel Arşiv</title>
   <link rel="canonical" href="https://excelarsiv.com/ozel-excel-sistemleri">
-  <meta name="description" content="Mali müşavirler, muhasebe ve finans ekipleri ile KOBİ'ler için işleyişe özel Excel tabloları, finansal otomasyon, nakit akışı, raporlama ve kontrol sistemleri.">
+  <meta name="description" content="Mali müşavir, finans ekibi, işletme sahibi ve KOBİ'ler için ihtiyaca özel Excel sistemleri. Sorununuzu seçin; kurulabilecek kontrol, takip ve karar sistemini görün.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta property="og:title" content="İhtiyaca Özel Excel Sistemleri | Excel Arşiv">
+  <meta property="og:description" content="Derdinizi teknik dile çevirmek zorunda değilsiniz. Sorunu tarif edin; işleyişinize göre Excel sistemi tasarlansın.">
+  <meta property="og:url" content="https://excelarsiv.com/ozel-excel-sistemleri">
+  <meta property="og:type" content="website">
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Service","name":"İşletmeye Özel Excel Sistemleri ve Finansal Otomasyon","url":"https://excelarsiv.com/ozel-excel-sistemleri","description":"Mali müşavirler, muhasebe ve finans ekipleri ile KOBİ'ler için işleyişe özel Excel tabloları, finansal otomasyon, raporlama ve kontrol sistemleri.","provider":{"@type":"Person","name":"Barış Bağırlar","url":"https://excelarsiv.com/hakkinda"},"areaServed":{"@type":"Country","name":"Türkiye"}}
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Service",
+        "name":"İhtiyaca Özel Excel Sistemleri",
+        "url":"https://excelarsiv.com/ozel-excel-sistemleri",
+        "description":"Mali müşavirler, finans ekipleri, işletme sahipleri ve KOBİ'ler için işleyişe özel Excel takip, kontrol, raporlama ve karar sistemleri.",
+        "provider":{"@type":"Person","name":"Barış Bağırlar","url":"https://excelarsiv.com/hakkinda"},
+        "areaServed":{"@type":"Country","name":"Türkiye"},
+        "serviceType":["Özel Excel sistemi","Finansal kontrol sistemi","Muhasebe ofisi iş takip sistemi","Nakit akışı sistemi","Kârlılık sistemi","Banka ve kredi takip sistemi"]
+      },
+      {
+        "@type":"FAQPage",
+        "mainEntity":[
+          {"@type":"Question","name":"İhtiyacımı tam tarif edemiyorsam yine de özel Excel sistemi hazırlanabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Mevcut işleyiş, kullanılan dosyalar, tekrar eden adımlar ve görülmek istenen sonuç üzerinden ihtiyaç birlikte çıkarılır."}},
+          {"@type":"Question","name":"Hazır Excel şablonundan farkı nedir?","acceptedAnswer":{"@type":"Answer","text":"Hazır şablon sabit bir probleme genel çözüm verir. Özel sistem ise veri kaynağı, iş akışı, kontrol noktaları ve yönetim çıktısına göre tasarlanır."}},
+          {"@type":"Question","name":"Mevcut Excel dosyam korunabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Sağlam veri ve iş kuralları korunabilir. Riskli, tekrar eden veya kişiye bağlı alanlar yeniden yapılandırılır."}},
+          {"@type":"Question","name":"Excel her problem için doğru çözüm müdür?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Çok kullanıcılı eşzamanlı çalışma, yoğun API entegrasyonu veya çok yüksek işlem hacmi gerekiyorsa Excel yerine farklı bir mimari önerilebilir."}}
+        ]
+      }
+    ]
+  }
   </script>
   <script is:inline src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
   <script is:inline>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
+            mono: ['"JetBrains Mono"', 'monospace']
           },
           colors: {
-            brand: {
-              terracotta: '#D95D39',
-              terracottaDark: '#B84422',
-              navy: '#0B1120',
-              slate: '#1E293B',
-              slateDark: '#0F172A',
-              clay: '#F9F8F5',
-              clayDark: '#ECE8DF',
-              emerald: '#059669',
-              emeraldDark: '#047857',
-              danger: '#DC2626',
-            }
+            ink: '#122033',
+            navy: '#17324D',
+            navyDark: '#0F2942',
+            blue: '#2563EB',
+            gold: '#C6A15B',
+            canvas: '#F4F6F9',
+            line: '#E2E8F0',
+            green: '#0F6E56',
+            amber: '#854F0B',
+            red: '#A32D2D'
           }
         }
       }
     }
   </script>
   <style>
-    .glass-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(226, 232, 240, 0.8);
-    }
-    .dark-glass-card {
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(51, 65, 85, 0.6);
-    }
-    .badge-pulse {
-      box-shadow: 0 0 0 0 rgba(217, 93, 57, 0.7);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(217, 93, 57, 0.5); }
-      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(217, 93, 57, 0); }
-      100% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(217, 93, 57, 0); }
-    }
+    :root { color-scheme: light; }
+    body { background:#F4F6F9; }
+    .hairline { box-shadow: inset 0 1px 0 rgba(198,161,91,.85); }
+    .card { background:#fff; border:1px solid #E2E8F0; border-radius:18px; }
+    .choice[aria-pressed="true"] { border-color:#2563EB; background:#EFF6FF; color:#17324D; }
+    .pain-check:checked + span { color:#17324D; font-weight:700; }
+    .pain-check:checked { accent-color:#2563EB; }
+    .result-bar { background:linear-gradient(90deg,#17324D 0%,#2563EB 100%); }
+    details[open] summary .chev { transform:rotate(45deg); }
+    .chev { transition:transform .2s ease; }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior:auto !important; transition:none !important; } }
   </style>
 </head>
-<body class="bg-brand-clay text-brand-navy antialiased font-sans selection:bg-brand-terracotta selection:text-white">
 
-  <!-- TOP TICKER: PROOF & URGENCY -->
-  <div class="bg-brand-slateDark text-stone-300 text-[11px] font-mono py-2 border-b border-stone-800 tracking-tight">
-    <div class="max-w-6xl mx-auto px-4 flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-brand-terracotta animate-ping"></span>
-        <span class="text-white font-bold">2026/Q3 Dönemi:</span> Mali Müşavir ve KOBİ'ler için bu ay yalnızca <strong>3 özel sistem kontenjanı</strong> açıktır.
-      </div>
-      <div class="hidden md:flex items-center gap-4 text-stone-400">
-        <span>⚡ 48 Saatte Çalışan İlk Prototip</span>
-        <span>🔒 NDA Disiplini & %100 Gizlilik</span>
-        <span>🤝 17 Yıl Bankacı Güvencesi</span>
-      </div>
+<body class="text-ink antialiased font-sans selection:bg-blue selection:text-white">
+  <div class="bg-navyDark text-slate-200 border-b border-slate-700">
+    <div class="max-w-6xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-[11px] md:text-xs">
+      <span class="font-semibold text-white">İşletmeye özel Excel sistemleri</span>
+      <span class="text-slate-300">Nakit · Tahsilat · Kârlılık · Banka/Kredi · Stok · Ofis Operasyonu · Üretim · Raporlama</span>
     </div>
   </div>
 
-  <!-- NAVIGATION -->
-  <header class="border-b border-stone-200/80 bg-white/90 backdrop-blur-md sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-      <a href="https://excelarsiv.com" class="flex items-center gap-2">
-        <span class="font-extrabold text-xl tracking-tight text-brand-slate">excel<span class="text-brand-terracotta">arsiv</span><span class="text-[10px] font-mono px-2 py-0.5 ml-1.5 bg-brand-slate text-white rounded font-bold">ÖZEL SİSTEMLER</span></span>
-      </a>
-      
-      <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold text-stone-600">
-        <a href="#karanlik-noktalar" class="hover:text-brand-terracotta transition">8 Büyük Kanayan Yara</a>
-        <a href="#hesaplayici" class="hover:text-brand-terracotta transition">Kayıp Zaman Hesaplayıcı</a>
-        <a href="#kokpit-onizleme" class="hover:text-brand-terracotta transition">Sistem Kokpiti</a>
-        <a href="#hakkimda" class="hover:text-brand-terracotta transition">Masanın İki Tarafı</a>
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-line">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+      <a href="/" class="font-extrabold text-xl tracking-tight text-navy">excel<span class="text-blue">arsiv</span><span class="ml-2 text-[9px] font-mono tracking-wide border border-line px-2 py-1 rounded-md text-slate-500">ÖZEL SİSTEMLER</span></a>
+      <nav class="hidden lg:flex items-center gap-5 text-xs font-semibold text-slate-600">
+        <a href="#teshis" class="hover:text-blue">Sorununuzu Bulun</a>
+        <a href="#problemler" class="hover:text-blue">Problem Alanları</a>
+        <a href="#teslim" class="hover:text-blue">Ne Teslim Alırsınız?</a>
+        <a href="#surec" class="hover:text-blue">Nasıl Çalışır?</a>
       </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="#hesaplayici" class="text-xs font-bold text-stone-700 bg-stone-100 hover:bg-stone-200 px-3.5 py-2 rounded-lg transition hidden sm:inline-block">
-          Kayıp Süreni Hesapla
-        </a>
-        <a href="#iletisim" class="text-xs font-bold bg-brand-terracotta text-white px-4 py-2 rounded-lg hover:bg-brand-terracottaDark transition shadow-md shadow-brand-terracotta/20">
-          İhtiyacıma Özel Excel Tablosu
-        </a>
-      </div>
+      <a href="#teshis" class="bg-navy hover:bg-navyDark text-white px-4 py-2.5 rounded-lg text-xs font-bold">Sorunumu Teşhis Et</a>
     </div>
   </header>
 
   <main>
-
-  <!-- HERO SECTION -->
-  <section class="pt-12 pb-16 md:pt-20 md:pb-24 border-b border-stone-200 bg-gradient-to-b from-white via-brand-clay/50 to-brand-clay relative overflow-hidden">
-    <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
-      
-      <div class="inline-flex items-center gap-2 bg-amber-50 border border-amber-300/80 text-amber-900 px-4 py-1.5 rounded-full text-xs font-bold font-mono mb-6">
-        <span class="text-brand-terracotta">⚡</span> YAZILIMCIYA MUHASEBE, FİNANSA KOD ANLATMA ÇİLESİ BİTTİ
-      </div>
-
-      <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-brand-slate tracking-tight leading-[1.12] max-w-4xl mx-auto mb-6">
-        Ay sonunda çöken Excel tablolarıyla <span class="text-brand-terracotta underline decoration-stone-300 decoration-wavy underline-offset-8">ömür, nakit ve itibar kaybetmeyin.</span>
-      </h1>
-
-      <p class="text-base md:text-xl text-stone-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-        17 yıllık bankacılık, kredi komiteleri ve kurumsal danışmanlık tecrübesiyle; Mali Müşavirlerin <strong class="text-brand-slate">günler süren ekstre/mizan hamallığını 10 saniyeye indiren</strong>, şirket patronlarına <strong class="text-brand-slate">"Kârlıyız ama kasada neden para yok?"</strong> sorusunun cevabını anında veren terzi usulü finansal motorlar kuruyoruz.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
-        <a href="https://api.whatsapp.com/send?phone=905393333303&text=Bar%C4%B1%C5%9F%20Bey%20merhaba,%20excelarsiv%20%C3%BCzerinden%20yaz%C4%B1yorum.%20Ofisimizdeki%20manuel%20Excel%20s%C3%BCrecini%20otomatize%20etmek%20istiyoruz." target="_blank" class="w-full sm:w-auto px-8 py-4 bg-brand-terracotta hover:bg-brand-terracottaDark text-white font-bold rounded-xl shadow-xl shadow-brand-terracotta/25 transition flex items-center justify-center gap-2 text-sm md:text-base">
-          <svg class="w-2.5 h-2.5 fill-current opacity-70" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          İhtiyacıma Özel Excel Tablosu Hazırlat
-        </a>
-        <a href="#hesaplayici" class="w-full sm:w-auto px-6 py-4 bg-white hover:bg-stone-50 border border-stone-300 text-stone-700 font-semibold rounded-xl transition text-sm md:text-base">
-          Zaman & Para Kaybınızı Hesaplayın ↓
-        </a>
-      </div>
-
-      <!-- Trust Metrics -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-14 pt-8 border-t border-stone-200/80 text-left">
-        <div class="p-3.5 bg-white rounded-xl border border-stone-200 shadow-sm">
-          <p class="text-2xl font-black text-brand-slate font-mono">17 Yıl</p>
-          <p class="text-xs text-stone-600 font-medium mt-0.5">Banka Kredi & Risk Tecrübesi</p>
-        </div>
-        <div class="p-3.5 bg-white rounded-xl border border-stone-200 shadow-sm">
-          <p class="text-2xl font-black text-brand-terracotta font-mono">80+ Saat</p>
-          <p class="text-xs text-stone-600 font-medium mt-0.5">Ay Başına Kurtarılan Mesai</p>
-        </div>
-        <div class="p-3.5 bg-white rounded-xl border border-stone-200 shadow-sm">
-          <p class="text-2xl font-black text-brand-slate font-mono">%100</p>
-          <p class="text-xs text-stone-600 font-medium mt-0.5">Formül Korumalı Güvenlik</p>
-        </div>
-        <div class="p-3.5 bg-white rounded-xl border border-stone-200 shadow-sm">
-          <p class="text-2xl font-black text-emerald-600 font-mono">48 Saat</p>
-          <p class="text-xs text-stone-600 font-medium mt-0.5">İlk Çalışan Prototip Teslimi</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- INTERACTIVE ROI / ZAMAN & PARA KAYBI HESAPLAYICI -->
-  <section id="hesaplayici" class="py-16 md:py-20 bg-brand-slate text-white relative">
-    <div class="max-w-4xl mx-auto px-4">
-      
-      <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="text-xs font-mono uppercase tracking-widest text-brand-terracotta font-bold px-3 py-1 bg-brand-terracotta/20 rounded-md">İşinize özel Excel Tabloları</span>
-        <h2 class="text-2xl md:text-4xl font-extrabold mt-3">Ofisinizdeki Manuel Süreçler Size Her Ay Kaç Para Kaybettiriyor?</h2>
-        <p class="text-stone-400 text-xs md:text-sm mt-2">Profilinizi ve hacminizi seçin; çöpe giden gizli mesai maliyetini ve kurtarabileceğiniz serbest zamanı anında görün.</p>
-      </div>
-
-      <div class="bg-brand-slateDark border border-stone-700 rounded-3xl p-6 md:p-10 shadow-2xl">
-        
-        <!-- Step 1: Profil Seçimi -->
-        <div class="mb-6">
-          <label class="block text-xs font-mono text-stone-400 mb-2 uppercase font-bold">1. Faaliyet Alanınızı / Rolünüzü Seçin:</label>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5">
-            <button onclick="setProfile('smmm', this)" class="role-btn p-3 rounded-xl border border-brand-terracotta bg-brand-terracotta/10 text-brand-terracotta font-bold text-xs text-center transition">
-              🏛️ Mali Müşavir (SMMM)
-            </button>
-            <button onclick="setProfile('cfo', this)" class="role-btn p-3 rounded-xl border border-stone-700 bg-stone-800/60 text-stone-300 hover:border-stone-500 font-bold text-xs text-center transition">
-              💼 CFO / Finans Müdürü
-            </button>
-            <button onclick="setProfile('kobi', this)" class="role-btn p-3 rounded-xl border border-stone-700 bg-stone-800/60 text-stone-300 hover:border-stone-500 font-bold text-xs text-center transition">
-              🏭 KOBİ Patronu / Üretim
-            </button>
-            <button onclick="setProfile('hizmet', this)" class="role-btn p-3 rounded-xl border border-stone-700 bg-stone-800/60 text-stone-300 hover:border-stone-500 font-bold text-xs text-center transition">
-              🚀 Ajans & Hizmet Şirketi
-            </button>
-          </div>
-        </div>
-
-        <!-- Step 2: Slider Seçimi -->
-        <div class="grid md:grid-cols-2 gap-6 mb-8">
+    <section class="bg-white border-b border-line">
+      <div class="max-w-6xl mx-auto px-4 py-14 md:py-20">
+        <div class="grid lg:grid-cols-[1.15fr_.85fr] gap-10 items-center">
           <div>
-            <div class="flex justify-between text-xs font-mono text-stone-300 mb-2">
-              <span id="slider-label-1">Aktif Mükellef / Şirket Sayısı:</span>
-              <span id="val-1" class="font-bold text-brand-terracotta text-sm">35</span>
+            <div class="inline-flex items-center gap-2 text-[11px] font-mono font-bold uppercase tracking-wider text-blue bg-blue/5 border border-blue/15 px-3 py-1.5 rounded-full">
+              Sorunun adını bilmiyor olabilirsiniz. Bu normal.
             </div>
-            <input id="input-range-1" type="range" min="5" max="100" value="35" oninput="calculateLoss()" class="w-full h-2 bg-stone-700 rounded-lg appearance-none cursor-pointer accent-brand-terracotta">
-          </div>
-
-          <div>
-            <div class="flex justify-between text-xs font-mono text-stone-300 mb-2">
-              <span>Muhasebe/Finans Personeli Sayısı:</span>
-              <span id="val-2" class="font-bold text-brand-terracotta text-sm">2</span>
-            </div>
-            <input id="input-range-2" type="range" min="1" max="15" value="2" oninput="calculateLoss()" class="w-full h-2 bg-stone-700 rounded-lg appearance-none cursor-pointer accent-brand-terracotta">
-          </div>
-        </div>
-
-        <!-- Sonuç Kartı -->
-        <div class="p-6 bg-gradient-to-r from-stone-900 to-brand-slate rounded-2xl border border-stone-700 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div class="space-y-1 text-center md:text-left">
-            <p class="text-xs font-mono text-stone-400">Her Ay Çöpe Giden Gizli Mesai Maliyeti:</p>
-            <p id="total-money-loss" class="text-3xl md:text-4xl font-black font-mono text-red-400">₺42.500 <span class="text-xs text-stone-400 font-sans font-normal">/ ay</span></p>
-            <p class="text-xs text-emerald-400 font-medium">⚡ Özel Otomasyon ile Kurtarılacak Zaman: <strong id="total-time-saved" class="font-mono text-white">70 Saat/Ay</strong></p>
-          </div>
-
-          <a id="calc-cta-btn" href="https://api.whatsapp.com/send?phone=905393333303&text=Bar%C4%B1%C5%9F%20Bey%20merhaba,%20SMMM%20ofisimiz%20i%C3%A7in%20ayda%2070%20saatlik%20ekstre%20ve%20mizan%20otomasyonu%20kurmak%20istiyoruz." target="_blank" class="shrink-0 w-full md:w-auto px-6 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs md:text-sm rounded-xl transition shadow-lg flex items-center justify-center gap-2">
-            <span>İhtiyacıma Özel Excel Tablosu Hazırlat</span>
-            <span>→</span>
-          </a>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 8 BRUTAL PAIN POINTS (DEEP RESEACH) -->
-  <section id="karanlik-noktalar" class="py-16 md:py-24 bg-white border-b border-stone-200">
-    <div class="max-w-5xl mx-auto px-4">
-      
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <span class="text-xs font-mono uppercase tracking-widest bg-red-100 text-red-700 font-bold px-3 py-1 rounded-md">TÜRKİYE GERÇEKLERİ & GİZLİ OPERASYONEL DELİKLER</span>
-        <h2 class="text-2xl md:text-4xl font-extrabold text-brand-slate mt-4">
-          Ofisinizde her ay sessizce para ve ömür çürüten 8 kritik kriz
-        </h2>
-        <p class="text-stone-500 text-sm md:text-base mt-3">
-          Bunlar sıradan "tablo ihtiyacı" değil; her ay şirketinize en az bir personel maaşı, yüz binlerce liralık vergi cezası veya kaçırılan banka kredisi kadar zarar yazan kilitlenmelerdir.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        
-        <!-- Acı 1 -->
-        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-red-600">#01 SMMM & BÜRO KÂBUSU</span>
-              <span class="text-[10px] font-mono bg-red-100 text-red-800 px-2 py-0.5 rounded font-bold">Ayda 80 Saat Kayıp</span>
-            </div>
-            <h3 class="font-bold text-base text-brand-slate mb-2">Banka Ekstrelerini Luca/Zirve'ye Elle İşleme Hamallığı</h3>
-            <p class="text-xs text-stone-600 leading-relaxed mb-4">
-              40 mükellefin 10'ar farklı bankasından gelen bozuk PDF ve Excel ekstreleri. Açıklamadaki şirket isimlerini tek tek 120/320 alt cari hesaplarına bağlamak için personelin günleri eriyor. Tek bir satır kayması ay sonu mizanını kilitliyor.
+            <h1 class="mt-5 text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.08] text-navy max-w-4xl">
+              “Bunu her ay elle yapıyoruz” dediğiniz işi <span class="text-blue">kontrollü bir Excel sistemine</span> çevirelim.
+            </h1>
+            <p class="mt-6 text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl">
+              Hazır şablona uymak zorunda değilsiniz. Tahsilatınız dağınıksa, hangi ürünün para kazandırdığını göremiyorsanız, kredi ve banka vadeleri farklı dosyalardaysa, mükellef evraklarını WhatsApp’tan kovalıyorsanız veya mevcut Excel’iniz kişiye bağımlı hale geldiyse; önce problemi çıkarır, sonra işleyişinize göre sistemi kurarım.
             </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a href="#teshis" class="px-6 py-3.5 rounded-xl bg-blue hover:bg-blue/90 text-white font-bold text-sm text-center shadow-lg shadow-blue/15">Bende Ne Kurulabilir? →</a>
+              <a href="https://api.whatsapp.com/send?phone=905393333303&text=Bar%C4%B1%C5%9F%20Bey%20merhaba.%20%C4%B0htiyac%C4%B1m%C4%B1%20tam%20teknik%20olarak%20tarif%20edemiyorum.%20Mevcut%20i%C5%9Fleyi%C5%9Fimizi%20anlat%C4%B1p%20bize%20%C3%B6zel%20Excel%20sistemi%20konu%C5%9Fmak%20istiyorum." target="_blank" rel="noopener" class="px-6 py-3.5 rounded-xl bg-white border border-slate-300 hover:border-slate-400 text-navy font-bold text-sm text-center">Sorunumu Tarif Edeyim</a>
+            </div>
+            <div class="mt-8 grid sm:grid-cols-3 gap-3 text-sm">
+              <div class="card p-4"><p class="font-bold text-navy">Tek veri girişi</p><p class="mt-1 text-xs text-slate-500">Aynı bilgi farklı dosyalara tekrar yazılmasın.</p></div>
+              <div class="card p-4"><p class="font-bold text-navy">Kontrol + alarm</p><p class="mt-1 text-xs text-slate-500">Sadece kayıt değil, hata ve risk görünür olsun.</p></div>
+              <div class="card p-4"><p class="font-bold text-navy">Karar ekranı</p><p class="mt-1 text-xs text-slate-500">Patron, finansçı veya müşavir sonucu tek bakışta okusun.</p></div>
+            </div>
           </div>
-          <div class="bg-red-50 p-2.5 rounded-lg border border-red-200 text-xs font-semibold text-red-900">
-            💸 Gizli Maliyet: Yılda en az 350.000 TL boşa harcanan personel maaşı + kaçan yeni mükellef kapasitesi.
+
+          <aside class="card overflow-hidden shadow-xl shadow-slate-200/60">
+            <div class="bg-navy text-white px-6 py-5 hairline">
+              <p class="text-[10px] font-mono uppercase tracking-widest text-slate-300">SİZDE DE BÖYLE Mİ?</p>
+              <h2 class="mt-1 text-xl font-extrabold">Excel ihtiyacını değil, belirtisini seçin.</h2>
+            </div>
+            <div class="p-6 space-y-3 text-sm">
+              <a href="#teshis" class="block p-3 rounded-xl bg-canvas border border-line hover:border-blue/40"><strong>“Kâr ediyoruz ama kasada para yok.”</strong><span class="block text-xs text-slate-500 mt-1">Nakit akışı / tahsilat / ödeme dengesi</span></a>
+              <a href="#teshis" class="block p-3 rounded-xl bg-canvas border border-line hover:border-blue/40"><strong>“Kimden ne zaman para alacağımız net değil.”</strong><span class="block text-xs text-slate-500 mt-1">Cari yaşlandırma / tahsilat önceliği</span></a>
+              <a href="#teshis" class="block p-3 rounded-xl bg-canvas border border-line hover:border-blue/40"><strong>“Hangi ürün gerçekten kazandırıyor bilmiyoruz.”</strong><span class="block text-xs text-slate-500 mt-1">Gerçek ürün / müşteri kârlılığı</span></a>
+              <a href="#teshis" class="block p-3 rounded-xl bg-canvas border border-line hover:border-blue/40"><strong>“Krediler, limitler, çekler farklı dosyalarda.”</strong><span class="block text-xs text-slate-500 mt-1">Banka / kredi / teminat / vade takibi</span></a>
+              <a href="#teshis" class="block p-3 rounded-xl bg-canvas border border-line hover:border-blue/40"><strong>“Mükellefin evrağını hâlâ mesajla kovalıyoruz.”</strong><span class="block text-xs text-slate-500 mt-1">SMMM / ofis iş akışı ve eksik evrak</span></a>
+              <a href="#teshis" class="block text-center mt-2 p-3 rounded-xl border border-dashed border-blue/40 text-blue font-bold hover:bg-blue/5">Benim problemim başka →</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="teshis" class="py-16 md:py-20 bg-canvas border-b border-line">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-3xl">
+          <span class="text-[11px] font-mono uppercase tracking-widest font-bold text-blue">İHTİYAÇ TEŞHİSİ</span>
+          <h2 class="mt-2 text-3xl md:text-4xl font-extrabold text-navy">3 dakikada “bize nasıl bir Excel sistemi lazım?” sorusunu netleştirin.</h2>
+          <p class="mt-3 text-slate-600">Rakam uydurmuyoruz. Siz belirtileri seçiyorsunuz; sistem en güçlü problem alanını, kurulabilecek Excel mimarisini ve görüşmede aktarılacak özeti çıkarıyor.</p>
+        </div>
+
+        <div class="mt-8 grid lg:grid-cols-[.8fr_1.2fr] gap-6">
+          <div class="card p-5 md:p-6">
+            <p class="text-xs font-mono font-bold text-slate-500 uppercase">1 · Rolünüz</p>
+            <div class="mt-3 grid grid-cols-2 gap-2" id="role-buttons">
+              <button type="button" data-role="smmm" aria-pressed="true" class="choice border border-blue bg-blue/5 rounded-xl p-3 text-left text-sm font-bold">SMMM / YMM / Muhasebe</button>
+              <button type="button" data-role="finance" aria-pressed="false" class="choice border border-line rounded-xl p-3 text-left text-sm font-bold text-slate-600">Finans / CFO / Muhasebe Müdürü</button>
+              <button type="button" data-role="owner" aria-pressed="false" class="choice border border-line rounded-xl p-3 text-left text-sm font-bold text-slate-600">Patron / KOBİ / Ticaret</button>
+              <button type="button" data-role="service" aria-pressed="false" class="choice border border-line rounded-xl p-3 text-left text-sm font-bold text-slate-600">Hizmet / Proje / Ofis</button>
+              <button type="button" data-role="production" aria-pressed="false" class="choice border border-line rounded-xl p-3 text-left text-sm font-bold text-slate-600">Üretim / Stok / Satın Alma</button>
+              <button type="button" data-role="other" aria-pressed="false" class="choice border border-line rounded-xl p-3 text-left text-sm font-bold text-slate-600">Diğer</button>
+            </div>
+
+            <p class="mt-6 text-xs font-mono font-bold text-slate-500 uppercase">2 · Bugün nasıl takip ediyorsunuz?</p>
+            <select id="current-method" class="mt-3 w-full border border-slate-300 bg-white rounded-xl px-3 py-3 text-sm">
+              <option value="Birden fazla Excel dosyası">Birden fazla Excel dosyası</option>
+              <option value="Excel + WhatsApp + e-posta">Excel + WhatsApp + e-posta</option>
+              <option value="Muhasebe/ERP programı + ayrıca Excel">Muhasebe/ERP programı + ayrıca Excel</option>
+              <option value="Kişiye bağlı manuel takip">Kişiye bağlı manuel takip</option>
+              <option value="Sistem var ama rapor/kontrol yetersiz">Sistem var ama rapor/kontrol yetersiz</option>
+            </select>
+
+            <p class="mt-6 text-xs font-mono font-bold text-slate-500 uppercase">3 · En sık ne oluyor?</p>
+            <select id="frequency" class="mt-3 w-full border border-slate-300 bg-white rounded-xl px-3 py-3 text-sm">
+              <option value="Her gün">Her gün</option>
+              <option value="Her hafta">Her hafta</option>
+              <option value="Ay sonlarında">Ay sonlarında</option>
+              <option value="Dönemsel / yoğun zamanlarda">Dönemsel / yoğun zamanlarda</option>
+            </select>
+          </div>
+
+          <div class="card p-5 md:p-6">
+            <div class="flex items-center justify-between gap-3">
+              <div>
+                <p class="text-xs font-mono font-bold text-slate-500 uppercase">Sorunlarınızı işaretleyin</p>
+                <p class="text-xs text-slate-500 mt-1">Birden fazla seçebilirsiniz.</p>
+              </div>
+              <span id="selected-count" class="text-xs font-mono px-2.5 py-1 rounded-lg bg-canvas border border-line">0 seçildi</span>
+            </div>
+            <div id="pain-list" class="mt-4 grid md:grid-cols-2 gap-2"></div>
           </div>
         </div>
 
-        <!-- Acı 2 -->
-        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 transition-all flex flex-col justify-between">
+        <div id="diagnosis-result" class="mt-6 card overflow-hidden hidden">
+          <div class="result-bar px-6 py-5 text-white">
+            <p class="text-[10px] font-mono uppercase tracking-widest text-blue-100">ÖN TEŞHİS SONUCU</p>
+            <h3 id="result-title" class="mt-1 text-2xl font-extrabold"></h3>
+            <p id="result-subtitle" class="mt-2 text-sm text-blue-100"></p>
+          </div>
+          <div class="p-6 grid md:grid-cols-3 gap-4">
+            <div class="md:col-span-2">
+              <p class="text-xs font-mono font-bold text-slate-500 uppercase">Kurulabilecek yapı</p>
+              <ul id="result-systems" class="mt-3 space-y-2 text-sm text-slate-700"></ul>
+            </div>
+            <div class="bg-canvas border border-line rounded-xl p-4">
+              <p class="text-xs font-mono font-bold text-slate-500 uppercase">Sonraki adım</p>
+              <p class="mt-2 text-sm font-semibold text-navy">Bu özet WhatsApp mesajınıza otomatik eklenecek.</p>
+              <a id="diagnosis-whatsapp" target="_blank" rel="noopener" class="mt-4 block text-center bg-green hover:bg-green/90 text-white font-bold text-sm px-4 py-3 rounded-xl" href="#">Bu İhtiyacı Gönder →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problemler" class="py-16 md:py-20 bg-white border-b border-line">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-3xl">
+          <span class="text-[11px] font-mono uppercase tracking-widest font-bold text-blue">“EVET, BİZDE BU VAR” KATALOĞU</span>
+          <h2 class="mt-2 text-3xl md:text-4xl font-extrabold text-navy">Excel ürünü değil, çözülebilir işletme problemlerini görün.</h2>
+          <p class="mt-3 text-slate-600">Aşağıdakiler hazır paket dayatması değildir. Aynı problem, her işletmede farklı veri kaynağı ve iş akışıyla çalışabilir.</p>
+        </div>
+
+        <div class="mt-8 grid md:grid-cols-2 gap-4">
+          <details class="card p-5 group" open>
+            <summary class="list-none cursor-pointer flex items-start justify-between gap-4">
+              <div><span class="text-[10px] font-mono font-bold text-blue">01 · TAHSİLAT & NAKİT</span><h3 class="mt-1 font-extrabold text-lg text-navy">“Satış var ama para ne zaman gelecek?”</h3></div><span class="chev text-2xl text-slate-400">+</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-line">
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li>▪ Kimden ne kadar ve ne zaman tahsilat beklediğimiz net değil.</li>
+                <li>▪ Kısmi ödemeler hangi faturayı kapattı karışıyor.</li>
+                <li>▪ 7 / 30 / 90 günlük ödeme yükünü tek ekranda göremiyoruz.</li>
+                <li>▪ Geciken müşteriyi ancak kasa sıkışınca fark ediyoruz.</li>
+                <li>▪ Çek, senet, havale ve cari aynı takvimde izlenmiyor.</li>
+              </ul>
+              <p class="mt-4 text-xs font-bold text-navy">Kurulabilir: Cari yaşlandırma · tahsilat önceliği · 13 haftalık nakit · ödeme radar sistemi</p>
+            </div>
+          </details>
+
+          <details class="card p-5 group">
+            <summary class="list-none cursor-pointer flex items-start justify-between gap-4">
+              <div><span class="text-[10px] font-mono font-bold text-blue">02 · BANKA & KREDİ</span><h3 class="mt-1 font-extrabold text-lg text-navy">“Kaç bankada ne kadar riskimiz var?”</h3></div><span class="chev text-2xl text-slate-400">+</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-line">
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li>▪ Kredi taksitleri ve ödeme tarihleri farklı listelerde.</li>
+                <li>▪ Limit var ama kullanılabilir limit ve teminat yükü görünmüyor.</li>
+                <li>▪ Hangi kredinin gerçek maliyetinin daha yüksek olduğunu bilmiyoruz.</li>
+                <li>▪ Teminat mektubu, ipotek ve kefalet hangi bankada bağlı takip edilemiyor.</li>
+                <li>▪ Faiz veya kur değişirse nakit yükü ne olur göremiyoruz.</li>
+              </ul>
+              <p class="mt-4 text-xs font-bold text-navy">Kurulabilir: Banka limit/risk · kredi taksit · teminat · finansman maliyet · senaryo sistemi</p>
+            </div>
+          </details>
+
+          <details class="card p-5 group">
+            <summary class="list-none cursor-pointer flex items-start justify-between gap-4">
+              <div><span class="text-[10px] font-mono font-bold text-blue">03 · GERÇEK KÂRLILIK</span><h3 class="mt-1 font-extrabold text-lg text-navy">“Ciroyu biliyoruz; ne kazandığımız net değil.”</h3></div><span class="chev text-2xl text-slate-400">+</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-line">
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li>▪ Ürün bazında gerçek maliyete komisyon, kargo, iade ve genel gider girmiyor.</li>
+                <li>▪ Çok ciro yapan müşterinin şirkete gerçek katkısını bilmiyoruz.</li>
+                <li>▪ İskonto verirken hangi noktada marjın bittiği görünmüyor.</li>
+                <li>▪ Proje bitince “aslında zarar etmişiz” sonucu çıkıyor.</li>
+                <li>▪ Satış ekibi ciro yapıyor ama katkı kârı ölçülmüyor.</li>
+              </ul>
+              <p class="mt-4 text-xs font-bold text-navy">Kurulabilir: Ürün · müşteri · proje · satışçı kârlılığı ve minimum fiyat sistemi</p>
+            </div>
+          </details>
+
+          <details class="card p-5 group">
+            <summary class="list-none cursor-pointer flex items-start justify-between gap-4">
+              <div><span class="text-[10px] font-mono font-bold text-blue">04 · STOK & SATIN ALMA</span><h3 class="mt-1 font-extrabold text-lg text-navy">“Stok var; içinde ne kadar para uyuyor?”</h3></div><span class="chev text-2xl text-slate-400">+</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-line">
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li>▪ Aylarca satılmayan ürünleri geç fark ediyoruz.</li>
+                <li>▪ Hangi üründe ne kadar nakit bağlı olduğunu göremiyoruz.</li>
+                <li>▪ Minimum / maksimum stok seviyesi kişisel tecrübeyle belirleniyor.</li>
+                <li>▪ Tedarikçi fiyat artışları ve son alış fiyatı merkezi izlenmiyor.</li>
+                <li>▪ Toplu alım indiriminin nakit bağlama maliyeti hesaplanmıyor.</li>
+              </ul>
+              <p class="mt-4 text-xs font-bold text-navy">Kurulabilir: Stok yaşlandırma · ölü stok · sipariş noktası · tedarikçi fiyat ve performans sistemi</p>
+            </div>
+          </details>
+
+          <details class="card p-5 group">
+            <summary class="list-none cursor-pointer flex items-start justify-between gap-4">
+              <div><span class="text-[10px] font-mono font-bold text-blue">05 · SMMM / YMM / OFİS</span><h3 class="mt-1 font-extrabold text-lg text-navy">“İşi yapmaktan çok evrak ve son tarih kovalıyoruz.”</h3></div><span class="chev text-2xl text-slate-400">+</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-line">
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li>▪ Mükelleflerin eksik evrakları mesaj, e-posta ve notlarda dağınık.</li>
+                <li>▪ Beyanname / son tarih / sorumlu personel tek yerde görünmüyor.</li>
+                <li>▪ Hangi mükellefin ofise ne kadar operasyon yükü çıkardığını bilmiyoruz.</li>
+                <li>▪ Muhasebe hizmet bedeli ve gecikmiş tahsilatlar ayrıca takip ediliyor.</li>
+                <li>▪ Personelin iş yükü dengesi görünmediği için bazı kişiler kilitleniyor.</li>
+              </ul>
+              <p class="mt-4 text-xs font-bold text-navy">Kurulabilir: Mükellef iş takip · eksik evrak · büro tahsilat · mükellef kârlılık · iş yükü sistemi</p>
+            </div>
+          </details>
+
+          <details class="card p-5 group">
+            <summary class="list-none cursor-pointer flex items-start justify-between gap-4">
+              <div><span class="text-[10px] font-mono font-bold text-blue">06 · ÜRETİM & MALİYET</span><h3 class="mt-1 font-extrabold text-lg text-navy">“Standart maliyet başka, fiili sonuç başka.”</h3></div><span class="chev text-2xl text-slate-400">+</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-line">
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li>▪ Reçete maliyeti güncel hammadde fiyatını taşımıyor.</li>
+                <li>▪ Fire ve hurdanın parasal etkisi ürün maliyetine yansımıyor.</li>
+                <li>▪ İşçilik ve makine saat maliyeti teklif verirken yaklaşık kullanılıyor.</li>
+                <li>▪ Siparişlerin teslim terminleri ve kapasite yükü ayrı takip ediliyor.</li>
+                <li>▪ Hammadde fiyatı değiştiğinde hangi ürünün fiyatı ne kadar değişmeli bilinmiyor.</li>
+              </ul>
+              <p class="mt-4 text-xs font-bold text-navy">Kurulabilir: Reçete · fiili maliyet · fire · kapasite · termin · minimum kârlı üretim sistemi</p>
+            </div>
+          </details>
+
+          <details class="card p-5 group">
+            <summary class="list-none cursor-pointer flex items-start justify-between gap-4">
+              <div><span class="text-[10px] font-mono font-bold text-blue">07 · POS / E-TİCARET / PERAKENDE</span><h3 class="mt-1 font-extrabold text-lg text-navy">“Satış tutarı ile hesaba geçen para neden aynı değil?”</h3></div><span class="chev text-2xl text-slate-400">+</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-line">
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li>▪ POS komisyonu, bloke ve valör etkisi banka banka görünmüyor.</li>
+                <li>▪ Pazaryeri komisyon, kargo, reklam ve iade sonrası gerçek kâr bilinmiyor.</li>
+                <li>▪ Kampanyaya girince hangi SKU’nun zarar ettiğini geç fark ediyoruz.</li>
+                <li>▪ Şube / mağaza bazında kasa, POS ve banka mutabakatı zor.</li>
+                <li>▪ Hakediş ile sipariş toplamı arasında fark çıktığında nedeni bulunamıyor.</li>
+              </ul>
+              <p class="mt-4 text-xs font-bold text-navy">Kurulabilir: POS mutabakat · pazaryeri gerçek kâr · hakediş · şube kârlılık sistemi</p>
+            </div>
+          </details>
+
+          <details class="card p-5 group">
+            <summary class="list-none cursor-pointer flex items-start justify-between gap-4">
+              <div><span class="text-[10px] font-mono font-bold text-blue">08 · HİZMET / PROJE / PERSONEL</span><h3 class="mt-1 font-extrabold text-lg text-navy">“Müşteri para kazandırıyor mu, ekibi mi tüketiyor?”</h3></div><span class="chev text-2xl text-slate-400">+</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-line">
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li>▪ Projede kaç saat harcandığını ve gerçek saat maliyetini bilmiyoruz.</li>
+                <li>▪ Teklif kapsamı dışında yapılan ücretsiz işler görünmüyor.</li>
+                <li>▪ Personel doluluk / kapasite / fazla mesai birbirinden kopuk.</li>
+                <li>▪ Müşteri bazında faturalanan tutar ile operasyon yükü karşılaştırılmıyor.</li>
+                <li>▪ Prim sistemi ciroya bakıyor ama gerçek katkıyı ölçmüyor.</li>
+              </ul>
+              <p class="mt-4 text-xs font-bold text-navy">Kurulabilir: Adam/saat kârlılığı · scope takibi · kapasite · prim ve müşteri katkı sistemi</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="teslim" class="py-16 md:py-20 bg-navy text-white border-b border-slate-700">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid lg:grid-cols-[.9fr_1.1fr] gap-10">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-red-600">#02 VUK MEVZUAT KRİZİ</span>
-              <span class="text-[10px] font-mono bg-red-100 text-red-800 px-2 py-0.5 rounded font-bold">Milyonluk Vergi Riski</span>
-            </div>
-            <h3 class="font-bold text-base text-brand-slate mb-2">Enflasyon Düzeltmesi (VUK 555/560) ve ROFM Kaosu</h3>
-            <p class="text-xs text-stone-600 leading-relaxed mb-4">
-              Duran varlıkların endekslenmesi, stokların basit ortalama / hareketli ağırlıklı ortalama yöntemiyle düzeltilmesi ve Reel Olmayan Finansman Maliyeti (ROFM) ayrımı. Muhasebe yazılımları tıkanıyor, Excel'de elle yapılan hesaplar vergi dairesi izahatlarında patlıyor.
-            </p>
+            <span class="text-[11px] font-mono uppercase tracking-widest font-bold text-blue-300">ENTERPRISE / EXCLUSIVE ÜRETİM DİSİPLİNİ</span>
+            <h2 class="mt-2 text-3xl md:text-4xl font-extrabold">“Renkli tablo” değil, küçük ölçekli bir iş uygulaması.</h2>
+            <p class="mt-4 text-slate-300 leading-relaxed">Özel çalışma; veri girişi, hesaplama, kontrol, karar ekranı ve gerektiğinde belge/çıktı katmanını birbirinden ayıran bir mimariyle kurulur. Kullanıcı neyi yazacağını, sistem neyi hesapladığını ve yöneticinin neyi okuyacağını karıştırmaz.</p>
           </div>
-          <div class="bg-red-50 p-2.5 rounded-lg border border-red-200 text-xs font-semibold text-red-900">
-            💸 Gizli Maliyet: Hatalı matrah hesaplaması yüzünden kesilen haksız vergi ziyaı cezaları ve faizler.
-          </div>
-        </div>
-
-        <!-- Acı 3 -->
-        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-red-600">#03 KOBİ & PATRON PARADOKSU</span>
-              <span class="text-[10px] font-mono bg-red-100 text-red-800 px-2 py-0.5 rounded font-bold">Nakit Sıkışıklığı</span>
-            </div>
-            <h3 class="font-bold text-base text-brand-slate mb-2">"Gelir Tablosunda Kârdayız Ama Çek Ödeyecek Para Neden Yok?"</h3>
-            <p class="text-xs text-stone-600 leading-relaxed mb-4">
-              Muhasebe kâr gösteriyor ama cuma günü çek ödemesi için banka limitleri zorlanıyor. Alacaklar 90 günde tahsil edilirken hammadde peşin ödeniyor, stokta atıl nakit yatıyor. 13 haftalık dinamik nakit akış modeli olmayan şirket kârlıyken batma riski yaşar.
-            </p>
-          </div>
-          <div class="bg-red-50 p-2.5 rounded-lg border border-red-200 text-xs font-semibold text-red-900">
-            💸 Gizli Maliyet: Öngörülemeyen nakit açıklarında katlanılan %60+ faizli acil spot kredi giderleri.
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="p-5 rounded-xl bg-white/5 border border-white/10"><p class="text-xs font-mono text-blue-300">01</p><h3 class="mt-1 font-bold">Tek gerçek kaynak</h3><p class="mt-2 text-xs text-slate-300">Bir veri bir kez girilir; diğer ekranlarda türetilir.</p></div>
+            <div class="p-5 rounded-xl bg-white/5 border border-white/10"><p class="text-xs font-mono text-blue-300">02</p><h3 class="mt-1 font-bold">Kontrol merkezi</h3><p class="mt-2 text-xs text-slate-300">Eksik, mükerrer veya tutarsız kayıtların nerede olduğu görünür.</p></div>
+            <div class="p-5 rounded-xl bg-white/5 border border-white/10"><p class="text-xs font-mono text-blue-300">03</p><h3 class="mt-1 font-bold">Karar paneli</h3><p class="mt-2 text-xs text-slate-300">KPI, risk, vade ve aksiyon aynı ekranda okunur.</p></div>
+            <div class="p-5 rounded-xl bg-white/5 border border-white/10"><p class="text-xs font-mono text-blue-300">04</p><h3 class="mt-1 font-bold">Korunmuş hesap alanı</h3><p class="mt-2 text-xs text-slate-300">Girdi alanları ile formüller görsel ve teknik olarak ayrılır.</p></div>
+            <div class="p-5 rounded-xl bg-white/5 border border-white/10"><p class="text-xs font-mono text-blue-300">05</p><h3 class="mt-1 font-bold">Boş durumda da çalışan yapı</h3><p class="mt-2 text-xs text-slate-300">Veri yokken hata yığını yerine anlaşılır başlangıç görünümü.</p></div>
+            <div class="p-5 rounded-xl bg-white/5 border border-white/10"><p class="text-xs font-mono text-blue-300">06</p><h3 class="mt-1 font-bold">Mevcut veriyi koruma</h3><p class="mt-2 text-xs text-slate-300">Uygunsa eski dosyadaki veriler yeni sisteme taşınır; yeniden giriş hedeflenmez.</p></div>
           </div>
         </div>
-
-        <!-- Acı 4 -->
-        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-red-600">#04 BANKA & KREDİ ENGELİ</span>
-              <span class="text-[10px] font-mono bg-red-100 text-red-800 px-2 py-0.5 rounded font-bold">Kredi Komitesi Reddi</span>
-            </div>
-            <h3 class="font-bold text-base text-brand-slate mb-2">Banka Kredi Komitesi Rasyo Körlüğü (NİS & Borç/EBITDA)</h3>
-            <p class="text-xs text-stone-600 leading-relaxed mb-4">
-              Şirket kredi talebinde bulunuyor ve genel müdürlükten anında red geliyor. Bankacının baktığı Net İşletme Sermayesi (NİS) açığı, DSCR ve borçlanma çarpanları bilançoda alarm veriyor ama şirket bunu ancak reddedildikten sonra öğreniyor.
-            </p>
-          </div>
-          <div class="bg-red-50 p-2.5 rounded-lg border border-red-200 text-xs font-semibold text-red-900">
-            💸 Gizli Maliyet: Alınamayan 10-50 Milyon TL'lik işletme kredisi yüzünden kaçan ticari büyüme.
-          </div>
-        </div>
-
-        <!-- Acı 5 -->
-        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-red-600">#05 YMM & İHRACATÇI KİLİDİ</span>
-              <span class="text-[10px] font-mono bg-red-100 text-red-800 px-2 py-0.5 rounded font-bold">Aylarca Bloke Para</span>
-            </div>
-            <h3 class="font-bold text-base text-brand-slate mb-2">Yüklenilen KDV Listesi & KDVİRA Hata Döngüsü</h3>
-            <p class="text-xs text-stone-600 leading-relaxed mb-4">
-              İhracat veya indirimli orandan doğan KDV iadesi dosyası GİB KDVİRA sistemine yükleniyor; VKN formatı, intaç tarihi veya mizan kuruş uyuşmazlığı yüzünden sistem kırmızı rapor üretiyor ve para aylarca vergi dairesinde rehin kalıyor.
-            </p>
-          </div>
-          <div class="bg-red-50 p-2.5 rounded-lg border border-red-200 text-xs font-semibold text-red-900">
-            💸 Gizli Maliyet: Vergi dairesinden 30 günde alınabilecek milyonluk nakit iadesinin 6 ay gecikmesi.
-          </div>
-        </div>
-
-        <!-- Acı 6 -->
-        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-red-600">#06 HİZMET & AJANS KÖRLÜĞÜ</span>
-              <span class="text-[10px] font-mono bg-red-100 text-red-800 px-2 py-0.5 rounded font-bold">Gizli Zarar Eden Müşteriler</span>
-            </div>
-            <h3 class="font-bold text-base text-brand-slate mb-2">Müşteri ve Proje Bazlı Adam/Saat Kârlılık Körlüğü</h3>
-            <p class="text-xs text-stone-600 leading-relaxed mb-4">
-              Yazılım şirketleri, ajanslar, mimarlık ofisleri: "Bu müşteriye 300.000 TL fatura kestik" diye seviniyor; fakat 4 kıdemli personelin 2 ay boyunca harcadığı saatler ve genel gider payı hesaplanmadığı için o projeden aslında 50.000 TL zarar edildiğini kimse görmüyor.
-            </p>
-          </div>
-          <div class="bg-red-50 p-2.5 rounded-lg border border-red-200 text-xs font-semibold text-red-900">
-            💸 Gizli Maliyet: Ekibi tüketen ve şirket kârını kemiren toksik müşterilere bedava mesai harcama.
-          </div>
-        </div>
-
-        <!-- Acı 7 -->
-        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-red-600">#07 TİCARET & PERAKENDE</span>
-              <span class="text-[10px] font-mono bg-red-100 text-red-800 px-2 py-0.5 rounded font-bold">Görünmeyen Kesintiler</span>
-            </div>
-            <h3 class="font-bold text-base text-brand-slate mb-2">POS Valör, Erken Bloke ve Komisyon Kaçakları</h3>
-            <p class="text-xs text-stone-600 leading-relaxed mb-4">
-              5 farklı bankanın POS cihazları. Taksit farkları, ertesi gün komisyon kesintileri, blokede kalan paranın erken çözülme maliyetleri... Muhasebe kayıtlarıyla banka hareketleri tutmuyor; arada buharlaşan paralar "finansman gideri" havuzuna atılıp unutuluyor.
-            </p>
-          </div>
-          <div class="bg-red-50 p-2.5 rounded-lg border border-red-200 text-xs font-semibold text-red-900">
-            💸 Gizli Maliyet: Ayda 25.000 - 90.000 TL arasında denetlenemeyen haksız banka POS kesintisi.
-          </div>
-        </div>
-
-        <!-- Acı 8 -->
-        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-red-600">#08 YAZILIMCI ÇIKMAZI</span>
-              <span class="text-[10px] font-mono bg-red-100 text-red-800 px-2 py-0.5 rounded font-bold">Çöpe Giden 500.000 TL</span>
-            </div>
-            <h3 class="font-bold text-base text-brand-slate mb-2">"Yazılımcı Bizim İşi Asla Anlamıyor" Sendromu</h3>
-            <p class="text-xs text-stone-600 leading-relaxed mb-4">
-              Şirket özel yazılım için yüz binlerce lira ödüyor. Gelen yazılımcıya "Tevkifat faturası nasıl kapanır?", "Reeskont faizi nasıl formüllenir?", "Muavin dökümü nasıl konsolide edilir?" anlatırken aylar geçiyor. Sonuç: Kimsenin kullanmadığı, çöpe giden bir sistem.
-            </p>
-          </div>
-          <div class="bg-red-50 p-2.5 rounded-lg border border-red-200 text-xs font-semibold text-red-900">
-            💸 Gizli Maliyet: Çöpe giden 300.000+ TL yazılım bütçesi ve kaybedilen 6 aylık şirket motivasyonu.
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- MOCK COCKPIT / VISUAL INTERACTIVE PREVIEW -->
-  <section id="kokpit-onizleme" class="py-16 md:py-20 bg-brand-clay border-b border-stone-200">
-    <div class="max-w-5xl mx-auto px-4">
-      
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-xs font-mono uppercase tracking-widest text-brand-terracotta font-bold">CANLI SİSTEM MİMARİSİ</span>
-        <h2 class="text-2xl md:text-3xl font-extrabold text-brand-slate mt-2">Nasıl Bir Sistem Teslim Alacaksınız?</h2>
-        <p class="text-stone-500 text-xs md:text-sm mt-2">Ham verinizi tek tıkla işleyen, formül kilitlemeli, bankacı mantığıyla tasarlanmış dinamik kontrol kokpiti.</p>
-      </div>
-
-      <div class="bg-brand-slateDark rounded-2xl p-4 md:p-6 border border-stone-700 shadow-2xl text-stone-200">
-        
-        <!-- Mock Top Bar -->
-        <div class="flex items-center justify-between border-b border-stone-700 pb-3 mb-4 text-xs font-mono">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
-            <span class="ml-2 font-bold text-stone-300">EXCEL_PRO_FINANS_MOTORU_V4.xlsm</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <span class="text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">● Power Query Motoru Aktif</span>
-            <span class="text-stone-400">Veri Boyutu: 142.800 Satır</span>
-          </div>
-        </div>
-
-        <!-- Mock KPI Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-          <div class="bg-stone-800/80 p-3 rounded-xl border border-stone-700">
-            <p class="text-[10px] font-mono text-stone-400 uppercase">13 Haftalık Net Nakit Denge</p>
-            <p class="text-lg font-bold font-mono text-emerald-400 mt-0.5">₺4.820.400</p>
-            <span class="text-[10px] text-stone-400">Vade Açığı Yok (Güvenli)</span>
-          </div>
-          <div class="bg-stone-800/80 p-3 rounded-xl border border-stone-700">
-            <p class="text-[10px] font-mono text-stone-400 uppercase">Banka Kredi Rasyosu (DSCR)</p>
-            <p class="text-lg font-bold font-mono text-emerald-400 mt-0.5">1.64x <span class="text-xs text-stone-400 font-normal">(Min: 1.25)</span></p>
-            <span class="text-[10px] text-emerald-400">Komite Onay Seviyesinde</span>
-          </div>
-          <div class="bg-stone-800/80 p-3 rounded-xl border border-stone-700">
-            <p class="text-[10px] font-mono text-stone-400 uppercase">Ayrıştırılan Banka Ekstresi</p>
-            <p class="text-lg font-bold font-mono text-white mt-0.5">1.482 Kalem</p>
-            <span class="text-[10px] text-stone-400">İşlem Süresi: 3.8 Saniye</span>
-          </div>
-          <div class="bg-stone-800/80 p-3 rounded-xl border border-stone-700">
-            <p class="text-[10px] font-mono text-stone-400 uppercase">KDV & Tevkifat Hata Uyarısı</p>
-            <p class="text-lg font-bold font-mono text-emerald-400 mt-0.5">0 Hata</p>
-            <span class="text-[10px] text-stone-400">KDVİRA Formatına Uyumlu</span>
-          </div>
-        </div>
-
-        <!-- Mock Table / Action Panel -->
-        <div class="bg-stone-900 p-4 rounded-xl border border-stone-800 text-xs font-mono">
-          <div class="flex items-center justify-between mb-3 text-stone-400">
-            <span>OTOMATİK AKTARIM VE EŞLEŞTİRME KONTROL PANELİ</span>
-            <span class="text-brand-terracotta font-bold">[TEK TUŞLA XML / EXCEL ÇIKTISI ÜRET]</span>
-          </div>
-          <div class="space-y-1.5 text-stone-300">
-            <div class="flex items-center justify-between p-2 bg-stone-800/60 rounded">
-              <span class="text-stone-300">📁 Garanti_BBVA_MT940_082026.txt</span>
-              <span class="text-emerald-400">✓ 420 Hareket -> 120/320 Cari Kodlarına Dağıtıldı</span>
-              <span class="text-stone-400">0.8 sn</span>
-            </div>
-            <div class="flex items-center justify-between p-2 bg-stone-800/60 rounded">
-              <span class="text-stone-300">📁 Akbank_Excel_Ekstre_082026.xlsx</span>
-              <span class="text-emerald-400">✓ 312 Hareket -> POS Komisyon & Valör Ayrıştırıldı</span>
-              <span class="text-stone-400">0.5 sn</span>
-            </div>
-            <div class="flex items-center justify-between p-2 bg-stone-800/60 rounded">
-              <span class="text-stone-300">📁 Mizan_Agustos_Konsolide.xlsx</span>
-              <span class="text-emerald-400">✓ Luca / Zirve Fiş Aktarım Dosyası Hazır (3.240 Fiş)</span>
-              <span class="text-stone-400">1.2 sn</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- UNFAIR ADVANTAGE / BARIŞ BAĞIRLAR KİMDİR? -->
-  <section id="hakkimda" class="py-16 md:py-20 bg-white border-b border-stone-200">
-    <div class="max-w-4xl mx-auto px-4">
-      <div class="bg-brand-clay border border-stone-300 rounded-3xl p-8 md:p-12 shadow-sm relative">
-        
-        <div class="flex items-center gap-2 text-xs font-mono font-bold text-brand-terracotta uppercase mb-4">
-          <span>✦</span> NEDEN BENİMLE ÇALIŞMALISINIZ?
-        </div>
-
-        <h2 class="text-2xl md:text-4xl font-extrabold text-brand-slate mb-6 leading-tight">
-          Sizi en iyi ben anlarım. Esnaf bir ailenin çocuğu olarak büyüdüm; 17 yıl bankalarda masanın iki tarafını da yönettim.
-        </h2>
-
-        <div class="space-y-4 text-stone-700 text-sm md:text-base leading-relaxed">
-          <p>
-            Ben <strong>Barış Bağırlar</strong>. Ticaretin sert reflekslerini babamın esnaf dükkânında öğrendim; ardından 17 yıl boyunca bankacılıkta binlerce KOBİ ve büyük ölçekli şirketin bilançolarını, kredi komitelerini ve nakit krizlerini yönettim. Sonrasında kurumsal finans danışmanlığı yaparak yüzlerce şirketin gizli kanamalarını kapattım.
-          </p>
-          <p>
-            Bu süreçte değişmeyen tek bir dram gördüm: <strong>Milyonluk şirketler ay sonlarında çöken Excel dosyalarına mahkûm kalıyor; yazılımcıya derdini anlatmaya çalışırken enerjisini tüketiyor.</strong>
-          </p>
-          <div class="bg-white p-5 rounded-2xl border-l-4 border-brand-terracotta font-medium text-brand-slate shadow-sm">
-            "Finansçı kod bilmez, yazılımcı mizan anlamaz. Ben masanın iki tarafını da bilirim. Bana 'Şu tabloda kilitleniyoruz' dersiniz; finansal mantığını saniyeler içinde anlar, Power Query ve makro mimarisiyle o süreci 10 saniyelik tek tuşa indiririm."
-          </div>
-        </div>
-
-        <div class="mt-8 pt-6 border-t border-stone-300 flex flex-wrap items-center justify-between gap-4">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-full bg-brand-slate text-white flex items-center justify-center font-bold text-lg font-mono">
-              BB
-            </div>
-            <div>
-              <p class="font-bold text-brand-slate">Barış Bağırlar</p>
-              <p class="text-xs text-stone-500">17 Yıl Bankacı • Finansal Model & Excel Sistem Mimarı</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FIELD EXPERIENCE / POSITIONING -->
-  <section class="py-14 md:py-20 bg-brand-slate text-white border-b border-stone-800">
-    <div class="max-w-4xl mx-auto px-4">
-      <div class="grid md:grid-cols-[0.9fr_1.1fr] gap-8 items-start">
-        <div>
-          <span class="text-xs font-mono uppercase tracking-widest text-brand-terracotta font-bold">SİZİ EN İYİ BEN ANLARIM</span>
-          <h2 class="text-2xl md:text-4xl font-extrabold mt-3 leading-tight">Sorunu bana uzun uzun tercüme etmek zorunda kalmazsınız.</h2>
-        </div>
-        <div class="space-y-4 text-sm md:text-base text-stone-300 leading-relaxed">
-          <p>Mali müşavirlerin ay sonu yetiştirme baskısını, muhasebe personelinin ekstre ve mizan yükünü, finans yöneticisinin nakit açığını önceden görme ihtiyacını ve KOBİ sahibinin “kâr var ama para nerede?” sorusunu sahada yıllarca gördüm.</p>
-          <p><strong class="text-white">Bu nedenle yalnız Excel formülü kurmuyorum.</strong> Önce işin finansal ve operasyonel mantığını okuyup nerede zaman kaybettiğinizi, hangi kontrolün eksik kaldığını ve hangi çıktının karar vermenizi hızlandıracağını belirliyorum.</p>
-          <p>Muhasebe, mali müşavirlik, finans ve işletme tarafındaki gerçek sorunları bildiğim için ihtiyacı teknik dile çevirme yükünü size bırakmadan, doğrudan çalışabilecek bir Excel sistemi tasarlayabiliyorum.</p>
+        <div class="mt-8 p-4 rounded-xl border border-amber-300/25 bg-amber-300/5 text-sm text-slate-200">
+          <strong class="text-white">Excel’in doğru araç olmadığı projeyi de söylerim.</strong> Çok kullanıcılı eşzamanlı işlem, yoğun API entegrasyonu veya Excel’in güvenli kapasitesini aşan mimarilerde “Excel yapalım” diye zorlamak yerine doğru çözüm sınırı açıkça belirtilir.
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ROI COMPARISON TABLE -->
-  <section class="py-16 bg-brand-clay border-b border-stone-200">
-    <div class="max-w-4xl mx-auto px-4">
-      
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <h2 class="text-2xl md:text-3xl font-extrabold text-brand-slate">Neden 500.000 TL'lik Hantal ERP Değil de Özel Excel Motoru?</h2>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-stone-300 overflow-hidden shadow-sm">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs md:text-sm">
-            <thead class="bg-brand-slate text-white font-mono">
-              <tr>
-                <th class="p-4">Kriter</th>
-                <th class="p-4 text-stone-300">Geleneksel ERP / Özel Yazılımlar</th>
-                <th class="p-4 text-brand-terracotta bg-stone-800">Barış Bağırlar Özel Excel Sistemi</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-stone-200">
-              <tr>
-                <td class="p-4 font-bold text-brand-slate">Canlıya Geçiş Süresi</td>
-                <td class="p-4 text-stone-600">3 - 9 Ay (Süreçte ofis kilitlenir)</td>
-                <td class="p-4 font-bold text-emerald-700 bg-emerald-50/50">48 Saat - 7 Gün (İşiniz hiç durmaz)</td>
-              </tr>
-              <tr>
-                <td class="p-4 font-bold text-brand-slate">Toplam Maliyet</td>
-                <td class="p-4 text-stone-600">250.000 TL - 1.000.000 TL + Yıllık Lisans</td>
-                <td class="p-4 font-bold text-emerald-700 bg-emerald-50/50">5.000 TL - 29.500 TL Arasında (Tek Seferlik Ödeme)</td>
-              </tr>
-              <tr>
-                <td class="p-4 font-bold text-brand-slate">Kullanıcı Eğitimi / Direnç</td>
-                <td class="p-4 text-stone-600">Aylar süren personel direnci ve şikâyetler</td>
-                <td class="p-4 font-bold text-emerald-700 bg-emerald-50/50">0 Dakika (Ekibinizin her gün açtığı Excel arayüzü)</td>
-              </tr>
-              <tr>
-                <td class="p-4 font-bold text-brand-slate">Mevzuat ve Finansal Uyum</td>
-                <td class="p-4 text-stone-600">Standart kalıplar; şirketinize uymaz</td>
-                <td class="p-4 font-bold text-emerald-700 bg-emerald-50/50">17 Yıllık Bankacı & Danışman tasarımı; %100 terzi usulü</td>
-              </tr>
-            </tbody>
-          </table>
+    <section id="surec" class="py-16 md:py-20 bg-white border-b border-line">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-3xl">
+          <span class="text-[11px] font-mono uppercase tracking-widest font-bold text-blue">NASIL ÇALIŞIR?</span>
+          <h2 class="mt-2 text-3xl md:text-4xl font-extrabold text-navy">Siz formül tarif etmiyorsunuz; işleyişi anlatıyorsunuz.</h2>
+        </div>
+        <div class="mt-8 grid md:grid-cols-4 gap-3">
+          <div class="card p-5"><span class="font-mono text-xs text-blue font-bold">01</span><h3 class="mt-2 font-extrabold text-navy">Sorunu gösterin</h3><p class="mt-2 text-sm text-slate-600">Mevcut Excel, ekran görüntüsü veya “şurada kilitleniyoruz” cümlesi yeterli başlangıçtır.</p></div>
+          <div class="card p-5"><span class="font-mono text-xs text-blue font-bold">02</span><h3 class="mt-2 font-extrabold text-navy">İş kuralı çıkarılır</h3><p class="mt-2 text-sm text-slate-600">Kim veri giriyor, ne hesaplanıyor, hangi hata yakalanmalı ve kim hangi kararı görecek netleştirilir.</p></div>
+          <div class="card p-5"><span class="font-mono text-xs text-blue font-bold">03</span><h3 class="mt-2 font-extrabold text-navy">Sistem kurulur</h3><p class="mt-2 text-sm text-slate-600">Girdi, hesap, kontrol ve rapor akışı birbirinden ayrılmış şekilde üretilir.</p></div>
+          <div class="card p-5"><span class="font-mono text-xs text-blue font-bold">04</span><h3 class="mt-2 font-extrabold text-navy">Gerçek veriyle doğrulanır</h3><p class="mt-2 text-sm text-slate-600">Kullanıcının gördüğü sonuç, uç durumlar ve veri hataları üzerinden test edilir.</p></div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- FAQ / OBJECTION KILLER SECTION -->
-  <section class="py-16 md:py-20 bg-white border-b border-stone-200">
-    <div class="max-w-4xl mx-auto px-4">
-      
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-xs font-mono uppercase tracking-widest text-brand-terracotta font-bold">AKLINIZDAKİ SORULAR</span>
-        <h2 class="text-2xl md:text-4xl font-extrabold text-brand-slate mt-2">Sıkça Sorulan Sorular</h2>
-        <p class="text-stone-600 text-sm md:text-base mt-4 leading-relaxed">Bu sorular masa başında üretilmiş değil. Mali müşavirlik ofislerinde, şirket finans ekiplerinde ve KOBİ'lerde yıllardır tekrar eden gerçek darboğazlardan geliyor. Saha tecrübem sayesinde sorunun yalnız görünen kısmını değil, arkasındaki muhasebe, nakit, kontrol ve karar ihtiyacını da okuyabiliyorum.</p>
-      </div>
-
-      <div class="space-y-4">
-        
-        <div class="p-5 rounded-2xl bg-stone-50 border border-stone-200">
-          <h3 class="font-bold text-sm md:text-base text-brand-slate mb-2">1. "Bizim muhasebeci veya ofisteki genç arkadaş bu Excel'i yapamaz mı?"</h3>
-          <p class="text-xs md:text-sm text-stone-600 leading-relaxed">
-            Formül yazmakla <strong>bankacı refleksiyle finansal mimari kurmak</strong> tamamen farklıdır. Ofisteki personel formül bozulduğunda sistemi tıkar, MT940 ayrıştıramaz ve banka kredi komitesinin baktığı rasyo dinamiklerini bilmez. Biz sadece tablo değil, 17 yıllık bankacılık tecrübesiyle hata yapmayan bir karar motoru kuruyoruz.
-          </p>
+    <section class="py-16 md:py-20 bg-canvas border-b border-line">
+      <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-6">
+        <div class="card p-6 md:p-8">
+          <p class="text-[11px] font-mono uppercase tracking-widest font-bold text-blue">NEDEN BU MODEL?</p>
+          <h2 class="mt-2 text-2xl md:text-3xl font-extrabold text-navy">ERP’nin yerine geçmek için değil, ERP’nin bıraktığı boşluğu kapatmak için.</h2>
+          <p class="mt-4 text-sm text-slate-600 leading-relaxed">Bazı işletmelerin ihtiyacı onlarca modüllü bir yazılım değildir. İhtiyaç; tahsilatı, kredi vadesini, gerçek kârlılığı, mükellef iş yükünü veya stokta bağlı parayı güvenilir biçimde görmektir. Özel Excel sistemi bu dar ama kritik iş kararını hızla görünür hale getirir.</p>
+          <a href="/sablonlar" class="mt-5 inline-flex text-sm font-bold text-blue">Hazır sistemleri de inceleyin →</a>
         </div>
 
-        <div class="p-5 rounded-2xl bg-stone-50 border border-stone-200">
-          <h3 class="font-bold text-sm md:text-base text-brand-slate mb-2">2. "Şirketimizin mali verileri ve banka ekstreleri gizli kalacak mı?"</h3>
-          <p class="text-xs md:text-sm text-stone-600 leading-relaxed">
-            %100 evet. 17 yıllık bankacılık kariyerimde en yüksek düzeyde müşteri sırrı ve veri güvenliği protokolleriyle çalıştım. Dilerseniz ilk görüşme öncesinde Gizlilik Sözleşmesi (NDA) imzalarız; dilerseniz verileri bize maskelenmiş/anonim olarak iletirsiniz.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-2xl bg-stone-50 border border-stone-200">
-          <h3 class="font-bold text-sm md:text-base text-brand-slate mb-2">3. "Excel dosyası çöker mi, personel yanlışlıkla formülleri siler mi?"</h3>
-          <p class="text-xs md:text-sm text-stone-600 leading-relaxed">
-            Asla. Kurduğumuz sistemlerde tüm hesaplama motoru arka planda Power Query ve VBA makrolarında çalışır. Kullanıcıya yalnızca veri yükleme ve rapor izleme butonları açık bırakılır; formül alanları şifreli ve %100 korumalıdır.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-2xl bg-stone-50 border border-stone-200">
-          <h3 class="font-bold text-sm md:text-base text-brand-slate mb-2">4. "Teslimattan sonra sistemde bir sorun yaşarsak ne olacak?"</h3>
-          <p class="text-xs md:text-sm text-stone-600 leading-relaxed">
-            Sistemi teslim ettikten sonra kenara çekilmiyoruz. Çalışmanın kapsamına göre teslim sonrası birebir revizyon, personel eğitimi ve ince ayar desteği sağlıyoruz.
-          </p>
-        </div>
-
-        <div class="p-5 md:p-6 rounded-2xl bg-stone-50 border border-stone-200">
-          <h3 class="font-bold text-sm md:text-base text-brand-slate mb-2">5. “Mali müşavirlik ofisinde en çok hangi işleri hızlandırabilirsiniz?”</h3>
-          <p class="text-xs md:text-sm text-stone-600 leading-relaxed">Banka ekstrelerinin temizlenmesi ve sınıflandırılması, cari eşleştirme, mizan kontrolleri, KDV süreçleri, mükellef bazlı takip, dönemsel raporlama ve tekrar eden veri hazırlama işleri en sık karşılaştığım alanlardır. Hazır bir kalıp dayatmak yerine önce sizin ofisinizde zamanın gerçekten nerede kaybolduğunu bulurum.</p>
-        </div>
-
-        <div class="p-5 md:p-6 rounded-2xl bg-stone-50 border border-stone-200">
-          <h3 class="font-bold text-sm md:text-base text-brand-slate mb-2">6. “Finans müdürü veya CFO tarafında hangi probleme çözüm üretirsiniz?”</h3>
-          <p class="text-xs md:text-sm text-stone-600 leading-relaxed">Nakit akışı, çek-senet ve kredi vadeleri, tahsilat riski, banka limitleri, DSCR/NİS gibi kredi bakış açıları, kur senaryoları ve yönetici raporları. Bankacılıkta şirketlerin bu veriler üzerinden nasıl değerlendirildiğini yıllarca gördüğüm için yalnız rapor üretmek değil, yönetimin gerçekten hangi sinyali görmesi gerektiğini de tasarıma taşırım.</p>
-        </div>
-
-        <div class="p-5 md:p-6 rounded-2xl bg-stone-50 border border-stone-200">
-          <h3 class="font-bold text-sm md:text-base text-brand-slate mb-2">7. “Mevcut Excel dosyamız çok dağınık. Baştan mı kurmak gerekir?”</h3>
-          <p class="text-xs md:text-sm text-stone-600 leading-relaxed">Her zaman değil. Önce mevcut dosyanın veri girişlerini, formüllerini, tekrar eden adımlarını ve hata noktalarını incelerim. Sağlam kısımlar korunabilir; riskli ve kişiye bağlı alanlar yeniden kurgulanabilir. Amaç yeni bir dosya üretmek değil, mevcut işleyişinizi daha kontrollü ve sürdürülebilir hale getirmektir.</p>
-        </div>
-
-        <div class="p-5 md:p-6 rounded-2xl bg-stone-50 border border-stone-200">
-          <h3 class="font-bold text-sm md:text-base text-brand-slate mb-2">8. “Hazır Excel şablonundan farkı nedir?”</h3>
-          <p class="text-xs md:text-sm text-stone-600 leading-relaxed">Hazır şablon belirli bir probleme genel çözüm verir. Özel çalışma ise sizin veri kaynağınızı, personel alışkanlığınızı, kontrol noktalarınızı ve istediğiniz yönetim çıktısını esas alır. Bu nedenle işinizi bir yazılımcıya tercüme etmek yerine, finans ve muhasebe dilini bilen biriyle doğrudan ihtiyacın kendisi üzerinden ilerlersiniz.</p>
-        </div>
-
-        <div class="p-5 md:p-6 rounded-2xl bg-stone-50 border border-stone-200">
-          <h3 class="font-bold text-sm md:text-base text-brand-slate mb-2">9. “Şirkette herkes farklı Excel kullanıyor; bunu tek düzene çevirebilir misiniz?”</h3>
-          <p class="text-xs md:text-sm text-stone-600 leading-relaxed">Evet. En sık gördüğüm problemlerden biri aynı verinin farklı kişilerde farklı dosyalarda yaşamasıdır. Tek veri girişi, kontrollü hesaplama, ortak raporlama ve yetki mantığı kurularak kişiye bağlı dosyalar yerine ortak çalışma düzeni oluşturulabilir.</p>
-        </div>
-
-        <div class="p-5 md:p-6 rounded-2xl bg-stone-50 border border-stone-200">
-          <h3 class="font-bold text-sm md:text-base text-brand-slate mb-2">10. “Bizi gerçekten anlayacağınızı nasıl biliyoruz?”</h3>
-          <p class="text-xs md:text-sm text-stone-600 leading-relaxed">Çünkü aynı sorunların finansal sonuçlarını yıllarca bankacı, kredi değerlendiricisi ve danışman tarafında gördüm. Muhasebecinin veri yetiştirme baskısını, mali müşavirin mevzuat ve kontrol yükünü, finansçının nakit ve banka baskısını, işletme sahibinin ise karar için net bilgi ihtiyacını biliyorum. Çözümü bu gerçeklerin üzerine kuruyorum.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CTA / DIRECT WHATSAPP BRIEF FUNNEL -->
-  <section id="iletisim" class="py-16 md:py-24 bg-brand-clay relative">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      
-      <div class="bg-white border-2 border-stone-300 rounded-3xl p-8 md:p-12 shadow-xl">
-        <span class="text-xs font-mono font-bold text-brand-terracotta uppercase tracking-wider">24 SAATTE UYGULANABİLİRLİK VE SÜRE ANALİZİ</span>
-        <h2 class="text-2xl md:text-4xl font-extrabold text-brand-slate tracking-tight mt-2 mb-4">İhtiyaca Yönelik Excel Tabloları Hazırlarım</h2>
-        <p class="text-stone-600 text-sm md:text-base mb-8 max-w-lg mx-auto leading-relaxed">
-          Hazır bir şablona uymak zorunda değilsiniz. İhtiyacınızı, mevcut Excel tablonuzu veya otomatikleşmesini istediğiniz süreci paylaşın; <strong>işleyişinize ve ihtiyacınıza yönelik Excel tablosunu</strong> nasıl hazırlayacağımızı ve kapsamını netleştirip döneyim.
-        </p>
-
-        <div class="flex flex-col gap-3 max-w-md mx-auto">
-          <a href="https://api.whatsapp.com/send?phone=905393333303&text=Bar%C4%B1%C5%9F%20Bey%20merhaba,%20bir%20tablomuzun%20otomasyonu%20i%C3%A7in%20dosya%20payla%C5%9Fmak%20istiyorum." target="_blank" class="w-full py-4 px-6 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-base">
-            <svg class="w-2.5 h-2.5 fill-current opacity-70" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-            İhtiyaca Özel Excel Tablosu Talebi Gönder
-          </a>
-          
-          <a href="mailto:info@excelarsiv.com?subject=Özel%20Excel%20Sistemi%20Talebi" class="w-full py-3.5 px-6 bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold rounded-xl transition text-xs border border-stone-300">
-            E-Posta ile İletişime Geçin (info@excelarsiv.com)
-          </a>
-        </div>
-
-        <div class="mt-8 pt-6 border-t border-stone-200 flex items-center justify-center gap-6 text-xs text-stone-500 font-medium">
-          <span>🔒 %100 Veri Gizliliği (NDA)</span>
-          <span>⚡ 24 Saatte Geri Dönüş</span>
-          <span>🤝 48 Saatte Prototip</span>
+        <div class="card p-6 md:p-8">
+          <p class="text-[11px] font-mono uppercase tracking-widest font-bold text-blue">17 YILLIK BANKA & FİNANS BAKIŞI</p>
+          <h2 class="mt-2 text-2xl md:text-3xl font-extrabold text-navy">İşletmenin “veri” dediği yerde bankacı “risk” görür.</h2>
+          <p class="mt-4 text-sm text-slate-600 leading-relaxed">Nakit, tahsilat, borçluluk, limit, vade, stok ve kârlılık yalnız rapor değildir; karar sinyalidir. Özel sistem tasarımında amaç daha fazla hücre üretmek değil, yöneticinin hangi sinyali ne zaman görmesi gerektiğini netleştirmektir.</p>
+          <a href="/hakkinda" class="mt-5 inline-flex text-sm font-bold text-blue">Barış Bağırlar hakkında →</a>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <section class="py-16 md:py-20 bg-white border-b border-line">
+      <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center">
+          <span class="text-[11px] font-mono uppercase tracking-widest font-bold text-blue">SIK SORULANLAR</span>
+          <h2 class="mt-2 text-3xl font-extrabold text-navy">Özel Excel sistemi hakkında</h2>
+        </div>
+        <div class="mt-8 space-y-3">
+          <details class="card p-5" open><summary class="font-bold cursor-pointer">İhtiyacımı tam tarif edemiyorum. Ne göndermeliyim?</summary><p class="mt-3 text-sm text-slate-600">Mevcut dosyanızı, ekran görüntüsünü veya süreci 2–3 cümleyle anlatmanız yeterli başlangıçtır. “Her ay bunu elle yapıyoruz”, “burada sürekli fark çıkıyor” veya “şunu tek ekranda göremiyoruz” gibi belirtiler üzerinden ihtiyaç çıkarılabilir.</p></details>
+          <details class="card p-5"><summary class="font-bold cursor-pointer">Mevcut Excel dosyam çöpe mi gider?</summary><p class="mt-3 text-sm text-slate-600">Hayır. Veri yapısı ve sağlam iş kuralları korunabilir. Tekrar eden, kırılgan veya kişiye bağlı alanlar yeniden tasarlanır. Amaç kullanıcıya tüm veriyi yeniden girdirmek değildir.</p></details>
+          <details class="card p-5"><summary class="font-bold cursor-pointer">Hazır şablon ile özel çalışma arasındaki fark nedir?</summary><p class="mt-3 text-sm text-slate-600">Hazır şablon genel bir problemi çözer. Özel çalışma sizin veri kaynağınızı, ekran akışınızı, kontrol noktalarınızı ve beklediğiniz yönetim çıktısını esas alır.</p></details>
+          <details class="card p-5"><summary class="font-bold cursor-pointer">Makro veya Power Query şart mı?</summary><p class="mt-3 text-sm text-slate-600">Hayır. Mimari ihtiyaca göre belirlenir. Formülle güvenilir ve taşınabilir biçimde çözülebilen bir iş için gereksiz otomasyon eklemek doğru değildir. Otomasyon gerekiyorsa ayrıca tasarlanır.</p></details>
+          <details class="card p-5"><summary class="font-bold cursor-pointer">Excel her ölçekte kullanılmalı mı?</summary><p class="mt-3 text-sm text-slate-600">Hayır. Çok kullanıcılı eşzamanlı işlem, yoğun entegrasyon veya yüksek işlem hacmi gerekiyorsa Excel yerine veritabanı/uygulama mimarisi daha doğru olabilir. Bu sınır teklif aşamasında açıkça belirtilir.</p></details>
+        </div>
+      </div>
+    </section>
 
+    <section id="iletisim" class="py-16 md:py-24 bg-canvas">
+      <div class="max-w-4xl mx-auto px-4">
+        <div class="card p-7 md:p-12 text-center border-t-4 border-t-gold shadow-xl shadow-slate-200/60">
+          <span class="text-[11px] font-mono font-bold text-blue uppercase tracking-widest">İHTİYACI TEKNİK DİLE ÇEVİRMEK ZORUNDA DEĞİLSİNİZ</span>
+          <h2 class="mt-2 text-3xl md:text-4xl font-extrabold text-navy">İhtiyaca Yönelik Excel Tabloları Hazırlarım</h2>
+          <p class="mt-4 text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">“Ne istediğimi tam anlatamıyorum” diyorsanız sorun değil. Ne takip ettiğinizi, nerede zorlandığınızı ve bugün bunu nasıl yaptığınızı yazın. Önce ihtiyacı çıkaralım; Excel doğru araçsa kurulabilecek sistemi netleştirelim.</p>
+          <div class="mt-7 flex flex-col sm:flex-row justify-center gap-3">
+            <a href="https://api.whatsapp.com/send?phone=905393333303&text=Bar%C4%B1%C5%9F%20Bey%20merhaba.%20%C4%B0htiyac%C4%B1m%C4%B1%20tam%20teknik%20olarak%20tarif%20edemiyorum.%20%C5%9Eu%20i%C5%9Fi%20takip%20etmekte%20zorlan%C4%B1yoruz%3A%20" target="_blank" rel="noopener" class="px-6 py-3.5 rounded-xl bg-green hover:bg-green/90 text-white font-bold text-sm">Sorunumu WhatsApp’tan Anlatayım →</a>
+            <a href="mailto:info@excelarsiv.com?subject=İhtiyaca%20Özel%20Excel%20Sistemi" class="px-6 py-3.5 rounded-xl bg-white border border-slate-300 text-navy font-bold text-sm">E-posta ile Gönder</a>
+          </div>
+          <p class="mt-5 text-xs text-slate-500">İsterseniz örnek verileri maskeleyerek paylaşabilirsiniz. Kapsam netleşmeden gerçek veri göndermek zorunda değilsiniz.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-brand-slateDark text-stone-400 text-xs py-8 border-t border-stone-800">
-    <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p>© 2026 excelarsiv.com & Barış Bağırlar. Tüm hakları saklıdır.</p>
-      <div class="flex gap-4">
-        <a href="https://excelarsiv.com/sablonlar" class="hover:text-white transition">Hazır Şablonlar</a>
-        <a href="https://excelarsiv.com" class="hover:text-white transition">Ana Sayfa</a>
+  <footer class="bg-navyDark text-slate-400 border-t border-slate-700">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+      <p>© 2026 excelarsiv.com · İşletmeler için Excel karar sistemleri</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/sablonlar" class="hover:text-white">Hazır Şablonlar</a>
+        <a href="/rehber" class="hover:text-white">Rehber</a>
+        <a href="/hakkinda" class="hover:text-white">Hakkında</a>
+        <a href="/iletisim" class="hover:text-white">İletişim</a>
       </div>
     </div>
   </footer>
 
-  <!-- CALCULATOR JAVASCRIPT LOGIC -->
   <script is:inline>
-    let currentProfile = 'smmm';
+    const painCatalog = [
+      {id:'tahsilat', label:'Kimden ne zaman tahsilat alacağımız net değil', family:'cash', roles:['smmm','finance','owner','service','other']},
+      {id:'nakit', label:'Kâr var ama önümüzdeki haftaların nakit durumunu göremiyoruz', family:'cash', roles:['finance','owner','production','service','other']},
+      {id:'kredi', label:'Kredi, limit, taksit ve teminatlar farklı dosyalarda', family:'bank', roles:['finance','owner','other']},
+      {id:'pos', label:'POS satışı ile bankaya geçen tutar sık sık uyuşmuyor', family:'bank', roles:['finance','owner','other']},
+      {id:'urun-kar', label:'Ürün / hizmet gerçek kârlılığını bilmiyoruz', family:'profit', roles:['finance','owner','production','service','other']},
+      {id:'musteri-kar', label:'Hangi müşteri gerçekten kazandırıyor bilmiyoruz', family:'profit', roles:['smmm','finance','owner','service','other']},
+      {id:'fiyat', label:'Teklif veya iskonto verirken minimum kârlı fiyat net değil', family:'profit', roles:['finance','owner','production','service','other']},
+      {id:'stok', label:'Aylarca duran / ölü stok ve stokta bağlı para görünmüyor', family:'stock', roles:['finance','owner','production','other']},
+      {id:'satinalma', label:'Tedarikçi fiyat değişimi ve son alış fiyatı kontrol edilemiyor', family:'stock', roles:['finance','owner','production','other']},
+      {id:'evrak', label:'Eksik evrak ve mükellef işleri mesaj/e-posta üzerinden kovalanıyor', family:'office', roles:['smmm','other']},
+      {id:'son-tarih', label:'Son tarih, sorumlu personel ve iş durumu tek ekranda değil', family:'office', roles:['smmm','service','other']},
+      {id:'ofis-tahsilat', label:'Hizmet bedeli / muhasebe ücreti tahsilatları ayrıca takip ediliyor', family:'office', roles:['smmm','service','other']},
+      {id:'uretim', label:'Standart maliyet ile fiili üretim maliyeti uyuşmuyor', family:'production', roles:['production','owner','finance','other']},
+      {id:'fire', label:'Fire / hurda / işçilik / makine saat etkisi ölçülmüyor', family:'production', roles:['production','owner','other']},
+      {id:'proje', label:'Proje bitince gerçek kârı ancak sonradan öğreniyoruz', family:'service', roles:['service','owner','finance','other']},
+      {id:'saat', label:'Müşteri / proje bazında harcanan zaman ve kapasite görünmüyor', family:'service', roles:['service','smmm','other']},
+      {id:'dosyalar', label:'Aynı veri farklı kişilerde farklı Excel dosyalarında yaşıyor', family:'control', roles:['smmm','finance','owner','service','production','other']},
+      {id:'hata', label:'Formül veya veri hatasını ancak sonuç bozulunca fark ediyoruz', family:'control', roles:['smmm','finance','owner','service','production','other']}
+    ];
 
-    function setProfile(profile, btnElement) {
-      currentProfile = profile;
-      document.querySelectorAll('.role-btn').forEach(btn => {
-        btn.classList.remove('border-brand-terracotta', 'bg-brand-terracotta/10', 'text-brand-terracotta');
-        btn.classList.add('border-stone-700', 'bg-stone-800/60', 'text-stone-300');
+    const families = {
+      cash:{title:'Tahsilat & Nakit Kontrolü', systems:['Cari yaşlandırma ve tahsilat öncelik sistemi','13 haftalık nakit akışı ve ödeme radarı','Fatura–tahsilat / çek–senet eşleştirme yapısı']},
+      bank:{title:'Banka & Finansman Kontrolü', systems:['Banka limit–risk–teminat sistemi','Kredi ve taksit vade takvimi','POS hakediş / komisyon / banka mutabakatı']},
+      profit:{title:'Gerçek Kârlılık & Fiyatlama', systems:['Ürün / müşteri / proje bazlı gerçek kârlılık','Minimum satış fiyatı ve iskonto sınırı','Satışçı / şube katkı kârlılığı']},
+      stock:{title:'Stok & Satın Alma Kontrolü', systems:['Stok yaşlandırma ve ölü stok radarı','Stokta bağlı nakit ve sipariş noktası','Tedarikçi fiyat geçmişi ve satın alma karşılaştırması']},
+      office:{title:'Mali Müşavir / Ofis Operasyonu', systems:['Mükellef iş ve eksik evrak takip sistemi','Son tarih / sorumlu / iş yükü kontrolü','Büro tahsilat ve mükellef kârlılık sistemi']},
+      production:{title:'Üretim & Fiili Maliyet', systems:['Reçete ve güncel maliyet sistemi','Standart–fiili maliyet sapması','Fire / kapasite / termin ve minimum kârlı üretim']},
+      service:{title:'Hizmet & Proje Kârlılığı', systems:['Adam/saat ve proje gerçek kârlılığı','Personel kapasite ve doluluk takibi','Kapsam dışı iş / ücretsiz mesai kontrolü']},
+      control:{title:'Tek Dosya & Kontrol Mimarisi', systems:['Tek veri girişli ortak çalışma düzeni','Kontrol merkezi ve hata locator yapısı','Yönetici karar paneli ve standart raporlama']}
+    };
+
+    let currentRole = 'smmm';
+    const painList = document.getElementById('pain-list');
+    const selectedCount = document.getElementById('selected-count');
+
+    function renderPains() {
+      const selected = new Set([...document.querySelectorAll('.pain-check:checked')].map(i => i.value));
+      painList.innerHTML = '';
+      painCatalog.filter(p => p.roles.includes(currentRole)).forEach(p => {
+        const label = document.createElement('label');
+        label.className = 'flex items-start gap-3 p-3 rounded-xl border border-line bg-canvas cursor-pointer hover:border-blue/30';
+        label.innerHTML = `<input class="pain-check mt-0.5" type="checkbox" value="${p.id}" ${selected.has(p.id) ? 'checked' : ''}><span class="text-sm text-slate-600 leading-snug">${p.label}</span>`;
+        painList.appendChild(label);
       });
-      btnElement.classList.remove('border-stone-700', 'bg-stone-800/60', 'text-stone-300');
-      btnElement.classList.add('border-brand-terracotta', 'bg-brand-terracotta/10', 'text-brand-terracotta');
-
-      const label1 = document.getElementById('slider-label-1');
-      if(profile === 'smmm') {
-        label1.innerText = 'Aktif Mükellef Sayısı:';
-      } else if(profile === 'cfo' || profile === 'kobi') {
-        label1.innerText = 'Aylık Fatura / İşlem Adedi (Yüzlük):';
-      } else {
-        label1.innerText = 'Aktif Müşteri / Proje Sayısı:';
-      }
-      calculateLoss();
+      document.querySelectorAll('.pain-check').forEach(el => el.addEventListener('change', updateDiagnosis));
+      updateDiagnosis();
     }
 
-    function calculateLoss() {
-      const val1 = parseInt(document.getElementById('input-range-1').value);
-      const val2 = parseInt(document.getElementById('input-range-2').value);
+    document.querySelectorAll('[data-role]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentRole = btn.dataset.role;
+        document.querySelectorAll('[data-role]').forEach(b => b.setAttribute('aria-pressed','false'));
+        btn.setAttribute('aria-pressed','true');
+        renderPains();
+      });
+    });
 
-      document.getElementById('val-1').innerText = val1;
-      document.getElementById('val-2').innerText = val2;
-
-      let hoursLost = 0;
-      let hourlyRate = 350; // Ortalama personel adam-saat maliyeti TL
-
-      if(currentProfile === 'smmm') {
-        hoursLost = Math.round((val1 * 1.8) + (val2 * 12));
-      } else if(currentProfile === 'cfo') {
-        hoursLost = Math.round((val1 * 1.2) + (val2 * 20));
-      } else if(currentProfile === 'kobi') {
-        hoursLost = Math.round((val1 * 1.5) + (val2 * 15));
-      } else {
-        hoursLost = Math.round((val1 * 2.2) + (val2 * 16));
+    function updateDiagnosis() {
+      const selectedIds = [...document.querySelectorAll('.pain-check:checked')].map(i => i.value);
+      selectedCount.textContent = `${selectedIds.length} seçildi`;
+      const box = document.getElementById('diagnosis-result');
+      if (!selectedIds.length) {
+        box.classList.add('hidden');
+        return;
       }
 
-      const totalLoss = hoursLost * hourlyRate;
+      const scores = {};
+      selectedIds.forEach(id => {
+        const item = painCatalog.find(p => p.id === id);
+        if (item) scores[item.family] = (scores[item.family] || 0) + 1;
+      });
+      const topFamily = Object.entries(scores).sort((a,b) => b[1]-a[1])[0][0];
+      const family = families[topFamily];
+      const method = document.getElementById('current-method').value;
+      const frequency = document.getElementById('frequency').value;
+      const selectedLabels = selectedIds.map(id => painCatalog.find(p => p.id === id)?.label).filter(Boolean);
 
-      document.getElementById('total-money-loss').innerHTML = `₺${totalLoss.toLocaleString('tr-TR')} <span class="text-xs text-stone-400 font-sans font-normal">/ ay</span>`;
-      document.getElementById('total-time-saved').innerText = `${hoursLost} Saat/Ay`;
+      document.getElementById('result-title').textContent = family.title;
+      document.getElementById('result-subtitle').textContent = `${selectedIds.length} belirti seçtiniz. Mevcut takip: ${method}. Sorun sıklığı: ${frequency}.`;
+      document.getElementById('result-systems').innerHTML = family.systems.map(s => `<li class="flex gap-2"><span class="text-blue font-bold">→</span><span>${s}</span></li>`).join('');
 
-      const cta = document.getElementById('calc-cta-btn');
-      cta.href = `https://api.whatsapp.com/send?phone=905393333303&text=Bar%C4%B1%C5%9F%20Bey%20merhaba,%20${currentProfile.toUpperCase()}%20yap%C4%B1m%C4%B1zda%20ayda%20${hoursLost}%20saatlik%20manuel%20veri%20kayb%C4%B1m%C4%B1z%20var.%20Otomasyon%20sistemi%20kurmak%20istiyoruz.`;
+      const roleText = document.querySelector('[data-role][aria-pressed="true"]').textContent.trim();
+      const summary = `Barış Bey merhaba. Özel Excel sistemi ihtiyaç teşhisinden geliyorum.%0A%0ARol: ${roleText}%0AMevcut takip: ${method}%0ASıklık: ${frequency}%0A%0ASeçtiğim sorunlar:%0A- ${selectedLabels.join('%0A- ')}%0A%0AÖn teşhis: ${family.title}. Bu yapıyı bizim işleyişimize göre değerlendirmek istiyorum.`;
+      document.getElementById('diagnosis-whatsapp').href = `https://api.whatsapp.com/send?phone=905393333303&text=${encodeURI(summary)}`;
+      box.classList.remove('hidden');
     }
 
-    // İlk çalıştırma
-    calculateLoss();
+    document.getElementById('current-method').addEventListener('change', updateDiagnosis);
+    document.getElementById('frequency').addEventListener('change', updateDiagnosis);
+    renderPains();
   </script>
-
 </body>
 </html>
