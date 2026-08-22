@@ -49,6 +49,135 @@ const commonStyles = `
   @media(max-width:620px){.contextual-excel-visual--home,.contextual-excel-visual--guide{margin-top:20px;aspect-ratio:16/9;border-radius:16px}.contextual-excel-visual--special{aspect-ratio:16/8}.contextual-excel-caption{left:10px;bottom:10px;font-size:9px}}
 </style>`;
 
+const specialPremiumStyles = `
+<style data-special-premium-typography>
+  body.special-premium{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif!important;
+    font-size:16.5px;
+    line-height:1.65;
+    letter-spacing:-.006em;
+    font-kerning:normal;
+    text-rendering:optimizeLegibility;
+  }
+  .special-premium main{font-feature-settings:"kern" 1,"liga" 1,"calt" 1}
+  .special-premium main h1,
+  .special-premium main h2,
+  .special-premium main h3,
+  .special-premium main strong{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif!important;
+    text-wrap:balance;
+  }
+  .special-premium main h1{
+    font-size:clamp(2.85rem,4.55vw,4.2rem)!important;
+    line-height:1.055!important;
+    letter-spacing:-.052em!important;
+    font-weight:800!important;
+    max-width:15ch;
+  }
+  .special-premium main h2:not(.text-xl){
+    font-size:clamp(2.05rem,3vw,2.8rem)!important;
+    line-height:1.13!important;
+    letter-spacing:-.036em!important;
+    font-weight:800!important;
+  }
+  .special-premium main h2.text-xl{
+    font-size:1.35rem!important;
+    line-height:1.28!important;
+    letter-spacing:-.024em!important;
+  }
+  .special-premium main h3{
+    font-size:1.12rem;
+    line-height:1.35;
+    letter-spacing:-.018em;
+  }
+  .special-premium main p,
+  .special-premium main li,
+  .special-premium main label,
+  .special-premium main summary{
+    line-height:1.66!important;
+  }
+  .special-premium main p.text-slate-600,
+  .special-premium main p.text-slate-500{
+    letter-spacing:.001em;
+  }
+  .special-premium .text-xs{
+    font-size:.82rem!important;
+    line-height:1.56!important;
+  }
+  .special-premium .text-sm{
+    font-size:.96rem!important;
+    line-height:1.6!important;
+  }
+  .special-premium .text-base{
+    font-size:1.04rem!important;
+    line-height:1.7!important;
+  }
+  .special-premium .text-lg{
+    font-size:1.14rem!important;
+    line-height:1.72!important;
+  }
+  .special-premium main .font-mono{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace!important;
+    letter-spacing:.105em!important;
+    line-height:1.45!important;
+  }
+  .special-premium main > section > div[class*="max-w-"]{
+    padding-top:3.55rem!important;
+    padding-bottom:3.55rem!important;
+  }
+  .special-premium main > section[class~="py-16"],
+  .special-premium main > section[class~="py-20"],
+  .special-premium main > section[class~="py-24"]{
+    padding-top:3.55rem!important;
+    padding-bottom:3.55rem!important;
+  }
+  .special-premium main > section:first-child > div[class*="max-w-"]{
+    padding-top:3.25rem!important;
+    padding-bottom:3.45rem!important;
+  }
+  .special-premium main .card{
+    border-radius:20px;
+  }
+  .special-premium main .card p + p{
+    margin-top:.45rem;
+  }
+  .special-premium main details summary{
+    padding-top:1.1rem;
+    padding-bottom:1.1rem;
+    letter-spacing:-.014em;
+  }
+  .special-premium main a,
+  .special-premium main button{
+    letter-spacing:-.012em;
+  }
+  .special-premium main section{
+    scroll-margin-top:88px;
+  }
+  @media(min-width:1024px){
+    .special-premium main > section:first-child .grid{gap:3.4rem!important}
+    .special-premium main > section:first-child p.text-slate-600{max-width:66ch}
+  }
+  @media(max-width:900px){
+    .special-premium main h1{font-size:clamp(2.55rem,8vw,3.55rem)!important;max-width:18ch}
+    .special-premium main h2:not(.text-xl){font-size:clamp(1.9rem,5.8vw,2.45rem)!important}
+    .special-premium main > section > div[class*="max-w-"],
+    .special-premium main > section[class~="py-16"],
+    .special-premium main > section[class~="py-20"],
+    .special-premium main > section[class~="py-24"]{padding-top:3rem!important;padding-bottom:3rem!important}
+  }
+  @media(max-width:620px){
+    body.special-premium{font-size:16px;line-height:1.62}
+    .special-premium main h1{font-size:clamp(2.25rem,11vw,3rem)!important;line-height:1.08!important;letter-spacing:-.044em!important}
+    .special-premium main h2:not(.text-xl){font-size:1.9rem!important;line-height:1.16!important}
+    .special-premium main > section > div[class*="max-w-"],
+    .special-premium main > section[class~="py-16"],
+    .special-premium main > section[class~="py-20"],
+    .special-premium main > section[class~="py-24"]{padding-top:2.35rem!important;padding-bottom:2.35rem!important}
+    .special-premium .text-sm{font-size:.94rem!important}
+    .special-premium .text-xs{font-size:.8rem!important}
+  }
+</style>`;
+
 // Astro adds scoped data-* attributes in production; anchors therefore allow extra attributes.
 // Home: add a single premium visual only inside the existing "Size Özel" copy column.
 let home = readFileSync(routes.home, 'utf8');
@@ -73,8 +202,10 @@ guides = replaceOnce(
 writeFileSync(routes.guides, guides, 'utf8');
 
 // Special systems: visual becomes the top layer of the existing symptom card; no column/grid changes.
+// Typography and vertical-rhythm overrides are namespaced to this page only.
 let special = readFileSync(routes.special, 'utf8');
-special = replaceOnce(special, /<\/head>/g, `${commonStyles}</head>`, 'special head');
+special = replaceOnce(special, /<body class="/g, '<body class="special-premium ', 'special body namespace');
+special = replaceOnce(special, /<\/head>/g, `${commonStyles}${specialPremiumStyles}</head>`, 'special head');
 special = replaceOnce(
   special,
   /(<aside[^>]*class="card overflow-hidden shadow-xl shadow-slate-200\/60"[^>]*>)/g,
@@ -94,4 +225,9 @@ for (const [name, path] of Object.entries({ home: routes.home, guides: routes.gu
   if (count !== 1) throw new Error(`CONTEXTUAL IMAGE GATE: ${name} style injection count=${count}`);
 }
 
-console.log('CONTEXTUAL IMAGE GATE PASS — home, rehber and special systems enriched; /sablonlar byte-identical');
+const specialHtml = readFileSync(routes.special, 'utf8');
+if ((specialHtml.match(/data-special-premium-typography/g) || []).length !== 1 || !specialHtml.includes('class="special-premium ')) {
+  throw new Error('CONTEXTUAL IMAGE GATE: special premium typography namespace missing or duplicated');
+}
+
+console.log('CONTEXTUAL IMAGE GATE PASS — home, rehber and special systems enriched; premium special typography active; /sablonlar byte-identical');
