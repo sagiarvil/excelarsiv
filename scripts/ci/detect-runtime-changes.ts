@@ -58,10 +58,6 @@ export const HOSTING_PATHS = [
 export const DELIVERY_PATHS = [
   'delivery/paid-products/',
   'commerce/catalog.json',
-  'scripts/sync-paid-products.mjs',
-  'scripts/check-paid-products.mjs',
-  'scripts/package.json',
-  'scripts/package-lock.json',
 ] as const;
 
 export const LAYER_STEPS: Record<Layer, readonly string[]> = {
