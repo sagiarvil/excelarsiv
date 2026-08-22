@@ -4,28 +4,28 @@
    copy while preserving the existing hierarchy and responsive layout. */
 
 /* Section hierarchy and explanatory copy */
-.product-page .section-kicker{font-size:12px!important;line-height:1.25!important}
+.product-page .section-kicker{font-size:13px!important;line-height:1.25!important}
 .product-page .section-head>p{font-size:16px!important;line-height:1.68!important}
-.product-page .section-head>a{font-size:13px!important;line-height:1.45!important}
+.product-page .section-head>a{font-size:14px!important;line-height:1.45!important}
 
 /* Premium hero: preserve headline scale, repair micro/body copy */
-.product-page .product-hero__eyebrow{font-size:12px!important;line-height:1.35!important}
-.product-page .product-hero__summary{font-size:16px!important;line-height:1.68!important;color:#3a4a41!important}
-.product-page .product-hero__outputs li{font-size:14.5px!important;line-height:1.5!important;color:#2f3f36!important}
-.product-page .product-hero__outputs span{font-size:11px!important}
-.product-page .product-hero__price-row strong small{font-size:13px!important}
-.product-page .product-hero__price-row>span{font-size:14px!important;line-height:1.45!important;color:#3a4a41!important}
-.product-page .product-hero__facts b{font-size:13px!important;line-height:1.25!important;color:#1a5435!important}
-.product-page .product-hero__facts small{font-size:12px!important;line-height:1.35!important;color:#44554c!important}
-.product-page .product-hero__window-bar b{font-size:11px!important;line-height:1.2!important;color:#2f3f36!important}
-.product-page .product-hero__visual>a{font-size:13px!important;line-height:1.4!important}
-.product-page .product-hero__decision-head p{font-size:12px!important;line-height:1.25!important;color:#0b7440!important}
+.product-page .product-hero__eyebrow{font-size:13px!important;line-height:1.35!important}
+.product-page .product-hero__summary{font-size:16px!important;line-height:1.68!important;color:#334155!important}
+.product-page .product-hero__outputs li{font-size:15px!important;line-height:1.5!important;color:#1e293b!important}
+.product-page .product-hero__outputs span{font-size:13px!important}
+.product-page .product-hero__price-row strong small{font-size:14px!important}
+.product-page .product-hero__price-row>span{font-size:15px!important;line-height:1.45!important;color:#334155!important}
+.product-page .product-hero__facts b{font-size:14px!important;line-height:1.25!important;color:#1a5435!important}
+.product-page .product-hero__facts small{font-size:13px!important;line-height:1.35!important;color:#475569!important}
+.product-page .product-hero__window-bar b{font-size:12.5px!important;line-height:1.2!important;color:#1e293b!important}
+.product-page .product-hero__visual>a{font-size:14px!important;line-height:1.4!important}
+.product-page .product-hero__decision-head p{font-size:13px!important;line-height:1.25!important;color:#0b7440!important}
 .product-page .product-hero__decision-head h2{font-size:clamp(24px,2.6vw,30px)!important}
-.product-page .product-hero__decision-head>span{font-size:14px!important;line-height:1.5!important;color:#3a4a41!important}
+.product-page .product-hero__decision-head>span{font-size:15px!important;line-height:1.5!important;color:#334155!important}
 .product-page .product-hero__trust{min-height:52px!important}
 .product-page .product-hero__trust span{min-height:52px!important;padding:0 14px!important;background:#fff!important}
-.product-page .product-hero__trust b{font-size:13px!important;font-weight:800!important}
-.product-page .product-hero__trust small{font-size:14px!important;line-height:1.4!important;color:#3a4a41!important;font-weight:500!important}
+.product-page .product-hero__trust b{font-size:14px!important;font-weight:800!important}
+.product-page .product-hero__trust small{font-size:14px!important;line-height:1.4!important;color:#334155!important;font-weight:500!important}
 
 /* Font tutarlılığı — mobil system-font override'ını kır */
 .product-page .product-hero h1,
@@ -40,26 +40,26 @@
 }
 
 /* Input/output flow */
-.product-page .io-card>span{font-size:10.5px!important;line-height:1.25!important}
-.product-page .io-card li{font-size:14px!important;line-height:1.55!important}
+.product-page .io-card>span{font-size:13px!important;line-height:1.25!important}
+.product-page .io-card li{font-size:15px!important;line-height:1.55!important}
 .product-page .io-card li b{flex:0 0 auto}
 
 /* Expandable product details and technical information */
-.product-page .product-details summary{font-size:13.5px!important;line-height:1.45!important}
+.product-page .product-details summary{font-size:15px!important;line-height:1.45!important}
 .product-page .requirements-card__title,
-.product-page .requirements-card__policy small{font-size:10.5px!important;line-height:1.3!important}
-.product-page .requirements-card li{font-size:14px!important;line-height:1.55!important}
-.product-page .requirements-card__policy p{font-size:13.5px!important;line-height:1.6!important}
-.product-page .product-details__body table{font-size:13.5px!important;line-height:1.5!important}
+.product-page .requirements-card__policy small{font-size:13px!important;line-height:1.3!important}
+.product-page .requirements-card li{font-size:15px!important;line-height:1.55!important}
+.product-page .requirements-card__policy p{font-size:14px!important;line-height:1.6!important}
+.product-page .product-details__body table{font-size:14px!important;line-height:1.5!important}
 .product-page .product-details__body :is(th,td){overflow-wrap:anywhere}
 
 /* Eligibility and FAQ: utility classes were readable but too close to the floor
    next to the enlarged surrounding copy. Normalize them to the same body rhythm. */
-.product-page .eligibility-grid h3{font-size:18px!important;line-height:1.35!important}
-.product-page .eligibility-grid li{font-size:14px!important;line-height:1.6!important}
-.product-page #sss summary{font-size:14px!important;line-height:1.5!important}
-.product-page #sss details>p{font-size:14px!important;line-height:1.65!important}
-.product-page #sss summary .mono-xs{font-size:10px!important;line-height:1.35!important}
+.product-page .eligibility-grid h3{font-size:19px!important;line-height:1.35!important}
+.product-page .eligibility-grid li{font-size:15px!important;line-height:1.6!important}
+.product-page #sss summary{font-size:16px!important;line-height:1.5!important}
+.product-page #sss details>p{font-size:15px!important;line-height:1.65!important}
+.product-page #sss summary .mono-xs{font-size:12.5px!important;line-height:1.35!important}
 
 /* Checkout + Demo: aynı tipografi/kontrast/buton yüksekliği sözleşmesi */
 .product-page .checkout-card,
