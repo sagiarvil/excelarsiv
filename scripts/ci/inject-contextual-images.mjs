@@ -49,12 +49,13 @@ const commonStyles = `
   @media(max-width:620px){.contextual-excel-visual--home,.contextual-excel-visual--guide{margin-top:20px;aspect-ratio:16/9;border-radius:16px}.contextual-excel-visual--special{aspect-ratio:16/8}.contextual-excel-caption{left:10px;bottom:10px;font-size:9px}}
 </style>`;
 
+// Astro adds scoped data-* attributes in production; anchors therefore allow extra attributes.
 // Home: add a single premium visual only inside the existing "Size Özel" copy column.
 let home = readFileSync(routes.home, 'utf8');
 home = replaceOnce(home, /<\/head>/g, `${commonStyles}</head>`, 'home head');
 home = replaceOnce(
   home,
-  /(<p class="custom-lead">[\s\S]*?<\/p>)/g,
+  /(<p[^>]*class="custom-lead"[^>]*>[\s\S]*?<\/p>)/g,
   `$1<figure class="contextual-excel-visual contextual-excel-visual--home" aria-label="Excel analiz ve karar sistemi görseli"><img src="/images/site/excel-analytics-section.webp" alt="Excel analiz, grafik ve karar sistemi görseli" width="1280" height="864" loading="lazy" decoding="async"><figcaption class="contextual-excel-caption">Analiz · kontrol · karar ekranı</figcaption></figure>`,
   'home custom-build lead',
 );
@@ -65,7 +66,7 @@ let guides = readFileSync(routes.guides, 'utf8');
 guides = replaceOnce(guides, /<\/head>/g, `${commonStyles}</head>`, 'guide head');
 guides = replaceOnce(
   guides,
-  /(<div class="hub-stats mt-8">[\s\S]*?<strong>1:1<\/strong><span>rehber → ürün bağlantısı<\/span><\/div>\s*<\/div>)/g,
+  /(<div[^>]*class="hub-stats mt-8"[^>]*>[\s\S]*?<strong[^>]*>1:1<\/strong><span[^>]*>rehber → ürün bağlantısı<\/span><\/div>\s*<\/div>)/g,
   `$1<figure class="contextual-excel-visual contextual-excel-visual--guide" aria-label="Excel uygulama rehberleri görseli"><img src="/images/site/excel-guide-banner.webp" alt="Microsoft Excel çalışma ekranı ve Excel simgesi" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async"><figcaption class="contextual-excel-caption">Uygulama rehberleri · gerçek çalışma mantığı</figcaption></figure>`,
   'guide intro stats',
 );
@@ -76,7 +77,7 @@ let special = readFileSync(routes.special, 'utf8');
 special = replaceOnce(special, /<\/head>/g, `${commonStyles}</head>`, 'special head');
 special = replaceOnce(
   special,
-  /(<aside class="card overflow-hidden shadow-xl shadow-slate-200\/60">)/g,
+  /(<aside[^>]*class="card overflow-hidden shadow-xl shadow-slate-200\/60"[^>]*>)/g,
   `$1<figure class="contextual-excel-visual contextual-excel-visual--special" aria-label="İhtiyaca özel Excel sistemi görseli"><img src="/images/site/excel-special-systems-hero.webp" alt="Dizüstü bilgisayarda Excel çalışma ekranı ve Excel simgesi" width="1280" height="720" fetchpriority="high" decoding="async"><figcaption class="contextual-excel-caption">İşleyişinize göre kurulan Excel sistemi</figcaption></figure>`,
   'special symptom card',
 );
