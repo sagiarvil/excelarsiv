@@ -1,0 +1,5 @@
+Protected release contract v1
+- Home and /sablonlar shared surfaces restored
+- /ozel-excel-sistemleri isolated from shared brand/layout assets
+- Every build stamps git SHA + route hashes
+- Firebase predeploy rejects stale dist or wrong commit artifacts
