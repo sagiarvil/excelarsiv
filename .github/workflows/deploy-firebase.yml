@@ -258,6 +258,21 @@ jobs:
           node scripts/seo/finalize-sitemap-index.mjs
           node scripts/seo/validate-artifacts.mjs
 
+      - name: Prune old Hosting preview channels
+        if: steps.changes.outputs.hosting_changed == 'true'
+        shell: bash
+        run: |
+          set +e
+          echo "Pruning temporary preview channels..."
+          channels=$(firebase hosting:channel:list --project "$FIREBASE_PROJECT_ID" --site "$FIREBASE_HOSTING_SITE" --json 2>/dev/null | jq -r '.result.channels[]?.name | split("/") | .[-1]' 2>/dev/null || true)
+          for ch in $channels; do
+            if [[ "$ch" != "live" && -n "$ch" ]]; then
+              echo "Pruning channel: $ch"
+              firebase hosting:channel:delete "$ch" --project "$FIREBASE_PROJECT_ID" --site "$FIREBASE_HOSTING_SITE" --force || true
+            fi
+          done
+          set -e
+
       - name: Deploy Firebase Hosting
         id: hosting
         if: steps.changes.outputs.hosting_changed == 'true'
