@@ -43,7 +43,7 @@ const commonStyles = `
   .contextual-excel-visual img{display:block;width:100%;height:100%;object-fit:cover}
   .contextual-excel-visual--home{margin-top:24px;aspect-ratio:16/10;border-radius:20px}
   .contextual-excel-visual--guide{margin-top:30px;aspect-ratio:16/6;border-radius:20px}
-  .contextual-excel-visual--special{aspect-ratio:16/7;border-radius:18px 18px 0 0;border-width:0 0 1px 0;box-shadow:none}
+  .contextual-excel-visual--special{aspect-ratio:16/5.5;max-height:145px;border-radius:18px 18px 0 0;border-width:0 0 1px 0;box-shadow:none}
   .contextual-excel-caption{position:absolute;left:14px;bottom:14px;padding:7px 10px;border-radius:999px;background:rgba(15,41,66,.88);color:#fff;font:700 10px/1.2 ui-sans-serif,system-ui,sans-serif;letter-spacing:.01em;backdrop-filter:blur(8px)}
   @media(max-width:900px){.contextual-excel-visual--home{aspect-ratio:16/9}.contextual-excel-visual--guide{aspect-ratio:16/8}}
   @media(max-width:620px){.contextual-excel-visual--home,.contextual-excel-visual--guide{margin-top:20px;aspect-ratio:16/9;border-radius:16px}.contextual-excel-visual--special{aspect-ratio:16/8}.contextual-excel-caption{left:10px;bottom:10px;font-size:9px}}
@@ -68,11 +68,11 @@ const specialPremiumStyles = `
     text-wrap:balance;
   }
   .special-premium main h1{
-    font-size:clamp(2.85rem,4.55vw,4.2rem)!important;
-    line-height:1.055!important;
-    letter-spacing:-.052em!important;
+    font-size:clamp(2rem,2.85vw,2.75rem)!important;
+    line-height:1.16!important;
+    letter-spacing:-.038em!important;
     font-weight:800!important;
-    max-width:15ch;
+    max-width:28ch;
   }
   .special-premium main h2:not(.text-xl){
     font-size:clamp(2.05rem,3vw,2.8rem)!important;
