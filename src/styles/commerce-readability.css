@@ -338,42 +338,61 @@ main > section p,
 .tcard__cat,
 .product-page .tcard__cat {
   font-size: 13px !important;
-  min-height: 30px !important;
+  min-height: 28px !important;
+  padding-inline: 12px !important;
+  font-weight: 800 !important;
+  color: #0b7040 !important;
+}
+
+.tcard__title,
+.product-page .tcard__title {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
 }
 
 .tcard__summary,
 .product-page .tcard__summary {
   font-size: 15px !important;
-  line-height: 1.55 !important;
+  line-height: 1.65 !important;
+  color: #334155 !important;
+  font-weight: 500 !important;
 }
 
 .tcard__section-label,
 .product-page .tcard__section-label {
-  font-size: 12px !important;
+  font-size: 12.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  color: #0f172a !important;
 }
 
 .tcard__benefits li,
 .product-page .tcard__benefits li {
   font-size: 14.5px !important;
-  line-height: 1.45 !important;
-  color: #2f3f36 !important;
+  line-height: 1.5 !important;
+  color: #1e293b !important;
 }
 
 .tcard__structure li,
 .product-page .tcard__structure li {
-  font-size: 13px !important;
+  font-size: 13.5px !important;
+  color: #1e293b !important;
 }
 
 .tcard__meta span,
 .product-page .tcard__meta span {
-  font-size: 12px !important;
-  min-height: 30px !important;
-  line-height: 28px !important;
+  font-size: 12.5px !important;
+  min-height: 28px !important;
+  font-weight: 600 !important;
+  color: #1e293b !important;
 }
 
-.tcard__price small,
-.product-page .tcard__price small {
-  font-size: 12px !important;
+.tcard__price strong,
+.product-page .tcard__price strong {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
 }
 
 .tcard__cta,
