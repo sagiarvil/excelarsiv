@@ -198,16 +198,16 @@ jobs:
             fi
           done
 
-          if [[ "${{ steps.changes.outputs.backend_changed }}" == "true" || "$functions_missing" == "true" ]]; then
+          if [[ "${{ steps.changes.outputs.backend_changed }}" == "true" ]]; then
             echo "deploy_functions=true" >> "$GITHUB_OUTPUT"
             echo "Backend deployment required."
           else
             echo "deploy_functions=false" >> "$GITHUB_OUTPUT"
-            echo "All required functions exist and backend source is unchanged."
+            echo "Backend source is unchanged."
           fi
 
       - name: Deploy verification and delivery Functions with Firebase
-        if: steps.changes.outputs.runtime_changed == 'true' && steps.backend.outputs.deploy_functions == 'true'
+        if: steps.changes.outputs.backend_changed == 'true' && steps.backend.outputs.deploy_functions == 'true'
         env:
           CI: "true"
         shell: bash
@@ -219,7 +219,7 @@ jobs:
             --non-interactive
 
       - name: Deploy checkout Function last
-        if: steps.changes.outputs.runtime_changed == 'true' && steps.backend.outputs.deploy_functions == 'true'
+        if: steps.changes.outputs.backend_changed == 'true' && steps.backend.outputs.deploy_functions == 'true'
         env:
           CI: "true"
         shell: bash
@@ -231,7 +231,7 @@ jobs:
             --non-interactive
 
       - name: Verify required Functions exist before production release
-        if: steps.changes.outputs.runtime_changed == 'true'
+        if: steps.changes.outputs.backend_changed == 'true'
         shell: bash
         run: |
           set -euo pipefail
