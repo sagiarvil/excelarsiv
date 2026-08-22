@@ -72,34 +72,75 @@ const homeJsonLd = {
       </div>
     </section>
 
+    <!-- 1- SİZE ÖZEL (Dengeli, simetrik, 4 adımlı zengin iş akışı & CTA) -->
     <section class="custom-build" data-experience-stage>
       <div class="home-shell custom-build-grid">
-        <div>
+        <div class="custom-build-copy">
           <p class="eyebrow">SIZE ÖZEL</p>
           <h2>Hazır sistem yetmiyorsa, çalışma işletmenizin işleyişine göre kurulur.</h2>
           <p class="custom-lead">Muhasebe ofisleri ve işletmeler için mevcut Excel düzeni, veri akışı, kontrol noktaları ve raporlama ihtiyacı analiz edilerek özel çalışma hazırlanır.</p>
         </div>
         <div class="custom-actions">
-          <div><span>01</span><strong>İşleyişi anlatın</strong><p>Mevcut dosyanızı, ekran görüntüsünü veya çalışma biçiminizi paylaşın.</p></div>
-          <div><span>02</span><strong>Kapsamı netleştirelim</strong><p>Giriş, hesap, kontrol ve rapor ekranlarını birlikte tanımlayalım.</p></div>
-          <a href="/ozel-excel-sistemleri">Size özel çalışmaları inceleyin →</a>
+          <div class="custom-step">
+            <span class="step-num">01</span>
+            <div>
+              <strong>İşleyişi anlatın</strong>
+              <p>Mevcut dosyanızı, ekran görüntüsünü veya çalışma biçiminizi paylaşın.</p>
+            </div>
+          </div>
+          <div class="custom-step">
+            <span class="step-num">02</span>
+            <div>
+              <strong>Kapsamı netleştirelim</strong>
+              <p>Giriş, hesap, kontrol ve karar ekranlarını birlikte tanımlayalım.</p>
+            </div>
+          </div>
+          <div class="custom-step">
+            <span class="step-num">03</span>
+            <div>
+              <strong>Sisteminizi kuralım</strong>
+              <p>İş kurallarınıza ve veri akışınıza özel hatasız Excel mimarisi tasarlansın.</p>
+            </div>
+          </div>
+          <div class="custom-step">
+            <span class="step-num">04</span>
+            <div>
+              <strong>Gerçek veriyle doğrulayın</strong>
+              <p>Canlı verileriniz ve uç senaryolar üzerinden test edilip teslim edilsin.</p>
+            </div>
+          </div>
+          <div class="custom-cta-card">
+            <div class="custom-cta-text">
+              <span class="custom-trust-pill">✓ 17 Yıllık Finans Tecrübesi · Veri Gizliliği</span>
+              <p>Derdinizi teknik dile çevirmek zorunda değilsiniz.</p>
+            </div>
+            <a class="custom-cta-btn" href="/ozel-excel-sistemleri">Özel Sistemleri İnceleyin →</a>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- 2- KARAR YARDIMI (Dikkat çeken, interaktif ve yüksek etkili karar kartları) -->
     <section class="decision-help" data-experience-stage>
       <div class="home-shell decision-layout">
         <div class="decision-intro">
           <p class="eyebrow">KARAR YARDIMI</p>
           <h2>Hangi sistemi alacağınızı bilmiyorsanız, sorununuzu seçin.</h2>
-          <p>En sık karşılaşılan dört problemden başlayın. Daha fazlası için karar rehberine geçin.</p>
-          <a href="/karar">18 karar rehberinin tamamı →</a>
+          <p>İşletmenizin yaşadığı darboğaza en yakın problemden başlayın. Doğru ürünü belirlemek için karar rehberlerini karşılaştırın.</p>
+          <a class="decision-all-btn" href="/karar">18 karar rehberinin tamamı →</a>
         </div>
         <div class="decision-grid">
           {homeDecisions.map((page, index) => page && (
-            <a href={`/karar/${page.slug}`}>
-              <span class="decision-no">0{index + 1}</span>
-              <div><h3>{page.title}</h3><p>{page.description}</p><strong>Kararı inceleyin →</strong></div>
+            <a href={`/karar/${page.slug}`} class="decision-card">
+              <div class="decision-card-head">
+                <span class="decision-no">0{index + 1}</span>
+                <span class="decision-tag">{index === 0 ? 'Nakit Akışı' : index === 1 ? 'Cari & Tahsilat' : index === 2 ? 'POS & Banka' : 'E-Ticaret & Kâr'}</span>
+              </div>
+              <div class="decision-card-body">
+                <h3>{page.title}</h3>
+                <p>{page.description}</p>
+                <span class="decision-link">Kararı inceleyin →</span>
+              </div>
             </a>
           ))}
         </div>
@@ -145,10 +186,44 @@ const homeJsonLd = {
   .price-levels{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.price-levels span{padding:7px 10px;background:#f2f5f2;border:1px solid var(--line);font:700 11px/1 var(--font-mono)}
   .featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.featured-grid article{border:1px solid var(--line);background:#fff}.shot{display:block;aspect-ratio:4/3;overflow:hidden;border-bottom:1px solid var(--line)}.shot img{width:100%;height:100%;object-fit:cover}.featured-grid article>div{padding:18px}.featured-grid small{font:700 9px/1 var(--font-mono);color:var(--green)}.featured-grid h3{margin:8px 0;font-size:22px;line-height:1.05}.featured-grid h3 a{color:var(--ink);text-decoration:none}.featured-grid p{min-height:58px;font-size:12px;line-height:1.6;color:var(--muted)}.featured-grid strong{font-size:18px}
   .difference{padding:62px 0;background:#111815;color:#fff}.difference-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}.difference .eyebrow{color:#7ee2a8}.difference p{color:#c3cec6;line-height:1.75}.difference ul{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 0;padding:0;list-style:none}.difference li{padding:12px;border:1px solid #344039;font-size:12px}
-  .custom-build{background:#fff}.custom-build-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:start}.custom-lead{max-width:720px;color:var(--muted);line-height:1.75;font-size:15px}.custom-actions{border-top:1px solid var(--line)}.custom-actions>div{display:grid;grid-template-columns:38px 1fr;gap:14px;padding:20px 0;border-bottom:1px solid var(--line)}.custom-actions span{font:800 11px/1 var(--font-mono);color:var(--green)}.custom-actions strong{font-size:17px}.custom-actions p{grid-column:2;margin:6px 0 0;color:var(--muted);line-height:1.55;font-size:12px}.custom-actions>a{display:inline-block;margin-top:20px;color:var(--green-dark);font-weight:800}
-  .decision-help{background:var(--soft);padding:52px 0}.decision-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:56px;align-items:start}.decision-intro p{color:var(--muted);line-height:1.65}.decision-intro>a{display:inline-block;margin-top:6px}.decision-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);background:#fff}.decision-grid>a{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:18px;color:var(--ink);text-decoration:none;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:138px}.decision-grid>a:nth-child(2n){border-right:0}.decision-grid>a:nth-last-child(-n+2){border-bottom:0}.decision-grid>a:hover{background:#f9fbf9}.decision-no{font:800 10px/1 var(--font-mono);color:var(--green)}.decision-grid h3{margin:0;font-size:17px;line-height:1.12}.decision-grid p{margin:8px 0 10px;color:var(--muted);font-size:11.5px;line-height:1.5}.decision-grid strong{font-size:10.5px;color:var(--green-dark)}
+  
+  /* SIZE ÖZEL (Custom Build) */
+  .custom-build{background:#fff}
+  .custom-build-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+  .custom-lead{max-width:560px;color:var(--muted);line-height:1.75;font-size:15px}
+  .custom-actions{display:flex;flex-direction:column;gap:10px}
+  .custom-step{display:grid;grid-template-columns:38px 1fr;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--soft);transition:all .2s ease}
+  .custom-step:hover{background:#fff;border-color:var(--green);box-shadow:0 4px 14px rgba(22,101,52,.08);transform:translateX(3px)}
+  .step-num{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:rgba(22,101,52,.1);color:var(--green);font:800 11px/1 var(--font-mono)}
+  .custom-step strong{font-size:15px;color:var(--ink);display:block}
+  .custom-step p{margin:3px 0 0;color:var(--muted);line-height:1.5;font-size:12px}
+  .custom-cta-card{margin-top:4px;padding:16px 18px;border-radius:16px;background:linear-gradient(135deg,#10251a 0%,#173b28 100%);color:#fff;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 8px 24px rgba(16,37,26,.15)}
+  .custom-trust-pill{font:800 9.5px/1 var(--font-mono);letter-spacing:.06em;color:#8ce9b1;text-transform:uppercase}
+  .custom-cta-text p{margin:4px 0 0;font-size:11.5px;color:#c4d0c8}
+  .custom-cta-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;background:#8ce9b1;color:#0b2214;font-weight:800;font-size:12px;border-radius:10px;text-decoration:none;transition:all .2s ease;white-space:nowrap}
+  .custom-cta-btn:hover{background:#fff;transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,255,255,.2)}
+
+  /* KARAR YARDIMI (Decision Help) */
+  .decision-help{background:linear-gradient(180deg,#f7faf8 0%,#edf3ef 100%);padding:56px 0}
+  .decision-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:48px;align-items:center}
+  .decision-intro p{color:var(--muted);line-height:1.65;font-size:14.5px;margin-top:10px}
+  .decision-all-btn{display:inline-flex;align-items:center;margin-top:18px;padding:11px 20px;background:var(--green);color:#fff;font-weight:800;font-size:12.5px;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(22,101,52,.18);transition:all .2s ease}
+  .decision-all-btn:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(22,101,52,.26)}
+  
+  .decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .decision-card{display:flex;flex-direction:column;justify-content:space-between;padding:18px 18px;color:var(--ink);text-decoration:none;border:1px solid #d2ded5;border-radius:16px;background:#fff;box-shadow:0 2px 6px rgba(18,32,25,.03);transition:all .22s cubic-bezier(0.4,0,0.2,1)}
+  .decision-card:hover{border-color:var(--green);background:#fdfefe;box-shadow:0 10px 24px rgba(22,101,52,.11);transform:translateY(-2px)}
+  .decision-card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+  .decision-no{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:rgba(22,101,52,.08);color:var(--green);font:800 10.5px/1 var(--font-mono)}
+  .decision-tag{font:800 9px/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--green-dark);background:#eaf3ed;border:1px solid rgba(22,101,52,.15);padding:4px 8px;border-radius:999px}
+  .decision-card h3{margin:0;font-size:16px;line-height:1.24;font-weight:800;color:var(--ink)}
+  .decision-card p{margin:6px 0 10px;color:var(--muted);font-size:11.5px;line-height:1.5}
+  .decision-link{font-size:11.5px;color:var(--green);font-weight:800;display:inline-flex;align-items:center;gap:3px;transition:gap .2s ease}
+  .decision-card:hover .decision-link{color:var(--green-dark);gap:6px}
+
   .authority{padding:0;background:#fff;border-bottom:1px solid var(--line)}.authority-panel{display:grid;grid-template-columns:1.1fr .9fr;background:#10251a;color:#fff}.authority-copy{padding:48px 52px}.authority-copy h2{color:#fff}.authority-copy>p:not(.eyebrow){max-width:650px;color:#c4d0c8;line-height:1.75}.authority-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px}.authority-links a{color:#a7efc1;font-weight:800}.authority-metrics{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid #294236}.authority-metrics article{display:flex;flex-direction:column;justify-content:flex-end;min-height:240px;padding:28px;border-right:1px solid #294236}.authority-metrics article:last-child{border-right:0}.authority-metrics small{font:800 9px/1 var(--font-mono);letter-spacing:.12em;color:#87d9a6}.authority-metrics strong{font-size:44px;line-height:1;margin:10px 0 6px}.authority-metrics span{font-size:11px;color:#aebdb4}
   .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:58px;align-items:start}.faq-close>div>div>p{color:var(--muted);line-height:1.7}.close-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.close-actions a{padding:12px 18px;border:1px solid #b9c5bc;color:var(--ink);font-weight:800;text-decoration:none}.close-actions .primary{background:var(--green);border-color:var(--green);color:#fff}.faq-list{border-top:1px solid var(--line)}.faq-list details{padding:17px 0;border-bottom:1px solid var(--line)}.faq-list summary{font-weight:800;cursor:pointer}.faq-list p{margin:10px 0 0;color:var(--muted);line-height:1.65}
+  
   @media(max-width:900px){.featured-grid{grid-template-columns:1fr}.custom-build-grid,.decision-layout,.authority-panel,.faq-grid,.difference-grid{grid-template-columns:1fr}.authority-metrics{border-left:0;border-top:1px solid #294236}.authority-copy{padding:38px 30px}.section-head{align-items:start;flex-direction:column}}
-  @media(max-width:620px){.home-shell{width:min(100% - 28px,1180px)}.catalog-proof,.custom-build,.faq-close{padding:48px 0}.decision-help{padding:42px 0}.difference{padding:50px 0}.difference ul,.decision-grid,.authority-metrics{grid-template-columns:1fr}.decision-grid>a{border-right:0;border-bottom:1px solid var(--line)!important;min-height:0}.decision-grid>a:last-child{border-bottom:0!important}.authority-metrics article{min-height:140px;border-right:0;border-bottom:1px solid #294236}.authority-metrics article:last-child{border-bottom:0}.authority-copy{padding:34px 24px}.featured-grid h3{font-size:20px}}
+  @media(max-width:620px){.home-shell{width:min(100% - 28px,1180px)}.catalog-proof,.custom-build,.faq-close{padding:44px 0}.decision-help{padding:40px 0}.decision-grid{grid-template-columns:1fr}.difference{padding:48px 0}.difference ul,.authority-metrics{grid-template-columns:1fr}.authority-metrics article{min-height:140px;border-right:0;border-bottom:1px solid #294236}.authority-metrics article:last-child{border-bottom:0}.authority-copy{padding:34px 24px}.featured-grid h3{font-size:20px}}
 </style>
