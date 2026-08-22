@@ -34,7 +34,8 @@ function git(args, { inherit = false } = {}) {
     /(?:libxcrun|missing compatible architecture|need 'x86_64'|need 'arm64')/i.test(firstError);
 
   if (macRosettaGitFailure) {
-    result = gitSpawn('/usr/bin/arch', ['-arm64', '/usr/bin/git', ...args], { inherit });
+    const nativeArgs = ['-arm64', '/usr/bin/git', ...args];
+    result = gitSpawn('/usr/bin/arch', nativeArgs, { inherit });
   }
 
   if (result.error || result.status !== 0) {
