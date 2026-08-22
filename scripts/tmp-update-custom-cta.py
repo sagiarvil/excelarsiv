@@ -14,3 +14,4 @@ for old, new in repls.items():
         raise SystemExit(f'Beklenen metin bulunamadı: {old}')
     s = s.replace(old, new)
 p.write_text(s, encoding='utf-8')
+# workflow trigger
