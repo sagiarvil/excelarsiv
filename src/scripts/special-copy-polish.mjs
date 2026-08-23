@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { readFileSync, writeFileSync } from 'node:fs';
 import { applySpecialFunnelOptimization } from './special-funnel-optimization.mjs';
+import { applySpecialFunnelPremiumLayout } from './special-funnel-premium-layout.mjs';
 
 function once(html, from, to, label) {
   const count = html.split(from).length - 1;
@@ -55,5 +56,6 @@ export function applySpecialCopyPolish({ specialPath = 'dist/ozel-excel-sistemle
 
   writeFileSync(specialPath, html, 'utf8');
   applySpecialFunnelOptimization({ specialPath });
-  console.log('SPECIAL COPY POLISH PASS — topbar, positioning label, structured mizan copy and funnel optimization updated.');
+  applySpecialFunnelPremiumLayout({ specialPath });
+  console.log('SPECIAL COPY POLISH PASS — topbar, positioning label, structured mizan copy, funnel optimization and premium layout updated.');
 }
