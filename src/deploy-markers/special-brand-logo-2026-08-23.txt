@@ -1,0 +1,4 @@
+Production hosting marker for /ozel-excel-sistemleri real brand identity release.
+This file intentionally has no runtime behavior. It forces the existing production runtime detector to classify the release as a Hosting change so the already-validated build output is deployed.
+Release: special-brand-logo
+Date: 2026-08-23
