@@ -1,0 +1,117 @@
+/* Dark surface contrast contract.
+   Loaded after commerce-readability.css so global !important light-surface colors
+   cannot make text unreadable on navy/green sections. */
+
+:where(.surface-dark,
+  .difference,
+  .authority-panel,
+  .custom-cta-card,
+  .premium-close,
+  .purchase-band,
+  .command-center,
+  .special-dark,
+  .contact,
+  [data-surface="dark"]) {
+  --dark-fg: #f8fafc;
+  --dark-fg-soft: #dbe4ee;
+  --dark-fg-muted: #b9c6d4;
+  --dark-accent: #86efac;
+  --dark-line: rgba(255,255,255,.16);
+  color: var(--dark-fg) !important;
+}
+
+:where(.surface-dark,
+  .difference,
+  .authority-panel,
+  .custom-cta-card,
+  .premium-close,
+  .purchase-band,
+  .command-center,
+  .special-dark,
+  .contact,
+  [data-surface="dark"]) :is(h1,h2,h3,h4,h5,h6,strong,b) {
+  color: var(--dark-fg) !important;
+}
+
+:where(.surface-dark,
+  .difference,
+  .authority-panel,
+  .custom-cta-card,
+  .premium-close,
+  .purchase-band,
+  .command-center,
+  .special-dark,
+  .contact,
+  [data-surface="dark"]) :is(p,li,small,span:not(.brand-mark):not(.step-num):not(.decision-no)) {
+  color: var(--dark-fg-soft) !important;
+}
+
+:where(.surface-dark,
+  .difference,
+  .authority-panel,
+  .custom-cta-card,
+  .premium-close,
+  .purchase-band,
+  .command-center,
+  .special-dark,
+  .contact,
+  [data-surface="dark"]) :is(.eyebrow,.section-kicker,.section-head__kicker,.custom-trust-pill) {
+  color: var(--dark-accent) !important;
+}
+
+:where(.surface-dark,
+  .difference,
+  .authority-panel,
+  .custom-cta-card,
+  .premium-close,
+  .purchase-band,
+  .command-center,
+  .special-dark,
+  .contact,
+  [data-surface="dark"]) a:not(.btn-primary):not(.custom-cta-btn) {
+  color: #bbf7d0 !important;
+}
+
+:where(.surface-dark,
+  .difference,
+  .authority-panel,
+  .custom-cta-card,
+  .premium-close,
+  .purchase-band,
+  .command-center,
+  .special-dark,
+  .contact,
+  [data-surface="dark"]) :is(.card,.proof,.contact-point,.authority-metrics article) {
+  border-color: var(--dark-line) !important;
+}
+
+/* Explicit homepage safeguards for the surfaces visible in production screenshots. */
+.home-v2 .difference h2,
+.home-v2 .difference p,
+.home-v2 .difference li,
+.home-v2 .authority-panel h2,
+.home-v2 .authority-panel p,
+.home-v2 .authority-panel strong,
+.home-v2 .authority-panel span,
+.home-v2 .authority-panel small {
+  color: inherit !important;
+}
+
+.home-v2 .difference h2,
+.home-v2 .authority-panel h2,
+.home-v2 .authority-panel strong {
+  color: #f8fafc !important;
+}
+
+.home-v2 .difference p,
+.home-v2 .difference li,
+.home-v2 .authority-panel p,
+.home-v2 .authority-panel span {
+  color: #d5e0d8 !important;
+}
+
+.home-v2 .difference .eyebrow,
+.home-v2 .authority-panel .eyebrow,
+.home-v2 .authority-panel small {
+  color: #86efac !important;
+}
