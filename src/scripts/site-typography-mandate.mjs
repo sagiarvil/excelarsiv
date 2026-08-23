@@ -36,6 +36,7 @@ const specialSalesStyles = `
   .special-v3 .close-grid{grid-template-columns:1fr 1fr!important;gap:24px!important;align-items:stretch!important}
   .special-v3 .faq-panel{display:flex!important;flex-direction:column!important;padding:30px!important;height:100%!important}
   .special-v3 .faq-panel .section-title{max-width:520px!important;font-size:clamp(30px,3vw,40px)!important}
+  .special-v3 .faq-panel .section-copy{font-size:15px!important;line-height:1.7!important}
   .special-v3 .faq-list{flex:1!important;margin-top:24px!important;gap:10px!important}
   .special-v3 .faq-list details{background:#fff!important}
   .special-v3 .faq-list summary{padding:16px 17px!important;font-size:14px!important;line-height:1.45!important}
@@ -52,7 +53,6 @@ const specialSalesStyles = `
 const oldPain = 'Borç-alacak mantığını, ters bakiye veren 100/102 hesapları, kapanmayan 320 avanslarını ve tevkifatı bilmezler. Size sundukları sistem ilk ay sonu kapanışında patlar; mizan tutturmak yine sizin manuel ameleliğinize kalır.';
 const newPain = 'Borç-alacak mantığını, hesapların normal bakiye yönünü, 100 Kasa ve 102 Bankalar hesaplarında oluşan ters bakiyelerin ne anlattığını, 120–320 mahsuplarını, kapanmayan 320 avanslarını, tevkifat/KDV etkisini ve dönem sonu kayıt zincirini yalnız birer kolon olarak gören sistemler finansal gerçeği kaçırır. Sorun veri tabanı kurmak değil; mizanı kontrol edilebilir, mutabık ve yönetim kararına dönüşebilir hâle getirmektir. Yanlış eşleştirilmiş tek hesap; cari bakiyeyi, nakit görünümünü, kârlılık analizini ve yönetim raporunu aynı anda bozar. Sonuçta ilk ay sonu kapanışında ekip yine Excel’e döner, ters bakiye avına çıkar, manuel mahsup yapar ve yazılımın üretmesi gereken kontrolü insan emeğiyle tamamlar. Biz sistemi ekran sayısıyla değil; mizanın tutması, istisnaların görünmesi ve yönetim raporunun aynı veri üzerinden güvenilir biçimde üretilmesiyle ölçüyoruz.';
 
-const oldFaq = '<p class="eyebrow">Sıkça Sorulan Sorular</p><h2 class="section-title">Finans ve Güvenlik Hakkında Merak Edilenler</h2><div class="faq-list"><details><summary>Şirket mizan ve verilerimiz dışarı çıkıyor mu?</summary><p>Tüm sistemler tamamen sizin bilgisayarınızda veya şirket içi ağınızda yerel çalışır. Harici sunucuya veri aktarılmaz, formüller şeffaf ve açık teslim edilir.</p></details><details><summary>Neden hazır ERP yerine özel Excel sistemi kullanmalıyım?</summary><p>ERP sistemleri operasyonu kaydeder ancak patronun ve finans müdürünün ihtiyaç duyduğu dinamik nakit akış, simülasyon ve mizan analitiğini esnek sunamaz. Özel Excel modelleri ERP dökümlerini tek tıkla karar mekanizmasına çevirir.</p></details></div>';
 const newFaq = '<p class="eyebrow">Size Özel Excel Sistemi</p><h2 class="section-title">Karar Vermeden Önce Bilmeniz Gerekenler</h2><p class="section-copy">Buradaki amaç hazır bir tablo satmak değil; işletmenizde bugün elle kontrol edilen finans, muhasebe ve yönetim işini daha görünür, daha hızlı ve daha az hata üreten bir Excel sistemine dönüştürmektir.</p><div class="faq-list"><details open><summary>Bir yazılımcıdan temel farkınız ne?</summary><p>İşe ekran ve kod tarafından değil, mizan, nakit akışı, tahsilat riski, banka limiti, faiz yükü ve yönetim kararının nasıl üretileceği tarafından başlıyoruz. Önce finansal kuralı doğru kuruyor, sonra Excel mimarisini bu kurala hizmet edecek şekilde inşa ediyoruz.</p></details><details><summary>Hazır şablon yerine size özel sistem ne zaman gerekir?</summary><p>Mevcut Excel dosyalarınız birbirine bağlanmıyorsa, aynı veri birden fazla kez giriliyorsa, patron raporu için her ay manuel çalışma yapılıyorsa veya hazır ERP raporu karar vermeye yetmiyorsa özel sistem anlamlıdır. Sistem sizin gerçek iş akışınıza, kolonlarınıza, kontrol noktalarınıza ve raporlama ihtiyacınıza göre kurulur.</p></details><details><summary>Logo, Luca, Zirve veya Mikro verilerini yeniden mi gireceğiz?</summary><p>Hayır. Mevcut muhasebe/ERP sisteminizden aldığınız mizan, muavin, cari veya Excel/TXT dökümleri mümkün olan yerde doğrudan giriş kaynağı olarak kullanılır. Amaç ikinci bir veri giriş yükü yaratmak değil, elinizdeki veriyi kontrol ve karar ekranına çevirmektir.</p></details><details><summary>Teslimden sonra size bağımlı kalır mıyız?</summary><p>Hayır. Formüller ve hesap mantığı açık teslim edilir; sistem kara kutu hâline getirilmez. Ekibiniz hangi alanın girdi, hangi alanın hesap, hangi kontrolün neyi denetlediğini görebilir. Böylece küçük revizelerde sürekli geliştirici bekleme zorunluluğu azalır.</p></details><details><summary>İlk analizde ne göndermeliyim, çalışan örneği ne zaman görürüm?</summary><p>Tıkandığınız mevcut Excel dosyası, örnek mizan/muavin çıktısı veya görmek istediğiniz yönetim raporu yeterlidir. İlk görüşmede darboğazı ve karar ihtiyacını netleştirir, kapsam uygunsa gerçek yapınıza benzeyen çalışan ilk prototipi 48 saat içinde görünür hâle getiririz.</p></details></div>';
 
 function walkHtml(dir, out = []) {
@@ -72,6 +72,12 @@ function replaceExactly(html, from, to, label) {
   return html.replace(from, to);
 }
 
+function replaceRegexExactly(html, pattern, replacement, label) {
+  const matches = [...html.matchAll(pattern)];
+  if (matches.length !== 1) throw new Error(`TYPOGRAPHY MANDATE: expected 1 ${label}, found ${matches.length}`);
+  return html.replace(pattern, replacement);
+}
+
 export function applySiteTypographyMandate({ distDir = 'dist', specialPath = join('dist', 'ozel-excel-sistemleri', 'index.html') } = {}) {
   const htmlFiles = walkHtml(distDir);
   if (htmlFiles.length < 10) throw new Error(`TYPOGRAPHY MANDATE: suspicious HTML count ${htmlFiles.length}`);
@@ -85,7 +91,12 @@ export function applySiteTypographyMandate({ distDir = 'dist', specialPath = joi
 
   let special = readFileSync(specialPath, 'utf8');
   special = replaceExactly(special, oldPain, newPain, 'expanded mizan pain copy');
-  special = replaceExactly(special, oldFaq, newFaq, 'special sales FAQ');
+  special = replaceRegexExactly(
+    special,
+    /<p class="eyebrow">Sıkça Sorulan Sorular<\/p>\s*<h2 class="section-title">[\s\S]*?<\/h2>\s*<div class="faq-list">[\s\S]*?<\/div>/g,
+    newFaq,
+    'special sales FAQ',
+  );
   special = replaceExactly(special, '</head>', `${specialSalesStyles}</head>`, 'special sales styles');
   writeFileSync(specialPath, special, 'utf8');
 
@@ -105,5 +116,6 @@ export function applySiteTypographyMandate({ distDir = 'dist', specialPath = joi
   ]) {
     if (!specialFinal.includes(token)) throw new Error(`TYPOGRAPHY MANDATE: special systems token missing: ${token}`);
   }
+  if (specialFinal.includes('Finans ve Güvenlik Hakkında Merak Edilenler')) throw new Error('TYPOGRAPHY MANDATE: obsolete FAQ heading survived');
   console.log(`TYPOGRAPHY MANDATE PASS — ${finalFiles.length}/${finalFiles.length} HTML pages standardized; special systems sales copy + symmetry gate passed.`);
 }
