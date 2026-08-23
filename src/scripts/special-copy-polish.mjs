@@ -17,9 +17,9 @@ export function applySpecialCopyPolish({ specialPath = 'dist/ozel-excel-sistemle
   let html = readFileSync(specialPath, 'utf8');
 
   html = regexOnce(html, /<span[^>]*>Ters Pazarlama<\/span>/g, '', 'topbar tag');
-  html = once(
+  html = regexOnce(
     html,
-    'Yazılımcı jargonu değil, <b>20 yıllık finans ve bilanço aklı</b> konuşuyoruz.',
+    /Yazılımcı jargonu değil,\s*<b[^>]*>20 yıllık finans ve bilanço aklı<\/b>\s*konuşuyoruz\./g,
     '<b>20 yıllık finans ve bilanço tecrübesi ile</b> konuşuyoruz.',
     'topbar sales sentence',
   );
