@@ -13,9 +13,28 @@ const normalize = (text: string): string =>
     .replace(/\s+/g, ' ')
     .trim();
 
+const ensureCommandStackingLayer = (): void => {
+  if (document.getElementById('catalog-command-stacking-layer')) return;
+  const style = document.createElement('style');
+  style.id = 'catalog-command-stacking-layer';
+  style.textContent = `
+    .catalog-section .site-container { position: relative !important; isolation: isolate !important; }
+    .catalog-command { position: relative !important; z-index: 120 !important; overflow: visible !important; }
+    .catalog-command__head { position: relative !important; z-index: 121 !important; }
+    .catalog-command__search { position: relative !important; z-index: 160 !important; overflow: visible !important; }
+    [data-catalog-command] { position: relative !important; z-index: 180 !important; overflow: visible !important; isolation: auto !important; }
+    [data-catalog-command-panel] { z-index: 10000 !important; }
+    .catalog-command__filters { position: relative !important; z-index: 20 !important; }
+    [data-template-grid-wrap], [data-template-grid], [data-template-item], [data-template-card] { position: relative !important; z-index: 1 !important; }
+  `;
+  document.head.append(style);
+};
+
 export function mountCatalogFilter(): void {
   const grid = document.querySelector<HTMLElement>('[data-template-grid]');
   if (!grid) return;
+
+  ensureCommandStackingLayer();
 
   const cards = Array.from(grid.querySelectorAll<HTMLElement>('[data-template-card]'));
   const search = document.querySelector<HTMLInputElement>('[data-catalog-search]');
