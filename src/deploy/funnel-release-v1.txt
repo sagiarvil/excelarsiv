@@ -1,0 +1,3 @@
+excelarsiv.com /ozel-excel-sistemleri funnel release marker
+Release purpose: force Firebase Hosting deployment after funnel build integration.
+Expected build tokens: data-special-funnel-v1, 60 saniyelik ihtiyaç teşhisi, Mevzuat Radarı.
