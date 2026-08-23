@@ -92,3 +92,44 @@
 @media(max-width:430px){
   .pkg-page .pkg-chain__rail>li{flex-basis:82%!important}
 }
+
+/* ========================================================================== 
+   Global dark-surface readability rescue.
+   commerce-readability.css sets light-surface heading/body colors with
+   !important; these higher-specificity selectors keep dark green/navy blocks
+   readable without changing the protected CommerceLayout or homepage markup.
+   ========================================================================== */
+.home-v2 .difference,
+.home-v2 .authority-panel,
+.home-v2 .custom-cta-card,
+.special-v3 .special-dark,
+.special-v3 .contact{
+  --dark-fg:#f8fafc;
+  --dark-soft:#dbe4ee;
+  --dark-muted:#b9c6d4;
+  --dark-accent:#86efac;
+  color:var(--dark-fg)!important;
+}
+.home-v2 .difference :is(h1,h2,h3,h4,strong,b),
+.home-v2 .authority-panel :is(h1,h2,h3,h4,strong,b),
+.home-v2 .custom-cta-card :is(h1,h2,h3,h4,strong,b),
+.special-v3 .special-dark :is(h1,h2,h3,h4,strong,b),
+.special-v3 .contact :is(h1,h2,h3,h4,strong,b){color:var(--dark-fg)!important}
+.home-v2 .difference :is(p,li,span,small),
+.home-v2 .authority-panel :is(p,li,span),
+.home-v2 .custom-cta-card :is(p,li,span),
+.special-v3 .special-dark :is(p,li,span,small),
+.special-v3 .contact :is(p,li,span,small){color:var(--dark-soft)!important}
+.home-v2 .difference .eyebrow,
+.home-v2 .authority-panel .eyebrow,
+.home-v2 .authority-panel small,
+.home-v2 .custom-cta-card .custom-trust-pill,
+.special-v3 .special-dark .eyebrow,
+.special-v3 .contact .eyebrow{color:var(--dark-accent)!important}
+.home-v2 .authority-panel a,
+.home-v2 .difference a,
+.special-v3 .special-dark a:not(.btn-primary),
+.special-v3 .contact a:not(.btn-primary){color:#bbf7d0!important}
+.special-v3 .contact .lead-form,
+.special-v3 .contact .lead-form :is(label,input,select,textarea){color:#0f172a!important}
+.special-v3 .contact .lead-form .privacy{color:#667085!important}
