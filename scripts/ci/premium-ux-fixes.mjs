@@ -48,12 +48,9 @@ const specialBrandStyles = `
   }
 </style>`;
 let special = readFileSync(routes.special, 'utf8');
-special = once(
-  special,
-  '<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />\n  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />\n  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />',
-  `<link rel="icon" type="image/png" href="${realBrandLogo}" />\n  <link rel="apple-touch-icon" href="${realBrandLogo}" />`,
-  'special favicon identity',
-);
+special = once(special, 'href="/favicon.png"', `href="${realBrandLogo}"`, 'special png favicon href');
+special = once(special, 'type="image/svg+xml" href="/favicon.svg"', `type="image/png" href="${realBrandLogo}"`, 'special svg favicon identity');
+special = once(special, 'href="/apple-touch-icon.png"', `href="${realBrandLogo}"`, 'special apple touch identity');
 special = once(
   special,
   '<a class="brand" href="/" aria-label="Excel Arşiv ana sayfa"><span class="brand-mark">EA</span><span>excelarsiv.com<small>Finans & Yönetim Mimarisi</small></span></a>',
@@ -128,5 +125,5 @@ for (const [name, path, token] of [
 }
 const specialFinal = readFileSync(routes.special, 'utf8');
 if (specialFinal.includes('<span class="brand-mark">EA</span>')) throw new Error('PREMIUM UX GATE: placeholder EA logo still present');
-if ((specialFinal.split(realBrandLogo).length - 1) < 4) throw new Error('PREMIUM UX GATE: real brand logo is not wired to favicon + header + footer');
+if ((specialFinal.split(realBrandLogo).length - 1) < 5) throw new Error('PREMIUM UX GATE: real brand logo is not wired to favicon + apple touch + header + footer');
 console.log('PREMIUM UX GATE PASS — real Excel visual restored, real brand identity applied to special systems, rehber typography upgraded, contact redesigned, /sablonlar byte-identical');
