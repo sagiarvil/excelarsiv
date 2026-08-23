@@ -72,10 +72,16 @@ function replaceExactly(html, from, to, label) {
   return html.replace(from, to);
 }
 
-function replaceRegexExactly(html, pattern, replacement, label) {
-  const matches = [...html.matchAll(pattern)];
-  if (matches.length !== 1) throw new Error(`TYPOGRAPHY MANDATE: expected 1 ${label}, found ${matches.length}`);
-  return html.replace(pattern, replacement);
+function replaceFaqByVisibleAnchors(html) {
+  const title = 'Sıkça Sorulan Sorular';
+  const finalAnswer = 'Özel Excel modelleri ERP dökümlerini tek tıkla karar mekanizmasına çevirir.';
+  const titleAt = html.indexOf(title);
+  if (titleAt < 0 || html.indexOf(title, titleAt + title.length) >= 0) throw new Error('TYPOGRAPHY MANDATE: FAQ title anchor is missing or ambiguous');
+  const start = html.lastIndexOf('<p', titleAt);
+  const answerAt = html.indexOf(finalAnswer, titleAt);
+  const end = answerAt < 0 ? -1 : html.indexOf('</div>', answerAt);
+  if (start < 0 || answerAt < 0 || end < 0) throw new Error('TYPOGRAPHY MANDATE: FAQ visible anchors could not resolve panel range');
+  return `${html.slice(0, start)}${newFaq}${html.slice(end + '</div>'.length)}`;
 }
 
 export function applySiteTypographyMandate({ distDir = 'dist', specialPath = join('dist', 'ozel-excel-sistemleri', 'index.html') } = {}) {
@@ -91,12 +97,7 @@ export function applySiteTypographyMandate({ distDir = 'dist', specialPath = joi
 
   let special = readFileSync(specialPath, 'utf8');
   special = replaceExactly(special, oldPain, newPain, 'expanded mizan pain copy');
-  special = replaceRegexExactly(
-    special,
-    /<p class="eyebrow">Sıkça Sorulan Sorular<\/p>\s*<h2 class="section-title">[\s\S]*?<\/h2>\s*<div class="faq-list">[\s\S]*?<\/div>/g,
-    newFaq,
-    'special sales FAQ',
-  );
+  special = replaceFaqByVisibleAnchors(special);
   special = replaceExactly(special, '</head>', `${specialSalesStyles}</head>`, 'special sales styles');
   writeFileSync(specialPath, special, 'utf8');
 
