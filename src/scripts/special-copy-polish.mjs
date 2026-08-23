@@ -7,13 +7,20 @@ function once(html, from, to, label) {
   return html.replace(from, to);
 }
 
+function regexOnce(html, pattern, replacement, label) {
+  const matches = html.match(pattern);
+  if (!matches || matches.length !== 1) throw new Error(`SPECIAL COPY POLISH: expected 1 ${label}, found ${matches?.length ?? 0}`);
+  return html.replace(pattern, replacement);
+}
+
 export function applySpecialCopyPolish({ specialPath = 'dist/ozel-excel-sistemleri/index.html' } = {}) {
   let html = readFileSync(specialPath, 'utf8');
 
+  html = regexOnce(html, /<span[^>]*>Ters Pazarlama<\/span>/g, '', 'topbar tag');
   html = once(
     html,
-    '<span class="topbar-tag">Ters Pazarlama</span><span>Yazılımcı jargonu değil, <b>20 yıllık finans ve bilanço aklı</b> konuşuyoruz.</span>',
-    '<span><b>20 yıllık finans ve bilanço tecrübesi ile</b> konuşuyoruz.</span>',
+    'Yazılımcı jargonu değil, <b>20 yıllık finans ve bilanço aklı</b> konuşuyoruz.',
+    '<b>20 yıllık finans ve bilanço tecrübesi ile</b> konuşuyoruz.',
     'topbar sales sentence',
   );
 
