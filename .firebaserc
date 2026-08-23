@@ -1,5 +1,7 @@
 {
-  "projects": {},
+  "projects": {
+    "default": "carbon-web-1265b"
+  },
   "targets": {
     "carbon-web-1265b": {
       "hosting": {
