@@ -11,6 +11,7 @@ const routes = {
   catalog: join('dist', 'sablonlar', 'index.html'),
 };
 const visual = join('public', 'images', 'site', 'excel-guide-banner.webp');
+const realBrandLogo = '/images/brand/excelarsiv-header-logo.png';
 
 function hash(path) { return createHash('sha256').update(readFileSync(path)).digest('hex'); }
 function must(path) { if (!existsSync(path)) throw new Error(`PREMIUM UX GATE: missing ${path}`); }
@@ -30,6 +31,43 @@ for (const route of [routes.home, routes.special]) {
   html = html.replaceAll('/images/site/excel-special-systems-hero.webp', '/images/site/excel-guide-banner.webp');
   writeFileSync(route, html, 'utf8');
 }
+
+// /ozel-excel-sistemleri is intentionally a standalone premium surface. Keep its brand identity identical to the canonical site header.
+const specialBrandStyles = `
+<style data-special-brand-identity>
+  .special-v3 .brand{min-width:190px;display:flex!important;align-items:center!important}
+  .special-v3 .brand-logo{display:block;width:190px;max-width:100%;height:auto;max-height:48px;object-fit:contain;object-position:left center}
+  .special-v3 footer .footer-logo-block{display:flex;align-items:center;gap:14px;min-width:260px}
+  .special-v3 footer .footer-logo{display:block;width:178px;max-width:100%;height:auto;max-height:50px;object-fit:contain;object-position:left center;filter:brightness(0) invert(1)}
+  .special-v3 footer .footer-logo-copy{color:#9fb0c4;line-height:1.5}
+  @media(max-width:720px){
+    .special-v3 .brand{min-width:150px}
+    .special-v3 .brand-logo{width:154px;max-height:42px}
+    .special-v3 footer .footer-logo-block{min-width:0;align-items:flex-start;flex-direction:column;gap:8px}
+    .special-v3 footer .footer-logo{width:158px;max-height:46px}
+  }
+</style>`;
+let special = readFileSync(routes.special, 'utf8');
+special = once(
+  special,
+  '<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />\n  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />\n  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />',
+  `<link rel="icon" type="image/png" href="${realBrandLogo}" />\n  <link rel="apple-touch-icon" href="${realBrandLogo}" />`,
+  'special favicon identity',
+);
+special = once(
+  special,
+  '<a class="brand" href="/" aria-label="Excel Arşiv ana sayfa"><span class="brand-mark">EA</span><span>excelarsiv.com<small>Finans & Yönetim Mimarisi</small></span></a>',
+  `<a class="brand" href="/" aria-label="Excel Arşiv ana sayfa"><img class="brand-logo" src="${realBrandLogo}" alt="Excel Arşiv" width="420" height="120" decoding="async" /></a>`,
+  'special real header logo',
+);
+special = once(
+  special,
+  '<footer><div class="wrap footer-inner"><div><span class="footer-brand">excelarsiv.com</span><br />Bilanço Odaklı Finansal Modelleme ve Yönetim Mimarisi.</div>',
+  `<footer><div class="wrap footer-inner"><div class="footer-logo-block"><img class="footer-logo" src="${realBrandLogo}" alt="Excel Arşiv" width="420" height="120" loading="lazy" decoding="async" /><span class="footer-logo-copy">Bilanço Odaklı Finansal Modelleme ve Yönetim Mimarisi.</span></div>`,
+  'special footer logo',
+);
+special = once(special, '</head>', `${specialBrandStyles}</head>`, 'special brand styles');
+writeFileSync(routes.special, special, 'utf8');
 
 const guideStyles = `
 <style data-rehber-premium-ux>
@@ -83,8 +121,12 @@ if (catalogBefore !== catalogAfter) throw new Error('PREMIUM UX GATE: /sablonlar
 for (const [name, path, token] of [
   ['rehber', routes.guides, 'data-rehber-premium-ux'],
   ['contact', routes.contact, 'data-contact-premium-ux'],
+  ['special-brand', routes.special, 'data-special-brand-identity'],
 ]) {
   const html = readFileSync(path,'utf8');
   if (!html.includes(token)) throw new Error(`PREMIUM UX GATE: ${name} namespace missing`);
 }
-console.log('PREMIUM UX GATE PASS — real Excel visual restored, rehber typography upgraded, contact redesigned, /sablonlar byte-identical');
+const specialFinal = readFileSync(routes.special, 'utf8');
+if (specialFinal.includes('<span class="brand-mark">EA</span>')) throw new Error('PREMIUM UX GATE: placeholder EA logo still present');
+if ((specialFinal.split(realBrandLogo).length - 1) < 4) throw new Error('PREMIUM UX GATE: real brand logo is not wired to favicon + header + footer');
+console.log('PREMIUM UX GATE PASS — real Excel visual restored, real brand identity applied to special systems, rehber typography upgraded, contact redesigned, /sablonlar byte-identical');
