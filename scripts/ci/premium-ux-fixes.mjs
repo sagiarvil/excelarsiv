@@ -37,13 +37,14 @@ const specialBrandStyles = `
 <style data-special-brand-identity>
   .special-v3 .brand{min-width:190px;display:flex!important;align-items:center!important}
   .special-v3 .brand-logo{display:block;width:190px;max-width:100%;height:auto;max-height:48px;object-fit:contain;object-position:left center}
-  .special-v3 footer .footer-logo-block{display:flex;align-items:center;gap:14px;min-width:260px}
+  .special-v3 .brand-logo + span{display:none!important}
+  .special-v3 footer .footer-inner>div:first-child{display:flex;align-items:center;gap:14px;min-width:320px;color:#9fb0c4;line-height:1.5}
+  .special-v3 footer .footer-inner>div:first-child br{display:none}
   .special-v3 footer .footer-logo{display:block;width:178px;max-width:100%;height:auto;max-height:50px;object-fit:contain;object-position:left center;filter:brightness(0) invert(1)}
-  .special-v3 footer .footer-logo-copy{color:#9fb0c4;line-height:1.5}
   @media(max-width:720px){
     .special-v3 .brand{min-width:150px}
     .special-v3 .brand-logo{width:154px;max-height:42px}
-    .special-v3 footer .footer-logo-block{min-width:0;align-items:flex-start;flex-direction:column;gap:8px}
+    .special-v3 footer .footer-inner>div:first-child{min-width:0;align-items:flex-start;flex-direction:column;gap:8px}
     .special-v3 footer .footer-logo{width:158px;max-height:46px}
   }
 </style>`;
@@ -53,15 +54,15 @@ special = once(special, 'type="image/svg+xml" href="/favicon.svg"', `type="image
 special = once(special, 'href="/apple-touch-icon.png"', `href="${realBrandLogo}"`, 'special apple touch identity');
 special = once(
   special,
-  '<a class="brand" href="/" aria-label="Excel Arşiv ana sayfa"><span class="brand-mark">EA</span><span>excelarsiv.com<small>Finans & Yönetim Mimarisi</small></span></a>',
-  `<a class="brand" href="/" aria-label="Excel Arşiv ana sayfa"><img class="brand-logo" src="${realBrandLogo}" alt="Excel Arşiv" width="420" height="120" decoding="async" /></a>`,
-  'special real header logo',
+  '<span class="brand-mark">EA</span>',
+  `<img class="brand-logo" src="${realBrandLogo}" alt="Excel Arşiv" width="420" height="120" decoding="async">`,
+  'special header placeholder mark',
 );
 special = once(
   special,
-  '<footer><div class="wrap footer-inner"><div><span class="footer-brand">excelarsiv.com</span><br />Bilanço Odaklı Finansal Modelleme ve Yönetim Mimarisi.</div>',
-  `<footer><div class="wrap footer-inner"><div class="footer-logo-block"><img class="footer-logo" src="${realBrandLogo}" alt="Excel Arşiv" width="420" height="120" loading="lazy" decoding="async" /><span class="footer-logo-copy">Bilanço Odaklı Finansal Modelleme ve Yönetim Mimarisi.</span></div>`,
-  'special footer logo',
+  '<span class="footer-brand">excelarsiv.com</span>',
+  `<img class="footer-logo" src="${realBrandLogo}" alt="Excel Arşiv" width="420" height="120" loading="lazy" decoding="async">`,
+  'special footer brand text',
 );
 special = once(special, '</head>', `${specialBrandStyles}</head>`, 'special brand styles');
 writeFileSync(routes.special, special, 'utf8');
@@ -125,5 +126,6 @@ for (const [name, path, token] of [
 }
 const specialFinal = readFileSync(routes.special, 'utf8');
 if (specialFinal.includes('<span class="brand-mark">EA</span>')) throw new Error('PREMIUM UX GATE: placeholder EA logo still present');
+if (specialFinal.includes('<span class="footer-brand">excelarsiv.com</span>')) throw new Error('PREMIUM UX GATE: footer text placeholder still present');
 if ((specialFinal.split(realBrandLogo).length - 1) < 5) throw new Error('PREMIUM UX GATE: real brand logo is not wired to favicon + apple touch + header + footer');
 console.log('PREMIUM UX GATE PASS — real Excel visual restored, real brand identity applied to special systems, rehber typography upgraded, contact redesigned, /sablonlar byte-identical');
