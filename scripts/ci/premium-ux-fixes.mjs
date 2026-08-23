@@ -11,6 +11,7 @@ const routes = {
   catalog: join('dist', 'sablonlar', 'index.html'),
 };
 const visual = join('public', 'images', 'site', 'excel-guide-banner.webp');
+const realBrandLogo = '/images/brand/excelarsiv-header-logo.png';
 
 function hash(path) { return createHash('sha256').update(readFileSync(path)).digest('hex'); }
 function must(path) { if (!existsSync(path)) throw new Error(`PREMIUM UX GATE: missing ${path}`); }
@@ -23,13 +24,48 @@ Object.values(routes).forEach(must); must(visual);
 if (statSync(visual).size < 10000) throw new Error('PREMIUM UX GATE: contextual image is suspiciously small');
 const catalogBefore = hash(routes.catalog);
 
-// Until the three contextual visuals are separately re-mastered, use the verified real Excel artwork everywhere instead of blank placeholders.
 for (const route of [routes.home, routes.special]) {
   let html = readFileSync(route, 'utf8');
   html = html.replaceAll('/images/site/excel-analytics-section.webp', '/images/site/excel-guide-banner.webp');
   html = html.replaceAll('/images/site/excel-special-systems-hero.webp', '/images/site/excel-guide-banner.webp');
   writeFileSync(route, html, 'utf8');
 }
+
+const specialBrandStyles = `
+<style data-special-brand-identity>
+  .special-v3 .brand{min-width:190px;display:flex!important;align-items:center!important}
+  .special-v3 .brand-mark{width:auto!important;height:auto!important;background:transparent!important;border-radius:0!important;display:flex!important;padding:0!important}
+  .special-v3 .brand-logo{display:block;width:190px;max-width:100%;height:auto;max-height:48px;object-fit:contain;object-position:left center}
+  .special-v3 .brand-mark + span{display:none!important}
+  .special-v3 footer .footer-inner>div:first-child{display:flex;align-items:center;gap:14px;min-width:320px;color:#9fb0c4;line-height:1.5}
+  .special-v3 footer .footer-inner>div:first-child br{display:none}
+  .special-v3 footer .footer-brand{display:flex!important;align-items:center!important}
+  .special-v3 footer .footer-logo{display:block;width:178px;max-width:100%;height:auto;max-height:50px;object-fit:contain;object-position:left center;filter:brightness(0) invert(1)}
+  @media(max-width:720px){
+    .special-v3 .brand{min-width:150px}
+    .special-v3 .brand-logo{width:154px;max-height:42px}
+    .special-v3 footer .footer-inner>div:first-child{min-width:0;align-items:flex-start;flex-direction:column;gap:8px}
+    .special-v3 footer .footer-logo{width:158px;max-height:46px}
+  }
+</style>`;
+let special = readFileSync(routes.special, 'utf8');
+special = once(special, 'href="/favicon.png"', `href="${realBrandLogo}"`, 'special png favicon href');
+special = once(special, 'type="image/svg+xml" href="/favicon.svg"', `type="image/png" href="${realBrandLogo}"`, 'special svg favicon identity');
+special = once(special, 'href="/apple-touch-icon.png"', `href="${realBrandLogo}"`, 'special apple touch identity');
+special = once(
+  special,
+  '>EA</span>',
+  `><img class="brand-logo" src="${realBrandLogo}" alt="Excel Arşiv" width="420" height="120" decoding="async"></span>`,
+  'special EA logo text',
+);
+special = once(
+  special,
+  '>excelarsiv.com</span>',
+  `><img class="footer-logo" src="${realBrandLogo}" alt="Excel Arşiv" width="420" height="120" loading="lazy" decoding="async"></span>`,
+  'special footer brand text',
+);
+special = once(special, '</head>', `${specialBrandStyles}</head>`, 'special brand styles');
+writeFileSync(routes.special, special, 'utf8');
 
 const guideStyles = `
 <style data-rehber-premium-ux>
@@ -83,8 +119,13 @@ if (catalogBefore !== catalogAfter) throw new Error('PREMIUM UX GATE: /sablonlar
 for (const [name, path, token] of [
   ['rehber', routes.guides, 'data-rehber-premium-ux'],
   ['contact', routes.contact, 'data-contact-premium-ux'],
+  ['special-brand', routes.special, 'data-special-brand-identity'],
 ]) {
   const html = readFileSync(path,'utf8');
   if (!html.includes(token)) throw new Error(`PREMIUM UX GATE: ${name} namespace missing`);
 }
-console.log('PREMIUM UX GATE PASS — real Excel visual restored, rehber typography upgraded, contact redesigned, /sablonlar byte-identical');
+const specialFinal = readFileSync(routes.special, 'utf8');
+if (specialFinal.includes('>EA</span>')) throw new Error('PREMIUM UX GATE: placeholder EA logo still present');
+if (specialFinal.includes('>excelarsiv.com</span>')) throw new Error('PREMIUM UX GATE: footer text placeholder still present');
+if ((specialFinal.split(realBrandLogo).length - 1) < 5) throw new Error('PREMIUM UX GATE: real brand logo is not wired to favicon + apple touch + header + footer');
+console.log('PREMIUM UX GATE PASS — real Excel visual restored, real brand identity applied to special systems, rehber typography upgraded, contact redesigned, /sablonlar byte-identical');
