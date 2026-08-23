@@ -2,6 +2,7 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { applySiteTypographyMandate } from '../../src/scripts/site-typography-mandate.mjs';
 
 const routes = {
   home: join('dist', 'index.html'),
@@ -114,7 +115,7 @@ contact = once(contact, '</head>', `${contactStyles}</head>`, 'contact head');
 writeFileSync(routes.contact, contact, 'utf8');
 
 const catalogAfter = hash(routes.catalog);
-if (catalogBefore !== catalogAfter) throw new Error('PREMIUM UX GATE: /sablonlar changed');
+if (catalogBefore !== catalogAfter) throw new Error('PREMIUM UX GATE: /sablonlar changed before typography mandate');
 
 for (const [name, path, token] of [
   ['rehber', routes.guides, 'data-rehber-premium-ux'],
@@ -128,4 +129,6 @@ const specialFinal = readFileSync(routes.special, 'utf8');
 if (specialFinal.includes('>EA</span>')) throw new Error('PREMIUM UX GATE: placeholder EA logo still present');
 if (specialFinal.includes('>excelarsiv.com</span>')) throw new Error('PREMIUM UX GATE: footer text placeholder still present');
 if ((specialFinal.split(realBrandLogo).length - 1) < 5) throw new Error('PREMIUM UX GATE: real brand logo is not wired to favicon + apple touch + header + footer');
-console.log('PREMIUM UX GATE PASS — real Excel visual restored, real brand identity applied to special systems, rehber typography upgraded, contact redesigned, /sablonlar byte-identical');
+
+applySiteTypographyMandate({ distDir: 'dist', specialPath: routes.special });
+console.log('PREMIUM UX GATE PASS — real Excel visual restored, real brand identity applied, site-wide typography mandate enforced, special systems sales copy upgraded.');
