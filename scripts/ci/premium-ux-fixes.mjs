@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { applySiteTypographyMandate } from '../../src/scripts/site-typography-mandate.mjs';
+import { applySpecialCopyPolish } from '../../src/scripts/special-copy-polish.mjs';
 
 const routes = {
   home: join('dist', 'index.html'),
@@ -131,4 +132,5 @@ if (specialFinal.includes('>excelarsiv.com</span>')) throw new Error('PREMIUM UX
 if ((specialFinal.split(realBrandLogo).length - 1) < 5) throw new Error('PREMIUM UX GATE: real brand logo is not wired to favicon + apple touch + header + footer');
 
 applySiteTypographyMandate({ distDir: 'dist', specialPath: routes.special });
-console.log('PREMIUM UX GATE PASS — real Excel visual restored, real brand identity applied, site-wide typography mandate enforced, special systems sales copy upgraded.');
+applySpecialCopyPolish({ specialPath: routes.special });
+console.log('PREMIUM UX GATE PASS — real Excel visual restored, real brand identity applied, site-wide typography mandate enforced, special systems sales copy upgraded and polished.');
