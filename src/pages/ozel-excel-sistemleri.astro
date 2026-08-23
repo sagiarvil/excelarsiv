@@ -91,14 +91,7 @@
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--background);
-      color: var(--foreground);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+    body { margin: 0; background: var(--background); color: var(--foreground); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
     a { color: inherit; text-decoration: none; }
     button, input, select, textarea { font: inherit; }
     .mono { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
@@ -203,34 +196,16 @@
     footer { background:#0b1220; color:#94a3b8; border-top:1px solid #1e293b; }
     .footer-inner { min-height:84px; display:flex; align-items:center; justify-content:space-between; gap:24px; font-size:11px; }
     .footer-brand { color:#fff; font-weight:750; }
-    @media (max-width: 980px) {
-      .nav-links { display:none; }
-      .hero-grid, .contact-grid { grid-template-columns:1fr; }
-      .dashboard { max-width:720px; }
-      .hero-proof { grid-template-columns:repeat(2,1fr); }
-      .modules { grid-template-columns:repeat(2,1fr); }
-      .module,.module.wide { grid-column:span 1; }
-    }
-    @media (max-width: 720px) {
-      .wrap { width:min(100% - 28px, var(--max)); }
-      .section { padding:64px 0; }
-      .topbar .wrap { padding:7px 0; }
-      .topbar-tag { display:none; }
-      .nav-inner { height:62px; }
-      .nav .btn { display:none; }
-      .hero { padding:54px 0 44px; }
-      h1 { font-size:clamp(36px,12vw,50px); }
-      .hero-copy { font-size:16px; }
-      .hero-proof, .pain-grid, .steps, .modules, .form-grid { grid-template-columns:1fr; }
-      .comparison-shell { overflow-x:auto; }
-      .comparison-head,.comparison-row { min-width:760px; }
-      .dash-kpis { grid-template-columns:1fr; }
-      .footer-inner { padding:22px 0; flex-direction:column; align-items:flex-start; }
-    }
+    body.special-premium.special-v2 main h1 { font-size:clamp(38px,5.4vw,64px)!important; line-height:1.02!important; letter-spacing:-.05em!important; max-width:760px!important; }
+    body.special-premium.special-v2 main .section-title { font-size:clamp(30px,4vw,46px)!important; line-height:1.08!important; letter-spacing:-.035em!important; max-width:780px!important; }
+    body.special-premium.special-v2 main .pain h3, body.special-premium.special-v2 main .module h3, body.special-premium.special-v2 main .step h3 { font-size:18px!important; line-height:1.35!important; letter-spacing:-.02em!important; }
+    body.special-premium.special-v2 main aside.dashboard.card { background:#fff!important; color:var(--foreground)!important; border:1px solid var(--border-strong)!important; border-radius:22px!important; }
+    @media (max-width: 980px) { .nav-links { display:none; } .hero-grid, .contact-grid { grid-template-columns:1fr; } .dashboard { max-width:720px; } .hero-proof { grid-template-columns:repeat(2,1fr); } .modules { grid-template-columns:repeat(2,1fr); } .module,.module.wide { grid-column:span 1; } }
+    @media (max-width: 720px) { .wrap { width:min(100% - 28px, var(--max)); } .section { padding:64px 0; } .topbar .wrap { padding:7px 0; } .topbar-tag { display:none; } .nav-inner { height:62px; } .nav .btn { display:none; } .hero { padding:54px 0 44px; } h1 { font-size:clamp(36px,12vw,50px); } .hero-copy { font-size:16px; } .hero-proof, .pain-grid, .steps, .modules, .form-grid { grid-template-columns:1fr; } .comparison-shell { overflow-x:auto; } .comparison-head,.comparison-row { min-width:760px; } .dash-kpis { grid-template-columns:1fr; } .footer-inner { padding:22px 0; flex-direction:column; align-items:flex-start; } body.special-premium.special-v2 main h1 {font-size:clamp(36px,12vw,50px)!important;} }
     @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; } }
   </style>
 </head>
-<body>
+<body class="special-v2">
   <aside class="topbar">
     <div class="wrap">
       <span class="topbar-tag">Ters Pazarlama</span>
@@ -241,17 +216,8 @@
 
   <header class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="/" aria-label="Excel Arşiv ana sayfa">
-        <span class="brand-mark">EA</span>
-        <span>excelarsiv.com<small>Finans & Yönetim Mimarisi</small></span>
-      </a>
-      <nav class="nav-links" aria-label="Sayfa içi navigasyon">
-        <a href="#saha">Neden Farklı?</a>
-        <a href="#karsilastirma">Karşılaştırma</a>
-        <a href="#moduller">Sistem Modülleri</a>
-        <a href="#surec">Teslimat Süreci</a>
-        <a href="#faq">Sık Sorulanlar</a>
-      </nav>
+      <a class="brand" href="/" aria-label="Excel Arşiv ana sayfa"><span class="brand-mark">EA</span><span>excelarsiv.com<small>Finans & Yönetim Mimarisi</small></span></a>
+      <nav class="nav-links" aria-label="Sayfa içi navigasyon"><a href="#saha">Neden Farklı?</a><a href="#karsilastirma">Karşılaştırma</a><a href="#moduller">Sistem Modülleri</a><a href="#surec">Teslimat Süreci</a><a href="#faq">Sık Sorulanlar</a></nav>
       <a class="btn btn-primary" href="#iletisim">Finansal Röntgen Başlat</a>
     </div>
   </header>
@@ -262,136 +228,35 @@
         <div>
           <div class="hero-kicker"><i></i>20 Yıllık Bankacılık & Bilanço Deneyimi · Sıfır Kod Bağımlılığı</div>
           <h1>Yazılımcıya Mizan Mantığını, Çek Vadesini ve Kapanış Stresini Anlatmaktan Yorulmadınız mı?</h1>
-          <p class="hero-copy">
-            Siz <strong>120-320 cari mahsubu</strong>, <strong>rotatif kredi faizi</strong> ve <strong>“Kâğıt üzerinde kârdayız ama kasada niye para yok?”</strong> çelişkisi diyorsunuz; onlar veri tabanı mimarisi ve 3 aylık teslimat takvimi anlatıyor. Milyonluk ERP hantallığına ve formül çöplüğüne mahkum değilsiniz.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#iletisim">15 Dakikalık Finansal Röntgen Başlat →</a>
-            <a class="btn btn-secondary" href="#karsilastirma">Klasik Yazılımcı vs. ExcelArşiv</a>
-          </div>
-          <div class="hero-proof" aria-label="Öne çıkan hizmet özellikleri">
-            <div class="proof"><b class="mono">48 Saat</b><span>İlk Çalışır Prototip & Simülasyon Teslimi</span></div>
-            <div class="proof"><b class="mono">%100 Açık</b><span>Şeffaf Formül Mimarisi (Vendor Lock-in Yok)</span></div>
-            <div class="proof"><b class="mono">Luca/Logo/Zirve</b><span>Doğrudan Muavin & Mizan Döküm Entegrasyonu</span></div>
-            <div class="proof"><b class="mono" style="color:var(--success)">0 Hata</b><span>Mizan & Bilanço Çapraz Kontrol Güvencesi</span></div>
-          </div>
+          <p class="hero-copy">Siz <strong>120-320 cari mahsubu</strong>, <strong>rotatif kredi faizi</strong> ve <strong>“Kâğıt üzerinde kârdayız ama kasada niye para yok?”</strong> çelişkisi diyorsunuz; onlar veri tabanı mimarisi ve 3 aylık teslimat takvimi anlatıyor. Milyonluk ERP hantallığına ve formül çöplüğüne mahkum değilsiniz.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#iletisim">15 Dakikalık Finansal Röntgen Başlat →</a><a class="btn btn-secondary" href="#karsilastirma">Klasik Yazılımcı vs. ExcelArşiv</a></div>
+          <div class="hero-proof" aria-label="Öne çıkan hizmet özellikleri"><div class="proof"><b class="mono">48 Saat</b><span>İlk Çalışır Prototip & Simülasyon Teslimi</span></div><div class="proof"><b class="mono">%100 Açık</b><span>Şeffaf Formül Mimarisi (Vendor Lock-in Yok)</span></div><div class="proof"><b class="mono">Luca/Logo/Zirve</b><span>Doğrudan Muavin & Mizan Döküm Entegrasyonu</span></div><div class="proof"><b class="mono" style="color:var(--success)">0 Hata</b><span>Mizan & Bilanço Çapraz Kontrol Güvencesi</span></div></div>
         </div>
 
-        <div class="dashboard" aria-label="Özel Excel yönetim paneli görsel örneği">
+        <aside class="dashboard card overflow-hidden shadow-xl shadow-slate-200/60" aria-label="Özel Excel yönetim paneli görsel örneği">
           <div class="dashboard-head"><div class="dots"><i></i><i></i><i></i></div><span>YÖNETİM / NAKİT & RİSK PANELİ</span></div>
           <div class="dash-body">
-            <div class="dash-kpis">
-              <div class="dash-kpi"><small>Nakit görünümü</small><b>13 hafta</b></div>
-              <div class="dash-kpi"><small>Çek / valör</small><b>Anlık analiz</b></div>
-              <div class="dash-kpi"><small>Banka limiti</small><b>Tek ekranda</b></div>
-            </div>
+            <div class="dash-kpis"><div class="dash-kpi"><small>Nakit görünümü</small><b>13 hafta</b></div><div class="dash-kpi"><small>Çek / valör</small><b>Anlık analiz</b></div><div class="dash-kpi"><small>Banka limiti</small><b>Tek ekranda</b></div></div>
             <div class="chart"><div class="chart-grid"></div><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-            <div class="dash-table">
-              <div class="dash-row"><span>Kontrol alanı</span><span>Durum</span><span>Karar</span></div>
-              <div class="dash-row"><span>120 / 320 hesaplar</span><span>Çapraz kontrol</span><span>İncele</span></div>
-              <div class="dash-row"><span>Tahsilat ve vade</span><span>Yaşlandırma</span><span>Takip</span></div>
-              <div class="dash-row"><span>Nakit açığı</span><span class="risk">Erken uyarı</span><span>Planla</span></div>
-            </div>
+            <div class="dash-table"><div class="dash-row"><span>Kontrol alanı</span><span>Durum</span><span>Karar</span></div><div class="dash-row"><span>120 / 320 hesaplar</span><span>Çapraz kontrol</span><span>İncele</span></div><div class="dash-row"><span>Tahsilat ve vade</span><span>Yaşlandırma</span><span>Takip</span></div><div class="dash-row"><span>Nakit açığı</span><span class="risk">Erken uyarı</span><span>Planla</span></div></div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <section id="saha" class="section">
-      <div class="wrap">
-        <p class="eyebrow">Gerçek Saha Teşhisi</p>
-        <h2 class="section-title">İşletmeler Neden Yazılımcılarla ve Hantal ERP'lerle Boğuşuyor?</h2>
-        <div class="pain-grid">
-          <article class="card pain"><div class="num mono">01</div><h3>Mizanı Veritabanı Tablosu Sanan Yazılımcı Körlüğü</h3><p>Borç-alacak mantığını, ters bakiye veren 100/102 hesapları, kapanmayan 320 avanslarını ve tevkifatı bilmezler. Size sundukları sistem ilk ay sonu kapanışında patlar; mizan tutturmak yine sizin manuel ameleliğinize kalır.</p></article>
-          <article class="card pain"><div class="num mono">02</div><h3>Ağırlıklı Vade, Valör ve Faiz Yükü Cehaleti</h3><p>Finansman maliyetinin zirve yaptığı piyasada, çek portföyünün ağırlıklı valörünü ve rotatif kredinin anlık faiz yükünü hesaplayamayan bir yazılım nakit akışını yönetemez. Basit bir iskonto simülasyonu için haftalarca toplantı yaparsınız.</p></article>
-          <article class="card pain"><div class="num mono">03</div><h3>Milyonluk ERP Hantallığı & Patrona Rapor Yetiştirememe</h3><p>Şirketler milyonlarca lira harcayıp devasa ERP'ler kurar; ancak patron veya yönetim kurulu tek sayfada Net Borç/FAVÖK, işletme sermayesi açığı ve tahsilat riskini görmek istediğinde herkes yine Excel'e sarılır ve sabahlar.</p></article>
-          <article class="card pain"><div class="num mono">04</div><h3>Kod Bağımlılığı (Vendor Lock-in) ve Telefonu Açmayan Ekipler</h3><p>Yazılım bittiğinde formül mantığı gizlenir, kara kutu bir sistem bırakılır. En ufak bir vergi oranı veya sütun değişikliğinde yazılımcıya muhtaç kalırsınız. Ulaşmak istediğinizde ise “Destek talebi açın” yanıtı alırsınız.</p></article>
-        </div>
-      </div>
-    </section>
+    <section id="saha" class="section"><div class="wrap"><p class="eyebrow">Gerçek Saha Teşhisi</p><h2 class="section-title">İşletmeler Neden Yazılımcılarla ve Hantal ERP'lerle Boğuşuyor?</h2><div class="pain-grid"><article class="card pain"><div class="num mono">01</div><h3>Mizanı Veritabanı Tablosu Sanan Yazılımcı Körlüğü</h3><p>Borç-alacak mantığını, ters bakiye veren 100/102 hesapları, kapanmayan 320 avanslarını ve tevkifatı bilmezler. Size sundukları sistem ilk ay sonu kapanışında patlar; mizan tutturmak yine sizin manuel ameleliğinize kalır.</p></article><article class="card pain"><div class="num mono">02</div><h3>Ağırlıklı Vade, Valör ve Faiz Yükü Cehaleti</h3><p>Finansman maliyetinin zirve yaptığı piyasada, çek portföyünün ağırlıklı valörünü ve rotatif kredinin anlık faiz yükünü hesaplayamayan bir yazılım nakit akışını yönetemez. Basit bir iskonto simülasyonu için haftalarca toplantı yaparsınız.</p></article><article class="card pain"><div class="num mono">03</div><h3>Milyonluk ERP Hantallığı & Patrona Rapor Yetiştirememe</h3><p>Şirketler milyonlarca lira harcayıp devasa ERP'ler kurar; ancak patron veya yönetim kurulu tek sayfada Net Borç/FAVÖK, işletme sermayesi açığı ve tahsilat riskini görmek istediğinde herkes yine Excel'e sarılır ve sabahlar.</p></article><article class="card pain"><div class="num mono">04</div><h3>Kod Bağımlılığı (Vendor Lock-in) ve Telefonu Açmayan Ekipler</h3><p>Yazılım bittiğinde formül mantığı gizlenir, kara kutu bir sistem bırakılır. En ufak bir vergi oranı veya sütun değişikliğinde yazılımcıya muhtaç kalırsınız. Ulaşmak istediğinizde ise “Destek talebi açın” yanıtı alırsınız.</p></article></div></div></section>
 
-    <section id="karsilastirma" class="section" style="background:#fff;border-block:1px solid var(--border)">
-      <div class="wrap">
-        <p class="eyebrow">Açık Ara Fark</p>
-        <h2 class="section-title">Klasik Yazılımcı Yaklaşımı vs. ExcelArşiv Çözüm Mimarisi</h2>
-        <p class="section-copy">İki yaklaşım arasındaki fark, şirketinizin nakit ve zaman kaybını doğrudan belirler.</p>
-        <div class="comparison-shell" role="region" aria-label="Klasik yazılımcı ve ExcelArşiv karşılaştırması" tabindex="0">
-          <div class="comparison-head"><div>Karşılaştırma Kriteri</div><div>Geleneksel Yazılımcı / Ajans</div><div class="recommended">excelarsiv.com (Finans & Bilanço Aklı)</div></div>
-          <div class="comparison-row"><div class="criterion">İş & Bilanço Mantığı</div><div class="old">“100 Kasa neden eksi veremez ki?”, “Valör nedir?” diye sorar; muhasebe mantığını bilmez.</div><div class="new">20 yıllık bankacılık & bilanço refleksiyle muavini ilk bakışta analiz eder, ters bakiyeleri yakalar.</div></div>
-          <div class="comparison-row"><div class="criterion">İlk Teslimat & Prototip Hızı</div><div class="old">“Mimariyi kuruyoruz” diyerek 2-3 ay boyunca çalışır hiçbir şey göstermez.</div><div class="new"><strong>48 saat içinde</strong> gerçek verilerinizle çalışan dinamik ilk prototipi masanıza koyar.</div></div>
-          <div class="comparison-row"><div class="criterion">Muhasebe Yazılımı Uyumu</div><div class="old">Logo, Zirve, Luca'dan döküm almayı bilmez; pahalı ve hantal API geliştirmeleri dayatır.</div><div class="new">Mevcut Luca, Logo, Zirve, Mikro Excel/TXT muavin dökümlerini tek tıkla dinamik modellere dönüştürür.</div></div>
-          <div class="comparison-row"><div class="criterion">Finansal Matematik Kapasitesi</div><div class="old">Statik toplam alır; ağırlıklı ortalama vade, spot/rotatif faiz tahakkuku ve kur farkı çözemez.</div><div class="new">Çek portföyü valörünü, iskonto maliyetini ve döviz pozisyon riskini dinamik formüllerle anlık çözer.</div></div>
-          <div class="comparison-row"><div class="criterion">Bağımsızlık & Formül Şeffaflığı</div><div class="old">Kodları saklar, sizi aylık bakım sözleşmelerine ve revize ücretlerine kilitler.</div><div class="new">%100 açık formül teslim eder. Şirket içi ekibinize sistemi eğitir ve tam bağımsızlık sağlar.</div></div>
-        </div>
-      </div>
-    </section>
+    <section id="karsilastirma" class="section" style="background:#fff;border-block:1px solid var(--border)"><div class="wrap"><p class="eyebrow">Açık Ara Fark</p><h2 class="section-title">Klasik Yazılımcı Yaklaşımı vs. ExcelArşiv Çözüm Mimarisi</h2><p class="section-copy">İki yaklaşım arasındaki fark, şirketinizin nakit ve zaman kaybını doğrudan belirler.</p><div class="comparison-shell" role="region" aria-label="Klasik yazılımcı ve ExcelArşiv karşılaştırması" tabindex="0"><div class="comparison-head"><div>Karşılaştırma Kriteri</div><div>Geleneksel Yazılımcı / Ajans</div><div class="recommended">excelarsiv.com (Finans & Bilanço Aklı)</div></div><div class="comparison-row"><div class="criterion">İş & Bilanço Mantığı</div><div class="old">“100 Kasa neden eksi veremez ki?”, “Valör nedir?” diye sorar; muhasebe mantığını bilmez.</div><div class="new">20 yıllık bankacılık & bilanço refleksiyle muavini ilk bakışta analiz eder, ters bakiyeleri yakalar.</div></div><div class="comparison-row"><div class="criterion">İlk Teslimat & Prototip Hızı</div><div class="old">“Mimariyi kuruyoruz” diyerek 2-3 ay boyunca çalışır hiçbir şey göstermez.</div><div class="new"><strong>48 saat içinde</strong> gerçek verilerinizle çalışan dinamik ilk prototipi masanıza koyar.</div></div><div class="comparison-row"><div class="criterion">Muhasebe Yazılımı Uyumu</div><div class="old">Logo, Zirve, Luca'dan döküm almayı bilmez; pahalı ve hantal API geliştirmeleri dayatır.</div><div class="new">Mevcut Luca, Logo, Zirve, Mikro Excel/TXT muavin dökümlerini tek tıkla dinamik modellere dönüştürür.</div></div><div class="comparison-row"><div class="criterion">Finansal Matematik Kapasitesi</div><div class="old">Statik toplam alır; ağırlıklı ortalama vade, spot/rotatif faiz tahakkuku ve kur farkı çözemez.</div><div class="new">Çek portföyü valörünü, iskonto maliyetini ve döviz pozisyon riskini dinamik formüllerle anlık çözer.</div></div><div class="comparison-row"><div class="criterion">Bağımsızlık & Formül Şeffaflığı</div><div class="old">Kodları saklar, sizi aylık bakım sözleşmelerine ve revize ücretlerine kilitler.</div><div class="new">%100 açık formül teslim eder. Şirket içi ekibinize sistemi eğitir ve tam bağımsızlık sağlar.</div></div></div></div></section>
 
-    <section id="moduller" class="section">
-      <div class="wrap">
-        <p class="eyebrow">Çözüm Yelpazesi</p>
-        <h2 class="section-title">İşletmenize Özel İnşa Ettiğimiz 5 Temel Finans Mimarisi</h2>
-        <div class="modules">
-          <article class="card module"><div class="module-icon mono">01</div><h3>1. Dinamik Nakit Akış & Likidite Simülatörü</h3><p>Kasa, banka, çek tahsilatları, satıcı ödemeleri ve vergi takvimini 13 haftalık dinamik likidite projeksiyonuna bağlar.</p><ul><li>Günlük & Haftalık Net Nakit Pozisyonu</li><li>Kritik Eksi Bakiye Erken Uyarı Sistemi</li><li>Stres Testi (Tahsilat Gecikme Senaryoları)</li></ul></article>
-          <article class="card module"><div class="module-icon mono">02</div><h3>2. Çek/Senet Portföyü & Valör Analizörü</h3><p>Alınan ve verilen çekleri portföy bazında ağırlıklı ortalama vadeye ve iskonto maliyetine göre anlık modeller.</p><ul><li>Ağırlıklı Ortalama Vade & Valör Hesabı</li><li>Faktoring / İskonto Net Maliyet Simülasyonu</li><li>Müşteri & Ciranta Risk Konsolidasyonu</li></ul></article>
-          <article class="card module"><div class="module-icon mono">03</div><h3>3. Luca / Logo / Zirve Muavin Entegratörü</h3><p>Muhasebe programınızdan aldığınız ham mizan ve muavin dökümlerini saniyeler içinde otomatik formatlar ve analiz eder.</p><ul><li>120-320 Ters Bakiye & Avans Denetimi</li><li>Ba-Bs Mutabakat ve Çapraz Eşleme</li><li>Ay Sonu Mizan Kapanış Kontrol Motoru</li></ul></article>
-          <article class="card module"><div class="module-icon mono">04</div><h3>4. Yönetim & İcra Kurulu Dashboard'u</h3><p>Patronun sabah kahvesini içerken tek ekranda şirketin tüm röntgenini görebileceği sade, estetik ve dinamik gösterge paneli.</p><ul><li>EBITDA / FAVÖK ve Faaliyet Kârlılığı</li><li>Net İşletme Sermayesi (NWC) İhtiyacı</li><li>Vadesi Geçmiş Alacak Yaşlandırma Analizi</li></ul></article>
-          <article class="card module wide"><div class="module-icon mono">05</div><h3>5. Banka Limit-Risk, Kredibilite & Faiz Maliyet Monitörü</h3><p>Tüm bankalardaki gayrinakdi (teminat mektubu, akreditif) ve nakdi (spot, rotatif, BCH, taksitli) kredi limitlerini, teminat doluluklarını ve faiz tahakkuklarını tek çatı altında toplar.</p><ul style="grid-template-columns:repeat(2,minmax(0,1fr))"><li>Banka Bazında Limit/Risk ve Teminat Analitiği</li><li>Rotatif Kredi Anlık Faiz Tahakkuk Simülasyonu</li><li>DSCR (Borç Servis Karşılama Oranı) Ölçümü</li><li>Döviz Pozisyon Riski & Kur Duyarlılığı</li></ul></article>
-        </div>
-      </div>
-    </section>
+    <section id="moduller" class="section"><div class="wrap"><p class="eyebrow">Çözüm Yelpazesi</p><h2 class="section-title">İşletmenize Özel İnşa Ettiğimiz 5 Temel Finans Mimarisi</h2><div class="modules"><article class="card module"><div class="module-icon mono">01</div><h3>1. Dinamik Nakit Akış & Likidite Simülatörü</h3><p>Kasa, banka, çek tahsilatları, satıcı ödemeleri ve vergi takvimini 13 haftalık dinamik likidite projeksiyonuna bağlar.</p><ul><li>Günlük & Haftalık Net Nakit Pozisyonu</li><li>Kritik Eksi Bakiye Erken Uyarı Sistemi</li><li>Stres Testi (Tahsilat Gecikme Senaryoları)</li></ul></article><article class="card module"><div class="module-icon mono">02</div><h3>2. Çek/Senet Portföyü & Valör Analizörü</h3><p>Alınan ve verilen çekleri portföy bazında ağırlıklı ortalama vadeye ve iskonto maliyetine göre anlık modeller.</p><ul><li>Ağırlıklı Ortalama Vade & Valör Hesabı</li><li>Faktoring / İskonto Net Maliyet Simülasyonu</li><li>Müşteri & Ciranta Risk Konsolidasyonu</li></ul></article><article class="card module"><div class="module-icon mono">03</div><h3>3. Luca / Logo / Zirve Muavin Entegratörü</h3><p>Muhasebe programınızdan aldığınız ham mizan ve muavin dökümlerini saniyeler içinde otomatik formatlar ve analiz eder.</p><ul><li>120-320 Ters Bakiye & Avans Denetimi</li><li>Ba-Bs Mutabakat ve Çapraz Eşleme</li><li>Ay Sonu Mizan Kapanış Kontrol Motoru</li></ul></article><article class="card module"><div class="module-icon mono">04</div><h3>4. Yönetim & İcra Kurulu Dashboard'u</h3><p>Patronun sabah kahvesini içerken tek ekranda şirketin tüm röntgenini görebileceği sade, estetik ve dinamik gösterge paneli.</p><ul><li>EBITDA / FAVÖK ve Faaliyet Kârlılığı</li><li>Net İşletme Sermayesi (NWC) İhtiyacı</li><li>Vadesi Geçmiş Alacak Yaşlandırma Analizi</li></ul></article><article class="card module wide"><div class="module-icon mono">05</div><h3>5. Banka Limit-Risk, Kredibilite & Faiz Maliyet Monitörü</h3><p>Tüm bankalardaki gayrinakdi (teminat mektubu, akreditif) ve nakdi (spot, rotatif, BCH, taksitli) kredi limitlerini, teminat doluluklarını ve faiz tahakkuklarını tek çatı altında toplar.</p><ul style="grid-template-columns:repeat(2,minmax(0,1fr))"><li>Banka Bazında Limit/Risk ve Teminat Analitiği</li><li>Rotatif Kredi Anlık Faiz Tahakkuk Simülasyonu</li><li>DSCR (Borç Servis Karşılama Oranı) Ölçümü</li><li>Döviz Pozisyon Riski & Kur Duyarlılığı</li></ul></article></div></div></section>
 
-    <section id="surec" class="section" style="background:#fff;border-block:1px solid var(--border)">
-      <div class="wrap">
-        <p class="eyebrow">Çalışma Metodolojisi</p>
-        <h2 class="section-title">Aylarca Süren Toplantılar Yok. 3 Adımda Kesin Teslimat.</h2>
-        <div class="steps">
-          <article class="card step"><div class="step-no mono">01</div><h3>15 Dk. Finansal Röntgen</h3><p>Mevcut mizanınızı, ERP raporunuzu veya tıkandığınız Excel tablosunu inceliyoruz. İşletmenizin darboğazını ve raporlama ihtiyacını aynı gün netleştiriyoruz.</p></article>
-          <article class="card step"><div class="step-no mono">02</div><h3>48 Saatte Çalışır Prototip</h3><p>Haftalarca süren slayt sunumları yerine, gerçek verilerinizin aktığı, formülleri test edilmiş çalışan ilk Excel mimarisini 48 saatte önünüze koyuyoruz.</p></article>
-          <article class="card step"><div class="step-no mono">03</div><h3>Açık Teslimat & Sıfır Bağımlılık</h3><p>Tüm formüller, makrolar ve mantık şeffaf şekilde şirketinize devredilir. Ekibinize sistemi 1 saatlik uygulamalı eğitimle teslim edip tam bağımsızlık sağlıyoruz.</p></article>
-        </div>
-      </div>
-    </section>
+    <section id="surec" class="section" style="background:#fff;border-block:1px solid var(--border)"><div class="wrap"><p class="eyebrow">Çalışma Metodolojisi</p><h2 class="section-title">Aylarca Süren Toplantılar Yok. 3 Adımda Kesin Teslimat.</h2><div class="steps"><article class="card step"><div class="step-no mono">01</div><h3>15 Dk. Finansal Röntgen</h3><p>Mevcut mizanınızı, ERP raporunuzu veya tıkandığınız Excel tablosunu inceliyoruz. İşletmenizin darboğazını ve raporlama ihtiyacını aynı gün netleştiriyoruz.</p></article><article class="card step"><div class="step-no mono">02</div><h3>48 Saatte Çalışır Prototip</h3><p>Haftalarca süren slayt sunumları yerine, gerçek verilerinizin aktığı, formülleri test edilmiş çalışan ilk Excel mimarisini 48 saatte önünüze koyuyoruz.</p></article><article class="card step"><div class="step-no mono">03</div><h3>Açık Teslimat & Sıfır Bağımlılık</h3><p>Tüm formüller, makrolar ve mantık şeffaf şekilde şirketinize devredilir. Ekibinize sistemi 1 saatlik uygulamalı eğitimle teslim edip tam bağımsızlık sağlıyoruz.</p></article></div></div></section>
 
-    <section id="faq" class="section">
-      <div class="wrap">
-        <p class="eyebrow">Sıkça Sorulan Sorular</p>
-        <h2 class="section-title">Finans ve Güvenlik Hakkında Merak Edilenler</h2>
-        <div class="faq-list">
-          <details><summary>Şirket mizan ve verilerimiz dışarı çıkıyor mu?</summary><p>Tüm sistemler tamamen sizin bilgisayarınızda veya şirket içi ağınızda yerel çalışır. Harici sunucuya veri aktarılmaz, formüller şeffaf ve açık teslim edilir.</p></details>
-          <details><summary>Neden hazır ERP yerine özel Excel sistemi kullanmalıyım?</summary><p>ERP sistemleri operasyonu kaydeder ancak patronun ve finans müdürünün ihtiyaç duyduğu dinamik nakit akış, simülasyon ve mizan analitiğini esnek sunamaz. Özel Excel modelleri ERP dökümlerini tek tıkla karar mekanizmasına çevirir.</p></details>
-        </div>
-      </div>
-    </section>
+    <section id="faq" class="section"><div class="wrap"><p class="eyebrow">Sıkça Sorulan Sorular</p><h2 class="section-title">Finans ve Güvenlik Hakkında Merak Edilenler</h2><div class="faq-list"><details><summary>Şirket mizan ve verilerimiz dışarı çıkıyor mu?</summary><p>Tüm sistemler tamamen sizin bilgisayarınızda veya şirket içi ağınızda yerel çalışır. Harici sunucuya veri aktarılmaz, formüller şeffaf ve açık teslim edilir.</p></details><details><summary>Neden hazır ERP yerine özel Excel sistemi kullanmalıyım?</summary><p>ERP sistemleri operasyonu kaydeder ancak patronun ve finans müdürünün ihtiyaç duyduğu dinamik nakit akış, simülasyon ve mizan analitiğini esnek sunamaz. Özel Excel modelleri ERP dökümlerini tek tıkla karar mekanizmasına çevirir.</p></details></div></div></section>
 
-    <section id="iletisim" class="section contact">
-      <div class="wrap contact-grid">
-        <div>
-          <p class="eyebrow">15 Dakikalık Finansal Analiz</p>
-          <h2 class="section-title">İhtiyacınız Olan Sistem & Yaşadığınız Tıkanıklık</h2>
-          <p class="section-copy">Mevcut işleyişinizi, kullandığınız muhasebe/ERP yapısını ve çözmek istediğiniz finansal problemi aktarın.</p>
-          <div class="contact-points"><div>20 yıllık finans ve bilanço refleksi</div><div>48 saatte çalışan ilk prototip</div><div>%100 açık formül mimarisi</div><div>KVKK kapsamında veri disiplini · Gizlilik Sözleşmesi (NDA) esastır</div></div>
-        </div>
-        <form class="lead-form" action="/iletisim" method="get">
-          <div class="form-grid">
-            <div class="field"><label for="ad">Ad Soyad</label><input id="ad" name="ad" autocomplete="name" placeholder="Adınız Soyadınız" /></div>
-            <div class="field"><label for="firma">Firma Adı</label><input id="firma" name="firma" autocomplete="organization" placeholder="Firma / Ofis" /></div>
-            <div class="field"><label for="rol">Göreviniz / Rolünüz</label><select id="rol" name="rol"><option>İşletme Sahibi / Patron</option><option>Finans Müdürü / CFO</option><option>Mali Müşavir / SMMM</option><option>Muhasebe Müdürü / Sorumlusu</option><option>Diğer</option></select></div>
-            <div class="field"><label for="erp">Kullandığınız Muhasebe/ERP</label><input id="erp" name="erp" placeholder="Örn: Luca, Logo Tiger, Zirve, Mikro" /></div>
-            <div class="field full"><label for="mesaj">İhtiyacınız Olan Sistem & Yaşadığınız Tıkanıklık</label><textarea id="mesaj" name="mesaj" rows="5" placeholder="Örn: 13 haftalık nakit akışı kurmak istiyoruz, Luca'dan aldığımız muavin dökümleriyle mizanı tek tıkla analiz etmek istiyoruz..."></textarea></div>
-          </div>
-          <button class="btn btn-primary" type="submit">15 Dakikalık Finansal Analiz & Çözüm Talep Et</button>
-          <p class="privacy">Verileriniz KVKK kapsamında korunur · Gizlilik Sözleşmesi (NDA) esastır · Sıfır Spam</p>
-        </form>
-      </div>
-    </section>
+    <section id="iletisim" class="section contact"><div class="wrap contact-grid"><div><p class="eyebrow">15 Dakikalık Finansal Analiz</p><h2 class="section-title">İhtiyacınız Olan Sistem & Yaşadığınız Tıkanıklık</h2><p class="section-copy">Mevcut işleyişinizi, kullandığınız muhasebe/ERP yapısını ve çözmek istediğiniz finansal problemi aktarın.</p><div class="contact-points"><div>20 yıllık finans ve bilanço refleksi</div><div>48 saatte çalışan ilk prototip</div><div>%100 açık formül mimarisi</div><div>KVKK kapsamında veri disiplini · Gizlilik Sözleşmesi (NDA) esastır</div></div></div><form class="lead-form" action="/iletisim" method="get"><div class="form-grid"><div class="field"><label for="ad">Ad Soyad</label><input id="ad" name="ad" autocomplete="name" placeholder="Adınız Soyadınız" /></div><div class="field"><label for="firma">Firma Adı</label><input id="firma" name="firma" autocomplete="organization" placeholder="Firma / Ofis" /></div><div class="field"><label for="rol">Göreviniz / Rolünüz</label><select id="rol" name="rol"><option>İşletme Sahibi / Patron</option><option>Finans Müdürü / CFO</option><option>Mali Müşavir / SMMM</option><option>Muhasebe Müdürü / Sorumlusu</option><option>Diğer</option></select></div><div class="field"><label for="erp">Kullandığınız Muhasebe/ERP</label><input id="erp" name="erp" placeholder="Örn: Luca, Logo Tiger, Zirve, Mikro" /></div><div class="field full"><label for="mesaj">İhtiyacınız Olan Sistem & Yaşadığınız Tıkanıklık</label><textarea id="mesaj" name="mesaj" rows="5" placeholder="Örn: 13 haftalık nakit akışı kurmak istiyoruz, Luca'dan aldığımız muavin dökümleriyle mizanı tek tıkla analiz etmek istiyoruz..."></textarea></div></div><button class="btn btn-primary" type="submit">15 Dakikalık Finansal Analiz & Çözüm Talep Et</button><p class="privacy">Verileriniz KVKK kapsamında korunur · Gizlilik Sözleşmesi (NDA) esastır · Sıfır Spam</p></form></div></section>
   </main>
 
-  <footer>
-    <div class="wrap footer-inner">
-      <div><span class="footer-brand">excelarsiv.com</span><br />Bilanço Odaklı Finansal Modelleme ve Yönetim Mimarisi.</div>
-      <div>© 2026 excelarsiv.com · Tüm hakları saklıdır.</div>
-      <div><a href="/">Ana Sayfa</a> · <a href="/ozel-excel-sistemleri">Özel Excel Sistemleri</a></div>
-    </div>
-  </footer>
+  <footer><div class="wrap footer-inner"><div><span class="footer-brand">excelarsiv.com</span><br />Bilanço Odaklı Finansal Modelleme ve Yönetim Mimarisi.</div><div>© 2026 excelarsiv.com · Tüm hakları saklıdır.</div><div><a href="/">Ana Sayfa</a> · <a href="/ozel-excel-sistemleri">Özel Excel Sistemleri</a></div></div></footer>
 </body>
 </html>
