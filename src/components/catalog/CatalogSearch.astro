@@ -9,10 +9,10 @@ interface CatalogCommandItem {
 }
 
 interface Props {
-  items: CatalogCommandItem[];
+  items?: CatalogCommandItem[];
 }
 
-const { items } = Astro.props;
+const { items = [] } = Astro.props;
 ---
 
 <div class="catalog-search" data-catalog-command>
@@ -89,8 +89,24 @@ const { items } = Astro.props;
     .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;').replaceAll("'", '&#39;');
 
+  const collectFromCards = (): CatalogCommandItem[] =>
+    [...document.querySelectorAll<HTMLElement>('[data-template-card]')].map((card) => {
+      const detailLink = card.querySelector<HTMLAnchorElement>('.card__title a, .card__frame');
+      const rawPrice = card.querySelector<HTMLElement>('.card__price-value')?.textContent ?? '0';
+      const numericPrice = Number((rawPrice.match(/[\d.]+/g)?.join('') ?? '0').replaceAll('.', '')) || 0;
+      return {
+        name: card.dataset.name ?? card.getAttribute('aria-label') ?? 'Excel Sistemi',
+        summary: card.dataset.summary ?? '',
+        category: card.dataset.categoryLabel ?? 'Excel Sistemi',
+        categorySlug: card.dataset.category ?? '',
+        url: detailLink?.getAttribute('href') ?? '/sablonlar',
+        priceTL: numericPrice,
+      };
+    });
+
   if (root && input && panel && list && indexEl) {
-    const items = JSON.parse(indexEl.textContent ?? '[]') as CatalogCommandItem[];
+    const provided = JSON.parse(indexEl.textContent ?? '[]') as CatalogCommandItem[];
+    const items = provided.length ? provided : collectFromCards();
     let activeIndex = -1;
 
     const score = (item: CatalogCommandItem, query: string) => {
@@ -145,7 +161,7 @@ const { items } = Astro.props;
             <span class="catalog-command__body">
               <span class="catalog-command__title-row">
                 <strong class="catalog-command__title">${escapeHtml(item.name)}</strong>
-                <span class="catalog-command__price">${new Intl.NumberFormat('tr-TR').format(item.priceTL)} TL</span>
+                ${item.priceTL > 0 ? `<span class="catalog-command__price">${new Intl.NumberFormat('tr-TR').format(item.priceTL)} TL</span>` : ''}
               </span>
               <span class="catalog-command__summary">${escapeHtml(item.summary)}</span>
               <span class="catalog-command__badges">
@@ -194,6 +210,7 @@ const { items } = Astro.props;
 </script>
 
 <style>
+  :global(.catalog-command__search){max-width:920px!important}
   .catalog-search{position:relative;isolation:isolate}
   .catalog-search__topline{display:flex;align-items:center;justify-content:space-between;margin:0 4px 8px}
   .catalog-search__eyebrow{font:800 11px/1.2 var(--font-mono)!important;letter-spacing:.1em;color:#166534!important}
@@ -228,6 +245,6 @@ const { items } = Astro.props;
   :global(.catalog-command__arrow){display:grid!important;place-items:center!important;width:28px!important;height:28px!important;border-radius:9px!important;background:#f1f5f2!important;font:800 14px/1 var(--font-body)!important;color:#5c6c62!important;transition:.14s ease!important}:global(.catalog-command__card:hover .catalog-command__arrow),:global(.catalog-command__card.is-active .catalog-command__arrow){background:#168348!important;color:#fff!important;transform:translateX(2px)!important}
   :global(.catalog-command__empty){display:grid!important;gap:5px!important;padding:24px 18px!important;text-align:center!important}:global(.catalog-command__empty strong){font:800 15px/1.3 var(--font-body)!important;color:#1d2c22!important}:global(.catalog-command__empty span){font:500 12px/1.5 var(--font-body)!important;color:#7a8780!important}
   .catalog-search__panel-foot{display:flex;align-items:center;justify-content:flex-end;gap:14px;padding:10px 14px;border-top:1px solid #edf1ee;background:#fafcfb;color:#7d8a82}.catalog-search__panel-foot span{display:inline-flex;align-items:center;gap:5px;font:650 10px/1 var(--font-body)!important}.catalog-search__panel-foot kbd{padding:3px 5px;border:1px solid #dbe3de;border-bottom-width:2px;border-radius:5px;background:#fff;font:700 9px/1 var(--font-mono)!important;color:#58665d!important}
-  @media(max-width:720px){.catalog-search__control{grid-template-columns:24px minmax(0,1fr) auto 42px;min-height:70px;padding-left:14px;border-radius:17px}.catalog-search__input{font-size:16px!important}.catalog-search__field label{font-size:11px!important}.catalog-search__panel{top:106px;border-radius:16px}.catalog-search__results{max-height:340px!important}:global(.catalog-command__card){grid-template-columns:40px minmax(0,1fr) 26px!important;padding:11px!important;gap:10px!important}:global(.catalog-command__icon){width:38px!important;height:38px!important;border-radius:10px!important}:global(.catalog-command__title-row){display:grid!important;gap:4px!important}:global(.catalog-command__title){font-size:14px!important}:global(.catalog-command__price){font-size:11px!important}:global(.catalog-command__summary){display:none!important}:global(.catalog-command__badge){max-width:145px!important}.catalog-search__panel-foot{display:none}.catalog-search__shortcut{display:none}}
+  @media(max-width:720px){:global(.catalog-command__search){max-width:none!important}.catalog-search__control{grid-template-columns:24px minmax(0,1fr) auto 42px;min-height:70px;padding-left:14px;border-radius:17px}.catalog-search__input{font-size:16px!important}.catalog-search__field label{font-size:11px!important}.catalog-search__panel{top:106px;border-radius:16px}.catalog-search__results{max-height:340px!important}:global(.catalog-command__card){grid-template-columns:40px minmax(0,1fr) 26px!important;padding:11px!important;gap:10px!important}:global(.catalog-command__icon){width:38px!important;height:38px!important;border-radius:10px!important}:global(.catalog-command__title-row){display:grid!important;gap:4px!important}:global(.catalog-command__title){font-size:14px!important}:global(.catalog-command__price){font-size:11px!important}:global(.catalog-command__summary){display:none!important}:global(.catalog-command__badge){max-width:145px!important}.catalog-search__panel-foot{display:none}.catalog-search__shortcut{display:none}}
   @media(prefers-reduced-motion:reduce){.catalog-search__control,.catalog-search__send,.catalog-search__panel,:global(.catalog-command__card),:global(.catalog-command__arrow){animation:none!important;transition:none!important}}
 </style>
