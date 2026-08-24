@@ -1,0 +1,123 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import { getCollection } from 'astro:content';
+import { getProductSearchFaq } from '../../data/productSearchFaq';
+
+const templates = (await getCollection('templates')).sort((a, b) => a.data.name.localeCompare(b.data.name, 'tr'));
+const groups = templates.map((template) => ({
+  id: template.id,
+  name: template.data.name,
+  summary: template.data.summary,
+  category: template.data.category,
+  url: `/sablon/${template.id}`,
+  faq: getProductSearchFaq(template.data),
+}));
+const allFaq = groups.flatMap((group) => group.faq);
+const pageUrl = new URL('/rehber/excel-sablonlari-sik-sorulan-sorular', Astro.site).toString();
+
+const faqLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'tr-TR',
+  mainEntity: allFaq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+});
+
+const itemListLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': `${pageUrl}#products`,
+  numberOfItems: groups.length,
+  itemListElement: groups.map((group, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: group.name,
+    url: new URL(group.url, Astro.site).toString(),
+  })),
+});
+
+const pageLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#page`,
+  url: pageUrl,
+  name: 'Excel Şablonları Sık Sorulan Sorular — 51 Ürün Bilgi İndeksi',
+  description: 'Excel Arşiv ürünleri için muhasebeci, mali müşavir, finansçı ve işletme yöneticilerinin aradığı ürün bazlı Excel soruları ve doğrudan cevapları.',
+  inLanguage: 'tr-TR',
+  mainEntity: [{ '@id': `${pageUrl}#faq` }, { '@id': `${pageUrl}#products` }],
+});
+---
+
+<CommerceLayout
+  title="Excel Şablonları SSS — 51 Ürün İçin Muhasebe ve Finans Soruları | Excel Arşiv"
+  description="51 Excel sistemi için muhasebeci, mali müşavir, finansçı ve işletmelerin aradığı sorular: nakit, cari, stok, bütçe, vergi, satış, personel ve finans analizleri."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={faqLd} />
+    <script type="application/ld+json" set:html={itemListLd} />
+    <script type="application/ld+json" set:html={pageLd} />
+  </Fragment>
+
+  <main class="mx-auto max-w-6xl px-4 pb-24 pt-10">
+    <nav class="text-xs font-mono text-slate-500" aria-label="Breadcrumb">
+      <a href="/">Ana Sayfa</a> / <a href="/rehber">Rehber</a> / <span>Excel Şablonları SSS</span>
+    </nav>
+
+    <header class="mt-6 max-w-4xl">
+      <p class="text-xs font-mono font-extrabold uppercase tracking-wider text-emerald-700">ARAMA NİYETİ BİLGİ İNDEKSİ</p>
+      <h1 class="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900">Excel şablonları hakkında ürün bazlı sık sorulan sorular</h1>
+      <p class="mt-5 text-base md:text-lg leading-8 text-slate-600">
+        Bu indeks, Excel Arşiv'deki hazır sistemleri tek tek ele alır. Her ürün için muhasebeci, mali müşavir, finansçı ve işletme yöneticilerinin Google'da aradığı niyete yakın sorular kısa, doğrudan ve ürün verisiyle cevaplanır.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-2 text-xs font-mono">
+        <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5"><strong>{groups.length}</strong> Excel sistemi</span>
+        <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5"><strong>{allFaq.length}</strong> ürün bazlı soru-cevap</span>
+        <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5">FAQPage + ItemList yapılandırılmış veri</span>
+      </div>
+    </header>
+
+    <section class="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-5" aria-labelledby="index-title">
+      <h2 id="index-title" class="text-lg font-bold text-slate-900">Ürün soru-cevap indeksi</h2>
+      <div class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        {groups.map((group, index) => (
+          <a class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:border-emerald-400 hover:text-emerald-800" href={`#urun-${index + 1}`}>
+            {index + 1}. {group.name}
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <div class="mt-10 space-y-12">
+      {groups.map((group, index) => (
+        <article id={`urun-${index + 1}`} class="scroll-mt-24 border-t border-slate-200 pt-8" itemscope itemtype="https://schema.org/SoftwareApplication">
+          <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start">
+            <div>
+              <p class="text-xs font-mono font-bold text-emerald-700">{String(index + 1).padStart(2, '0')} / {groups.length}</p>
+              <h2 class="mt-1 text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900" itemprop="name">{group.name}</h2>
+              <p class="mt-3 max-w-3xl text-sm leading-7 text-slate-600" itemprop="description">{group.summary}</p>
+            </div>
+            <a href={group.url} class="inline-flex justify-center rounded-xl bg-slate-900 px-4 py-3 text-sm font-bold text-white hover:bg-emerald-800">Ürün detayını incele →</a>
+          </div>
+          <div class="mt-5">
+            <FaqAccordion items={group.faq} />
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <aside class="mt-14 rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+      <h2 class="text-xl font-bold text-slate-900">Aradığınız soru burada yoksa</h2>
+      <p class="mt-2 text-sm leading-7 text-slate-700">Ürünün kendi sayfasındaki SSS bölümüne bakın veya tüm Excel sistemlerini ihtiyaca göre filtreleyin. Ürün sayfalarındaki soru-cevaplar aynı ürün verisinden üretildiği için bu rehber ile tutarlıdır.</p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a href="/sablonlar" class="rounded-lg bg-emerald-700 px-4 py-2 text-sm font-bold text-white">Tüm Excel sistemleri</a>
+        <a href="/sss" class="rounded-lg border border-emerald-300 bg-white px-4 py-2 text-sm font-bold text-emerald-800">Genel SSS</a>
+      </div>
+    </aside>
+  </main>
+</CommerceLayout>
