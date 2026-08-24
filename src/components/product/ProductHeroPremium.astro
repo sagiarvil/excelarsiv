@@ -30,6 +30,51 @@ const categorySlug = categoryLabel
   .replace(/ç/g, 'c')
   .replace(/[^a-z0-9]+/g, '-')
   .replace(/^-|-$/g, '');
+
+const flowByCategory: Record<string, { input: string; process: string; processDetail: string }> = {
+  'Nakit Akışı': {
+    input: 'Nakit girişlerini, çıkışlarını ve vadeleri yazın.',
+    process: 'Nakit zincirini otomatik hesaplar.',
+    processDetail: 'Dönemleri, ödeme baskısını ve kritik nakit noktalarını tek akışta işler.',
+  },
+  'Finansal Analiz': {
+    input: 'Finansal verileri ve temel büyüklükleri yazın.',
+    process: 'Oranları ve risk sinyallerini hesaplar.',
+    processDetail: 'Dağınık finansal veriyi karşılaştırılabilir karar göstergelerine dönüştürür.',
+  },
+  'Muhasebe ve Vergi': {
+    input: 'Muhasebe kayıtlarını ve gerekli dönem verisini yazın.',
+    process: 'Kontrol kurallarını otomatik uygular.',
+    processDetail: 'Eksik, uyumsuz ve izlenmesi gereken kayıtları görünür hale getirir.',
+  },
+  'Bütçe ve Planlama': {
+    input: 'Plan, hedef ve gerçekleşen verileri yazın.',
+    process: 'Planı ve sapmaları birlikte hesaplar.',
+    processDetail: 'Bütçe ile gerçekleşeni aynı karar zincirinde karşılaştırır.',
+  },
+  'Stok ve Üretim': {
+    input: 'Stok, miktar, maliyet ve üretim verilerini yazın.',
+    process: 'Stok ve maliyet ilişkisini işler.',
+    processDetail: 'Hareketleri, maliyet etkisini ve kritik stok sinyallerini bir araya getirir.',
+  },
+  'Satış ve Fiyatlama': {
+    input: 'Satış, fiyat ve maliyet verilerini yazın.',
+    process: 'Fiyat ve kârlılığı otomatik hesaplar.',
+    processDetail: 'Marjı, fiyat etkisini ve karar eşiğini görünür hale getirir.',
+  },
+  'Personel ve Bordro': {
+    input: 'Personel, ücret ve dönem bilgilerini yazın.',
+    process: 'Personel maliyetini otomatik hesaplar.',
+    processDetail: 'Ücret, yan maliyet ve dönem etkisini yönetim çıktısına dönüştürür.',
+  },
+};
+const flowCopy = flowByCategory[categoryLabel] ?? {
+  input: 'İşletme verilerinizi ilgili giriş alanlarına yazın.',
+  process: 'Excel sistemi otomatik hesaplar ve kontrol eder.',
+  processDetail: 'Tek veri girişini hesap, kontrol ve rapor katmanına dönüştürür.',
+};
+const primaryOutput = outputs[0] ?? 'Karar çıktısını görün.';
+const outputDetail = outputs.slice(0, 3).join(' · ');
 ---
 
 <section
@@ -119,6 +164,56 @@ const categorySlug = categoryLabel
     <span><b>02</b><small>Ödeme doğrulanınca güvenli indirme</small></span>
     <span><b>03</b><small>Demo ile satın almadan önce inceleme</small></span>
   </div>
+
+  <section class="product-flow" aria-labelledby={`product-flow-${productSlug}`} data-product-infographic>
+    <div class="product-flow__head">
+      <div>
+        <p>ÜRÜNÜ 20 SANİYEDE ANLAYIN</p>
+        <h2 id={`product-flow-${productSlug}`}>{name} nasıl çalışır?</h2>
+      </div>
+      <span>Ne girersiniz → sistem ne yapar → sonunda ne görürsünüz.</span>
+    </div>
+
+    <div class="product-flow__track">
+      <article class="product-flow__stage">
+        <div class="product-flow__icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img"><rect x="9" y="8" width="46" height="33" rx="4"/><path d="M17 17h14M17 24h24M17 31h19M25 49h14M32 41v8"/></svg>
+        </div>
+        <div class="product-flow__card">
+          <b>1</b>
+          <div><small>GİRDİ</small><strong>Bilgileri girin</strong><span>{flowCopy.input}</span></div>
+        </div>
+      </article>
+
+      <div class="product-flow__arrow" aria-hidden="true"><span>→</span></div>
+
+      <article class="product-flow__stage">
+        <div class="product-flow__icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img"><path d="M17 8h24l9 9v39H17z"/><path d="M41 8v11h10M24 43l7-9 7 5 8-12M24 50h22"/><circle cx="24" cy="43" r="2"/><circle cx="31" cy="34" r="2"/><circle cx="38" cy="39" r="2"/><circle cx="46" cy="27" r="2"/></svg>
+        </div>
+        <div class="product-flow__card">
+          <b>2</b>
+          <div><small>OTOMATİK İŞLEM</small><strong>{flowCopy.process}</strong><span>{flowCopy.processDetail}</span></div>
+        </div>
+      </article>
+
+      <div class="product-flow__arrow" aria-hidden="true"><span>→</span></div>
+
+      <article class="product-flow__stage">
+        <div class="product-flow__icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img"><rect x="8" y="10" width="48" height="36" rx="5"/><path d="M16 36l9-9 7 5 12-13 5 5M23 54h18M32 46v8"/><circle cx="48" cy="18" r="7"/><path d="M45 18l2 2 4-5"/></svg>
+        </div>
+        <div class="product-flow__card">
+          <b>3</b>
+          <div><small>SONUÇ</small><strong>{primaryOutput}</strong><span>{outputDetail || 'Karar ekranı ve kontrol çıktıları tek yerde görünür.'}</span></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="product-flow__rule" aria-label="Ürün kullanım özeti">
+      <span>Tek veri girişi</span><i></i><span>Otomatik hesap</span><i></i><span>Kontrol ve uyarı</span><i></i><span>Karar çıktısı</span>
+    </div>
+  </section>
 </section>
 
 <script>
@@ -140,7 +235,14 @@ const categorySlug = categoryLabel
   .product-hero__intro{display:grid;grid-template-columns:minmax(0,.96fr) minmax(400px,1.04fr);gap:40px;align-items:center}.product-hero__copy{min-width:0}.product-hero__eyebrow{margin:0;font-family:var(--font-mono);font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#0b7440}.product-hero h1{max-width:700px;margin:10px 0 0;font-family:var(--font-display);font-size:clamp(36px,4vw,55px);line-height:1;letter-spacing:-.043em;color:#13271b}.product-hero__summary{max-width:660px;margin:13px 0 0;font-size:16px;line-height:1.58;color:#3a4a41}.product-hero__outputs{display:grid;gap:6px;margin:16px 0 0;padding:0;list-style:none}.product-hero__outputs li{display:flex;align-items:flex-start;gap:7px;font-size:14.5px;line-height:1.45;color:#2f3f36}.product-hero__outputs span{display:grid;place-items:center;flex:0 0 18px;height:18px;border-radius:50%;background:#dff2e6;color:#0d7540;font-size:11px;font-weight:800}.product-hero__price-row{display:flex;align-items:end;gap:12px;margin-top:18px;padding-top:15px;border-top:1px solid #d9e3dc}.product-hero__price-row strong{font-family:var(--font-mono);font-size:27px;line-height:1;letter-spacing:-.04em;color:#10271b}.product-hero__price-row strong small{font-size:13px}.product-hero__price-row>span{padding-bottom:2px;font-size:14px;color:#3a4a41}.product-hero__facts{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.product-hero__facts span{display:flex;flex-direction:column;gap:2px;min-width:94px;padding:8px 10px;border:1px solid #c5d4cb;border-radius:9px;background:#fff}.product-hero__facts b{font-family:var(--font-mono);font-size:13px;color:#1a5435}.product-hero__facts small{font-size:12px;color:#44554c}.product-hero__mobile-proof-link{display:none}
   .product-hero__visual{min-width:0}.product-hero__window{overflow:hidden;border:1px solid #cad6ce;border-radius:14px;background:#fff;box-shadow:0 20px 48px rgba(20,58,38,.16)}.product-hero__window-bar{display:flex;align-items:center;justify-content:space-between;min-height:32px;padding:0 10px;border-bottom:1px solid #dce4df;background:#eff3f0}.product-hero__window-bar>span{display:flex;gap:5px}.product-hero__window-bar i{display:block;width:6px;height:6px;border-radius:50%;background:#b7c0ba}.product-hero__window-bar i:first-child{background:#e66e68}.product-hero__window-bar i:nth-child(2){background:#e9b84e}.product-hero__window-bar i:last-child{background:#4db56b}.product-hero__window-bar b{font-family:var(--font-mono);font-size:7px;letter-spacing:.08em;color:#47705a}.product-hero__window picture{display:block}.product-hero__window img{display:block;width:100%;height:auto;aspect-ratio:8/5;max-height:320px;object-fit:contain;background:#fff}.product-hero__window img.product-hero__kapak{aspect-ratio:4/3;max-height:360px}.product-hero__visual>a{display:inline-block;margin-top:8px;font-family:var(--font-mono);font-size:8.5px;font-weight:700;color:#0b7440;text-decoration:none}
   .product-hero__decision-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-top:22px;padding-top:20px;border-top:1px solid #d7e2db}.product-hero__decision-head p{margin:0;font-family:var(--font-mono);font-size:12px;font-weight:800;letter-spacing:.11em;color:#0b7440}.product-hero__decision-head h2{margin:5px 0 0;font-family:var(--font-display);font-size:clamp(24px,2.6vw,30px);line-height:1.05;letter-spacing:-.025em;color:#14271d}.product-hero__decision-head>span{max-width:340px;text-align:right;font-size:14px;line-height:1.5;color:#3a4a41}.product-hero__actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:13px}.product-hero__actions>*{min-width:0}.product-hero__trust{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:13px;overflow:hidden;border:1px solid #c5d4cb;border-radius:11px;background:#c5d4cb}.product-hero__trust span{display:flex;align-items:center;gap:8px;min-height:52px;padding:0 14px;background:#fff}.product-hero__trust b{font-family:var(--font-mono);font-size:13px;font-weight:800;color:#0b7440}.product-hero__trust small{font-size:14px;line-height:1.4;color:#3a4a41;font-weight:500}
+
+  .product-flow{margin-top:22px;padding:clamp(22px,3vw,32px);border:1px solid #e3d7c5;border-radius:22px;background:linear-gradient(145deg,#fbf7ef 0%,#f5efe4 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.85)}
+  .product-flow__head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:22px}.product-flow__head p{margin:0;font:800 10px var(--font-mono);letter-spacing:.12em;color:#986f36}.product-flow__head h2{max-width:760px;margin:6px 0 0;font-family:var(--font-display);font-size:clamp(25px,2.8vw,34px);line-height:1.04;letter-spacing:-.032em;color:#122642}.product-flow__head>span{max-width:360px;text-align:right;font-size:13px;line-height:1.55;color:#6b6257}
+  .product-flow__track{display:grid;grid-template-columns:minmax(0,1fr) 46px minmax(0,1fr) 46px minmax(0,1fr);align-items:end;gap:10px}.product-flow__stage{min-width:0}.product-flow__icon{display:grid;place-items:center;height:82px;margin-bottom:10px}.product-flow__icon svg{width:64px;height:64px;fill:none;stroke:#0d5fb8;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.product-flow__card{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;min-height:142px;padding:17px;border-radius:16px;background:linear-gradient(160deg,#0f64bd,#0a55a4);box-shadow:0 14px 28px rgba(7,75,143,.19);color:#fff}.product-flow__card>b{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#fff;color:#0b59ac;font:900 20px var(--font-mono);box-shadow:0 5px 14px rgba(0,0,0,.12)}.product-flow__card small{display:block;margin:1px 0 5px;font:800 9px var(--font-mono);letter-spacing:.11em;color:#d7ecff}.product-flow__card strong{display:block;font-size:16px;line-height:1.23;color:#fff}.product-flow__card span{display:block;margin-top:7px;font-size:11.5px;line-height:1.52;color:#e7f2ff}.product-flow__arrow{display:grid;place-items:center;height:142px;padding-top:82px}.product-flow__arrow span{display:grid;place-items:center;width:38px;height:38px;border:1px solid #a9c8e8;border-radius:50%;background:#fff;color:#0b59ac;font-size:22px;font-weight:900;box-shadow:0 8px 18px rgba(20,65,110,.1)}
+  .product-flow__rule{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:9px;margin-top:17px;padding-top:15px;border-top:1px solid #e1d3bf;color:#675e52;font:700 10px var(--font-mono)}.product-flow__rule i{width:4px;height:4px;border-radius:50%;background:#c69b5d}
+
+  :global(.product-section--flow .section-head),:global(.product-section--flow .io-grid){display:none!important}:global(.product-section--flow){padding-top:26px!important;padding-bottom:36px!important}:global(.product-section--flow .product-details){margin-top:0!important}
   :global(.product-page > .product-section){content-visibility:auto;contain-intrinsic-size:auto 760px}
-  @media(max-width:980px){.product-hero__intro{grid-template-columns:1fr}.product-hero__visual{max-width:760px}.product-hero__window img{max-height:350px}.product-hero__actions{grid-template-columns:1fr 1fr}}
-  @media(max-width:760px){.product-hero{margin-top:14px;padding:18px 13px 16px;border-radius:18px}.product-hero h1{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:34px;font-weight:760}.product-hero__summary{font-size:15px}.product-hero__visual{display:none}.product-hero__mobile-proof-link{display:inline-block;margin-top:12px;font-family:var(--font-body);font-size:14px;font-weight:700;color:#0b7440;text-decoration:none}.product-hero__price-row{display:block}.product-hero__price-row>span{display:block;margin-top:5px}.product-hero__facts{display:grid;grid-template-columns:repeat(3,1fr)}.product-hero__facts span{min-width:0}.product-hero__decision-head{align-items:flex-start;flex-direction:column;gap:6px;margin-top:18px;padding-top:16px}.product-hero__decision-head h2{font-size:22px}.product-hero__decision-head>span{max-width:none;text-align:left}.product-hero__actions{grid-template-columns:1fr;gap:10px;margin-top:10px}.product-hero__trust{grid-template-columns:1fr}.product-hero__trust span{min-height:48px}}
+  @media(max-width:980px){.product-hero__intro{grid-template-columns:1fr}.product-hero__visual{max-width:760px}.product-hero__window img{max-height:350px}.product-hero__actions{grid-template-columns:1fr 1fr}.product-flow__track{grid-template-columns:1fr}.product-flow__arrow{height:34px;padding:0}.product-flow__arrow span{transform:rotate(90deg);width:32px;height:32px;font-size:18px}.product-flow__icon{height:68px;margin-bottom:6px}.product-flow__card{min-height:0}.product-flow__head{align-items:flex-start;flex-direction:column;gap:7px}.product-flow__head>span{max-width:none;text-align:left}}
+  @media(max-width:760px){.product-hero{margin-top:14px;padding:18px 13px 16px;border-radius:18px}.product-hero h1{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:34px;font-weight:760}.product-hero__summary{font-size:15px}.product-hero__visual{display:none}.product-hero__mobile-proof-link{display:inline-block;margin-top:12px;font-family:var(--font-body);font-size:14px;font-weight:700;color:#0b7440;text-decoration:none}.product-hero__price-row{display:block}.product-hero__price-row>span{display:block;margin-top:5px}.product-hero__facts{display:grid;grid-template-columns:repeat(3,1fr)}.product-hero__facts span{min-width:0}.product-hero__decision-head{align-items:flex-start;flex-direction:column;gap:6px;margin-top:18px;padding-top:16px}.product-hero__decision-head h2{font-size:22px}.product-hero__decision-head>span{max-width:none;text-align:left}.product-hero__actions{grid-template-columns:1fr;gap:10px;margin-top:10px}.product-hero__trust{grid-template-columns:1fr}.product-hero__trust span{min-height:48px}.product-flow{margin-top:16px;padding:18px 13px;border-radius:17px}.product-flow__head h2{font-size:24px}.product-flow__icon{height:58px}.product-flow__icon svg{width:54px;height:54px}.product-flow__card{grid-template-columns:36px minmax(0,1fr);padding:14px}.product-flow__card>b{width:34px;height:34px;font-size:17px}.product-flow__card strong{font-size:15px}.product-flow__rule{justify-content:flex-start}}
 </style>
