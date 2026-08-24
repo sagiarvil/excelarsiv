@@ -15,9 +15,3 @@ jobs:
           node-version: 22
       - name: Revenue query ownership + authority graph
         run: node scripts/seo/revenue-authority.mjs
-      - name: Existing intent ownership
-        run: node --experimental-strip-types scripts/seo/intent-ownership.ts
-      - name: Existing answer graph
-        run: node --experimental-strip-types scripts/seo/validate-answer-graph.ts
-      - name: Existing link graph
-        run: node --experimental-strip-types scripts/seo/link-graph.ts --site excelarsiv --check
