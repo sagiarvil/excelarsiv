@@ -39,38 +39,16 @@ const trustSignals = ['Shopier güvenli ödeme', 'KDV dahil', 'E-posta teslimat'
         <div class="site-footer__logo"><img src="/images/excel-logo.png" alt="Excel Arşiv logosu" width="30" height="28" loading="lazy" /><span>Excel Arşiv</span></div>
         <p class="site-footer__desc">İşletmeler için indirilebilir, hazır dijital Excel çalışma kitapları ve sistemleri.</p>
         <ul class="site-footer__social" aria-label="Sosyal profiller">
-          {
-            sosyalProfiller.map((link) => (
-              <li>
-                <a href={link.href} rel="noopener noreferrer" target="_blank">{link.label}</a>
-              </li>
-            ))
-          }
+          {sosyalProfiller.map((link) => <li><a href={link.href} rel="noopener noreferrer" target="_blank">{link.label}</a></li>)}
         </ul>
       </div>
       <nav class="site-footer__col" aria-label="Ürünler">
         <h3 class="site-footer__heading">Ürünler</h3>
-        <ul>
-          {
-            productLinks.map((link) => (
-              <li>
-                <a href={link.href}>{link.label}</a>
-              </li>
-            ))
-          }
-        </ul>
+        <ul>{productLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
       </nav>
       <nav class="site-footer__col" aria-label="Destek">
         <h3 class="site-footer__heading">Destek</h3>
-        <ul>
-          {
-            supportLinks.map((link) => (
-              <li>
-                <a href={link.href}>{link.label}</a>
-              </li>
-            ))
-          }
-        </ul>
+        <ul>{supportLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
       </nav>
     </div>
 
@@ -86,23 +64,10 @@ const trustSignals = ['Shopier güvenli ödeme', 'KDV dahil', 'E-posta teslimat'
 
     <div class="site-footer__bottom">
       <ul class="site-footer__signals">
-        {
-          trustSignals.map((signal) => (
-            <li>
-              <span class="site-footer__check" aria-hidden="true">✓</span>
-              {signal}
-            </li>
-          ))
-        }
+        {trustSignals.map((signal) => <li><span class="site-footer__check" aria-hidden="true">✓</span>{signal}</li>)}
       </ul>
       <ul class="site-footer__legal" aria-label="Yasal">
-        {
-          legalLinks.map((link) => (
-            <li>
-              <a href={link.href}>{link.label}</a>
-            </li>
-          ))
-        }
+        {legalLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
       </ul>
       <p class="site-footer__copy">© {year} Excel Arşiv · Tüm hakları saklıdır</p>
     </div>
@@ -111,161 +76,50 @@ const trustSignals = ['Shopier güvenli ödeme', 'KDV dahil', 'E-posta teslimat'
 
 <style>
   .site-footer {
-    border-top: 1px solid var(--xl-grid);
-    background: var(--xl-paper);
+    border-top: 1px solid #203955;
+    background: #061a31;
     padding-block: 48px 28px;
+    color: #ffffff;
   }
-  .site-footer__grid {
-    display: grid;
-    grid-template-columns: 1.2fr .8fr .8fr;
-    gap: 36px;
+  .site-footer__grid { display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:36px; }
+  .site-footer__logo { display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:18px; font-weight:800; letter-spacing:-0.01em; color:#ffffff !important; }
+  .site-footer__logo img { border-radius:6px; }
+  .site-footer__desc { max-width:300px; margin:12px 0 0; font-size:12px; line-height:1.6; color:#ffffff !important; }
+  .site-footer__social { display:flex; flex-wrap:wrap; gap:10px 14px; margin:14px 0 0; padding:0; list-style:none; }
+  .site-footer__social a { font-size:13px; font-weight:600; color:#ffffff !important; text-decoration:underline; text-underline-offset:3px; }
+  .site-footer__heading { margin:0 0 14px; font-family:var(--font-mono); font-size:12.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#ffffff !important; }
+  .site-footer__col ul { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .site-footer__col a { font-size:12px; line-height:1.6; color:#ffffff !important; text-decoration:none; transition:opacity 150ms ease-out; }
+  .site-footer__col a:hover, .site-footer__social a:hover, .site-footer__legal a:hover, .site-footer__mobile-links a:hover { color:#ffffff !important; opacity:.78; }
+  .site-footer__bottom { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 24px; margin-top:36px; padding-top:18px; border-top:1px solid #29415a; }
+  .site-footer__signals { display:flex; flex-wrap:wrap; gap:10px 24px; margin:0; padding:0; list-style:none; font-family:var(--font-mono); font-size:12px; color:#ffffff !important; }
+  .site-footer__check { color:#ffffff !important; font-weight:700; margin-right:6px; }
+  .site-footer__legal { display:flex; flex-wrap:wrap; gap:8px 18px; margin:0; padding:0; list-style:none; font-family:var(--font-mono); font-size:11px; }
+  .site-footer__legal a { color:#ffffff !important; text-decoration:none; transition:opacity 150ms ease-out; }
+  .site-footer__copy { margin:0; font-family:var(--font-mono); font-size:12px; color:#ffffff !important; }
+  .site-footer__mobile { display:none; }
+
+  /* Ana sayfa karar rehberleri CTA'sı global tema kurallarından bağımsız beyaz kalır. */
+  :global(.decision-all-btn), :global(.decision-all-btn:visited), :global(.decision-all-btn:hover), :global(.decision-all-btn:focus-visible) { color:#ffffff !important; }
+
+  @media (max-width:900px) {
+    .site-footer__grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .site-footer__brand { grid-column:1 / -1; }
   }
-  .site-footer__logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    color: var(--xl-ink-900);
-  }
-  .site-footer__logo img {
-    border-radius: 6px;
-  }
-  .site-footer__desc {
-    max-width: 300px;
-    margin: 12px 0 0;
-    font-size: 12px;
-    line-height: 1.6;
-    color: var(--xl-ink-3);
-  }
-  .site-footer__social {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 14px;
-    margin: 14px 0 0;
-    padding: 0;
-    list-style: none;
-  }
-  .site-footer__social a {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--xl-ink-900);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-  .site-footer__heading {
-    margin: 0 0 14px;
-    font-family: var(--font-mono);
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--xl-ink-3);
-  }
-  .site-footer__col ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .site-footer__col a {
-    font-size: 12px;
-    line-height: 1.6;
-    color: var(--xl-ink-900);
-    text-decoration: none;
-    transition: color 150ms ease-out;
-  }
-  .site-footer__col a:hover {
-    color: var(--xl-green-dark);
-  }
-  .site-footer__bottom {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px 24px;
-    margin-top: 36px;
-    padding-top: 18px;
-    border-top: 1px solid var(--xl-grid);
-  }
-  .site-footer__signals {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 24px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--xl-ink-3);
-  }
-  .site-footer__check {
-    color: var(--xl-green);
-    font-weight: 700;
-    margin-right: 6px;
-  }
-  .site-footer__legal {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 18px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-family: var(--font-mono);
-    font-size: 11px;
-  }
-  .site-footer__legal a {
-    color: var(--xl-ink-3);
-    text-decoration: none;
-    transition: color 150ms ease-out;
-  }
-  .site-footer__legal a:hover {
-    color: var(--xl-green-dark);
-  }
-  .site-footer__copy {
-    margin: 0;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--xl-ink-3);
-  }
-  .site-footer__mobile { display: none; }
-  @media (max-width: 900px) {
-    .site-footer__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .site-footer__brand {
-      grid-column: 1 / -1;
-    }
-  }
-  @media (max-width: 560px) {
-    .site-footer {
-      padding: 30px 0 calc(82px + env(safe-area-inset-bottom));
-    }
-    .site-footer__desktop { display: none; }
-    .site-footer__mobile { display: block; }
-    .site-footer__desc { margin-top: 6px; font-size: 11.5px; }
-    .site-footer__mobile-links { margin-top: 18px; border-top: 1px solid var(--xl-grid); }
-    .site-footer__mobile-links details { border-bottom: 1px solid var(--xl-grid); }
-    .site-footer__mobile-links summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 44px;
-      font-size: 12.5px;
-      font-weight: 700;
-      cursor: pointer;
-      list-style: none;
-    }
-    .site-footer__mobile-links summary::-webkit-details-marker { display: none; }
-    .site-footer__mobile-links summary span { color: var(--xl-green); }
-    .site-footer__mobile-links nav { display: grid; gap: 8px; padding: 0 0 12px; }
-    .site-footer__mobile-links a { font-size: 12px; color: var(--xl-ink-3); text-decoration: none; }
-    .site-footer__bottom { display: grid; gap: 10px; margin-top: 16px; padding-top: 14px; }
-    .site-footer__signals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 10px; font-size: 9.5px; }
-    .site-footer__copy { font-size: 9.5px; }
+  @media (max-width:560px) {
+    .site-footer { padding:30px 0 calc(82px + env(safe-area-inset-bottom)); }
+    .site-footer__desktop { display:none; }
+    .site-footer__mobile { display:block; }
+    .site-footer__desc { margin-top:6px; font-size:11.5px; }
+    .site-footer__mobile-links { margin-top:18px; border-top:1px solid #29415a; }
+    .site-footer__mobile-links details { border-bottom:1px solid #29415a; }
+    .site-footer__mobile-links summary { display:flex; align-items:center; justify-content:space-between; min-height:44px; font-size:12.5px; font-weight:700; cursor:pointer; list-style:none; color:#ffffff !important; }
+    .site-footer__mobile-links summary::-webkit-details-marker { display:none; }
+    .site-footer__mobile-links summary span { color:#ffffff !important; }
+    .site-footer__mobile-links nav { display:grid; gap:8px; padding:0 0 12px; }
+    .site-footer__mobile-links a { font-size:12px; color:#ffffff !important; text-decoration:none; }
+    .site-footer__bottom { display:grid; gap:10px; margin-top:16px; padding-top:14px; }
+    .site-footer__signals { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px 10px; font-size:9.5px; }
+    .site-footer__copy { font-size:9.5px; }
   }
 </style>
