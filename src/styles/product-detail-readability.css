@@ -172,3 +172,60 @@
   .product-page .tcard__summary{font-size:14.5px!important}
   .product-page .tcard__benefits li{font-size:14px!important}
 }
+
+/* PRODUCT DARK PANEL WHITE TEXT LOCK 2026-08-24 */
+
+[class*="workflow"],
+[class*="how-it-works"] {
+  --dark-panel-fg: #ffffff;
+}
+
+[class*="workflow"] h1,
+[class*="workflow"] h2,
+[class*="workflow"] h3,
+[class*="workflow"] h4,
+[class*="workflow"] strong,
+[class*="workflow"] summary,
+[class*="workflow"] button,
+[class*="how-it-works"] h1,
+[class*="how-it-works"] h2,
+[class*="how-it-works"] h3,
+[class*="how-it-works"] h4,
+[class*="how-it-works"] strong,
+[class*="how-it-works"] summary,
+[class*="how-it-works"] button {
+  color: #ffffff !important;
+}
+
+[class*="workflow"] p,
+[class*="workflow"] li,
+[class*="workflow"] span,
+[class*="how-it-works"] p,
+[class*="how-it-works"] li,
+[class*="how-it-works"] span {
+  color: rgba(255,255,255,.92) !important;
+}
+
+[class*="workflow"] small,
+[class*="workflow"] .eyebrow,
+[class*="workflow"] .kicker,
+[class*="workflow"] [class*="label"],
+[class*="how-it-works"] small,
+[class*="how-it-works"] .eyebrow,
+[class*="how-it-works"] .kicker,
+[class*="how-it-works"] [class*="label"] {
+  color: rgba(255,255,255,.82) !important;
+}
+
+[class*="workflow"] svg,
+[class*="how-it-works"] svg {
+  color: #ffffff !important;
+  fill: currentColor;
+}
+
+.decision-all-btn,
+.decision-all-btn:visited,
+.decision-all-btn:hover,
+.decision-all-btn:focus-visible {
+  color: #ffffff !important;
+}
