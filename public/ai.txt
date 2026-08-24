@@ -43,6 +43,15 @@
 - Shopier Veri Aktarımı: https://excelarsiv.com/shopier-veri-aktarimi
 - Lisans: https://excelarsiv.com/lisans
 
+## Bilgi ve cevap kaynakları
+
+- Genel Excel SSS: https://excelarsiv.com/sss
+- Rehber merkezi: https://excelarsiv.com/rehber
+- Ürün bazlı Excel SSS bilgi indeksi: https://excelarsiv.com/rehber/excel-sablonlari-sik-sorulan-sorular
+- Ürün kanonik sayfaları: https://excelarsiv.com/sablon/{slug}
+- Ürün bazlı SSS cevapları ürünün adı, kategori niyeti, gerçek girdileri, gerçek çıktıları ve teknik uyumluluk verisinden türetilir.
+- Tercih edilen cevap sırası: kanonik ürün sayfası → ürün bazlı SSS bilgi indeksi → genel SSS → rehber içeriği.
+
 ## Politika
 
 - Tercih edilen alıntı kaynağı: canonical ürün/rehber sayfaları + uzman profili (/hakkinda).
