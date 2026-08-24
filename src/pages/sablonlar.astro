@@ -79,6 +79,47 @@ const catalogBreadcrumbLd = JSON.stringify({
     </div>
   </section>
 
+  <section class="catalog-flow" aria-labelledby="catalog-flow-title" data-catalog-infographic>
+    <div class="site-container">
+      <div class="catalog-flow__surface">
+        <div class="catalog-flow__head">
+          <div>
+            <p>HER ÜRÜN AYNI NET MANTIKLA ÇALIŞIR</p>
+            <h2 id="catalog-flow-title">Veriyi girin. Excel işlesin. Kararı görün.</h2>
+          </div>
+          <span>Ürün sayfasında bu akış, seçtiğiniz şablonun gerçek girdileri ve çıktılarıyla otomatik olarak değişir.</span>
+        </div>
+
+        <div class="catalog-flow__track">
+          <article class="catalog-flow__stage">
+            <div class="catalog-flow__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><rect x="9" y="8" width="46" height="33" rx="4"/><path d="M17 17h14M17 24h24M17 31h19M25 49h14M32 41v8"/></svg>
+            </div>
+            <div class="catalog-flow__card"><b>1</b><div><small>GİRDİ</small><strong>İşletme verisini girin</strong><span>Tutar, tarih, vade, miktar veya ürünün istediği diğer alanları sarı giriş hücrelerine yazın.</span></div></div>
+          </article>
+          <div class="catalog-flow__arrow" aria-hidden="true">→</div>
+          <article class="catalog-flow__stage">
+            <div class="catalog-flow__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><path d="M17 8h24l9 9v39H17z"/><path d="M41 8v11h10M24 43l7-9 7 5 8-12M24 50h22"/><circle cx="24" cy="43" r="2"/><circle cx="31" cy="34" r="2"/><circle cx="38" cy="39" r="2"/><circle cx="46" cy="27" r="2"/></svg>
+            </div>
+            <div class="catalog-flow__card"><b>2</b><div><small>OTOMATİK İŞLEM</small><strong>Sistem hesaplasın ve kontrol etsin</strong><span>Formüller, kontroller, risk eşikleri ve rapor katmanı veriyi sizin için işlesin.</span></div></div>
+          </article>
+          <div class="catalog-flow__arrow" aria-hidden="true">→</div>
+          <article class="catalog-flow__stage">
+            <div class="catalog-flow__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="36" rx="5"/><path d="M16 36l9-9 7 5 12-13 5 5M23 54h18M32 46v8"/><circle cx="48" cy="18" r="7"/><path d="M45 18l2 2 4-5"/></svg>
+            </div>
+            <div class="catalog-flow__card"><b>3</b><div><small>SONUÇ</small><strong>Karar ekranını kullanın</strong><span>Özet, alarm, açık, risk veya kârlılık çıktısını tek ekranda görün ve aksiyona geçin.</span></div></div>
+          </article>
+        </div>
+
+        <div class="catalog-flow__footer">
+          <span>Tek veri girişi</span><i></i><span>Otomatik hesap</span><i></i><span>Kontrol ve uyarı</span><i></i><span>Yönetim çıktısı</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="katalog" class="catalog-section" aria-labelledby="catalog-list-title">
     <div class="site-container">
       <div class="catalog-command">
@@ -194,6 +235,11 @@ const catalogBreadcrumbLd = JSON.stringify({
   }
   .catalog-intro__trust span { margin: 0; line-height: 1.35; }
 
+  .catalog-flow{padding:26px 0 28px;background:#fff}
+  .catalog-flow__surface{padding:clamp(24px,3.4vw,36px);border:1px solid #e2d6c4;border-radius:24px;background:linear-gradient(145deg,#fbf7ef 0%,#f5efe4 100%);box-shadow:0 18px 44px rgba(42,58,79,.07)}
+  .catalog-flow__head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:24px}.catalog-flow__head p{margin:0;font:800 10px var(--font-mono);letter-spacing:.12em;color:#986f36}.catalog-flow__head h2{max-width:760px;margin:7px 0 0;font-family:var(--font-display);font-size:clamp(28px,3.3vw,42px);line-height:1.02;letter-spacing:-.04em;color:#122642}.catalog-flow__head>span{max-width:390px;text-align:right;font-size:13px;line-height:1.6;color:#6c6359}
+  .catalog-flow__track{display:grid;grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr) 48px minmax(0,1fr);align-items:end;gap:10px}.catalog-flow__stage{min-width:0}.catalog-flow__icon{display:grid;place-items:center;height:84px;margin-bottom:10px}.catalog-flow__icon svg{width:66px;height:66px;fill:none;stroke:#0d5fb8;stroke-width:2.15;stroke-linecap:round;stroke-linejoin:round}.catalog-flow__card{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;min-height:142px;padding:18px;border-radius:16px;background:linear-gradient(160deg,#116ac8,#0a55a4);box-shadow:0 15px 30px rgba(7,75,143,.2);color:#fff}.catalog-flow__card>b{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#fff;color:#0b59ac;font:900 21px var(--font-mono);box-shadow:0 5px 14px rgba(0,0,0,.12)}.catalog-flow__card small{display:block;margin:1px 0 5px;font:800 9px var(--font-mono);letter-spacing:.11em;color:#d7ecff}.catalog-flow__card strong{display:block;font-size:16px;line-height:1.23}.catalog-flow__card span{display:block;margin-top:7px;font-size:11.5px;line-height:1.5;color:#e9f4ff}.catalog-flow__arrow{display:grid;place-items:center;height:142px;padding-top:80px;color:#0b59ac;font-size:30px;font-weight:900}.catalog-flow__footer{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:18px;padding-top:16px;border-top:1px solid #e1d3bf;font:700 10px var(--font-mono);color:#675e52}.catalog-flow__footer i{width:4px;height:4px;border-radius:50%;background:#c69b5d}
+
   .catalog-section {
     padding-block: 26px clamp(72px,8vw,104px);
     background:
@@ -290,6 +336,7 @@ const catalogBreadcrumbLd = JSON.stringify({
     .catalog-intro__inner { grid-template-columns: 1fr; gap: 16px; }
     .catalog-intro__proof { width: 100%; }
     .catalog-intro__proof > div { flex: 1; }
+    .catalog-flow__track{grid-template-columns:1fr}.catalog-flow__arrow{height:34px;padding:0;transform:rotate(90deg)}.catalog-flow__head{align-items:flex-start;flex-direction:column;gap:8px}.catalog-flow__head>span{max-width:none;text-align:left}.catalog-flow__icon{height:66px;margin-bottom:6px}.catalog-flow__card{min-height:0}
   }
   @media(max-width:780px) {
     .catalog-intro__proof { display:grid; grid-template-columns:repeat(2,1fr); }
@@ -303,6 +350,7 @@ const catalogBreadcrumbLd = JSON.stringify({
     .catalog-intro__inner { padding-block:22px 18px; }
     .catalog-intro h1 { font-size:32px; }
     .catalog-intro__proof { display:none; }
+    .catalog-flow{padding:16px 0 20px}.catalog-flow__surface{padding:18px 13px;border-radius:18px}.catalog-flow__head h2{font-size:28px}.catalog-flow__icon svg{width:54px;height:54px}.catalog-flow__card{grid-template-columns:36px minmax(0,1fr);padding:14px}.catalog-flow__card>b{width:34px;height:34px;font-size:17px}.catalog-flow__card strong{font-size:15px}.catalog-flow__footer{justify-content:flex-start}
     .catalog-section { padding-top:16px; }
     .catalog-command { padding:14px; border-radius:16px; }
     .catalog-command__head { gap:12px; }
