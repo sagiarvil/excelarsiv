@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { getProductSearchFaq } from './data/productSearchFaq';
 
 const category = z.enum([
   'finansal-analiz',
@@ -38,7 +39,10 @@ const templates = defineCollection({
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).min(1),
     screenshots: z.array(z.object({ src: z.string(), alt: z.string() })).min(1),
     related: z.array(z.string()).max(3),
-  }),
+  }).transform((data) => ({
+    ...data,
+    faq: [...data.faq, ...getProductSearchFaq(data)],
+  })),
 });
 
 const guides = defineCollection({

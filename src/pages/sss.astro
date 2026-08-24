@@ -5,36 +5,136 @@ import FaqAccordion from '../components/FaqAccordion.astro';
 
 const questions = [
   {
-    question: 'Dosya kilitli mi, formülleri görebilir ve değiştirebilir miyim?',
-    answer: 'Girdi alanları serbesttir. Formül ve çıktı sayfaları koruma ile kilitlidir; koruma şifresizdir, kaldırıp formülleri inceleyebilir veya mantığı kendi dosyanıza taşıyabilirsiniz.',
+    question: 'Excel şablonu nedir?',
+    answer: 'Excel şablonu; belirli bir işi sıfırdan tablo, formül ve rapor kurmadan yapmanızı sağlayan hazır çalışma dosyasıdır. ExcelArşiv şablonları finans, muhasebe, nakit, stok, satış ve operasyon ihtiyaçlarına göre hazırlanır.',
   },
   {
-    question: 'Kendi firmamın hesap planına / kalem yapısına uyarlayabilir miyim?',
-    answer: 'Evet. Kalem adlarını, hesap planını ve aralık tanımlarını kendi yapınıza göre düzenleyebilirsiniz; formül mantığını korumanız önerilir.',
+    question: 'Hazır Excel şablonları ne işe yarar?',
+    answer: 'Hazır Excel şablonları veri girişini standartlaştırır, hesaplamaları otomatikleştirir ve manuel işlem hatalarını azaltır. Nakit akışı, cari hesap, stok, bütçe, maliyet, kârlılık ve ödeme takibi gibi tekrar eden işlerde kullanılabilir.',
   },
   {
-    question: 'Ödeme sonrası dosyayı nasıl ve ne kadar sürede alıyorum?',
-    answer: 'Ödeme Shopier’de tamamlandıktan sonra ExcelArşiv sipariş kaydını doğrular. Doğrulama tamamlandığında ürün sayfasındaki “Excel’i İndir” düğmesi açılır; aynı satın alma kaydına /teslimat ekranından da erişebilirsiniz.',
+    question: 'Excel şablonu nasıl kullanılır?',
+    answer: 'Dosyayı Excel’de açtıktan sonra veri girişine ayrılmış alanları doldurursunuz. Formüller, özet tablolar, kontroller ve rapor ekranları girilen verilerden otomatik sonuç üretir. Ürüne özel kullanım adımları ürün sayfasında ve dosya içindeki kılavuzda belirtilir.',
   },
   {
-    question: 'Fatura kesiliyor mu, e-arşiv fatura alabilir miyim?',
-    answer: 'Dijital ürün satışlarında fatura satıcı tarafından kesilir. e-arşiv altyapısı aktifleştirildiğinde e-arşiv fatura e-postanıza iletilir.',
+    question: 'Ücretsiz Excel şablonları ile ücretli Excel sistemleri arasındaki fark nedir?',
+    answer: 'Ücretsiz şablonlar çoğunlukla temel kayıt ve hesaplama ihtiyacını karşılar. Gelişmiş Excel sistemlerinde kontrol mekanizmaları, yönetim panoları, senaryo analizleri, risk göstergeleri ve karar çıktıları birlikte çalışabilir. Satın alma kararında yalnız dosya sayısına değil, hangi kararı desteklediğine bakılmalıdır.',
   },
   {
-    question: 'Dijital üründe iade var mı?',
-    answer: 'Hayır — koşulsuz iade yoktur. Ürün dijital içeriktir; indirme bağlantısı iletildiği veya indirme başladığı andan itibaren cayma hakkı kullanılamaz. Vaat edilen işlevi karşılamayan dosyada yalnızca hatalı dosya telafisi uygulanır. Ayrıntı Teslimat ve İade ile Mesafeli Satış Sözleşmesi sayfalarındadır.',
+    question: 'Excel şablonları küçük işletmeler ve KOBİ’ler için uygun mu?',
+    answer: 'Evet. Özellikle ERP veya özel yazılım yatırımı yapmak istemeyen küçük ve orta ölçekli işletmeler için Excel tabanlı takip sistemleri düşük kurulum maliyetli ve hızlı devreye alınabilen bir alternatiftir.',
   },
   {
-    question: 'Excel sürümüm eski, çalışır mı? Mac\u2019te çalışır mı?',
-    answer: 'Her ürünün teknik künyesinde gereken minimum Excel sürümü belirtilir. XLOOKUP gibi yeni fonksiyonlar kullanan dosyalar Excel 2021 ve üzeri ister; Mac ve Google Sheets uyumu da künyede yer alır.',
+    question: 'Nakit akışı Excel tablosu nasıl hazırlanır?',
+    answer: 'Nakit akışı tablosunda beklenen tahsilatlar, ödemeler, başlangıç nakdi ve dönem sonu nakdi aynı zaman çizelgesinde izlenir. Gelişmiş modeller kritik nakit haftalarını, kasa tamponunu ve finansman ihtiyacını da görünür hale getirir.',
   },
   {
-    question: 'Bir dosyayı kaç bilgisayarda kullanabilirim, şirket içinde paylaşabilir miyim?',
-    answer: 'Tek lisans tek kullanıcı içindir ve aynı kullanıcının makul sayıdaki cihazında kullanılabilir. Dosyanın yeniden satılması ve şirket dışı paylaşımı yasaktır; detay Lisans sayfasındadır.',
+    question: '13 haftalık nakit akışı nedir?',
+    answer: '13 haftalık nakit akışı, işletmenin yaklaşık üç aylık dönemdeki para giriş ve çıkışlarını hafta hafta projekte eder. Kısa vadeli ödeme gücünü, kritik nakit haftalarını ve olası finansman açığını erken görmek için kullanılır.',
   },
   {
-    question: 'Mevzuat değişirse güncel sürümü alacak mıyım?',
-    answer: 'Mevzuata bağlı ürünlerde oran veya kural değişince güncel sürüm, ürünün güncelleme politikasında yazılı süre boyunca ücretsiz sunulur.',
+    question: 'Gelir gider tablosu Excel’de nasıl tutulur?',
+    answer: 'Gelir ve giderler tarih, kategori, açıklama ve tutar bazında kaydedilir. Sistem net sonucu, kategori dağılımını ve dönemsel değişimleri otomatik hesaplayabilir. Düzenli kategori kullanımı rapor kalitesini belirgin şekilde artırır.',
+  },
+  {
+    question: 'Kasa defteri Excel’de tutulabilir mi?',
+    answer: 'Evet. Günlük kasa girişleri, kasa çıkışları ve bakiye Excel üzerinden takip edilebilir. Gelişmiş sistemlerde kayıt bakiyesi ile fiili kasa sayımı arasındaki fark da ayrıca kontrol edilebilir.',
+  },
+  {
+    question: 'Kredi ve taksitler Excel’de nasıl takip edilir?',
+    answer: 'Banka, kredi türü, başlangıç tarihi, taksit tutarı, vade ve ödeme tarihi kaydedilerek yaklaşan taksitler, toplam borç servisi ve ödeme takvimi izlenebilir. Birden fazla krediyi tek ekranda toplamak nakit planlamasını kolaylaştırır.',
+  },
+  {
+    question: 'Bütçe Excel şablonu ne işe yarar?',
+    answer: 'Bütçe şablonu planlanan gelir ve giderlerle gerçekleşen sonuçları karşılaştırır. Sapma tutarı ve sapma yüzdesi sayesinde bütçeden uzaklaşılan alanlar görülebilir ve dönem içinde düzeltici karar alınabilir.',
+  },
+  {
+    question: 'Cari hesap takip Excel dosyası nasıl çalışır?',
+    answer: 'Fatura, vade, tahsilat ve diğer cari hareketler müşteri bazında birleştirilir. Böylece açık bakiye, vadesi geçen alacak, tahsilat durumu ve müşteri riski tek yapıdan izlenebilir.',
+  },
+  {
+    question: 'Excel’de müşteri borç ve alacak takibi yapılabilir mi?',
+    answer: 'Evet. Müşteri bazında borç, alacak, tahsilat, ödeme ve kalan bakiye takip edilebilir. Doğru tasarlanmış bir cari yapı aynı tutarın iki kez girilmesini önleyerek tek gerçek kaynaktan raporlama yapar.',
+  },
+  {
+    question: 'Excel’de vade takibi nasıl yapılır?',
+    answer: 'Her işlem için vade tarihi girilir. Bugünün tarihi ile vade arasındaki fark kullanılarak yaklaşan ve geciken ödemeler otomatik sınıflandırılabilir; gecikme günü ve risk seviyesi ayrıca raporlanabilir.',
+  },
+  {
+    question: 'Kısmi tahsilat Excel’de takip edilebilir mi?',
+    answer: 'Evet. Aynı alacağa birden fazla tahsilat girilerek kalan bakiye yeniden hesaplanabilir. Böylece tek seferde kapanmayan faturalar veya parçalı ödemeler kaybolmadan izlenir.',
+  },
+  {
+    question: 'Vadesi geçmiş alacaklar Excel’de nasıl bulunur?',
+    answer: 'Vade tarihi geçmiş ve bakiyesi kapanmamış kayıtlar gecikmiş alacak olarak filtrelenebilir. Gelişmiş sistemlerde 0–7, 8–14, 15–28 ve daha uzun gecikme gruplarıyla yaşlandırma yapılabilir.',
+  },
+  {
+    question: 'Stok takip Excel tablosu nasıl yapılır?',
+    answer: 'Ürün kodu, ürün adı, giriş, çıkış, maliyet ve mevcut stok hareketleri aynı ürün kimliği üzerinden tutulur. Kalan stok miktarı hareketlerden otomatik hesaplanır ve kritik seviyeler ayrıca işaretlenebilir.',
+  },
+  {
+    question: 'Excel’de stok giriş çıkış takibi yapılabilir mi?',
+    answer: 'Evet. Stok girişleri ve çıkışları ayrı hareketler olarak kaydedildiğinde mevcut stok otomatik hesaplanabilir. Ürün kodunun tekil tutulması sayım ve raporlama hatalarını azaltır.',
+  },
+  {
+    question: 'Minimum stok seviyesi Excel’de nasıl hesaplanır?',
+    answer: 'Minimum stok seviyesi kullanım veya satış hızı, tedarik süresi ve güvenlik stoğu dikkate alınarak belirlenir. Stok bu seviyenin altına indiğinde uyarı üretilebilir ve satın alma ihtiyacı daha erken görülebilir.',
+  },
+  {
+    question: 'Stokta bağlı nakit ne demektir?',
+    answer: 'Stokta bağlı nakit, işletmenin henüz satışa veya kullanıma dönüşmemiş stok için ayırdığı sermayeyi ifade eder. Miktar takibinin yanında stok maliyetini izlemek, nakit ihtiyacının nedenini daha doğru gösterir.',
+  },
+  {
+    question: 'Stok devir hızı Excel’de hesaplanabilir mi?',
+    answer: 'Evet. Satılan veya kullanılan stok ile ortalama stok değeri ilişkilendirilerek stok devir hızı hesaplanabilir. Düşük devir, fazla sermayenin stokta bağlı kalmasına işaret edebilir.',
+  },
+  {
+    question: 'ExcelArşiv dosyaları hangi Excel sürümlerinde çalışır?',
+    answer: 'Uyumluluk ürün bazında belirtilir. Minimum Excel sürümü, kullanılan formül ve özelliklere göre değişebilir. Satın almadan önce ürün sayfasındaki teknik künye esas alınmalıdır.',
+  },
+  {
+    question: 'Excel şablonları Mac’te çalışır mı?',
+    answer: 'Mac uyumluluğu ürün sayfasında ayrıca belirtilir. Makrosuz XLSX ürünlerin önemli bölümü Windows ve Mac Excel’de çalışabilir; ancak kullanılan Excel sürümünün gerekli fonksiyonları desteklemesi gerekir.',
+  },
+  {
+    question: 'Excel dosyaları Google Sheets’te çalışır mı?',
+    answer: 'Bazı XLSX dosyaları Google Sheets ile açılabilir; ancak gelişmiş Excel formülleri, veri doğrulama, biçimlendirme ve koruma özelliklerinde farklılık oluşabilir. Ürün sayfasındaki uyumluluk bilgisi esas alınmalıdır.',
+  },
+  {
+    question: 'ExcelArşiv şablonlarında makro var mı?',
+    answer: 'Makro durumu ürün bazında teknik bilgiler bölümünde belirtilir. Makrosuz ürünler XLSX formatında çalışır; otomasyon içeren ürünlerde dosya formatı ve gerekli güvenlik adımları ayrıca açıklanır.',
+  },
+  {
+    question: 'Dosya kilitli mı, formülleri görebilir ve değiştirebilir miyim?',
+    answer: 'Koruma ve düzenleme seviyesi ürün bazında değişebilir. Veri giriş alanları kullanıcıya açık tutulurken formül ve rapor alanları yanlışlıkla bozulmayı önlemek için korunabilir. Ürünün teknik künyesindeki koruma bilgisi esas alınmalıdır.',
+  },
+  {
+    question: 'Kendi firmamın hesap planına veya kalem yapısına uyarlayabilir miyim?',
+    answer: 'Birçok üründe kullanıcıya açık parametre, kategori ve liste alanları kendi firmanıza göre düzenlenebilir. Formül mantığını etkileyen yapısal değişikliklerde ürünün kullanım notlarına göre hareket edilmelidir.',
+  },
+  {
+    question: 'Satın almadan önce Excel dosyasını deneyebilir miyim?',
+    answer: 'Demo sunulan ürünlerde ürün sayfasından değerlendirme sürümüne erişebilirsiniz. Demo bulunmayan ürünlerde ürün ekranları, teknik bilgiler ve kapsam açıklaması satın alma kararının temelidir.',
+  },
+  {
+    question: 'Ödeme sonrası Excel dosyasını nasıl alıyorum?',
+    answer: 'Ödeme Shopier’de tamamlandıktan sonra ExcelArşiv sipariş kaydını doğrular. Doğrulama tamamlandığında ürün sayfasındaki indirme akışı açılır; aynı satın alma kaydına teslimat ekranından da erişilebilir.',
+  },
+  {
+    question: 'ExcelArşiv ürünleri abonelik mi, tek seferlik ödeme mi?',
+    answer: 'Ürün sayfasında aksi belirtilmedikçe gösterilen fiyat tek seferlik dijital ürün lisans bedelidir. Ürüne özel güncelleme, kullanım ve lisans koşulları satın alma sayfasındaki bilgilerle birlikte değerlendirilmelidir.',
+  },
+  {
+    question: 'Bir Excel dosyasını kaç bilgisayarda kullanabilirim, şirket içinde paylaşabilir miyim?',
+    answer: 'Lisans kapsamı ürün ve lisans tipine göre belirlenir. Yeniden satış, herkese açık paylaşım veya lisans kapsamı dışındaki dağıtım yasaktır. Güncel ve bağlayıcı koşullar Lisans sayfasında yer alır.',
+  },
+  {
+    question: 'Mevzuat değişirse Excel şablonu güncellenir mi?',
+    answer: 'Mevzuata bağlı ürünlerde güncelleme politikası ürün sayfasında belirtilir. Oran, limit veya hesap kuralı değişikliklerinde hangi sürümün ne kadar süre desteklendiği ürünün güncelleme politikasına göre belirlenir.',
+  },
+  {
+    question: 'Hangi Excel şablonunu seçmeliyim?',
+    answer: 'Sorununuz “nakit ne zaman yetersiz kalacak?” ise nakit akışı; “kimden ne kadar alacağım var?” ise cari hesap; “hangi üründen ne kadar kaldı?” ise stok; “kâr nerede oluşuyor?” ise kârlılık ve finans paneli ürünleri daha uygundur. Kararı ihtiyaç duyduğunuz çıktıya göre verin.',
   },
 ];
 
@@ -50,16 +150,19 @@ const faqLd = JSON.stringify({
 ---
 
 <CommerceLayout
-  title="Sık Sorulan Sorular — Excel Arşiv"
-  description="Dosya kilidi, uyarlama, teslimat süresi, fatura, iade, uyumluluk ve güncelleme — gerçek itirazların net cevapları."
+  title="Excel Şablonları SSS: Nakit, Cari, Stok ve Kullanım | Excel Arşiv"
+  description="Excel şablonu, nakit akışı, cari hesap, stok takibi, gelir gider, bütçe, Mac ve Google Sheets uyumluluğu, teslimat ve lisans hakkında sık sorulan sorular."
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={faqLd} />
   </Fragment>
   <section class="mx-auto max-w-3xl px-4 pb-24 pt-8">
     <SectionLabel address="A1" label="SSS" />
-    <h1 class="display mt-6">Sık sorulan sorular</h1>
-    <h2 class="sr-only">Sık sorulan sorular yanıtları</h2>
+    <h1 class="display mt-6">Excel şablonları hakkında sık sorulan sorular</h1>
+    <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600">
+      Excel şablonları, nakit akışı, cari hesap, stok, bütçe, uyumluluk, teslimat ve lisans hakkında en sık aranan soruların kısa ve doğrudan cevapları.
+    </p>
+    <h2 class="sr-only">Excel şablonları sık sorulan sorular ve yanıtları</h2>
     <div class="mt-8">
       <FaqAccordion items={questions} />
     </div>
