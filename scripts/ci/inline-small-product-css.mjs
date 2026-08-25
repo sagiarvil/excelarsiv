@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
-import { dirname, join, normalize, relative, resolve } from 'node:path';
+import { join, normalize, resolve } from 'node:path';
 
 const DIST = resolve('dist');
 const PRODUCT_DIR = join(DIST, 'sablon');
-const MAX_INLINE_BYTES = 6 * 1024;
-const MARKER = 'data-inline-small-product-css';
+// Ürün detay sayfalarında birden fazla render-blocking CSS isteği vardı.
+// Mevcut Lighthouse bütçesini gevşetmeden bu ağ turlarını kaldırmak için
+// ürün sayfasının CSS paketlerini HTML içine alıyoruz. En büyük mevcut paket
+// yaklaşık 130 KiB olduğu için 160 KiB güvenli üst sınırdır.
+const MAX_INLINE_BYTES = 160 * 1024;
+const MARKER = 'data-inline-product-css';
 
 function walk(dir) {
   const out = [];
@@ -54,8 +58,8 @@ for (const file of walk(PRODUCT_DIR)) {
 }
 
 if (!pages) {
-  console.error('Small product CSS inline gate: no product HTML updated.');
+  console.error('Product CSS inline gate: no product HTML updated.');
   process.exit(1);
 }
 
-console.log(`SMALL PRODUCT CSS INLINE PASS — pages=${pages}, links=${linksInlined}, bytes=${bytesInlined}, max=${MAX_INLINE_BYTES}`);
+console.log(`PRODUCT CSS INLINE PASS — pages=${pages}, links=${linksInlined}, bytes=${bytesInlined}, max=${MAX_INLINE_BYTES}`);
