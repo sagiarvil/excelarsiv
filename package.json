@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run guard:protected && npm run guard:source && npm run seo:forbidden && npm run seo:answer-graph && PUBLIC_TEMPLATE_CARD_VARIANT=stable astro build && node scripts/ci/inject-contextual-images.mjs && node scripts/ci/premium-ux-fixes.mjs && node scripts/ci/final-ui-contrast-fixes.mjs && node scripts/ci/inject-native-infographics.mjs && npm run seo:generate && node scripts/seo/promote-special-systems.mjs && npm run seo:validate && npm run seo:test && npm run seo:guard && node scripts/ci/write-build-provenance.mjs",
+    "build": "npm run guard:protected && npm run guard:source && npm run seo:forbidden && npm run seo:answer-graph && PUBLIC_TEMPLATE_CARD_VARIANT=stable astro build && node scripts/ci/inject-contextual-images.mjs && node scripts/ci/premium-ux-fixes.mjs && node scripts/ci/localize-typography-font.mjs && node scripts/ci/final-ui-contrast-fixes.mjs && node scripts/ci/inject-native-infographics.mjs && npm run seo:generate && node scripts/seo/promote-special-systems.mjs && npm run seo:validate && npm run seo:test && npm run seo:guard && node scripts/ci/write-build-provenance.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "generate": "node scripts/validate-commerce.mjs",
