@@ -112,17 +112,17 @@ jobs:
           declare -a LABELS=(home catalog product)
           declare -a ROUTES=(
             '/'
-            '/sablonlar'
-            '/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi'
+            '/sablonlar/'
+            '/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi/'
           )
           for i in "${!LABELS[@]}"; do
             label="${LABELS[$i]}"
             route="${ROUTES[$i]}"
             url="${STAGING_URL}${route}"
 
-            # Firebase preview channels can briefly return 503 immediately after
-            # release propagation. Retry transport readiness, but never relax
-            # Lighthouse or downstream metric budgets.
+            # Firebase preview channels can briefly return 404/503 while the
+            # just-released static version propagates across edges. Every lab
+            # attempt therefore verifies a real 200 immediately before Chrome.
             ready=0
             for attempt in 1 2 3 4 5 6; do
               status="$(curl --silent --show-error --location --output /dev/null --write-out '%{http_code}' "$url" || true)"
@@ -150,6 +150,12 @@ jobs:
 
               for attempt in 1 2 3; do
                 rm -f "$report"
+                status="$(curl --silent --show-error --location --output /dev/null --write-out '%{http_code}' "$url" || true)"
+                if [[ "$status" != "200" ]]; then
+                  echo "LIGHTHOUSE PRECHECK ${label}: run=${run} attempt=${attempt} status=${status:-transport-error}"
+                  sleep $((attempt * 5))
+                  continue
+                fi
 
                 if lighthouse "$url" \
                   --output=json \
