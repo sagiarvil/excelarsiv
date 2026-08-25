@@ -3,7 +3,9 @@ import { readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const distDir = 'dist';
-const externalFontPattern = /<link\s+data-ea-typography-font\s+href="https:\/\/fonts\.googleapis\.com\/css2\?family=Inter:[^"]+"\s+rel="stylesheet">/g;
+// Typography mandate bazı sayfalarda attribute sırasını/ek attribute'ları değiştirebiliyor.
+// Dış Inter stylesheet'ini tag içindeki attribute sırasından bağımsız olarak kaldır.
+const externalFontPattern = /<link\b[^>]*href=["']https:\/\/fonts\.googleapis\.com\/css2\?family=Inter[^"']*["'][^>]*>/gi;
 const interToken = '--ea-font-sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;';
 const localToken = '--ea-font-sans:"Manrope",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;';
 
@@ -37,7 +39,7 @@ if (changed !== files.length) {
 
 for (const path of files) {
   const html = readFileSync(path, 'utf8');
-  if (html.includes('fonts.googleapis.com/css2?family=Inter')) {
+  if (/fonts\.googleapis\.com\/css2\?family=Inter/i.test(html)) {
     throw new Error(`LOCAL TYPOGRAPHY GATE: external Inter blocker remains in ${path}`);
   }
   if (html.includes('--ea-font-sans:Inter,')) {
