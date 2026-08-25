@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
-import { dirname, join, normalize, relative, resolve } from 'node:path';
+import { join, normalize, resolve } from 'node:path';
 
 const DIST = resolve('dist');
 const PRODUCT_DIR = join(DIST, 'sablon');
-const MAX_INLINE_BYTES = 6 * 1024;
-const MARKER = 'data-inline-small-product-css';
+// Product detail pages are performance-critical and currently ship their
+// layout/slug CSS as multiple render-blocking requests. Inlining the complete
+// product-page CSS set removes those round trips without weakening any
+// Lighthouse budget. The largest current bundle is ~130 KiB uncompressed.
+const MAX_INLINE_BYTES = 160 * 1024;
+const MARKER = 'data-inline-product-css';
 
 function walk(dir) {
   const out = [];
@@ -54,8 +58,8 @@ for (const file of walk(PRODUCT_DIR)) {
 }
 
 if (!pages) {
-  console.error('Small product CSS inline gate: no product HTML updated.');
+  console.error('Product CSS inline gate: no product HTML updated.');
   process.exit(1);
 }
 
-console.log(`SMALL PRODUCT CSS INLINE PASS — pages=${pages}, links=${linksInlined}, bytes=${bytesInlined}, max=${MAX_INLINE_BYTES}`);
+console.log(`PRODUCT CSS INLINE PASS — pages=${pages}, links=${linksInlined}, bytes=${bytesInlined}, max=${MAX_INLINE_BYTES}`);
