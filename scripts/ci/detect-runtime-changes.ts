@@ -49,6 +49,11 @@ export const HOSTING_PATHS = [
   'tsconfig.json',
   'package.json',
   'package-lock.json',
+  // Build sonrası dist çıktısını değiştiren tüm post-process/guard betikleri
+  // production Hosting davranışının parçasıdır. Bu klasördeki bir değişikliği
+  // atlamak, yeşil CI sonrası Hosting deployunun yanlışlıkla skip edilmesine
+  // neden olur.
+  'scripts/ci/',
   'scripts/seo/generate-artifacts.mjs',
   'scripts/seo/finalize-sitemap-index.mjs',
   'scripts/seo/validate-gates.mjs',
