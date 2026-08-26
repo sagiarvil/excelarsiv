@@ -44,7 +44,8 @@ test('C1/CWV critical pages defer below-fold rendering and keep heavy mobile her
   assert.doesNotMatch(homeHero, /<img\b/i);
   assert.match(homeHero, /class="hero-intents"/);
   assert.match(homeHero, /class="hero-proof"/);
-  assert.match(homeHero, /@media \(max-width: 720px\)[\s\S]*\.hero-grid\s*\{/);
+  assert.match(homeHero, /@media \(max-width: 1024px\)[\s\S]*?\.hero-grid\s*\{[\s\S]*?grid-template-columns:\s*1fr;/);
+  assert.match(homeHero, /@media \(max-width: 720px\)[\s\S]*?\.hero-intents\s*\{[\s\S]*?grid-template-columns:\s*1fr;/);
 
   assert.match(productHero, /source media="\(min-width: 761px\)" srcset=\{primary\.src\}/);
   assert.match(productHero, /\.product-hero__visual\{display:none\}/);
