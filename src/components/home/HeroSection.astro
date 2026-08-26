@@ -7,534 +7,153 @@ interface Props {
 }
 
 const { searchIndex } = Astro.props;
-
-const intents = [
-  { label: 'Nakit Akışı', detail: 'Haftalık açığı ve ödeme baskısını görün', href: '/sablonlar?q=nakit' },
-  { label: 'Tahsilat & Cari', detail: 'Geciken alacağı ve müşteri riskini izleyin', href: '/sablonlar?q=cari' },
-  { label: 'Banka & Kredi', detail: 'Limit, taksit ve finansman yükünü kontrol edin', href: '/sablonlar?q=kredi' },
-  { label: 'Kârlılık', detail: 'Marjı, sapmayı ve gerçek sonucu okuyun', href: '/sablonlar?q=kârlılık' },
-  { label: 'Muhasebe & Vergi', detail: 'Kayıt, kontrol ve dönem işlerini düzenleyin', href: '/sablonlar?q=vergi' },
-  { label: 'Stok & Üretim', detail: 'Miktar, devir ve maliyet akışını yönetin', href: '/sablonlar?q=stok' },
-];
-
-const trustFacts = [
-  { value: 'Demo', label: 'Satın almadan önce inceleyin' },
-  { value: 'KDV dahil', label: 'Gösterilen fiyat son fiyattır' },
-  { value: 'Tek ödeme', label: 'Abonelik zorunluluğu yok' },
-  { value: 'Shopier', label: 'Ödeme güvenli ödeme sayfasında' },
-];
 ---
 
 <section class="hero-section" aria-labelledby="hero-title">
   <div class="hero-shell">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <p class="hero-eyebrow">EXCEL ARŞİV · KARAR MERKEZİ</p>
-        <h1 id="hero-title" class="hero-title">Excel dosyası aramayın. Çözmek istediğiniz işi seçin.</h1>
-        <p class="hero-summary">Nakit akışı, tahsilat, banka-kredi, kârlılık, muhasebe ve operasyon için hazır Excel çalışma sistemlerini problemden başlayarak bulun. Önce ne yaptığını görün, sonra sistemi inceleyin.</p>
-
-        <div class="hero-intents" aria-label="İhtiyacınıza göre Excel sistemi bulun">
-          {intents.map((intent, index) => (
-            <a class="hero-intent" href={intent.href}>
-              <span class="hero-intent__index">0{index + 1}</span>
-              <span class="hero-intent__copy">
-                <strong>{intent.label}</strong>
-                <small>{intent.detail}</small>
-              </span>
-              <span class="hero-intent__arrow" aria-hidden="true">→</span>
-            </a>
-          ))}
-        </div>
-
-        <div class="hero-search-rail" id="hero-search">
-          <HeroSearch searchIndex={searchIndex} />
-        </div>
-      </div>
-
-      <aside class="hero-proof" aria-label="Excel Arşiv çalışma sistemi mantığı">
-        <div class="hero-proof__chrome">
-          <span class="hero-proof__file">Karar_Sistemi.xlsx</span>
-          <span class="hero-proof__status">HAZIR ÇALIŞMA DÜZENİ</span>
-        </div>
-
-        <div class="hero-proof__stage">
-          <div class="hero-proof__section">
-            <span class="hero-proof__step">01 · GİRDİ</span>
-            <div class="hero-proof__rows">
-              <div><span>Gelir / Tahsilat</span><strong>Giriş alanı</strong></div>
-              <div><span>Gider / Ödeme</span><strong>Giriş alanı</strong></div>
-              <div><span>Vade / Oran</span><strong>Kontrollü</strong></div>
-            </div>
-          </div>
-
-          <div class="hero-proof__connector" aria-hidden="true">↓</div>
-
-          <div class="hero-proof__section hero-proof__section--calc">
-            <span class="hero-proof__step">02 · HESAP + KONTROL</span>
-            <div class="hero-proof__formula"><span>fx</span><code>= Girdi − Çıkış</code></div>
-            <div class="hero-proof__signal"><span>Risk sinyali</span><strong>Vade baskısı görünür</strong></div>
-          </div>
-
-          <div class="hero-proof__connector" aria-hidden="true">↓</div>
-
-          <div class="hero-proof__section hero-proof__section--output">
-            <span class="hero-proof__step">03 · YÖNETİM ÇIKTISI</span>
-            <div class="hero-proof__kpis">
-              <div><small>NAKİT</small><strong>Tek bakış</strong></div>
-              <div><small>KÂR</small><strong>Karar</strong></div>
-              <div><small>RİSK</small><strong>Uyarı</strong></div>
-            </div>
-            <p>Ham satırlar yerine, neye bakmanız gerektiğini söyleyen bir çalışma düzeni.</p>
-          </div>
-        </div>
-      </aside>
+    <div class="hero-mobile-copy">
+      <p class="hero-mobile-copy__eyebrow">İŞLETMELER İÇİN EXCEL SİSTEMLERİ</p>
+      <h1 id="hero-title" class="hero-title">İşletmeler İçin Hazır Excel Şablonları ve Karar Sistemleri</h1>
+      <p class="hero-mobile-copy__summary">Nakit akışı, kasa, cari hesap, stok, maliyet ve kârlılık için hazır çalışma sistemlerini bulun; satın almadan önce gerçek ekranları ve demoyu inceleyin.</p>
     </div>
 
-    <div class="hero-trust" aria-label="Satın alma ve teslimat güven bilgileri">
-      {trustFacts.map((fact) => (
-        <div class="hero-trust__item">
-          <strong>{fact.value}</strong>
-          <span>{fact.label}</span>
-        </div>
-      ))}
+    <picture class="hero-artwork">
+      <source media="(min-width: 721px)" srcset="/images/hero.jpg" />
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+        alt="Excel şablonları ve finansal işletme çözümleri"
+        width="1600"
+        height="533"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </picture>
+
+    <div class="hero-search-rail" id="hero-search">
+      <HeroSearch searchIndex={searchIndex} />
     </div>
   </div>
 </section>
 
 <style>
   .hero-section {
-    margin: 0;
-    padding: var(--space-12) 0 var(--space-8);
-    background:
-      linear-gradient(rgba(16,124,65,.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(16,124,65,.035) 1px, transparent 1px),
-      var(--xl-paper, #fff);
-    background-size: 32px 32px;
-    border-bottom: 1px solid var(--xl-border, #dfe5e0);
+    margin-top: 28px;
+    margin-bottom: 46px;
   }
-
   .hero-shell {
-    width: min(var(--container-wide, 1320px), calc(100% - (var(--page-pad-desktop, 24px) * 2)));
+    position: relative;
+    width: min(1680px, calc(100% - 64px));
     margin-inline: auto;
+    padding-bottom: 28px;
   }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
-    gap: var(--space-12, 48px);
-    align-items: start;
+  .hero-mobile-copy {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
-
-  .hero-copy,
-  .hero-proof {
-    min-width: 0;
-  }
-
-  .hero-eyebrow {
-    margin: 0 0 var(--space-3, 12px);
-    font-family: var(--font-mono);
-    font-size: var(--t-xs, 12px);
-    font-weight: 800;
-    letter-spacing: .11em;
-    color: var(--xl-green, #107c41);
-  }
-
-  .hero-title {
-    max-width: 850px;
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: clamp(38px, 4.8vw, 68px);
-    font-weight: 780;
-    line-height: .98;
-    letter-spacing: -.045em;
-    text-wrap: balance;
-    color: var(--xl-ink, #152019);
-  }
-
-  .hero-summary {
-    max-width: 760px;
-    margin: var(--space-6, 24px) 0 0;
-    font-family: var(--font-body);
-    font-size: clamp(16px, 1.35vw, 18px);
-    line-height: 1.65;
-    color: var(--xl-ink-2, #4d5d53);
-  }
-
-  .hero-intents {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-2, 8px);
-    margin-top: var(--space-8, 32px);
-  }
-
-  .hero-intent {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    align-items: center;
-    gap: var(--space-3, 12px);
-    min-height: 72px;
-    padding: var(--space-3, 12px) var(--space-4, 16px);
-    border: 1px solid var(--xl-border, #dfe5e0);
-    border-radius: var(--r-lg, 6px);
-    background: rgba(255,255,255,.94);
-    color: var(--xl-ink, #152019);
-    text-decoration: none;
-    transition: transform .16s ease, border-color .16s ease, background .16s ease;
-  }
-
-  .hero-intent:hover {
-    transform: translateY(-1px);
-    border-color: rgba(16,124,65,.42);
-    background: var(--xl-green-tint, #e9f5ee);
-  }
-
-  .hero-intent:focus-visible {
-    outline: 3px solid rgba(15,108,189,.24);
-    outline-offset: 2px;
-  }
-
-  .hero-intent__index {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 800;
-    color: var(--xl-green, #107c41);
-  }
-
-  .hero-intent__copy {
-    min-width: 0;
-  }
-
-  .hero-intent__copy strong,
-  .hero-intent__copy small {
+  .hero-artwork {
+    position: relative;
     display: block;
+    overflow: hidden;
+    width: 100%;
+    margin-inline: auto;
+    aspect-ratio: 3 / 1;
+    border: 1px solid rgba(16, 124, 65, 0.12);
+    border-radius: 24px;
+    background: #eef3f6;
+    box-shadow: 0 24px 60px rgba(24, 55, 38, 0.13);
   }
-
-  .hero-intent__copy strong {
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 800;
-    line-height: 1.25;
+  .hero-artwork img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
-
-  .hero-intent__copy small {
-    margin-top: 4px;
-    font-family: var(--font-body);
-    font-size: 12px;
-    line-height: 1.35;
-    color: var(--xl-ink-3, #6f7c74);
-  }
-
-  .hero-intent__arrow {
-    font-size: 18px;
-    color: var(--xl-green, #107c41);
-  }
-
   .hero-search-rail {
-    margin-top: var(--space-8, 32px);
-    scroll-margin-top: 92px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: 10;
+    width: min(690px, calc(100% - 48px));
+    transform: translateX(-50%);
+    scroll-margin-top: 90px;
   }
 
-  .hero-search-rail :global(.hero-search__form),
-  .hero-search-rail :global(.hero-search__panel) {
-    border-radius: var(--r-xl, 6px) !important;
-  }
-
-  .hero-search-rail :global(.hero-search__button) {
-    border-radius: var(--r-base, 4px) !important;
-  }
-
-  .hero-search-rail :global(.hero-search__results > li > a),
-  .hero-search-rail :global(.hero-search__result-icon),
-  .hero-search-rail :global(.hero-search__empty) {
-    border-radius: var(--r-lg, 6px) !important;
-  }
-
-  .hero-proof {
-    overflow: hidden;
-    border: 1px solid var(--xl-border, #dfe5e0);
-    border-radius: var(--r-xl, 6px);
-    background: var(--xl-canvas, #fff);
-    box-shadow: 0 20px 46px rgba(18,43,28,.08);
-  }
-
-  .hero-proof__chrome {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--space-4, 16px);
-    padding: 12px 14px;
-    border-bottom: 1px solid var(--xl-border, #dfe5e0);
-    background: var(--xl-header, #f3f6f4);
-  }
-
-  .hero-proof__file,
-  .hero-proof__status,
-  .hero-proof__step {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: .07em;
-  }
-
-  .hero-proof__file { color: var(--xl-ink, #152019); }
-  .hero-proof__status { color: var(--xl-green, #107c41); text-align: right; }
-
-  .hero-proof__stage {
-    padding: var(--space-4, 16px);
-    background:
-      linear-gradient(rgba(16,124,65,.028) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(16,124,65,.028) 1px, transparent 1px),
-      #fff;
-    background-size: 24px 24px;
-  }
-
-  .hero-proof__section {
-    padding: var(--space-4, 16px);
-    border: 1px solid var(--xl-border, #dfe5e0);
-    border-radius: var(--r-base, 4px);
-    background: rgba(255,255,255,.96);
-  }
-
-  .hero-proof__step {
-    display: block;
-    margin-bottom: var(--space-3, 12px);
-    color: var(--xl-green, #107c41);
-  }
-
-  .hero-proof__rows {
-    display: grid;
-    gap: 7px;
-  }
-
-  .hero-proof__rows div,
-  .hero-proof__signal {
-    display: flex;
-    justify-content: space-between;
-    gap: 14px;
-    padding: 9px 10px;
-    border: 1px solid var(--xl-border, #e1e6e2);
-    background: var(--xl-paper, #fff);
-    font-family: var(--font-body);
-    font-size: 12px;
-    line-height: 1.35;
-  }
-
-  .hero-proof__rows span,
-  .hero-proof__signal span { color: var(--xl-ink-3, #6f7c74); }
-  .hero-proof__rows strong,
-  .hero-proof__signal strong { color: var(--xl-ink, #152019); text-align: right; }
-
-  .hero-proof__connector {
-    padding: 7px 0;
-    text-align: center;
-    font-family: var(--font-mono);
-    font-size: 15px;
-    color: var(--xl-green, #107c41);
-  }
-
-  .hero-proof__formula {
-    display: grid;
-    grid-template-columns: 34px minmax(0, 1fr);
-    align-items: center;
-    overflow: hidden;
-    border: 1px solid var(--xl-border, #e1e6e2);
-    background: #fff;
-  }
-
-  .hero-proof__formula span {
-    display: grid;
-    place-items: center;
-    min-height: 42px;
-    border-right: 1px solid var(--xl-border, #e1e6e2);
-    background: var(--xl-green-tint, #e9f5ee);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 800;
-    color: var(--xl-green, #107c41);
-  }
-
-  .hero-proof__formula code {
-    min-width: 0;
-    padding: 0 12px;
-    overflow-wrap: anywhere;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--xl-ink, #152019);
-  }
-
-  .hero-proof__signal {
-    margin-top: 8px;
-    border-left: 3px solid #c98a10;
-    background: #fffaf0;
-  }
-
-  .hero-proof__kpis {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-  }
-
-  .hero-proof__kpis div {
-    min-width: 0;
-    padding: 12px 10px;
-    border: 1px solid var(--xl-border, #e1e6e2);
-    background: var(--xl-paper, #fff);
-  }
-
-  .hero-proof__kpis small,
-  .hero-proof__kpis strong {
-    display: block;
-  }
-
-  .hero-proof__kpis small {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: .08em;
-    color: var(--xl-ink-3, #6f7c74);
-  }
-
-  .hero-proof__kpis strong {
-    margin-top: 6px;
-    font-family: var(--font-body);
-    font-size: 14px;
-    color: var(--xl-ink, #152019);
-  }
-
-  .hero-proof__section--output p {
-    margin: 12px 0 0;
-    font-family: var(--font-body);
-    font-size: 12px;
-    line-height: 1.5;
-    color: var(--xl-ink-2, #4d5d53);
-  }
-
-  .hero-trust {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    margin-top: var(--space-8, 32px);
-    border: 1px solid var(--xl-border, #dfe5e0);
-    border-radius: var(--r-base, 4px);
-    background: rgba(255,255,255,.92);
-  }
-
-  .hero-trust__item {
-    min-width: 0;
-    padding: 14px 16px;
-  }
-
-  .hero-trust__item + .hero-trust__item {
-    border-left: 1px solid var(--xl-border, #dfe5e0);
-  }
-
-  .hero-trust__item strong,
-  .hero-trust__item span {
-    display: block;
-  }
-
-  .hero-trust__item strong {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: .04em;
-    color: var(--xl-green, #107c41);
-  }
-
-  .hero-trust__item span {
-    margin-top: 5px;
-    font-family: var(--font-body);
-    font-size: 12px;
-    line-height: 1.4;
-    color: var(--xl-ink-3, #6f7c74);
-  }
-
-  @media (max-width: 1024px) {
+  @media (min-width: 721px) and (max-width: 1180px) {
     .hero-shell {
-      width: min(var(--container-main, 1180px), calc(100% - (var(--page-pad-tablet, 20px) * 2)));
-    }
-    .hero-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-8, 32px);
-    }
-    .hero-proof {
-      max-width: 760px;
+      width: calc(100% - 40px);
     }
   }
 
   @media (max-width: 720px) {
     .hero-section {
-      padding: var(--space-8, 32px) 0 var(--space-6, 24px);
-      background-size: 24px 24px;
+      margin-top: 12px;
+      margin-bottom: 0;
     }
     .hero-shell {
-      width: calc(100% - (var(--page-pad-mobile, 16px) * 2));
+      width: calc(100% - 24px);
+      padding-bottom: 0;
+    }
+    .hero-mobile-copy {
+      position: relative;
+      width: auto;
+      height: auto;
+      padding: 22px 18px 20px;
+      margin: 0;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+      border: 1px solid rgba(16, 124, 65, .13);
+      border-radius: 18px;
+      background: linear-gradient(145deg, #f8fcf9 0%, #eef7f1 100%);
+      box-shadow: 0 14px 34px rgba(24, 55, 38, .08);
+    }
+    .hero-mobile-copy__eyebrow {
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: .09em;
+      color: #107c41;
     }
     .hero-title {
-      font-size: clamp(34px, 10.5vw, 46px);
-      line-height: 1;
+      max-width: 520px;
+      margin: 8px 0 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: clamp(29px, 8.8vw, 38px);
+      font-weight: 760;
+      line-height: 1.01;
+      letter-spacing: -.045em;
+      color: #13271b;
     }
-    .hero-summary {
-      margin-top: var(--space-4, 16px);
-      font-size: 16px;
-      line-height: 1.58;
+    .hero-mobile-copy__summary {
+      max-width: 560px;
+      margin: 11px 0 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 12px;
+      line-height: 1.52;
+      color: #596960;
     }
-    .hero-intents {
-      grid-template-columns: 1fr;
-      margin-top: var(--space-6, 24px);
-    }
-    .hero-intent {
-      min-height: 68px;
-    }
-    .hero-search-rail {
-      margin-top: var(--space-6, 24px);
-    }
-    .hero-proof__chrome {
-      align-items: flex-start;
-    }
-    .hero-proof__kpis {
-      grid-template-columns: 1fr;
-    }
-    .hero-trust {
-      grid-template-columns: 1fr 1fr;
-      margin-top: var(--space-6, 24px);
-    }
-    .hero-trust__item + .hero-trust__item {
-      border-left: 0;
-    }
-    .hero-trust__item:nth-child(even) {
-      border-left: 1px solid var(--xl-border, #dfe5e0);
-    }
-    .hero-trust__item:nth-child(n+3) {
-      border-top: 1px solid var(--xl-border, #dfe5e0);
-    }
-  }
-
-  @media (max-width: 390px) {
-    .hero-title {
-      font-size: 34px;
-    }
-    .hero-intent {
-      grid-template-columns: auto minmax(0, 1fr);
-    }
-    .hero-intent__arrow {
+    .hero-artwork {
       display: none;
     }
-    .hero-trust {
-      grid-template-columns: 1fr;
-    }
-    .hero-trust__item:nth-child(even) {
-      border-left: 0;
-    }
-    .hero-trust__item + .hero-trust__item {
-      border-top: 1px solid var(--xl-border, #dfe5e0);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-intent {
-      transition: none;
-    }
-    .hero-intent:hover {
+    .hero-search-rail {
+      position: relative;
+      left: auto;
+      bottom: auto;
       transform: none;
+      width: calc(100% - 24px);
+      margin: 12px auto 0;
+      scroll-margin-top: 72px;
     }
   }
 </style>
