@@ -1,6 +1,6 @@
 # Excel Arşiv Design System Contract
 
-Version: 1.0.0  
+Version: 1.1.0  
 Scope: `excelarsiv.com` source UI, visual system, responsive behavior, commercial UX and future agent work  
 Status: mandatory design contract
 
@@ -22,7 +22,7 @@ If an older document conflicts with the current source or this file, use this pr
 2. This `DESIGN.md`.
 3. Current runtime tokens/components in `src/styles/global.css` and `src/components/`.
 4. Existing page implementation when it does not conflict with 1-3.
-5. External inspiration such as 21st.dev.
+5. External inspiration such as 21st.dev or high-trust financial product sites.
 
 `DNA.txt` contains valuable project history but some visual values are historical. It must not override current v5 runtime tokens or this file.
 
@@ -712,13 +712,23 @@ Mitigation:
 - keep the product/commercial source of truth separate from presentation;
 - run existing smoke, SEO and commerce validation after every redesign.
 
+### Failure mode E — fintech inspiration becomes visual imitation
+
+Symptom: Excel Arşiv starts copying another financial brand's palette, layout proportions, typography, illustrations or branded components.
+
+Mitigation:
+
+- borrow navigation logic, trust sequencing and conversion mechanics only;
+- keep Excel Arşiv tokens, workbook evidence and component vocabulary authoritative;
+- never reproduce another site's branded artwork, exact copy, logo treatment or signature visual composition.
+
 ---
 
 ## 16. Agent execution prompt
 
 For any future UI task, use this execution model:
 
-> Read `DESIGN.md`, `AGENTS.md`, the target page/component and the relevant tokens in `src/styles/global.css` before changing code. Treat `DESIGN.md` as the visual contract and existing product/commerce data as factual truth. Reuse existing components and tokens. Use 21st.dev only as composition/interaction inspiration; do not import a new runtime or copy its visual identity. Preserve protected surfaces, SEO, routes, schema and commerce behavior. Implement the requested change with responsive behavior designed from 320px through 1440px. Do not use page-level overflow masking to hide layout defects. Validate long Turkish copy, tables, screenshots, CTAs, focus states and reduced motion. Run `npm run guard:design`, `npm run build` and `npm test`. A change is complete only when the requested visual result is achieved without overflow, clipping, broken navigation, schema/SEO regressions or commercial-flow regressions.
+> Read `DESIGN.md`, `AGENTS.md`, the target page/component and the relevant tokens in `src/styles/global.css` before changing code. Treat `DESIGN.md` as the visual contract and existing product/commerce data as factual truth. Reuse existing components and tokens. Use 21st.dev and high-trust financial product sites only as composition, information-architecture and interaction inspiration; do not import a new runtime or copy another brand's visual identity. Preserve protected surfaces, SEO, routes, schema and commerce behavior. Implement the requested change with responsive behavior designed from 320px through 1440px. Do not use page-level overflow masking to hide layout defects. Validate long Turkish copy, tables, screenshots, CTAs, focus states and reduced motion. Run `npm run guard:design`, `npm run build` and `npm test`. A change is complete only when the requested visual result is achieved without overflow, clipping, broken navigation, schema/SEO regressions or commercial-flow regressions.
 
 ---
 
@@ -735,3 +745,197 @@ A design change is done only when:
 - real product proof remains readable;
 - accessibility fundamentals pass;
 - repository guards/build/tests pass.
+
+---
+
+## 18. Fintech Trust & Conversion Architecture
+
+This section captures the transferable strengths of high-trust financial product interfaces such as iyzico without copying their brand identity, artwork, copy, palette or proprietary visual treatment.
+
+The objective is not to make Excel Arşiv look like a payment company. The objective is to make a large and technically complex product portfolio feel easy to understand, safe to evaluate and easy to buy.
+
+### 18.1 Intent-first navigation
+
+Users are not required to know the product name before they can find the right system.
+
+Primary discovery should begin with the business outcome or pain point. Preferred top-level decision families are:
+
+- Nakit Akışı;
+- Tahsilat;
+- Banka & Kredi;
+- Kârlılık;
+- Muhasebe & Vergi;
+- Stok & Üretim;
+- Personel / Operasyon when the catalog justifies it.
+
+Rules:
+
+1. A user should reach a relevant product family in no more than two meaningful decisions.
+2. Do not expose the full catalog in the primary navigation.
+3. Product-name search remains available for users who already know what they need.
+4. Search and intent routing must converge on the same canonical product pages; do not create duplicate SEO routes for UI convenience.
+
+### 18.2 Persona routing
+
+Persona is a secondary routing aid, not the first taxonomy by default.
+
+Use personas only when they materially change the recommended content or product set. Supported examples include:
+
+- Patron / Yönetici;
+- Finans;
+- Muhasebe;
+- Mali Müşavir;
+- Operasyon.
+
+Do not duplicate the same product catalog five times under persona labels. Persona routing should narrow or reorder, not fragment the source of truth.
+
+### 18.3 Outcome taxonomy
+
+Every product must have a clear user-facing outcome classification in addition to its internal category.
+
+A product card or recommendation should answer at least one of these questions:
+
+- What will I know after using it?
+- What risk will I detect earlier?
+- What repetitive work will it reduce?
+- What management decision will it support?
+
+Avoid category labels that explain the file format but not the business outcome.
+
+### 18.4 Evidence ladder
+
+Every high-intent commercial page should move from claim to evidence in a deliberate order:
+
+`problem -> solution -> real product screen -> how it works -> input/output -> controls/risk -> demo/proof -> compatibility/trust -> price -> purchase`
+
+Rules:
+
+1. A significant claim should be followed by nearby proof where practical.
+2. Real workbook screenshots outrank decorative illustrations as product evidence.
+3. Product specifications support evidence; they do not replace evidence.
+4. A demo must be presented as evaluation proof, not as a low-value freebie.
+5. If evidence does not exist, do not fabricate it. Use accurate product facts instead.
+
+### 18.5 Trust density
+
+Trust must be distributed through the journey rather than isolated in one logo wall or footer.
+
+High-value trust facts include only verifiable information such as:
+
+- real Excel screenshots;
+- demo availability;
+- compatible Excel versions;
+- macro requirement or macro-free status;
+- protected formula behavior where factual;
+- sheet/workbook structure;
+- delivery method;
+- one-time/subscription status;
+- payment provider;
+- KDV state;
+- support/contact path;
+- documented product controls and validation behavior.
+
+Forbidden:
+
+- invented customer logos;
+- fabricated transaction/sales counts;
+- fake review scores;
+- fake live-user indicators;
+- unsupported "most preferred" or market-leader claims.
+
+### 18.6 Contextual CTA hierarchy
+
+A CTA should match the user's current level of certainty.
+
+Default hierarchy:
+
+- discovery/hero: `Sistemi Bul` or equivalent problem-led action;
+- catalog/product card: `İncele`;
+- proof/demo area: `Demoyu Gör` / `Demoyu İncele` when available;
+- final purchase area: `Satın Al`.
+
+Rules:
+
+1. Do not repeat the same visually dominant CTA in every section.
+2. One decision block normally has one dominant action.
+3. A secondary CTA must support the primary decision, not compete with it.
+4. Sticky mobile purchase UI may repeat the purchase action because it solves navigation friction, but it must not cover content or violate safe-area rules.
+
+### 18.7 Solution ecosystem and cross-sell
+
+Related products are not random recommendations.
+
+A related-system block should be generated from the user's business workflow:
+
+`previous step -> current decision -> next step`
+
+Examples:
+
+- tahsilat takibi -> nakit akışı -> ödeme planlama;
+- banka limitleri -> kredi taksit takibi -> nakit etkisi;
+- satış/kârlılık -> fiyat ayarlama -> yönetim paneli.
+
+Cross-sell must help the user complete a workflow. Do not use unrelated products only to increase card count.
+
+### 18.8 Progressive disclosure
+
+The first viewport explains business value. Technical detail appears when the user needs it to reduce risk or confirm suitability.
+
+Preferred disclosure order:
+
+1. outcome/problem;
+2. proof;
+3. how it works;
+4. suitability and requirements;
+5. technical workbook detail;
+6. purchase terms.
+
+Do not put sheet counts, formula terminology or implementation trivia ahead of the business result unless that technical fact is itself a purchase blocker.
+
+### 18.9 Home-page conversion sequence
+
+When a future deliberate redesign of the protected home surface is approved, prefer this sequence:
+
+`INTENT -> RIGHT SOLUTION -> REAL PRODUCT -> HOW IT WORKS -> WHAT IT CONTROLS -> EVIDENCE -> DEMO -> PURCHASE`
+
+Implementation guidance:
+
+- Hero starts with the user's control problem, not a generic quality claim.
+- Intent choices use a compact decision interface, not a wall of dozens of cards.
+- Flagship products appear after the user understands the catalog logic.
+- Real workbook proof appears before long marketing copy.
+- Trust facts are attached to the relevant decision stage.
+- Purchase is the final confidence step, not the first thing shouted at the user.
+
+Protected-surface rules remain binding. This sequence is a design target, not permission to bypass `scripts/ci/protected-surfaces.mjs`.
+
+### 18.10 Conversion anti-patterns
+
+Reject the following:
+
+- placing all catalog products in a mega-menu;
+- organizing the site only by internal category names;
+- generic SaaS card walls with equal visual weight;
+- three or more competing primary CTAs in one viewport;
+- a hero that says "premium" without showing proof;
+- a trust section built from unverifiable logos or numbers;
+- pushing technical Excel detail before the business outcome;
+- unrelated cross-sell blocks;
+- copying another financial brand's palette, illustrations, navigation chrome, wording or signature component styling.
+
+### 18.11 Measurable conversion-design acceptance gates
+
+For future UI changes that touch discovery, product evaluation or purchase paths, verify:
+
+- [ ] Product family reachable within <= 2 meaningful user decisions where intent routing applies.
+- [ ] One dominant CTA per decision block.
+- [ ] No fabricated trust evidence.
+- [ ] Product proof is real or explicitly labeled as illustrative.
+- [ ] Technical detail does not precede the core business outcome without a documented reason.
+- [ ] Related products share a real workflow relationship.
+- [ ] Mobile intent controls and CTA targets meet the touch-size contract.
+- [ ] No page-level horizontal overflow at required widths.
+- [ ] Discovery and search resolve to canonical product routes.
+- [ ] Protected-surface, SEO, commerce and accessibility guards still pass.
+
+A conversion-oriented design is successful only if it reduces decision friction without weakening Excel Arşiv's native workbook identity, factual accuracy or technical safeguards.
