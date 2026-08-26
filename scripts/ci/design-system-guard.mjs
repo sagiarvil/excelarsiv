@@ -41,6 +41,7 @@ const pkgText = read('package.json');
 
 requireText(design, 'DESIGN.md', [
   '# Excel Arşiv Design System Contract',
+  'Version: 1.1.0',
   '## 2. 21st.dev reference policy',
   'https://21st.dev/community/components/s/comparison',
   '## 3. Runtime design tokens',
@@ -54,6 +55,11 @@ requireText(design, 'DESIGN.md', [
   '## 14. QA checklist for every visual change',
   '## 16. Agent execution prompt',
   '## 17. Definition of done',
+  '## 18. Fintech Trust & Conversion Architecture',
+  '### 18.1 Intent-first navigation',
+  '### 18.4 Evidence ladder',
+  '### 18.6 Contextual CTA hierarchy',
+  '### 18.11 Measurable conversion-design acceptance gates',
 ]);
 
 requireText(agents, 'AGENTS.md', [
