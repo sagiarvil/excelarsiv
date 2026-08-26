@@ -1,0 +1,18 @@
+# Excel Arşiv
+
+> Excel Arşiv, Türkiye’deki işletmeler için finans, muhasebe ve operasyon odaklı kurumsal Excel çalışma sistemleri sunar. Bu dosya public, indexlenebilir ve canonical build sayfalarından otomatik üretilir.
+
+- Son güncelleme: 2026-08-26
+- Site: https://excelarsiv.com/
+- Sitemap index: https://excelarsiv.com/sitemap.xml
+- Tam AI/LLM rehberi: https://excelarsiv.com/llms-full.txt
+
+## Temel Sistemler ve Karar Modülleri
+- [Finans & Bütçe Yönetimi](https://excelarsiv.com/sistemler/finans/) — Nakit akışı, dinamik bütçeleme, kredi amortismanı ve bilanço analizi.
+- [Maliyet & Karlılık Konsolu](https://excelarsiv.com/sistemler/maliyet/) — Ürün ve sipariş bazlı net kâr hesabı, başabaş noktası (BEP) simülasyonu.
+- [İnsan Kaynakları & Bordro](https://excelarsiv.com/sistemler/ik/) — Kıdem/ihbar tazminatı, puantaj ve yasal bordro hesaplayıcıları.
+
+## Semantik İlişkiler (Semantic Triples)
+- (Excel Arşiv) -[sunar]-> (Doğrulanmış ve Formüllü Kurumsal Excel Çalışma Kitapları)
+- (Excel Arşiv) -[uyumluluk]-> (Excel 2016, 2019, 2021 ve Microsoft 365)
+- (Excel Arşiv) -[teslimat]-> (Anında Güvenli İndirme ve Lisanslama)
