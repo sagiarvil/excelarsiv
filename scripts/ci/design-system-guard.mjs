@@ -88,7 +88,8 @@ requireText(commerceLayout, 'src/layouts/CommerceLayout.astro', [
   'href="#icerik"',
 ]);
 requireText(workbookLayout, 'src/layouts/WorkbookLayout.astro', [
-  'width=device-width, initial-scale=1, viewport-fit=cover',
+  'width=device-width, initial-scale=1',
+  'href="#icerik"',
 ]);
 
 let pkg = null;
