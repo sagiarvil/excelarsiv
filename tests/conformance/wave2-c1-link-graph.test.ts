@@ -35,10 +35,18 @@ test('C1/CWV critical pages defer below-fold rendering and keep heavy mobile her
   assert.match(home, /content-visibility:\s*auto/);
   assert.match(home, /contain-intrinsic-size:\s*auto\s+760px/);
   assert.match(home, /<HeroSection searchIndex=\{searchIndex\}\s*\/>/);
-  assert.match(homeHero, /<source media="\(min-width: 721px\)" srcset="\/images\/hero\.jpg"/);
-  assert.match(homeHero, /data:image\/gif;base64/);
-  assert.match(homeHero, /\.hero-artwork\s*\{[\s\S]*aspect-ratio:\s*3\s*\/\s*1/);
-  assert.match(homeHero, /@media \(max-width: 720px\)[\s\S]*\.hero-artwork\s*\{[\s\S]*display:\s*none/);
+
+  // DESIGN.md home v1 intentionally replaces the former raster hero artwork with a
+  // CSS/markup decision console. This tightens the CWV invariant: the old heavy
+  // hero.jpg may not re-enter the homepage critical path on either desktop or mobile.
+  assert.doesNotMatch(homeHero, /\/images\/hero\.jpg/);
+  assert.doesNotMatch(homeHero, /<picture\b/i);
+  assert.doesNotMatch(homeHero, /<img\b/i);
+  assert.match(homeHero, /class="hero-intents"/);
+  assert.match(homeHero, /class="hero-proof"/);
+  assert.match(homeHero, /@media \(max-width: 1024px\)[\s\S]*?\.hero-grid\s*\{[\s\S]*?grid-template-columns:\s*1fr;/);
+  assert.match(homeHero, /@media \(max-width: 720px\)[\s\S]*?\.hero-intents\s*\{[\s\S]*?grid-template-columns:\s*1fr;/);
+
   assert.match(productHero, /source media="\(min-width: 761px\)" srcset=\{primary\.src\}/);
   assert.match(productHero, /\.product-hero__visual\{display:none\}/);
   assert.match(productHero, /product-hero__mobile-proof-link/);
