@@ -1,253 +1,31 @@
 ---
-interface Props {
-  pageTitle: string;
-}
-
+interface Props { pageTitle: string; }
 const { pageTitle } = Astro.props;
 const pathname = Astro.url.pathname;
-
 const menu = [
-  { label: 'Şablonlar', href: '/sablonlar' },
-  { label: 'Size Özel', href: '/ozel-excel-sistemleri' },
-  { label: 'Ücretsiz Demo', href: '/demo' },
-  { label: 'Nasıl Çalışır', href: '/nasil-calisir' },
-  { label: 'Rehber', href: '/rehber' },
-  { label: 'Hakkında', href: '/hakkinda' },
-  { label: 'İletişim', href: '/iletisim' },
+  { label:'Şablonlar',href:'/sablonlar' },{ label:'Size Özel',href:'/ozel-excel-sistemleri' },{ label:'Ücretsiz Demo',href:'/demo' },{ label:'Nasıl Çalışır',href:'/nasil-calisir' },{ label:'Rehber',href:'/rehber' },{ label:'Hakkında',href:'/hakkinda' },{ label:'İletişim',href:'/iletisim' },
 ];
-
-const isActive = (href: string) =>
-  href === '/sablonlar' ? pathname.startsWith('/sablon') : pathname === href;
-
-// Kritik performans kuralı: mobil fallback hiçbir koşulda 785 KB PNG olamaz.
-// Chromium preload scanner <img src> değerini <picture> media seçimi tamamlanmadan
-// aday olarak indirebildiği için hafif inline SVG fallback'te tutulur; ağır marka
-// görseli yalnızca masaüstü source eşleştiğinde istenir.
-const mobileBrandMark =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230b7440'/%3E%3Cpath d='M11 10h18v20H11z' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M15 15l10 10M25 15L15 25' stroke='%23fff' stroke-width='2.7' stroke-linecap='round'/%3E%3C/svg%3E";
+const isActive=(href:string)=>href==='/sablonlar'?pathname.startsWith('/sablon'):pathname===href;
 ---
-
 <header class="site-header">
   <div class="site-container site-header__inner">
     <a href="/" class="site-header__brand" aria-label="Excel Arşiv ana sayfa">
-      <picture class="site-header__logo-wrap">
-        <source media="(min-width: 761px)" srcset="/images/brand/excelarsiv-header-logo.png" />
-        <img
-          src={mobileBrandMark}
-          alt="Excel Arşiv"
-          width="40"
-          height="40"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          class="site-header__logo"
-        />
-      </picture>
-      <span class="site-header__brand-text">
-        <span class="site-header__wordmark">Excel Arşiv</span>
-        <span class="site-header__tagline">Hazır Excel işletme sistemleri</span>
-      </span>
+      <span class="site-header__logo-wrap"><img src="/images/brand/excelarsiv-header-logo.png" alt="Excel Arşiv" width="40" height="40" loading="eager" fetchpriority="high" decoding="async" class="site-header__logo" /></span>
+      <span class="site-header__brand-text"><span class="site-header__wordmark">Excel Arşiv</span><span class="site-header__tagline">Hazır Excel işletme sistemleri</span></span>
     </a>
-
-    <nav class="site-header__nav" aria-label="Ana menü">
-      {
-        menu.map((item) => {
-          const active = isActive(item.href);
-          return (
-            <a
-              href={item.href}
-              aria-current={active ? 'page' : undefined}
-              class={`site-header__link${active ? ' is-active' : ''}`}
-            >
-              {item.label}
-            </a>
-          );
-        })
-      }
-    </nav>
-
+    <nav class="site-header__nav" aria-label="Ana menü">{menu.map((item)=>{const active=isActive(item.href);return <a href={item.href} aria-current={active?'page':undefined} class={`site-header__link${active?' is-active':''}`}>{item.label}</a>;})}</nav>
     <div class="site-header__actions">
-      <a class="site-header__cta" href="/sablonlar">
-        <span class="site-header__cta-desktop">Sistemleri İncele</span>
-        <span class="site-header__cta-mobile">Sistemler</span>
-      </a>
-      <details class="site-header__menu">
-        <summary aria-label="Menüyü aç"><span></span><span></span><span></span></summary>
-        <nav class="site-header__mobile-nav" aria-label="Mobil menü">
-          {menu.map((item) => <a href={item.href}>{item.label}</a>)}
-        </nav>
-      </details>
+      <a class="site-header__cta" href="/sablonlar"><span class="site-header__cta-desktop">Sistemleri İncele</span><span class="site-header__cta-mobile">Şablonlar</span></a>
+      <details class="site-header__menu"><summary aria-label="Menüyü aç"><span></span><span></span><span></span></summary><nav class="site-header__mobile-nav" aria-label="Mobil menü">{menu.map((item)=><a href={item.href} aria-current={isActive(item.href)?'page':undefined}>{item.label}</a>)}</nav></details>
     </div>
   </div>
 </header>
-
 <style>
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--xl-grid);
-  }
-  .site-header__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    min-height: 68px;
-  }
-  .site-header__brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    min-width: 0;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .site-header__logo-wrap {
-    display: block;
-    width: 40px;
-    height: 40px;
-    flex: none;
-  }
-  .site-header__logo {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    display: block;
-    flex: none;
-  }
-  .site-header__brand-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.15;
-  }
-  .site-header__wordmark {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    color: var(--xl-ink-900);
-    white-space: nowrap;
-  }
-  .site-header__tagline {
-    font-size: 9px;
-    letter-spacing: 0.02em;
-    color: var(--xl-ink-3);
-  }
-  .site-header__nav {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-inline: auto;
-  }
-  .site-header__link {
-    padding: 9px 9px;
-    border-radius: 9px;
-    font-size: 13px;
-    font-weight: 550;
-    color: var(--xl-ink-3);
-    text-decoration: none;
-    transition: color 150ms ease-out, background 150ms ease-out;
-  }
-  .site-header__link:hover,
-  .site-header__link.is-active {
-    color: var(--xl-green-dark);
-    background: var(--xl-accent-soft);
-  }
-  .site-header__actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-  }
-  .site-header__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 42px;
-    padding-inline: 16px;
-    border-radius: 11px;
-    background: var(--xl-green);
-    color: #fff;
-    font-family: var(--font-mono);
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: none;
-  }
-  .site-header__cta:hover { background: var(--xl-accent-dark); }
-  .site-header__cta-mobile,
-  .site-header__menu { display: none; }
-
-  @media (max-width: 1020px) {
-    .site-header__nav { display: none; }
-    .site-header__menu { display: block; position: relative; }
-    .site-header__menu summary {
-      display: grid;
-      place-content: center;
-      gap: 4px;
-      width: 38px;
-      height: 38px;
-      border: 1px solid var(--xl-border);
-      border-radius: 10px;
-      background: #fff;
-      cursor: pointer;
-      list-style: none;
-    }
-    .site-header__menu summary::-webkit-details-marker { display: none; }
-    .site-header__menu summary span {
-      display: block;
-      width: 16px;
-      height: 1.5px;
-      background: var(--xl-ink-900);
-      border-radius: 2px;
-    }
-    .site-header__mobile-nav {
-      position: absolute;
-      top: 46px;
-      right: 0;
-      display: grid;
-      min-width: 220px;
-      padding: 8px;
-      border: 1px solid var(--xl-border);
-      border-radius: 14px;
-      background: #fff;
-      box-shadow: 0 18px 48px rgba(24, 55, 38, 0.16);
-    }
-    .site-header__mobile-nav a {
-      padding: 11px 12px;
-      border-radius: 9px;
-      color: var(--xl-ink-900);
-      font-size: 13px;
-      text-decoration: none;
-    }
-    .site-header__mobile-nav a:hover { background: var(--xl-accent-soft); }
-  }
-
-  @media (max-width: 640px) {
-    .site-header__inner {
-      min-height: 56px;
-      gap: 10px;
-    }
-    .site-header__logo-wrap,
-    .site-header__logo { width: 32px; height: 32px; }
-    .site-header__wordmark { font-size: 16px; }
-    .site-header__cta {
-      min-height: 36px;
-      height: 36px;
-      padding-inline: 11px;
-      font-size: 12px;
-    }
-    .site-header__cta-desktop { display: none; }
-    .site-header__cta-mobile { display: inline; }
-    .site-header__tagline { display: none; }
-    .site-header__menu summary { width: 36px; height: 36px; }
-  }
-
-  @media (max-width: 420px) {
-    .site-header__wordmark { font-size: 15px; }
-    .site-header__brand { gap: 7px; }
-    .site-header__cta { padding-inline: 9px; }
-  }
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(16px) saturate(150%);border-bottom:1px solid var(--xl-grid)}
+.site-header__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:68px}.site-header__brand{display:inline-flex;align-items:center;gap:9px;min-width:0;text-decoration:none;flex-shrink:0}.site-header__logo-wrap{display:grid;place-items:center;width:40px;height:40px;flex:none;overflow:hidden}.site-header__logo{width:40px;height:40px;object-fit:contain;display:block}.site-header__brand-text{display:flex;flex-direction:column;line-height:1.15}.site-header__wordmark{font-family:var(--font-display);font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--xl-ink-900);white-space:nowrap}.site-header__tagline{font-size:9px;letter-spacing:.02em;color:var(--xl-ink-3)}
+.site-header__nav{display:flex;align-items:center;gap:4px;margin-inline:auto}.site-header__link{padding:9px;border-radius:9px;font-size:13px;font-weight:550;color:var(--xl-ink-3);text-decoration:none;transition:color 150ms ease-out,background 150ms ease-out}.site-header__link:hover,.site-header__link.is-active{color:var(--xl-green-dark);background:var(--xl-accent-soft)}.site-header__actions{display:flex;align-items:center;gap:8px;flex-shrink:0}.site-header__cta{display:inline-flex;align-items:center;justify-content:center;height:42px;padding-inline:16px;border-radius:11px;background:var(--xl-green);color:#fff;font-family:var(--font-mono);font-size:13px;font-weight:700;text-decoration:none}.site-header__cta:hover{background:var(--xl-accent-dark)}.site-header__cta-mobile,.site-header__menu{display:none}
+@media(max-width:1020px){.site-header__nav{display:none}.site-header__menu{display:block;position:relative}.site-header__menu summary{display:grid;place-content:center;gap:4px;width:42px;height:42px;border:1px solid var(--xl-border);border-radius:11px;background:#fff;cursor:pointer;list-style:none}.site-header__menu summary::-webkit-details-marker{display:none}.site-header__menu summary span{display:block;width:17px;height:1.5px;background:var(--xl-ink-900);border-radius:2px}.site-header__mobile-nav{position:absolute;top:50px;right:0;display:grid;min-width:238px;padding:8px;border:1px solid var(--xl-border);border-radius:16px;background:#fff;box-shadow:0 22px 60px rgba(24,55,38,.16)}.site-header__mobile-nav a{min-height:44px;display:flex;align-items:center;padding:0 13px;border-radius:10px;color:var(--xl-ink-900);font-size:13px;font-weight:650;text-decoration:none}.site-header__mobile-nav a:hover,.site-header__mobile-nav a[aria-current='page']{background:var(--xl-accent-soft);color:var(--xl-green-dark)}}
+@media(max-width:640px){.site-header{box-shadow:0 1px 0 rgba(20,54,35,.04)}.site-header__inner{min-height:60px;gap:8px;padding-block:6px}.site-header__brand{gap:8px;min-width:0}.site-header__logo-wrap,.site-header__logo{width:38px;height:38px}.site-header__wordmark{font-size:16px;line-height:1}.site-header__tagline{display:block;margin-top:4px;max-width:128px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:8px}.site-header__cta{min-height:44px;height:44px;padding-inline:12px;border-radius:12px;font-size:11px;letter-spacing:.01em}.site-header__cta-desktop{display:none}.site-header__cta-mobile{display:inline}.site-header__menu summary{width:44px;height:44px;border-radius:12px}}
+@media(max-width:390px){.site-header__tagline{display:none}.site-header__wordmark{font-size:15px}.site-header__brand{gap:6px}.site-header__cta{padding-inline:10px}}
+@media(prefers-reduced-motion:reduce){.site-header__link{transition:none}}
 </style>
