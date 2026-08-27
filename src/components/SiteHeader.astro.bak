@@ -8,7 +8,6 @@ const pathname = Astro.url.pathname;
 
 const menu = [
   { label: 'Şablonlar', href: '/sablonlar' },
-  { label: 'Size Özel', href: '/ozel-excel-sistemleri' },
   { label: 'Ücretsiz Demo', href: '/demo' },
   { label: 'Nasıl Çalışır', href: '/nasil-calisir' },
   { label: 'Rehber', href: '/rehber' },
@@ -18,31 +17,21 @@ const menu = [
 
 const isActive = (href: string) =>
   href === '/sablonlar' ? pathname.startsWith('/sablon') : pathname === href;
-
-// Kritik performans kuralı: mobil fallback hiçbir koşulda 785 KB PNG olamaz.
-// Chromium preload scanner <img src> değerini <picture> media seçimi tamamlanmadan
-// aday olarak indirebildiği için hafif inline SVG fallback'te tutulur; ağır marka
-// görseli yalnızca masaüstü source eşleştiğinde istenir.
-const mobileBrandMark =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230b7440'/%3E%3Cpath d='M11 10h18v20H11z' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M15 15l10 10M25 15L15 25' stroke='%23fff' stroke-width='2.7' stroke-linecap='round'/%3E%3C/svg%3E";
 ---
 
 <header class="site-header">
   <div class="site-container site-header__inner">
     <a href="/" class="site-header__brand" aria-label="Excel Arşiv ana sayfa">
-      <picture class="site-header__logo-wrap">
-        <source media="(min-width: 761px)" srcset="/images/brand/excelarsiv-header-logo.png" />
-        <img
-          src={mobileBrandMark}
-          alt="Excel Arşiv"
-          width="40"
-          height="40"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          class="site-header__logo"
-        />
-      </picture>
+      <img
+        src="/images/excel-logo.png"
+        alt="Excel Arşiv"
+        width="34"
+        height="32"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="site-header__logo"
+      />
       <span class="site-header__brand-text">
         <span class="site-header__wordmark">Excel Arşiv</span>
         <span class="site-header__tagline">Hazır Excel işletme sistemleri</span>
@@ -105,19 +94,7 @@ const mobileBrandMark =
     text-decoration: none;
     flex-shrink: 0;
   }
-  .site-header__logo-wrap {
-    display: block;
-    width: 40px;
-    height: 40px;
-    flex: none;
-  }
-  .site-header__logo {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    display: block;
-    flex: none;
-  }
+  .site-header__logo { border-radius: 6px; }
   .site-header__brand-text {
     display: flex;
     flex-direction: column;
@@ -139,14 +116,14 @@ const mobileBrandMark =
   .site-header__nav {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     margin-inline: auto;
   }
   .site-header__link {
-    padding: 9px 9px;
+    padding: 9px 11px;
     border-radius: 9px;
-    font-size: 13px;
-    font-weight: 550;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--xl-ink-3);
     text-decoration: none;
     transition: color 150ms ease-out, background 150ms ease-out;
@@ -180,7 +157,7 @@ const mobileBrandMark =
   .site-header__cta-mobile,
   .site-header__menu { display: none; }
 
-  @media (max-width: 1020px) {
+  @media (max-width: 900px) {
     .site-header__nav { display: none; }
     .site-header__menu { display: block; position: relative; }
     .site-header__menu summary {
@@ -208,7 +185,7 @@ const mobileBrandMark =
       top: 46px;
       right: 0;
       display: grid;
-      min-width: 220px;
+      min-width: 210px;
       padding: 8px;
       border: 1px solid var(--xl-border);
       border-radius: 14px;
@@ -230,29 +207,21 @@ const mobileBrandMark =
       min-height: 56px;
       gap: 10px;
     }
-    .site-header__logo-wrap,
-    .site-header__logo { width: 32px; height: 32px; }
+    .site-header__logo { width: 27px; height: auto; }
     .site-header__wordmark { font-size: 16px; }
     .site-header__cta {
       min-height: 36px;
-      height: 36px;
-      padding-inline: 11px;
-      font-size: 12px;
+      padding: 0 12px;
+      border-radius: 10px;
+      font-size: 11.5px;
     }
     .site-header__cta-desktop { display: none; }
     .site-header__cta-mobile { display: inline; }
-    .site-header__tagline { display: none; }
     .site-header__menu summary { width: 36px; height: 36px; }
   }
 
-  @media (max-width: 420px) {
+  @media (max-width: 380px) {
     .site-header__wordmark { font-size: 15px; }
-    .site-header__brand { gap: 7px; }
-    .site-header__cta { padding-inline: 9px; }
+    .site-header__cta { padding-inline: 10px; }
   }
-
-.site-header {
-  position: relative;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 6px 16px -8px rgba(0, 0, 0, 0.18);
-}
 </style>
