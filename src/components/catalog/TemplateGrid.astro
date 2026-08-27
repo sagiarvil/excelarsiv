@@ -7,13 +7,35 @@ interface Props {
 }
 
 const { templates } = Astro.props;
+const mobileCategories = Array.from(
+  new Map(templates.map((template) => [template.categorySlug, template.categoryName])).entries(),
+);
 ---
 
 <div class="template-grid-wrap" data-template-grid-wrap>
+  <div class="mobile-catalog-dock" data-mobile-catalog-dock aria-label="Ürün kategorileri">
+    <div class="mobile-catalog-dock__top">
+      <div>
+        <span>ŞABLONLARI KEŞFET</span>
+        <strong>İhtiyacınıza göre daraltın</strong>
+      </div>
+      <span class="mobile-catalog-dock__count" data-mobile-visible-count>{templates.length} ürün</span>
+    </div>
+    <div class="mobile-catalog-dock__rail" role="group" aria-label="Kategori filtresi">
+      <button type="button" class="is-active" data-mobile-category="all">Tümü</button>
+      {mobileCategories.map(([slug, name]) => <button type="button" data-mobile-category={slug}>{name}</button>)}
+    </div>
+  </div>
+
   <ul class="template-grid" data-template-grid>
     {
       templates.map((template, index) => (
-        <li data-template-item data-priority={index === 0 ? 'true' : undefined}>
+        <li
+          data-template-item
+          data-priority={index === 0 ? 'true' : undefined}
+          data-mobile-category={template.categorySlug}
+          data-mobile-name={`${template.name} ${template.summary} ${template.categoryName}`.toLocaleLowerCase('tr-TR')}
+        >
           <KatalogUrunKarti template={template} priority={index === 0} />
         </li>
       ))
@@ -24,77 +46,141 @@ const { templates } = Astro.props;
 <script>
   import { mountCatalogFilter } from '../../scripts/catalog-filter';
   mountCatalogFilter();
+
+  const gridWrap = document.querySelector<HTMLElement>('[data-template-grid-wrap]');
+  const mobileDock = gridWrap?.querySelector<HTMLElement>('[data-mobile-catalog-dock]');
+  const items = gridWrap ? [...gridWrap.querySelectorAll<HTMLElement>('[data-template-item]')] : [];
+  const buttons = mobileDock ? [...mobileDock.querySelectorAll<HTMLButtonElement>('[data-mobile-category]')] : [];
+  const count = mobileDock?.querySelector<HTMLElement>('[data-mobile-visible-count]');
+  const search = document.querySelector<HTMLInputElement>('#catalog-search-input');
+  let activeCategory = 'all';
+
+  const normalize = (value: string) => value.toLocaleLowerCase('tr-TR')
+    .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[ıİ]/g, 'i').replace(/[ğĞ]/g, 'g').replace(/[şŞ]/g, 's')
+    .replace(/[çÇ]/g, 'c').replace(/[öÖ]/g, 'o').replace(/[üÜ]/g, 'u');
+
+  const applyMobileFilter = () => {
+    if (!gridWrap || window.matchMedia('(min-width: 681px)').matches) return;
+    const query = normalize(search?.value.trim() ?? '');
+    let visible = 0;
+    items.forEach((item) => {
+      const categoryMatch = activeCategory === 'all' || item.dataset.mobileCategory === activeCategory;
+      const textMatch = !query || normalize(item.dataset.mobileName ?? '').includes(query);
+      const show = categoryMatch && textMatch;
+      item.hidden = !show;
+      if (show) visible += 1;
+    });
+    if (count) count.textContent = `${visible} ürün`;
+  };
+
+  buttons.forEach((button) => button.addEventListener('click', () => {
+    activeCategory = button.dataset.mobileCategory ?? 'all';
+    buttons.forEach((item) => item.classList.toggle('is-active', item === button));
+    applyMobileFilter();
+  }));
+
+  search?.addEventListener('input', applyMobileFilter);
+
+  const requestedQuery = new URLSearchParams(window.location.search).get('q');
+  if (requestedQuery && search) {
+    search.value = requestedQuery;
+    search.dispatchEvent(new Event('input', { bubbles: true }));
+    document.querySelector('#katalog')?.scrollIntoView({ block: 'start' });
+  }
 </script>
 
 <style>
   .template-grid-wrap { min-width: 0; }
-  .template-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .template-grid > *,
-  .template-grid li { min-width: 0; }
+  .mobile-catalog-dock { display:none; }
+  .template-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin:0; padding:0; list-style:none; }
+  .template-grid > *, .template-grid li { min-width:0; }
+  .template-grid > li { display:flex; align-items:stretch; }
+  .template-grid > li > :global(.card) { width:100%; height:100%; }
+  .template-grid li:not([data-priority='true']) { content-visibility:auto; contain-intrinsic-size:560px; }
+  .template-grid li[hidden] { display:none; }
 
-  /* Tüm katalog kartları aynı satır yüksekliğini eksiksiz doldurur. */
-  .template-grid > li {
-    display: flex;
-    align-items: stretch;
+  @media (max-width:1080px) { .template-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+  @media (max-width:680px) {
+    .template-grid-wrap { margin-inline:-14px; }
+    .mobile-catalog-dock { position:sticky; top:64px; z-index:24; display:block; margin:0 0 14px; padding:12px 14px 10px; border-block:1px solid #e2e8e4; background:rgba(255,255,255,.96); backdrop-filter:blur(16px); box-shadow:0 8px 22px rgba(20,54,35,.06); }
+    .mobile-catalog-dock__top { display:flex; align-items:flex-end; justify-content:space-between; gap:12px; }
+    .mobile-catalog-dock__top>div { display:grid; gap:3px; min-width:0; }
+    .mobile-catalog-dock__top span:first-child { font:850 9px/1 var(--font-mono); letter-spacing:.12em; color:#107c41; }
+    .mobile-catalog-dock__top strong { font:800 16px/1.15 var(--font-body); color:#17251c; }
+    .mobile-catalog-dock__count { flex:0 0 auto; padding:6px 8px; border:1px solid #dae3dd; border-radius:999px; background:#f7faf8; font:800 9px/1 var(--font-mono); color:#4f6056; }
+    .mobile-catalog-dock__rail { display:flex; gap:7px; margin:10px -14px 0; padding:0 14px 2px; overflow-x:auto; scrollbar-width:none; scroll-snap-type:x proximity; }
+    .mobile-catalog-dock__rail::-webkit-scrollbar { display:none; }
+    .mobile-catalog-dock__rail button { flex:0 0 auto; min-height:34px; padding:0 12px; border:1px solid #dce4df; border-radius:999px; background:#fff; color:#536158; font:750 10px/1 var(--font-body); scroll-snap-align:start; }
+    .mobile-catalog-dock__rail button.is-active { border-color:#107c41; background:#107c41; color:#fff; box-shadow:0 6px 14px rgba(16,124,65,.16); }
+    .template-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; padding:0 14px; }
+    .template-grid li:not([data-priority='true']) { contain-intrinsic-size:410px; }
+    .template-grid > li > :global(.card) { border-radius:14px; overflow:hidden; border-color:#e0e5e1; box-shadow:0 6px 18px rgba(18,42,26,.055); }
+    .template-grid :global(.card:hover) { transform:none; box-shadow:0 6px 18px rgba(18,42,26,.055); }
+    .template-grid :global(.card__frame) { aspect-ratio:1.05/1; padding:6px; }
+    .template-grid :global(.card__titlebar) { height:20px; padding:0 6px; }
+    .template-grid :global(.card__filename) { font-size:7px; }
+    .template-grid :global(.card__app) { display:none; }
+    .template-grid :global(.card__fx) { height:14px; }
+    .template-grid :global(.card__fx-label) { padding:0 4px; font-size:7px; }
+    .template-grid :global(.card__sheets) { height:17px; }
+    .template-grid :global(.card__sheet) { max-width:52px; padding:0 4px; overflow:hidden; text-overflow:ellipsis; font-size:6px; }
+    .template-grid :global(.card__tab) { max-width:80%; padding:5px 7px 5px 14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:7px; }
+    .template-grid :global(.card__body) { gap:5px; padding:10px; }
+    .template-grid :global(.card__title) { min-height:2.6em; font-size:13px; line-height:1.25; }
+    .template-grid :global(.card__benefit) { display:none; }
+    .template-grid :global(.card__meta) { gap:4px; margin:2px 0 0; }
+    .template-grid :global(.card__meta li) { padding:3px 5px; font-size:7px; }
+    .template-grid :global(.card__meta li:nth-child(3)) { display:none; }
+    .template-grid :global(.card__divider) { margin:4px 0; }
+    .template-grid :global(.card__footer) { display:grid; grid-template-columns:1fr; gap:7px; align-items:start; }
+    .template-grid :global(.card__price-value) { font-size:16px; }
+    .template-grid :global(.card__price-label) { font-size:7px; }
+    .template-grid :global(.card__actions) { display:grid; grid-template-columns:1fr; }
+    .template-grid :global(.card__cta) { min-height:36px; display:flex; align-items:center; justify-content:center; padding:6px 7px; font-size:10px; border-radius:9px; }
+    .template-grid :global(.card__cta--ghost) { display:none; }
+    .template-grid :global(.card__cta--primary) { background:#107c41; color:#fff; }
   }
 
-  .template-grid > li > :global(.card) {
-    width: 100%;
-    height: 100%;
-  }
-  /* The first card is the mobile LCP candidate and must remain immediately
-     renderable. Following cards preserve their footprint while deferring
-     style/layout/paint until they approach the viewport. */
-  .template-grid li:not([data-priority='true']) {
-    content-visibility: auto;
-    contain-intrinsic-size: 560px;
-  }
-  .template-grid li[hidden] { display: none; }
-  @media (max-width: 1080px) {
-    .template-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-  @media (max-width: 680px) {
-    .template-grid { grid-template-columns: 1fr; gap: 14px; }
-    .template-grid li:not([data-priority='true']) { contain-intrinsic-size: 640px; }
-  }
-  :global(.empty-state) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: 56px 24px;
-    border: 1px dashed var(--xl-border);
-    border-radius: 16px;
-    background: #fff;
-    text-align: center;
-  }
-  :global(.empty-state[hidden]) {
-    display: none;
-  }
-  :global(.empty-state__icon) {
-    font-family: var(--font-mono);
-    font-size: 28px;
-    color: var(--xl-ink-3);
-  }
-  :global(.empty-state__title) {
-    margin: 0;
-    font-family: var(--font-body);
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--xl-ink-900);
-  }
-  :global(.empty-state__text) {
-    max-width: 420px;
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--xl-ink-3);
+  :global(.empty-state) { display:flex; flex-direction:column; align-items:center; gap:8px; padding:56px 24px; border:1px dashed var(--xl-border); border-radius:16px; background:#fff; text-align:center; }
+  :global(.empty-state[hidden]) { display:none; }
+  :global(.empty-state__icon) { font-family:var(--font-mono); font-size:28px; color:var(--xl-ink-3); }
+  :global(.empty-state__title) { margin:0; font-family:var(--font-body); font-size:18px; font-weight:700; color:var(--xl-ink-900); }
+  :global(.empty-state__text) { max-width:420px; margin:0; font-size:14px; line-height:1.6; color:var(--xl-ink-3); }
+</style>
+
+<style is:global>
+  @media (max-width:680px) {
+    .catalog-intro { background:linear-gradient(180deg,#f7faf8 0%,#fff 100%)!important; }
+    .catalog-intro__inner { padding-block:18px 20px!important; }
+    .catalog-intro__top { display:block!important; }
+    .catalog-intro__copy>span { font-size:9px!important; letter-spacing:.12em!important; }
+    .catalog-intro h1 { margin-top:8px!important; font-size:36px!important; line-height:.98!important; letter-spacing:-.05em!important; }
+    .catalog-intro__copy p { margin-top:10px!important; font-size:13px!important; line-height:1.5!important; }
+    .catalog-intro__proof { display:none!important; }
+    .catalog-intro__search { margin-top:18px!important; }
+    .catalog-intro__search .catalog-search__topline { display:none!important; }
+    .catalog-intro__search .catalog-search__control { grid-template-columns:22px minmax(0,1fr) auto!important; min-height:58px!important; padding:8px 10px 8px 13px!important; border-radius:16px!important; box-shadow:0 10px 28px rgba(20,54,35,.09)!important; }
+    .catalog-intro__search .catalog-search__field label { display:none!important; }
+    .catalog-intro__search .catalog-search__input { height:36px!important; font-size:15px!important; }
+    .catalog-intro__search .catalog-search__send { display:none!important; }
+    .catalog-flow { padding:14px 0 18px!important; }
+    .catalog-flow__surface { padding:16px!important; border-radius:18px!important; }
+    .catalog-flow__head { display:block!important; margin-bottom:14px!important; }
+    .catalog-flow__head h2 { font-size:22px!important; line-height:1.04!important; }
+    .catalog-flow__head>span { display:none!important; }
+    .catalog-flow__track { display:grid!important; grid-template-columns:1fr!important; gap:7px!important; }
+    .catalog-flow__stage { grid-template-columns:40px 1fr!important; gap:9px!important; align-items:center!important; }
+    .catalog-flow__icon { width:40px!important; height:40px!important; margin:0!important; }
+    .catalog-flow__card { min-height:auto!important; padding:10px!important; }
+    .catalog-flow__card span { display:none!important; }
+    .catalog-flow__arrow { display:none!important; }
+    .catalog-flow__footer { display:none!important; }
+    .catalog-section { padding-top:12px!important; }
+    .catalog-section>.site-container { width:calc(100% - 28px)!important; }
+    .catalog-help { grid-template-columns:1fr!important; gap:8px!important; margin-top:22px!important; border:0!important; background:transparent!important; }
+    .catalog-help__item { border:1px solid #e1e6e2; border-radius:13px; padding:12px!important; }
+    .catalog-help__item p { margin-top:3px!important; }
   }
 </style>
