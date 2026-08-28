@@ -20,3 +20,11 @@ body.ea-home-color-v3 .home-v2 .authority-metrics article:nth-child(2) small{
 body.ea-home-color-v3 .home-v2 .authority-metrics article:nth-child(3) small{
   color:#8a5200!important;
 }
+
+/* Decision guide CTA must retain white text over its green button surface. */
+body.ea-home-color-v3 .home-v2 .decision-intro .decision-all-btn,
+body.ea-home-color-v3 .home-v2 .decision-intro .decision-all-btn:visited,
+body.ea-home-color-v3 .home-v2 .decision-intro .decision-all-btn:hover,
+body.ea-home-color-v3 .home-v2 .decision-intro .decision-all-btn:focus-visible{
+  color:#fff!important;
+}
