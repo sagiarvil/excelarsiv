@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { createHash } from 'node:crypto';
-import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { applySiteTypographyMandate } from '../../src/scripts/site-typography-mandate.mjs';
 import { applySpecialCopyPolish } from '../../src/scripts/special-copy-polish.mjs';
@@ -21,6 +21,15 @@ function once(html, from, to, label) {
   const count = html.split(from).length - 1;
   if (count !== 1) throw new Error(`PREMIUM UX GATE: expected 1 ${label}, found ${count}`);
   return html.replace(from, to);
+}
+function walkHtml(dir) {
+  const out = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...walkHtml(path));
+    else if (entry.isFile() && path.endsWith('.html')) out.push(path);
+  }
+  return out;
 }
 Object.values(routes).forEach(must); must(visual);
 if (statSync(visual).size < 10000) throw new Error('PREMIUM UX GATE: contextual image is suspiciously small');
@@ -51,23 +60,26 @@ const specialBrandStyles = `
   }
 </style>`;
 let special = readFileSync(routes.special, 'utf8');
-special = once(special, 'href="/favicon.png"', `href="${realBrandLogo}"`, 'special png favicon href');
-special = once(special, 'type="image/svg+xml" href="/favicon.svg"', `type="image/png" href="${realBrandLogo}"`, 'special svg favicon identity');
-special = once(special, 'href="/apple-touch-icon.png"', `href="${realBrandLogo}"`, 'special apple touch identity');
-special = once(
-  special,
-  '>EA</span>',
-  `><img class="brand-logo" src="${realBrandLogo}" alt="Excel Arşiv" width="420" height="120" decoding="async"></span>`,
-  'special EA logo text',
-);
-special = once(
-  special,
-  '>excelarsiv.com</span>',
-  `><img class="footer-logo" src="${realBrandLogo}" alt="Excel Arşiv" width="420" height="120" loading="lazy" decoding="async"></span>`,
-  'special footer brand text',
-);
-special = once(special, '</head>', `${specialBrandStyles}</head>`, 'special brand styles');
-writeFileSync(routes.special, special, 'utf8');
+const specialLightV2 = special.includes('class="product-window"');
+if (!specialLightV2) {
+  special = once(special, 'href="/favicon.png"', `href="${realBrandLogo}"`, 'special png favicon href');
+  special = once(special, 'type="image/svg+xml" href="/favicon.svg"', `type="image/png" href="${realBrandLogo}"`, 'special svg favicon identity');
+  special = once(special, 'href="/apple-touch-icon.png"', `href="${realBrandLogo}"`, 'special apple touch identity');
+  special = once(
+    special,
+    '>EA</span>',
+    `><img class="brand-logo" src="${realBrandLogo}" alt="Excel Arşiv" width="420" height="120" decoding="async"></span>`,
+    'special EA logo text',
+  );
+  special = once(
+    special,
+    '>excelarsiv.com</span>',
+    `><img class="footer-logo" src="${realBrandLogo}" alt="Excel Arşiv" width="420" height="120" loading="lazy" decoding="async"></span>`,
+    'special footer brand text',
+  );
+  special = once(special, '</head>', `${specialBrandStyles}</head>`, 'special brand styles');
+  writeFileSync(routes.special, special, 'utf8');
+}
 
 const guideStyles = `
 <style data-rehber-premium-ux>
@@ -121,16 +133,44 @@ if (catalogBefore !== catalogAfter) throw new Error('PREMIUM UX GATE: /sablonlar
 for (const [name, path, token] of [
   ['rehber', routes.guides, 'data-rehber-premium-ux'],
   ['contact', routes.contact, 'data-contact-premium-ux'],
-  ['special-brand', routes.special, 'data-special-brand-identity'],
 ]) {
   const html = readFileSync(path,'utf8');
   if (!html.includes(token)) throw new Error(`PREMIUM UX GATE: ${name} namespace missing`);
 }
-const specialFinal = readFileSync(routes.special, 'utf8');
-if (specialFinal.includes('>EA</span>')) throw new Error('PREMIUM UX GATE: placeholder EA logo still present');
-if (specialFinal.includes('>excelarsiv.com</span>')) throw new Error('PREMIUM UX GATE: footer text placeholder still present');
-if ((specialFinal.split(realBrandLogo).length - 1) < 5) throw new Error('PREMIUM UX GATE: real brand logo is not wired to favicon + apple touch + header + footer');
+if (!specialLightV2) {
+  const specialWithBrand = readFileSync(routes.special, 'utf8');
+  if (!specialWithBrand.includes('data-special-brand-identity')) throw new Error('PREMIUM UX GATE: special-brand namespace missing');
+  if (specialWithBrand.includes('>EA</span>')) throw new Error('PREMIUM UX GATE: placeholder EA logo still present');
+  if (specialWithBrand.includes('>excelarsiv.com</span>')) throw new Error('PREMIUM UX GATE: footer text placeholder still present');
+  if ((specialWithBrand.split(realBrandLogo).length - 1) < 5) throw new Error('PREMIUM UX GATE: real brand logo is not wired to favicon + apple touch + header + footer');
+}
 
-applySiteTypographyMandate({ distDir: 'dist', specialPath: routes.special });
-applySpecialCopyPolish({ specialPath: routes.special });
-console.log('PREMIUM UX GATE PASS — real Excel visual restored, real brand identity applied, site-wide typography mandate enforced, special systems sales copy upgraded and polished.');
+const lightV2Typography = `
+<link data-ea-typography-font href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style data-ea-typography-mandate="chat-readable-v2">
+  :root{--ea-font-sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+  html{font-size:16px!important}
+  body,button,input,select,textarea{font-family:var(--ea-font-sans)!important}
+  body{font-size:16px!important;line-height:1.65!important;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+  header nav a,header [role="navigation"] a,nav[aria-label] a{font-size:16px!important;line-height:1.35!important}
+  body:not(:has(.product-window)) main p,body:not(:has(.product-window)) main li,body:not(:has(.product-window)) main td,body:not(:has(.product-window)) main th,body:not(:has(.product-window)) main details,body:not(:has(.product-window)) main summary{font-size:16px!important;line-height:1.65!important}
+  body:not(:has(.product-window)) main button,body:not(:has(.product-window)) main a[class*="btn"],body:not(:has(.product-window)) main a[class*="button"]{font-size:16px!important}
+  body:not(:has(.product-window)) main small{font-size:14px!important;line-height:1.5!important}
+  body:not(:has(.product-window)) footer,body:not(:has(.product-window)) footer a{font-size:14px!important;line-height:1.55!important}
+  @media(max-width:760px){html{font-size:16px!important}body{font-size:16px!important}}
+</style>`;
+
+if (specialLightV2) {
+  const htmlFiles = walkHtml('dist');
+  for (const path of htmlFiles) {
+    let html = readFileSync(path, 'utf8');
+    if (!html.includes('data-ea-typography-mandate="chat-readable-v2"')) html = once(html, '</head>', `${lightV2Typography}</head>`, `typography head ${path}`);
+    writeFileSync(path, html, 'utf8');
+  }
+  const missing = htmlFiles.filter((path) => !readFileSync(path, 'utf8').includes('data-ea-typography-mandate="chat-readable-v2"'));
+  if (missing.length) throw new Error(`PREMIUM UX GATE: v2 typography mandate missing on ${missing.length} pages`);
+} else {
+  applySiteTypographyMandate({ distDir: 'dist', specialPath: routes.special });
+  applySpecialCopyPolish({ specialPath: routes.special });
+}
+console.log(`PREMIUM UX GATE PASS — real Excel visual restored; rehber/contact premium UX active; special systems contract=${specialLightV2 ? 'light-v2 isolated' : 'legacy polished'}; typography mandate enforced.`);
