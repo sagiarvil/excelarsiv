@@ -1,0 +1,183 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
+const file = path.resolve('dist/ozel-excel-sistemleri/index.html');
+if (!fs.existsSync(file)) throw new Error('SPECIAL INNOVATION GATE: özel Excel build çıktısı bulunamadı');
+
+let html = fs.readFileSync(file, 'utf8');
+
+const cssLink = '<link id="special-innovation-css" rel="stylesheet" href="/styles/ozel-excel-innovation.css" />';
+const jsLink = '<script id="special-innovation-js" src="/scripts/ozel-excel-innovation.js" defer></script>';
+
+const sheetTabs = `
+<div class="iv-sheet-tabs" aria-label="Temsili çalışma sayfaları">
+  <span class="iv-sheet-tab">NAKİT</span>
+  <span class="iv-sheet-tab">CARİ</span>
+  <span class="iv-sheet-tab">BANKA</span>
+  <span class="iv-sheet-tab">VALÖR</span>
+</div>`;
+
+const lab = `
+<section class="iv-lab" id="karar-laboratuvari" aria-labelledby="iv-lab-title">
+  <div class="wrap">
+    <div class="iv-lab-head">
+      <div>
+        <span class="iv-lab-kicker">Karar Laboratuvarı</span>
+        <h2 id="iv-lab-title">Excel tablosu değil. Karar ekranı.</h2>
+      </div>
+      <p class="iv-lab-lead">Aynı veri, farklı yönetim sorularına farklı cevap vermeli. Nakit, cari, banka ve yönetim görünümünü tek dosyada fakat ayrı karar katmanlarında kurguluyoruz.</p>
+    </div>
+
+    <div class="iv-lab-shell">
+      <div class="iv-lab-nav" role="tablist" aria-label="Karar görünümü seçimi" aria-orientation="vertical">
+        <button class="iv-lab-tab" type="button" role="tab" aria-selected="true" aria-controls="iv-panel-nakit" id="iv-tab-nakit">
+          Nakit Ufku
+          <small>Bugün • 7 gün • 30 gün • 13 hafta</small>
+        </button>
+        <button class="iv-lab-tab" type="button" role="tab" aria-selected="false" aria-controls="iv-panel-cari" id="iv-tab-cari" tabindex="-1">
+          Cari İstisna
+          <small>Yaşlandırma • 120/320 • mahsup</small>
+        </button>
+        <button class="iv-lab-tab" type="button" role="tab" aria-selected="false" aria-controls="iv-panel-banka" id="iv-tab-banka" tabindex="-1">
+          Banka Alanı
+          <small>Limit • risk • faiz • bloke</small>
+        </button>
+        <button class="iv-lab-tab" type="button" role="tab" aria-selected="false" aria-controls="iv-panel-yonetim" id="iv-tab-yonetim" tabindex="-1">
+          Yönetim Özeti
+          <small>Likidite • sermaye • KPI • risk</small>
+        </button>
+      </div>
+
+      <div class="iv-lab-stage">
+        <article class="iv-lab-panel is-active" id="iv-panel-nakit" role="tabpanel" aria-labelledby="iv-tab-nakit" data-tone="green">
+          <div>
+            <h3>Önünüzdeki nakit sıkışmasını, gerçekleşmeden görün.</h3>
+            <p>Kasadaki bugünkü bakiyeyi göstermek yetmez. Tahsilat ve ödeme vadelerini aynı zaman eksenine koyarak hangi haftada ne kadar dip oluşacağını görünür kılan bir karar katmanı gerekir.</p>
+            <ul class="iv-lab-list">
+              <li>7 ve 30 günlük kısa vadeli görünüm</li>
+              <li>13 haftalık ödeme–tahsilat senaryosu</li>
+              <li>Minimum nakit ve erken uyarı noktası</li>
+            </ul>
+          </div>
+          <div class="iv-matrix" aria-label="Temsili nakit ufku matrisi">
+            <div class="iv-matrix-top"><span>Nakit Ufku — Örnek Veri</span><span>13 Hafta</span></div>
+            <div class="iv-grid">
+              <div class="iv-cell is-green"><span>Bugün</span><b>₺2,38M</b></div><div class="iv-cell"><span>7 Gün</span><b>₺1,94M</b></div><div class="iv-cell is-amber"><span>30 Gün</span><b>₺1,12M</b></div><div class="iv-cell is-coral"><span>Dip Hafta</span><b>H06</b></div>
+              <div class="iv-cell is-blue"><span>Beklenen Tahsilat</span><b>₺4,80M</b></div><div class="iv-cell"><span>Planlı Ödeme</span><b>₺5,35M</b></div><div class="iv-cell is-green"><span>Limit Desteği</span><b>₺3,25M</b></div>
+              <div class="iv-cell"><span>Stres -10%</span><b>₺0,74M</b></div><div class="iv-cell is-amber"><span>Erken Uyarı</span><b>2 hafta</b></div><div class="iv-cell"><span>13. Hafta</span><b>₺2,61M</b></div>
+            </div>
+            <div class="iv-lab-note"><span>Temsili kullanıcı arayüzü</span><strong>Gerçek yapı proje verisine göre kurulur.</strong></div>
+          </div>
+        </article>
+
+        <article class="iv-lab-panel" id="iv-panel-cari" role="tabpanel" aria-labelledby="iv-tab-cari" data-tone="blue" hidden>
+          <div>
+            <h3>Toplam cari yerine, müdahale edilmesi gereken satırı bulun.</h3>
+            <p>Yaşlandırma tek başına yeterli değildir. Ters bakiye, mahsup ihtiyacı ve kapanmayan kayıtlar aynı ekranda istisna mantığıyla ayrıştırılmalıdır.</p>
+            <ul class="iv-lab-list">
+              <li>0–30 / 31–60 / 61–90 / 90+ gün yaşlandırma</li>
+              <li>120 Alıcılar ve 320 Satıcılar ters bakiye kontrolü</li>
+              <li>Mahsup ve kapanmayan cari istisnaları</li>
+            </ul>
+          </div>
+          <div class="iv-matrix" aria-label="Temsili cari kontrol matrisi">
+            <div class="iv-matrix-top"><span>Cari Kontrol — Örnek Veri</span><span>İstisna Odaklı</span></div>
+            <div class="iv-grid">
+              <div class="iv-cell is-green"><span>0–30 Gün</span><b>₺1,82M</b></div><div class="iv-cell is-blue"><span>31–60 Gün</span><b>₺0,94M</b></div><div class="iv-cell is-amber"><span>61–90 Gün</span><b>₺0,48M</b></div><div class="iv-cell is-coral"><span>90+ Gün</span><b>₺0,31M</b></div>
+              <div class="iv-cell is-blue"><span>120 Ters Bakiye</span><b>7 kayıt</b></div><div class="iv-cell"><span>320 Ters Bakiye</span><b>4 kayıt</b></div><div class="iv-cell is-amber"><span>Mahsup Bekleyen</span><b>₺184K</b></div>
+              <div class="iv-cell"><span>Vadesi Yok</span><b>12 kayıt</b></div><div class="iv-cell is-coral"><span>Kritik Cari</span><b>5 hesap</b></div><div class="iv-cell"><span>Kontrol Skoru</span><b>87/100</b></div>
+            </div>
+            <div class="iv-lab-note"><span>Temsili kullanıcı arayüzü</span><strong>Sahte müşteri verisi veya referans değildir.</strong></div>
+          </div>
+        </article>
+
+        <article class="iv-lab-panel" id="iv-panel-banka" role="tabpanel" aria-labelledby="iv-tab-banka" data-tone="amber" hidden>
+          <div>
+            <h3>Kredi limitini değil, gerçekten kullanılabilir finansman alanını görün.</h3>
+            <p>Toplam limit ile kullanılabilir limit aynı şey değildir. Risk, bloke, teminat ve kısa vadeli faiz yükü birlikte değerlendirilmeden banka alanı doğru okunamaz.</p>
+            <ul class="iv-lab-list">
+              <li>Banka bazında limit–risk–boşluk görünümü</li>
+              <li>Rotatif faiz ve vade yükü</li>
+              <li>Bloke/teminat sonrası gerçek kullanılabilir alan</li>
+            </ul>
+          </div>
+          <div class="iv-matrix" aria-label="Temsili banka limit matrisi">
+            <div class="iv-matrix-top"><span>Banka Alanı — Örnek Veri</span><span>Limit / Risk</span></div>
+            <div class="iv-grid">
+              <div class="iv-cell is-green"><span>Toplam Limit</span><b>₺9,80M</b></div><div class="iv-cell is-blue"><span>Kullanılan</span><b>₺5,91M</b></div><div class="iv-cell is-amber"><span>Bloke / Teminat</span><b>₺0,64M</b></div><div class="iv-cell is-green"><span>Boş Alan</span><b>₺3,25M</b></div>
+              <div class="iv-cell is-amber"><span>Rotatif Risk</span><b>₺1,48M</b></div><div class="iv-cell"><span>Aylık Faiz</span><b>₺126K</b></div><div class="iv-cell is-coral"><span>Yakın Vade</span><b>₺0,92M</b></div>
+              <div class="iv-cell"><span>DSCR</span><b>1,42x</b></div><div class="iv-cell is-blue"><span>Kur Riski</span><b>Orta</b></div><div class="iv-cell"><span>Banka Sayısı</span><b>4</b></div>
+            </div>
+            <div class="iv-lab-note"><span>Temsili kullanıcı arayüzü</span><strong>Rakamlar örnektir; şirket iddiası değildir.</strong></div>
+          </div>
+        </article>
+
+        <article class="iv-lab-panel" id="iv-panel-yonetim" role="tabpanel" aria-labelledby="iv-tab-yonetim" data-tone="coral" hidden>
+          <div>
+            <h3>Yöneticiye hücre değil, karar sırası gösterin.</h3>
+            <p>Yönetim ekranı her KPI'yı aynı ağırlıkta göstermemeli. Likidite, tahsilat, işletme sermayesi ve finansman riski önem sırasına göre tek sayfada okunmalıdır.</p>
+            <ul class="iv-lab-list">
+              <li>Likidite ve net işletme sermayesi</li>
+              <li>Tahsilat kalitesi ve yaşlandırma</li>
+              <li>Banka, valör ve finansman riski</li>
+            </ul>
+          </div>
+          <div class="iv-matrix" aria-label="Temsili yönetim karar matrisi">
+            <div class="iv-matrix-top"><span>Yönetim Özeti — Örnek Veri</span><span>Karar Sırası</span></div>
+            <div class="iv-grid">
+              <div class="iv-cell is-green"><span>Likidite</span><b>Sağlıklı</b></div><div class="iv-cell is-blue"><span>Tahsilat</span><b>%92</b></div><div class="iv-cell is-amber"><span>NİS</span><b>₺2,14M</b></div><div class="iv-cell is-coral"><span>Risk</span><b>3 alarm</b></div>
+              <div class="iv-cell is-green"><span>13 Hafta Nakit</span><b>₺2,61M</b></div><div class="iv-cell"><span>Cari 90+</span><b>₺0,31M</b></div><div class="iv-cell is-amber"><span>Faiz Yükü</span><b>₺126K</b></div>
+              <div class="iv-cell"><span>Limit Boşluğu</span><b>₺3,25M</b></div><div class="iv-cell is-coral"><span>İstisna</span><b>9 kayıt</b></div><div class="iv-cell"><span>Son Güncelleme</span><b>Bugün</b></div>
+            </div>
+            <div class="iv-lab-note"><span>Temsili kullanıcı arayüzü</span><strong>Yönetim ekranı iş modeline göre özelleştirilir.</strong></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>`;
+
+if (!html.includes('data-special-innovation="v4"')) {
+  html = html.replace(/<body([^>]*)>/i, '<body$1 data-special-innovation="v4">');
+}
+if (!html.includes('id="special-innovation-css"')) {
+  if (!html.includes('</head>')) throw new Error('SPECIAL INNOVATION GATE: </head> bulunamadı');
+  html = html.replace('</head>', `${cssLink}\n</head>`);
+}
+if (!html.includes('class="iv-sheet-tabs"')) {
+  const badge = '<span class="product-badge">';
+  const badgeIndex = html.indexOf(badge);
+  if (badgeIndex < 0) throw new Error('SPECIAL INNOVATION GATE: product badge anchor bulunamadı');
+  html = `${html.slice(0, badgeIndex)}${sheetTabs}\n${html.slice(badgeIndex)}`;
+}
+if (!html.includes('id="karar-laboratuvari"')) {
+  const trustAnchor = '<section class="trust"';
+  const trustIndex = html.indexOf(trustAnchor);
+  if (trustIndex < 0) throw new Error('SPECIAL INNOVATION GATE: trust section anchor bulunamadı');
+  html = `${html.slice(0, trustIndex)}${lab}\n${html.slice(trustIndex)}`;
+}
+if (!html.includes('id="special-innovation-js"')) {
+  if (!html.includes('</body>')) throw new Error('SPECIAL INNOVATION GATE: </body> bulunamadı');
+  html = html.replace('</body>', `${jsLink}\n</body>`);
+}
+
+const forbidden = ['+90 542 123 45 67', 'tel:+905421234567'];
+for (const token of forbidden) {
+  if (html.includes(token)) throw new Error(`SPECIAL INNOVATION GATE: doğrulanmamış iletişim tokenı geri geldi: ${token}`);
+}
+for (const required of [
+  'data-special-innovation="v4"',
+  'id="special-innovation-css"',
+  'id="karar-laboratuvari"',
+  'class="iv-sheet-tabs"',
+  'id="iv-panel-nakit"',
+  'id="iv-panel-cari"',
+  'id="iv-panel-banka"',
+  'id="iv-panel-yonetim"',
+  'id="special-innovation-js"',
+]) {
+  if (!html.includes(required)) throw new Error(`SPECIAL INNOVATION GATE: zorunlu innovation contract eksik: ${required}`);
+}
+
+fs.writeFileSync(file, html);
+console.log('SPECIAL INNOVATION GATE PASS — decision lab + sheet tabs + light enterprise visual system injected.');
