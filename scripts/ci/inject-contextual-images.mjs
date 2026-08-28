@@ -200,17 +200,23 @@ let guides = readFileSync(routes.guides, 'utf8');
 guides = replaceOnce(guides, /<\/head>/g, `${commonStyles}</head>`, 'guide head');
 writeFileSync(routes.guides, guides, 'utf8');
 
-// Special systems: visual becomes the top layer of the existing symptom card; no column/grid changes.
-// Typography and vertical-rhythm overrides are namespaced to this page only.
+// Special systems has two supported contracts:
+// - legacy DOM: contextual visual + legacy typography namespace are injected here.
+// - light premium v2: its product-window is already the contextual product visual and page typography is self-contained.
 let special = readFileSync(routes.special, 'utf8');
-special = replaceOnce(special, /<body class="/g, '<body class="special-premium ', 'special body namespace');
-special = replaceOnce(special, /<\/head>/g, `${commonStyles}${specialPremiumStyles}</head>`, 'special head');
-special = replaceOnce(
-  special,
-  /(<aside[^>]*class="[^"]*card overflow-hidden shadow-xl shadow-slate-200\/60[^"]*"[^>]*>)/g,
-  `$1<figure class="contextual-excel-visual contextual-excel-visual--special" aria-label="İhtiyaca özel Excel sistemi görseli"><img src="/images/site/excel-special-systems-hero.webp" alt="Dizüstü bilgisayarda Excel çalışma ekranı ve Excel simgesi" width="1280" height="720" fetchpriority="high" decoding="async"><figcaption class="contextual-excel-caption">İşleyişinize göre kurulan Excel sistemi</figcaption></figure>`,
-  'special symptom card',
-);
+const specialLightV2 = special.includes('class="product-window"');
+if (specialLightV2) {
+  special = replaceOnce(special, /<\/head>/g, `${commonStyles}</head>`, 'special v2 head');
+} else {
+  special = replaceOnce(special, /<body class="/g, '<body class="special-premium ', 'special body namespace');
+  special = replaceOnce(special, /<\/head>/g, `${commonStyles}${specialPremiumStyles}</head>`, 'special head');
+  special = replaceOnce(
+    special,
+    /(<aside[^>]*class="[^"]*card overflow-hidden shadow-xl shadow-slate-200\/60[^"]*"[^>]*>)/g,
+    `$1<figure class="contextual-excel-visual contextual-excel-visual--special" aria-label="İhtiyaca özel Excel sistemi görseli"><img src="/images/site/excel-special-systems-hero.webp" alt="Dizüstü bilgisayarda Excel çalışma ekranı ve Excel simgesi" width="1280" height="720" fetchpriority="high" decoding="async"><figcaption class="contextual-excel-caption">İşleyişinize göre kurulan Excel sistemi</figcaption></figure>`,
+    'special symptom card',
+  );
+}
 writeFileSync(routes.special, special, 'utf8');
 
 const catalogAfter = hash(routes.catalog);
@@ -225,8 +231,12 @@ for (const [name, path] of Object.entries({ home: routes.home, guides: routes.gu
 }
 
 const specialHtml = readFileSync(routes.special, 'utf8');
-if ((specialHtml.match(/data-special-premium-typography/g) || []).length !== 1 || !specialHtml.includes('class="special-premium ')) {
+const specialIsV2 = specialHtml.includes('class="product-window"');
+if (!specialIsV2 && ((specialHtml.match(/data-special-premium-typography/g) || []).length !== 1 || !specialHtml.includes('class="special-premium '))) {
   throw new Error('CONTEXTUAL IMAGE GATE: special premium typography namespace missing or duplicated');
 }
+if (specialIsV2 && specialHtml.includes('data-special-premium-typography')) {
+  throw new Error('CONTEXTUAL IMAGE GATE: light premium v2 must not receive legacy special typography overrides');
+}
 
-console.log('CONTEXTUAL IMAGE GATE PASS — home, rehber and special systems enriched; premium special typography active; /sablonlar byte-identical');
+console.log(`CONTEXTUAL IMAGE GATE PASS — home and rehber enriched; special systems contract=${specialIsV2 ? 'light-v2' : 'legacy'}; /sablonlar byte-identical`);
