@@ -1,0 +1,114 @@
+/* Homepage finance color upgrade — keeps structure, enriches the existing system with the special-page palette. */
+.home-v2{
+  --green:#217346!important;
+  --green-dark:#185c37!important;
+  --ink:#12213a!important;
+  --muted:#67758a!important;
+  --line:#d9e0e8!important;
+  --soft:#f6f8f7!important;
+  --fx-blue:#255fca;
+  --fx-blue-soft:#edf3ff;
+  --fx-amber:#c77b18;
+  --fx-amber-soft:#fff4df;
+  --fx-coral:#c95d4b;
+  --fx-coral-soft:#fff0ec;
+  --fx-teal:#147d82;
+  --fx-teal-soft:#eaf7f6;
+  --fx-paper:#fbfaf6;
+}
+
+/* Hero: same composition, richer finance palette. */
+.hero-section{
+  position:relative;
+  background:
+    linear-gradient(90deg,rgba(33,115,70,.055) 0%,rgba(33,115,70,0) 28%,rgba(37,95,202,.045) 64%,rgba(199,123,24,.045) 100%)!important;
+}
+.hero-section::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:4px;
+  background:linear-gradient(90deg,#217346 0 31%,#255fca 31% 56%,#c77b18 56% 78%,#c95d4b 78% 100%);
+  pointer-events:none;
+}
+.hero-artwork{
+  border-color:#cfd9d5!important;
+  box-shadow:0 26px 64px rgba(24,40,68,.14),0 0 0 1px rgba(37,95,202,.03)!important;
+}
+.hero-artwork::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(33,115,70,.055),transparent 28%,transparent 62%,rgba(37,95,202,.045) 80%,rgba(199,123,24,.045));
+  pointer-events:none;
+}
+.hero-search-rail{filter:drop-shadow(0 12px 24px rgba(24,40,68,.08))}
+
+/* Catalog: premium product cards with different financial signal colors. */
+.home-v2 .catalog-proof{position:relative;background:linear-gradient(180deg,#fff 0%,#fbfaf6 100%)}
+.home-v2 .catalog-proof::before,.home-v2 .custom-build::before,.home-v2 .decision-help::before,.home-v2 .faq-close::before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,#217346 0 30%,#255fca 30% 55%,#c77b18 55% 78%,#c95d4b 78% 100%);opacity:.9
+}
+.home-v2 .catalog-proof,.home-v2 .custom-build,.home-v2 .decision-help,.home-v2 .faq-close{position:relative}
+.home-v2 .price-levels span{border-radius:999px!important;background:#fff!important}
+.home-v2 .price-levels span:nth-child(4n+1){background:#eaf5ee!important;border-color:#c7dfcf!important;color:#185c37!important}
+.home-v2 .price-levels span:nth-child(4n+2){background:#edf3ff!important;border-color:#cbd8ef!important;color:#255fca!important}
+.home-v2 .price-levels span:nth-child(4n+3){background:#fff4df!important;border-color:#ead4aa!important;color:#a5600d!important}
+.home-v2 .price-levels span:nth-child(4n){background:#fff0ec!important;border-color:#eccbc3!important;color:#a94d3d!important}
+.home-v2 .featured-grid article{position:relative;overflow:hidden;border-radius:12px!important;border-color:#d6dde4!important;box-shadow:0 14px 34px rgba(24,40,68,.07);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.home-v2 .featured-grid article::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;z-index:2;background:#217346}
+.home-v2 .featured-grid article:nth-child(2)::before{background:#255fca}.home-v2 .featured-grid article:nth-child(3)::before{background:#c77b18}
+.home-v2 .featured-grid article:hover{transform:translateY(-3px);box-shadow:0 20px 42px rgba(24,40,68,.11)}
+.home-v2 .featured-grid article:nth-child(2) small{color:#255fca!important}.home-v2 .featured-grid article:nth-child(3) small{color:#a5600d!important}
+
+/* Difference section: same section, more premium navy + multicolor signal rail. */
+.home-v2 .difference{position:relative;background:#12213a!important}
+.home-v2 .difference::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,#217346 0 30%,#255fca 30% 55%,#c77b18 55% 78%,#c95d4b 78%)}
+.home-v2 .difference .eyebrow{color:#8fd8ad!important}.home-v2 .difference p{color:#cfdae6!important}
+.home-v2 .difference li{border-color:#31465f!important;background:rgba(255,255,255,.035)}
+.home-v2 .difference li:nth-child(2){border-left-color:#255fca!important}.home-v2 .difference li:nth-child(3){border-left-color:#c77b18!important}.home-v2 .difference li:nth-child(4){border-left-color:#c95d4b!important}
+
+/* Custom build: four steps, four signal colors. */
+.home-v2 .custom-build{background:linear-gradient(120deg,#f7fbf8 0%,#fff 44%,#f6f9ff 100%)!important}
+.home-v2 .custom-step{position:relative;overflow:hidden;background:#fff!important;border-color:#d7dfe5!important;box-shadow:0 8px 22px rgba(24,40,68,.035)}
+.home-v2 .custom-step::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#217346}
+.home-v2 .custom-step:nth-child(2)::before{background:#255fca}.home-v2 .custom-step:nth-child(3)::before{background:#c77b18}.home-v2 .custom-step:nth-child(4)::before{background:#c95d4b}
+.home-v2 .custom-step:nth-child(1) .step-num{background:#eaf5ee!important;color:#217346!important}.home-v2 .custom-step:nth-child(2) .step-num{background:#edf3ff!important;color:#255fca!important}.home-v2 .custom-step:nth-child(3) .step-num{background:#fff4df!important;color:#a5600d!important}.home-v2 .custom-step:nth-child(4) .step-num{background:#fff0ec!important;color:#b24f3f!important}
+.home-v2 .custom-cta-card{position:relative;overflow:hidden;background:#12213a!important;box-shadow:0 14px 32px rgba(24,40,68,.14)!important}
+.home-v2 .custom-cta-card::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,#217346,#255fca,#c77b18,#c95d4b)}
+.home-v2 .custom-cta-btn{background:#eaf5ee!important;color:#185c37!important}.home-v2 .custom-trust-pill{color:#9bdab4!important}
+
+/* Decision help: each problem category gets its own stable signal color. */
+.home-v2 .decision-help{background:#fbfaf6!important}
+.home-v2 .decision-card{position:relative;overflow:hidden;background:#fff!important;border-color:#d8dfe5!important;box-shadow:0 8px 22px rgba(24,40,68,.035)}
+.home-v2 .decision-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:#217346}
+.home-v2 .decision-card:nth-child(2)::before{background:#255fca}.home-v2 .decision-card:nth-child(3)::before{background:#c77b18}.home-v2 .decision-card:nth-child(4)::before{background:#c95d4b}
+.home-v2 .decision-card:nth-child(2) .decision-tag,.home-v2 .decision-card:nth-child(2) .decision-link{color:#255fca!important}.home-v2 .decision-card:nth-child(3) .decision-tag,.home-v2 .decision-card:nth-child(3) .decision-link{color:#a5600d!important}.home-v2 .decision-card:nth-child(4) .decision-tag,.home-v2 .decision-card:nth-child(4) .decision-link{color:#b24f3f!important}
+
+/* Authority: keep the editorial dark panel, add finance signal differentiation. */
+.home-v2 .authority-panel{position:relative;overflow:hidden;background:#12213a!important}
+.home-v2 .authority-panel::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,#217346 0 33%,#255fca 33% 58%,#c77b18 58% 79%,#c95d4b 79%)}
+.home-v2 .authority-metrics article:nth-child(1){background:rgba(33,115,70,.08)}.home-v2 .authority-metrics article:nth-child(2){background:rgba(37,95,202,.08)}.home-v2 .authority-metrics article:nth-child(3){background:rgba(199,123,24,.08)}
+.home-v2 .authority-metrics article:nth-child(1) small{color:#9bdab4!important}.home-v2 .authority-metrics article:nth-child(2) small{color:#a9c4ff!important}.home-v2 .authority-metrics article:nth-child(3) small{color:#ffd18f!important}
+.home-v2 .authority-links a:first-child{color:#9bdab4!important}.home-v2 .authority-links a:last-child{color:#a9c4ff!important}
+
+/* FAQ close: subtle color, no visual noise. */
+.home-v2 .faq-close{background:linear-gradient(180deg,#fff 0%,#f8fbff 100%)!important}
+.home-v2 .faq-list details{border-left:3px solid transparent}
+.home-v2 .faq-list details:nth-child(4n+1){border-left-color:#217346}.home-v2 .faq-list details:nth-child(4n+2){border-left-color:#255fca}.home-v2 .faq-list details:nth-child(4n+3){border-left-color:#c77b18}.home-v2 .faq-list details:nth-child(4n){border-left-color:#c95d4b}
+.home-v2 .close-actions .primary{background:#217346!important;border-color:#217346!important}
+
+@media(max-width:720px){
+  .hero-section{background:linear-gradient(145deg,#f4faf6 0%,#fff 48%,#f3f6ff 78%,#fff8eb 100%)!important}
+  .hero-mobile-copy__eyebrow{color:#217346!important}
+  .hero-mobile-actions__primary{background:#217346!important;box-shadow:0 9px 20px rgba(33,115,70,.18)!important}
+  .hero-mobile-actions__secondary{border-color:#cad8ef!important;color:#255fca!important;background:#f7f9ff!important}
+  .hero-mobile-chips a:nth-child(1){border-color:#c7dfcf!important;background:#eaf5ee!important;color:#185c37!important}
+  .hero-mobile-chips a:nth-child(2){border-color:#cbd8ef!important;background:#edf3ff!important;color:#255fca!important}
+  .hero-mobile-chips a:nth-child(3){border-color:#ead4aa!important;background:#fff4df!important;color:#a5600d!important}
+  .hero-mobile-chips a:nth-child(4){border-color:#eccbc3!important;background:#fff0ec!important;color:#a94d3d!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .home-v2 .featured-grid article,.home-v2 .custom-step{transition:none!important;transform:none!important}
+}
