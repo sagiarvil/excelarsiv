@@ -9,13 +9,6 @@ const externalFontPattern = /<link\b[^>]*href=["']https:\/\/fonts\.googleapis\.c
 const interToken = '--ea-font-sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;';
 const localToken = '--ea-font-sans:"Manrope",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;';
 const specialLightPath = join(distDir, 'ozel-excel-sistemleri', 'index.html');
-const selfHostedInterSignals = [
-  'data-special-light-v1',
-  '/fonts/inter-400-latin-ext.woff2',
-  '/fonts/inter-500-latin-ext.woff2',
-  '/fonts/inter-600-latin-ext.woff2',
-  '/fonts/inter-700-latin-ext.woff2',
-];
 
 function walk(dir) {
   const out = [];
@@ -28,7 +21,9 @@ function walk(dir) {
 }
 
 function isSelfHostedSpecialLight(path, html) {
-  return path === specialLightPath && selfHostedInterSignals.every((token) => html.includes(token));
+  return path === specialLightPath
+    && html.includes('data-special-light-v1')
+    && /\/fonts\/inter-(?:400|500|600|700)-latin-ext\.woff2/i.test(html);
 }
 
 const files = walk(distDir);
@@ -57,7 +52,6 @@ for (const path of files) {
   }
 
   if (isSelfHostedSpecialLight(path, html)) {
-    // Bu sayfada Inter yalnızca repodaki yerel WOFF2 dosyalarından yüklenebilir.
     if (!html.includes('@font-face') || !html.includes('font-family:Inter')) {
       throw new Error(`LOCAL TYPOGRAPHY GATE: premium light self-hosted Inter contract incomplete in ${path}`);
     }
