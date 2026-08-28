@@ -6,7 +6,10 @@ const distDir = 'dist';
 // Typography mandate bazı sayfalarda attribute sırasını/ek attribute'ları değiştirebiliyor.
 // Dış Inter stylesheet'ini tag içindeki attribute sırasından bağımsız olarak kaldır.
 const externalFontPattern = /<link\b[^>]*href=["']https:\/\/fonts\.googleapis\.com\/css2\?family=Inter[^"']*["'][^>]*>/gi;
-const interToken = '--ea-font-sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;';
+// Post-process zincirindeki farklı typography blokları aynı font stack'ini küçük yazım
+// farklarıyla üretebilir. Yalnız --ea-font-sans custom property değerini normalize et;
+// serbest metin veya başka CSS tokenlarını değiştirme.
+const interTokenPattern = /--ea-font-sans\s*:\s*["']?Inter["']?\s*,\s*ui-sans-serif\s*,\s*system-ui\s*,\s*-apple-system\s*,\s*BlinkMacSystemFont\s*,\s*["']Segoe UI["']\s*,\s*Arial\s*,\s*sans-serif\s*;/gi;
 const localToken = '--ea-font-sans:"Manrope",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;';
 
 function walk(dir) {
@@ -26,7 +29,7 @@ let changed = 0;
 for (const path of files) {
   const before = readFileSync(path, 'utf8');
   let after = before.replace(externalFontPattern, '');
-  after = after.replaceAll(interToken, localToken);
+  after = after.replace(interTokenPattern, localToken);
   if (after !== before) {
     writeFileSync(path, after, 'utf8');
     changed += 1;
@@ -42,7 +45,7 @@ for (const path of files) {
   if (/fonts\.googleapis\.com\/css2\?family=Inter/i.test(html)) {
     throw new Error(`LOCAL TYPOGRAPHY GATE: external Inter blocker remains in ${path}`);
   }
-  if (html.includes('--ea-font-sans:Inter,')) {
+  if (/--ea-font-sans\s*:\s*["']?Inter["']?\s*,/i.test(html)) {
     throw new Error(`LOCAL TYPOGRAPHY GATE: Inter token remains in ${path}`);
   }
 }
