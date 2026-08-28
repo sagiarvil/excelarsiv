@@ -4,8 +4,12 @@ import path from 'node:path';
 
 const cssPublic = path.resolve('public/styles/enterprise-light-color-suite-v3.css');
 const cssDist = path.resolve('dist/styles/enterprise-light-color-suite-v3.css');
+const qaCssPublic = path.resolve('public/styles/enterprise-light-color-suite-v3-qa.css');
+const qaCssDist = path.resolve('dist/styles/enterprise-light-color-suite-v3-qa.css');
 const linkId = 'enterprise-light-color-suite-v3';
 const href = '/styles/enterprise-light-color-suite-v3.css';
+const qaLinkId = 'enterprise-light-color-suite-v3-qa';
+const qaHref = '/styles/enterprise-light-color-suite-v3-qa.css';
 
 const routes = [
   { file: path.resolve('dist/index.html'), bodyClass: 'ea-home-color-v3', label: 'home' },
@@ -15,15 +19,21 @@ const routes = [
   { file: path.resolve('dist/sablonlar/index.html'), bodyClass: 'ea-catalog-color-v3', label: 'catalog' },
 ];
 
-for (const file of [cssPublic, cssDist, ...routes.map((route) => route.file)]) {
+for (const file of [cssPublic, cssDist, qaCssPublic, qaCssDist, ...routes.map((route) => route.file)]) {
   if (!fs.existsSync(file)) throw new Error(`ENTERPRISE LIGHT COLOR GATE: missing ${file}`);
 }
 
-const css = fs.readFileSync(cssPublic, 'utf8');
-const withoutComments = css.replace(/\/\*[\s\S]*?\*\//g, '');
-const openBraces = (withoutComments.match(/\{/g) || []).length;
-const closeBraces = (withoutComments.match(/\}/g) || []).length;
-if (openBraces !== closeBraces) throw new Error(`ENTERPRISE LIGHT COLOR GATE: brace mismatch ${openBraces}/${closeBraces}`);
+function assertBalancedCss(file, label) {
+  const css = fs.readFileSync(file, 'utf8');
+  const withoutComments = css.replace(/\/\*[\s\S]*?\*\//g, '');
+  const openBraces = (withoutComments.match(/\{/g) || []).length;
+  const closeBraces = (withoutComments.match(/\}/g) || []).length;
+  if (openBraces !== closeBraces) throw new Error(`ENTERPRISE LIGHT COLOR GATE: ${label} brace mismatch ${openBraces}/${closeBraces}`);
+  return css;
+}
+
+const css = assertBalancedCss(cssPublic, 'v3');
+const qaCss = assertBalancedCss(qaCssPublic, 'v3.1-qa');
 
 for (const token of [
   'body.ea-home-color-v3 .difference',
@@ -36,6 +46,19 @@ for (const token of [
   '@media(prefers-reduced-motion:reduce)',
 ]) {
   if (!css.includes(token)) throw new Error(`ENTERPRISE LIGHT COLOR GATE: required CSS contract missing ${token}`);
+}
+
+for (const token of [
+  '--ea31-max:1180px',
+  'body.ea-home-color-v3 .featured-grid article>div',
+  'body.ea-about-color-v3 .hakkinda{width:min(1080px',
+  'body.ea-guide-color-v3 #icerik aside{position:sticky',
+  'body.ea-how-color-v3 #icerik>section>ol{display:grid',
+  'body.ea-catalog-color-v3 .template-grid>li>.card{height:100%',
+  '@media(max-width:520px)',
+  '@media(prefers-reduced-motion:reduce)',
+]) {
+  if (!qaCss.includes(token)) throw new Error(`ENTERPRISE LIGHT COLOR QA GATE: required geometry contract missing ${token}`);
 }
 
 // Explicit no-dark-surface contracts for the five requested pages.
@@ -65,23 +88,35 @@ for (const route of routes) {
   let html = fs.readFileSync(route.file, 'utf8');
   html = addBodyClass(html, route.bodyClass);
 
-  // Remove previous copies before appending a single deterministic final stylesheet link.
-  html = html.replace(new RegExp(`<link\\b(?=[^>]*\\bid=["']${linkId}["'])[^>]*>`, 'gi'), '');
-  html = html.replace(new RegExp(`<link\\b(?=[^>]*\\bhref=["']${href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["'])[^>]*>`, 'gi'), '');
+  // Remove previous copies before appending deterministic final stylesheet links.
+  for (const [id, linkHref] of [[linkId, href], [qaLinkId, qaHref]]) {
+    html = html.replace(new RegExp(`<link\\b(?=[^>]*\\bid=["']${id}["'])[^>]*>`, 'gi'), '');
+    html = html.replace(new RegExp(`<link\\b(?=[^>]*\\bhref=["']${linkHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["'])[^>]*>`, 'gi'), '');
+  }
 
   if (!html.includes('</head>')) throw new Error(`ENTERPRISE LIGHT COLOR GATE: ${route.label} missing </head>`);
-  html = html.replace('</head>', `<link id="${linkId}" rel="stylesheet" href="${href}" />\n</head>`);
+  html = html.replace(
+    '</head>',
+    `<link id="${linkId}" rel="stylesheet" href="${href}" />\n<link id="${qaLinkId}" rel="stylesheet" href="${qaHref}" />\n</head>`,
+  );
 
-  for (const required of [route.bodyClass, `id="${linkId}"`, `href="${href}"`]) {
+  for (const required of [route.bodyClass, `id="${linkId}"`, `href="${href}"`, `id="${qaLinkId}"`, `href="${qaHref}"`]) {
     if (!html.includes(required)) throw new Error(`ENTERPRISE LIGHT COLOR GATE: ${route.label} missing ${required}`);
   }
+
+  const mainIndex = html.indexOf(`id="${linkId}"`);
+  const qaIndex = html.indexOf(`id="${qaLinkId}"`);
+  if (!(mainIndex >= 0 && qaIndex > mainIndex)) throw new Error(`ENTERPRISE LIGHT COLOR QA GATE: ${route.label} QA layer must load after v3`);
 
   fs.writeFileSync(route.file, html);
 }
 
-// The stylesheet must be physically present in the final hosting bundle.
-const publicHash = fs.readFileSync(cssPublic, 'utf8');
-const distHash = fs.readFileSync(cssDist, 'utf8');
-if (publicHash !== distHash) throw new Error('ENTERPRISE LIGHT COLOR GATE: public/dist stylesheet parity failed');
+// Stylesheets must be physically present and byte-identical in final hosting bundle.
+if (fs.readFileSync(cssPublic, 'utf8') !== fs.readFileSync(cssDist, 'utf8')) {
+  throw new Error('ENTERPRISE LIGHT COLOR GATE: public/dist v3 stylesheet parity failed');
+}
+if (fs.readFileSync(qaCssPublic, 'utf8') !== fs.readFileSync(qaCssDist, 'utf8')) {
+  throw new Error('ENTERPRISE LIGHT COLOR QA GATE: public/dist v3.1 stylesheet parity failed');
+}
 
-console.log('ENTERPRISE LIGHT COLOR SUITE PASS — home/about/guide/how/catalog use final light-only Enterprise/Exclusive color layer.');
+console.log('ENTERPRISE LIGHT COLOR SUITE PASS — v3 color layer + v3.1 geometry/mobile QA loaded for home/about/guide/how/catalog.');
