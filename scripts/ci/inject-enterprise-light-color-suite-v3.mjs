@@ -6,10 +6,15 @@ const cssPublic = path.resolve('public/styles/enterprise-light-color-suite-v3.cs
 const cssDist = path.resolve('dist/styles/enterprise-light-color-suite-v3.css');
 const qaCssPublic = path.resolve('public/styles/enterprise-light-color-suite-v3-qa.css');
 const qaCssDist = path.resolve('dist/styles/enterprise-light-color-suite-v3-qa.css');
+const assuranceCssPublic = path.resolve('public/styles/catalog-help-premium-v32.css');
+const assuranceCssDist = path.resolve('dist/styles/catalog-help-premium-v32.css');
+
 const linkId = 'enterprise-light-color-suite-v3';
 const href = '/styles/enterprise-light-color-suite-v3.css';
 const qaLinkId = 'enterprise-light-color-suite-v3-qa';
 const qaHref = '/styles/enterprise-light-color-suite-v3-qa.css';
+const assuranceLinkId = 'catalog-help-premium-v32';
+const assuranceHref = '/styles/catalog-help-premium-v32.css';
 
 const routes = [
   { file: path.resolve('dist/index.html'), bodyClass: 'ea-home-color-v3', label: 'home' },
@@ -19,7 +24,7 @@ const routes = [
   { file: path.resolve('dist/sablonlar/index.html'), bodyClass: 'ea-catalog-color-v3', label: 'catalog' },
 ];
 
-for (const file of [cssPublic, cssDist, qaCssPublic, qaCssDist, ...routes.map((route) => route.file)]) {
+for (const file of [cssPublic, cssDist, qaCssPublic, qaCssDist, assuranceCssPublic, assuranceCssDist, ...routes.map((route) => route.file)]) {
   if (!fs.existsSync(file)) throw new Error(`ENTERPRISE LIGHT COLOR GATE: missing ${file}`);
 }
 
@@ -34,6 +39,7 @@ function assertBalancedCss(file, label) {
 
 const css = assertBalancedCss(cssPublic, 'v3');
 const qaCss = assertBalancedCss(qaCssPublic, 'v3.1-qa');
+const assuranceCss = assertBalancedCss(assuranceCssPublic, 'v3.2-catalog-assurance');
 
 for (const token of [
   'body.ea-home-color-v3 .difference',
@@ -61,7 +67,16 @@ for (const token of [
   if (!qaCss.includes(token)) throw new Error(`ENTERPRISE LIGHT COLOR QA GATE: required geometry contract missing ${token}`);
 }
 
-// Explicit no-dark-surface contracts for the five requested pages.
+for (const token of [
+  'body.ea-catalog-color-v3 .catalog-help{',
+  'body.ea-catalog-color-v3 .catalog-help__item:nth-child(2)',
+  'body.ea-catalog-color-v3 .catalog-help__item:nth-child(3)',
+  'linear-gradient(90deg,var(--ea3-green)',
+  '@media(max-width:520px)',
+]) {
+  if (!assuranceCss.includes(token)) throw new Error(`CATALOG ASSURANCE GATE: premium board contract missing ${token}`);
+}
+
 for (const token of [
   'body.ea-home-color-v3 .difference{',
   'body.ea-home-color-v3 .authority-panel{',
@@ -100,35 +115,47 @@ for (const route of routes) {
 
   if (route.label === 'catalog') html = removeCatalogFlow(html);
 
-  // Remove previous copies before appending deterministic final stylesheet links.
-  for (const [id, linkHref] of [[linkId, href], [qaLinkId, qaHref]]) {
+  const links = [
+    [linkId, href],
+    [qaLinkId, qaHref],
+    ...(route.label === 'catalog' ? [[assuranceLinkId, assuranceHref]] : []),
+  ];
+
+  for (const [id, linkHref] of links) {
     html = html.replace(new RegExp(`<link\\b(?=[^>]*\\bid=["']${id}["'])[^>]*>`, 'gi'), '');
     html = html.replace(new RegExp(`<link\\b(?=[^>]*\\bhref=["']${linkHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["'])[^>]*>`, 'gi'), '');
   }
 
   if (!html.includes('</head>')) throw new Error(`ENTERPRISE LIGHT COLOR GATE: ${route.label} missing </head>`);
-  html = html.replace(
-    '</head>',
-    `<link id="${linkId}" rel="stylesheet" href="${href}" />\n<link id="${qaLinkId}" rel="stylesheet" href="${qaHref}" />\n</head>`,
-  );
+  const linkMarkup = links.map(([id, linkHref]) => `<link id="${id}" rel="stylesheet" href="${linkHref}" />`).join('\n');
+  html = html.replace('</head>', `${linkMarkup}\n</head>`);
 
-  for (const required of [route.bodyClass, `id="${linkId}"`, `href="${href}"`, `id="${qaLinkId}"`, `href="${qaHref}"`]) {
-    if (!html.includes(required)) throw new Error(`ENTERPRISE LIGHT COLOR GATE: ${route.label} missing ${required}`);
+  for (const [id, linkHref] of links) {
+    for (const required of [`id="${id}"`, `href="${linkHref}"`]) {
+      if (!html.includes(required)) throw new Error(`ENTERPRISE LIGHT COLOR GATE: ${route.label} missing ${required}`);
+    }
   }
+  if (!html.includes(route.bodyClass)) throw new Error(`ENTERPRISE LIGHT COLOR GATE: ${route.label} missing ${route.bodyClass}`);
 
   const mainIndex = html.indexOf(`id="${linkId}"`);
   const qaIndex = html.indexOf(`id="${qaLinkId}"`);
   if (!(mainIndex >= 0 && qaIndex > mainIndex)) throw new Error(`ENTERPRISE LIGHT COLOR QA GATE: ${route.label} QA layer must load after v3`);
+  if (route.label === 'catalog') {
+    const assuranceIndex = html.indexOf(`id="${assuranceLinkId}"`);
+    if (!(assuranceIndex > qaIndex)) throw new Error('CATALOG ASSURANCE GATE: premium assurance stylesheet must load after QA');
+  }
 
   fs.writeFileSync(route.file, html);
 }
 
-// Stylesheets must be physically present and byte-identical in final hosting bundle.
 if (fs.readFileSync(cssPublic, 'utf8') !== fs.readFileSync(cssDist, 'utf8')) {
   throw new Error('ENTERPRISE LIGHT COLOR GATE: public/dist v3 stylesheet parity failed');
 }
 if (fs.readFileSync(qaCssPublic, 'utf8') !== fs.readFileSync(qaCssDist, 'utf8')) {
   throw new Error('ENTERPRISE LIGHT COLOR QA GATE: public/dist v3.1 stylesheet parity failed');
 }
+if (fs.readFileSync(assuranceCssPublic, 'utf8') !== fs.readFileSync(assuranceCssDist, 'utf8')) {
+  throw new Error('CATALOG ASSURANCE GATE: public/dist v3.2 stylesheet parity failed');
+}
 
-console.log('ENTERPRISE LIGHT COLOR SUITE PASS — v3 color layer + v3.1 geometry/mobile QA loaded; catalog flow removed from final templates HTML.');
+console.log('ENTERPRISE LIGHT COLOR SUITE PASS — v3 color + v3.1 QA + catalog v3.2 assurance board; catalog flow removed.');
