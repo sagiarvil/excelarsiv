@@ -1,6 +1,5 @@
 ---
 import CommerceLayout from '../layouts/CommerceLayout.astro';
-import SectionLabel from '../components/SectionLabel.astro';
 import Button from '../components/Button.astro';
 import { SATICI } from '../data/satici';
 
@@ -24,70 +23,195 @@ const contactLd = JSON.stringify({
 ---
 
 <CommerceLayout
-  title="İletişim — Excel Arşiv | Satış, Lisans ve Fatura Desteği"
-  description="Excel Arşiv ile iletişime geçin. Satış, lisans, fatura ve özel Excel sistemleri için e-posta veya telefon ile ulaşın."
+  title="İletişim | Satış, Destek ve İşletmeye Özel Excel Çözümleri | Excel Arşiv"
+  description="Excel Arşiv ile satış, lisans, fatura, demo ve işletmenize özel Excel sistemi ihtiyaçlarınız için iletişime geçin. Doğru konuyu doğru kanala hızlıca yönlendirin."
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={contactLd} />
   </Fragment>
-  <section class="border-b border-rule-hairline bg-surface-1">
-    <div class="container-site section-enter">
-      <SectionLabel number={1} label="İletişim" />
-      <h1 class="display mt-6">Size nasıl yardımcı olabiliriz?</h1>
-      <p class="lead mt-6 max-w-xl">
-        Satış öncesi sorular, lisans ve fatura talepleri, mevcut dosyanızın uyarlanması veya
-        işletmenize özel Excel otomasyon / mini ERP / CRM ihtiyacı için yazın.
-      </p>
-    </div>
-  </section>
 
-  <section>
-    <div class="container-site section-enter">
-      <div class="grid-12 gap-y-10">
-        <div class="col-span-12 border-t border-rule-hairline pt-6 lg:col-span-4">
-          <h2 class="h3">E-posta</h2>
-          <p class="body-sm mt-3">
-            <a href={`mailto:${SATICI.eposta}`} class="font-mono text-sm text-accent-primary underline underline-offset-4 hover:text-accent-hover">
-              {SATICI.eposta}
-            </a>
+  <div class="contact-page">
+    <section class="contact-hero" aria-labelledby="contact-title">
+      <div class="contact-hero__rail" aria-hidden="true"></div>
+      <div class="container-site contact-hero__grid">
+        <div class="contact-hero__copy">
+          <p class="contact-eyebrow"><span></span> EXCEL ARŞİV İLETİŞİM MASASI</p>
+          <h1 id="contact-title">Sorunuzu anlatın.<br /><strong>Doğru çözüm yolunu birlikte netleştirelim.</strong></h1>
+          <p class="contact-lead">
+            Satın alma öncesi ürün seçimi, lisans ve fatura desteği, demo talepleri veya işletmenize özel Excel sistemi için doğrudan ulaşabilirsiniz. Konuyu uzatmadan, ihtiyacın hangi ürün ya da çalışma ile çözülebileceğini netleştiriyoruz.
           </p>
-          <p class="body-sm mt-2">Fatura ve ödeme belgeleri için sipariş numaranızı ekleyin.</p>
-        </div>
-        <div class="col-span-12 border-t border-rule-hairline pt-6 lg:col-span-4">
-          <h2 class="h3">Telefon</h2>
-          <p class="body-sm mt-3">
-            <a href={SATICI.telefonTelHref} class="font-mono text-sm text-accent-primary underline underline-offset-4 hover:text-accent-hover">
-              {SATICI.telefon}
-            </a>
-          </p>
-          <p class="body-sm mt-2">Hafta içi 09.00–18.00 (Türkiye saati).</p>
-        </div>
-        <div class="col-span-12 border-t border-rule-hairline pt-6 lg:col-span-4">
-          <h2 class="h3">Özel sistem talebi</h2>
-          <p class="body-sm mt-3">Hazır ürünün yetmediği işler için özel Excel otomasyon, mini ERP ve CRM geliştirme hizmetinin kapsamını inceleyin.</p>
-          <div class="mt-6">
-            <Button href="/ozel-excel-sistemleri" variant="secondary">Özel sistem hizmeti</Button>
+          <div class="contact-hero__actions">
+            <a class="contact-primary" href={`mailto:${SATICI.eposta}`}>E-posta Gönder <span aria-hidden="true">→</span></a>
+            <a class="contact-secondary" href={SATICI.telefonTelHref}>Telefonla Ulaş</a>
+          </div>
+          <div class="contact-signal-row" aria-label="İletişim konuları">
+            <span><i class="signal signal--green"></i> Satış & lisans</span>
+            <span><i class="signal signal--blue"></i> Özel Excel sistemi</span>
+            <span><i class="signal signal--amber"></i> Fatura & ödeme</span>
+            <span><i class="signal signal--coral"></i> Destek & demo</span>
           </div>
         </div>
-        <div class="col-span-12 border-t border-rule-hairline pt-6 lg:col-span-4">
-          <h2 class="h3">Satıcı / vergi</h2>
-          <p class="body-sm mt-3">
-            {SATICI.unvan}
-            <br />
-            VKN: <span class="font-mono">{SATICI.vkn}</span>
-          </p>
-          <p class="body-sm mt-2">{SATICI.adresBeyani}</p>
+
+        <aside class="contact-desk" aria-label="Hızlı iletişim">
+          <div class="contact-desk__topline" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+          <p class="desk-kicker">HIZLI İLETİŞİM</p>
+          <h2>İlk mesajda konu başlığını net yazmanız yeterli.</h2>
+          <div class="desk-channel desk-channel--green">
+            <span class="desk-index">01</span>
+            <div>
+              <small>E-POSTA</small>
+              <a href={`mailto:${SATICI.eposta}`}>{SATICI.eposta}</a>
+              <p>Dosya, ekran görüntüsü veya sipariş numarası ekleyebilirsiniz.</p>
+            </div>
+          </div>
+          <div class="desk-channel desk-channel--blue">
+            <span class="desk-index">02</span>
+            <div>
+              <small>TELEFON</small>
+              <a href={SATICI.telefonTelHref}>{SATICI.telefon}</a>
+              <p>Hafta içi 09.00–18.00 · Türkiye saati</p>
+            </div>
+          </div>
+          <div class="desk-note">
+            <strong>Özel sistem talebiniz varsa</strong>
+            <p>Kullandığınız mevcut Excel, mizan, muavin veya görmek istediğiniz rapordan bir örnek göndermeniz ilk değerlendirmeyi hızlandırır.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="contact-section contact-section--white" aria-labelledby="contact-needs-title">
+      <div class="container-site">
+        <div class="section-heading">
+          <p class="contact-eyebrow"><span></span> HANGİ KONUDA YAZIYORSUNUZ?</p>
+          <h2 id="contact-needs-title">Talebinizi doğru kanaldan başlatalım.</h2>
+          <p>Her konu aynı bilgiye ihtiyaç duymaz. Aşağıdaki başlıklardan size en yakın olanı seçip kısa bir açıklama göndermeniz yeterlidir.</p>
         </div>
-        <div class="col-span-12 border-t border-rule-hairline pt-6 lg:col-span-4">
-          <h2 class="h3">Sık sorulanlar</h2>
-          <p class="body-sm mt-3">
-            Teslimat, iade, fatura ve lisans sorularının büyük bölümü SSS'de yanıtlıdır.
-          </p>
-          <div class="mt-6">
-            <Button href="/sss" variant="secondary">SSS'yi incele</Button>
+
+        <div class="need-grid">
+          <article class="need-card need-card--green">
+            <div class="need-card__index">01</div>
+            <div class="need-card__icon" aria-hidden="true">₺</div>
+            <h3>Satış & ürün seçimi</h3>
+            <p>Hangi Excel sisteminin ihtiyacınıza uygun olduğunu bilmiyorsanız kullanım amacınızı yazın; hazır ürün mü, özel çalışma mı gerektiğini ayıralım.</p>
+            <a href="/sablonlar">Hazır sistemleri incele <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="need-card need-card--blue">
+            <div class="need-card__index">02</div>
+            <div class="need-card__icon" aria-hidden="true">X</div>
+            <h3>İşletmeye özel Excel sistemi</h3>
+            <p>Nakit akışı, cari, mizan, banka limitleri, yönetim raporu veya operasyon takibi gibi size özel bir yapı gerekiyorsa mevcut işleyişinizi anlatın.</p>
+            <a href="/ozel-excel-sistemleri">Özel sistemleri gör <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="need-card need-card--amber">
+            <div class="need-card__index">03</div>
+            <div class="need-card__icon" aria-hidden="true">#</div>
+            <h3>Fatura, ödeme & lisans</h3>
+            <p>Fatura, ödeme belgesi, lisans veya sipariş kontrolü için mesajınıza sipariş numarasını ve mümkünse kullanılan e-posta adresini ekleyin.</p>
+            <a href={`mailto:${SATICI.eposta}?subject=Fatura%20ve%20Lisans%20Desteği`}>Destek e-postası aç <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="need-card need-card--coral">
+            <div class="need-card__index">04</div>
+            <div class="need-card__icon" aria-hidden="true">?</div>
+            <h3>Demo & kullanım desteği</h3>
+            <p>Satın almadan önce demo incelemek veya mevcut bir ürünün kullanımını netleştirmek istiyorsanız ürün adını ve takıldığınız noktayı belirtin.</p>
+            <a href="/sss">Sık sorulanları incele <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section contact-section--soft" aria-labelledby="contact-brief-title">
+      <div class="container-site brief-grid">
+        <div class="brief-copy">
+          <p class="contact-eyebrow"><span></span> DAHA HIZLI SONUÇ İÇİN</p>
+          <h2 id="contact-brief-title">İlk mesajınızda şu 4 bilgiyi vermeniz yeterli.</h2>
+          <p>Uzun teknik açıklama hazırlamanız gerekmez. İşletme dilinde neyin aksadığını yazın; teknik çözüm tarafını biz ayrıştırırız.</p>
+        </div>
+        <ol class="brief-list">
+          <li><span>01</span><div><strong>Ne yapmak istiyorsunuz?</strong><p>Örneğin nakit takibi, cari kontrol, banka limiti, tahsilat veya yönetim raporu.</p></div></li>
+          <li><span>02</span><div><strong>Bugün bunu nasıl yapıyorsunuz?</strong><p>Excel, Luca, Logo, Zirve, Mikro veya manuel bir iş akışı olabilir.</p></div></li>
+          <li><span>03</span><div><strong>En çok nerede zaman veya kontrol kaybı yaşıyorsunuz?</strong><p>Aynı veri tekrar mı giriliyor, rapor mu geç çıkıyor, hata mı bulunamıyor?</p></div></li>
+          <li><span>04</span><div><strong>Varsa örnek dosya veya ekran görüntüsü ekleyin.</strong><p>Gerçek veri paylaşmak zorunda değilsiniz; yapıyı gösteren anonim örnek yeterlidir.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="contact-section contact-section--white" aria-labelledby="contact-company-title">
+      <div class="container-site company-grid">
+        <div class="company-card">
+          <p class="company-card__kicker">RESMÎ BİLGİLER</p>
+          <h2 id="contact-company-title">Satıcı / vergi bilgileri</h2>
+          <dl>
+            <div><dt>Ticari unvan</dt><dd>{SATICI.unvan}</dd></div>
+            <div><dt>VKN</dt><dd>{SATICI.vkn}</dd></div>
+            <div><dt>Adres</dt><dd>{SATICI.adresBeyani}</dd></div>
+          </dl>
+        </div>
+
+        <div class="special-cta">
+          <div class="special-cta__rail" aria-hidden="true"></div>
+          <p class="special-cta__kicker">HAZIR ŞABLON YETMİYORSA</p>
+          <h2>İşletmenizin gerçek işleyişine göre özel Excel sistemi kuralım.</h2>
+          <p>Hazır ürünü zorlamak yerine, veri girişinden kontrol mekanizmasına ve yönetim ekranına kadar size özel bir çalışma mimarisi kurabiliriz.</p>
+          <div class="special-cta__actions">
+            <Button href="/ozel-excel-sistemleri" variant="primary">Özel Excel Sistemlerini İncele</Button>
+            <Button href={`mailto:${SATICI.eposta}?subject=İşletmeye%20Özel%20Excel%20Sistemi`} variant="secondary">Talebimi Anlat</Button>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </CommerceLayout>
+
+<style>
+  .contact-page{
+    --contact-ink:#12213a;
+    --contact-copy:#41536b;
+    --contact-muted:#6b7889;
+    --contact-line:#dbe3e8;
+    --contact-paper:#fbfaf6;
+    --contact-green:#217346;
+    --contact-green-soft:#eaf5ee;
+    --contact-blue:#255fca;
+    --contact-blue-soft:#edf3ff;
+    --contact-amber:#c77b18;
+    --contact-amber-soft:#fff4df;
+    --contact-coral:#c95d4b;
+    --contact-coral-soft:#fff0ec;
+    --contact-teal:#147d82;
+    color:var(--contact-ink);
+    background:#fff;
+  }
+  .contact-hero{position:relative;overflow:hidden;padding:76px 0 70px;background-color:var(--contact-paper);background-image:linear-gradient(rgba(37,95,202,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(37,95,202,.045) 1px,transparent 1px);background-size:38px 38px;border-bottom:1px solid var(--contact-line)}
+  .contact-hero::after{content:"";position:absolute;right:-9%;top:0;width:46%;height:100%;background:#eef3fb;clip-path:polygon(23% 0,100% 0,100% 100%,0 100%);z-index:0}
+  .contact-hero__rail{position:absolute;inset:0 auto 0 0;width:8px;background:var(--contact-green);z-index:2}
+  .contact-hero__grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(390px,.72fr);gap:70px;align-items:center}
+  .contact-eyebrow{display:flex;align-items:center;gap:9px;margin:0 0 15px;font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--contact-green)}
+  .contact-eyebrow span{width:28px;height:3px;background:linear-gradient(90deg,var(--contact-green) 0 55%,var(--contact-amber) 55%)}
+  .contact-hero h1{max-width:780px;margin:0;font-size:clamp(42px,5.2vw,64px);line-height:1.02;letter-spacing:-.055em;font-weight:800;color:var(--contact-ink)}
+  .contact-hero h1 strong{display:block;margin-top:7px;color:var(--contact-green);font-weight:800}
+  .contact-lead{max-width:720px;margin:23px 0 0;font-size:17px;line-height:1.75;color:var(--contact-copy)}
+  .contact-hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .contact-primary,.contact-secondary{display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:8px;padding:0 19px;border-radius:8px;font-size:14px;font-weight:800;text-decoration:none;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+  .contact-primary{background:var(--contact-green);color:#fff;box-shadow:0 10px 24px rgba(33,115,70,.18)}
+  .contact-secondary{background:#fff;color:var(--contact-ink);border:1px solid #b7c3ce}
+  .contact-primary:hover,.contact-secondary:hover{transform:translateY(-1px)}
+  .contact-signal-row{display:flex;flex-wrap:wrap;gap:18px 22px;margin-top:31px;padding-top:20px;border-top:1px solid #d6dfe5;color:#526277;font-size:12px;font-weight:700}
+  .contact-signal-row span{display:flex;align-items:center;gap:7px}.signal{width:8px;height:8px;border-radius:50%;background:var(--contact-green)}.signal--blue{background:var(--contact-blue)}.signal--amber{background:var(--contact-amber)}.signal--coral{background:var(--contact-coral)}
+  .contact-desk{position:relative;padding:31px 28px 26px;border:1px solid #bfc9d3;border-radius:13px;background:#fff;box-shadow:0 28px 60px rgba(25,43,70,.14)}
+  .contact-desk__topline{position:absolute;left:-1px;right:-1px;top:-1px;display:grid;grid-template-columns:29% 25% 24% 22%;height:6px;overflow:hidden;border-radius:13px 13px 0 0}.contact-desk__topline span:nth-child(1){background:var(--contact-green)}.contact-desk__topline span:nth-child(2){background:var(--contact-blue)}.contact-desk__topline span:nth-child(3){background:var(--contact-amber)}.contact-desk__topline span:nth-child(4){background:var(--contact-coral)}
+  .desk-kicker{margin:0;color:var(--contact-green);font-size:10px;font-weight:900;letter-spacing:.12em}.contact-desk h2{margin:8px 0 22px;font-size:23px;line-height:1.2;letter-spacing:-.03em}
+  .desk-channel{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:17px 0;border-top:1px solid #e1e6ea}.desk-index{display:grid;place-items:center;width:34px;height:34px;border-radius:7px;background:var(--contact-green-soft);color:var(--contact-green);font:900 10px/1 var(--font-mono)}.desk-channel--blue .desk-index{background:var(--contact-blue-soft);color:var(--contact-blue)}.desk-channel small{display:block;color:#788493;font-size:9px;font-weight:900;letter-spacing:.11em}.desk-channel a{display:block;margin-top:4px;color:var(--contact-ink);font-size:15px;font-weight:850;text-decoration:none;overflow-wrap:anywhere}.desk-channel p{margin:5px 0 0;color:var(--contact-muted);font-size:11px;line-height:1.55}.desk-note{margin-top:8px;padding:15px 16px;border-left:4px solid var(--contact-amber);background:var(--contact-amber-soft)}.desk-note strong{font-size:12px}.desk-note p{margin:5px 0 0;color:#64563f;font-size:11px;line-height:1.55}
+  .contact-section{padding:78px 0}.contact-section--white{background:#fff}.contact-section--soft{background:#f7f9fb;border-block:1px solid #e4e9ee}.section-heading{max-width:760px;margin-bottom:34px}.section-heading h2,.brief-copy h2,.company-card h2,.special-cta h2{margin:0;font-size:clamp(30px,3.4vw,43px);line-height:1.08;letter-spacing:-.04em}.section-heading>p:last-child,.brief-copy>p:last-child{margin:15px 0 0;color:var(--contact-copy);font-size:15px;line-height:1.72}
+  .need-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid #d4dde4;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 14px 38px rgba(30,49,73,.06)}
+  .need-card{position:relative;min-height:330px;padding:26px 24px 24px;border-left:1px solid #dfe5e9}.need-card:first-child{border-left:0}.need-card::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--contact-green)}.need-card--blue::before{background:var(--contact-blue)}.need-card--amber::before{background:var(--contact-amber)}.need-card--coral::before{background:var(--contact-coral)}.need-card__index{color:#8a95a0;font:800 9px/1 var(--font-mono);letter-spacing:.08em}.need-card__icon{display:grid;place-items:center;width:42px;height:42px;margin-top:28px;border-radius:9px;background:var(--contact-green-soft);color:var(--contact-green);font-size:16px;font-weight:900}.need-card--blue .need-card__icon{background:var(--contact-blue-soft);color:var(--contact-blue)}.need-card--amber .need-card__icon{background:var(--contact-amber-soft);color:var(--contact-amber)}.need-card--coral .need-card__icon{background:var(--contact-coral-soft);color:var(--contact-coral)}.need-card h3{margin:18px 0 0;font-size:18px;line-height:1.25;letter-spacing:-.02em}.need-card p{margin:12px 0 0;color:var(--contact-copy);font-size:13px;line-height:1.68}.need-card a{position:absolute;left:24px;right:24px;bottom:22px;color:var(--contact-green);font-size:12px;font-weight:850;text-decoration:none}.need-card--blue a{color:var(--contact-blue)}.need-card--amber a{color:var(--contact-amber)}.need-card--coral a{color:var(--contact-coral)}
+  .brief-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:76px;align-items:start}.brief-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin:0;padding:0;list-style:none;border:1px solid #d8e0e6;border-radius:12px;overflow:hidden;background:#fff}.brief-list li{display:grid;grid-template-columns:44px 1fr;gap:13px;min-height:154px;padding:22px;border-left:1px solid #e0e6ea;border-top:1px solid #e0e6ea}.brief-list li:nth-child(odd){border-left:0}.brief-list li:nth-child(-n+2){border-top:0}.brief-list li>span{display:grid;place-items:center;width:36px;height:36px;border-radius:7px;background:var(--contact-green-soft);color:var(--contact-green);font:900 10px/1 var(--font-mono)}.brief-list li:nth-child(2)>span{background:var(--contact-blue-soft);color:var(--contact-blue)}.brief-list li:nth-child(3)>span{background:var(--contact-amber-soft);color:var(--contact-amber)}.brief-list li:nth-child(4)>span{background:var(--contact-coral-soft);color:var(--contact-coral)}.brief-list strong{font-size:14px;line-height:1.35}.brief-list p{margin:7px 0 0;color:var(--contact-muted);font-size:12px;line-height:1.58}
+  .company-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:22px}.company-card,.special-cta{position:relative;border:1px solid #d7dfe5;border-radius:12px;background:#fff}.company-card{padding:30px}.company-card__kicker,.special-cta__kicker{margin:0;color:var(--contact-teal);font-size:10px;font-weight:900;letter-spacing:.12em}.company-card h2{margin-top:8px;font-size:28px}.company-card dl{margin:25px 0 0}.company-card dl div{display:grid;grid-template-columns:105px 1fr;gap:15px;padding:13px 0;border-top:1px solid #e4e9ed}.company-card dt{color:#7a8795;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em}.company-card dd{margin:0;color:var(--contact-ink);font-size:13px;line-height:1.55}.special-cta{overflow:hidden;padding:34px 34px 32px;background:#f9fbfa}.special-cta__rail{position:absolute;left:0;top:0;bottom:0;width:7px;background:linear-gradient(180deg,var(--contact-green) 0 35%,var(--contact-blue) 35% 61%,var(--contact-amber) 61% 82%,var(--contact-coral) 82%)}.special-cta h2{max-width:780px;margin-top:9px;font-size:32px}.special-cta>p:not(.special-cta__kicker){max-width:780px;margin:14px 0 0;color:var(--contact-copy);font-size:14px;line-height:1.7}.special-cta__actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  @media(max-width:1050px){.contact-hero__grid{grid-template-columns:1fr;gap:42px}.contact-hero::after{right:-22%;width:65%;opacity:.55}.contact-desk{max-width:720px}.need-grid{grid-template-columns:repeat(2,1fr)}.need-card:nth-child(3){border-left:0}.need-card:nth-child(n+3){border-top:1px solid #dfe5e9}.brief-grid,.company-grid{grid-template-columns:1fr;gap:34px}}
+  @media(max-width:720px){.contact-hero{padding:54px 0 50px}.contact-hero__rail{width:5px}.contact-hero::after{right:-40%;width:88%;opacity:.34}.contact-hero h1{font-size:clamp(36px,11vw,48px)}.contact-lead{font-size:15px}.contact-hero__actions{display:grid;grid-template-columns:1fr}.contact-primary,.contact-secondary{width:100%}.contact-signal-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.contact-desk{padding:27px 20px 22px}.contact-section{padding:58px 0}.need-grid{grid-template-columns:1fr}.need-card,.need-card:nth-child(3){border-left:0}.need-card:nth-child(n+2){border-top:1px solid #dfe5e9}.need-card{min-height:294px}.brief-list{grid-template-columns:1fr}.brief-list li,.brief-list li:nth-child(odd){border-left:0;border-top:1px solid #e0e6ea}.brief-list li:first-child{border-top:0}.company-card,.special-cta{padding:25px 21px}.company-card dl div{grid-template-columns:1fr;gap:5px}.special-cta h2{font-size:27px}.special-cta__actions{display:grid}.special-cta__actions :global(a){width:100%}}
+  @media(prefers-reduced-motion:reduce){.contact-primary,.contact-secondary{transition:none}.contact-primary:hover,.contact-secondary:hover{transform:none}}
+</style>
