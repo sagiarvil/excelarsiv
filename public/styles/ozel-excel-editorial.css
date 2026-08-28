@@ -1,8 +1,8 @@
 /* /ozel-excel-sistemleri — AI-free editorial premium layer
-   Sources translated into the ExcelArşiv domain:
-   21st.dev -> dashboard parts + bento hierarchy
-   MotionSites -> restrained motion rhythm
-   UI UX Pro Max -> design-system, a11y, responsive discipline
+   External references are translated into native ExcelArşiv patterns:
+   component-library patterns -> dashboard parts + bento hierarchy
+   premium motion references -> restrained motion rhythm
+   UX design intelligence -> design-system, a11y, responsive discipline
    This layer intentionally removes generic AI/SaaS visual tropes. */
 
 body.special-light-v1{
@@ -153,7 +153,7 @@ body.special-light-v1{
 .special-light-v1 .native-info--special{background:#fff!important;border:1px solid var(--ed-line)!important;border-radius:10px!important;box-shadow:none!important}
 .special-light-v1 .native-info--special .native-info__card,.special-light-v1 .native-info--special .native-info__outcomes article{border-radius:8px!important;box-shadow:none!important}
 
-/* MotionSites principle, translated conservatively: one quiet reveal, no perpetual motion. */
+/* Motion is conservative: one quiet reveal, no perpetual movement. */
 @keyframes eaEditorialReveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @supports (animation-timeline:view()){
   .special-light-v1 .product-shot,
