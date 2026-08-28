@@ -8,6 +8,14 @@ const distDir = 'dist';
 const externalFontPattern = /<link\b[^>]*href=["']https:\/\/fonts\.googleapis\.com\/css2\?family=Inter[^"']*["'][^>]*>/gi;
 const interToken = '--ea-font-sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;';
 const localToken = '--ea-font-sans:"Manrope",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;';
+const specialLightPath = join(distDir, 'ozel-excel-sistemleri', 'index.html');
+const selfHostedInterSignals = [
+  'data-special-light-v1',
+  '/fonts/inter-400-latin-ext.woff2',
+  '/fonts/inter-500-latin-ext.woff2',
+  '/fonts/inter-600-latin-ext.woff2',
+  '/fonts/inter-700-latin-ext.woff2',
+];
 
 function walk(dir) {
   const out = [];
@@ -19,32 +27,52 @@ function walk(dir) {
   return out;
 }
 
+function isSelfHostedSpecialLight(path, html) {
+  return path === specialLightPath && selfHostedInterSignals.every((token) => html.includes(token));
+}
+
 const files = walk(distDir);
 if (files.length < 10) throw new Error(`LOCAL TYPOGRAPHY GATE: suspicious HTML count ${files.length}`);
 
-let changed = 0;
+let transformed = 0;
 for (const path of files) {
   const before = readFileSync(path, 'utf8');
   let after = before.replace(externalFontPattern, '');
-  after = after.replaceAll(interToken, localToken);
+
+  // Premium-light özel sayfa kendi self-hosted Inter yüzeyini tasarım sözleşmesi olarak korur.
+  // Diğer tüm sayfalar site-wide Manrope tokenına normalize edilir.
+  if (!isSelfHostedSpecialLight(path, after)) after = after.replaceAll(interToken, localToken);
+
   if (after !== before) {
     writeFileSync(path, after, 'utf8');
-    changed += 1;
+    transformed += 1;
   }
 }
 
-if (changed !== files.length) {
-  throw new Error(`LOCAL TYPOGRAPHY GATE: expected ${files.length} localized pages, changed ${changed}`);
-}
-
+let compliant = 0;
 for (const path of files) {
   const html = readFileSync(path, 'utf8');
   if (/fonts\.googleapis\.com\/css2\?family=Inter/i.test(html)) {
     throw new Error(`LOCAL TYPOGRAPHY GATE: external Inter blocker remains in ${path}`);
   }
+
+  if (isSelfHostedSpecialLight(path, html)) {
+    // Bu sayfada Inter yalnızca repodaki yerel WOFF2 dosyalarından yüklenebilir.
+    if (!html.includes('@font-face') || !html.includes('font-family:Inter')) {
+      throw new Error(`LOCAL TYPOGRAPHY GATE: premium light self-hosted Inter contract incomplete in ${path}`);
+    }
+    compliant += 1;
+    continue;
+  }
+
   if (html.includes('--ea-font-sans:Inter,')) {
     throw new Error(`LOCAL TYPOGRAPHY GATE: Inter token remains in ${path}`);
   }
+  compliant += 1;
 }
 
-console.log(`LOCAL TYPOGRAPHY GATE PASS — ${files.length} HTML sayfası self-hosted Manrope zincirine alındı; Google Fonts render blocker kaldırıldı.`);
+if (compliant !== files.length) {
+  throw new Error(`LOCAL TYPOGRAPHY GATE: expected ${files.length} compliant pages, found ${compliant}`);
+}
+
+console.log(`LOCAL TYPOGRAPHY GATE PASS — ${compliant}/${files.length} HTML sayfası self-hosted font zincirinde; ${transformed} sayfa build sırasında normalize edildi; Google Fonts render blocker yok.`);
