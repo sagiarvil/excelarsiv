@@ -60,6 +60,14 @@ body.special-light-v1{--max:1160px;font-family:"Manrope",ui-sans-serif,system-ui
 </style>`
 };
 
+const encodeStandaloneAmpersands = (value) => value.replace(/ & /g, ' &amp; ');
+const replaceHtmlVariant = (html, from, to) => {
+  if (html.includes(from)) return html.replace(from, to);
+  const encodedFrom = encodeStandaloneAmpersands(from);
+  if (encodedFrom !== from && html.includes(encodedFrom)) return html.replace(encodedFrom, encodeStandaloneAmpersands(to));
+  return html;
+};
+
 if (!fs.existsSync(SPECIAL_ENTERPRISE_CSS)) throw new Error('FINAL UI GATE: özel Excel enterprise stylesheet dist içinde bulunamadı');
 if (!fs.existsSync(SPECIAL_EDITORIAL_CSS)) throw new Error('FINAL UI GATE: özel Excel editorial stylesheet dist içinde bulunamadı');
 
@@ -72,7 +80,7 @@ for (const [relative, css] of Object.entries(fixes)) {
   html = html.replace(/<link id="special-enterprise-css"[^>]*\/>/g, '');
   html = html.replace(/<link id="special-editorial-css"[^>]*\/>/g, '');
   if (relative === '/ozel-excel-sistemleri/index.html') {
-    for (const [from, to] of specialContentReplacements) html = html.replace(from, to);
+    for (const [from, to] of specialContentReplacements) html = replaceHtmlVariant(html, from, to);
   }
   if (!html.includes('</head>')) throw new Error(`FINAL UI GATE: </head> bulunamadı: ${relative}`);
   html = html.replace('</head>', `${css}\n</head>`);
