@@ -44,21 +44,17 @@ const fixes = {
 .hakkinda__hero,.hakkinda__cta{color:#f8fafc!important}.hakkinda__hero h1,.hakkinda__hero h2,.hakkinda__hero h3,.hakkinda__hero strong{color:#fff!important}.hakkinda__hero .hakkinda__kicker{color:#9ef0bd!important}.hakkinda__hero .hakkinda__unvan{color:#c9f7d9!important}.hakkinda__hero .hakkinda__rol{color:#edf8f1!important}.hakkinda__hero .hakkinda__rozet li{color:#f5fff9!important}.hakkinda__cta p{color:#eef8f2!important}.hakkinda__cta a{color:#b8f2cd!important}.hakkinda__cta a:hover{color:#fff!important}
 a[class*="bg-green"],button[class*="bg-green"],a[class*="bg-emerald"],button[class*="bg-emerald"],.site-header__cta,.btn-primary{color:#fff!important}a[class*="bg-green"] *,button[class*="bg-green"] *,a[class*="bg-emerald"] *,button[class*="bg-emerald"] *,.site-header__cta *,.btn-primary *{color:inherit!important}
 </style>`,
-
   '/rehber/index.html': `
 <style id="final-ui-contrast-fixes">
 aside div[class*="from-[#0B192C]"] h3,aside div[class*="from-[#0B192C]"] strong{color:#fff!important}aside div[class*="from-[#0B192C]"] p{color:#d8e5f3!important}aside div[class*="from-[#0B192C]"] a,aside div[class*="from-[#0B192C]"] a span{color:#fff!important}
 a[class*="bg-green"],button[class*="bg-green"],a[class*="bg-emerald"],button[class*="bg-emerald"],a[class*="bg-blue"],button[class*="bg-blue"]{color:#fff!important}a[class*="bg-green"] *,button[class*="bg-green"] *,a[class*="bg-emerald"] *,button[class*="bg-emerald"] *{color:inherit!important}
 @media(max-width:1023px){main{scroll-margin-top:92px}aside div[class*="from-[#0B192C]"]{margin-bottom:8px}}
 </style>`,
-
   '/ozel-excel-sistemleri/index.html': `
 <link id="special-enterprise-css" rel="stylesheet" href="/styles/ozel-excel-enterprise.css" />
 <link id="special-editorial-css" rel="stylesheet" href="/styles/ozel-excel-editorial.css" />
 <style id="final-ui-contrast-fixes">
-/* Legacy special-v3 safeguards remain namespaced and cannot affect premium-light-v1. */
 .special-v3 section[id]{scroll-margin-top:104px!important}.special-v3 #saha,.special-v3 #karsilastirma,.special-v3 #moduller,.special-v3 #surec,.special-v3 #faq,.special-v3 #iletisim{scroll-margin-top:104px!important}.special-v3 .close-grid{align-items:start!important;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr)!important}.special-v3 .faq-panel{align-self:start!important;height:auto!important;min-height:0!important}.special-v3 .contact{align-self:start!important}.special-v3 .contact,.special-v3 .contact h1,.special-v3 .contact h2,.special-v3 .contact h3,.special-v3 .contact strong{color:#fff!important}.special-v3 .contact .section-copy,.special-v3 .contact p{color:#dce5ef!important}.special-v3 .contact-points div{color:#eef4fb!important}.special-v3 .btn-primary,.special-v3 .btn-primary *{color:#fff!important}.special-v3 .section{padding-top:60px!important;padding-bottom:60px!important}
-/* Enterprise light contract. Full presentation is isolated in the two route-only stylesheets. */
 body.special-light-v1{--max:1160px;font-family:"Manrope",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;color-scheme:light!important}.special-light-v1 .wrap{width:min(1160px,calc(100% - 48px))!important}.special-light-v1 .solution-grid{grid-template-columns:repeat(12,1fr)!important}.special-light-v1 .native-info--special{background:#fff!important;color:#10233f!important;border-color:#dbe5ef!important}.special-light-v1 .native-info--special h2{color:#10233f!important}.special-light-v1 .native-info--special .native-info__eyebrow{color:#107c41!important}.special-light-v1 .native-info--special .native-info__lead,.special-light-v1 .native-info--special .native-info__card span,.special-light-v1 .native-info--special .native-info__outcomes span,.special-light-v1 .native-info--special .native-info__footer p{color:#66778e!important}.special-light-v1 .native-info--special .native-info__card,.special-light-v1 .native-info--special .native-info__outcomes article{background:#fff!important;border-color:#dce5ee!important}.special-light-v1 .native-info--special .native-info__card strong,.special-light-v1 .native-info--special .native-info__outcomes strong{color:#10233f!important}.special-light-v1 .native-info--special .native-info__cta{background:#217346!important;color:#fff!important}.special-light-v1 .native-info--special .native-info__cta:hover{background:#185c37!important}
 @media(max-width:980px){.special-v3 .close-grid{grid-template-columns:1fr!important;gap:18px!important}}@media(max-width:720px){.special-v3 section[id]{scroll-margin-top:82px!important}.special-v3 .section{padding-top:46px!important;padding-bottom:46px!important}}
 </style>`
@@ -89,6 +85,7 @@ const guide = fs.readFileSync(path.join(DIST, 'rehber/index.html'), 'utf8');
 const special = fs.readFileSync(path.join(DIST, 'ozel-excel-sistemleri/index.html'), 'utf8');
 const enterpriseCss = fs.readFileSync(SPECIAL_ENTERPRISE_CSS, 'utf8');
 const editorialCss = fs.readFileSync(SPECIAL_EDITORIAL_CSS, 'utf8');
+const hasEither = (text, raw, encoded) => text.includes(raw) || text.includes(encoded);
 
 if (!about.includes('.hakkinda__hero h1')) throw new Error('FINAL UI GATE: hakkında dark hero kontrast kuralı yok');
 if (!guide.includes('from-[#0B192C]')) throw new Error('FINAL UI GATE: rehber dark card kontrast kuralı yok');
@@ -98,7 +95,8 @@ if (special.includes('data-special-light-v1') && !special.includes('id="special-
 if (special.includes('data-special-light-v1') && !special.includes('id="special-editorial-css"')) throw new Error('FINAL UI GATE: editorial stylesheet link missing');
 if (special.includes('data-special-light-v1') && (!special.includes('--max:1160px') || !special.includes('font-family:"Manrope"') || !special.includes('solution-grid{grid-template-columns:repeat(12,1fr)!important'))) throw new Error('FINAL UI GATE: enterprise light contract missing');
 if (special.includes('data-special-light-v1') && !special.includes('.special-light-v1 .native-info--special')) throw new Error('FINAL UI GATE: premium light native infographic override missing');
-if (!special.includes('Mizan, Nakit, Cari ve Banka Verinizi') || !special.includes('13 Haftalık Nakit Akışı &amp; Likidite') || !special.includes('Banka Limit-Risk &amp; Faiz Maliyeti')) throw new Error('FINAL UI GATE: finance-specific content contract missing');
+const financeContentOk = special.includes('Mizan, Nakit, Cari ve Banka Verinizi') && hasEither(special,'13 Haftalık Nakit Akışı & Likidite','13 Haftalık Nakit Akışı &amp; Likidite') && hasEither(special,'Banka Limit-Risk & Faiz Maliyeti','Banka Limit-Risk &amp; Faiz Maliyeti');
+if (!financeContentOk) throw new Error('FINAL UI GATE: finance-specific content contract missing');
 if (!enterpriseCss.includes('body.special-light-v1') || !enterpriseCss.includes('.special-light-v1 .hero-grid') || !enterpriseCss.includes('.special-light-v1 .solution-card:nth-child(1)') || !enterpriseCss.includes('.special-light-v1 .compare-row .new') || !enterpriseCss.includes('@media(prefers-reduced-motion:reduce)')) throw new Error('FINAL UI GATE: enterprise stylesheet semantic contract incomplete');
 if (!editorialCss.includes('AI-free editorial premium layer') || !editorialCss.includes('.special-light-v1 .hero::after{display:none!important}') || !editorialCss.includes('@supports (animation-timeline:view())') || !editorialCss.includes('@media(prefers-reduced-motion:reduce)')) throw new Error('FINAL UI GATE: editorial AI-free design contract incomplete');
 
