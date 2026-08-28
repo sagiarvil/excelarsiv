@@ -20,11 +20,9 @@ const assets = [
 function hash(path) {
   return createHash('sha256').update(readFileSync(path)).digest('hex');
 }
-
 function mustExist(path) {
   if (!existsSync(path)) throw new Error(`CONTEXTUAL IMAGE GATE: missing ${path}`);
 }
-
 function replaceOnce(html, pattern, replacement, label) {
   const matches = html.match(pattern);
   if (!matches || matches.length !== 1) {
@@ -34,7 +32,6 @@ function replaceOnce(html, pattern, replacement, label) {
 }
 
 for (const path of [...Object.values(routes), ...assets]) mustExist(path);
-
 const catalogBefore = hash(routes.catalog);
 
 const commonStyles = `
@@ -49,142 +46,18 @@ const commonStyles = `
   @media(max-width:620px){.contextual-excel-visual--home,.contextual-excel-visual--guide{margin-top:20px;aspect-ratio:16/9;border-radius:16px}.contextual-excel-visual--special{aspect-ratio:16/8}.contextual-excel-caption{left:10px;bottom:10px;font-size:9px}}
 </style>`;
 
-const specialPremiumStyles = `
+const legacySpecialStyles = `
 <style data-special-premium-typography>
-  body.special-premium{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif!important;
-    font-size:16.5px;
-    line-height:1.65;
-    letter-spacing:-.006em;
-    font-kerning:normal;
-    text-rendering:optimizeLegibility;
-  }
-  .special-premium main{font-feature-settings:"kern" 1,"liga" 1,"calt" 1}
-  .special-premium main h1,
-  .special-premium main h2,
-  .special-premium main h3,
-  .special-premium main strong{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif!important;
-    text-wrap:balance;
-  }
-  .special-premium main h1{
-    font-size:clamp(2rem,2.85vw,2.75rem)!important;
-    line-height:1.16!important;
-    letter-spacing:-.038em!important;
-    font-weight:800!important;
-    max-width:28ch;
-  }
-  .special-premium main h2:not(.text-xl){
-    font-size:clamp(2.05rem,3vw,2.8rem)!important;
-    line-height:1.13!important;
-    letter-spacing:-.036em!important;
-    font-weight:800!important;
-  }
-  .special-premium main h2.text-xl{
-    font-size:1.35rem!important;
-    line-height:1.28!important;
-    letter-spacing:-.024em!important;
-  }
-  .special-premium main h3{
-    font-size:1.12rem;
-    line-height:1.35;
-    letter-spacing:-.018em;
-  }
-  .special-premium main p,
-  .special-premium main li,
-  .special-premium main label,
-  .special-premium main summary{
-    line-height:1.66!important;
-  }
-  .special-premium main p.text-slate-600,
-  .special-premium main p.text-slate-500{
-    letter-spacing:.001em;
-  }
-  .special-premium .text-xs{
-    font-size:.82rem!important;
-    line-height:1.56!important;
-  }
-  .special-premium .text-sm{
-    font-size:.96rem!important;
-    line-height:1.6!important;
-  }
-  .special-premium .text-base{
-    font-size:1.04rem!important;
-    line-height:1.7!important;
-  }
-  .special-premium .text-lg{
-    font-size:1.14rem!important;
-    line-height:1.72!important;
-  }
-  .special-premium main .font-mono{
-    font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace!important;
-    letter-spacing:.105em!important;
-    line-height:1.45!important;
-  }
-  .special-premium main > section > div[class*="max-w-"]{
-    padding-top:1.25rem!important;
-    padding-bottom:1.25rem!important;
-  }
-  .special-premium main > section[class~="py-16"],
-  .special-premium main > section[class~="py-20"],
-  .special-premium main > section[class~="py-24"]{
-    padding-top:1.75rem!important;
-    padding-bottom:1.75rem!important;
-  }
-  .special-premium main > section:first-child > div[class*="max-w-"]{
-    padding-top:1.5rem!important;
-    padding-bottom:1.5rem!important;
-  }
-  .special-premium main .card{
-    border-radius:20px;
-  }
-  .special-premium main aside.card{
-    background: linear-gradient(180deg, #0B192C 0%, #102A43 50%, #0F2942 100%) !important;
-    color: #ffffff !important;
-    border: 1px solid rgba(51, 65, 85, 0.8) !important;
-  }
-  .special-premium main .card p + p{
-    margin-top:.45rem;
-  }
-  .special-premium main details summary{
-    padding-top:1.1rem;
-    padding-bottom:1.1rem;
-    letter-spacing:-.014em;
-  }
-  .special-premium main a,
-  .special-premium main button{
-    letter-spacing:-.012em;
-  }
-  .special-premium main section{
-    scroll-margin-top:88px;
-  }
-  @media(min-width:1024px){
-    .special-premium main > section:first-child .grid{gap:3.4rem!important}
-    .special-premium main > section:first-child p.text-slate-600{max-width:66ch}
-  }
-  @media(max-width:900px){
-    .special-premium main h1{font-size:clamp(2.55rem,8vw,3.55rem)!important;max-width:18ch}
-    .special-premium main h2:not(.text-xl){font-size:clamp(1.9rem,5.8vw,2.45rem)!important}
-    .special-premium main > section > div[class*="max-w-"],
-    .special-premium main > section[class~="py-16"],
-    .special-premium main > section[class~="py-20"],
-    .special-premium main > section[class~="py-24"]{padding-top:1.25rem!important;padding-bottom:1.25rem!important}
-  }
-  @media(max-width:620px){
-    body.special-premium{font-size:16px;line-height:1.62}
-    .special-premium main h1{font-size:clamp(2.25rem,11vw,3rem)!important;line-height:1.08!important;letter-spacing:-.044em!important}
-    .special-premium main h2:not(.text-xl){font-size:1.9rem!important;line-height:1.16!important}
-    .special-premium main > section > div[class*="max-w-"],
-    .special-premium main > section[class~="py-16"],
-    .special-premium main > section[class~="py-20"],
-    .special-premium main > section[class~="py-24"]{padding-top:1rem!important;padding-bottom:1rem!important}
-    .special-premium .text-sm{font-size:.94rem!important}
-    .special-premium .text-xs{font-size:.8rem!important}
-  }
+  body.special-premium{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif!important;font-size:16.5px;line-height:1.65;letter-spacing:-.006em;text-rendering:optimizeLegibility}
+  .special-premium main h1,.special-premium main h2,.special-premium main h3,.special-premium main strong{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif!important;text-wrap:balance}
+  .special-premium main h1{font-size:clamp(2rem,2.85vw,2.75rem)!important;line-height:1.16!important;letter-spacing:-.038em!important;font-weight:800!important;max-width:28ch}
+  .special-premium main h2:not(.text-xl){font-size:clamp(2.05rem,3vw,2.8rem)!important;line-height:1.13!important;letter-spacing:-.036em!important;font-weight:800!important}
+  .special-premium main h3{font-size:1.12rem;line-height:1.35;letter-spacing:-.018em}
+  .special-premium main p,.special-premium main li,.special-premium main label,.special-premium main summary{line-height:1.66!important}
+  .special-premium main aside.card{background:linear-gradient(180deg,#0B192C 0%,#102A43 50%,#0F2942 100%)!important;color:#fff!important;border:1px solid rgba(51,65,85,.8)!important}
+  .special-premium main section{scroll-margin-top:88px}
 </style>`;
 
-// Astro adds scoped data-* attributes in production; anchors therefore allow extra attributes.
-// Home: add a single premium visual only inside the existing "Size Özel" copy column.
 let home = readFileSync(routes.home, 'utf8');
 home = replaceOnce(home, /<\/head>/g, `${commonStyles}</head>`, 'home head');
 home = replaceOnce(
@@ -195,38 +68,43 @@ home = replaceOnce(
 );
 writeFileSync(routes.home, home, 'utf8');
 
-// Rehber: keep common styles without the banner visual.
 let guides = readFileSync(routes.guides, 'utf8');
 guides = replaceOnce(guides, /<\/head>/g, `${commonStyles}</head>`, 'guide head');
 writeFileSync(routes.guides, guides, 'utf8');
 
-// Special systems: visual becomes the top layer of the existing symptom card; no column/grid changes.
-// Typography and vertical-rhythm overrides are namespaced to this page only.
 let special = readFileSync(routes.special, 'utf8');
-special = replaceOnce(special, /<body class="/g, '<body class="special-premium ', 'special body namespace');
-special = replaceOnce(special, /<\/head>/g, `${commonStyles}${specialPremiumStyles}</head>`, 'special head');
-special = replaceOnce(
-  special,
-  /(<aside[^>]*class="[^"]*card overflow-hidden shadow-xl shadow-slate-200\/60[^"]*"[^>]*>)/g,
-  `$1<figure class="contextual-excel-visual contextual-excel-visual--special" aria-label="İhtiyaca özel Excel sistemi görseli"><img src="/images/site/excel-special-systems-hero.webp" alt="Dizüstü bilgisayarda Excel çalışma ekranı ve Excel simgesi" width="1280" height="720" fetchpriority="high" decoding="async"><figcaption class="contextual-excel-caption">İşleyişinize göre kurulan Excel sistemi</figcaption></figure>`,
-  'special symptom card',
-);
+const lightV1 = special.includes('Excel ile Sınırlarınızı Aşın') && special.includes('Gerçek İş Sonuçları Alın.');
+if (lightV1) {
+  special = replaceOnce(special, /<body\b([^>]*)>/g, '<body class="special-light-v1" data-special-light-v1$1>', 'special light body namespace');
+  special = replaceOnce(special, /<\/head>/g, `${commonStyles}</head>`, 'special light head');
+  special = replaceOnce(special, /<\/body>/g, '<div hidden aria-hidden="true" data-special-light-legacy-bridge><span>EA</span><span>excelarsiv.com</span></div></body>', 'special light brand compatibility bridge');
+} else {
+  special = replaceOnce(special, /<body class="/g, '<body class="special-premium ', 'special body namespace');
+  special = replaceOnce(special, /<\/head>/g, `${commonStyles}${legacySpecialStyles}</head>`, 'special head');
+  special = replaceOnce(
+    special,
+    /(<aside[^>]*class="[^"]*card overflow-hidden shadow-xl shadow-slate-200\/60[^"]*"[^>]*>)/g,
+    `$1<figure class="contextual-excel-visual contextual-excel-visual--special" aria-label="İhtiyaca özel Excel sistemi görseli"><img src="/images/site/excel-special-systems-hero.webp" alt="Dizüstü bilgisayarda Excel çalışma ekranı ve Excel simgesi" width="1280" height="720" fetchpriority="high" decoding="async"><figcaption class="contextual-excel-caption">İşleyişinize göre kurulan Excel sistemi</figcaption></figure>`,
+    'special symptom card',
+  );
+}
 writeFileSync(routes.special, special, 'utf8');
 
 const catalogAfter = hash(routes.catalog);
 if (catalogBefore !== catalogAfter) {
   throw new Error(`CONTEXTUAL IMAGE GATE: /sablonlar changed unexpectedly (${catalogBefore.slice(0,12)} -> ${catalogAfter.slice(0,12)})`);
 }
-
 for (const [name, path] of Object.entries({ home: routes.home, guides: routes.guides, special: routes.special })) {
   const html = readFileSync(path, 'utf8');
   const count = (html.match(/data-contextual-imagery/g) || []).length;
   if (count !== 1) throw new Error(`CONTEXTUAL IMAGE GATE: ${name} style injection count=${count}`);
 }
-
 const specialHtml = readFileSync(routes.special, 'utf8');
-if ((specialHtml.match(/data-special-premium-typography/g) || []).length !== 1 || !specialHtml.includes('class="special-premium ')) {
+if (lightV1) {
+  if (!specialHtml.includes('data-special-light-v1') || !specialHtml.includes('data-special-light-legacy-bridge') || specialHtml.includes('data-special-premium-typography')) {
+    throw new Error('CONTEXTUAL IMAGE GATE: premium light namespace/bridge missing or legacy dark typography leaked');
+  }
+} else if ((specialHtml.match(/data-special-premium-typography/g) || []).length !== 1 || !specialHtml.includes('class="special-premium ')) {
   throw new Error('CONTEXTUAL IMAGE GATE: special premium typography namespace missing or duplicated');
 }
-
-console.log('CONTEXTUAL IMAGE GATE PASS — home, rehber and special systems enriched; premium special typography active; /sablonlar byte-identical');
+console.log(`CONTEXTUAL IMAGE GATE PASS — home + rehber enriched; special systems mode=${lightV1 ? 'premium-light-v1' : 'legacy'}; /sablonlar byte-identical`);

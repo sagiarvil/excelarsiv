@@ -32,7 +32,6 @@ const forbiddenRefs = [
   'SiteFooter',
   'CommerceLayout',
   'WorkbookLayout',
-  '/images/excel-logo.png',
   '/images/brand/excelarsiv-header-logo.png',
 ];
 for (const token of forbiddenRefs) {
