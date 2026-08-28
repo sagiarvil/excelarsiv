@@ -1,0 +1,22 @@
+/* ExcelArşiv — Homepage authority metric label contrast v3.4
+   Fixes KATALOG / KAPSAM / SEÇENEK readability on light tinted metric cards.
+   Loaded after all previous homepage color layers. */
+
+body.ea-home-color-v3 .home-v2 .authority-metrics article small{
+  opacity:1!important;
+  font-weight:950!important;
+  letter-spacing:.12em!important;
+  text-shadow:none!important;
+}
+
+body.ea-home-color-v3 .home-v2 .authority-metrics article:nth-child(1) small{
+  color:#075c31!important;
+}
+
+body.ea-home-color-v3 .home-v2 .authority-metrics article:nth-child(2) small{
+  color:#114fac!important;
+}
+
+body.ea-home-color-v3 .home-v2 .authority-metrics article:nth-child(3) small{
+  color:#8a5200!important;
+}
