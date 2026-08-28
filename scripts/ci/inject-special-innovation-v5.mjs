@@ -76,8 +76,8 @@ html = html.replace(/\s*<span class="product-badge">[\s\S]*?<\/span>/i, '');
 html = html.replaceAll('Temsili ekran — proje kapsamına göre özelleştirilir', '');
 html = html.replaceAll('Temsili ekran - proje kapsamına göre özelleştirilir', '');
 
-// Replace the whole header shell so build-time mutations cannot leave mismatched brand dimensions or identity.
-const headerPattern = /<header class="site-nav">[\s\S]*?<\/header>/i;
+// Replace the page's single header shell regardless of class mutations applied earlier in the build.
+const headerPattern = /<header\b[^>]*>[\s\S]*?<\/header>/i;
 if (!headerPattern.test(html)) throw new Error('BRAND SYNC GATE: special header shell bulunamadı');
 html = html.replace(headerPattern, headerMarkup);
 
