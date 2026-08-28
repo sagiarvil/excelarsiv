@@ -6,11 +6,10 @@ const distDir = 'dist';
 // Typography mandate bazı sayfalarda attribute sırasını/ek attribute'ları değiştirebiliyor.
 // Dış Inter stylesheet'ini tag içindeki attribute sırasından bağımsız olarak kaldır.
 const externalFontPattern = /<link\b[^>]*href=["']https:\/\/fonts\.googleapis\.com\/css2\?family=Inter[^"']*["'][^>]*>/gi;
-// Post-process zincirindeki farklı typography blokları aynı font stack'ini küçük yazım
-// farklarıyla üretebilir. Yalnız --ea-font-sans custom property değerini normalize et;
-// serbest metin veya başka CSS tokenlarını değiştirme.
-const interTokenPattern = /--ea-font-sans\s*:\s*["']?Inter["']?\s*,\s*ui-sans-serif\s*,\s*system-ui\s*,\s*-apple-system\s*,\s*BlinkMacSystemFont\s*,\s*["']Segoe UI["']\s*,\s*Arial\s*,\s*sans-serif\s*;/gi;
-const localToken = '--ea-font-sans:"Manrope",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;';
+// Yalnız typography custom property başlangıcını normalize eder. Böylece minifier veya
+// farklı post-process yazımları stack'in devamını değiştirse bile dış Inter bağımlılığı kalmaz.
+const interPropertyPrefix = /--ea-font-sans\s*:\s*["']?Inter["']?\s*,/gi;
+const localPropertyPrefix = '--ea-font-sans:"Manrope",';
 
 function walk(dir) {
   const out = [];
@@ -29,7 +28,7 @@ let changed = 0;
 for (const path of files) {
   const before = readFileSync(path, 'utf8');
   let after = before.replace(externalFontPattern, '');
-  after = after.replace(interTokenPattern, localToken);
+  after = after.replace(interPropertyPrefix, localPropertyPrefix);
   if (after !== before) {
     writeFileSync(path, after, 'utf8');
     changed += 1;
