@@ -46,7 +46,9 @@ if (!html.includes('id="special-innovation-js"')) {
 
 // Remove the unverified contact and the floating hero disclaimer permanently from the final build.
 html = html.replace(/<a\s+class=["']phone["'][\s\S]*?<\/a>/i, '');
-html = html.replace(/\s*<span class="product-badge">Temsili ekran\s*[—-]\s*proje kapsamına göre özelleştirilir<\/span>/i, '');
+html = html.replace(/\s*<span class="product-badge">[\s\S]*?<\/span>/i, '');
+html = html.replaceAll('Temsili ekran — proje kapsamına göre özelleştirilir', '');
+html = html.replaceAll('Temsili ekran - proje kapsamına göre özelleştirilir', '');
 
 // Match the special page header brand dimensions and identity to the main-site header.
 html = html.replace(
