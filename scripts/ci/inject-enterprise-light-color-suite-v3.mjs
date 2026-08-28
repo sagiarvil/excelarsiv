@@ -84,9 +84,21 @@ function addBodyClass(html, bodyClass) {
   });
 }
 
+function removeCatalogFlow(html) {
+  const before = html;
+  html = html.replace(/<section\b[^>]*class=(['"])[^'\"]*\bcatalog-flow\b[^'\"]*\1[^>]*>[\s\S]*?<\/section>/i, '');
+  if (html === before) throw new Error('CATALOG FLOW REMOVAL GATE: catalog-flow section was not found');
+  for (const forbidden of ['data-catalog-infographic', 'HER ÜRÜN AYNI NET MANTIKLA ÇALIŞIR', 'Veriyi girin. Excel işlesin. Kararı görün.']) {
+    if (html.includes(forbidden)) throw new Error(`CATALOG FLOW REMOVAL GATE: forbidden final HTML token remains: ${forbidden}`);
+  }
+  return html;
+}
+
 for (const route of routes) {
   let html = fs.readFileSync(route.file, 'utf8');
   html = addBodyClass(html, route.bodyClass);
+
+  if (route.label === 'catalog') html = removeCatalogFlow(html);
 
   // Remove previous copies before appending deterministic final stylesheet links.
   for (const [id, linkHref] of [[linkId, href], [qaLinkId, qaHref]]) {
@@ -119,4 +131,4 @@ if (fs.readFileSync(qaCssPublic, 'utf8') !== fs.readFileSync(qaCssDist, 'utf8'))
   throw new Error('ENTERPRISE LIGHT COLOR QA GATE: public/dist v3.1 stylesheet parity failed');
 }
 
-console.log('ENTERPRISE LIGHT COLOR SUITE PASS — v3 color layer + v3.1 geometry/mobile QA loaded for home/about/guide/how/catalog.');
+console.log('ENTERPRISE LIGHT COLOR SUITE PASS — v3 color layer + v3.1 geometry/mobile QA loaded; catalog flow removed from final templates HTML.');
