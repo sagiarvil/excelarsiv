@@ -16,6 +16,32 @@ const brandCssLink = '<link id="special-brand-sync-css" rel="stylesheet" href="/
 const jsLink = '<script id="special-innovation-js" src="/scripts/ozel-excel-innovation.js" defer></script>';
 const homeColorLink = '<link id="home-finance-color-css" rel="stylesheet" href="/styles/home-finance-color-upgrade.css" />';
 
+const headerMarkup = `<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="Excel Arşiv ana sayfa">
+      <img src="/images/brand/excelarsiv-header-logo.png" alt="Excel Arşiv" width="40" height="40" />
+      <span class="brand-copy"><strong>Excel Arşiv</strong><small>Hazır Excel işletme sistemleri</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Ana menü">
+      <a href="/">Ana Sayfa</a>
+      <a href="/sablonlar">Şablonlar</a>
+      <a href="/ozel-excel-sistemleri" aria-current="page">Özel Excel Sistemleri</a>
+      <a href="/rehber">Rehber</a>
+      <a href="/hakkinda">Hakkımızda</a>
+      <a href="/iletisim">İletişim</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary nav-cta" href="/iletisim">İşletmenize Özel Çözümü Konuşalım</a>
+      <details class="mobile-menu">
+        <summary aria-label="Menüyü aç"><span class="burger"></span></summary>
+        <nav class="mobile-panel" aria-label="Mobil menü">
+          <a href="/">Ana Sayfa</a><a href="/sablonlar">Şablonlar</a><a href="/ozel-excel-sistemleri" aria-current="page">Özel Excel Sistemleri</a><a href="/rehber">Rehber</a><a href="/hakkinda">Hakkımızda</a><a href="/iletisim">İletişim</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>`;
+
 const replaceVisible = (from, to) => {
   if (!html.includes(to)) html = html.replaceAll(from, to);
 };
@@ -50,18 +76,17 @@ html = html.replace(/\s*<span class="product-badge">[\s\S]*?<\/span>/i, '');
 html = html.replaceAll('Temsili ekran — proje kapsamına göre özelleştirilir', '');
 html = html.replaceAll('Temsili ekran - proje kapsamına göre özelleştirilir', '');
 
-// Match the special page header brand dimensions and identity to the main-site header.
-html = html.replace(
-  /<a class="brand" href="\/" aria-label="Excel Arşiv ana sayfa">[\s\S]*?<\/a>/i,
-  '<a class="brand" href="/" aria-label="Excel Arşiv ana sayfa"><img src="/images/brand/excelarsiv-header-logo.png" alt="Excel Arşiv" width="40" height="40" /><span class="brand-copy"><strong>Excel Arşiv</strong><small>Hazır Excel işletme sistemleri</small></span></a>',
-);
+// Replace the whole header shell so build-time mutations cannot leave mismatched brand dimensions or identity.
+const headerPattern = /<header class="site-nav">[\s\S]*?<\/header>/i;
+if (!headerPattern.test(html)) throw new Error('BRAND SYNC GATE: special header shell bulunamadı');
+html = html.replace(headerPattern, headerMarkup);
 
 // Use the same real brand asset in the special-page footer without changing its existing footer structure.
 const footerStart = html.indexOf('<footer class="footer">');
 if (footerStart >= 0) {
   const headPart = html.slice(0, footerStart);
   let footerPart = html.slice(footerStart);
-  footerPart = footerPart.replace('<img src="/images/excel-logo.png" alt="" />', '<img src="/images/brand/excelarsiv-header-logo.png" alt="Excel Arşiv logosu" width="40" height="40" />');
+  footerPart = footerPart.replace(/<img[^>]+src="\/images\/excel-logo\.png"[^>]*>/i, '<img src="/images/brand/excelarsiv-header-logo.png" alt="Excel Arşiv logosu" width="40" height="40" />');
   footerPart = footerPart.replace('<strong>EXCELARŞİV</strong>', '<strong>Excel Arşiv</strong>');
   html = headPart + footerPart;
 }
@@ -106,7 +131,7 @@ for (const required of [
   'id="iv-panel-yonetim"',
   'id="special-innovation-js"',
   '/images/brand/excelarsiv-header-logo.png',
-  'Hazır Excel işletme sistemleri',
+  '<strong>Excel Arşiv</strong><small>Hazır Excel işletme sistemleri</small>',
   'İşletmelere Özel Excel Çözümleri',
   'Sahadan Gelen Uzmanlık',
   'İşletmenizi anlayan biriyle, size özel Excel sistemi kurun.',
@@ -117,4 +142,4 @@ if (!home.includes('id="home-finance-color-css"')) throw new Error('HOME COLOR G
 
 fs.writeFileSync(specialFile, html);
 fs.writeFileSync(homeFile, home);
-console.log('SPECIAL/HOME DESIGN GATE PASS — brand sync + CTA expertise + hero cleanup + homepage finance color system verified.');
+console.log('SPECIAL/HOME DESIGN GATE PASS — stable main-brand header + real footer logo + CTA expertise + hero cleanup + homepage finance colors verified.');
