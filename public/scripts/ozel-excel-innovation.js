@@ -2,6 +2,20 @@
   const root = document.querySelector('body.special-light-v1[data-special-innovation="v4"]');
   if (!root) return;
 
+  const productWindow = document.querySelector('.product-window');
+  if (productWindow && !productWindow.querySelector('.iv-sheet-tabs')) {
+    const sheetTabs = document.createElement('div');
+    sheetTabs.className = 'iv-sheet-tabs';
+    sheetTabs.setAttribute('aria-label', 'Temsili çalışma sayfaları');
+    sheetTabs.innerHTML = [
+      ['NAKİT', 'green'],
+      ['CARİ', 'blue'],
+      ['BANKA', 'amber'],
+      ['VALÖR', 'coral'],
+    ].map(([label, tone]) => `<span class="iv-sheet-tab" data-tone="${tone}">${label}</span>`).join('');
+    productWindow.appendChild(sheetTabs);
+  }
+
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const revealTargets = [
