@@ -11,9 +11,10 @@ const lab = fs.readFileSync(fragment, 'utf8').trim();
 const cssLink = '<link id="special-innovation-css" rel="stylesheet" href="/styles/ozel-excel-innovation.css" />';
 const jsLink = '<script id="special-innovation-js" src="/scripts/ozel-excel-innovation.js" defer></script>';
 
-function replaceRequired(pattern, replacement, label) {
-  if (!pattern.test(html)) throw new Error(`SPECIAL INNOVATION GATE: replacement anchor missing: ${label}`);
-  html = html.replace(pattern, replacement);
+function swap(oldText, newText, label) {
+  if (html.includes(newText)) return;
+  if (!html.includes(oldText)) throw new Error(`SPECIAL INNOVATION GATE: replacement anchor missing: ${label}`);
+  html = html.replace(oldText, newText);
 }
 
 if (!html.includes('data-special-innovation="v4"')) {
@@ -37,48 +38,58 @@ if (!html.includes('id="special-innovation-js"')) {
 }
 
 // Hero product mockup is self-explanatory; the floating disclaimer badge adds visual noise.
-html = html.replace(
-  /\s*<span class="product-badge">Temsili ekran\s*[—-]\s*proje kapsamına göre özelleştirilir<\/span>/i,
-  '',
-);
+html = html.replace(/\s*<span class="product-badge">Temsili ekran\s*[—-]\s*proje kapsamına göre özelleştirilir<\/span>/i, '');
 
 // SEO: own the "işletmelere özel Excel çözümleri" intent without keyword stuffing.
-replaceRequired(
-  /<title>Özel Excel Finans &amp; Raporlama Sistemleri \| excelarsiv\.com<\/title>|<title>Özel Excel Finans & Raporlama Sistemleri \| excelarsiv\.com<\/title>/i,
-  '<title>İşletmelere Özel Excel Çözümleri | Finans ve Yönetim Sistemleri | ExcelArşiv</title>',
-  'SEO title',
+html = html.replace(
+  /Özel Excel Finans (?:&amp;|&) Raporlama Sistemleri \| excelarsiv\.com/g,
+  'İşletmelere Özel Excel Çözümleri | Finans ve Yönetim Sistemleri | ExcelArşiv',
 );
-replaceRequired(
-  /<meta name="description" content="İşleyişinize göre kurulan özel Excel finans, raporlama ve yönetim sistemleri\. Nakit akışı, çek\/senet, mizan, banka limitleri ve yönetim dashboard(?:'|&#39;)ları\."\s*\/?>/i,
-  '<meta name="description" content="Bankacılık ve KOBİ danışmanlığı tecrübesiyle işletmenize özel Excel çözümleri: nakit akışı, cari, mizan, banka limitleri, raporlama ve yönetim sistemleri." />',
+swap(
+  'İşleyişinize göre kurulan özel Excel finans, raporlama ve yönetim sistemleri. Nakit akışı, çek/senet, mizan, banka limitleri ve yönetim dashboard\'ları.',
+  'Bankacılık ve KOBİ danışmanlığı tecrübesiyle işletmenize özel Excel çözümleri: nakit akışı, cari, mizan, banka limitleri, raporlama ve yönetim sistemleri.',
   'SEO description',
 );
 
-// CTA language: software capability + banking/KOBİ field knowledge as the differentiator.
-replaceRequired(
-  /<a class="btn btn-primary nav-cta" href="\/iletisim">Ücretsiz Keşif Görüşmesi<\/a>/i,
-  '<a class="btn btn-primary nav-cta" href="/iletisim">İşletmenize Özel Çözümü Konuşalım</a>',
-  'navigation CTA',
+// Closing CTA first, then shorter CTA labels.
+swap('Ücretsiz Keşif Görüşmesi Al →', 'İşletmeme Özel Çözümü Konuşalım →', 'closing CTA button');
+swap('İşinizi kolaylaştıracak sistemi birlikte netleştirelim.', 'İşletmenizi anlayan biriyle, size özel Excel sistemi kurun.', 'closing CTA heading');
+swap(
+  '15 dakikalık ilk görüşmede mevcut iş akışınızı, en pahalı manuel kontrol noktasını ve hangi Excel mimarisinin en hızlı geri dönüşü sağlayacağını belirleyelim.',
+  'Bu çalışma yalnız Excel veya yazılım işi değil. Bankacılık, kredi karar süreçleri, KOBİ danışmanlığı ve sahadaki işletme tecrübesiyle; mizanınızdan nakit akışınıza, cari yapınızdan banka limitlerinize kadar gerçek işleyişinizi önce anlıyor, sonra işletmenize özel Excel çözümünü kuruyoruz. Böylece ihtiyacınızı yazılımcıya tercüme etmek zorunda kalmazsınız; aynı dili konuşan biriyle doğrudan çözüm üretirsiniz.',
+  'closing CTA paragraph',
 );
-replaceRequired(
-  /<a class="btn btn-primary" href="\/iletisim">↗ Ücretsiz Keşif Görüşmesi<\/a>/i,
-  '<a class="btn btn-primary" href="/iletisim">↗ İşletmenize Özel Çözümü Konuşalım</a>',
-  'hero CTA',
-);
+swap('İlk görüşme • kapsam teşhisi • çözüm haritası', 'Saha bilgisi • finans tecrübesi • yazılım disiplini', 'closing CTA note');
 
-replaceRequired(
-  /<div class="why-card"><span class="eyebrow">Neden ExcelArşiv\?<\/span><h3 class="section-title" style="font-size:28px">Finans mantığı ile ekran tasarımını aynı sistemde kuruyoruz\.<\/h3><div class="why-list">[\s\S]*?<\/div><\/div>\s*<\/div>\s*<\/div>\s*<\/section>/i,
-  `<div class="why-card"><span class="eyebrow">Sahadan Gelen Uzmanlık</span><h3 class="section-title" style="font-size:28px">Yazılımı bilen ama işletmenin finansal dilini de sahadan tanıyan bir bakışla tasarlıyoruz.</h3><div class="why-list"><div class="why-row"><i>✓</i><span>Bankacılık ve kredi karar mantığı; banka limiti, nakit ihtiyacı, faiz yükü ve finansman riskini yalnız hücre olarak değil, karar konusu olarak ele almamızı sağlar.</span></div><div class="why-row"><i>✓</i><span>KOBİ danışmanlığı tecrübesi; patronun, muhasebenin ve finans ekibinin aynı veriye neden farklı sorular sorduğunu anlamamızı sağlar.</span></div><div class="why-row"><i>✓</i><span>Mizan, cari, tahsilat, vade ve nakit akışı gibi işletme gerçekleri yazılım tasarımından önce modellenir; kullanıcıya yabancı bir sistem kurulmaz.</span></div><div class="why-row"><i>✓</i><span>Sonuç hazır bir şablon değil; işletmenizin çalışma biçimine, kontrol noktalarına ve yönetim ihtiyacına göre kurulmuş özel bir Excel çözümüdür.</span></div></div></div>
-        </div>
-      </div>
-    </section>`,
-  'field expertise card',
-);
+// Navigation + hero CTA labels.
+html = html.replaceAll('Ücretsiz Keşif Görüşmesi', 'İşletmenize Özel Çözümü Konuşalım');
 
-replaceRequired(
-  /<section class="cta"><div class="wrap"><div class="cta-shell"><div class="cta-copy"><h2>İşinizi kolaylaştıracak sistemi birlikte netleştirelim\.<\/h2><p>15 dakikalık ilk görüşmede mevcut iş akışınızı, en pahalı manuel kontrol noktasını ve hangi Excel mimarisinin en hızlı geri dönüşü sağlayacağını belirleyelim\.<\/p><\/div><div class="cta-actions"><div><a class="btn btn-primary" href="\/iletisim">Ücretsiz Keşif Görüşmesi Al →<\/a><span class="cta-note">İlk görüşme • kapsam teşhisi • çözüm haritası<\/span><\/div><\/div><\/div><\/div><\/section>/i,
-  `<section class="cta"><div class="wrap"><div class="cta-shell"><div class="cta-copy"><h2>İşletmenizi anlayan biriyle, size özel Excel sistemi kurun.</h2><p>Bu çalışma yalnız Excel veya yazılım işi değil. Bankacılık, kredi karar süreçleri, KOBİ danışmanlığı ve sahadaki işletme tecrübesiyle; mizanınızdan nakit akışınıza, cari yapınızdan banka limitlerinize kadar gerçek işleyişinizi önce anlıyor, sonra işletmenize özel Excel çözümünü kuruyoruz. Böylece ihtiyacınızı yazılımcıya tercüme etmek zorunda kalmazsınız; aynı dili konuşan biriyle doğrudan çözüm üretirsiniz.</p></div><div class="cta-actions"><div><a class="btn btn-primary" href="/iletisim">İşletmeme Özel Çözümü Konuşalım →</a><span class="cta-note">Saha bilgisi • finans tecrübesi • yazılım disiplini</span></div></div></div></div></section>`,
-  'closing CTA',
+// Field-expertise proof: banking + KOBİ advisory + software knowledge in one operating language.
+swap('Neden ExcelArşiv?', 'Sahadan Gelen Uzmanlık', 'why eyebrow');
+swap(
+  'Finans mantığı ile ekran tasarımını aynı sistemde kuruyoruz.',
+  'Yazılımı bilen ama işletmenin finansal dilini de sahadan tanıyan bir bakışla tasarlıyoruz.',
+  'why heading',
+);
+swap(
+  'Mizan, muavin, nakit, vade ve faiz mantığı ekran tasarımından önce kurulur.',
+  'Bankacılık ve kredi karar mantığı; banka limiti, nakit ihtiyacı, faiz yükü ve finansman riskini yalnız hücre olarak değil, karar konusu olarak ele almamızı sağlar.',
+  'why row banking',
+);
+swap(
+  'Girdi, hesaplanan alan ve yönetici raporu birbirinden ayrılır.',
+  'KOBİ danışmanlığı tecrübesi; patronun, muhasebenin ve finans ekibinin aynı veriye neden farklı sorular sorduğunu anlamamızı sağlar.',
+  'why row advisory',
+);
+swap(
+  'Hata ve istisna noktaları kullanıcıya görünür hale getirilir.',
+  'Mizan, cari, tahsilat, vade ve nakit akışı gibi işletme gerçekleri yazılım tasarımından önce modellenir; kullanıcıya yabancı bir sistem kurulmaz.',
+  'why row operations',
+);
+swap(
+  'Proje bittiğinde kara kutu değil, işletilebilir bir çalışma düzeni kalır.',
+  'Sonuç hazır bir şablon değil; işletmenizin çalışma biçimine, kontrol noktalarına ve yönetim ihtiyacına göre kurulmuş özel bir Excel çözümüdür.',
+  'why row custom system',
 );
 
 for (const token of ['+90 542 123 45 67', 'tel:+905421234567']) {
@@ -100,6 +111,7 @@ for (const required of [
   'İşletmenizi anlayan biriyle, size özel Excel sistemi kurun.',
   'Bankacılık, kredi karar süreçleri, KOBİ danışmanlığı',
   'Saha bilgisi • finans tecrübesi • yazılım disiplini',
+  'Sahadan Gelen Uzmanlık',
 ]) {
   if (!html.includes(required)) throw new Error(`SPECIAL INNOVATION GATE: zorunlu contract eksik: ${required}`);
 }
