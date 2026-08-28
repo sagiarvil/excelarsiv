@@ -75,10 +75,8 @@ writeFileSync(routes.guides, guides, 'utf8');
 let special = readFileSync(routes.special, 'utf8');
 const lightV1 = special.includes('Excel ile Sınırlarınızı Aşın') && special.includes('Gerçek İş Sonuçları Alın.');
 if (lightV1) {
-  special = replaceOnce(special, /<body>/g, '<body class="special-light-v1" data-special-light-v1>', 'special light body namespace');
+  special = replaceOnce(special, /<body\b([^>]*)>/g, '<body class="special-light-v1" data-special-light-v1$1>', 'special light body namespace');
   special = replaceOnce(special, /<\/head>/g, `${commonStyles}</head>`, 'special light head');
-  // Premium UX legacy brand transformer still validates two historical placeholders.
-  // Keep them inside a hidden compatibility bridge so no legacy visual leaks into the new page.
   special = replaceOnce(special, /<\/body>/g, '<div hidden aria-hidden="true" data-special-light-legacy-bridge><span>EA</span><span>excelarsiv.com</span></div></body>', 'special light brand compatibility bridge');
 } else {
   special = replaceOnce(special, /<body class="/g, '<body class="special-premium ', 'special body namespace');
