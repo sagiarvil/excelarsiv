@@ -18,6 +18,17 @@ function regexOnce(html, pattern, replacement, label) {
 export function applySpecialCopyPolish({ specialPath = 'dist/ozel-excel-sistemleri/index.html' } = {}) {
   let html = readFileSync(specialPath, 'utf8');
 
+  // The premium light page is already authored as the final sales surface.
+  // Legacy copy/funnel mutators are intentionally bypassed so they cannot
+  // reintroduce old dark sections, obsolete copy or deprecated DOM contracts.
+  if (html.includes('data-special-light-v1')) {
+    for (const token of ['Excel ile Sınırlarınızı Aşın','Gerçek İş Sonuçları Alın.','İşinizi Büyüten Excel Çözümleri']) {
+      if (!html.includes(token)) throw new Error(`SPECIAL COPY POLISH: premium light token missing: ${token}`);
+    }
+    console.log('SPECIAL COPY POLISH PASS — premium-light-v1 owns final copy and layout; legacy funnel mutations skipped.');
+    return;
+  }
+
   html = regexOnce(html, /<span[^>]*>Ters Pazarlama<\/span>/g, '', 'topbar tag');
   html = regexOnce(
     html,
