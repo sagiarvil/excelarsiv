@@ -8,6 +8,7 @@ const qaCssPublic = path.resolve('public/styles/enterprise-light-color-suite-v3-
 const qaCssDist = path.resolve('dist/styles/enterprise-light-color-suite-v3-qa.css');
 const assuranceCssPublic = path.resolve('public/styles/catalog-help-premium-v32.css');
 const assuranceCssDist = path.resolve('dist/styles/catalog-help-premium-v32.css');
+const homeHardColorCssSource = path.resolve('src/styles/home-native-info-hard-color-v33.css');
 
 const linkId = 'enterprise-light-color-suite-v3';
 const href = '/styles/enterprise-light-color-suite-v3.css';
@@ -15,6 +16,7 @@ const qaLinkId = 'enterprise-light-color-suite-v3-qa';
 const qaHref = '/styles/enterprise-light-color-suite-v3-qa.css';
 const assuranceLinkId = 'catalog-help-premium-v32';
 const assuranceHref = '/styles/catalog-help-premium-v32.css';
+const homeHardColorStyleId = 'home-native-info-hard-color-v33';
 
 const routes = [
   { file: path.resolve('dist/index.html'), bodyClass: 'ea-home-color-v3', label: 'home' },
@@ -24,7 +26,7 @@ const routes = [
   { file: path.resolve('dist/sablonlar/index.html'), bodyClass: 'ea-catalog-color-v3', label: 'catalog' },
 ];
 
-for (const file of [cssPublic, cssDist, qaCssPublic, qaCssDist, assuranceCssPublic, assuranceCssDist, ...routes.map((route) => route.file)]) {
+for (const file of [cssPublic, cssDist, qaCssPublic, qaCssDist, assuranceCssPublic, assuranceCssDist, homeHardColorCssSource, ...routes.map((route) => route.file)]) {
   if (!fs.existsSync(file)) throw new Error(`ENTERPRISE LIGHT COLOR GATE: missing ${file}`);
 }
 
@@ -40,6 +42,7 @@ function assertBalancedCss(file, label) {
 const css = assertBalancedCss(cssPublic, 'v3');
 const qaCss = assertBalancedCss(qaCssPublic, 'v3.1-qa');
 const assuranceCss = assertBalancedCss(assuranceCssPublic, 'v3.2-catalog-assurance');
+const homeHardColorCss = assertBalancedCss(homeHardColorCssSource, 'v3.3-home-hard-color');
 
 for (const token of [
   'body.ea-home-color-v3 .difference',
@@ -75,6 +78,20 @@ for (const token of [
   '@media(max-width:520px)',
 ]) {
   if (!assuranceCss.includes(token)) throw new Error(`CATALOG ASSURANCE GATE: premium board contract missing ${token}`);
+}
+
+for (const token of [
+  'body.ea-home-color-v3 .native-info--home',
+  '--hm-green:#0a914a',
+  '--hm-blue:#176fe5',
+  '--hm-amber:#ee9d00',
+  '--hm-coral:#f05a47',
+  '.native-info__core',
+  '.native-info__outcomes article:nth-child(4)',
+  '@media(max-width:620px)',
+  '@media(prefers-reduced-motion:reduce)',
+]) {
+  if (!homeHardColorCss.includes(token)) throw new Error(`HOME HARD COLOR GATE: required homepage-only contract missing ${token}`);
 }
 
 for (const token of [
@@ -125,10 +142,12 @@ for (const route of routes) {
     html = html.replace(new RegExp(`<link\\b(?=[^>]*\\bid=["']${id}["'])[^>]*>`, 'gi'), '');
     html = html.replace(new RegExp(`<link\\b(?=[^>]*\\bhref=["']${linkHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["'])[^>]*>`, 'gi'), '');
   }
+  html = html.replace(new RegExp(`<style\\b(?=[^>]*\\bid=["']${homeHardColorStyleId}["'])[^>]*>[\\s\\S]*?<\\/style>`, 'gi'), '');
 
   if (!html.includes('</head>')) throw new Error(`ENTERPRISE LIGHT COLOR GATE: ${route.label} missing </head>`);
   const linkMarkup = links.map(([id, linkHref]) => `<link id="${id}" rel="stylesheet" href="${linkHref}" />`).join('\n');
-  html = html.replace('</head>', `${linkMarkup}\n</head>`);
+  const homeOnlyMarkup = route.label === 'home' ? `\n<style id="${homeHardColorStyleId}">\n${homeHardColorCss}\n</style>` : '';
+  html = html.replace('</head>', `${linkMarkup}${homeOnlyMarkup}\n</head>`);
 
   for (const [id, linkHref] of links) {
     for (const required of [`id="${id}"`, `href="${linkHref}"`]) {
@@ -144,6 +163,13 @@ for (const route of routes) {
     const assuranceIndex = html.indexOf(`id="${assuranceLinkId}"`);
     if (!(assuranceIndex > qaIndex)) throw new Error('CATALOG ASSURANCE GATE: premium assurance stylesheet must load after QA');
   }
+  if (route.label === 'home') {
+    const hardColorIndex = html.indexOf(`id="${homeHardColorStyleId}"`);
+    if (!(hardColorIndex > qaIndex)) throw new Error('HOME HARD COLOR GATE: homepage hard-color style must load after v3.1 QA');
+    if (!html.includes('body.ea-home-color-v3 .native-info--home')) throw new Error('HOME HARD COLOR GATE: inline homepage style missing decision-map selector');
+  } else if (html.includes(`id="${homeHardColorStyleId}"`)) {
+    throw new Error(`HOME HARD COLOR GATE: homepage-only style leaked into ${route.label}`);
+  }
 
   fs.writeFileSync(route.file, html);
 }
@@ -158,4 +184,4 @@ if (fs.readFileSync(assuranceCssPublic, 'utf8') !== fs.readFileSync(assuranceCss
   throw new Error('CATALOG ASSURANCE GATE: public/dist v3.2 stylesheet parity failed');
 }
 
-console.log('ENTERPRISE LIGHT COLOR SUITE PASS — v3 color + v3.1 QA + catalog v3.2 assurance board; catalog flow removed.');
+console.log('ENTERPRISE LIGHT COLOR SUITE PASS — v3 + v3.1 + catalog v3.2 + homepage-only hard-color v3.3; catalog flow removed.');
