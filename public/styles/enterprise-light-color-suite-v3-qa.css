@@ -1,0 +1,200 @@
+/* ExcelArşiv — Enterprise / Exclusive Light v3.1 QA layer
+   Purpose: geometry, symmetry, spacing and mobile readability.
+   Light-only; loaded after enterprise-light-color-suite-v3.css. */
+
+:root{
+  --ea31-max:1180px;
+  --ea31-gutter:48px;
+  --ea31-gutter-mobile:28px;
+  --ea31-radius:16px;
+  --ea31-line:#cbd8e4;
+  --ea31-shadow:0 18px 44px rgba(16,43,74,.085);
+}
+
+body.ea-home-color-v3,
+body.ea-about-color-v3,
+body.ea-guide-color-v3,
+body.ea-how-color-v3,
+body.ea-catalog-color-v3{color-scheme:light!important;overflow-x:hidden!important}
+
+/* Shared geometry lock */
+body.ea-home-color-v3 .home-shell,
+body.ea-catalog-color-v3 .site-container,
+body.ea-guide-color-v3 #icerik>header>div,
+body.ea-guide-color-v3 #icerik>main>div{width:min(var(--ea31-max),calc(100% - var(--ea31-gutter)))!important;margin-inline:auto!important}
+
+/* HOME — consistent section rhythm and equal card geometry */
+body.ea-home-color-v3 .catalog-proof,
+body.ea-home-color-v3 .difference,
+body.ea-home-color-v3 .custom-build,
+body.ea-home-color-v3 .decision-help,
+body.ea-home-color-v3 .authority,
+body.ea-home-color-v3 .faq-close{padding-block:72px!important}
+body.ea-home-color-v3 .section-head{align-items:flex-end!important;margin-bottom:30px!important}
+body.ea-home-color-v3 .featured-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px!important;align-items:stretch!important}
+body.ea-home-color-v3 .featured-grid article{display:flex!important;flex-direction:column!important;height:100%!important}
+body.ea-home-color-v3 .featured-grid .shot{flex:0 0 auto!important}
+body.ea-home-color-v3 .featured-grid article>div{display:flex!important;flex:1!important;flex-direction:column!important;min-height:230px!important}
+body.ea-home-color-v3 .featured-grid article>div>strong{margin-top:auto!important;padding-top:14px!important}
+body.ea-home-color-v3 .difference-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)!important;gap:72px!important;align-items:start!important}
+body.ea-home-color-v3 .difference ul{align-items:stretch!important}
+body.ea-home-color-v3 .difference li{min-height:58px!important;display:flex!important;align-items:center!important}
+body.ea-home-color-v3 .custom-build-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)!important;gap:64px!important;align-items:start!important}
+body.ea-home-color-v3 .custom-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+body.ea-home-color-v3 .custom-step{min-height:150px!important;height:100%!important}
+body.ea-home-color-v3 .custom-cta-card{grid-column:1/-1!important;min-height:116px!important}
+body.ea-home-color-v3 .decision-layout{grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr)!important;gap:56px!important;align-items:start!important}
+body.ea-home-color-v3 .decision-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+body.ea-home-color-v3 .decision-card{min-height:222px!important;height:100%!important}
+body.ea-home-color-v3 .authority-panel{grid-template-columns:minmax(0,1fr) minmax(380px,.82fr)!important;gap:42px!important;align-items:stretch!important}
+body.ea-home-color-v3 .authority-metrics{height:100%!important;align-self:stretch!important}
+body.ea-home-color-v3 .faq-grid{grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr)!important;gap:56px!important}
+body.ea-home-color-v3 .faq-list details{border-radius:12px!important}
+
+/* ABOUT — widen from brochure width to premium editorial width */
+body.ea-about-color-v3 .hakkinda{width:min(1080px,calc(100% - var(--ea31-gutter)))!important;padding:42px 0 104px!important}
+body.ea-about-color-v3 .hakkinda__hero{padding:52px!important;border-radius:20px!important}
+body.ea-about-color-v3 .hakkinda__kimlik{grid-template-columns:176px minmax(0,1fr)!important;gap:42px!important}
+body.ea-about-color-v3 .hakkinda__foto{width:176px!important;height:176px!important}
+body.ea-about-color-v3 .hakkinda__blok{padding:36px 38px!important;margin-top:28px!important}
+body.ea-about-color-v3 .hakkinda__kanit-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch!important}
+body.ea-about-color-v3 .hakkinda__kanit{height:100%!important;min-height:174px!important}
+body.ea-about-color-v3 .hakkinda__platform{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+body.ea-about-color-v3 .hakkinda__platform a{height:100%!important;min-height:54px!important;display:flex!important;align-items:center!important}
+body.ea-about-color-v3 .hakkinda__cta{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:30px!important;padding:30px 34px!important}
+body.ea-about-color-v3 .hakkinda__cta div{margin-top:0!important;justify-content:flex-end!important}
+
+/* GUIDE — align the index like a professional research/product directory */
+body.ea-guide-color-v3 #icerik>header{padding-block:34px 38px!important}
+body.ea-guide-color-v3 #icerik>header>div{padding-inline:0!important;max-width:none!important}
+body.ea-guide-color-v3 #icerik>main{padding-block:42px 72px!important}
+body.ea-guide-color-v3 #icerik>main>div{padding-inline:0!important;max-width:none!important}
+body.ea-guide-color-v3 #icerik>main>div>div{grid-template-columns:260px minmax(0,1fr)!important;gap:30px!important;align-items:start!important}
+body.ea-guide-color-v3 #icerik aside{position:sticky!important;top:92px!important}
+body.ea-guide-color-v3 #icerik aside>div{margin:0!important}
+body.ea-guide-color-v3 #icerik aside>div+div{margin-top:14px!important}
+body.ea-guide-color-v3 .scholar-item{padding:22px 24px 20px 28px!important;min-height:160px!important}
+body.ea-guide-color-v3 .scholar-item h2{line-height:1.25!important}
+body.ea-guide-color-v3 .scholar-item p{max-width:900px!important}
+body.ea-guide-color-v3 #index-entries{display:grid!important;gap:14px!important}
+body.ea-guide-color-v3 #index-entries>*{margin:0!important}
+
+/* HOW IT WORKS — symmetrical 2x2 process board */
+body.ea-how-color-v3 #icerik>section{max-width:1120px!important;width:calc(100% - var(--ea31-gutter))!important;padding:58px 0 96px!important}
+body.ea-how-color-v3 #icerik>section::before{left:0!important;right:0!important}
+body.ea-how-color-v3 #icerik>section>h1{max-width:760px!important;font-size:clamp(42px,5vw,62px)!important;letter-spacing:-.05em!important}
+body.ea-how-color-v3 #icerik>section>.lead{max-width:760px!important;font-size:17px!important;line-height:1.7!important}
+body.ea-how-color-v3 #icerik>section>ol{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important;margin-top:42px!important}
+body.ea-how-color-v3 #icerik>section>ol>li{position:relative!important;overflow:hidden!important;min-height:246px!important;margin:0!important;padding:30px 30px 28px 34px!important;border:1px solid var(--ea31-line)!important;border-left:1px solid var(--ea31-line)!important;border-radius:var(--ea31-radius)!important;background:#fff!important;box-shadow:var(--ea31-shadow)!important}
+body.ea-how-color-v3 #icerik>section>ol>li::before{content:""!important;position:absolute!important;left:0!important;top:0!important;bottom:0!important;width:8px!important;background:var(--ea3-green)!important}
+body.ea-how-color-v3 #icerik>section>ol>li:nth-child(2)::before{background:var(--ea3-blue)!important}
+body.ea-how-color-v3 #icerik>section>ol>li:nth-child(3)::before{background:var(--ea3-amber)!important}
+body.ea-how-color-v3 #icerik>section>ol>li:nth-child(4)::before{background:var(--ea3-coral)!important}
+body.ea-how-color-v3 #icerik>section>ol>li:nth-child(1){background:linear-gradient(135deg,#fff,#edf9f2)!important}
+body.ea-how-color-v3 #icerik>section>ol>li:nth-child(2){background:linear-gradient(135deg,#fff,#edf4ff)!important}
+body.ea-how-color-v3 #icerik>section>ol>li:nth-child(3){background:linear-gradient(135deg,#fff,#fff5e1)!important}
+body.ea-how-color-v3 #icerik>section>ol>li:nth-child(4){background:linear-gradient(135deg,#fff,#ffefeb)!important}
+body.ea-how-color-v3 #icerik>section>ol>li .h3{font-size:25px!important;line-height:1.12!important}
+body.ea-how-color-v3 #icerik>section>ol>li .body-sm{font-size:14px!important;line-height:1.72!important}
+body.ea-how-color-v3 #icerik>section>ol+div{margin-top:22px!important;border-radius:16px!important;padding:24px!important}
+
+/* CATALOG — ultra-premium, equal-card commercial geometry */
+body.ea-catalog-color-v3 .catalog-intro__inner{padding-block:48px 44px!important}
+body.ea-catalog-color-v3 .catalog-intro__top{grid-template-columns:minmax(0,1fr) auto!important;gap:40px!important;align-items:end!important}
+body.ea-catalog-color-v3 .catalog-intro__proof{align-self:end!important}
+body.ea-catalog-color-v3 .catalog-intro__search{width:100%!important;margin-top:34px!important}
+body.ea-catalog-color-v3 .catalog-flow{padding-block:34px!important}
+body.ea-catalog-color-v3 .catalog-flow__surface{border-radius:20px!important;padding:34px!important}
+body.ea-catalog-color-v3 .catalog-flow__track{align-items:stretch!important}
+body.ea-catalog-color-v3 .catalog-flow__stage{height:100%!important}
+body.ea-catalog-color-v3 .catalog-section{padding-block:52px 84px!important}
+body.ea-catalog-color-v3 .template-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:22px!important;align-items:stretch!important}
+body.ea-catalog-color-v3 .template-grid>li{height:100%!important}
+body.ea-catalog-color-v3 .template-grid>li>.card{height:100%!important;min-height:610px!important;border-radius:16px!important;box-shadow:0 16px 38px rgba(16,43,74,.09)!important;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease!important}
+body.ea-catalog-color-v3 .template-grid>li>.card:hover{transform:translateY(-5px)!important;box-shadow:0 28px 60px rgba(16,43,74,.15)!important}
+body.ea-catalog-color-v3 .template-grid .card__body{min-height:260px!important;padding:18px 19px 20px!important}
+body.ea-catalog-color-v3 .template-grid .card__title{font-size:18px!important;line-height:1.24!important;min-height:2.5em!important}
+body.ea-catalog-color-v3 .template-grid .card__benefit{font-size:12.5px!important;line-height:1.62!important;min-height:4.85em!important}
+body.ea-catalog-color-v3 .template-grid .card__footer{margin-top:auto!important;align-items:end!important}
+body.ea-catalog-color-v3 .template-grid .card__cta{min-height:42px!important;border-radius:9px!important;font-weight:850!important}
+body.ea-catalog-color-v3 .template-grid>li:nth-child(5n+1)>.card{box-shadow:inset 0 7px 0 var(--ea3-green),0 16px 38px rgba(16,43,74,.09)!important}
+body.ea-catalog-color-v3 .template-grid>li:nth-child(5n+2)>.card{box-shadow:inset 0 7px 0 var(--ea3-blue),0 16px 38px rgba(16,43,74,.09)!important}
+body.ea-catalog-color-v3 .template-grid>li:nth-child(5n+3)>.card{box-shadow:inset 0 7px 0 var(--ea3-teal),0 16px 38px rgba(16,43,74,.09)!important}
+body.ea-catalog-color-v3 .template-grid>li:nth-child(5n+4)>.card{box-shadow:inset 0 7px 0 var(--ea3-amber),0 16px 38px rgba(16,43,74,.09)!important}
+body.ea-catalog-color-v3 .template-grid>li:nth-child(5n)>.card{box-shadow:inset 0 7px 0 var(--ea3-coral),0 16px 38px rgba(16,43,74,.09)!important}
+body.ea-catalog-color-v3 .catalog-help{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important;align-items:stretch!important}
+body.ea-catalog-color-v3 .catalog-help__item{height:100%!important;min-height:132px!important}
+
+@media(max-width:1080px){
+  body.ea-home-color-v3 .custom-build-grid,
+  body.ea-home-color-v3 .decision-layout,
+  body.ea-home-color-v3 .faq-grid{grid-template-columns:1fr!important;gap:34px!important}
+  body.ea-home-color-v3 .authority-panel{grid-template-columns:1fr!important}
+  body.ea-guide-color-v3 #icerik>main>div>div{grid-template-columns:220px minmax(0,1fr)!important;gap:22px!important}
+  body.ea-catalog-color-v3 .template-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+@media(max-width:760px){
+  :root{--ea31-gutter:var(--ea31-gutter-mobile)}
+  body.ea-home-color-v3 .catalog-proof,
+  body.ea-home-color-v3 .difference,
+  body.ea-home-color-v3 .custom-build,
+  body.ea-home-color-v3 .decision-help,
+  body.ea-home-color-v3 .authority,
+  body.ea-home-color-v3 .faq-close{padding-block:52px!important}
+  body.ea-home-color-v3 .featured-grid{grid-template-columns:1fr!important;gap:14px!important}
+  body.ea-home-color-v3 .featured-grid article>div{min-height:auto!important}
+  body.ea-home-color-v3 .difference-grid{grid-template-columns:1fr!important;gap:28px!important}
+  body.ea-home-color-v3 .custom-actions{grid-template-columns:1fr!important}
+  body.ea-home-color-v3 .custom-cta-card{grid-column:auto!important}
+  body.ea-home-color-v3 .decision-grid{grid-template-columns:1fr!important}
+  body.ea-home-color-v3 .decision-card{min-height:auto!important}
+
+  body.ea-about-color-v3 .hakkinda{width:calc(100% - var(--ea31-gutter-mobile))!important;padding-top:24px!important}
+  body.ea-about-color-v3 .hakkinda__hero{padding:30px 24px!important}
+  body.ea-about-color-v3 .hakkinda__kimlik{grid-template-columns:1fr!important;gap:22px!important}
+  body.ea-about-color-v3 .hakkinda__foto{width:124px!important;height:124px!important}
+  body.ea-about-color-v3 .hakkinda__blok{padding:26px 24px 26px 28px!important}
+  body.ea-about-color-v3 .hakkinda__kanit-grid,
+  body.ea-about-color-v3 .hakkinda__platform{grid-template-columns:1fr!important}
+  body.ea-about-color-v3 .hakkinda__cta{grid-template-columns:1fr!important;gap:18px!important;padding:26px 24px!important}
+  body.ea-about-color-v3 .hakkinda__cta div{justify-content:flex-start!important}
+
+  body.ea-guide-color-v3 #icerik>header>div,
+  body.ea-guide-color-v3 #icerik>main>div{width:calc(100% - var(--ea31-gutter-mobile))!important}
+  body.ea-guide-color-v3 #icerik>main>div>div{grid-template-columns:1fr!important;gap:20px!important}
+  body.ea-guide-color-v3 #icerik aside{position:static!important}
+  body.ea-guide-color-v3 .scholar-item{min-height:auto!important;padding:19px 18px 18px 24px!important}
+
+  body.ea-how-color-v3 #icerik>section{width:calc(100% - var(--ea31-gutter-mobile))!important;padding:42px 0 72px!important}
+  body.ea-how-color-v3 #icerik>section>h1{font-size:40px!important}
+  body.ea-how-color-v3 #icerik>section>ol{grid-template-columns:1fr!important;gap:12px!important}
+  body.ea-how-color-v3 #icerik>section>ol>li{min-height:auto!important;padding:24px 21px 24px 27px!important}
+
+  body.ea-catalog-color-v3 .site-container{width:calc(100% - var(--ea31-gutter-mobile))!important}
+  body.ea-catalog-color-v3 .catalog-intro__inner{padding-block:28px 26px!important}
+  body.ea-catalog-color-v3 .catalog-intro__top{display:block!important}
+  body.ea-catalog-color-v3 .catalog-flow__surface{padding:22px!important}
+  body.ea-catalog-color-v3 .catalog-section{padding-block:28px 64px!important}
+  body.ea-catalog-color-v3 .template-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  body.ea-catalog-color-v3 .template-grid>li>.card{min-height:0!important}
+  body.ea-catalog-color-v3 .template-grid .card__body{min-height:0!important}
+  body.ea-catalog-color-v3 .catalog-help{grid-template-columns:1fr!important}
+}
+
+@media(max-width:520px){
+  body.ea-catalog-color-v3 .template-grid{grid-template-columns:1fr!important;gap:14px!important}
+  body.ea-catalog-color-v3 .template-grid-wrap{margin-inline:0!important}
+  body.ea-catalog-color-v3 .template-grid{padding-inline:0!important}
+  body.ea-catalog-color-v3 .template-grid .card__frame{aspect-ratio:4/3!important}
+  body.ea-catalog-color-v3 .template-grid .card__benefit{display:block!important;min-height:0!important}
+  body.ea-catalog-color-v3 .template-grid .card__cta--ghost{display:inline-flex!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  body.ea-home-color-v3 *,
+  body.ea-about-color-v3 *,
+  body.ea-guide-color-v3 *,
+  body.ea-how-color-v3 *,
+  body.ea-catalog-color-v3 *{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
