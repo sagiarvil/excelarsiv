@@ -1,11 +1,15 @@
-# Excel Arşiv
+# Excel Arşiv (https://excelarsiv.com)
 
-> Excel Arşiv, Türkiye’deki işletmeler için finans, muhasebe ve operasyon odaklı kurumsal Excel çalışma sistemleri sunar. Bu dosya public, indexlenebilir ve canonical build sayfalarından otomatik üretilir.
+> Excel Arşiv, Türkiye’deki işletmeler, finans yöneticileri ve KOBİ'ler için kurumsal Excel çalışma sistemleri, nakit akışı modelleri ve terzi usulü özel karar mimarileri sunar.
 
-- Son güncelleme: 2026-08-26
 - Site: https://excelarsiv.com/
-- Sitemap index: https://excelarsiv.com/sitemap.xml
-- Tam AI/LLM rehberi: https://excelarsiv.com/llms-full.txt
+- Sitemap: https://excelarsiv.com/sitemap.xml
+- IndexNow Key: https://excelarsiv.com/7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f.txt
+- Tam AI/LLM Rehberi: https://excelarsiv.com/llms-full.txt
+
+## Amiral Gemisi Sayfalar ve Derin Bilgi Grafı (Sub-Graphs)
+- [Özel Excel Sistemleri (Kurumsal Modelleme)](https://excelarsiv.com/llms/ozel-excel-sistemleri.md) — Şirketlere özel terzi usulü nakit akışı, bütçeleme, ERP veri konsolidasyonu ve dinamik formül geliştirme hizmeti.
+- [Hazır Excel Şablonları Kataloğu](https://excelarsiv.com/llms/sablonlar.md) — Nakit akışı, maliyet, kârlılık, satış, stok ve İK alanında doğrulanmış formüllü çalışma kitapları.
 
 ## Temel Sistemler ve Karar Modülleri
 - [Finans & Bütçe Yönetimi](https://excelarsiv.com/sistemler/finans/) — Nakit akışı, dinamik bütçeleme, kredi amortismanı ve bilanço analizi.
@@ -14,5 +18,6 @@
 
 ## Semantik İlişkiler (Semantic Triples)
 - (Excel Arşiv) -[sunar]-> (Doğrulanmış ve Formüllü Kurumsal Excel Çalışma Kitapları)
+- (Excel Arşiv) -[özel hizmet]-> (Şirketlere Özel Terzi Usulü Karar Destek Sistemleri)
 - (Excel Arşiv) -[uyumluluk]-> (Excel 2016, 2019, 2021 ve Microsoft 365)
 - (Excel Arşiv) -[teslimat]-> (Anında Güvenli İndirme ve Lisanslama)
