@@ -73,7 +73,10 @@ guides = replaceOnce(guides, /<\/head>/g, `${commonStyles}</head>`, 'guide head'
 writeFileSync(routes.guides, guides, 'utf8');
 
 let special = readFileSync(routes.special, 'utf8');
-const lightV1 = special.includes('Excel ile Sınırlarınızı Aşın') && special.includes('Gerçek İş Sonuçları Alın.');
+const lightV1 = (
+  (special.includes('Excel ile Sınırlarınızı Aşın') && special.includes('Gerçek İş Sonuçları Alın.'))
+  || special.includes('class="workbook"')
+);
 if (lightV1) {
   special = replaceOnce(special, /<body\b([^>]*)>/g, '<body class="special-light-v1" data-special-light-v1$1>', 'special light body namespace');
   special = replaceOnce(special, /<\/head>/g, `${commonStyles}</head>`, 'special light head');
