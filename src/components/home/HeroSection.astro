@@ -47,13 +47,13 @@ const { searchIndex } = Astro.props;
 </section>
 
 <style>
-  .hero-section { margin-top: 28px; margin-bottom: 46px; }
-  .hero-shell { position: relative; width: min(1680px, calc(100% - 64px)); margin-inline: auto; padding-bottom: 28px; }
+  .hero-section { position: relative; z-index: 60; margin-top: 28px; margin-bottom: 46px; }
+  .hero-shell { position: relative; z-index: 60; width: min(1680px, calc(100% - 64px)); margin-inline: auto; padding-bottom: 28px; }
   .hero-mobile-copy { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
   .hero-mobile-actions,.hero-mobile-chips { display:none; }
   .hero-artwork { position: relative; display: block; overflow: hidden; width: 100%; margin-inline: auto; aspect-ratio: 3 / 1; border: 1px solid rgba(16,124,65,.12); border-radius: 24px; background: #eef3f6; box-shadow: 0 24px 60px rgba(24,55,38,.13); }
   .hero-artwork img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
-  .hero-search-rail { position:absolute; left:50%; bottom:0; z-index:10; width:min(690px,calc(100% - 48px)); transform:translateX(-50%); scroll-margin-top:90px; }
+  .hero-search-rail { position:absolute; left:50%; bottom:0; z-index:70; width:min(690px,calc(100% - 48px)); transform:translateX(-50%); scroll-margin-top:90px; }
 
   @media (min-width: 721px) and (max-width: 1180px) { .hero-shell { width:calc(100% - 40px); } }
 
