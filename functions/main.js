@@ -1,5 +1,7 @@
 'use strict';
 
+// Production deploys must publish this full export surface; the release workflow
+// reconciles missing Gen2 functions even when their source is otherwise unchanged.
 // Firebase Admin Storage needs a bucket name while the function module is loading.
 // Firebase may provide FIREBASE_CONFIG without storageBucket when the default bucket
 // has not been provisioned yet, so normalize the config before loading any handler.
