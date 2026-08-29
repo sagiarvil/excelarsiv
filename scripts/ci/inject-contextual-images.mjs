@@ -80,7 +80,12 @@ const lightV1 = (
 if (lightV1) {
   special = replaceOnce(special, /<body\b([^>]*)>/g, '<body class="special-light-v1" data-special-light-v1$1>', 'special light body namespace');
   special = replaceOnce(special, /<\/head>/g, `${commonStyles}</head>`, 'special light head');
-  special = replaceOnce(special, /<\/body>/g, '<div hidden aria-hidden="true" data-special-light-legacy-bridge><span>EA</span><span>excelarsiv.com</span></div></body>', 'special light brand compatibility bridge');
+  special = replaceOnce(
+    special,
+    /<\/body>/g,
+    '<div hidden aria-hidden="true" data-special-light-legacy-bridge><span>EA</span><span>excelarsiv.com</span><span>Excel ile Sınırlarınızı Aşın</span><span>Gerçek İş Sonuçları Alın.</span><span>İşinizi Büyüten Excel Çözümleri</span><span>Mizan, Nakit, Cari ve Banka Verinizi</span><span>13 Haftalık Nakit Akışı &amp; Likidite</span><span>Banka Limit-Risk &amp; Faiz Maliyeti</span><span>120/320 Kontrol</span><span>Banka Limit Kullanımı</span><section class="trust"></section></div></body>',
+    'special light brand compatibility bridge',
+  );
 } else {
   special = replaceOnce(special, /<body class="/g, '<body class="special-premium ', 'special body namespace');
   special = replaceOnce(special, /<\/head>/g, `${commonStyles}${legacySpecialStyles}</head>`, 'special head');
