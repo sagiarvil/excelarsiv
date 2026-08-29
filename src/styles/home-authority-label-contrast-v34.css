@@ -28,3 +28,23 @@ body.ea-home-color-v3 .home-v2 .decision-intro .decision-all-btn:hover,
 body.ea-home-color-v3 .home-v2 .decision-intro .decision-all-btn:focus-visible{
   color:#fff!important;
 }
+
+/* FAQ cards: keep question and answer copy comfortably clear of the colored left rail. */
+body.ea-home-color-v3 .home-v2 .faq-list details{
+  padding:18px 24px 18px 28px!important;
+}
+
+body.ea-home-color-v3 .home-v2 .faq-list summary{
+  padding-inline-start:2px!important;
+}
+
+body.ea-home-color-v3 .home-v2 .faq-list p{
+  margin-top:10px!important;
+  padding-inline-start:2px!important;
+}
+
+@media(max-width:620px){
+  body.ea-home-color-v3 .home-v2 .faq-list details{
+    padding:16px 18px 16px 22px!important;
+  }
+}
