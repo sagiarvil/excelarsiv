@@ -8,12 +8,24 @@ const styleId = 'home-authority-label-contrast-v34';
 
 const sitewidePublicCss = path.resolve('public/styles/sitewide-continuous-grid-v4.css');
 const sitewideDistCss = path.resolve('dist/styles/sitewide-continuous-grid-v4.css');
+const premiumGridPublicCss = path.resolve('public/styles/sitewide-premium-excel-grid-v5.css');
+const premiumGridDistCss = path.resolve('dist/styles/sitewide-premium-excel-grid-v5.css');
 const specialAssetPublic = path.resolve('public/images/ozel-excel/sahadan-uzmanlik-process-panel.webp');
 const specialAssetDist = path.resolve('dist/images/ozel-excel/sahadan-uzmanlik-process-panel.webp');
 const sitewideStyleId = 'sitewide-continuous-grid-v4';
 const legacySitewideHref = '/styles/sitewide-continuous-grid-v4.css';
+const legacyPremiumHref = '/styles/sitewide-premium-excel-grid-v5.css';
 
-for (const file of [homeFile, cssFile, sitewidePublicCss, sitewideDistCss, specialAssetPublic, specialAssetDist]) {
+for (const file of [
+  homeFile,
+  cssFile,
+  sitewidePublicCss,
+  sitewideDistCss,
+  premiumGridPublicCss,
+  premiumGridDistCss,
+  specialAssetPublic,
+  specialAssetDist,
+]) {
   if (!fs.existsSync(file)) throw new Error(`HOME/SITEWIDE VISUAL GATE: missing ${file}`);
 }
 
@@ -51,11 +63,18 @@ if (!html.includes('body.ea-home-color-v3 .home-v2 .authority-metrics article:nt
 fs.writeFileSync(homeFile, html);
 
 /* Sitewide continuous grid is the final visual layer.
-   Inline it into every emitted HTML route: one deterministic visual contract with no extra render-blocking stylesheet request. */
+   Inline base + v5 premium overlay into every emitted HTML route: one visual contract,
+   no extra render-blocking stylesheet request, no section-by-section restart. */
 const sitewideCss = assertBalancedCss(sitewidePublicCss, 'SITEWIDE GRID GATE');
+const premiumGridCss = assertBalancedCss(premiumGridPublicCss, 'PREMIUM EXCEL GRID GATE');
+
 if (fs.readFileSync(sitewidePublicCss, 'utf8') !== fs.readFileSync(sitewideDistCss, 'utf8')) {
   throw new Error('SITEWIDE GRID GATE: public/dist stylesheet parity failed');
 }
+if (fs.readFileSync(premiumGridPublicCss, 'utf8') !== fs.readFileSync(premiumGridDistCss, 'utf8')) {
+  throw new Error('PREMIUM EXCEL GRID GATE: public/dist stylesheet parity failed');
+}
+
 for (const token of [
   '--ea-grid-paper:#fbfaf6',
   '--ea-grid-x:64px',
@@ -73,8 +92,23 @@ for (const token of [
 ]) {
   if (!sitewideCss.includes(token)) throw new Error(`SITEWIDE GRID GATE: required contract missing ${token}`);
 }
+
+for (const token of [
+  '--ea-v5-grid-minor:rgba(24,73,126,.034)',
+  '--ea-v5-grid-x:56px',
+  '--ea-v5-grid-y:38px',
+  'background-attachment:fixed',
+  'body .home-v2>section::after',
+  'body #icerik>section::after',
+  'opacity:.72',
+]) {
+  if (!premiumGridCss.includes(token)) throw new Error(`PREMIUM EXCEL GRID GATE: required contract missing ${token}`);
+}
+
 for (const forbidden of ['clip-path:', 'skew(', 'polygon(']) {
-  if (sitewideCss.includes(forbidden)) throw new Error(`SITEWIDE GRID GATE: diagonal/broken background primitive forbidden: ${forbidden}`);
+  if (sitewideCss.includes(forbidden) || premiumGridCss.includes(forbidden)) {
+    throw new Error(`SITEWIDE GRID GATE: diagonal/broken background primitive forbidden: ${forbidden}`);
+  }
 }
 
 function htmlFiles(dir) {
@@ -90,19 +124,20 @@ function htmlFiles(dir) {
 const pages = htmlFiles(path.resolve('dist'));
 if (pages.length < 10) throw new Error(`SITEWIDE GRID GATE: unexpectedly low HTML route count ${pages.length}`);
 
-const inlineMarkup = `<style id="${sitewideStyleId}">\n${sitewideCss}\n</style>`;
+const inlineMarkup = `<style id="${sitewideStyleId}">\n${sitewideCss}\n\n${premiumGridCss}\n</style>`;
 for (const file of pages) {
   let page = fs.readFileSync(file, 'utf8');
   page = page.replace(new RegExp(`<style\\b(?=[^>]*\\bid=["']${sitewideStyleId}["'])[^>]*>[\\s\\S]*?<\\/style>`, 'gi'), '');
   page = page.replace(new RegExp(`<link\\b(?=[^>]*\\bid=["']${sitewideStyleId}["'])[^>]*>`, 'gi'), '');
   page = page.replace(new RegExp(`<link\\b(?=[^>]*\\bhref=["']${legacySitewideHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["'])[^>]*>`, 'gi'), '');
+  page = page.replace(new RegExp(`<link\\b(?=[^>]*\\bhref=["']${legacyPremiumHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["'])[^>]*>`, 'gi'), '');
   if (!page.includes('</head>')) throw new Error(`SITEWIDE GRID GATE: ${file} missing </head>`);
   page = page.replace('</head>', `${inlineMarkup}\n</head>`);
-  if (!page.includes(`id="${sitewideStyleId}"`) || !page.includes('--ea-grid-paper:#fbfaf6')) {
+  if (!page.includes(`id="${sitewideStyleId}"`) || !page.includes('--ea-grid-paper:#fbfaf6') || !page.includes('--ea-v5-grid-minor:rgba(24,73,126,.034)')) {
     throw new Error(`SITEWIDE GRID GATE: inline stylesheet injection failed for ${file}`);
   }
-  if (page.includes(`href="${legacySitewideHref}"`)) {
-    throw new Error(`SITEWIDE GRID GATE: render-blocking legacy stylesheet survived in ${file}`);
+  if (page.includes(`href="${legacySitewideHref}"`) || page.includes(`href="${legacyPremiumHref}"`)) {
+    throw new Error(`SITEWIDE GRID GATE: render-blocking sitewide stylesheet survived in ${file}`);
   }
   fs.writeFileSync(file, page);
 }
@@ -116,8 +151,9 @@ for (const required of [
   'Sahadan Gelen Uzmanlık',
   'data-native-info="special-decision-map"',
   'sahadan-uzmanlik-process-panel.webp',
+  '--ea-v5-grid-x:56px',
 ]) {
   if (!specialHtml.includes(required)) throw new Error(`SITEWIDE GRID GATE: special final contract missing ${required}`);
 }
 
-console.log(`HOME AUTHORITY + SITEWIDE GRID PASS — authority labels locked; ${pages.length} HTML routes receive one inline continuous grid with zero extra CSS request; special process visual + hard-color decision map verified.`);
+console.log(`HOME AUTHORITY + PREMIUM SITEWIDE GRID PASS — ${pages.length} HTML routes receive one inline continuous Excel grid; colored sections keep a subtle aligned grid overlay; zero extra CSS request.`);
