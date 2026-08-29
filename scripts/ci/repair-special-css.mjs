@@ -107,9 +107,10 @@ for (const layoutContract of [
   '.nav-links a:visited{color:#33463b!important}',
   'height:auto!important',
   'min-height:0!important',
+  'margin-block:0!important;\n  margin-inline:auto!important',
 ]) {
   if (!stabilizerCss.includes(layoutContract)) throw new Error(`SPECIAL CSS REPAIR GATE: stabilizer layout contract missing ${layoutContract}`);
 }
 
 fs.writeFileSync(htmlFile, html);
-console.log('SPECIAL CSS REPAIR PASS — innovation + brand + final layout stabilizer inlined; deterministic header/section geometry verified.');
+console.log('SPECIAL CSS REPAIR PASS — innovation + brand + final layout stabilizer inlined; header, section and native infographic geometry verified.');

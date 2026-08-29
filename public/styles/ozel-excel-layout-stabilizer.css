@@ -201,7 +201,12 @@ body.special-light-v1[data-special-innovation="v4"] .process{padding:72px 0!impo
 body.special-light-v1[data-special-innovation="v4"] .comparison{padding:72px 0!important;margin:0!important}
 body.special-light-v1[data-special-innovation="v4"] .cta{padding:64px 0!important;margin:0!important}
 body.special-light-v1[data-special-innovation="v4"] .faq{padding:72px 0!important;margin:0!important}
-body.special-light-v1[data-special-innovation="v4"] .native-info--special{margin-block:0!important}
+body.special-light-v1[data-special-innovation="v4"] .native-info--special{
+  width:min(var(--stable-page),calc(100% - var(--stable-pad)))!important;
+  max-width:none!important;
+  margin-block:0!important;
+  margin-inline:auto!important;
+}
 body.special-light-v1[data-special-innovation="v4"] .solution-grid{margin-top:32px!important}
 body.special-light-v1[data-special-innovation="v4"] .benefit-shell{margin-top:28px!important}
 
