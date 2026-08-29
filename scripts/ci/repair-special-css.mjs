@@ -113,4 +113,4 @@ for (const layoutContract of [
 }
 
 fs.writeFileSync(htmlFile, html);
-console.log('SPECIAL CSS REPAIR PASS — innovation + brand + final layout stabilizer inlined; deterministic header/section geometry verified.');
+console.log('SPECIAL CSS REPAIR PASS — innovation + brand + final layout stabilizer inlined; header, section and native infographic geometry verified.');
