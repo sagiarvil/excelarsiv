@@ -11,7 +11,7 @@ const sitewideDistCss = path.resolve('dist/styles/sitewide-continuous-grid-v4.cs
 const specialAssetPublic = path.resolve('public/images/ozel-excel/sahadan-uzmanlik-process-panel.webp');
 const specialAssetDist = path.resolve('dist/images/ozel-excel/sahadan-uzmanlik-process-panel.webp');
 const sitewideStyleId = 'sitewide-continuous-grid-v4';
-const sitewideHref = '/styles/sitewide-continuous-grid-v4.css';
+const legacySitewideHref = '/styles/sitewide-continuous-grid-v4.css';
 
 for (const file of [homeFile, cssFile, sitewidePublicCss, sitewideDistCss, specialAssetPublic, specialAssetDist]) {
   if (!fs.existsSync(file)) throw new Error(`HOME/SITEWIDE VISUAL GATE: missing ${file}`);
@@ -51,7 +51,7 @@ if (!html.includes('body.ea-home-color-v3 .home-v2 .authority-metrics article:nt
 fs.writeFileSync(homeFile, html);
 
 /* Sitewide continuous grid is the final visual layer.
-   Inject it into every emitted HTML route so standalone pages and CommerceLayout pages share one contract. */
+   Inline it into every emitted HTML route: one deterministic visual contract with no extra render-blocking stylesheet request. */
 const sitewideCss = assertBalancedCss(sitewidePublicCss, 'SITEWIDE GRID GATE');
 if (fs.readFileSync(sitewidePublicCss, 'utf8') !== fs.readFileSync(sitewideDistCss, 'utf8')) {
   throw new Error('SITEWIDE GRID GATE: public/dist stylesheet parity failed');
@@ -90,15 +90,19 @@ function htmlFiles(dir) {
 const pages = htmlFiles(path.resolve('dist'));
 if (pages.length < 10) throw new Error(`SITEWIDE GRID GATE: unexpectedly low HTML route count ${pages.length}`);
 
-const linkMarkup = `<link id="${sitewideStyleId}" rel="stylesheet" href="${sitewideHref}" />`;
+const inlineMarkup = `<style id="${sitewideStyleId}">\n${sitewideCss}\n</style>`;
 for (const file of pages) {
   let page = fs.readFileSync(file, 'utf8');
+  page = page.replace(new RegExp(`<style\\b(?=[^>]*\\bid=["']${sitewideStyleId}["'])[^>]*>[\\s\\S]*?<\\/style>`, 'gi'), '');
   page = page.replace(new RegExp(`<link\\b(?=[^>]*\\bid=["']${sitewideStyleId}["'])[^>]*>`, 'gi'), '');
-  page = page.replace(new RegExp(`<link\\b(?=[^>]*\\bhref=["']${sitewideHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["'])[^>]*>`, 'gi'), '');
+  page = page.replace(new RegExp(`<link\\b(?=[^>]*\\bhref=["']${legacySitewideHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["'])[^>]*>`, 'gi'), '');
   if (!page.includes('</head>')) throw new Error(`SITEWIDE GRID GATE: ${file} missing </head>`);
-  page = page.replace('</head>', `${linkMarkup}\n</head>`);
-  if (!page.includes(`id="${sitewideStyleId}"`) || !page.includes(`href="${sitewideHref}"`)) {
-    throw new Error(`SITEWIDE GRID GATE: stylesheet injection failed for ${file}`);
+  page = page.replace('</head>', `${inlineMarkup}\n</head>`);
+  if (!page.includes(`id="${sitewideStyleId}"`) || !page.includes('--ea-grid-paper:#fbfaf6')) {
+    throw new Error(`SITEWIDE GRID GATE: inline stylesheet injection failed for ${file}`);
+  }
+  if (page.includes(`href="${legacySitewideHref}"`)) {
+    throw new Error(`SITEWIDE GRID GATE: render-blocking legacy stylesheet survived in ${file}`);
   }
   fs.writeFileSync(file, page);
 }
@@ -111,8 +115,9 @@ for (const required of [
   'data-special-innovation="v4"',
   'Sahadan Gelen Uzmanlık',
   'data-native-info="special-decision-map"',
+  'sahadan-uzmanlik-process-panel.webp',
 ]) {
   if (!specialHtml.includes(required)) throw new Error(`SITEWIDE GRID GATE: special final contract missing ${required}`);
 }
 
-console.log(`HOME AUTHORITY + SITEWIDE GRID PASS — authority labels locked; ${pages.length} HTML routes receive one continuous grid; special process visual + hard-color decision map verified.`);
+console.log(`HOME AUTHORITY + SITEWIDE GRID PASS — authority labels locked; ${pages.length} HTML routes receive one inline continuous grid with zero extra CSS request; special process visual + hard-color decision map verified.`);
