@@ -26,14 +26,26 @@ function isSelfHostedSpecialLight(path, html) {
 // Astro, sayfa içi <style> bloğunu ayrı _astro CSS assetine çıkarabilir. Bu nedenle
 // premium-light özel sayfanın font kaynağını generated HTML'de değil SSOT kaynakta doğrula.
 const specialSource = readFileSync(specialLightSourcePath, 'utf8');
-for (const token of [
-  '@font-face',
-  'font-family:Inter',
-  "/fonts/inter-400-latin-ext.woff2",
-  "/fonts/inter-500-latin-ext.woff2",
-  "/fonts/inter-600-latin-ext.woff2",
-  "/fonts/inter-700-latin-ext.woff2",
-]) {
+const livingWorkbookSource = specialSource.includes('class="workbook"') && specialSource.includes('font-family:Manrope');
+const requiredSpecialFontTokens = livingWorkbookSource
+  ? [
+      '@font-face',
+      'font-family:Manrope',
+      "font-family:'IBM Plex Mono'",
+      "/fonts/manrope-latin-ext.woff2",
+      "/fonts/manrope-latin.woff2",
+      "/fonts/ibm-plex-mono-500-latin-ext.woff2",
+      "/fonts/ibm-plex-mono-500-latin.woff2",
+    ]
+  : [
+      '@font-face',
+      'font-family:Inter',
+      "/fonts/inter-400-latin-ext.woff2",
+      "/fonts/inter-500-latin-ext.woff2",
+      "/fonts/inter-600-latin-ext.woff2",
+      "/fonts/inter-700-latin-ext.woff2",
+    ];
+for (const token of requiredSpecialFontTokens) {
   if (!specialSource.includes(token)) {
     throw new Error(`LOCAL TYPOGRAPHY GATE: premium light source font contract missing: ${token}`);
   }
@@ -50,7 +62,7 @@ for (const path of files) {
   const before = readFileSync(path, 'utf8');
   let after = before.replace(externalFontPattern, '');
 
-  // Premium-light özel sayfa kendi repodaki self-hosted Inter yüzeyini korur.
+  // Özel premium-light sayfa kendi repo içi font kontratını korur.
   // Diğer sayfalar site-wide Manrope tokenına normalize edilir.
   if (!isSelfHostedSpecialLight(path, after)) after = after.replaceAll(interToken, localToken);
 
@@ -83,4 +95,4 @@ if (compliant !== files.length) {
   throw new Error(`LOCAL TYPOGRAPHY GATE: expected ${files.length} compliant pages, found ${compliant}`);
 }
 
-console.log(`LOCAL TYPOGRAPHY GATE PASS — ${compliant}/${files.length} HTML sayfası self-hosted font zincirinde; ${transformed} sayfa build sırasında normalize edildi; premium-light route local Inter kullanıyor; Google Fonts render blocker yok.`);
+console.log(`LOCAL TYPOGRAPHY GATE PASS — ${compliant}/${files.length} HTML sayfası self-hosted font zincirinde; ${transformed} sayfa build sırasında normalize edildi; special route font mode=${livingWorkbookSource ? 'Manrope+IBM-Plex-Mono' : 'legacy-Inter'}; Google Fonts render blocker yok.`);
