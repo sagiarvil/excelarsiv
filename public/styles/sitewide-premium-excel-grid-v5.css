@@ -1,0 +1,172 @@
+/* ExcelArşiv premium Excel grid overlay v5
+   One continuous spreadsheet-paper language across the whole site.
+   The grid is intentionally subtle: visible enough to signal Excel,
+   quiet enough to stay behind content and hard-color surfaces. */
+:root{
+  --ea-v5-paper:#fbfaf6;
+  --ea-v5-grid-minor:rgba(24,73,126,.034);
+  --ea-v5-grid-major:rgba(24,73,126,.020);
+  --ea-v5-grid-x:56px;
+  --ea-v5-grid-y:38px;
+  --ea-v5-grid-major-x:224px;
+  --ea-v5-grid-major-y:152px;
+}
+
+html{
+  background-color:var(--ea-v5-paper)!important;
+}
+
+body{
+  background-color:var(--ea-v5-paper)!important;
+  background-image:
+    linear-gradient(to right,var(--ea-v5-grid-minor) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--ea-v5-grid-minor) 1px,transparent 1px),
+    linear-gradient(to right,var(--ea-v5-grid-major) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--ea-v5-grid-major) 1px,transparent 1px),
+    radial-gradient(circle at 12% 16%,rgba(33,115,70,.045),transparent 24%),
+    radial-gradient(circle at 86% 12%,rgba(37,95,202,.040),transparent 22%),
+    radial-gradient(circle at 78% 78%,rgba(199,123,24,.030),transparent 19%)!important;
+  background-size:
+    var(--ea-v5-grid-x) var(--ea-v5-grid-y),
+    var(--ea-v5-grid-x) var(--ea-v5-grid-y),
+    var(--ea-v5-grid-major-x) var(--ea-v5-grid-major-y),
+    var(--ea-v5-grid-major-x) var(--ea-v5-grid-major-y),
+    100% 100%,100% 100%,100% 100%!important;
+  background-position:0 0,0 0,0 0,0 0,0 0,0 0,0 0!important;
+  background-repeat:repeat,repeat,repeat,repeat,no-repeat,no-repeat,no-repeat!important;
+}
+
+/* Keep the page shell transparent so the same grid coordinate system continues
+   from the header to the final CTA/footer instead of restarting per section. */
+body>main,
+body main.home-v2,
+body main #icerik{
+  background-color:transparent!important;
+}
+
+/* Premium grid-through-color treatment.
+   Existing section colors/gradients remain intact. A very light spreadsheet grid
+   is painted above the section surface but below its content, so colored blocks
+   still feel like part of one Excel canvas. */
+body>main>section,
+body>main>article,
+body>main>.home-v2>section,
+body>main>#icerik>section,
+body .home-v2>section,
+body #icerik>section,
+body.special-light-v1[data-special-innovation="v4"] .hero,
+body.special-light-v1[data-special-innovation="v4"] .iv-lab,
+body.special-light-v1[data-special-innovation="v4"] .trust,
+body.special-light-v1[data-special-innovation="v4"] .solutions,
+body.special-light-v1[data-special-innovation="v4"] .benefits,
+body.special-light-v1[data-special-innovation="v4"] .section,
+body.special-light-v1[data-special-innovation="v4"] .section-soft,
+body.special-light-v1[data-special-innovation="v4"] .process,
+body.special-light-v1[data-special-innovation="v4"] .comparison,
+body.special-light-v1[data-special-innovation="v4"] .cta,
+body.special-light-v1[data-special-innovation="v4"] .faq{
+  position:relative!important;
+  isolation:isolate;
+}
+
+body>main>section::after,
+body>main>article::after,
+body>main>.home-v2>section::after,
+body>main>#icerik>section::after,
+body .home-v2>section::after,
+body #icerik>section::after,
+body.special-light-v1[data-special-innovation="v4"] .hero::after,
+body.special-light-v1[data-special-innovation="v4"] .iv-lab::after,
+body.special-light-v1[data-special-innovation="v4"] .trust::after,
+body.special-light-v1[data-special-innovation="v4"] .solutions::after,
+body.special-light-v1[data-special-innovation="v4"] .benefits::after,
+body.special-light-v1[data-special-innovation="v4"] .section::after,
+body.special-light-v1[data-special-innovation="v4"] .section-soft::after,
+body.special-light-v1[data-special-innovation="v4"] .process::after,
+body.special-light-v1[data-special-innovation="v4"] .comparison::after,
+body.special-light-v1[data-special-innovation="v4"] .cta::after,
+body.special-light-v1[data-special-innovation="v4"] .faq::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(to right,rgba(24,73,126,.028) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(24,73,126,.028) 1px,transparent 1px),
+    linear-gradient(to right,rgba(24,73,126,.014) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(24,73,126,.014) 1px,transparent 1px);
+  background-size:
+    var(--ea-v5-grid-x) var(--ea-v5-grid-y),
+    var(--ea-v5-grid-x) var(--ea-v5-grid-y),
+    var(--ea-v5-grid-major-x) var(--ea-v5-grid-major-y),
+    var(--ea-v5-grid-major-x) var(--ea-v5-grid-major-y);
+  background-position:0 0;
+  background-attachment:fixed;
+  opacity:.72;
+}
+
+/* Content stays above the grid overlay. */
+body>main>section>* ,
+body>main>article>* ,
+body>main>.home-v2>section>* ,
+body>main>#icerik>section>* ,
+body .home-v2>section>* ,
+body #icerik>section>* ,
+body.special-light-v1[data-special-innovation="v4"] .hero>* ,
+body.special-light-v1[data-special-innovation="v4"] .iv-lab>* ,
+body.special-light-v1[data-special-innovation="v4"] .trust>* ,
+body.special-light-v1[data-special-innovation="v4"] .solutions>* ,
+body.special-light-v1[data-special-innovation="v4"] .benefits>* ,
+body.special-light-v1[data-special-innovation="v4"] .section>* ,
+body.special-light-v1[data-special-innovation="v4"] .section-soft>* ,
+body.special-light-v1[data-special-innovation="v4"] .process>* ,
+body.special-light-v1[data-special-innovation="v4"] .comparison>* ,
+body.special-light-v1[data-special-innovation="v4"] .cta>* ,
+body.special-light-v1[data-special-innovation="v4"] .faq>*{
+  position:relative;
+  z-index:1;
+}
+
+/* Cards remain readable. Their surfaces are slightly translucent rather than
+   fully transparent: Excel is felt in the canvas, not printed over the copy. */
+body .card,
+body .product-card,
+body .feature-card,
+body .trust-card,
+body .faq-card,
+body .native-info,
+body .process-card,
+body .comparison-card{
+  background-clip:padding-box;
+}
+
+@media(max-width:760px){
+  :root{
+    --ea-v5-grid-x:44px;
+    --ea-v5-grid-y:32px;
+    --ea-v5-grid-major-x:176px;
+    --ea-v5-grid-major-y:128px;
+    --ea-v5-grid-minor:rgba(24,73,126,.026);
+    --ea-v5-grid-major:rgba(24,73,126,.014);
+  }
+  body>main>section::after,
+  body>main>article::after,
+  body>main>.home-v2>section::after,
+  body>main>#icerik>section::after,
+  body .home-v2>section::after,
+  body #icerik>section::after,
+  body.special-light-v1[data-special-innovation="v4"] .hero::after,
+  body.special-light-v1[data-special-innovation="v4"] .iv-lab::after,
+  body.special-light-v1[data-special-innovation="v4"] .trust::after,
+  body.special-light-v1[data-special-innovation="v4"] .solutions::after,
+  body.special-light-v1[data-special-innovation="v4"] .benefits::after,
+  body.special-light-v1[data-special-innovation="v4"] .section::after,
+  body.special-light-v1[data-special-innovation="v4"] .section-soft::after,
+  body.special-light-v1[data-special-innovation="v4"] .process::after,
+  body.special-light-v1[data-special-innovation="v4"] .comparison::after,
+  body.special-light-v1[data-special-innovation="v4"] .cta::after,
+  body.special-light-v1[data-special-innovation="v4"] .faq::after{
+    opacity:.58;
+  }
+}
