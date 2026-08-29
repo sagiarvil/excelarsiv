@@ -132,6 +132,67 @@ export function extractSearchIntent(query: string): {
   };
 }
 
+export const PHONETIC_EXPANSION_MAP: Record<string, string> = {
+  // English phonetic loanwords & finance terms
+  'kesflov': 'nakit akisi',
+  'kesflow': 'nakit akisi',
+  'keshflow': 'nakit akisi',
+  'cashflow': 'nakit akisi',
+  'cash flow': 'nakit akisi',
+  'eksel': 'excel',
+  'ekzel': 'excel',
+  'exel': 'excel',
+  'desbord': 'finans paneli',
+  'dasbord': 'finans paneli',
+  'deshbord': 'finans paneli',
+  'dashboard': 'finans paneli',
+  'kovenant': 'covenant kredi',
+  'covenant': 'covenant kredi',
+  'vakk': 'wacc',
+  'wacc': 'wacc',
+  'ebitda': 'favok amortisman',
+  'favok': 'favök amortisman',
+  'favök': 'favök amortisman',
+  'templeyt': 'sablon',
+  'template': 'sablon',
+  'trenyol': 'trendyol',
+  'trendyol': 'trendyol',
+  'amartısman': 'amortisman',
+  'amartisman': 'amortisman',
+  'deminimis': 'de minimis',
+  'de minimis': 'de minimis',
+  'skdm': 'cbam',
+  'cbam': 'skdm',
+  'kapsam': 'scope',
+  'skop': 'scope',
+  'kase': 'kasa',
+  'nakıt': 'nakit',
+  'carı': 'cari',
+  'maykil': 'michael kors',
+  'maykıl': 'michael kors',
+  'maykılkors': 'michael kors',
+  'roleks': 'rolex',
+  'kartye': 'cartier',
+  'kartiye': 'cartier',
+  'seyko': 'seiko',
+  'dizel': 'diesel',
+  'filip': 'philippe',
+  'tisso': 'tissot',
+  'tomi': 'tommy hilfiger',
+  'kasyo': 'casio',
+  'fosil': 'fossil',
+  'svoc': 'swatch',
+  'hublo': 'hublot',
+  'sanel': 'chanel',
+  'guci': 'gucci',
+  'bulgari': 'bvlgari',
+  'kelvin': 'calvin klein',
+  'ges': 'guess',
+  'lakost': 'lacoste',
+  'svarovski': 'swarovski',
+  'velder': 'welder'
+};
+
 export const COMMON_DOMAIN_KEYWORDS: string[] = [
   'nakit akisi', 'kasa defteri', 'cari hesap', 'stok takibi', 'karlilik',
   'amortisman', 'bordro', 'kredi covenant', 'asgari ucret', 'doviz riski',
@@ -224,6 +285,19 @@ export function searchEngine<T extends SearchItem>(
   }
 
   const { normalizedQuery, cleanTokens, intentTokens } = extractSearchIntent(rawQuery);
+  const aliasExpansion = PHONETIC_EXPANSION_MAP[normalizedQuery] || PHONETIC_EXPANSION_MAP[rawQuery.toLowerCase()] || '';
+  const expandedQueries = [normalizedQuery];
+  if (aliasExpansion) {
+    expandedQueries.push(normalizeTurkish(aliasExpansion));
+  }
+
+  const allTokens = new Set<string>(cleanTokens);
+  if (aliasExpansion) {
+    const aliasTokens = extractSearchIntent(aliasExpansion).cleanTokens;
+    aliasTokens.forEach((t) => allTokens.add(t));
+  }
+  const effectiveTokens = Array.from(allTokens);
+
   const corpus = options.dictionary && options.dictionary.length > 0
     ? options.dictionary
     : buildSearchCorpus(items);
@@ -241,24 +315,26 @@ export function searchEngine<T extends SearchItem>(
     let score = 0;
     let matchType: SearchMatch['matchType'] = 'contains';
 
-    if (normName === normalizedQuery) {
-      score += 150;
-      matchType = 'exact';
-    } else if (normName.startsWith(normalizedQuery)) {
-      score += 90;
-      matchType = 'prefix';
-    } else if (normName.includes(normalizedQuery)) {
-      score += 70;
-      matchType = 'contains';
-    } else if (normCategory.includes(normalizedQuery)) {
-      score += 45;
-      matchType = 'contains';
-    } else if (normKeywords.includes(normalizedQuery)) {
-      score += 40;
-      matchType = 'contains';
-    } else if (normSummary.includes(normalizedQuery)) {
-      score += 25;
-      matchType = 'contains';
+    for (const eq of expandedQueries) {
+      if (normName === eq) {
+        score += 150;
+        matchType = 'exact';
+      } else if (normName.startsWith(eq)) {
+        score += 90;
+        matchType = 'prefix';
+      } else if (normName.includes(eq)) {
+        score += 70;
+        matchType = 'contains';
+      } else if (normCategory.includes(eq)) {
+        score += 45;
+        matchType = 'contains';
+      } else if (normKeywords.includes(eq)) {
+        score += 40;
+        matchType = 'contains';
+      } else if (normSummary.includes(eq)) {
+        score += 25;
+        matchType = 'contains';
+      }
     }
 
     let tokenMatches = 0;
