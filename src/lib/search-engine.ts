@@ -278,13 +278,14 @@ export function searchEngine<T extends SearchItem>(
       } else if (normSummary.includes(token)) {
         score += 6;
         tokenMatches++;
-      } else if (enableFuzzy && token.length >= 4) {
+      } else if (enableFuzzy && token.length >= 3) {
         const nameTokens = normName.split(/\s+/);
         for (const nameWord of nameTokens) {
-          if (nameWord.length >= 4) {
+          if (nameWord.length >= 3) {
             const dist = levenshteinDistance(token, nameWord);
-            if (dist <= (token.length >= 6 ? 2 : 1)) {
-              score += 15 - dist * 4;
+            const maxL = Math.max(token.length, nameWord.length);
+            if (dist <= 2 && dist / maxL <= 0.35) {
+              score += 35 - dist * 10;
               tokenMatches++;
               matchType = 'fuzzy';
               break;
