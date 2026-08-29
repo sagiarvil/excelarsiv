@@ -1,21 +1,25 @@
-export interface SearchItem {
-  name: string;
-  summary: string;
-  category: string;
-  url: string;
-  kind?: 'product' | 'category' | 'guide' | 'problem';
-  keywords?: string;
-}
+export type {
+  SearchItem,
+  SearchMatch,
+  SearchResponse,
+  SearchOptions,
+} from './search-engine';
 
-const normalize = (text: string): string => text.toLocaleLowerCase('tr-TR');
+export {
+  normalizeTurkish,
+  levenshteinDistance,
+  stringSimilarity,
+  extractSearchIntent,
+  findDidYouMeanSuggestion,
+  buildSearchCorpus,
+  searchEngine,
+  UniversalSearchEngine,
+  COMMON_DOMAIN_KEYWORDS,
+} from './search-engine';
+
+import { searchEngine, type SearchItem } from './search-engine';
 
 export function searchTemplates(items: SearchItem[], query: string, limit = 6): SearchItem[] {
-  const q = normalize(query.trim());
-  if (q.length < 2) return [];
-  return items
-    .filter((item) => {
-      const haystack = `${item.name} ${item.summary} ${item.category} ${item.keywords ?? ''}`;
-      return normalize(haystack).includes(q);
-    })
-    .slice(0, limit);
+  const res = searchEngine(items, query, { limit });
+  return res.results;
 }

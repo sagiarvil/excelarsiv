@@ -1,11 +1,6 @@
-export interface SearchItem {
-  name: string;
-  summary: string;
-  category: string;
-  url: string;
-  kind?: 'product' | 'category' | 'guide' | 'problem';
-  keywords?: string;
-}
+import { searchEngine, type SearchItem } from '../lib/search-engine';
+
+export type { SearchItem };
 
 const escapeHtml = (value: string): string =>
   value
@@ -14,8 +9,6 @@ const escapeHtml = (value: string): string =>
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#39;');
-
-const normalize = (text: string): string => text.toLocaleLowerCase('tr-TR');
 
 const iconForKind = (kind: SearchItem['kind']): string => {
   if (kind === 'category') return '<path d="M4 5h16v4H4V5Zm0 6h7v8H4v-8Zm9 0h7v8h-7v-8Z" fill="currentColor"/>';
@@ -37,6 +30,7 @@ export function mountHeroSearch(root: HTMLElement, items: SearchItem[]): void {
     category: 'Kategori',
     guide: 'Rehber',
     problem: 'Problem',
+    template: 'Şablon',
   };
 
   const close = (): void => {
@@ -51,16 +45,8 @@ export function mountHeroSearch(root: HTMLElement, items: SearchItem[]): void {
     input.setAttribute('aria-expanded', 'true');
   };
 
-  const renderItems = (results: SearchItem[], query = ''): void => {
-    if (count) count.textContent = `${results.length} sonuç`;
-
-    if (results.length === 0) {
-      list.innerHTML = `<li class="hero-search__empty">“${escapeHtml(query.trim())}” için eşleşme bulunamadı. Nakit akışı, cari, kasa, stok veya kârlılık gibi bir terim deneyin.</li>`;
-      open();
-      return;
-    }
-
-    list.innerHTML = results
+  const renderCardList = (displayItems: SearchItem[]): string =>
+    displayItems
       .map((result, index) => {
         const kind = result.kind ?? 'product';
         const kindText = kindLabel[kind] ?? 'Ürün';
@@ -83,40 +69,73 @@ export function mountHeroSearch(root: HTMLElement, items: SearchItem[]): void {
           </li>`;
       })
       .join('');
-    open();
-  };
-
-  const score = (item: SearchItem, q: string): number => {
-    const name = normalize(item.name);
-    const category = normalize(item.category);
-    const keywords = normalize(item.keywords ?? '');
-    const summary = normalize(item.summary);
-    if (name === q) return 100;
-    if (name.startsWith(q)) return 80;
-    if (name.includes(q)) return 60;
-    if (category.includes(q)) return 40;
-    if (keywords.includes(q)) return 30;
-    if (summary.includes(q)) return 20;
-    return 0;
-  };
 
   const render = (query: string): void => {
-    const q = normalize(query.trim());
-    root.classList.toggle('has-query', q.length > 0);
+    const rawQuery = (query || '').trim();
+    root.classList.toggle('has-query', rawQuery.length > 0);
 
-    if (!q) {
-      renderItems(items.slice(0, 5));
+    if (!rawQuery) {
+      if (count) count.textContent = `${Math.min(5, items.length)} öneri`;
+      list.innerHTML = renderCardList(items.slice(0, 5));
+      open();
       return;
     }
 
-    const results = items
-      .map((item) => ({ item, score: score(item, q) }))
-      .filter((entry) => entry.score > 0)
-      .sort((a, b) => b.score - a.score || a.item.name.localeCompare(b.item.name, 'tr'))
-      .slice(0, 5)
-      .map((entry) => entry.item);
+    const response = searchEngine(items, rawQuery, { limit: 5 });
+    const { results, didYouMean, suggestedItems } = response;
 
-    renderItems(results, query);
+    let html = '';
+
+    // "Bunu mu demek istediniz?" banner
+    if (didYouMean) {
+      html += `
+        <li class="hero-search__suggestion-item">
+          <button type="button" class="hero-search__did-you-mean" data-suggest-term="${escapeHtml(didYouMean)}">
+            <span class="hero-search__dym-label">Bunu mu demek istediniz?</span>
+            <strong class="hero-search__dym-term">“${escapeHtml(didYouMean)}”</strong>
+            <span class="hero-search__dym-action">Uygula ↵</span>
+          </button>
+        </li>
+      `;
+    }
+
+    if (results.length > 0) {
+      if (count) count.textContent = `${results.length} sonuç`;
+      html += renderCardList(results);
+    } else if (suggestedItems.length > 0) {
+      if (count) count.textContent = `${suggestedItems.length} yakın eşleşme`;
+      html += `
+        <li class="hero-search__info-banner">
+          <span>“<strong>${escapeHtml(rawQuery)}</strong>” için doğrudan sonuç bulunamadı. İlgili en yakın sistemler:</span>
+        </li>
+      `;
+      html += renderCardList(suggestedItems);
+    } else {
+      if (count) count.textContent = '0 sonuç';
+      html += `
+        <li class="hero-search__empty">
+          “${escapeHtml(rawQuery)}” için eşleşme bulunamadı. Nakit akışı, cari, kasa, stok veya kârlılık gibi bir terim deneyin.
+        </li>
+      `;
+    }
+
+    list.innerHTML = html;
+
+    // Attach click listeners to suggestion buttons
+    const suggestBtn = list.querySelector<HTMLButtonElement>('[data-suggest-term]');
+    if (suggestBtn) {
+      suggestBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const term = suggestBtn.dataset.suggestTerm;
+        if (term) {
+          input.value = term;
+          render(term);
+          input.focus();
+        }
+      });
+    }
+
+    open();
   };
 
   input.addEventListener('input', () => render(input.value));
@@ -175,7 +194,7 @@ export function mountHeroSearch(root: HTMLElement, items: SearchItem[]): void {
       window.location.href = highlighted.href;
       return;
     }
-    if (normalize(input.value).length < 2) {
+    if ((input.value || '').trim().length < 2) {
       event.preventDefault();
       render(input.value);
     }

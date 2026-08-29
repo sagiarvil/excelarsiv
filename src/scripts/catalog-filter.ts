@@ -1,17 +1,10 @@
-const normalize = (text: string): string =>
-  text
-    .toLocaleLowerCase('tr-TR')
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[ıİ]/g, 'i')
-    .replace(/[ğĞ]/g, 'g')
-    .replace(/[şŞ]/g, 's')
-    .replace(/[çÇ]/g, 'c')
-    .replace(/[öÖ]/g, 'o')
-    .replace(/[üÜ]/g, 'u')
-    .replace(/[^a-z0-9\s-]/gi, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+import {
+  searchEngine,
+  normalizeTurkish,
+  findDidYouMeanSuggestion,
+  buildSearchCorpus,
+  type SearchItem,
+} from '../lib/search-engine';
 
 const ensureCommandStackingLayer = (): void => {
   if (document.getElementById('catalog-command-stacking-layer')) return;
@@ -26,6 +19,9 @@ const ensureCommandStackingLayer = (): void => {
     [data-catalog-command-panel] { z-index: 10000 !important; }
     .catalog-command__filters { position: relative !important; z-index: 20 !important; }
     [data-template-grid-wrap], [data-template-grid], [data-template-item], [data-template-card] { position: relative !important; z-index: 1 !important; }
+    .empty-state__dym-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px 18px; border: 1px solid #b7e0c7; border-radius: 12px; background: #f0faf4; color: #166534; font-family: var(--font-body); font-size: 13px; font-weight: 700; cursor: pointer; transition: all .15s ease; }
+    .empty-state__dym-btn:hover { background: #e2f6ea; border-color: #7ece9d; transform: translateY(-1px); }
+    .empty-state__dym-btn strong { text-decoration: underline; color: #0e4c25; }
   `;
   document.head.append(style);
 };
@@ -42,6 +38,16 @@ export function mountCatalogFilter(): void {
   const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-category-filter]'));
   const resultCount = document.querySelector<HTMLElement>('[data-result-count]');
   const clearAll = document.querySelector<HTMLButtonElement>('[data-catalog-clear]');
+
+  // Build items representation for search engine
+  const catalogItems: SearchItem[] = cards.map((card) => ({
+    name: card.dataset.name ?? '',
+    summary: card.dataset.summary ?? '',
+    category: card.dataset.categoryLabel ?? '',
+    categorySlug: card.dataset.category ?? '',
+    url: card.querySelector<HTMLAnchorElement>('a')?.getAttribute('href') ?? '/sablonlar',
+  }));
+  const corpus = buildSearchCorpus(catalogItems);
 
   const ensureEmptyState = (): HTMLElement => {
     const wrap = grid.closest<HTMLElement>('[data-template-grid-wrap]');
@@ -82,17 +88,26 @@ export function mountCatalogFilter(): void {
 
   const apply = (): void => {
     const rawQuery = (search?.value ?? '').trim();
-    const q = normalize(rawQuery);
     let visible = 0;
+
+    let matchedItemNames = new Set<string>();
+    let didYouMeanSuggestion: string | null = null;
+
+    if (rawQuery.length > 0) {
+      const response = searchEngine(catalogItems, rawQuery, {
+        limit: 100,
+        enableFuzzy: true,
+        enableIntentParsing: true,
+      });
+      response.results.forEach((item) => matchedItemNames.add(item.name));
+      didYouMeanSuggestion = response.didYouMean;
+    }
 
     for (const card of cards) {
       const name = card.dataset.name ?? '';
       const category = card.dataset.category ?? '';
-      const categoryLabel = card.dataset.categoryLabel ?? '';
-      const summary = card.dataset.summary ?? '';
-      const haystack = normalize(`${name} ${summary} ${category} ${categoryLabel}`);
       const matchCategory = activeCategory === '' || category === activeCategory;
-      const matchQuery = q.length === 0 || haystack.includes(q);
+      const matchQuery = rawQuery.length === 0 || matchedItemNames.has(name);
       const show = matchCategory && matchQuery;
       const item = card.closest<HTMLElement>('[data-template-item]') ?? card;
       item.hidden = !show;
@@ -103,10 +118,29 @@ export function mountCatalogFilter(): void {
     if (empty) {
       empty.hidden = visible > 0;
       const text = empty.querySelector<HTMLElement>('[data-empty-state-text]');
+      const existingDym = empty.querySelector<HTMLButtonElement>('.empty-state__dym-btn');
+      if (existingDym) existingDym.remove();
+
       if (text) {
-        text.textContent = rawQuery.length > 0
-          ? `“${rawQuery}” için eşleşen şablon yok. Farklı bir anahtar kelime deneyin veya kategori filtrelerini temizleyin.`
-          : 'Bu kategoriye uygun şablon bulunamadı.';
+        if (rawQuery.length > 0) {
+          text.textContent = `“${rawQuery}” için eşleşen şablon bulunamadı.`;
+          if (didYouMeanSuggestion) {
+            const dymBtn = document.createElement('button');
+            dymBtn.type = 'button';
+            dymBtn.className = 'empty-state__dym-btn';
+            dymBtn.innerHTML = `Bunu mu demek istediniz: <strong>“${didYouMeanSuggestion}”</strong> (Sonuçları göster)`;
+            dymBtn.addEventListener('click', () => {
+              if (search && didYouMeanSuggestion) {
+                search.value = didYouMeanSuggestion;
+                apply();
+                search.focus();
+              }
+            });
+            empty.append(dymBtn);
+          }
+        } else {
+          text.textContent = 'Bu kategoriye uygun şablon bulunamadı.';
+        }
       }
     }
     if (resultCount) resultCount.textContent = String(visible);

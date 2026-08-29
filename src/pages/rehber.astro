@@ -280,12 +280,19 @@ const guidesBreadcrumbLd = JSON.stringify({
           </div>
 
           <!-- ARAMADA SONUÇ BULUNAMADI UYARISI -->
-          <div id="no-results" class="hidden p-10 bg-white rounded-2xl border border-slate-200 text-center">
+          <div id="no-results" class="hidden p-8 bg-white rounded-2xl border border-slate-200 text-center">
             <span class="text-3xl block mb-2">🔍</span>
-            <h3 class="text-base font-bold text-navy">Aramanıza uygun rehber bulunamadı</h3>
-            <p class="text-xs text-slate-500 mt-1 max-w-md mx-auto">
-              Farklı bir anahtar kelime deneyebilir veya sol taraftaki tüm konular seçeneğine dönebilirsiniz.
+            <h3 class="text-base font-bold text-navy">Aramanıza doğrudan uygun rehber bulunamadı</h3>
+            <p id="no-results-msg" class="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+              Farklı bir anahtar kelime deneyebilir veya aşağıdaki önerileri inceleyebilirsiniz.
             </p>
+            <div id="rehber-did-you-mean" class="mt-4 hidden">
+              <button type="button" id="rehber-dym-btn" class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold transition-all">
+                <span>Bunu mu demek istediniz:</span>
+                <strong id="rehber-dym-term" class="underline"></strong>
+                <span class="bg-emerald-600 text-white text-[10px] px-1.5 py-0.5 rounded">Uygula ↵</span>
+              </button>
+            </div>
             <button type="button" id="reset-filter-btn" class="mt-4 px-4 py-2 bg-blue text-white rounded-xl text-xs font-bold">
               Filtreleri Sıfırla
             </button>
@@ -297,33 +304,61 @@ const guidesBreadcrumbLd = JSON.stringify({
   </main>
 
   <!-- LIVE CLIENT JAVASCRIPT FOR INSTANT FILTERING & SEARCH -->
-  <script is:inline>
-    const searchInput = document.getElementById('index-search');
+  <script>
+    import { searchEngine, type SearchItem } from '../lib/search-engine';
+
+    const searchInput = document.getElementById('index-search') as HTMLInputElement | null;
     const searchBtn = document.getElementById('search-btn');
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const typeRadios = document.querySelectorAll('input[name="item-type"]');
-    const items = document.querySelectorAll('.scholar-item');
+    const categoryButtons = document.querySelectorAll<HTMLButtonElement>('.category-btn');
+    const typeRadios = document.querySelectorAll<HTMLInputElement>('input[name="item-type"]');
+    const items = Array.from(document.querySelectorAll<HTMLElement>('.scholar-item'));
     const resultsCount = document.getElementById('results-count');
     const activeFilterBadge = document.getElementById('active-filter-badge');
     const noResults = document.getElementById('no-results');
+    const noResultsMsg = document.getElementById('no-results-msg');
+    const dymContainer = document.getElementById('rehber-did-you-mean');
+    const dymTerm = document.getElementById('rehber-dym-term');
+    const dymBtn = document.getElementById('rehber-dym-btn');
     const resetFilterBtn = document.getElementById('reset-filter-btn');
 
     let currentCategory = 'all';
     let currentType = 'all';
 
+    const searchableItems: (SearchItem & { element: HTMLElement })[] = items.map((item) => ({
+      name: item.dataset.title ?? '',
+      summary: item.dataset.description ?? '',
+      category: item.dataset.category ?? '',
+      url: '',
+      element: item,
+    }));
+
     function filterItems() {
-      const query = (searchInput.value || '').trim().toLowerCase();
+      const query = (searchInput?.value || '').trim();
       let visibleCount = 0;
+
+      let matchedElements = new Set<HTMLElement>();
+      let didYouMean: string | null = null;
+
+      if (query) {
+        const response = searchEngine(searchableItems, query, {
+          limit: 100,
+          enableFuzzy: true,
+          enableIntentParsing: true,
+        });
+        response.results.forEach((r) => {
+          const match = r as typeof searchableItems[0];
+          if (match.element) matchedElements.add(match.element);
+        });
+        didYouMean = response.didYouMean;
+      }
 
       items.forEach((item) => {
         const itemCategory = item.dataset.category;
         const itemType = item.dataset.type;
-        const itemTitle = item.dataset.title;
-        const itemDesc = item.dataset.description;
 
         const categoryMatch = currentCategory === 'all' || itemCategory === currentCategory;
         const typeMatch = currentType === 'all' || itemType === currentType;
-        const searchMatch = !query || itemTitle.includes(query) || itemDesc.includes(query);
+        const searchMatch = !query || matchedElements.has(item);
 
         if (categoryMatch && typeMatch && searchMatch) {
           item.classList.remove('hidden');
@@ -333,43 +368,61 @@ const guidesBreadcrumbLd = JSON.stringify({
         }
       });
 
-      resultsCount.textContent = visibleCount;
+      if (resultsCount) resultsCount.textContent = String(visibleCount);
       if (visibleCount === 0) {
-        noResults.classList.remove('hidden');
+        noResults?.classList.remove('hidden');
+        if (didYouMean && dymContainer && dymTerm) {
+          dymContainer.classList.remove('hidden');
+          dymTerm.textContent = `“${didYouMean}”`;
+          if (dymBtn) {
+            dymBtn.onclick = () => {
+              if (searchInput && didYouMean) {
+                searchInput.value = didYouMean;
+                filterItems();
+                searchInput.focus();
+              }
+            };
+          }
+        } else {
+          dymContainer?.classList.add('hidden');
+        }
       } else {
-        noResults.classList.add('hidden');
+        noResults?.classList.add('hidden');
+        dymContainer?.classList.add('hidden');
       }
     }
 
     categoryButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        currentCategory = btn.dataset.category;
+        currentCategory = btn.dataset.category ?? 'all';
         categoryButtons.forEach((b) => {
           b.className = 'category-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue transition-all flex items-center justify-between';
         });
         btn.className = 'category-btn w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-between bg-blue text-white shadow-sm';
-        activeFilterBadge.textContent = btn.querySelector('span:first-child').textContent.trim();
+        const spanText = btn.querySelector('span:first-child')?.textContent?.trim();
+        if (activeFilterBadge && spanText) activeFilterBadge.textContent = spanText;
         filterItems();
       });
     });
 
     typeRadios.forEach((radio) => {
       radio.addEventListener('change', (e) => {
-        currentType = e.target.value;
+        currentType = (e.target as HTMLInputElement).value;
         filterItems();
       });
     });
 
-    searchInput.addEventListener('input', filterItems);
-    searchBtn.addEventListener('click', filterItems);
+    searchInput?.addEventListener('input', filterItems);
+    searchBtn?.addEventListener('click', filterItems);
     
     if (resetFilterBtn) {
       resetFilterBtn.addEventListener('click', () => {
-        searchInput.value = '';
+        if (searchInput) searchInput.value = '';
         currentCategory = 'all';
         currentType = 'all';
-        categoryButtons[0].click();
-        typeRadios[0].checked = true;
+        categoryButtons[0]?.click();
+        const firstRadio = typeRadios[0];
+        if (firstRadio) firstRadio.checked = true;
         filterItems();
       });
     }

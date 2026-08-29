@@ -55,18 +55,32 @@ const mobileCategories = Array.from(
   const search = document.querySelector<HTMLInputElement>('#catalog-search-input');
   let activeCategory = 'all';
 
-  const normalize = (value: string) => value.toLocaleLowerCase('tr-TR')
-    .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[ıİ]/g, 'i').replace(/[ğĞ]/g, 'g').replace(/[şŞ]/g, 's')
-    .replace(/[çÇ]/g, 'c').replace(/[öÖ]/g, 'o').replace(/[üÜ]/g, 'u');
+  import { searchEngine, type SearchItem } from '../../lib/search-engine';
+
+  const mobileSearchItems: SearchItem[] = items.map((item) => ({
+    name: item.dataset.mobileName ?? '',
+    summary: '',
+    category: item.dataset.mobileCategory ?? '',
+    url: '',
+  }));
 
   const applyMobileFilter = () => {
     if (!gridWrap || window.matchMedia('(min-width: 681px)').matches) return;
-    const query = normalize(search?.value.trim() ?? '');
+    const rawQuery = (search?.value ?? '').trim();
     let visible = 0;
-    items.forEach((item) => {
+
+    let matchedIndices = new Set<number>();
+    if (rawQuery.length > 0) {
+      const response = searchEngine(mobileSearchItems, rawQuery, { limit: 100, enableFuzzy: true });
+      response.results.forEach((resItem) => {
+        const idx = mobileSearchItems.indexOf(resItem);
+        if (idx >= 0) matchedIndices.add(idx);
+      });
+    }
+
+    items.forEach((item, index) => {
       const categoryMatch = activeCategory === 'all' || item.dataset.mobileCategory === activeCategory;
-      const textMatch = !query || normalize(item.dataset.mobileName ?? '').includes(query);
+      const textMatch = rawQuery.length === 0 || matchedIndices.has(index);
       const show = categoryMatch && textMatch;
       item.hidden = !show;
       if (show) visible += 1;

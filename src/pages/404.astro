@@ -13,6 +13,9 @@ const featured = templates.slice(0, 3).map(toTemplateViewModel);
 // Client-side arama için statik indeks — şablon adı + id
 const searchIndex = templates.map((template) => ({
   name: template.data.name,
+  summary: template.data.summary,
+  category: template.data.category,
+  url: `/sablon/${template.id}`,
   slug: template.id,
 }));
 
@@ -104,40 +107,63 @@ const otherErrors = ['#NAME?', '#VALUE!', '#DIV/0!'];
   }
 </CommerceLayout>
 
-<script define:vars={{ searchIndex }}>
-  const input = /** @type {HTMLInputElement} */ (document.getElementById('sablon-ara'));
-  const results = /** @type {HTMLUListElement} */ (document.getElementById('arama-sonuclari'));
-  const counter = /** @type {HTMLParagraphElement} */ (document.getElementById('arama-sayac'));
-  const empty = /** @type {HTMLParagraphElement} */ (document.getElementById('arama-bos'));
+<script type="application/json" id="err-search-index" set:html={JSON.stringify(searchIndex)}></script>
+<script>
+  import { searchEngine, type SearchItem } from '../lib/search-engine';
+
+  const input = document.getElementById('sablon-ara') as HTMLInputElement | null;
+  const results = document.getElementById('arama-sonuclari') as HTMLUListElement | null;
+  const counter = document.getElementById('arama-sayac') as HTMLParagraphElement | null;
+  const empty = document.getElementById('arama-bos') as HTMLParagraphElement | null;
+  const indexEl = document.getElementById('err-search-index');
 
   const itemClass =
     'flex items-center justify-between gap-4 border-b border-rule-hairline px-2 py-3 font-mono text-sm text-ink-700 transition-colors duration-150 ease-out hover:text-accent-primary';
 
-  input.addEventListener('input', () => {
-    const query = input.value.trim().toLocaleLowerCase('tr');
-    const matches =
-      query === ''
-        ? []
-        : searchIndex
-            .filter((t) => t.name.toLocaleLowerCase('tr').includes(query))
-            .slice(0, 8);
+  if (input && results && counter && empty && indexEl) {
+    const rawItems = JSON.parse(indexEl.textContent ?? '[]') as (SearchItem & { slug: string })[];
 
-    results.replaceChildren();
-    counter.textContent = query === '' ? '' : `${matches.length} sonuç`;
-    empty.classList.toggle('hidden', matches.length > 0 || query === '');
+    input.addEventListener('input', () => {
+      const query = input.value.trim();
+      results.replaceChildren();
 
-    matches.forEach((t) => {
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = `/sablon/${t.slug}`;
-      a.textContent = t.name;
-      a.className = itemClass;
-      const arrow = document.createElement('span');
-      arrow.setAttribute('aria-hidden', 'true');
-      arrow.textContent = '→';
-      a.appendChild(arrow);
-      li.appendChild(a);
-      results.appendChild(li);
+      if (!query) {
+        counter.textContent = '';
+        empty.classList.add('hidden');
+        return;
+      }
+
+      const response = searchEngine(rawItems, query, { limit: 8 });
+      const { results: matches, didYouMean, suggestedItems } = response;
+      const displayItems = matches.length > 0 ? matches : suggestedItems;
+
+      if (matches.length > 0) {
+        counter.textContent = `${matches.length} sonuç`;
+        empty.classList.add('hidden');
+      } else if (suggestedItems.length > 0) {
+        counter.textContent = didYouMean
+          ? `Bunu mu demek istediniz: “${didYouMean}”? (En yakın ${suggestedItems.length} sonuç)`
+          : `En yakın ${suggestedItems.length} sonuç`;
+        empty.classList.add('hidden');
+      } else {
+        counter.textContent = '0 sonuç';
+        empty.classList.remove('hidden');
+      }
+
+      displayItems.forEach((t) => {
+        const itemWithSlug = t as typeof rawItems[0];
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `/sablon/${itemWithSlug.slug}`;
+        a.textContent = itemWithSlug.name;
+        a.className = itemClass;
+        const arrow = document.createElement('span');
+        arrow.setAttribute('aria-hidden', 'true');
+        arrow.textContent = '→';
+        a.appendChild(arrow);
+        li.appendChild(a);
+        results.appendChild(li);
+      });
     });
-  });
+  }
 </script>
