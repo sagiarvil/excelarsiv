@@ -10,9 +10,12 @@ if (!html.includes('data-living-workbook-v1') || !html.includes('deliver-grid'))
   throw new Error('SPECIAL DELIVERY TAG: Living Workbook delivery anchor missing');
 }
 
-const deliverIndex = html.indexOf('deliver-grid');
+const bodyIndex = html.indexOf('<body');
+if (bodyIndex < 0) throw new Error('SPECIAL DELIVERY TAG: body start missing');
+const deliverIndex = html.indexOf('deliver-grid', bodyIndex);
+if (deliverIndex < 0) throw new Error('SPECIAL DELIVERY TAG: delivery markup anchor missing in body');
 const sectionStart = html.lastIndexOf('<section', deliverIndex);
-if (sectionStart < 0) throw new Error('SPECIAL DELIVERY TAG: delivery parent section start missing');
+if (sectionStart < bodyIndex) throw new Error('SPECIAL DELIVERY TAG: delivery parent section start missing');
 const sectionEnd = html.indexOf('>', sectionStart);
 if (sectionEnd < 0 || sectionEnd > deliverIndex) throw new Error('SPECIAL DELIVERY TAG: delivery parent section opening tag invalid');
 
@@ -32,14 +35,15 @@ if (!/\bid=(['"])teslim\1/i.test(opening)) {
 
 html = html.slice(0, sectionStart) + opening + html.slice(sectionEnd + 1);
 
-const taggedIndex = html.indexOf('id="teslim"');
-const deliverIndexAfter = html.indexOf('deliver-grid');
-if (taggedIndex < 0 || taggedIndex > deliverIndexAfter || deliverIndexAfter - taggedIndex > 300) {
+const bodyIndexAfter = html.indexOf('<body');
+const taggedIndex = html.indexOf('id="teslim"', bodyIndexAfter);
+const deliverIndexAfter = html.indexOf('deliver-grid', bodyIndexAfter);
+if (taggedIndex < 0 || taggedIndex > deliverIndexAfter || deliverIndexAfter - taggedIndex > 500) {
   throw new Error('SPECIAL DELIVERY TAG: id/class was not attached to the delivery parent section');
 }
-if (!html.slice(Math.max(0, taggedIndex - 100), deliverIndexAfter).includes('delivery')) {
+if (!html.slice(Math.max(bodyIndexAfter, taggedIndex - 120), deliverIndexAfter).includes('delivery')) {
   throw new Error('SPECIAL DELIVERY TAG: delivery class missing on tagged parent section');
 }
 
 fs.writeFileSync(file, html);
-console.log('SPECIAL DELIVERY TAG PASS — delivery section tagged deterministically from deliver-grid anchor.');
+console.log('SPECIAL DELIVERY TAG PASS — delivery section tagged from the body markup, independent of head CSS occurrences.');
