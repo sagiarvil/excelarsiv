@@ -1,0 +1,128 @@
+#!/usr/bin/env node
+import fs from 'node:fs';
+import path from 'node:path';
+
+const homeFile = path.resolve('dist/index.html');
+if (!fs.existsSync(homeFile)) throw new Error('HOME DUAL FUNNEL V35: dist homepage missing');
+let html = fs.readFileSync(homeFile, 'utf8');
+
+const WA_NUMBER = '905393333303';
+const WA_MESSAGE = 'Merhaba Barış Bey, excelarsiv.com üzerinden ulaşıyorum. İşletmemizin finansal tıkanıklığını anlatmak ve doğru Excel karar sistemini netleştirmek istiyorum.';
+const WA_URL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
+
+const styleId = 'home-dual-funnel-v35';
+const marker = 'data-home-dual-funnel-v35';
+
+if (!html.includes('<body')) throw new Error('HOME DUAL FUNNEL V35: body missing');
+if (!new RegExp(`\\b${marker}\\b`, 'u').test(html.match(/<body\\b[^>]*>/u)?.[0] || '')) {
+  html = html.replace(/<body\\b([^>]*)>/u, `<body$1 ${marker}>`);
+}
+
+// HERO: mevcut görsel/kompozisyon korunur; yalnızca ikili CTA katmanı eklenir.
+const heroSection = html.match(/<section\\b[^>]*class=["'][^"']*hero-section[^"']*["'][^>]*>[\\s\\S]*?<\\/section>/u);
+if (!heroSection) throw new Error('HOME DUAL FUNNEL V35: hero section missing');
+let hero = heroSection[0];
+hero = hero.replace(/<div class=["']home-dual-cta["'][\\s\\S]*?<\\/div>/u, '');
+const heroCta = `<div class="home-dual-cta" aria-label="Hazır veya işletmeye özel Excel çözümü seçimi">
+  <a class="home-dual-cta__ready" href="/sablonlar" data-cta="home_ready_systems"><strong>Hazır Finansal Sistemleri İnceleyin ↓</strong><span>Anında indir & kullan</span></a>
+  <a class="home-dual-cta__custom" href="/ozel-excel-sistemleri" data-cta="home_custom_system"><strong>İşletmenize Özel Sistem Kuralım →</strong><span>15 dk ön teşhis</span></a>
+</div>`;
+const searchRailIndex = hero.indexOf('<div class="hero-search-rail"');
+if (searchRailIndex < 0) throw new Error('HOME DUAL FUNNEL V35: hero search rail missing');
+hero = `${hero.slice(0, searchRailIndex)}${heroCta}\n${hero.slice(searchRailIndex)}`;
+html = html.replace(heroSection[0], hero);
+
+// Aynı build tekrar çalışırsa eski V35 bloklarını temizle.
+for (const id of ['finans-karar-sutunlari','ozel-sistem-koprusu','sahadan-metodoloji','home-bottom-conversion']) {
+  html = html.replace(new RegExp(`<section\\b[^>]*\\bid=["']${id}["'][^>]*>[\\s\\S]*?<\\/section>`, 'gu'), '');
+}
+
+const pillars = `<section class="home-finance-pillars" id="finans-karar-sutunlari" data-experience-stage>
+  <div class="home-shell">
+    <div class="home-finance-head"><p class="eyebrow">FİNANSAL KARAR SİSTEMLERİ</p><h2>İşletmenin dört temel finans karar alanı.</h2><p>Hazır sistemleri günlük dosya ihtiyacına göre değil, yönetilmesi gereken finansal karara göre gruplayın.</p></div>
+    <div class="home-finance-grid">
+      <article><span>01</span><h3>Nakit & Likidite Sistemleri</h3><ul><li>13 Haftalık Dinamik Nakit Akışı Modeli</li><li>Günlük Kasa & Banka Likidite Takip Paneli</li><li>Çek & Senet Vade Yaşlandırma Tablosu</li></ul><a href="/sablonlar?q=nakit" data-cta="home_pillar_cash">Nakit Sistemlerini Gör →</a></article>
+      <article><span>02</span><h3>Banka, Kredi & Teminat Sistemleri</h3><ul><li>Çoklu Banka Limit-Risk ve Kredi Portföyü</li><li>Rotatif Kredi Faiz ve Finansman Maliyet Simülatörü</li><li>Teminat Mektubu & İpotek Karşılama Matrisi</li></ul><a href="/sablonlar?q=banka" data-cta="home_pillar_bank">Banka Sistemlerini Gör →</a></article>
+      <article><span>03</span><h3>Birim Maliyet & Dinamik Fiyatlama</h3><ul><li>Değişken Maliyet ve Hammadde Endeksli Fiyat Teklif Motoru</li><li>Ürün & Müşteri Bazlı Katkı Payı ve Kârlılık Matrisi</li><li>Şirket & Proje Başabaş (Break-Even) Hesaplayıcı</li></ul><a href="/sablonlar?q=maliyet" data-cta="home_pillar_cost">Maliyet Sistemlerini Gör →</a></article>
+      <article><span>04</span><h3>Bütçe, Projeksiyon & Değerleme</h3><ul><li>3 Senaryolu Dinamik Bütçe & Rolling Forecast Modeli</li><li>DCF İskontolanmış Nakit Akımları & Yatırım Fizibilitesi</li><li>Net İşletme Sermayesi (NÖS) & DSO Gösterge Kokpiti</li></ul><a href="/sablonlar?q=butce" data-cta="home_pillar_budget">Bütçe Sistemlerini Gör →</a></article>
+    </div>
+  </div>
+</section>`;
+
+const bridge = `<section class="home-high-ticket-bridge" id="ozel-sistem-koprusu" data-experience-stage>
+  <div class="home-shell home-high-ticket-grid">
+    <div><p class="eyebrow light">İHTİYACA ÖZEL SİSTEM</p><h2>Hazır Şablonlar Sürecinize Yetmiyor mu?</h2><p>Logo, SAP, Mikro veya Zirve verileriniz dağınıksa; şirketinizin kendine has tahsilat, banka veya üretim akışı varsa, hazır kalıplarla vakit kaybetmeyin. 17 yıllık bankacılık ve saha tecrübemizle şirketinize özel karar motoru kuralım.</p></div>
+    <div class="home-high-ticket-proof"><ul><li>Yazılımcıya finans anlatmakla uğraşmazsınız.</li><li>3-5 iş gününde verilerinizle test edilmiş canlı teslimat.</li><li>Tek seferlik şeffaf proje bedeli, aylık lisans yok.</li></ul><a href="/ozel-excel-sistemleri" data-cta="home_high_ticket_bridge">İhtiyaca Özel Excel Sistemleri Sayfasını İnceleyin →</a></div>
+  </div>
+</section>`;
+
+const methodology = `<section class="home-methodology" id="sahadan-metodoloji" data-experience-stage>
+  <div class="home-shell"><div class="home-methodology-head"><p class="eyebrow">NEDEN EXCEL ARŞİV?</p><h2>Sahadan gelen finans metodolojisi.</h2></div><div class="home-methodology-grid">
+    <article><span>01</span><h3>17 Yıllık Bankacılık Refleksi</h3><p>Tablonun yalnız formülüne değil, arkasındaki kredi riskine, nakit açığına ve finansman maliyetine bakarız.</p></article>
+    <article><span>02</span><h3>ERP Entegrasyon Boşluğunu Kapatma</h3><p>Büyük muhasebe programlarının vermediği esnek karar panellerini Excel'in hafifliğiyle sunarız.</p></article>
+    <article><span>03</span><h3>Korumalı & Sürdürülebilir Mimari</h3><p>Formülleri kilitli, veri girişi ile karar ekranı ayrılmış, personelin yanlışlıkla bozamayacağı yapılar inşa ederiz.</p></article>
+  </div></div>
+</section>`;
+
+const bottom = `<section class="home-bottom-conversion" id="home-bottom-conversion" data-experience-stage>
+  <div class="home-shell home-bottom-conversion__inner"><div><p class="eyebrow">DOĞRU ÇÖZÜMÜ NETLEŞTİRİN</p><h2>Şirketinizin Finansal Tıkanıklığını 15 Dakikada Teşhis Edelim.</h2><p>İster hazır model seçin, ister sürecinizi WhatsApp'tan yazın. Doğru çözümü aynı gün netleştirelim.</p></div><a href="${WA_URL}" target="_blank" rel="noopener noreferrer" data-cta="home_bottom_whatsapp">WhatsApp'tan Doğrudan Danışın <span>09:00 - 20:00</span></a></div>
+</section>`;
+
+const heroEndNeedle = hero;
+const heroPos = html.indexOf(heroEndNeedle);
+if (heroPos < 0) throw new Error('HOME DUAL FUNNEL V35: final hero not found');
+const heroEnd = heroPos + heroEndNeedle.length;
+html = `${html.slice(0, heroEnd)}\n${pillars}${html.slice(heroEnd)}`;
+
+// Mevcut "size özel" bloğunu tekrar etmeden önce high-ticket köprüyü katalog/fark akışından sonra ekle.
+const customBuildMatch = html.match(/<section\\b[^>]*class=["'][^"']*custom-build[^"']*["'][^>]*>[\\s\\S]*?<\\/section>/u);
+if (customBuildMatch) html = html.replace(customBuildMatch[0], bridge);
+else html = html.replace(pillars, `${pillars}\n${bridge}`);
+
+const authorityMatch = html.match(/<section\\b[^>]*class=["'][^"']*authority[^"']*["'][^>]*>[\\s\\S]*?<\\/section>/u);
+if (authorityMatch) html = html.replace(authorityMatch[0], methodology);
+else html = html.replace(bridge, `${bridge}\n${methodology}`);
+
+const faqCloseIndex = html.search(/<section\\b[^>]*class=["'][^"']*faq-close[^"']*["']/u);
+if (faqCloseIndex >= 0) html = `${html.slice(0, faqCloseIndex)}${bottom}\n${html.slice(faqCloseIndex)}`;
+else html = html.replace('</main>', `${bottom}\n</main>`);
+
+const css = `<style id="${styleId}">
+body[${marker}] .home-dual-cta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:min(760px,calc(100% - 48px));margin:18px auto 0;position:relative;z-index:75}
+body[${marker}] .home-dual-cta a{min-width:0;min-height:58px;display:flex;align-items:center;justify-content:center;gap:5px 12px;padding:10px 18px;border-radius:14px;text-decoration:none;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;transition:transform .16s ease,box-shadow .16s ease,background .16s ease}
+body[${marker}] .home-dual-cta a:hover{transform:translateY(-1px)}body[${marker}] .home-dual-cta strong{font-size:15px;line-height:1.2}body[${marker}] .home-dual-cta span{font-size:11px;line-height:1.2;opacity:.82;white-space:nowrap}
+body[${marker}] .home-dual-cta__ready{background:#059669;color:#fff;box-shadow:0 10px 24px rgba(5,150,105,.2)}body[${marker}] .home-dual-cta__custom{border:1.5px solid #0F172A;background:#fff;color:#0F172A}
+body[${marker}] .home-finance-pillars,body[${marker}] .home-methodology,body[${marker}] .home-bottom-conversion{padding:64px 0;border-bottom:1px solid #e2e8f0;background:#fff;color:#0F172A}
+body[${marker}] .home-finance-head,body[${marker}] .home-methodology-head{max-width:780px;margin-bottom:28px}body[${marker}] .home-finance-head h2,body[${marker}] .home-methodology-head h2,body[${marker}] .home-bottom-conversion h2{margin:8px 0 0;font-size:clamp(30px,4vw,46px);line-height:1.04;letter-spacing:-.04em;color:#0F172A}body[${marker}] .home-finance-head>p:last-child,body[${marker}] .home-bottom-conversion p{max-width:760px;color:#475569;line-height:1.65}
+body[${marker}] .home-finance-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}body[${marker}] .home-finance-grid article{min-width:0;display:flex;flex-direction:column;padding:22px;border:1px solid #dbe3ea;border-radius:18px;background:#fff;box-shadow:0 10px 30px rgba(15,23,42,.05)}body[${marker}] .home-finance-grid article>span{font:800 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#059669}body[${marker}] .home-finance-grid h3{margin:12px 0 0;font-size:20px;line-height:1.16;color:#0F172A}body[${marker}] .home-finance-grid ul{display:grid;gap:9px;margin:16px 0 20px;padding:0;list-style:none;color:#475569;font-size:14px;line-height:1.5}body[${marker}] .home-finance-grid li{padding-left:16px;position:relative}body[${marker}] .home-finance-grid li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:#10B981}body[${marker}] .home-finance-grid a{margin-top:auto;color:#047857;font-weight:800;text-decoration:none}
+body[${marker}] .home-high-ticket-bridge{padding:70px 0;background:#0F172A;color:#fff;border-bottom:1px solid #1e293b}body[${marker}] .home-high-ticket-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}body[${marker}] .home-high-ticket-bridge h2{margin:9px 0 0;font-size:clamp(32px,4.3vw,52px);line-height:1.02;letter-spacing:-.045em;color:#fff}body[${marker}] .home-high-ticket-bridge p{color:#cbd5e1;line-height:1.7}body[${marker}] .home-high-ticket-proof{padding:24px;border:1px solid #334155;border-radius:20px;background:#111c31}body[${marker}] .home-high-ticket-proof ul{display:grid;gap:13px;margin:0 0 22px;padding:0;list-style:none}body[${marker}] .home-high-ticket-proof li{position:relative;padding-left:24px;color:#e2e8f0}body[${marker}] .home-high-ticket-proof li::before{content:"✓";position:absolute;left:0;color:#10B981;font-weight:900}body[${marker}] .home-high-ticket-proof a{min-height:50px;display:flex;align-items:center;justify-content:center;padding:0 18px;border-radius:12px;background:#10B981;color:#052e22;font-weight:900;text-align:center;text-decoration:none}
+body[${marker}] .home-methodology-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}body[${marker}] .home-methodology-grid article{padding:24px;border:1px solid #dbe3ea;border-radius:18px;background:#f8fafc}body[${marker}] .home-methodology-grid span{font:800 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#059669}body[${marker}] .home-methodology-grid h3{margin:12px 0 8px;font-size:20px;line-height:1.2}body[${marker}] .home-methodology-grid p{margin:0;color:#475569;line-height:1.6;font-size:15px}
+body[${marker}] .home-bottom-conversion{background:#f8fafc}body[${marker}] .home-bottom-conversion__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}body[${marker}] .home-bottom-conversion__inner>a{min-height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 22px;border-radius:14px;background:#059669;color:#fff;font-weight:900;text-decoration:none;box-shadow:0 10px 28px rgba(5,150,105,.22)}body[${marker}] .home-bottom-conversion__inner>a span{font-size:11px;font-weight:700;opacity:.8}
+@media(max-width:1050px){body[${marker}] .home-finance-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body[${marker}] .home-high-ticket-grid{grid-template-columns:1fr;gap:24px}}
+@media(max-width:720px){body[${marker}] .home-dual-cta{grid-template-columns:1fr;width:100%;margin-top:14px}body[${marker}] .home-dual-cta a{min-height:52px;flex-direction:column;gap:2px}body[${marker}] .home-finance-pillars,body[${marker}] .home-methodology,body[${marker}] .home-bottom-conversion{padding:38px 0}body[${marker}] .home-finance-grid,body[${marker}] .home-methodology-grid{grid-template-columns:1fr}body[${marker}] .home-bottom-conversion__inner{grid-template-columns:1fr;gap:20px}body[${marker}] .home-bottom-conversion__inner>a{width:100%}}
+</style>`;
+
+html = html.replace(new RegExp(`<style\\b(?=[^>]*\\bid=["']${styleId}["'])[^>]*>[\\s\\S]*?<\\/style>`, 'gu'), '');
+if (!html.includes('</head>')) throw new Error('HOME DUAL FUNNEL V35: head close missing');
+html = html.replace('</head>', `${css}\n</head>`);
+
+for (const token of [
+  marker,
+  'Hazır Finansal Sistemleri İnceleyin ↓',
+  'İşletmenize Özel Sistem Kuralım →',
+  'Nakit & Likidite Sistemleri',
+  'Banka, Kredi & Teminat Sistemleri',
+  'Birim Maliyet & Dinamik Fiyatlama',
+  'Bütçe, Projeksiyon & Değerleme',
+  'Hazır Şablonlar Sürecinize Yetmiyor mu?',
+  '17 Yıllık Bankacılık Refleksi',
+  'Şirketinizin Finansal Tıkanıklığını 15 Dakikada Teşhis Edelim.',
+  WA_URL,
+]) if (!html.includes(token)) throw new Error(`HOME DUAL FUNNEL V35: required token missing ${token}`);
+
+if ((html.match(/class="home-dual-cta"/gu) || []).length !== 1) throw new Error('HOME DUAL FUNNEL V35: dual CTA duplicated');
+if ((html.match(/id="finans-karar-sutunlari"/gu) || []).length !== 1) throw new Error('HOME DUAL FUNNEL V35: finance pillars duplicated');
+if (html.includes('overflow-x:hidden')) throw new Error('HOME DUAL FUNNEL V35: forbidden global overflow hiding introduced');
+
+fs.writeFileSync(homeFile, html, 'utf8');
+console.log('HOME DUAL FUNNEL V35 PASS — hero design preserved; dual CTAs, 4 finance pillars, high-ticket bridge, field methodology and bottom WhatsApp conversion added.');
