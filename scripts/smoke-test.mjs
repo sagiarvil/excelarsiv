@@ -5,7 +5,8 @@ import { join, extname, resolve } from 'node:path';
 
 const dist = resolve(process.cwd(), 'dist');
 const SPECIAL_LEAD_PAGE = 'ozel-excel-sistemleri/index.html';
-const VERIFIED_WHATSAPP_PREFIX = 'https://wa.me/905419305372?text=';
+const HOME_PAGE = 'index.html';
+const VERIFIED_WHATSAPP_PREFIX = 'https://wa.me/905393333303?text=';
 
 function walk(dir, out = []) {
   for (const entry of readdirSync(dir)) {
@@ -40,11 +41,11 @@ for (const page of pages) {
     failures.push(`${page}: <main> eksik`);
   }
 
-  // WhatsApp doğrudan sipariş kanalı olarak yasak kalır. Tek istisna,
-  // özel Excel sistemleri sayfasındaki doğrulanmış numaraya giden lead/ön görüşme CTA'sıdır.
+  // WhatsApp doğrudan sipariş kanalı olarak yasak kalır.
+  // İzin verilen tek yüzeyler: ana sayfadaki danışma CTA'sı ve özel Excel sistemleri lead/ön görüşme CTA'ları.
   const whatsappLinks = [...html.matchAll(/href="(https:\/\/wa\.me\/[^"]+)"/g)].map((m) => m[1]);
   if (whatsappLinks.length > 0) {
-    if (page !== SPECIAL_LEAD_PAGE) {
+    if (page !== SPECIAL_LEAD_PAGE && page !== HOME_PAGE) {
       failures.push(`${page}: WhatsApp sipariş linki yasak`);
     } else {
       for (const href of whatsappLinks) {
@@ -52,8 +53,11 @@ for (const page of pages) {
           failures.push(`${page}: doğrulanmamış WhatsApp lead linki -> ${href}`);
         }
       }
-      if (!html.includes('data-cfo-positioning-v9')) {
-        failures.push(`${page}: WhatsApp lead istisnası için CFO V9 contract eksik`);
+      if (page === SPECIAL_LEAD_PAGE && !html.includes('data-special-premium-v17')) {
+        failures.push(`${page}: WhatsApp lead istisnası için special premium V17 contract eksik`);
+      }
+      if (page === HOME_PAGE && !html.includes('data-dual-funnel-home-v17')) {
+        failures.push(`${page}: WhatsApp lead istisnası için home dual-funnel V17 contract eksik`);
       }
     }
   }
@@ -138,7 +142,7 @@ for (const page of pages) {
     }
   }
 
-  if (page === 'index.html') {
+  if (page === HOME_PAGE) {
     if (/product-visual|pv-kpi/.test(html)) {
       failures.push(`${page}: ana sayfa sahte KPI görseli`);
     }
