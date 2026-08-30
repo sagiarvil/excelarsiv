@@ -7,7 +7,7 @@ if (!fs.existsSync(distFile)) throw new Error('SPECIAL CONTACT PATH V7: dist rou
 
 let html = fs.readFileSync(distFile, 'utf8');
 
-const directWhatsApp = /href="https:\/\/wa\.me\/[^\"]+"(?:\s+target="_blank")?(?:\s+rel="noopener noreferrer")?/gu;
+const directWhatsApp = /href="https:\/\/wa\.me\/[^"]+"(?:\s+target="_blank")?(?:\s+rel="noopener noreferrer")?/gu;
 const matches = html.match(directWhatsApp) || [];
 if (!matches.length) throw new Error('SPECIAL CONTACT PATH V7: expected direct WhatsApp CTA not found');
 
