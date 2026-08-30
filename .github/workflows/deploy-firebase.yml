@@ -148,8 +148,11 @@ jobs:
           console.log(`Project: ${process.env.FIREBASE_PROJECT_ID}`);
           NODE
 
+      # Delivery is its own release layer. A Hosting-only release must never be
+      # blocked by paid-product Storage configuration, while delivery changes
+      # remain fail-closed behind sync + byte-parity verification.
       - name: Sync and self-heal paid product binaries in private Storage
-        if: steps.changes.outputs.runtime_changed == 'true'
+        if: steps.changes.outputs.delivery_changed == 'true'
         env:
           GCLOUD_PROJECT: ${{ env.FIREBASE_PROJECT_ID }}
           GOOGLE_CLOUD_PROJECT: ${{ env.FIREBASE_PROJECT_ID }}
@@ -157,7 +160,7 @@ jobs:
         run: node scripts/sync-paid-products.mjs --apply
 
       - name: Verify paid product repo-storage SHA-256 parity
-        if: steps.changes.outputs.runtime_changed == 'true'
+        if: steps.changes.outputs.delivery_changed == 'true'
         env:
           GCLOUD_PROJECT: ${{ env.FIREBASE_PROJECT_ID }}
           GOOGLE_CLOUD_PROJECT: ${{ env.FIREBASE_PROJECT_ID }}
@@ -302,8 +305,9 @@ jobs:
           grep -Fq 'UNKNOWN_PRODUCT' /tmp/checkout-probe.json
           rm -f /tmp/checkout-probe.json
 
+      # A real paid checkout is a commerce gate, not a Hosting presentation gate.
       - name: Verify real paid product returns HTTP 201
-        if: steps.changes.outputs.runtime_changed == 'true'
+        if: steps.changes.outputs.backend_changed == 'true' || steps.changes.outputs.delivery_changed == 'true'
         env:
           BASE_URL: https://excelarsiv.web.app
         shell: bash
@@ -329,7 +333,7 @@ jobs:
           rm -f "$response_file"
 
       - name: Verify no catalog product is in sale-disabled state
-        if: steps.changes.outputs.runtime_changed == 'true'
+        if: steps.changes.outputs.delivery_changed == 'true'
         env:
           BASE_URL: https://excelarsiv.web.app
         shell: bash
