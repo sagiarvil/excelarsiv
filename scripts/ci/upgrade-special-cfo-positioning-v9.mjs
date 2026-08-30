@@ -6,7 +6,6 @@ const distFile = path.resolve('dist/ozel-excel-sistemleri/index.html');
 if (!fs.existsSync(distFile)) throw new Error('SPECIAL CFO POSITIONING V9: dist route missing');
 
 let html = fs.readFileSync(distFile, 'utf8');
-
 if (!html.includes('data-finance-funnel-v7') || !html.includes('data-hero-proof-layout-v8')) {
   throw new Error('SPECIAL CFO POSITIONING V9: V7/V8 prerequisite contract missing');
 }
@@ -22,12 +21,11 @@ const replaceOne = (pattern, replacement, label) => {
   html = html.replace(pattern, replacement);
   if (html === before) throw new Error(`SPECIAL CFO POSITIONING V9: replacement missed: ${label}`);
 };
-
 const sectionPattern = (id) => new RegExp(`<section\\b[^>]*\\bid="${id}"[^>]*>[\\s\\S]*?<\\/section>`, 'u');
 const replaceSection = (id, replacement) => replaceOne(sectionPattern(id), replacement, `section#${id}`);
 const extractSection = (id) => {
   const match = html.match(sectionPattern(id));
-  if (!match) throw new Error(`SPECIAL CFO POSITIONING V9: section#${id} not found`);
+  if (!match) throw new Error(`SPECIAL CFO POSITIONING V9: section#${id} missing`);
   return match[0];
 };
 
@@ -38,7 +36,7 @@ replaceOne(/<meta property="og:description" content="[^"]*"\s*\/>/u, '<meta prop
 
 replaceOne('data-hero-proof-layout-v8', 'data-hero-proof-layout-v8 data-cfo-positioning-v9', 'body V9 marker');
 replaceOne(/<p class="eyebrow">[\s\S]*?<\/p>/u, '<p class="eyebrow">17 Yıllık Ticari Bankacılık &amp; Saha Deneyimi ile Geliştirildi</p>', 'hero authority badge');
-replaceOne(/<h1>Yazılımcıya finans öğretmekle uğraşmayın\.[\s\S]*?<\/h1>/u, '<h1>Yazılımcıya finans öğretmekle uğraşmayın. <em>Şirketinizin dilini bilen özel Excel karar sistemleri.</em></h1>', 'hero headline');
+replaceOne(/(<div class="hero-copy">[\s\S]*?)<h1>[\s\S]*?<\/h1>/u, '$1<h1>Yazılımcıya finans öğretmekle uğraşmayın. <em>Şirketinizin dilini bilen özel Excel karar sistemleri.</em></h1>', 'hero headline');
 replaceOne(/<p class="hero-lead">[\s\S]*?<\/p>/u, '<p class="hero-lead">Nakit akışını, banka limitlerini, kredi yükünü, maliyeti, bütçeyi ve ERP verisini ayrı ayrı izlemek yerine aynı karar mantığında birleştiriyoruz. Amaç daha fazla tablo değil; patronun ve CFO’nun “ne oluyor, neden oluyor, şimdi ne yapmalıyız?” sorusuna tek ekranda cevap veren finans sistemi kurmak.</p>', 'hero lead');
 replaceOne(/<div class="hero-actions">[\s\S]*?<\/div>/u, `<div class="hero-actions"><a class="btn btn-primary btn-whatsapp" href="${WA_URL}" target="_blank" rel="noopener noreferrer">WhatsApp'tan Yazın — 15 Dakikada İhtiyacı Çıkaralım</a><a class="btn btn-secondary" href="#alanlar">Finans Sistemlerini İnceleyin <span aria-hidden="true">↓</span></a></div>`, 'hero CTAs');
 replaceOne(/<p class="hero-microcopy">[\s\S]*?<\/p>/u, '<p class="hero-microcopy">Ön görüşmede teknik şartname istemiyoruz. İşletmedeki darboğazı, mevcut dosyayı veya yönetim sorusunu anlatmanız yeterli.</p>', 'hero microcopy');
@@ -59,42 +57,42 @@ replaceSection('alanlar', `<section class="section section-green" id="alanlar">
 
 replaceSection('karsilastirma', `<section class="section section-soft authority-comparison" id="karsilastirma">
       <div class="wrap-wide">
-        <div class="section-head"><span class="section-kicker">17 YILLIK FİNANS BAKIŞI</span><h2>Excel’i değil, şirketin finansal karar mantığını tasarlıyoruz.</h2><p>Fark yalnız teknik geliştirme değildir. Ticari bankacılıkta kredi, limit, vade, risk ve nakit akışına bakılan çerçeveyi; işletmenin gerçek saha verisiyle aynı modelde buluşturuyoruz.</p></div>
+        <div class="section-head"><span class="section-kicker">17 YILLIK FİNANS BAKIŞI</span><h2>Excel’i değil, şirketin finansal karar mantığını tasarlıyoruz.</h2><p>Fark yalnız teknik geliştirme değildir. Ticari bankacılıkta kredi, limit, vade, risk ve nakit akışına bakılan çerçeveyi işletmenin gerçek saha verisiyle aynı modelde buluşturuyoruz.</p></div>
         <div class="authority-rail" aria-label="ExcelArşiv uzmanlık özeti">
           <div><strong>17 Yıl</strong><span>Ticari bankacılık, kredi, limit ve risk bakışı</span></div>
           <div><strong>Banka ↔ İşletme</strong><span>Finans, muhasebe ve saha dilini aynı modelde birleştirme</span></div>
           <div><strong>ERP → CFO Kararı</strong><span>Dağınık veriyi rapordan aksiyona taşıyan yönetim sistemi</span></div>
         </div>
-        <div class="comparison-wrap">
-          <div class="comparison" role="table" aria-label="Çözüm yaklaşımları karşılaştırması">
-            <div class="comparison-head" role="row"><div role="columnheader">Kriter</div><div role="columnheader">Klasik yazılım / danışmanlık</div><div role="columnheader">Hazır Excel</div><div role="columnheader">ExcelArşiv özel karar sistemi</div></div>
-            <div class="comparison-row" role="row"><div role="rowheader">Başlangıç noktası</div><div role="cell" data-label="Klasik yazılım / danışmanlık">Teknik kapsam, modül ve entegrasyon gereksinimleriyle başlayabilir.</div><div role="cell" data-label="Hazır Excel">Önceden tanımlanmış dosya düzenine uyum bekler.</div><div role="cell" data-label="ExcelArşiv özel karar sistemi"><strong>Önce finansal darboğaz teşhis edilir:</strong> nakit, limit, maliyet, bütçe, yatırım veya yönetim raporu.</div></div>
-            <div class="comparison-row" role="row"><div role="rowheader">Finansal muhakeme</div><div role="cell" data-label="Klasik yazılım / danışmanlık">Proje ekibinin finans ve sektör tecrübesine göre değişir.</div><div role="cell" data-label="Hazır Excel">Standart formül ve önceden yazılmış kullanım senaryosu sunar.</div><div role="cell" data-label="ExcelArşiv özel karar sistemi"><strong>17 yıllık ticari bankacılık ve saha deneyimi</strong> doğrudan modelin karar kurallarına girer.</div></div>
-            <div class="comparison-row" role="row"><div role="rowheader">Çıktı</div><div role="cell" data-label="Klasik yazılım / danışmanlık">Geniş modül, kayıt ve raporlama ekosistemi sağlayabilir.</div><div role="cell" data-label="Hazır Excel">Önceden tanımlı raporları üretir.</div><div role="cell" data-label="ExcelArşiv özel karar sistemi">Patron/CFO için “ne oldu?” ile yetinmez; <strong>“neden oldu ve şimdi ne yapmalıyız?”</strong> sorusuna odaklanır.</div></div>
-            <div class="comparison-row" role="row"><div role="rowheader">Kapsam ve maliyet</div><div role="cell" data-label="Klasik yazılım / danışmanlık">Lisans, entegrasyon ve proje kapsamı modele göre büyüyebilir.</div><div role="cell" data-label="Hazır Excel">Düşük giriş maliyeti; uyarlama sorumluluğu kullanıcıdadır.</div><div role="cell" data-label="ExcelArşiv özel karar sistemi">Yalnız kullanılan akış ve karar ekranları kurulur; gereksiz modül projeye eklenmez.</div></div>
-            <div class="comparison-row" role="row"><div role="rowheader">Veri kaynağı</div><div role="cell" data-label="Klasik yazılım / danışmanlık">Entegrasyon mimarisine göre değişir.</div><div role="cell" data-label="Hazır Excel">Genellikle manuel giriş veya sabit şablon ister.</div><div role="cell" data-label="ExcelArşiv özel karar sistemi">Logo, SAP, Mikro, Zirve, banka ekstresi, Excel/CSV ve mevcut işletme kayıtları aynı karar hattında kullanılabilir.</div></div>
-          </div>
-        </div>
+        <div class="comparison-wrap"><div class="comparison" role="table" aria-label="Çözüm yaklaşımları karşılaştırması">
+          <div class="comparison-head" role="row"><div role="columnheader">Kriter</div><div role="columnheader">Klasik yazılım / danışmanlık</div><div role="columnheader">Hazır Excel</div><div role="columnheader">ExcelArşiv özel karar sistemi</div></div>
+          <div class="comparison-row" role="row"><div role="rowheader">Başlangıç noktası</div><div role="cell" data-label="Klasik yazılım / danışmanlık">Teknik kapsam, modül ve entegrasyon gereksinimleriyle başlayabilir.</div><div role="cell" data-label="Hazır Excel">Önceden tanımlanmış dosya düzenine uyum bekler.</div><div role="cell" data-label="ExcelArşiv özel karar sistemi"><strong>Önce finansal darboğaz teşhis edilir:</strong> nakit, limit, maliyet, bütçe, yatırım veya yönetim raporu.</div></div>
+          <div class="comparison-row" role="row"><div role="rowheader">Finansal muhakeme</div><div role="cell" data-label="Klasik yazılım / danışmanlık">Proje ekibinin finans ve sektör tecrübesine göre değişir.</div><div role="cell" data-label="Hazır Excel">Standart formül ve önceden yazılmış kullanım senaryosu sunar.</div><div role="cell" data-label="ExcelArşiv özel karar sistemi"><strong>17 yıllık ticari bankacılık ve saha deneyimi</strong> doğrudan modelin karar kurallarına girer.</div></div>
+          <div class="comparison-row" role="row"><div role="rowheader">Çıktı</div><div role="cell" data-label="Klasik yazılım / danışmanlık">Geniş modül, kayıt ve raporlama ekosistemi sağlayabilir.</div><div role="cell" data-label="Hazır Excel">Önceden tanımlı raporları üretir.</div><div role="cell" data-label="ExcelArşiv özel karar sistemi">Patron/CFO için “ne oldu?” ile yetinmez; <strong>“neden oldu ve şimdi ne yapmalıyız?”</strong> sorusuna odaklanır.</div></div>
+          <div class="comparison-row" role="row"><div role="rowheader">Kapsam ve maliyet</div><div role="cell" data-label="Klasik yazılım / danışmanlık">Lisans, entegrasyon ve proje kapsamı modele göre büyüyebilir.</div><div role="cell" data-label="Hazır Excel">Düşük giriş maliyeti; uyarlama sorumluluğu kullanıcıdadır.</div><div role="cell" data-label="ExcelArşiv özel karar sistemi">Yalnız kullanılan akış ve karar ekranları kurulur; gereksiz modül projeye eklenmez.</div></div>
+          <div class="comparison-row" role="row"><div role="rowheader">Veri kaynağı</div><div role="cell" data-label="Klasik yazılım / danışmanlık">Entegrasyon mimarisine göre değişir.</div><div role="cell" data-label="Hazır Excel">Genellikle manuel giriş veya sabit şablon ister.</div><div role="cell" data-label="ExcelArşiv özel karar sistemi">Logo, SAP, Mikro, Zirve, banka ekstresi, Excel/CSV ve mevcut işletme kayıtları aynı karar hattında kullanılabilir.</div></div>
+        </div></div>
       </div>
     </section>`);
 
-// 17 yıllık bankacılık otoritesini sayfanın ilk ana içerik bloğuna taşı.
 const comparisonBlock = extractSection('karsilastirma');
 html = html.replace(sectionPattern('karsilastirma'), '');
 const heroStart = html.indexOf('<section class="hero">');
-if (heroStart < 0) throw new Error('SPECIAL CFO POSITIONING V9: hero section missing');
+if (heroStart < 0) throw new Error('SPECIAL CFO POSITIONING V9: hero missing');
 const heroEnd = html.indexOf('</section>', heroStart);
-if (heroEnd < 0) throw new Error('SPECIAL CFO POSITIONING V9: hero section end missing');
+if (heroEnd < 0) throw new Error('SPECIAL CFO POSITIONING V9: hero end missing');
 const insertAt = heroEnd + '</section>'.length;
 html = `${html.slice(0, insertAt)}\n${comparisonBlock}${html.slice(insertAt)}`;
 
-// Otorite artık karşılaştırma bloğunda; alt taraftaki tekrar eden uzmanlık bölümünü kaldır.
 if (sectionPattern('neden').test(html)) html = html.replace(sectionPattern('neden'), '');
 html = html.replaceAll('href="#neden">Neden Barış Bağırlar?</a>', 'href="#karsilastirma">17 Yıllık Finans Bakışı</a>');
 html = html.replaceAll('href="#neden">Neden ExcelArşiv?</a>', 'href="#karsilastirma">17 Yıllık Finans Bakışı</a>');
 
-html = html.replaceAll('WhatsApp Üzerinden Görüşelim <span aria-hidden="true">→</span>', "WhatsApp'tan Yazın — 15 Dakikada İhtiyacı Çıkaralım");
-html = html.replaceAll('WhatsApp\'tan dosyamı anlat', "WhatsApp'tan Yazın — İhtiyacı Netleştirelim");
+// Sanitizer V7 same-origin'e çevirdiği iletişim CTA'larını, kullanıcı talebi gereği yeniden doğrudan WhatsApp'a bağla.
+html = html.replaceAll('href="/iletisim"', `href="${WA_URL}" target="_blank" rel="noopener noreferrer"`);
+html = html.replaceAll('>İhtiyacımı anlat</a>', ">WhatsApp'tan Yazın</a>");
+html = html.replaceAll('>Sürecinizi Anlatın <span aria-hidden="true">→</span></a>', ">WhatsApp'tan Yazın — 15 Dakikada İhtiyacı Çıkaralım</a>");
+html = html.replaceAll('>Dosyamı anlat</a>', ">WhatsApp'tan Yazın — İhtiyacı Netleştirelim</a>");
+html = html.replaceAll('>İhtiyacımı Anlat <span aria-hidden="true">→</span></a>', ">WhatsApp'tan Yazın — 15 Dakikada İhtiyacı Çıkaralım</a>");
 
 const css = `
   <style id="special-cfo-positioning-v9-css">
@@ -152,6 +150,7 @@ const required = [
   'special-cfo-positioning-v9-css',
   '--green:#059669',
   '--ink:#0F172A',
+  'https://wa.me/905419305372',
 ];
 for (const token of required) {
   if (!html.includes(token)) throw new Error(`SPECIAL CFO POSITIONING V9: required token missing: ${token}`);
@@ -164,6 +163,8 @@ if (!(comparisonIndex > 0 && neZamanIndex > comparisonIndex)) {
 }
 if (html.includes('id="neden"')) throw new Error('SPECIAL CFO POSITIONING V9: duplicate lower authority section still present');
 if (html.includes('overflow-x:hidden')) throw new Error('SPECIAL CFO POSITIONING V9: forbidden overflow hiding introduced');
+const directWhatsAppCount = (html.match(/https:\/\/wa\.me\/905419305372/gu) || []).length;
+if (directWhatsAppCount < 3) throw new Error(`SPECIAL CFO POSITIONING V9: expected >=3 direct WhatsApp paths, got ${directWhatsAppCount}`);
 
 fs.writeFileSync(distFile, html, 'utf8');
-console.log('SPECIAL CFO POSITIONING V9 PASS — banking authority promoted to the top, CFO search intent strengthened, six strategic finance systems normalized, WhatsApp CTA made direct, and navy/emerald visual hierarchy enforced.');
+console.log(`SPECIAL CFO POSITIONING V9 PASS — banking authority promoted above operations, six CFO finance systems normalized, direct WhatsApp restored (${directWhatsAppCount}), and navy/emerald hierarchy enforced.`);
