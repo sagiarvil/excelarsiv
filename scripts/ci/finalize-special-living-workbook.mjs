@@ -24,8 +24,6 @@ const stripScriptById = (id) => {
   html = html.replace(pattern, '');
 };
 
-// Remove build-time compatibility layers. They are retained for legacy pages, but
-// the Living Workbook source is the SSOT for this route and must own final pixels.
 html = html.replace(/<style\b[^>]*data-contextual-imagery[^>]*>[\s\S]*?<\/style>/gi, '');
 html = html.replace(/<style\b[^>]*data-special-brand-identity[^>]*>[\s\S]*?<\/style>/gi, '');
 html = html.replace(/<style\b[^>]*data-ea-special-light-typography[^>]*>[\s\S]*?<\/style>/gi, '');
@@ -42,32 +40,26 @@ for (const id of [
 for (const id of ['special-enterprise-css', 'special-editorial-css', 'special-innovation-css', 'special-brand-sync-css']) stripLinkById(id);
 stripScriptById('special-innovation-js');
 
-// Decision Lab is injected only to satisfy the legacy build chain. The new page has
-// its own workbook decision console and comparison matrix, so duplicate UI is removed.
 html = html.replace(/<section\b(?=[^>]*\bid=["']karar-laboratuvari["'])[^>]*>[\s\S]*?<\/section>/i, '');
 html = html.replace(/<section\b(?=[^>]*\bdata-native-info=["']special-decision-map["'])[^>]*>[\s\S]*?<\/section>/i, '');
-
-// After the injected decision lab is gone, the compatibility bridge has no nested
-// divs and can be safely removed as a whole. Hidden legacy SEO/copy tokens must never
-// ship in the final public HTML.
 html = html.replace(/<div\b(?=[^>]*\bdata-special-light-legacy-bridge\b)[^>]*>[\s\S]*?<\/div>/i, '');
 
 const headerMarkup = `<header class="site-nav">
     <div class="wrap-wide nav-inner">
       <a class="brand" href="/" aria-label="Excel Arşiv ana sayfa">
         <img src="/images/excel-logo.png" alt="" width="34" height="34" />
-        <span class="brand-copy"><strong>EXCELARŞİV</strong><small>ÖZEL EXCEL SİSTEMLERİ</small></span>
+        <span class="brand-copy"><strong>EXCELARŞİV</strong><small>İŞLETMEYE ÖZEL EXCEL SİSTEMLERİ</small></span>
       </a>
       <nav class="nav-links" aria-label="Ana menü">
         <a href="#ihtiyaclar">İhtiyaçlar</a><a href="#karsilastirma">Farkımız</a><a href="#mimariler">Sistemler</a><a href="#surec">Süreç</a><a href="#sss">SSS</a>
       </nav>
       <div class="nav-actions">
         <a class="btn btn-secondary nav-cta" href="/sablonlar">Hazır Sistemler</a>
-        <a class="btn btn-primary nav-cta" href="/iletisim">İhtiyacınızı Anlatın</a>
+        <a class="btn btn-primary nav-cta" href="/iletisim">Sorunumu Anlatayım</a>
         <details class="mobile-menu">
           <summary aria-label="Menüyü aç"><span class="burger" aria-hidden="true"></span></summary>
           <nav class="mobile-panel" aria-label="Mobil menü">
-            <a href="#ihtiyaclar">İhtiyaçlar</a><a href="#karsilastirma">Farkımız</a><a href="#mimariler">Sistemler</a><a href="#surec">Süreç</a><a href="#sss">SSS</a><a href="/sablonlar">Hazır Sistemler</a><a href="/iletisim">İhtiyacınızı Anlatın</a>
+            <a href="#ihtiyaclar">İhtiyaçlar</a><a href="#karsilastirma">Farkımız</a><a href="#mimariler">Sistemler</a><a href="#surec">Süreç</a><a href="#sss">SSS</a><a href="/sablonlar">Hazır Sistemler</a><a href="/iletisim">Sorunumu Anlatayım</a>
           </nav>
         </details>
       </div>
@@ -77,20 +69,15 @@ const headerPattern = /<header\b[^>]*>[\s\S]*?<\/header>/i;
 if (!headerPattern.test(html)) throw new Error('LIVING WORKBOOK FINALIZER: header shell missing');
 html = html.replace(headerPattern, headerMarkup);
 
-// Restore the source-owned SEO and icon contract after legacy brand/CTA mutations.
 html = html.replace(/<title>[\s\S]*?<\/title>/i, '<title>Özel Excel Finans & Raporlama Sistemleri | ExcelArşiv</title>');
-html = html.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i, '<meta name="description" content="İşleyişinize göre kurulan özel Excel finans, raporlama ve yönetim sistemleri. Nakit akışı, tahsilat, banka limitleri, kârlılık, muhasebe ve yönetim raporlarını tek kontrol mimarisinde birleştirin." />');
+html = html.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i, '<meta name="description" content="Hazır şablon veya klasik yazılım geliştirme değil; işletmenizin nakit, tahsilat, banka, kârlılık, muhasebe ve operasyon akışını anlayıp karar sistemine dönüştüren özel Excel çözümleri." />');
 html = html.replace(/<link\s+rel="icon"\s+type="image\/png"\s+sizes="32x32"\s+href="[^"]*"\s*\/?>/i, '<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />');
 html = html.replace(/<link\s+rel="icon"\s+type="image\/png"\s+href="[^"]*"\s*\/?>/i, '<link rel="icon" type="image/svg+xml" href="/favicon.svg" />');
 html = html.replace(/<link\s+rel="apple-touch-icon"\s+href="[^"]*"\s*\/?>/i, '<link rel="apple-touch-icon" href="/apple-touch-icon.png" />');
 
-// Two legacy semantic-copy replacements collide with the new workbook demo values.
-// Restore them deterministically inside their KPI labels.
 html = html.replace(/(<small>TAHSİLAT<\/small><strong>)₺ 620\.000(<\/strong>)/, '$1% 92,5$2');
 html = html.replace(/(<small>NET KÂR<\/small><strong>)₺ 3\.250\.000(<\/strong>)/, '$1₺ 1.125.000$2');
 
-// Normalize body namespace and keep the site-wide typography/conformance token while
-// binding it to the canonical Manrope Living Workbook typeface.
 html = html.replace(/<body\b[^>]*>/i, '<body data-living-workbook-v1>');
 const finalContract = `
 <style data-ea-typography-mandate="chat-readable-v2" data-ea-special-light-typography data-living-workbook-final-contract>
@@ -109,6 +96,8 @@ const required = [
   'Temsili sistem görünümü',
   'Hata nerede?',
   'Özel Excel Finans & Raporlama Sistemleri | ExcelArşiv',
+  'İşletmenizi Excel\'e uydurmayın',
+  'Excel\'den önce işletmeyi okuyoruz',
   '/images/excel-logo.png',
 ];
 for (const token of required) {
@@ -133,4 +122,4 @@ for (const token of forbidden) {
 }
 
 fs.writeFileSync(file, html);
-console.log('LIVING WORKBOOK FINALIZER PASS — source-owned light design restored after legacy compatibility gates; duplicate legacy UI/CSS removed.');
+console.log('LIVING WORKBOOK FINALIZER PASS — business-first light design restored; diagnosis, decision and conversion hierarchy verified.');
