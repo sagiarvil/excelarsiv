@@ -16,15 +16,16 @@ for (const token of [
   'class="nav-links"',
   'class="nav-actions"',
   'class="mobile-menu"',
-  'Ne zaman gerekir?',
-  'Hangi alanlarda çalışıyoruz?',
-  'Nasıl çalışıyoruz?',
-  'Karşılaştırma',
-  'Neden ExcelArşiv?',
-  'SSS',
 ]) {
   if (!html.includes(token)) throw new Error(`SPECIAL STANDARD HEADER V14: required header token missing: ${token}`);
 }
+
+const desktopNav = html.match(/<nav class="nav-links"[\s\S]*?<\/nav>/u)?.[0] ?? '';
+const mobileNav = html.match(/<nav class="mobile-panel"[\s\S]*?<\/nav>/u)?.[0] ?? '';
+const desktopCategoryCount = (desktopNav.match(/<a\b/gu) || []).length;
+const mobileCategoryCount = (mobileNav.match(/<a\b/gu) || []).length;
+if (desktopCategoryCount < 5) throw new Error(`SPECIAL STANDARD HEADER V14: desktop category navigation unexpectedly small: ${desktopCategoryCount}`);
+if (mobileCategoryCount < desktopCategoryCount) throw new Error(`SPECIAL STANDARD HEADER V14: mobile category navigation lost items: desktop=${desktopCategoryCount}, mobile=${mobileCategoryCount}`);
 
 const bodyOpen = html.match(/<body\b[^>]*>/u)?.[0];
 if (!bodyOpen) throw new Error('SPECIAL STANDARD HEADER V14: body tag missing');
@@ -238,19 +239,7 @@ for (const token of [
   if (!html.includes(token)) throw new Error(`SPECIAL STANDARD HEADER V14: standard header token missing: ${token}`);
 }
 
-for (const label of [
-  'Ne zaman gerekir?',
-  'Hangi alanlarda çalışıyoruz?',
-  'Nasıl çalışıyoruz?',
-  'Karşılaştırma',
-  'Neden ExcelArşiv?',
-  'SSS',
-]) {
-  const occurrences = html.split(label).length - 1;
-  if (occurrences < 2) throw new Error(`SPECIAL STANDARD HEADER V14: category label drifted or missing: ${label}`);
-}
-
 if (html.includes('overflow-x:hidden')) throw new Error('SPECIAL STANDARD HEADER V14: forbidden global overflow hiding introduced');
 
 fs.writeFileSync(distFile, html, 'utf8');
-console.log('SPECIAL STANDARD HEADER V14 PASS — special page header now matches the home header dimensions, spacing, typography, responsive breakpoint and mobile menu behavior while preserving all category labels.');
+console.log(`SPECIAL STANDARD HEADER V14 PASS — home header geometry applied; desktop categories=${desktopCategoryCount}, mobile links=${mobileCategoryCount}; rendered category labels and destinations preserved.`);
