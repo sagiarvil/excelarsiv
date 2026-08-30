@@ -9,7 +9,18 @@ if (!fs.existsSync(sourceFile)) throw new Error('SPECIAL SOURCE V5: source file 
 if (!fs.existsSync(distFile)) throw new Error('SPECIAL SOURCE V5: dist route missing');
 
 const source = fs.readFileSync(sourceFile, 'utf8');
-const html = source.replace(/^---[\s\S]*?---\s*/u, '');
+const rigidDeliveryColumn = 'grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr)';
+const fluidDeliveryColumn = 'grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)';
+const rigidDeliveryCount = source.split(rigidDeliveryColumn).length - 1;
+if (rigidDeliveryCount > 1) {
+  throw new Error(`SPECIAL SOURCE V5: unexpected rigid delivery column count: ${rigidDeliveryCount}`);
+}
+
+// Release artifact must never preserve the old 300px side-column floor. The replacement
+// is deterministic and narrow so an unrelated CSS rule cannot be silently rewritten.
+const html = source
+  .replace(/^---[\s\S]*?---\s*/u, '')
+  .replace(rigidDeliveryColumn, fluidDeliveryColumn);
 
 const required = [
   '<!doctype html>',
@@ -22,6 +33,7 @@ const required = [
   'Hazır şablon, standart geliştirme ve size özel Excel aynı şey değil.',
   '@media(max-width:800px)',
   'data-label="Size özel sistem"',
+  fluidDeliveryColumn,
 ];
 for (const token of required) {
   if (!html.includes(token)) throw new Error(`SPECIAL SOURCE V5: required token missing: ${token}`);
@@ -44,9 +56,10 @@ const forbidden = [
   'diagnosis-head',
   'intent-card',
   'special-page-v4',
+  rigidDeliveryColumn,
 ];
 for (const token of forbidden) {
-  if (html.includes(token)) throw new Error(`SPECIAL SOURCE V5: forbidden legacy token in source: ${token}`);
+  if (html.includes(token)) throw new Error(`SPECIAL SOURCE V5: forbidden legacy token in release artifact: ${token}`);
 }
 
 // Taşma riski: büyük sabit width/min-width. max-width ve media breakpoint'leri
@@ -68,7 +81,7 @@ for (const token of required) {
   if (!finalHtml.includes(token)) throw new Error(`SPECIAL SOURCE V5: final artifact lost required token: ${token}`);
 }
 for (const token of forbidden) {
-  if (finalHtml.includes(token)) throw new Error(`SPECIAL SOURCE V5: final artifact contains legacy token: ${token}`);
+  if (finalHtml.includes(token)) throw new Error(`SPECIAL SOURCE V5: final artifact contains forbidden token: ${token}`);
 }
 
-console.log('SPECIAL SOURCE V5 PASS — source owns final route; Apple system typography, responsive comparison and legacy post-build visual mutations removed.');
+console.log('SPECIAL SOURCE V5 PASS — Apple system typography, fluid two-column delivery, responsive comparison and legacy post-build visual mutations removed from final route.');
