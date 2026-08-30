@@ -49,10 +49,12 @@ for (const token of forbidden) {
   if (html.includes(token)) throw new Error(`SPECIAL SOURCE V5: forbidden legacy token in source: ${token}`);
 }
 
-const fixedWidthRisk = /(?:width|min-width|max-width):\s*(?:7\d{2}|8\d{2}|9\d{2}|1\d{3,})px/gi;
-const riskyMatches = [...html.matchAll(fixedWidthRisk)].map((match) => match[0]);
+// Taşma riski: büyük sabit width/min-width. max-width ve media breakpoint'leri
+// responsive sınırlardır ve bu gate tarafından hata sayılmaz.
+const fixedWidthRisk = /(?:^|[;{])\s*(?:width|min-width):\s*(?:7\d{2}|8\d{2}|9\d{2}|1\d{3,})px/gi;
+const riskyMatches = [...html.matchAll(fixedWidthRisk)].map((match) => match[0].trim());
 if (riskyMatches.length) {
-  throw new Error(`SPECIAL SOURCE V5: large fixed width risk: ${riskyMatches.join(', ')}`);
+  throw new Error(`SPECIAL SOURCE V5: large rigid width risk: ${riskyMatches.join(', ')}`);
 }
 
 const unbalancedGridRisk = /grid-template-columns:[^;}]*\b(?:300|320|340|360|400)px\b/gi;
