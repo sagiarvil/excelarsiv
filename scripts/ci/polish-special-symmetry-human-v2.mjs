@@ -13,13 +13,26 @@ if (!html.includes('data-living-workbook-v1') || !html.includes('class="workbook
 
 html = html.replace(/<style\b(?=[^>]*\bid=["']special-symmetry-human-v2["'])[^>]*>[\s\S]*?<\/style>/gi, '');
 
-const replacements = [
+function replaceSectionHeading(id, content) {
+  const re = new RegExp(`(<section\\b(?=[^>]*\\bid=["']${id}["'])[^>]*>[\\s\\S]*?<h2\\b[^>]*>)[\\s\\S]*?(<\\/h2>)`, 'i');
+  if (!re.test(html)) throw new Error(`SPECIAL SYMMETRY V2: section heading missing: ${id}`);
+  html = html.replace(re, `$1${content}$2`);
+}
+
+function replaceSectionKicker(id, content) {
+  const re = new RegExp(`(<section\\b(?=[^>]*\\bid=["']${id}["'])[^>]*>[\\s\\S]*?<div\\b[^>]*class=["'][^"']*\\bkicker\\b[^"']*["'][^>]*>)[\\s\\S]*?(<\\/div>)`, 'i');
+  if (!re.test(html)) throw new Error(`SPECIAL SYMMETRY V2: section kicker missing: ${id}`);
+  html = html.replace(re, `$1${content}$2`);
+}
+
+for (const [from, to] of [
   ['Sorunumu Anlatayım', 'İhtiyacımı Anlat'],
+  ['Sorunumu Anlat', 'İhtiyacımı Anlat'],
   ['Kontrol Edemediğim Alanı Anlatayım', 'İhtiyacımı Anlat'],
+  ['İhtiyacımı Anlatayım →', 'İhtiyacımı Anlat'],
   ['Neden Standart Yazılım Değil?', 'Nasıl Çalıştığımızı Gör'],
+  ['Hazır Sistemleri İncele', 'Hazır Sistemlere Bak'],
   ['İŞLETME AKLI → VERİ → HESAP → KONTROL → KARAR', 'İŞ AKIŞINIZA GÖRE KURULAN EXCEL SİSTEMLERİ'],
-  ["<h1>İşletmenizi Excel'e uydurmayın. <em>Excel'i işletmenize göre çalıştırın.</em></h1>", "<h1>İşiniz nasıl yürüyorsa, <em>Excel sisteminiz de öyle çalışsın.</em></h1>"],
-  ['<p class="hero-lead"><strong>Nakit neden yetmiyor? Tahsilat nerede takılıyor? Hangi banka limiti gerçekten boş? Kâr nerede eriyor?</strong> Önce bu soruları ve iş akışınızı anlarız; sonra veriyi bir kez girilen, hatayı kaynağında gösteren ve yönetime ne yapacağını söyleyen bir çalışma sistemine dönüştürürüz.</p>', '<p class="hero-lead"><strong>Bugün hangi işi elle takip ediyorsunuz, nerede kontrol kayboluyor, hangi raporu her ay yeniden hazırlıyorsunuz?</strong> Bize bunu anlatın. Mevcut iş akışınızı bozmadan, gerekli hesapları, kontrolleri ve yönetim görünümünü tek Excel sisteminde kuruyoruz.</p>'],
   ['ERP ihtiyaca göre ağır kalıyor', 'ERP gereğinden ağır kalıyor'],
   ['Rapor hâlâ elle hazırlanıyor', 'Raporlar hâlâ elle hazırlanıyor'],
   ['Önce derdi anlarız', 'Önce mevcut işi anlarız'],
@@ -27,252 +40,57 @@ const replacements = [
   ['Hatayı aksiyona çeviririz', 'Sorunun yerini gösteririz'],
   ['“Hata var” değil; nerede, neden ve ne yapılacağını görünür hale getiririz.', 'Bir sorun çıktığında hangi kayıt veya adımın düzeltilmesi gerektiği açıkça görünür.'],
   ['BİZİ FARKLI YAPAN ŞEY EXCEL DEĞİL', 'ÖNCE İŞİN NASIL YÜRÜDÜĞÜNE BAKIYORUZ'],
-  ["<h2>Excel'den önce işletmeyi okuyoruz.</h2>", '<h2>Önce işin nasıl yürüdüğünü anlıyoruz.</h2>'],
-  ["Sizin kurduğunuz bir cümlenin arkasında hangi veri, hangi iş kuralı ve hangi kontrol zinciri olduğunu ayırıyoruz. Sonra Excel'i o mantığın üzerine kuruyoruz.", 'Mevcut dosyanıza, veri girişine, kontrol adımlarına ve hazırladığınız raporlara birlikte bakıyoruz. Gereksiz tekrarı ayırıyor, Excel sistemini gerçek çalışma düzeninizin üzerine kuruyoruz.'],
-  ['ÜRÜN ADI BİLMENİZ GEREKMİYOR', 'NEREDEN BAŞLAYACAĞINIZI BİLMENİZ YETERLİ'],
-  ['Hangi cümleyi kuruyorsunuz? Oradan başlayalım.', 'Bugün en çok nerede zorlanıyorsunuz?'],
+  ['Sizin kurduğunuz bir cümlenin arkasında hangi veri, hangi iş kuralı ve hangi kontrol zinciri olduğunu ayırıyoruz. Sonra Excel\'i o mantığın üzerine kuruyoruz.', 'Mevcut dosyanıza, veri girişine, kontrol adımlarına ve hazırladığınız raporlara birlikte bakıyoruz. Gereksiz tekrarı ayırıyor, Excel sistemini gerçek çalışma düzeninizin üzerine kuruyoruz.'],
   ['“Nakit akış sistemi istiyorum” demek zorunda değilsiniz. Kontrol edemediğiniz alanı, tekrar tekrar yaptığınız işi veya karar veremediğiniz noktayı anlatmanız yeterli.', 'Bir sistem adı söylemeniz gerekmiyor. Kontrol edemediğiniz alanı, her ay yeniden yaptığınız işi veya görmekte zorlandığınız bilgiyi anlatmanız yeterli.'],
-  ['NORMAL YAZILIM HİZMETİ DEĞİL', 'HAZIR ŞABLONDAN VE STANDART GELİŞTİRMEDEN FARKI'],
-  ['Standart geliştirme özelliğe bakar. Biz iş kuralına bakarız.', 'Önce iş kuralını netleştiriyor, sonra sistemi kuruyoruz.'],
   ['Ekran yapmakla sistem kurmak aynı şey değildir. Biz tasarımı, formülü ve otomasyonu ancak iş mantığı netleştikten sonra kurarız.', 'Ekran, formül ve otomasyon en son gelir. Önce verinin nereden geldiğini, kimin ne yaptığını ve hangi sonucun güvenilir olması gerektiğini netleştiriyoruz.'],
-  ['FORMÜL DEĞİL, KARAR MİMARİSİ', 'BİRBİRİNE BAĞLANAN İŞ VE KONTROL YAPISI'],
-  ["Excel'de yaptığımız şey hücre doldurmak değil; işletme mantığını birbirine bağlamak.", 'Tek tek tablolar değil, birlikte çalışan bir düzen kuruyoruz.'],
   ['Tek bir motor veya birbirine bağlı birden fazla mimari kurulabilir. Hangi yapı gerekiyorsa, işletmenin veri akışı belirler.', 'Nakit, tahsilat, banka, kârlılık ve kontrol bölümleri ihtiyaca göre tek sistemde veya ayrı modüller halinde kurulabilir.'],
   ['YÖNETİM KARARI', 'EKRANDA GÖRECEĞİNİZ'],
-  ['Sorunumu Anlat', 'İhtiyacımı Anlat'],
-];
-for (const [from, to] of replacements) html = html.replaceAll(from, to);
+]) html = html.replaceAll(from, to);
+
+// Structural replacements deliberately avoid coupling copy to minification or nested spans.
+html = html.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/i, '<h1>İşiniz nasıl yürüyorsa, <em>Excel sisteminiz de öyle çalışsın.</em></h1>');
+html = html.replace(/<p\b[^>]*class=["'][^"']*\bhero-lead\b[^"']*["'][^>]*>[\s\S]*?<\/p>/i, '<p class="hero-lead"><strong>Bugün hangi işi elle takip ediyorsunuz, nerede kontrol kayboluyor, hangi raporu her ay yeniden hazırlıyorsunuz?</strong> Bize bunu anlatın. Mevcut iş akışınızı bozmadan, gerekli hesapları, kontrolleri ve yönetim görünümünü tek Excel sisteminde kuruyoruz.</p>');
+replaceSectionKicker('teshis', 'ÖNCE İŞİN NASIL YÜRÜDÜĞÜNE BAKIYORUZ');
+replaceSectionHeading('teshis', 'Önce işin nasıl yürüdüğünü anlıyoruz.');
+replaceSectionKicker('ihtiyaclar', 'NEREDEN BAŞLAYACAĞINIZI BİLMENİZ YETERLİ');
+replaceSectionHeading('ihtiyaclar', 'Bugün en çok nerede zorlanıyorsunuz?');
+replaceSectionKicker('karsilastirma', 'HAZIR ŞABLONDAN VE STANDART GELİŞTİRMEDEN FARKI');
+replaceSectionHeading('karsilastirma', 'Önce iş kuralını netleştiriyor, sonra sistemi kuruyoruz.');
+replaceSectionKicker('mimariler', 'BİRBİRİNE BAĞLANAN İŞ VE KONTROL YAPISI');
+replaceSectionHeading('mimariler', 'Tek tek tablolar değil, birlikte çalışan bir düzen kuruyoruz.');
+
+html = html.replace(/(<section\b[^>]*class=["'][^"']*\bfaq\b[^"']*["'][^>]*>[\s\S]*?<h2\b[^>]*>)[\s\S]*?(<\/h2>)/i, '$1Aklınızdaki soruların kısa cevapları.$2');
+html = html.replace(/(<section\b[^>]*class=["'][^"']*\bcta\b[^"']*["'][^>]*>[\s\S]*?<h2\b[^>]*>)[\s\S]*?(<\/h2>)/i, '$1İşinizi anlatın; nasıl bir Excel sistemi gerektiğini birlikte netleştirelim.$2');
+html = html.replace(/(<section\b[^>]*class=["'][^"']*\bcta\b[^"']*["'][^>]*>[\s\S]*?<p\b[^>]*>)[\s\S]*?(<\/p>)/i, '$1Mevcut dosyanızdan veya bugün elle yürüttüğünüz süreçten başlayabiliriz. Önce ihtiyacı netleştirir, sonra yalnız gerekli olan yapıyı kurarız.$2');
 
 const css = `
 <style id="special-symmetry-human-v2" data-special-symmetry="mirror-balance-v2">
-  body[data-living-workbook-v1]{
-    --sx-green:#0f6f3f;
-    --sx-green-dark:#0a5430;
-    --sx-green-soft:#edf6f1;
-    --sx-navy:#173b63;
-    --sx-navy-soft:#eef3f8;
-    --sx-amber:#a96d12;
-    --sx-amber-soft:#faf3e6;
-    --sx-danger:#a94136;
-    --sx-ink:#171b20;
-    --sx-muted:#5e6670;
-    --sx-line:#d9dee2;
-    --sx-line-strong:#c7cdd2;
-    --sx-paper:#f6f7f5;
-    --sx-surface:#ffffff;
-    --sx-shadow:0 16px 42px rgba(25,38,50,.07);
-  }
-
-  body[data-living-workbook-v1] .wrap{width:min(1180px,calc(100% - 48px))}
-  body[data-living-workbook-v1] .wrap-wide{width:min(1280px,calc(100% - 48px))}
-  body[data-living-workbook-v1] .section{padding:88px 0}
-  body[data-living-workbook-v1] .section-head{grid-template-columns:180px minmax(0,1fr)!important;gap:40px!important;align-items:start!important;margin-bottom:40px!important}
-  body[data-living-workbook-v1] .section-head>div:last-child{max-width:820px}
-  body[data-living-workbook-v1] .section h2,
-  body[data-living-workbook-v1] .section-title{font-size:clamp(32px,3.6vw,48px)!important;line-height:1.08!important;letter-spacing:-.032em!important}
-  body[data-living-workbook-v1] .section-copy{max-width:760px!important;font-size:16px!important;line-height:1.68!important}
-  body[data-living-workbook-v1] .kicker{color:var(--sx-green-dark)!important;letter-spacing:.075em!important}
-
-  body[data-living-workbook-v1] .hero{padding:58px 0 0!important;border-top:4px solid var(--sx-green)!important;background:#fbfcfb!important}
-  body[data-living-workbook-v1] .hero::after{display:none!important}
-  body[data-living-workbook-v1] .hero::before{background-image:linear-gradient(rgba(23,59,99,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(23,59,99,.035) 1px,transparent 1px)!important;background-size:40px 40px!important}
-  body[data-living-workbook-v1] .hero-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:52px!important;align-items:center!important}
-  body[data-living-workbook-v1] .hero-copy-block{padding-bottom:46px!important}
-  body[data-living-workbook-v1] .hero h1{max-width:590px!important;font-size:clamp(42px,4.7vw,62px)!important;line-height:1.02!important;letter-spacing:-.042em!important}
-  body[data-living-workbook-v1] .hero h1 em{color:var(--sx-green)!important}
-  body[data-living-workbook-v1] .hero-lead{max-width:590px!important;margin-top:22px!important;font-size:17px!important;line-height:1.67!important}
-  body[data-living-workbook-v1] .hero-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;max-width:520px!important}
-  body[data-living-workbook-v1] .hero-actions .btn{width:100%!important;min-height:50px!important}
-  body[data-living-workbook-v1] .hero-fit{gap:7px!important}
-  body[data-living-workbook-v1] .fit-pill{background:#fff!important;border-color:var(--sx-line)!important;color:#4e5660!important}
-  body[data-living-workbook-v1] .fit-pill:nth-child(1),
-  body[data-living-workbook-v1] .fit-pill:nth-child(2),
-  body[data-living-workbook-v1] .fit-pill:nth-child(3){background:#fff!important;border-color:var(--sx-line)!important;color:#4e5660!important}
-  body[data-living-workbook-v1] .hero-trust{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:0 20px!important;max-width:590px!important}
-  body[data-living-workbook-v1] .trust-cell .tick{background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}
-  body[data-living-workbook-v1] .trust-cell:nth-child(2) .tick,
-  body[data-living-workbook-v1] .trust-cell:nth-child(3) .tick{background:var(--sx-navy-soft)!important;color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .trust-cell:nth-child(4) .tick{background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}
-
-  body[data-living-workbook-v1] .workbook{transform:none!important;border-color:var(--sx-line-strong)!important;border-radius:9px!important;box-shadow:0 24px 58px rgba(25,38,50,.11)!important}
-  body[data-living-workbook-v1] .workbook::before{height:4px!important;background:var(--sx-green)!important}
-  body[data-living-workbook-v1] .kpi{background:#fff!important;border:1px solid var(--sx-line)!important;border-top:3px solid var(--sx-green)!important;border-radius:6px!important}
-  body[data-living-workbook-v1] .kpi:nth-child(2),body[data-living-workbook-v1] .kpi:nth-child(3){background:#fff!important;border-color:var(--sx-line)!important;border-top-color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .kpi:nth-child(4){background:#fff!important;border-color:var(--sx-line)!important;border-top-color:var(--sx-green)!important}
-  body[data-living-workbook-v1] .kpi:nth-child(1) em,body[data-living-workbook-v1] .kpi:nth-child(4) em{color:var(--sx-green-dark)!important}
-  body[data-living-workbook-v1] .kpi:nth-child(2) em,body[data-living-workbook-v1] .kpi:nth-child(3) em{color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .chart i{background:var(--sx-green)!important}
-  body[data-living-workbook-v1] .chart i:nth-child(2),body[data-living-workbook-v1] .chart i:nth-child(5){background:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .chart i:nth-child(3),body[data-living-workbook-v1] .chart i:nth-child(4){background:#7f9187!important}
-  body[data-living-workbook-v1] .chart i:nth-child(6){background:var(--sx-green)!important}
-  body[data-living-workbook-v1] .risk-dot{background:var(--sx-amber)!important}
-  body[data-living-workbook-v1] .risk-row:nth-child(2) .risk-dot{background:var(--sx-danger)!important}
-  body[data-living-workbook-v1] .risk-row:nth-child(3) .risk-dot{background:var(--sx-green)!important}
-
-  body[data-living-workbook-v1] .decision-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;border-color:var(--sx-line)!important;box-shadow:var(--sx-shadow)!important}
-  body[data-living-workbook-v1] .decision-item{min-height:154px!important;padding:23px 22px!important;background:#fff!important}
-  body[data-living-workbook-v1] .decision-item::before{background:var(--sx-green)!important}
-  body[data-living-workbook-v1] .decision-item:nth-child(2)::before,body[data-living-workbook-v1] .decision-item:nth-child(3)::before{background:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .decision-item:nth-child(4)::before{background:var(--sx-green)!important}
-  body[data-living-workbook-v1] .decision-item small{color:var(--sx-green)!important}
-  body[data-living-workbook-v1] .decision-item:nth-child(2) small,body[data-living-workbook-v1] .decision-item:nth-child(3) small{color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .decision-item:nth-child(4) small{color:var(--sx-green)!important}
-
-  body[data-living-workbook-v1] .diagnosis-shell,
-  body[data-living-workbook-v1] .value-grid,
-  body[data-living-workbook-v1] .faq-grid,
-  body[data-living-workbook-v1] .deliver-grid,
-  body[data-living-workbook-v1] .cta-shell{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:48px!important}
-  body[data-living-workbook-v1] .diagnosis-intro{position:sticky!important;top:96px!important}
-  body[data-living-workbook-v1] .diagnosis-proof{border-left:3px solid var(--sx-green)!important;background:var(--sx-green-soft)!important;color:#294d3a!important}
-  body[data-living-workbook-v1] .diagnosis-head>div{background:#f5f6f5!important;color:var(--sx-muted)!important}
-  body[data-living-workbook-v1] .diagnosis-head>div:nth-child(2){background:var(--sx-navy-soft)!important;color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .diagnosis-head>div:nth-child(3){background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}
-  body[data-living-workbook-v1] .diagnosis-row>div:nth-child(2),body[data-living-workbook-v1] .diagnosis-row>div:nth-child(3){background:#fff!important;color:#3f4852!important}
-
-  body[data-living-workbook-v1] .intent-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important}
-  body[data-living-workbook-v1] .intent-card{min-height:282px!important;padding:27px 25px 24px!important;border-color:var(--sx-line)!important;border-radius:8px!important;background:#fff!important;box-shadow:0 8px 24px rgba(25,38,50,.04)!important}
-  body[data-living-workbook-v1] .intent-card::before{width:4px!important;background:var(--sx-green)!important}
-  body[data-living-workbook-v1] .intent-card:nth-child(2)::before,body[data-living-workbook-v1] .intent-card:nth-child(5)::before{background:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .intent-card:nth-child(3)::before,body[data-living-workbook-v1] .intent-card:nth-child(4)::before{background:var(--sx-amber)!important}
-  body[data-living-workbook-v1] .intent-card:nth-child(6)::before{background:var(--sx-green)!important}
-  body[data-living-workbook-v1] .intent-card .code{color:var(--sx-green)!important}
-  body[data-living-workbook-v1] .intent-card:nth-child(2) .code,body[data-living-workbook-v1] .intent-card:nth-child(5) .code{color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .intent-card:nth-child(3) .code,body[data-living-workbook-v1] .intent-card:nth-child(4) .code{color:var(--sx-amber)!important}
-  body[data-living-workbook-v1] .intent-card:nth-child(6) .code{color:var(--sx-green)!important}
-
-  body[data-living-workbook-v1] #karsilastirma{background:#f7f8f7!important}
-  body[data-living-workbook-v1] .difference-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important}
-  body[data-living-workbook-v1] .difference-card{min-height:206px!important;padding:25px!important;border:1px solid var(--sx-line)!important;border-top:3px solid #9ba3aa!important;border-radius:8px!important;background:#fff!important;box-shadow:none!important}
-  body[data-living-workbook-v1] .difference-card:nth-child(2){border-top-color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .difference-card:nth-child(3){border-top-color:var(--sx-green)!important;background:#fff!important;box-shadow:none!important}
-  body[data-living-workbook-v1] .comparison-top>div{background:#f4f5f4!important;color:var(--sx-muted)!important}
-  body[data-living-workbook-v1] .comparison-top>div:nth-child(3){background:var(--sx-navy-soft)!important;color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .comparison-top .good{background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}
-  body[data-living-workbook-v1] .compare-old,body[data-living-workbook-v1] .compare-dev{background:#fff!important}
-  body[data-living-workbook-v1] .compare-new{background:#f8fcf9!important}
-  body[data-living-workbook-v1] .compare-dev .state::before{background:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .compare-new .state::before{background:var(--sx-green)!important}
-
-  body[data-living-workbook-v1] .architecture{grid-template-columns:260px minmax(0,1fr)!important;gap:44px!important}
-  body[data-living-workbook-v1] .arch-index{border-radius:8px!important}
-  body[data-living-workbook-v1] .arch-card{grid-template-columns:58px minmax(0,1fr) 260px!important;gap:22px!important;min-height:154px!important;padding:26px!important;border-color:var(--sx-line)!important;border-radius:8px!important;box-shadow:none!important}
-  body[data-living-workbook-v1] .arch-no{color:var(--sx-green)!important}
-  body[data-living-workbook-v1] .arch-card:nth-of-type(2) .arch-no,body[data-living-workbook-v1] .arch-card:nth-of-type(4) .arch-no{color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .arch-card:nth-of-type(3) .arch-no{color:var(--sx-amber)!important}
-  body[data-living-workbook-v1] .arch-card:nth-of-type(5) .arch-no{color:var(--sx-green)!important}
-  body[data-living-workbook-v1] .arch-output{border-left:3px solid var(--sx-green)!important;background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}
-  body[data-living-workbook-v1] .arch-card:nth-of-type(2) .arch-output,body[data-living-workbook-v1] .arch-card:nth-of-type(4) .arch-output{border-left-color:var(--sx-navy)!important;background:var(--sx-navy-soft)!important;color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .arch-card:nth-of-type(3) .arch-output{border-left-color:var(--sx-amber)!important;background:var(--sx-amber-soft)!important;color:#76501a!important}
-  body[data-living-workbook-v1] .arch-card:nth-of-type(5) .arch-output{border-left-color:var(--sx-green)!important;background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}
-
-  body[data-living-workbook-v1] .value-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
-  body[data-living-workbook-v1] .value-item{min-height:118px!important;border-color:var(--sx-line)!important;border-radius:8px!important}
-  body[data-living-workbook-v1] .value-icon{background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}
-  body[data-living-workbook-v1] .value-item:nth-child(2) .value-icon,body[data-living-workbook-v1] .value-item:nth-child(3) .value-icon{background:var(--sx-navy-soft)!important;color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .value-item:nth-child(4) .value-icon{background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}
-
-  body[data-living-workbook-v1] .process{background:#f6f8f6!important}
-  body[data-living-workbook-v1] .flow{grid-template-columns:repeat(5,minmax(0,1fr))!important;border-radius:8px!important}
-  body[data-living-workbook-v1] .flow-step{min-height:206px!important;padding:25px 21px!important;border-top:4px solid var(--sx-green)!important;background:#fff!important}
-  body[data-living-workbook-v1] .flow-step:nth-child(2),body[data-living-workbook-v1] .flow-step:nth-child(4){border-top-color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .flow-step:nth-child(3){border-top-color:var(--sx-amber)!important}
-  body[data-living-workbook-v1] .flow-step:nth-child(5){border-top-color:var(--sx-green)!important}
-  body[data-living-workbook-v1] .flow-step small{color:var(--sx-green)!important}
-  body[data-living-workbook-v1] .flow-step:nth-child(2) small,body[data-living-workbook-v1] .flow-step:nth-child(4) small{color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .flow-step:nth-child(3) small{color:var(--sx-amber)!important}
-  body[data-living-workbook-v1] .flow-step:nth-child(5) small{color:var(--sx-green)!important}
-
-  body[data-living-workbook-v1] .deliver-check{background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}
-  body[data-living-workbook-v1] .deliver-row:nth-child(2) .deliver-check,body[data-living-workbook-v1] .deliver-row:nth-child(4) .deliver-check{background:var(--sx-navy-soft)!important;color:var(--sx-navy)!important}
-  body[data-living-workbook-v1] .deliver-row:nth-child(3) .deliver-check{background:var(--sx-amber-soft)!important;color:var(--sx-amber)!important}
-  body[data-living-workbook-v1] .deliver-row:nth-child(5) .deliver-check{background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}
-  body[data-living-workbook-v1] .proof-card{border:1px solid var(--sx-line)!important;border-top:4px solid var(--sx-green)!important;border-radius:8px!important;background:#fff!important;box-shadow:var(--sx-shadow)!important}
-  body[data-living-workbook-v1] .proof-note{background:var(--sx-amber-soft)!important;color:#674919!important}
-
-  body[data-living-workbook-v1] .faq-list summary::after{color:var(--sx-green)!important}
-  body[data-living-workbook-v1] .cta{padding:72px 0!important;border-top:4px solid var(--sx-green)!important;background:#f1f6f3!important}
-  body[data-living-workbook-v1] .cta::after{display:none!important}
-  body[data-living-workbook-v1] .cta h2{max-width:620px!important;font-size:clamp(36px,4.3vw,54px)!important;line-height:1.05!important}
-  body[data-living-workbook-v1] .cta-actions{display:grid!important;grid-template-columns:1fr!important;gap:10px!important;max-width:320px!important;justify-self:end!important;width:100%!important}
-  body[data-living-workbook-v1] .cta-actions .btn{width:100%!important}
-
-  body[data-living-workbook-v1] .btn{border-radius:6px!important;box-shadow:none!important;transition:background .15s ease,border-color .15s ease,color .15s ease!important}
-  body[data-living-workbook-v1] .btn:hover{transform:none!important;box-shadow:none!important}
-  body[data-living-workbook-v1] .btn-primary{background:var(--sx-green)!important;border-color:var(--sx-green)!important}
-  body[data-living-workbook-v1] .btn-primary:hover{background:var(--sx-green-dark)!important;border-color:var(--sx-green-dark)!important}
-  body[data-living-workbook-v1] .btn-secondary{background:#fff!important;border-color:var(--sx-line-strong)!important;color:var(--sx-ink)!important}
-  body[data-living-workbook-v1] .btn-secondary:hover{background:#f6f8f7!important;border-color:#aeb6bc!important}
-
-  @media(max-width:1120px){
-    body[data-living-workbook-v1] .hero-grid{grid-template-columns:1fr!important;gap:28px!important}
-    body[data-living-workbook-v1] .hero-copy-block{padding-bottom:4px!important}
-    body[data-living-workbook-v1] .hero h1,body[data-living-workbook-v1] .hero-lead,body[data-living-workbook-v1] .hero-trust{max-width:760px!important}
-    body[data-living-workbook-v1] .diagnosis-shell,body[data-living-workbook-v1] .value-grid,body[data-living-workbook-v1] .faq-grid,body[data-living-workbook-v1] .deliver-grid,body[data-living-workbook-v1] .cta-shell{grid-template-columns:1fr!important;gap:30px!important}
-    body[data-living-workbook-v1] .diagnosis-intro{position:static!important}
-    body[data-living-workbook-v1] .architecture{grid-template-columns:1fr!important;gap:28px!important}
-    body[data-living-workbook-v1] .arch-index{position:static!important;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important}
-    body[data-living-workbook-v1] .arch-index strong{grid-column:1/-1!important}
-    body[data-living-workbook-v1] .cta-actions{justify-self:start!important;max-width:520px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
-  }
-  @media(max-width:860px){
-    body[data-living-workbook-v1] .section{padding:68px 0}
-    body[data-living-workbook-v1] .section-head{grid-template-columns:1fr!important;gap:10px!important}
-    body[data-living-workbook-v1] .intent-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-    body[data-living-workbook-v1] .flow{grid-template-columns:1fr!important}
-    body[data-living-workbook-v1] .flow-step{min-height:auto!important;border-left:4px solid var(--sx-green)!important;border-top:1px solid var(--sx-line)!important}
-    body[data-living-workbook-v1] .flow-step:nth-child(2),body[data-living-workbook-v1] .flow-step:nth-child(4){border-left-color:var(--sx-navy)!important;border-top-color:var(--sx-line)!important}
-    body[data-living-workbook-v1] .flow-step:nth-child(3){border-left-color:var(--sx-amber)!important;border-top-color:var(--sx-line)!important}
-    body[data-living-workbook-v1] .flow-step:nth-child(5){border-left-color:var(--sx-green)!important;border-top-color:var(--sx-line)!important}
-    body[data-living-workbook-v1] .arch-card{grid-template-columns:52px minmax(0,1fr)!important}
-    body[data-living-workbook-v1] .arch-output{grid-column:2!important}
-  }
-  @media(max-width:620px){
-    body[data-living-workbook-v1] .wrap,body[data-living-workbook-v1] .wrap-wide{width:calc(100% - 28px)!important}
-    body[data-living-workbook-v1] .hero{padding-top:32px!important}
-    body[data-living-workbook-v1] .hero h1{font-size:38px!important;line-height:1.04!important}
-    body[data-living-workbook-v1] .hero-lead{font-size:16px!important}
-    body[data-living-workbook-v1] .hero-actions{grid-template-columns:1fr!important;max-width:none!important}
-    body[data-living-workbook-v1] .hero-trust{grid-template-columns:1fr!important}
-    body[data-living-workbook-v1] .decision-grid{grid-template-columns:1fr!important}
-    body[data-living-workbook-v1] .intent-grid,body[data-living-workbook-v1] .difference-grid,body[data-living-workbook-v1] .value-list{grid-template-columns:1fr!important}
-    body[data-living-workbook-v1] .intent-card,body[data-living-workbook-v1] .difference-card{min-height:auto!important}
-    body[data-living-workbook-v1] .arch-index{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-    body[data-living-workbook-v1] .arch-card{grid-template-columns:44px minmax(0,1fr)!important;padding:20px 17px!important}
-    body[data-living-workbook-v1] .arch-output{grid-column:1/-1!important}
-    body[data-living-workbook-v1] .cta-actions{grid-template-columns:1fr!important;max-width:none!important}
-  }
+body[data-living-workbook-v1]{--sx-green:#0f6f3f;--sx-green-dark:#0a5430;--sx-green-soft:#edf6f1;--sx-navy:#173b63;--sx-navy-soft:#eef3f8;--sx-amber:#a96d12;--sx-amber-soft:#faf3e6;--sx-danger:#a94136;--sx-ink:#171b20;--sx-muted:#5e6670;--sx-line:#d9dee2;--sx-line-strong:#c7cdd2;--sx-shadow:0 16px 42px rgba(25,38,50,.07)}
+body[data-living-workbook-v1] .wrap{width:min(1180px,calc(100% - 48px))}body[data-living-workbook-v1] .wrap-wide{width:min(1280px,calc(100% - 48px))}body[data-living-workbook-v1] .section{padding:88px 0}body[data-living-workbook-v1] .section-head{grid-template-columns:180px minmax(0,1fr)!important;gap:40px!important;align-items:start!important;margin-bottom:40px!important}body[data-living-workbook-v1] .section-head>div:last-child{max-width:820px}body[data-living-workbook-v1] .section h2,body[data-living-workbook-v1] .section-title{font-size:clamp(32px,3.6vw,48px)!important;line-height:1.08!important;letter-spacing:-.032em!important}body[data-living-workbook-v1] .section-copy{max-width:760px!important;font-size:16px!important;line-height:1.68!important}body[data-living-workbook-v1] .kicker{color:var(--sx-green-dark)!important;letter-spacing:.075em!important}
+body[data-living-workbook-v1] .hero{padding:58px 0 0!important;border-top:4px solid var(--sx-green)!important;background:#fbfcfb!important}body[data-living-workbook-v1] .hero::after{display:none!important}body[data-living-workbook-v1] .hero::before{background-image:linear-gradient(rgba(23,59,99,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(23,59,99,.035) 1px,transparent 1px)!important;background-size:40px 40px!important}body[data-living-workbook-v1] .hero-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:52px!important;align-items:center!important}body[data-living-workbook-v1] .hero-copy-block{padding-bottom:46px!important}body[data-living-workbook-v1] .hero h1{max-width:590px!important;font-size:clamp(42px,4.7vw,62px)!important;line-height:1.02!important;letter-spacing:-.042em!important}body[data-living-workbook-v1] .hero h1 em{color:var(--sx-green)!important}body[data-living-workbook-v1] .hero-lead{max-width:590px!important;margin-top:22px!important;font-size:17px!important;line-height:1.67!important}body[data-living-workbook-v1] .hero-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;max-width:520px!important}body[data-living-workbook-v1] .hero-actions .btn{width:100%!important;min-height:50px!important}body[data-living-workbook-v1] .fit-pill{background:#fff!important;border-color:var(--sx-line)!important;color:#4e5660!important}body[data-living-workbook-v1] .hero-trust{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:0 20px!important;max-width:590px!important}body[data-living-workbook-v1] .trust-cell .tick{background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}body[data-living-workbook-v1] .trust-cell:nth-child(2) .tick,body[data-living-workbook-v1] .trust-cell:nth-child(3) .tick{background:var(--sx-navy-soft)!important;color:var(--sx-navy)!important}
+body[data-living-workbook-v1] .workbook{transform:none!important;border-color:var(--sx-line-strong)!important;border-radius:9px!important;box-shadow:0 24px 58px rgba(25,38,50,.11)!important}body[data-living-workbook-v1] .workbook::before{height:4px!important;background:var(--sx-green)!important}body[data-living-workbook-v1] .kpi{background:#fff!important;border:1px solid var(--sx-line)!important;border-top:3px solid var(--sx-green)!important}body[data-living-workbook-v1] .kpi:nth-child(2),body[data-living-workbook-v1] .kpi:nth-child(3){border-top-color:var(--sx-navy)!important}body[data-living-workbook-v1] .kpi:nth-child(4){border-top-color:var(--sx-green)!important}body[data-living-workbook-v1] .kpi:nth-child(1) em,body[data-living-workbook-v1] .kpi:nth-child(4) em{color:var(--sx-green-dark)!important}body[data-living-workbook-v1] .kpi:nth-child(2) em,body[data-living-workbook-v1] .kpi:nth-child(3) em{color:var(--sx-navy)!important}body[data-living-workbook-v1] .chart i{background:var(--sx-green)!important}body[data-living-workbook-v1] .chart i:nth-child(2),body[data-living-workbook-v1] .chart i:nth-child(5){background:var(--sx-navy)!important}body[data-living-workbook-v1] .chart i:nth-child(3),body[data-living-workbook-v1] .chart i:nth-child(4){background:#7f9187!important}body[data-living-workbook-v1] .chart i:nth-child(6){background:var(--sx-green)!important}body[data-living-workbook-v1] .risk-dot{background:var(--sx-amber)!important}body[data-living-workbook-v1] .risk-row:nth-child(2) .risk-dot{background:var(--sx-danger)!important}body[data-living-workbook-v1] .risk-row:nth-child(3) .risk-dot{background:var(--sx-green)!important}
+body[data-living-workbook-v1] .decision-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;box-shadow:var(--sx-shadow)!important}body[data-living-workbook-v1] .decision-item{min-height:154px!important;padding:23px 22px!important;background:#fff!important}body[data-living-workbook-v1] .decision-item::before,body[data-living-workbook-v1] .decision-item:nth-child(4)::before{background:var(--sx-green)!important}body[data-living-workbook-v1] .decision-item:nth-child(2)::before,body[data-living-workbook-v1] .decision-item:nth-child(3)::before{background:var(--sx-navy)!important}body[data-living-workbook-v1] .decision-item small,body[data-living-workbook-v1] .decision-item:nth-child(4) small{color:var(--sx-green)!important}body[data-living-workbook-v1] .decision-item:nth-child(2) small,body[data-living-workbook-v1] .decision-item:nth-child(3) small{color:var(--sx-navy)!important}
+body[data-living-workbook-v1] .diagnosis-shell,body[data-living-workbook-v1] .value-grid,body[data-living-workbook-v1] .faq-grid,body[data-living-workbook-v1] .deliver-grid,body[data-living-workbook-v1] .cta-shell{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:48px!important}body[data-living-workbook-v1] .diagnosis-intro{position:sticky!important;top:96px!important}body[data-living-workbook-v1] .diagnosis-proof{border-left:3px solid var(--sx-green)!important;background:var(--sx-green-soft)!important;color:#294d3a!important}body[data-living-workbook-v1] .diagnosis-head>div{background:#f5f6f5!important;color:var(--sx-muted)!important}body[data-living-workbook-v1] .diagnosis-head>div:nth-child(2){background:var(--sx-navy-soft)!important;color:var(--sx-navy)!important}body[data-living-workbook-v1] .diagnosis-head>div:nth-child(3){background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}body[data-living-workbook-v1] .diagnosis-row>div:nth-child(2),body[data-living-workbook-v1] .diagnosis-row>div:nth-child(3){background:#fff!important;color:#3f4852!important}
+body[data-living-workbook-v1] .intent-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important}body[data-living-workbook-v1] .intent-card{min-height:282px!important;padding:27px 25px 24px!important;border-color:var(--sx-line)!important;border-radius:8px!important;background:#fff!important;box-shadow:0 8px 24px rgba(25,38,50,.04)!important}body[data-living-workbook-v1] .intent-card::before,body[data-living-workbook-v1] .intent-card:nth-child(6)::before{width:4px!important;background:var(--sx-green)!important}body[data-living-workbook-v1] .intent-card:nth-child(2)::before,body[data-living-workbook-v1] .intent-card:nth-child(5)::before{background:var(--sx-navy)!important}body[data-living-workbook-v1] .intent-card:nth-child(3)::before,body[data-living-workbook-v1] .intent-card:nth-child(4)::before{background:var(--sx-amber)!important}body[data-living-workbook-v1] .intent-card .code,body[data-living-workbook-v1] .intent-card:nth-child(6) .code{color:var(--sx-green)!important}body[data-living-workbook-v1] .intent-card:nth-child(2) .code,body[data-living-workbook-v1] .intent-card:nth-child(5) .code{color:var(--sx-navy)!important}body[data-living-workbook-v1] .intent-card:nth-child(3) .code,body[data-living-workbook-v1] .intent-card:nth-child(4) .code{color:var(--sx-amber)!important}
+body[data-living-workbook-v1] #karsilastirma{background:#f7f8f7!important}body[data-living-workbook-v1] .difference-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important}body[data-living-workbook-v1] .difference-card{min-height:206px!important;padding:25px!important;border:1px solid var(--sx-line)!important;border-top:3px solid #9ba3aa!important;border-radius:8px!important;background:#fff!important;box-shadow:none!important}body[data-living-workbook-v1] .difference-card:nth-child(2){border-top-color:var(--sx-navy)!important}body[data-living-workbook-v1] .difference-card:nth-child(3){border-top-color:var(--sx-green)!important;background:#fff!important;box-shadow:none!important}body[data-living-workbook-v1] .comparison-top>div{background:#f4f5f4!important;color:var(--sx-muted)!important}body[data-living-workbook-v1] .comparison-top>div:nth-child(3){background:var(--sx-navy-soft)!important;color:var(--sx-navy)!important}body[data-living-workbook-v1] .comparison-top .good{background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}body[data-living-workbook-v1] .compare-old,body[data-living-workbook-v1] .compare-dev{background:#fff!important}body[data-living-workbook-v1] .compare-new{background:#f8fcf9!important}body[data-living-workbook-v1] .compare-dev .state::before{background:var(--sx-navy)!important}body[data-living-workbook-v1] .compare-new .state::before{background:var(--sx-green)!important}
+body[data-living-workbook-v1] .architecture{grid-template-columns:260px minmax(0,1fr)!important;gap:44px!important}body[data-living-workbook-v1] .arch-card{grid-template-columns:58px minmax(0,1fr) 260px!important;gap:22px!important;min-height:154px!important;padding:26px!important;border-color:var(--sx-line)!important;border-radius:8px!important;box-shadow:none!important}body[data-living-workbook-v1] .arch-no,body[data-living-workbook-v1] .arch-card:nth-of-type(5) .arch-no{color:var(--sx-green)!important}body[data-living-workbook-v1] .arch-card:nth-of-type(2) .arch-no,body[data-living-workbook-v1] .arch-card:nth-of-type(4) .arch-no{color:var(--sx-navy)!important}body[data-living-workbook-v1] .arch-card:nth-of-type(3) .arch-no{color:var(--sx-amber)!important}body[data-living-workbook-v1] .arch-output,body[data-living-workbook-v1] .arch-card:nth-of-type(5) .arch-output{border-left:3px solid var(--sx-green)!important;background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}body[data-living-workbook-v1] .arch-card:nth-of-type(2) .arch-output,body[data-living-workbook-v1] .arch-card:nth-of-type(4) .arch-output{border-left-color:var(--sx-navy)!important;background:var(--sx-navy-soft)!important;color:var(--sx-navy)!important}body[data-living-workbook-v1] .arch-card:nth-of-type(3) .arch-output{border-left-color:var(--sx-amber)!important;background:var(--sx-amber-soft)!important;color:#76501a!important}
+body[data-living-workbook-v1] .value-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}body[data-living-workbook-v1] .value-item{min-height:118px!important;border-color:var(--sx-line)!important;border-radius:8px!important}body[data-living-workbook-v1] .value-icon,body[data-living-workbook-v1] .value-item:nth-child(4) .value-icon{background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}body[data-living-workbook-v1] .value-item:nth-child(2) .value-icon,body[data-living-workbook-v1] .value-item:nth-child(3) .value-icon{background:var(--sx-navy-soft)!important;color:var(--sx-navy)!important}
+body[data-living-workbook-v1] .process{background:#f6f8f6!important}body[data-living-workbook-v1] .flow{grid-template-columns:repeat(5,minmax(0,1fr))!important;border-radius:8px!important}body[data-living-workbook-v1] .flow-step{min-height:206px!important;padding:25px 21px!important;border-top:4px solid var(--sx-green)!important;background:#fff!important}body[data-living-workbook-v1] .flow-step:nth-child(2),body[data-living-workbook-v1] .flow-step:nth-child(4){border-top-color:var(--sx-navy)!important}body[data-living-workbook-v1] .flow-step:nth-child(3){border-top-color:var(--sx-amber)!important}body[data-living-workbook-v1] .flow-step:nth-child(5){border-top-color:var(--sx-green)!important}body[data-living-workbook-v1] .flow-step small{color:var(--sx-green)!important}body[data-living-workbook-v1] .flow-step:nth-child(2) small,body[data-living-workbook-v1] .flow-step:nth-child(4) small{color:var(--sx-navy)!important}body[data-living-workbook-v1] .flow-step:nth-child(3) small{color:var(--sx-amber)!important}
+body[data-living-workbook-v1] .deliver-check,body[data-living-workbook-v1] .deliver-row:nth-child(5) .deliver-check{background:var(--sx-green-soft)!important;color:var(--sx-green-dark)!important}body[data-living-workbook-v1] .deliver-row:nth-child(2) .deliver-check,body[data-living-workbook-v1] .deliver-row:nth-child(4) .deliver-check{background:var(--sx-navy-soft)!important;color:var(--sx-navy)!important}body[data-living-workbook-v1] .deliver-row:nth-child(3) .deliver-check{background:var(--sx-amber-soft)!important;color:var(--sx-amber)!important}body[data-living-workbook-v1] .proof-card{border:1px solid var(--sx-line)!important;border-top:4px solid var(--sx-green)!important;border-radius:8px!important;background:#fff!important;box-shadow:var(--sx-shadow)!important}body[data-living-workbook-v1] .proof-note{background:var(--sx-amber-soft)!important;color:#674919!important}
+body[data-living-workbook-v1] .cta{padding:72px 0!important;border-top:4px solid var(--sx-green)!important;background:#f1f6f3!important}body[data-living-workbook-v1] .cta::after{display:none!important}body[data-living-workbook-v1] .cta h2{max-width:620px!important;font-size:clamp(36px,4.3vw,54px)!important;line-height:1.05!important}body[data-living-workbook-v1] .cta-actions{display:grid!important;grid-template-columns:1fr!important;gap:10px!important;max-width:320px!important;justify-self:end!important;width:100%!important}body[data-living-workbook-v1] .btn{border-radius:6px!important;box-shadow:none!important;transition:background .15s ease,border-color .15s ease,color .15s ease!important}body[data-living-workbook-v1] .btn:hover{transform:none!important;box-shadow:none!important}body[data-living-workbook-v1] .btn-primary{background:var(--sx-green)!important;border-color:var(--sx-green)!important}body[data-living-workbook-v1] .btn-primary:hover{background:var(--sx-green-dark)!important;border-color:var(--sx-green-dark)!important}body[data-living-workbook-v1] .btn-secondary{background:#fff!important;border-color:var(--sx-line-strong)!important;color:var(--sx-ink)!important}body[data-living-workbook-v1] .btn-secondary:hover{background:#f6f8f7!important;border-color:#aeb6bc!important}
+@media(max-width:1120px){body[data-living-workbook-v1] .hero-grid{grid-template-columns:1fr!important;gap:28px!important}body[data-living-workbook-v1] .hero-copy-block{padding-bottom:4px!important}body[data-living-workbook-v1] .hero h1,body[data-living-workbook-v1] .hero-lead,body[data-living-workbook-v1] .hero-trust{max-width:760px!important}body[data-living-workbook-v1] .diagnosis-shell,body[data-living-workbook-v1] .value-grid,body[data-living-workbook-v1] .faq-grid,body[data-living-workbook-v1] .deliver-grid,body[data-living-workbook-v1] .cta-shell{grid-template-columns:1fr!important;gap:30px!important}body[data-living-workbook-v1] .diagnosis-intro{position:static!important}body[data-living-workbook-v1] .architecture{grid-template-columns:1fr!important;gap:28px!important}body[data-living-workbook-v1] .arch-index{position:static!important;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important}body[data-living-workbook-v1] .arch-index strong{grid-column:1/-1!important}body[data-living-workbook-v1] .cta-actions{justify-self:start!important;max-width:520px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:860px){body[data-living-workbook-v1] .section{padding:68px 0}body[data-living-workbook-v1] .section-head{grid-template-columns:1fr!important;gap:10px!important}body[data-living-workbook-v1] .intent-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}body[data-living-workbook-v1] .flow{grid-template-columns:1fr!important}body[data-living-workbook-v1] .flow-step{min-height:auto!important;border-left:4px solid var(--sx-green)!important;border-top:1px solid var(--sx-line)!important}body[data-living-workbook-v1] .flow-step:nth-child(2),body[data-living-workbook-v1] .flow-step:nth-child(4){border-left-color:var(--sx-navy)!important}body[data-living-workbook-v1] .flow-step:nth-child(3){border-left-color:var(--sx-amber)!important}body[data-living-workbook-v1] .arch-card{grid-template-columns:52px minmax(0,1fr)!important}body[data-living-workbook-v1] .arch-output{grid-column:2!important}}
+@media(max-width:620px){body[data-living-workbook-v1] .wrap,body[data-living-workbook-v1] .wrap-wide{width:calc(100% - 28px)!important}body[data-living-workbook-v1] .hero{padding-top:32px!important}body[data-living-workbook-v1] .hero h1{font-size:38px!important;line-height:1.04!important}body[data-living-workbook-v1] .hero-lead{font-size:16px!important}body[data-living-workbook-v1] .hero-actions,body[data-living-workbook-v1] .hero-trust,body[data-living-workbook-v1] .decision-grid,body[data-living-workbook-v1] .intent-grid,body[data-living-workbook-v1] .difference-grid,body[data-living-workbook-v1] .value-list{grid-template-columns:1fr!important}body[data-living-workbook-v1] .hero-actions{max-width:none!important}body[data-living-workbook-v1] .intent-card,body[data-living-workbook-v1] .difference-card{min-height:auto!important}body[data-living-workbook-v1] .arch-index{grid-template-columns:repeat(2,minmax(0,1fr))!important}body[data-living-workbook-v1] .arch-card{grid-template-columns:44px minmax(0,1fr)!important;padding:20px 17px!important}body[data-living-workbook-v1] .arch-output{grid-column:1/-1!important}body[data-living-workbook-v1] .cta-actions{grid-template-columns:1fr!important;max-width:none!important}}
 </style>`;
 
 if (!html.includes('</head>')) throw new Error('SPECIAL SYMMETRY V2: </head> missing');
 html = html.replace('</head>', `${css}\n</head>`);
 
-const required = [
-  'id="special-symmetry-human-v2"',
-  'data-special-symmetry="mirror-balance-v2"',
-  'İşiniz nasıl yürüyorsa',
-  'İhtiyacımı Anlat',
-  'Nasıl Çalıştığımızı Gör',
-  'Bugün en çok nerede zorlanıyorsunuz?',
-  'Önce işin nasıl yürüdüğünü anlıyoruz.',
-  '--sx-green:#0f6f3f',
-  '--sx-navy:#173b63',
-  '--sx-amber:#a96d12',
-];
-for (const token of required) {
-  if (!html.includes(token)) throw new Error(`SPECIAL SYMMETRY V2: required token missing: ${token}`);
-}
+const required = ['id="special-symmetry-human-v2"','data-special-symmetry="mirror-balance-v2"','İşiniz nasıl yürüyorsa','İhtiyacımı Anlat','Nasıl Çalıştığımızı Gör','Bugün en çok nerede zorlanıyorsunuz?','Önce işin nasıl yürüdüğünü anlıyoruz.','--sx-green:#0f6f3f','--sx-navy:#173b63','--sx-amber:#a96d12'];
+for (const token of required) if (!html.includes(token)) throw new Error(`SPECIAL SYMMETRY V2: required token missing: ${token}`);
 
-const forbidden = [
-  "İşletmenizi Excel'e uydurmayın",
-  'Kontrol Edemediğim Alanı Anlatayım',
-  'Sorunumu Anlatayım',
-  'Neden Standart Yazılım Değil?',
-  'İŞLETME AKLI → VERİ → HESAP → KONTROL → KARAR',
-];
-for (const token of forbidden) {
-  if (html.includes(token)) throw new Error(`SPECIAL SYMMETRY V2: stale/generated-style copy survived: ${token}`);
-}
+const forbidden = ["İşletmenizi Excel'e uydurmayın",'Kontrol Edemediğim Alanı Anlatayım','Sorunumu Anlatayım','Neden Standart Yazılım Değil?','İŞLETME AKLI → VERİ → HESAP → KONTROL → KARAR'];
+for (const token of forbidden) if (html.includes(token)) throw new Error(`SPECIAL SYMMETRY V2: stale/generated-style copy survived: ${token}`);
 
 fs.writeFileSync(file, html);
-console.log('SPECIAL SYMMETRY V2 PASS — mirrored hard-color system, balanced geometry and human-written conversion copy verified.');
+console.log('SPECIAL SYMMETRY V2 PASS — mirrored semantic color, balanced geometry and human-written copy verified.');
