@@ -4,6 +4,8 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, extname, resolve } from 'node:path';
 
 const dist = resolve(process.cwd(), 'dist');
+const SPECIAL_LEAD_PAGE = 'ozel-excel-sistemleri/index.html';
+const VERIFIED_WHATSAPP_PREFIX = 'https://wa.me/905419305372?text=';
 
 function walk(dir, out = []) {
   for (const entry of readdirSync(dir)) {
@@ -37,8 +39,23 @@ for (const page of pages) {
   if (!/<main[\s>]/.test(html)) {
     failures.push(`${page}: <main> eksik`);
   }
-  if (html.includes('wa.me')) {
-    failures.push(`${page}: WhatsApp sipariş linki yasak`);
+
+  // WhatsApp doğrudan sipariş kanalı olarak yasak kalır. Tek istisna,
+  // özel Excel sistemleri sayfasındaki doğrulanmış numaraya giden lead/ön görüşme CTA'sıdır.
+  const whatsappLinks = [...html.matchAll(/href="(https:\/\/wa\.me\/[^"]+)"/g)].map((m) => m[1]);
+  if (whatsappLinks.length > 0) {
+    if (page !== SPECIAL_LEAD_PAGE) {
+      failures.push(`${page}: WhatsApp sipariş linki yasak`);
+    } else {
+      for (const href of whatsappLinks) {
+        if (!href.startsWith(VERIFIED_WHATSAPP_PREFIX)) {
+          failures.push(`${page}: doğrulanmamış WhatsApp lead linki -> ${href}`);
+        }
+      }
+      if (!html.includes('data-cfo-positioning-v9')) {
+        failures.push(`${page}: WhatsApp lead istisnası için CFO V9 contract eksik`);
+      }
+    }
   }
 
   // Kırık iç link kontrolü: yalnızca kök-relative href'ler (dış linkler hariç).
@@ -48,7 +65,6 @@ for (const page of pages) {
     .filter((p) => p.length > 0);
   for (const target of [...new Set(links)]) {
     if (target.includes('.')) {
-      // Statik varlık: doğrudan dosya olarak kontrol et
       if (existsAsFile(join(dist, target))) continue;
       failures.push(`${page}: kırık link -> /${target}`);
       continue;
@@ -60,8 +76,6 @@ for (const page of pages) {
     }
   }
 
-  // İnline client script sözdizimi: dist'e geçersiz JS sızmamalı
-  // (JSON-LD dışındaki inline script'ler tarayıcıda olduğu gibi çalışır)
   const scripts = [...html.matchAll(/<script(?!\s+type="application\/ld\+json")[^>]*>([\s\S]*?)<\/script>/g)]
     .map((m) => ({ src: /src=/.test(m[0]), body: m[1] }))
     .filter((s) => !s.src && s.body.trim().length > 0);
