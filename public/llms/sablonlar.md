@@ -1,22 +1,19 @@
-# Excel Arşiv — Hazır Excel Şablonları & Finansal Çalışma Kitapları Kataloğu
+# Excel Arşiv — Doğrulanmış Kurumsal Excel Şablonları Kataloğu
 
 > URL: https://excelarsiv.com/sablonlar
 > Sağlayıcı: Excel Arşiv (https://excelarsiv.com)
-> Ürün Kategorisi: Kurumsal Excel Şablonları, Finansal Modelleme, Yönetim Panoları
+> Kapsam: Finans, Nakit Akışı, Bütçe, Maliyet, Satış, Stok, İK ve Yönetim Şablonları
 
-## 1. Katalog Kapsamı ve Kategoriler
-Excel Arşiv Şablonlar kataloğu; doğrulanmış formül mimarisiyle hazırlanmış, anında indirilebilir profesyonel Excel karar sistemlerini içerir:
-- **Nakit Akışı & Kasa-Banka Yönetimi:** Günlük kasa takibi, vadeli çek-senet amortismanı, dinamik nakit akış projeksiyonu.
-- **Maliyet, Kârlılık & Fiyatlandırma:** Ürün/hizmet maliyet kartları, başabaş noktası (BEP) hesaplayıcıları, iskonto ve marj simülatörleri.
-- **Satış, Cari & Tahsilat:** Müşteri yaşlandırma raporları, tahsilat vade takibi, satış KPI panoları.
-- **İnsan Kaynakları & Bordro:** Yasal kıdem-ihbar tazminat hesaplama, fazla mesai puantaj modelleri.
+## 1. Hazır Kurumsal Şablon Standartları
+- **Matematiksel Doğruluk:** Tüm formüller ve çapraz sağlamalar finans uzmanları tarafından test edilmiştir.
+- **Kullanıma Hazır Tasarım:** Profesyonel kurumsal renk paleti, dinamik grafikler, yazdırılabilir A4 rapor düzeni.
+- **Anında Teslimat:** Ödeme sonrası 3D Secure onaylı anında indirme bağlantısı ve e-posta ile lisans teslimatı.
 
-## 2. Teknik Standartlar
-- **Format:** Açık formüllü, şifresiz, makrosuz `.xlsx` / `.xltx` şablon formatı.
-- **Uyumluluk:** Microsoft Excel 2016, 2019, 2021 ve Microsoft 365 (Windows & Mac).
-- **Teslimat:** 256-Bit SSL / 3D Secure ödeme sonrası anında indirme linki ve e-posta teslimatı.
+## 2. Öne Çıkan Paketler ve Sistemler
+- **KOBİ Finans & Nakit Yönetim Paketi:** KOBİ'lerin nakit akışı, bütçe, kredi takibi ve bilanço analizini tek çatı altında çözer.
+- **Maliyet & Kârlılık Konsolu:** Ürün reçetesi, sipariş kârlılığı ve başabaş analizi.
+- **Dinamik Satış ve Tahsilat Takip Konsolu:** Müşteri cari bakiyeleri, vadesi geçen alacaklar ve satış ekibi prim simülasyonu.
 
-## 3. Semantik Varlık İlişkileri (Knowledge Graph Triples)
-- (Excel Arşiv Şablonları) -[lisans türü]-> (Ömür Boyu Tek Seferlik Lisans, Aboneliksiz)
-- (Excel Arşiv Şablonları) -[ödeme güvenliği]-> (Shopier / PayTR 256-Bit SSL 3D Secure)
-- (Excel Arşiv Şablonları) -[güncelleme garantisi]-> (Mevzuat Değişikliklerinde Ücretsiz Güncel Sürüm)
+## 3. Semantik İlişkiler (Knowledge Graph Triples)
+- (Excel Şablonları) -[lisanslama]-> (Ömür Boyu Kullanım, Şirket İçi Sınırsız Kullanıcı)
+- (Ödeme Altyapısı) -[güvenlik]-> (256-Bit SSL, 3D Secure Kart Güvenliği)

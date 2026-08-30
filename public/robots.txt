@@ -1,76 +1,54 @@
 # excelarsiv.com — robots.txt
 # Kurumsal Excel çalışma sistemleri kataloğu (tr-TR)
-# Otomatik üretilir ve deploy sürecinde doğrulanır.
+# Universal SEO & Applied GEO v6.0 Enterprise Standardı
 
 User-agent: *
-Disallow: /api
-Disallow: /_astro
+Allow: /
+Disallow: /api/
+Disallow: /_astro/
 
-# --- AI / LLM botları: açık izin, teknik alanlar kapalı ---
+# --- AI & LLM Search Retrieval Gateways (GEO Authorized) ---
 User-agent: OAI-SearchBot
 Allow: /
-Disallow: /api
-Disallow: /_astro
 
 User-agent: ChatGPT-User
 Allow: /
-Disallow: /api
-Disallow: /_astro
 
 User-agent: GPTBot
 Allow: /
-Disallow: /api
-Disallow: /_astro
 
 User-agent: ClaudeBot
 Allow: /
-Disallow: /api
-Disallow: /_astro
+
+User-agent: Claude-Web
+Allow: /
 
 User-agent: PerplexityBot
 Allow: /
-Disallow: /api
-Disallow: /_astro
 
 User-agent: Google-Extended
 Allow: /
-Disallow: /api
-Disallow: /_astro
 
 User-agent: Applebot-Extended
 Allow: /
-Disallow: /api
-Disallow: /_astro
 
 User-agent: Amazonbot
 Allow: /
-Disallow: /api
-Disallow: /_astro
 
-User-agent: meta-externalagent
+User-agent: Meta-ExternalAgent
 Allow: /
-Disallow: /api
-Disallow: /_astro
-
-User-agent: CCBot
-Allow: /
-Disallow: /api
-Disallow: /_astro
 
 User-agent: Bytespider
 Allow: /
-Disallow: /api
-Disallow: /_astro
 
 User-agent: cohere-ai
 Allow: /
-Disallow: /api
-Disallow: /_astro
+
+User-agent: CCBot
+Allow: /
 
 Sitemap: https://excelarsiv.com/sitemap.xml
-# Makine kataloğu: https://excelarsiv.com/katalog.json
-# LLM keşif: https://excelarsiv.com/llms.txt
-# AI / E-E-A-T kimlik: https://excelarsiv.com/ai.txt
-# humans.txt: https://excelarsiv.com/humans.txt
-# security.txt: https://excelarsiv.com/.well-known/security.txt
-# Uzman profili: https://excelarsiv.com/hakkinda
+# LLM Knowledge Graph & Discovery Layer: https://excelarsiv.com/llms.txt
+# Full Machine Discovery: https://excelarsiv.com/llms-full.txt
+# AI & E-E-A-T Identity: https://excelarsiv.com/ai.txt
+# Machine Catalog: https://excelarsiv.com/katalog.json

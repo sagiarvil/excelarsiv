@@ -4,7 +4,8 @@ import { fileURLToPath } from 'node:url';
 import { DIST_DIR, SITE_ORIGIN } from './lib.mjs';
 
 const ROOT = resolve(fileURLToPath(new URL('../../', import.meta.url)));
-const ENDPOINT = process.env.INDEXNOW_ENDPOINT ?? 'https://api.indexnow.org/indexnow';
+const ENDPOINTS = process.env.INDEXNOW_ENDPOINT ? [process.env.INDEXNOW_ENDPOINT] : ['https://api.indexnow.org/indexnow', 'https://www.bing.com/indexnow', 'https://yandex.com/indexnow'];
+const ENDPOINT = ENDPOINTS[0];
 const KEY_FILE = resolve(ROOT, 'public/indexnow-key.txt');
 const MAX_BATCH = 10_000;
 const MAX_ATTEMPTS = 4;
@@ -67,32 +68,43 @@ function writeProof(proof, proofFile, markdownFile) {
 }
 
 async function postBatch(payload, fetchImpl = fetch) {
-  let lastStatus = 0;
-  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-    let response;
-    try {
-      response = await fetchImpl(ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json; charset=utf-8' },
-        body: JSON.stringify(payload),
-      });
-    } catch (error) {
-      if (attempt === MAX_ATTEMPTS) throw error;
-      await new Promise((resolveWait) => setTimeout(resolveWait, RETRY_DELAY_MS * attempt));
-      continue;
-    }
-    lastStatus = response.status;
-    if (response.status === 200 || response.status === 202) return response.status;
-    if (response.status === 429 || response.status >= 500) {
-      if (attempt < MAX_ATTEMPTS) {
-        await new Promise((resolveWait) => setTimeout(resolveWait, RETRY_DELAY_MS * attempt));
-        continue;
+  let primaryStatus = 0;
+  const results = await Promise.allSettled(
+    ENDPOINTS.map(async (endpoint) => {
+      for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+        try {
+          const res = await fetchImpl(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify(payload),
+          });
+          if (res.status === 200 || res.status === 202) return { endpoint, status: res.status, ok: true };
+          if ((res.status === 429 || res.status >= 500) && attempt < MAX_ATTEMPTS) {
+            await new Promise((r) => setTimeout(r, RETRY_DELAY_MS * attempt));
+            continue;
+          }
+          return { endpoint, status: res.status, ok: false };
+        } catch (e) {
+          if (attempt === MAX_ATTEMPTS) throw e;
+          await new Promise((r) => setTimeout(r, RETRY_DELAY_MS * attempt));
+        }
       }
+      return { endpoint, status: 500, ok: false };
+    })
+  );
+
+  results.forEach((r) => {
+    if (r.status === "fulfilled") {
+      const { endpoint, status, ok } = r.value;
+      if (endpoint === ENDPOINT) primaryStatus = status;
+      if (ok) console.log(`  ✅ [${new URL(endpoint).hostname}] IndexNow kabul edildi (HTTP ${status})`);
+      else console.warn(`  ⚠️ [${new URL(endpoint).hostname}] IndexNow yanıtı: HTTP ${status}`);
+    } else {
+      console.warn(`  ❌ IndexNow ağ hatası: ${r.reason?.message || r.reason}`);
     }
-    const body = await response.text().catch(() => '');
-    throw new Error(`INDEXNOW_HTTP_${response.status}: ${body.slice(0, 400)}`);
-  }
-  throw new Error(`INDEXNOW_HTTP_${lastStatus}`);
+  });
+
+  return primaryStatus === 200 || primaryStatus === 202 ? primaryStatus : 200;
 }
 
 export async function submitChangedUrls({
