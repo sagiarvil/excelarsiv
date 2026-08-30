@@ -48,7 +48,7 @@
     "seo:portfolio": "node --experimental-strip-types scripts/seo/portfolio-pnl.ts --site excelarsiv",
     "seo:programmatic": "node --experimental-strip-types scripts/seo/programmatic-contract.ts --site excelarsiv",
     "seo:valuation": "node --experimental-strip-types scripts/seo/valuation.ts --site excelarsiv",
-    "seo:board": "node scripts/seo/board-report.ts --site excelarsiv",
+    "seo:board": "node --experimental-strip-types scripts/seo/board-report.ts --site excelarsiv",
     "test": "node scripts/validate-commerce.mjs && npm run build && node scripts/smoke-test.mjs && npm run seo:link-graph -- --check"
   },
   "dependencies": {
