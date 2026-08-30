@@ -148,8 +148,8 @@ jobs:
           console.log(`Project: ${process.env.FIREBASE_PROJECT_ID}`);
           NODE
 
-      - name: Sync changed paid product binaries to private Storage
-        if: steps.changes.outputs.delivery_changed == 'true'
+      - name: Sync and self-heal paid product binaries in private Storage
+        if: steps.changes.outputs.runtime_changed == 'true'
         env:
           GCLOUD_PROJECT: ${{ env.FIREBASE_PROJECT_ID }}
           GOOGLE_CLOUD_PROJECT: ${{ env.FIREBASE_PROJECT_ID }}
@@ -157,7 +157,7 @@ jobs:
         run: node scripts/sync-paid-products.mjs --apply
 
       - name: Verify paid product repo-storage SHA-256 parity
-        if: steps.changes.outputs.delivery_changed == 'true'
+        if: steps.changes.outputs.runtime_changed == 'true'
         env:
           GCLOUD_PROJECT: ${{ env.FIREBASE_PROJECT_ID }}
           GOOGLE_CLOUD_PROJECT: ${{ env.FIREBASE_PROJECT_ID }}
