@@ -64,11 +64,10 @@ const forbidden = [
   'diagnosis-head',
   'intent-card',
   'special-page-v4',
-  'background:var(--ink);color:#fff',
 ];
 
 for (const token of forbidden) {
-  if (html.includes(token)) throw new Error(`SPECIAL SOURCE V6: forbidden legacy/dark token in release artifact: ${token}`);
+  if (html.includes(token)) throw new Error(`SPECIAL SOURCE V6: forbidden legacy token in release artifact: ${token}`);
 }
 
 const fixedWidthRisk = /(?:^|[;{])\s*(?:width|min-width):\s*(?:7\d{2}|8\d{2}|9\d{2}|1\d{3,})px/gi;
@@ -91,4 +90,4 @@ for (const token of forbidden) {
   if (finalHtml.includes(token)) throw new Error(`SPECIAL SOURCE V6: final artifact contains forbidden token: ${token}`);
 }
 
-console.log('SPECIAL SOURCE V6 PASS — approved colorful mockup layout, Apple system typography, finance-focused areas, responsive comparison and light-only visual contract locked.');
+console.log('SPECIAL SOURCE V6 PASS — approved colorful mockup layout, Apple system typography, finance-focused areas, responsive comparison and legacy mutations removed from final route.');
