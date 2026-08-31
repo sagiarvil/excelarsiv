@@ -1,4 +1,4 @@
-<div class="consent-layer" data-consent-layer>
+<div class="consent-layer" data-consent-layer hidden>
   <section class="consent-card" role="dialog" aria-modal="true" aria-labelledby="consent-title" aria-describedby="consent-description">
     <div class="consent-copy">
       <p class="consent-kicker">GİZLİLİK TERCİHLERİ</p>
@@ -15,55 +15,112 @@
   </section>
 </div>
 
-<button type="button" class="consent-manage" data-consent-manage hidden>Çerez Tercihleri</button>
+<button type="button" class="consent-manage" data-consent-manage hidden aria-hidden="true" style="display:none!important;">Çerez Tercihleri</button>
 
 <script is:inline>
-  const layer = document.querySelector('[data-consent-layer]');
-  const accept = document.querySelector('[data-consent-accept]');
-  const reject = document.querySelector('[data-consent-reject]');
-  const manage = document.querySelector('[data-consent-manage]');
+  (() => {
+    // 1. Çerez Tercihleri Yönetimi
+    const layer = document.querySelector('[data-consent-layer]');
+    const accept = document.querySelector('[data-consent-accept]');
+    const reject = document.querySelector('[data-consent-reject]');
+    const openTriggers = document.querySelectorAll('[data-consent-manage], [data-open-consent]');
 
-  const api = window.ExcelArsivConsent;
-  if (layer && accept && reject && manage && api) {
-    const showManager = () => {
-      layer.hidden = false;
-      manage.hidden = true;
-      window.requestAnimationFrame(() => accept.focus());
-    };
-    const hideManager = () => {
-      layer.hidden = true;
-      manage.hidden = false;
-    };
-    const choose = (status) => {
-      api.setStatus(status);
-      hideManager();
+    const api = window.ExcelArsivConsent;
+    if (layer && accept && reject && api) {
+      const showManager = () => {
+        layer.hidden = false;
+        window.requestAnimationFrame(() => accept.focus());
+      };
+      const hideManager = () => {
+        layer.hidden = true;
+      };
+      const choose = (status) => {
+        api.setStatus(status);
+        hideManager();
+      };
+
+      // Yalnızca kullanıcı daha önce bir tercih yapmamışsa göster
+      if (api.getStatus() === null) {
+        showManager();
+      } else {
+        hideManager();
+      }
+
+      accept.addEventListener('click', () => choose('granted'));
+      reject.addEventListener('click', () => choose('denied'));
+      openTriggers.forEach((btn) => btn.addEventListener('click', showManager));
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && api.getStatus() !== null && !layer.hidden) hideManager();
+      });
+    }
+
+    // 2. Mobil Menü Sürtünme ve Arka Plan İzolasyonu
+    const handleMenuScrollLock = () => {
+      const headerMenu = document.querySelector('.site-header__menu');
+      if (!headerMenu) return;
+
+      const syncScrollLock = () => {
+        const isOpen = headerMenu.hasAttribute('open');
+        if (isOpen) {
+          document.body.style.overflow = 'hidden';
+          document.documentElement.style.overflow = 'hidden';
+          document.body.style.touchAction = 'none';
+        } else {
+          document.body.style.overflow = '';
+          document.documentElement.style.overflow = '';
+          document.body.style.touchAction = '';
+        }
+      };
+
+      headerMenu.addEventListener('toggle', syncScrollLock);
+
+      // Menü dışına veya menü içindeki linke tıklandığında menüyü kapat
+      document.addEventListener('click', (e) => {
+        if (!headerMenu.hasAttribute('open')) return;
+        const sheet = headerMenu.querySelector('.site-header__mobile-sheet');
+        const summary = headerMenu.querySelector('summary');
+        const target = e.target;
+        if (!sheet || !summary) return;
+
+        const clickedInsideSummary = summary.contains(target);
+        const clickedInsideSheet = sheet.contains(target);
+        const clickedLink = target.closest('a');
+
+        if (!clickedInsideSummary && (!clickedInsideSheet || clickedLink)) {
+          headerMenu.removeAttribute('open');
+          syncScrollLock();
+        }
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && headerMenu.hasAttribute('open')) {
+          headerMenu.removeAttribute('open');
+          syncScrollLock();
+        }
+      });
     };
 
-    if (api.getStatus() === null) showManager();
-    else hideManager();
-
-    accept.addEventListener('click', () => choose('granted'));
-    reject.addEventListener('click', () => choose('denied'));
-    manage.addEventListener('click', showManager);
-    window.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && api.getStatus() !== null && !layer.hidden) hideManager();
-    });
-  }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', handleMenuScrollLock);
+    } else {
+      handleMenuScrollLock();
+    }
+  })();
 </script>
 
 <style>
-  .consent-layer{position:fixed;inset:0;z-index:1000;display:grid;place-items:end center;padding:16px;background:rgba(14,29,20,.26);backdrop-filter:blur(2px)}
+  .consent-layer{position:fixed;inset:0;z-index:1000;display:grid;place-items:end center;padding:16px;background:rgba(14,29,20,.35);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
   .consent-layer[hidden],.consent-manage[hidden]{display:none!important}
-  .consent-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;width:min(980px,100%);padding:18px 20px;border:1px solid #cbdad1;border-radius:16px;background:rgba(255,255,255,.98);box-shadow:0 18px 54px rgba(12,42,25,.2);contain:layout paint style;font-family:Arial,"Helvetica Neue",system-ui,sans-serif}
+  .consent-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;width:min(980px,100%);padding:18px 20px;border:1px solid #cbdad1;border-radius:16px;background:#ffffff;box-shadow:0 18px 54px rgba(12,42,25,.2);contain:layout paint style;font-family:Arial,"Helvetica Neue",system-ui,sans-serif}
   .consent-copy{min-width:0}.consent-kicker{margin:0;font:800 11px/1.2 Arial,"Helvetica Neue",system-ui,sans-serif;letter-spacing:.11em;color:#0b7440}
   .consent-card h2{margin:5px 0 0;font:800 21px/1.12 Arial,"Helvetica Neue",system-ui,sans-serif;letter-spacing:-.015em;color:#14271d}
   .consent-card p:not(.consent-kicker){max-width:720px;margin:7px 0 0;font:400 14px/1.45 Arial,"Helvetica Neue",system-ui,sans-serif;color:#46564d}
   .consent-card a{margin-left:4px;font-weight:700;color:#0b7440;text-underline-offset:2px}
   .consent-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin:0}
-  .consent-actions button,.consent-manage{min-height:44px;border-radius:9px;padding:0 16px;font:700 14px/1 Arial,"Helvetica Neue",system-ui,sans-serif;cursor:pointer;white-space:nowrap}
+  .consent-actions button{min-height:44px;border-radius:9px;padding:0 16px;font:700 14px/1 Arial,"Helvetica Neue",system-ui,sans-serif;cursor:pointer;white-space:nowrap}
   .consent-primary{border:1px solid #0b7440;background:#0b7440;color:#fff}.consent-primary:hover{background:#075f34}
   .consent-secondary{border:1px solid #cbdad1;background:#fff;color:#294535}.consent-secondary:hover{border-color:#0b7440}
-  .consent-manage{position:fixed;right:14px;bottom:14px;z-index:900;min-height:36px!important;border:1px solid #cbdad1;background:#fff;color:#355443;box-shadow:0 8px 24px rgba(12,42,25,.12)}
-  @media(max-width:760px){.consent-layer{padding:10px;background:rgba(14,29,20,.2);backdrop-filter:none}.consent-card{grid-template-columns:1fr;gap:12px;padding:15px;border-radius:14px}.consent-card h2{font-size:18px}.consent-card p:not(.consent-kicker){font-size:13px;line-height:1.42}.consent-actions{display:grid;grid-template-columns:1fr 1fr;width:100%}.consent-actions button{width:100%;min-height:42px;padding:0 10px;font-size:13px}.consent-primary{order:2}.consent-secondary{order:1}.consent-manage{right:9px;bottom:9px}}
+  .consent-manage{display:none!important}
+  @media(max-width:760px){.consent-layer{padding:10px;background:rgba(14,29,20,.3)}.consent-card{grid-template-columns:1fr;gap:12px;padding:15px;border-radius:14px}.consent-card h2{font-size:18px}.consent-card p:not(.consent-kicker){font-size:13px;line-height:1.42}.consent-actions{display:grid;grid-template-columns:1fr 1fr;width:100%}.consent-actions button{width:100%;min-height:42px;padding:0 10px;font-size:13px}.consent-primary{order:2}.consent-secondary{order:1}}
   @media(max-width:420px){.consent-actions{grid-template-columns:1fr}.consent-primary{order:1}.consent-secondary{order:2}}
 </style>
