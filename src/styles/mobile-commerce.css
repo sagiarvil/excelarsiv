@@ -101,8 +101,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: rgba(15, 23, 42, 0.45);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -117,6 +117,7 @@
     box-shadow: 0 20px 60px rgba(15, 23, 42, 0.28) !important;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+    touch-action: pan-y !important;
   }
 }
 
@@ -125,5 +126,12 @@
 
   .section-head__title {
     font-size: 29px !important;
+  }
+}
+
+/* Mobile Commerce Bar Touch Optimization */
+@media (max-width: 720px) {
+  nav.mobile-commerce-bar {
+    touch-action: manipulation;
   }
 }
