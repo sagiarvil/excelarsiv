@@ -1,0 +1,4 @@
+HOME DESKTOP PREMIUM V19
+Desktop breakpoint: min-width 1021px
+Mobile V18 preserved
+Hero/search/header/finance/catalog/conversion surfaces protected by final build gate
