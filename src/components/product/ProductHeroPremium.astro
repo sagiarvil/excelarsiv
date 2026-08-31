@@ -115,12 +115,12 @@ const outputDetail = outputs.slice(0, 3).join(' · ');
         </div>
         {kapakUrl ? (
           <picture>
+            <source media="(min-width: 761px)" srcset={kapakUrl} />
             <img
               class="product-hero__kapak"
-              src={kapakUrl}
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
               alt={name}
               loading="eager"
-              fetchpriority="high"
               decoding="async"
               width="1200"
               height="900"
