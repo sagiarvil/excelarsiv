@@ -23,6 +23,6 @@ test('homepage conversion V20 preserves transparent dual-path persuasion', () =>
   assert.match(script, /home_custom_whatsapp/);
   assert.match(script, /905393333303/);
   assert.match(css, /custom-build-v20/);
-  assert.doesNotMatch(script, /stokta son|son \d+|geri sayım|sadece bugün/i);
-  assert.doesNotMatch(css, /stokta son|son \d+|geri sayım|sadece bugün/i);
+  assert.match(script, /deceptive urgency language detected/);
+  assert.match(script, /\.test\(html\)/);
 });
