@@ -1,26 +1,40 @@
 ---
+import MobileCommerceEngine from './mobile/MobileCommerceEngine.astro';
+
 const pathname = Astro.url.pathname;
+const isProductPage = pathname.startsWith('/sablon/') && pathname !== '/sablonlar';
 const searchHref = pathname === '/' ? '/#hero-search' : '/sablonlar';
+const initialTab = pathname.startsWith('/sablon')
+  ? 'sablonlar'
+  : pathname.startsWith('/ozel')
+    ? 'ozel-sistemler'
+    : 'home';
 ---
 
-<nav class="mobile-commerce-bar" aria-label="Mobil hızlı işlemler">
-  <a class="mobile-commerce-bar__search" href={searchHref} data-cta="mobile_dock_search" data-location="mobile_dock">
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    <span>Ara</span>
-  </a>
-  <a class="mobile-commerce-bar__ready" href="/sablonlar" data-cta="mobile_dock_ready" data-location="mobile_dock">
-    <span>Sistemler</span><small>Hazır çözümler</small>
-  </a>
-  <a class="mobile-commerce-bar__custom" href="/ozel-excel-sistemleri" data-cta="mobile_dock_custom" data-location="mobile_dock">
-    <span>Size Özel</span><small>15 dk ön teşhis</small>
-  </a>
-</nav>
+{isProductPage ? (
+  <nav class="mobile-commerce-bar" aria-label="Mobil hızlı işlemler">
+    <a class="mobile-commerce-bar__search" href={searchHref} data-cta="mobile_dock_search" data-location="mobile_dock">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Ara</span>
+    </a>
+    <a class="mobile-commerce-bar__ready" href="/sablonlar" data-cta="mobile_dock_ready" data-location="mobile_dock">
+      <span>Sistemler</span><small>Hazır çözümler</small>
+    </a>
+    <a class="mobile-commerce-bar__custom" href="/ozel-excel-sistemleri" data-cta="mobile_dock_custom" data-location="mobile_dock">
+      <span>Size Özel</span><small>15 dk ön teşhis</small>
+    </a>
+  </nav>
+) : (
+  <div class="mobile-commerce-bar" data-location="mobile_dock">
+    <MobileCommerceEngine initialTab={initialTab} />
+  </div>
+)}
 
 <style>
   .mobile-commerce-bar { display:none; }
 
   @media(max-width:720px){
-    .mobile-commerce-bar{
+    nav.mobile-commerce-bar{
       position:fixed;
       left:10px;
       right:10px;
@@ -37,7 +51,7 @@ const searchHref = pathname === '/' ? '/#hero-search' : '/sablonlar';
       backdrop-filter:blur(18px) saturate(160%);
     }
 
-    .mobile-commerce-bar a{
+    nav.mobile-commerce-bar a{
       min-width:0;
       min-height:50px;
       display:flex;
@@ -104,7 +118,7 @@ const searchHref = pathname === '/' ? '/#hero-search' : '/sablonlar';
   }
 
   @media(max-width:350px){
-    .mobile-commerce-bar{grid-template-columns:52px 1fr 1fr;left:7px;right:7px}
+    nav.mobile-commerce-bar{grid-template-columns:52px 1fr 1fr;left:7px;right:7px}
     .mobile-commerce-bar__ready small,.mobile-commerce-bar__custom small{display:none}
   }
 </style>

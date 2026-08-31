@@ -1,0 +1,1718 @@
+---
+// src/components/mobile/MobileCommerceEngine.astro
+import { TEMPLATE_DATA, type TabType } from './template-data';
+
+interface Props {
+  initialTab?: TabType;
+  whatsappNumber?: string;
+}
+
+const {
+  initialTab = 'home',
+  whatsappNumber = '905393333303'
+} = Astro.props;
+---
+
+<div class="mobile-commerce-engine-root" data-mobile-commerce-engine data-initial-tab={initialTab} data-wa-number={whatsappNumber}>
+  <!-- TOAST NOTIFICATION -->
+  <div class="mce-toast hidden" data-mce-toast aria-live="polite">
+    <span class="mce-toast__icon">✓</span>
+    <p class="mce-toast__text" data-mce-toast-text></p>
+  </div>
+
+  <!-- MOBİL HEADER -->
+  <header class="mce-header">
+    <div class="mce-header__top">
+      <div class="mce-header__brand">
+        <div class="mce-header__avatar">EX</div>
+        <div class="mce-header__titles">
+          <div class="mce-header__name-row">
+            <span class="mce-header__name">excelarsiv<span class="mce-text-emerald">.com</span></span>
+            <span class="mce-badge-pro">PRO</span>
+          </div>
+          <span class="mce-header__subtitle">17 Yıllık Bankacılık Standartlarında</span>
+        </div>
+      </div>
+
+      <a
+        href="/iletisim"
+        data-wa-cta="support"
+        data-toast="Finans uzmanı hattına bağlanılıyor..."
+        class="mce-btn-live-support"
+      >
+        <svg class="mce-icon-sm" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+        </svg>
+        <span>Uzman Desteği</span>
+      </a>
+    </div>
+
+    <!-- 3'LÜ NAVİGASYON SEGMENTİ -->
+    <nav class="mce-nav-segments" aria-label="Mobil Bölüm Navigasyonu">
+      <button type="button" class="mce-segment-btn is-active" data-tab-btn="home">Ana Sayfa</button>
+      <button type="button" class="mce-segment-btn" data-tab-btn="sablonlar">Şablonlar</button>
+      <button type="button" class="mce-segment-btn" data-tab-btn="ozel-sistemler">Özel Sistem</button>
+    </nav>
+  </header>
+
+  <!-- 1. SEKME: ANA SAYFA -->
+  <section class="mce-tab-panel" data-tab-panel="home">
+    <div class="mce-hero-card">
+      <div class="mce-hero-pill">
+        <svg class="mce-icon-sparkle" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" />
+        </svg>
+        <span>Nakit ve Maliyet Riskini Sıfırla</span>
+      </div>
+
+      <h2 class="mce-hero-title">
+        Şirketinizin Finansını <span class="mce-hero-highlight">1 Tıkla</span> Güvene Alın.
+      </h2>
+
+      <p class="mce-hero-lead">
+        Rastgele formüllerle vakit kaybetmeyin. 17 yıllık ticari bankacılık ve finans mühendisliği tecrübesiyle hatasız kodlandı.
+      </p>
+
+      <div class="mce-stats-grid">
+        <div class="mce-stat-item">
+          <span class="mce-stat-val mce-text-amber">2.400+</span>
+          <span class="mce-stat-lbl">KOBİ Patronu</span>
+        </div>
+        <div class="mce-stat-item">
+          <span class="mce-stat-val mce-text-emerald-bright">%100</span>
+          <span class="mce-stat-lbl">Banka Uyumlu</span>
+        </div>
+        <div class="mce-stat-item">
+          <span class="mce-stat-val mce-text-white">4.9/5</span>
+          <span class="mce-stat-lbl">Müşteri Puanı</span>
+        </div>
+      </div>
+
+      <div class="mce-hero-actions">
+        <button type="button" class="mce-hero-btn-primary" data-switch-tab="sablonlar">
+          <span>Şablonu Seç</span>
+          <span>→</span>
+        </button>
+        <button type="button" class="mce-hero-btn-secondary" data-switch-tab="ozel-sistemler">
+          <span>Özel Çözüm İste</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Otorite & Saha Mesajı -->
+    <div class="mce-authority-card">
+      <div class="mce-authority-badge">17 YIL</div>
+      <div class="mce-authority-copy">
+        <h3 class="mce-authority-heading">Esnaf ve Sanayicinin Diliyle Çözüm</h3>
+        <p class="mce-authority-text">
+          "Nakit sıkışıklığını, banka kredi risk rasyolarını ve esnafın dertlerini bizzat sahada yaşayarak çözdük. Bu modeller şirketinizin gerçek saha zırhıdır."
+        </p>
+      </div>
+    </div>
+
+    <!-- Hızlı Çözüm Listesi -->
+    <div class="mce-quick-list-wrap">
+      <div class="mce-quick-list-header">
+        <span class="mce-section-kicker">Hemen İndirilebilir Modeller</span>
+        <button type="button" class="mce-quick-link" data-switch-tab="sablonlar">Tümünü Gör →</button>
+      </div>
+
+      <div class="mce-quick-items">
+        {TEMPLATE_DATA.map((item) => (
+          <div
+            class="mce-quick-card"
+            data-open-modal={item.id}
+            role="button"
+            tabindex="0"
+          >
+            <div class="mce-quick-card__left">
+              <div class="mce-quick-card__icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="8" y1="13" x2="16" y2="13" />
+                  <line x1="8" y1="17" x2="16" y2="17" />
+                  <line x1="10" y1="9" x2="8" y2="9" />
+                </svg>
+              </div>
+              <div>
+                <span class={`mce-tag-pill ${item.badgeColor}`}>{item.authorityBadge}</span>
+                <h4 class="mce-quick-card__title">{item.title}</h4>
+                <p class="mce-quick-card__metric">
+                  <svg class="mce-icon-check" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                  </svg>
+                  <span>{item.solutionMetric}</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="mce-quick-card__right">
+              <span class="mce-price-val">₺{item.price}</span>
+              <span class="mce-price-orig">₺{item.originalPrice}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. SEKME: ŞABLONLAR -->
+  <section class="mce-tab-panel hidden" data-tab-panel="sablonlar">
+    <div class="mce-filter-pills" role="tablist">
+      <button type="button" class="mce-filter-pill is-active" data-cat-filter="all">Tüm Sistemler</button>
+      <button type="button" class="mce-filter-pill" data-cat-filter="finans">Finans & Nakit</button>
+      <button type="button" class="mce-filter-pill" data-cat-filter="kobi">KOBİ Yönetim</button>
+      <button type="button" class="mce-filter-pill" data-cat-filter="maliyet">Maliyet & Sanayi</button>
+    </div>
+
+    <div class="mce-template-cards">
+      {TEMPLATE_DATA.map((item) => (
+        <article class="mce-template-card" data-template-id={item.id}>
+          <div class="mce-template-card__head">
+            <div>
+              <span class="mce-category-tag">{item.category}</span>
+              <h3 class="mce-template-card__title">{item.title}</h3>
+            </div>
+            <div class="mce-rating-badge">
+              <svg class="mce-star-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              <span>{item.rating}</span>
+            </div>
+          </div>
+
+          <div class="mce-template-card__body">
+            <div class="mce-risk-row">
+              <span class="mce-dot-rose"></span>
+              <span class="mce-risk-text"><strong>Önlenecek Risk:</strong> {item.painPoint}</span>
+            </div>
+            <div class="mce-value-row">
+              <span class="mce-dot-emerald"></span>
+              <span class="mce-value-text"><strong>Sağlanan Değer:</strong> {item.solutionMetric}</span>
+            </div>
+            <div class="mce-tags-row">
+              {item.tags.map(t => (
+                <span class="mce-tag-item">{t}</span>
+              ))}
+            </div>
+          </div>
+
+          <div class="mce-template-card__foot">
+            <div class="mce-price-box">
+              <div class="mce-price-row">
+                <span class="mce-foot-price">₺{item.price}</span>
+                <span class="mce-foot-orig">₺{item.originalPrice}</span>
+              </div>
+              <span class="mce-foot-hint">
+                <svg class="mce-icon-sparkle-sm" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" />
+                </svg>
+                Anında İndir & Hemen Kullan
+              </span>
+            </div>
+
+            <div class="mce-foot-actions">
+              <button type="button" class="mce-btn-preview" data-open-modal={item.id}>Önizle</button>
+              <a
+                href={item.shopierUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-toast="Ödeme sayfasına yönlendiriliyorsunuz..."
+                class="mce-btn-buy"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                <span>Hemen Al</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- 3. SEKME: ÖZEL SİSTEMLER -->
+  <section class="mce-tab-panel hidden" data-tab-panel="ozel-sistemler">
+    <div class="mce-custom-hero">
+      <span class="mce-custom-hero__pill">Terzi Usulü Finans & Yazılım Mimarisi</span>
+      <h2 class="mce-custom-hero__title">Şirketinizin Tam İhtiyacına Özel Excel & VBA Modeli</h2>
+      <p class="mce-custom-hero__lead">
+        Pahalı ERP paketlerine gerek kalmadan; 17 yıllık bankacılık tecrübesiyle tek tuşla çalışan sisteminizi kuralım.
+      </p>
+    </div>
+
+    <div class="mce-configurator" data-configurator>
+      <div class="mce-configurator__head">
+        <span class="mce-configurator__title">İhtiyaç Konfigüratörü</span>
+        <span class="mce-step-badge" data-step-indicator>Adım 1 / 3</span>
+      </div>
+
+      <!-- ADIM 1 -->
+      <div class="mce-config-step" data-step="1">
+        <span class="mce-step-question">1. İşletmenizin ana ihtiyacı nedir?</span>
+        <div class="mce-options-stack">
+          {[
+            'Nakit Akış, Kredi & Banka Risk Yönetimi',
+            'Üretim Reçetesi & SKDM Birim Maliyet',
+            'KOBİ Gelir-Gider & Satış Dashboard',
+            'Özel VBA Makro / Otomasyon / API'
+          ].map((item) => (
+            <button type="button" class="mce-option-btn" data-need-choice={item}>
+              <span>{item}</span>
+              <span>→</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- ADIM 2 -->
+      <div class="mce-config-step hidden" data-step="2">
+        <span class="mce-step-question">2. Aylık veri/işlem hacminiz:</span>
+        <div class="mce-options-stack">
+          {[
+            'Küçük Ölçek (< 1.000 Satır/Ay)',
+            'Orta Ölçek (1.000 - 50.000 Satır/Ay)',
+            'Büyük Ölçek (50.000+ Satır / Power Query)'
+          ].map((vol) => (
+            <button type="button" class="mce-option-btn" data-volume-choice={vol}>
+              <span>{vol}</span>
+              <span>→</span>
+            </button>
+          ))}
+        </div>
+        <button type="button" class="mce-btn-back" data-step-goto="1">← Önceki Adıma Dön</button>
+      </div>
+
+      <!-- ADIM 3 -->
+      <div class="mce-config-step hidden" data-step="3">
+        <span class="mce-step-question">3. Proje teslim önceliğiniz:</span>
+        <div class="mce-urgency-grid">
+          {['24-48 Saat (Acil)', '3-7 İş Günü', '15 Gün İçinde', 'Aylık Danışmanlık'].map((urg) => (
+            <button type="button" class="mce-urgency-btn" data-urgency-choice={urg}>
+              {urg}
+            </button>
+          ))}
+        </div>
+
+        <div class="mce-summary-box">
+          <span class="mce-summary-kicker">Özet Talep</span>
+          <div class="mce-summary-need" data-summary-need>Nakit Akış, Kredi & Banka Risk Yönetimi</div>
+          <div class="mce-summary-meta" data-summary-meta>Orta Ölçek (1.000 - 50.000 Satır/Ay) • Bu Hafta İçinde</div>
+        </div>
+
+        <a
+          href="/iletisim"
+          data-wa-cta="config-submit"
+          class="mce-btn-wa-submit"
+          data-wa-submit-btn
+        >
+          <svg class="mce-icon-sm" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+          </svg>
+          <span>Teklifi WhatsApp'tan Anında Al</span>
+        </a>
+
+        <button type="button" class="mce-btn-back" data-step-goto="2">← Seçimleri Düzenle</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANLI BOTTOM SHEET MODAL (Önizleme) -->
+  <div class="mce-modal-backdrop hidden" data-modal-backdrop>
+    <div class="mce-modal-sheet" data-modal-sheet>
+      <div class="mce-modal-drag-bar-wrap">
+        <div class="mce-modal-drag-bar"></div>
+        <button type="button" class="mce-modal-close" data-modal-close aria-label="Kapat">✕</button>
+      </div>
+
+      <div>
+        <span class="mce-modal-badge" data-modal-badge>17Y Banka Kredi Standardı</span>
+        <h3 class="mce-modal-title" data-modal-title>13 Haftalık Dinamik Nakit Akım & Likidite Modeli</h3>
+      </div>
+
+      <!-- Simüle Excel Dashboard -->
+      <div class="mce-simulated-dashboard">
+        <div class="mce-dashboard-header">
+          <span class="mce-dash-file">SISTEM_DASHBOARD.XLSX</span>
+          <span class="mce-dash-status">● Korumalı Kod</span>
+        </div>
+        <div class="mce-dash-metrics">
+          <div class="mce-dash-box">
+            <span class="mce-dash-lbl">Kasa Pozisyonu</span>
+            <span class="mce-dash-val mce-text-emerald-bright">₺1.840.000</span>
+          </div>
+          <div class="mce-dash-box">
+            <span class="mce-dash-lbl">Banka DSCR</span>
+            <span class="mce-dash-val mce-text-blue">1.45x</span>
+          </div>
+          <div class="mce-dash-box">
+            <span class="mce-dash-lbl">Risk Puanı</span>
+            <span class="mce-dash-val mce-text-amber">Güvenli</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mce-modal-trust-list">
+        <div class="mce-modal-trust-item">
+          <svg class="mce-icon-check" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+          </svg>
+          <span>17 Yıllık bankacılık ve finans risk denetim standartlarında</span>
+        </div>
+        <div class="mce-modal-trust-item">
+          <svg class="mce-icon-check" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+          </svg>
+          <span>Ödeme sonrası anında dosya indirme linki ve e-posta teslimatı</span>
+        </div>
+      </div>
+
+      <div class="mce-modal-actions">
+        <div>
+          <span class="mce-modal-price" data-modal-price>₺649</span>
+          <span class="mce-modal-orig" data-modal-orig>₺1299</span>
+        </div>
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mce-modal-cta"
+          data-modal-cta
+        >
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span>Hemen İndir ve Başla</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAŞPARMAK SABİT DANIŞMA BARI -->
+  <nav class="mce-thumb-bar">
+    <div>
+      <span class="mce-thumb-sub">17 Yıllık Bankacılık Uzmanlığı</span>
+      <span class="mce-thumb-main">Doğrudan Uzmanla Görüş</span>
+    </div>
+    <a
+      href="/iletisim"
+      data-wa-cta="ask"
+      data-toast="WhatsApp canlı hattı açılıyor..."
+      class="mce-thumb-wa-btn"
+    >
+      <svg class="mce-icon-sm" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+      </svg>
+      <span>WhatsApp ile Sor</span>
+    </a>
+  </nav>
+</div>
+
+<script type="application/json" id="mce-template-data" set:html={JSON.stringify(TEMPLATE_DATA)}></script>
+
+<script>
+  function initMobileCommerceEngine() {
+    const root = document.querySelector<HTMLElement>('[data-mobile-commerce-engine]');
+    if (!root || root.dataset.initialized === 'true') return;
+    root.dataset.initialized = 'true';
+
+    const dataEl = document.getElementById('mce-template-data');
+    const templates = dataEl ? JSON.parse(dataEl.textContent || '[]') : [];
+    const waNumber = root.dataset.waNumber || '905393333303';
+    const waBase = `https://wa.me/${waNumber}?text=`;
+
+    // Connect dynamic WhatsApp links on client mount
+    root.querySelectorAll<HTMLAnchorElement>('[data-wa-cta]').forEach(a => {
+      const type = a.getAttribute('data-wa-cta');
+      if (type === 'support') {
+        a.href = waBase + encodeURIComponent('Merhaba, excelarsiv.com üzerinden danışmanlık almak istiyorum.');
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      } else if (type === 'ask') {
+        a.href = waBase + encodeURIComponent('Merhaba, Excel sistemleri hakkında danışmak istiyorum.');
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      }
+    });
+
+    // Toast
+    const toast = root.querySelector<HTMLElement>('[data-mce-toast]');
+    const toastText = root.querySelector<HTMLElement>('[data-mce-toast-text]');
+    let toastTimeout: any = null;
+
+    function showToast(msg: string) {
+      if (!toast || !toastText) return;
+      toastText.textContent = msg;
+      toast.classList.remove('hidden');
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2800);
+    }
+
+    // Bind generic toast clicks
+    root.querySelectorAll<HTMLElement>('[data-toast]').forEach(el => {
+      el.addEventListener('click', () => {
+        const msg = el.getAttribute('data-toast');
+        if (msg) showToast(msg);
+      });
+    });
+
+    // Tab Switching
+    const tabBtns = root.querySelectorAll<HTMLButtonElement>('[data-tab-btn]');
+    const tabPanels = root.querySelectorAll<HTMLElement>('[data-tab-panel]');
+
+    function switchTab(targetTab: string) {
+      tabBtns.forEach(btn => {
+        const isActive = btn.getAttribute('data-tab-btn') === targetTab;
+        btn.classList.toggle('is-active', isActive);
+        if (isActive) {
+          if (targetTab === 'home') btn.style.background = 'linear-gradient(to right, #2563eb, #4f46e5)';
+          else if (targetTab === 'sablonlar') btn.style.background = 'linear-gradient(to right, #059669, #0d9488)';
+          else btn.style.background = 'linear-gradient(to right, #f59e0b, #ea580c)';
+          btn.style.color = '#ffffff';
+        } else {
+          btn.style.background = 'transparent';
+          btn.style.color = '#475569';
+        }
+      });
+
+      tabPanels.forEach(panel => {
+        const match = panel.getAttribute('data-tab-panel') === targetTab;
+        panel.classList.toggle('hidden', !match);
+      });
+
+      if (targetTab === 'home') showToast('Ana Sayfa');
+      else if (targetTab === 'sablonlar') showToast('Hazır şablonlar açıldı');
+      else if (targetTab === 'ozel-sistemler') showToast('Özel sistem konfigüratörü aktif');
+    }
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-tab-btn');
+        if (tab) switchTab(tab);
+      });
+    });
+
+    root.querySelectorAll<HTMLButtonElement>('[data-switch-tab]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-switch-tab');
+        if (tab) switchTab(tab);
+      });
+    });
+
+    // Category filter in Şablonlar
+    const catPills = root.querySelectorAll<HTMLButtonElement>('[data-cat-filter]');
+    catPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        catPills.forEach(p => p.classList.remove('is-active'));
+        pill.classList.add('is-active');
+        const text = pill.textContent?.trim() || '';
+        showToast(`${text} listelendi`);
+      });
+    });
+
+    // Configurator state
+    let customData = {
+      needType: 'Finansal Modelleme & Nakit Akış',
+      dataVolume: 'Orta Ölçek (1.000 - 50.000 Satır/Ay)',
+      urgency: 'Bu Hafta İçinde'
+    };
+
+    const stepIndicator = root.querySelector<HTMLElement>('[data-step-indicator]');
+    const steps = root.querySelectorAll<HTMLElement>('[data-step]');
+    const summaryNeed = root.querySelector<HTMLElement>('[data-summary-need]');
+    const summaryMeta = root.querySelector<HTMLElement>('[data-summary-meta]');
+    const waSubmitBtn = root.querySelector<HTMLAnchorElement>('[data-wa-submit-btn]');
+
+    function updateWaSubmitLink() {
+      if (!waSubmitBtn) return;
+      const text = `Merhaba, excelarsiv.com üzerinden özel sistem talep ediyorum:\n- Kapsam: ${customData.needType}\n- Hacim: ${customData.dataVolume}\n- Süre: ${customData.urgency}\nMimari değerlendirme ve teklif rica ediyorum.`;
+      waSubmitBtn.href = waBase + encodeURIComponent(text);
+      waSubmitBtn.target = '_blank';
+      waSubmitBtn.rel = 'noopener noreferrer';
+      if (summaryNeed) summaryNeed.textContent = customData.needType;
+      if (summaryMeta) summaryMeta.textContent = `${customData.dataVolume} • ${customData.urgency}`;
+    }
+
+    function gotoStep(stepNum: number) {
+      if (stepIndicator) stepIndicator.textContent = `Adım ${stepNum} / 3`;
+      steps.forEach(s => {
+        const match = s.getAttribute('data-step') === String(stepNum);
+        s.classList.toggle('hidden', !match);
+      });
+      updateWaSubmitLink();
+    }
+
+    root.querySelectorAll<HTMLButtonElement>('[data-need-choice]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const choice = btn.getAttribute('data-need-choice');
+        if (choice) {
+          customData.needType = choice;
+          gotoStep(2);
+          showToast(`Seçildi: ${choice}`);
+        }
+      });
+    });
+
+    root.querySelectorAll<HTMLButtonElement>('[data-volume-choice]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const choice = btn.getAttribute('data-volume-choice');
+        if (choice) {
+          customData.dataVolume = choice;
+          gotoStep(3);
+          showToast(`Hacim: ${choice}`);
+        }
+      });
+    });
+
+    root.querySelectorAll<HTMLButtonElement>('[data-urgency-choice]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const choice = btn.getAttribute('data-urgency-choice');
+        if (choice) {
+          customData.urgency = choice;
+          root.querySelectorAll('[data-urgency-choice]').forEach(b => b.classList.remove('is-selected'));
+          btn.classList.add('is-selected');
+          updateWaSubmitLink();
+          showToast(`Süre: ${choice}`);
+        }
+      });
+    });
+
+    root.querySelectorAll<HTMLButtonElement>('[data-step-goto]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const s = parseInt(btn.getAttribute('data-step-goto') || '1', 10);
+        gotoStep(s);
+      });
+    });
+
+    if (waSubmitBtn) {
+      waSubmitBtn.addEventListener('click', () => {
+        showToast('WhatsApp teklif akışı başlatıldı');
+      });
+    }
+
+    // Modal Preview
+    const modalBackdrop = root.querySelector<HTMLElement>('[data-modal-backdrop]');
+    const modalClose = root.querySelector<HTMLElement>('[data-modal-close]');
+    const modalBadge = root.querySelector<HTMLElement>('[data-modal-badge]');
+    const modalTitle = root.querySelector<HTMLElement>('[data-modal-title]');
+    const modalPrice = root.querySelector<HTMLElement>('[data-modal-price]');
+    const modalOrig = root.querySelector<HTMLElement>('[data-modal-orig]');
+    const modalCta = root.querySelector<HTMLAnchorElement>('[data-modal-cta]');
+
+    function openModal(id: string) {
+      const item = templates.find((t: any) => t.id === id);
+      if (!item || !modalBackdrop) return;
+
+      if (modalBadge) {
+        modalBadge.textContent = item.authorityBadge;
+        modalBadge.className = `mce-modal-badge ${item.badgeColor}`;
+      }
+      if (modalTitle) modalTitle.textContent = item.title;
+      if (modalPrice) modalPrice.textContent = `₺${item.price}`;
+      if (modalOrig) modalOrig.textContent = `₺${item.originalPrice}`;
+      if (modalCta) {
+        modalCta.href = item.shopierUrl || `https://www.shopier.com/49652321`;
+      }
+
+      modalBackdrop.classList.remove('hidden');
+      showToast(`${item.title} önizlemesi açıldı`);
+    }
+
+    function closeModal() {
+      if (modalBackdrop) modalBackdrop.classList.add('hidden');
+    }
+
+    root.querySelectorAll<HTMLElement>('[data-open-modal]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = el.getAttribute('data-open-modal');
+        if (id) openModal(id);
+      });
+    });
+
+    if (modalClose) {
+      modalClose.addEventListener('click', closeModal);
+    }
+    if (modalBackdrop) {
+      modalBackdrop.addEventListener('click', (e) => {
+        if (e.target === modalBackdrop) closeModal();
+      });
+    }
+
+    // Set initial tab styling
+    const initial = root.dataset.initialTab || 'home';
+    switchTab(initial);
+    updateWaSubmitLink();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileCommerceEngine);
+  } else {
+    initMobileCommerceEngine();
+  }
+</script>
+
+<style>
+  /* SADECE MOBİL TARAF İÇİN AKTİF (Desktop: display none) */
+  .mobile-commerce-engine-root {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-commerce-engine-root {
+      display: block;
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: #ffffff;
+      color: #0f172a;
+      font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+      position: relative;
+      padding-bottom: 120px;
+      -webkit-font-smoothing: antialiased;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+
+    .mce-toast {
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      right: 16px;
+      max-width: 380px;
+      margin: 0 auto;
+      z-index: 9999;
+      background: #020617;
+      color: #ffffff;
+      padding: 10px 14px;
+      border-radius: 16px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(16, 185, 129, 0.6);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: mceFadeIn .2s ease both;
+    }
+    .mce-toast__icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #10b981;
+      color: #020617;
+      font-weight: 900;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .mce-toast__text {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    /* HEADER */
+    .mce-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #f1f5f9;
+      padding: 10px 16px 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .mce-header__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .mce-header__brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .mce-header__avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #059669, #0d9488, #10b981);
+      color: #fff;
+      font-weight: 900;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(5, 150, 105, 0.25);
+    }
+    .mce-header__titles {
+      display: flex;
+      flex-direction: column;
+    }
+    .mce-header__name-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .mce-header__name {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      line-height: 1;
+    }
+    .mce-text-emerald { color: #059669; }
+    .mce-badge-pro {
+      background: #d1fae5;
+      color: #065f46;
+      font-size: 9px;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 999px;
+    }
+    .mce-header__subtitle {
+      font-size: 10px;
+      color: #64748b;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .mce-btn-live-support {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(to right, #059669, #0d9488);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(5, 150, 105, 0.25);
+      transition: transform .15s ease;
+    }
+    .mce-btn-live-support:active { transform: scale(0.95); }
+
+    .mce-nav-segments {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+    }
+    .mce-segment-btn {
+      padding: 8px 0;
+      font-size: 12px;
+      font-weight: 800;
+      border-radius: 12px;
+      border: none;
+      background: transparent;
+      color: #475569;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .mce-segment-btn.is-active {
+      background: linear-gradient(to right, #2563eb, #4f46e5);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      transform: scale(1.02);
+    }
+
+    /* TAB CONTENT */
+    .mce-tab-panel {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mce-tab-panel.hidden { display: none !important; }
+
+    /* HERO CARD */
+    .mce-hero-card {
+      background: linear-gradient(135deg, #1d4ed8 0%, #3730a3 50%, #0f172a 100%);
+      padding: 18px;
+      border-radius: 24px;
+      color: #ffffff;
+      box-shadow: 0 20px 25px -5px rgba(30, 27, 75, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .mce-hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fbbf24;
+      color: #020617;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 10px;
+    }
+    .mce-icon-sparkle { width: 15px; height: 15px; color: #d97706; }
+    .mce-hero-title {
+      margin: 0;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.22;
+      color: #ffffff;
+    }
+    .mce-hero-highlight {
+      color: #34d399;
+      text-decoration: underline;
+      text-decoration-color: #fbbf24;
+    }
+    .mce-hero-lead {
+      margin: 8px 0 0;
+      font-size: 12px;
+      color: #e0e7ff;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+    .mce-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .mce-stat-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+      padding: 8px 4px;
+      border-radius: 14px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .mce-stat-val {
+      display: block;
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .mce-text-amber { color: #fcd34d; }
+    .mce-text-emerald-bright { color: #34d399; }
+    .mce-text-white { color: #ffffff; }
+    .mce-stat-lbl {
+      display: block;
+      font-size: 9px;
+      color: #e0e7ff;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    .mce-hero-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .mce-hero-btn-primary {
+      background: #34d399;
+      color: #020617;
+      font-weight: 900;
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: 12px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      cursor: pointer;
+      box-shadow: 0 10px 15px -3px rgba(52, 211, 153, 0.3);
+      transition: transform .15s ease;
+    }
+    .mce-hero-btn-primary:active { transform: scale(0.95); }
+    .mce-hero-btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* AUTHORITY CARD */
+    .mce-authority-card {
+      background: linear-gradient(to right, #fffbeb, #ffffff, #fffbeb);
+      border: 2px solid #fde68a;
+      padding: 14px;
+      border-radius: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .mce-authority-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 11px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+    }
+    .mce-authority-heading {
+      margin: 0;
+      font-size: 12.5px;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+    .mce-authority-text {
+      margin: 4px 0 0;
+      font-size: 11px;
+      color: #334155;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+
+    /* QUICK LIST */
+    .mce-quick-list-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4px;
+      margin-bottom: 8px;
+    }
+    .mce-section-kicker {
+      font-size: 11px;
+      font-weight: 900;
+      color: #334155;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .mce-quick-link {
+      font-size: 11px;
+      color: #059669;
+      font-weight: 900;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .mce-quick-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .mce-quick-card {
+      background: #ffffff;
+      border: 2px solid #f1f5f9;
+      padding: 12px 14px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+    .mce-quick-card:active {
+      border-color: #10b981;
+      transform: scale(0.98);
+      box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.12);
+    }
+    .mce-quick-card__left {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-width: 0;
+    }
+    .mce-quick-card__icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .mce-tag-pill {
+      font-size: 9px;
+      font-weight: 900;
+      padding: 2px 8px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+    .bg-blue-600 { background: #2563eb; color: #ffffff; }
+    .bg-emerald-600 { background: #059669; color: #ffffff; }
+    .bg-amber-600 { background: #d97706; color: #ffffff; }
+    .mce-quick-card__title {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.25;
+    }
+    .mce-quick-card__metric {
+      margin: 3px 0 0;
+      font-size: 11px;
+      color: #047857;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .mce-icon-check { width: 14px; height: 14px; color: #059669; flex-shrink: 0; }
+    .mce-quick-card__right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .mce-price-val {
+      display: block;
+      font-size: 14px;
+      font-weight: 900;
+      color: #059669;
+    }
+    .mce-price-orig {
+      display: block;
+      font-size: 10px;
+      color: #94a3b8;
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+
+    /* TAB 2: ŞABLONLAR */
+    .mce-filter-pills {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .mce-filter-pills::-webkit-scrollbar { display: none; }
+    .mce-filter-pill {
+      padding: 6px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      font-size: 11.5px;
+      font-weight: 900;
+      border: 2px solid #e2e8f0;
+      background: #ffffff;
+      color: #334155;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .mce-filter-pill.is-active {
+      background: linear-gradient(to right, #059669, #0d9488);
+      border-color: transparent;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+      transform: scale(1.04);
+    }
+    .mce-template-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .mce-template-card {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+    .mce-template-card__head {
+      padding: 14px 16px;
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .mce-category-tag {
+      font-size: 10px;
+      font-weight: 900;
+      color: #4338ca;
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      padding: 2px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    .mce-template-card__title {
+      margin: 6px 0 0;
+      font-size: 13.5px;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.25;
+    }
+    .mce-rating-badge {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      color: #78350f;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 11.5px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .mce-star-icon { width: 13px; height: 13px; color: #f59e0b; }
+    .mce-template-card__body {
+      padding: 14px 16px;
+      background: linear-gradient(to bottom, #f8fafc, #ffffff);
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mce-risk-row {
+      color: #881337;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff1f2;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid #fecdd3;
+    }
+    .mce-dot-rose {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #f43f5e;
+      flex-shrink: 0;
+    }
+    .mce-risk-text, .mce-value-text {
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .mce-value-row {
+      color: #064e3b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #ecfdf5;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid #a7f3d0;
+    }
+    .mce-dot-emerald {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #10b981;
+      flex-shrink: 0;
+    }
+    .mce-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 4px;
+    }
+    .mce-tag-item {
+      font-size: 10px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #1e293b;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 8px;
+    }
+    .mce-template-card__foot {
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+    }
+    .mce-price-box {
+      display: flex;
+      flex-direction: column;
+    }
+    .mce-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .mce-foot-price {
+      font-size: 18px;
+      font-weight: 900;
+      color: #0f172a;
+    }
+    .mce-foot-orig {
+      font-size: 12px;
+      color: #94a3b8;
+      text-decoration: line-through;
+      font-weight: 700;
+    }
+    .mce-foot-hint {
+      font-size: 10px;
+      color: #059669;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 2px;
+    }
+    .mce-icon-sparkle-sm { width: 13px; height: 13px; color: #059669; }
+    .mce-foot-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .mce-btn-preview {
+      background: #f1f5f9;
+      color: #1e293b;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 10px 14px;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    .mce-btn-buy {
+      background: linear-gradient(to right, #059669, #0d9488);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 10px 16px;
+      border-radius: 16px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.3);
+      transition: transform .15s ease;
+    }
+    .mce-btn-buy:active { transform: scale(0.95); }
+
+    /* TAB 3: ÖZEL SİSTEMLER */
+    .mce-custom-hero {
+      background: linear-gradient(135deg, #f59e0b 0%, #ea580c 50%, #b45309 100%);
+      padding: 18px;
+      border-radius: 24px;
+      color: #ffffff;
+      box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.2);
+    }
+    .mce-custom-hero__pill {
+      font-size: 10px;
+      font-weight: 900;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 2px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      display: inline-block;
+    }
+    .mce-custom-hero__title {
+      margin: 8px 0 0;
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1.25;
+      color: #ffffff;
+    }
+    .mce-custom-hero__lead {
+      margin: 6px 0 0;
+      font-size: 12px;
+      color: #fef3c7;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+    .mce-configurator {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      padding: 16px;
+      border-radius: 24px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .mce-configurator__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .mce-configurator__title {
+      font-size: 12.5px;
+      font-weight: 900;
+      color: #0f172a;
+    }
+    .mce-step-badge {
+      font-size: 11px;
+      font-weight: 900;
+      color: #78350f;
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      padding: 2px 10px;
+      border-radius: 999px;
+    }
+    .mce-step-question {
+      font-size: 12px;
+      font-weight: 900;
+      color: #1e293b;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .mce-options-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mce-option-btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 12px;
+      text-align: left;
+      border-radius: 16px;
+      border: 2px solid #e2e8f0;
+      background: #f8fafc;
+      color: #334155;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .mce-option-btn:hover, .mce-option-btn:active {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+      font-weight: 900;
+      box-shadow: 0 4px 10px rgba(245, 158, 11, 0.15);
+    }
+    .mce-urgency-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .mce-urgency-btn {
+      padding: 12px;
+      font-size: 12px;
+      text-align: center;
+      border-radius: 16px;
+      border: 2px solid #e2e8f0;
+      background: #f8fafc;
+      color: #334155;
+      font-weight: 900;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .mce-urgency-btn.is-selected {
+      background: #f59e0b;
+      border-color: #d97706;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+    }
+    .mce-summary-box {
+      background: #f8fafc;
+      padding: 14px;
+      border-radius: 16px;
+      border: 2px solid #e2e8f0;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .mce-summary-kicker {
+      font-size: 10px;
+      color: #64748b;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      display: block;
+    }
+    .mce-summary-need {
+      font-weight: 900;
+      color: #0f172a;
+      margin-top: 4px;
+    }
+    .mce-summary-meta {
+      color: #475569;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .mce-btn-wa-submit {
+      width: 100%;
+      background: linear-gradient(to right, #059669, #0d9488);
+      color: #ffffff;
+      font-weight: 900;
+      padding: 14px;
+      border-radius: 16px;
+      font-size: 12.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 20px -3px rgba(5, 150, 105, 0.3);
+      margin-top: 10px;
+      transition: transform .15s ease;
+    }
+    .mce-btn-wa-submit:active { transform: scale(0.96); }
+    .mce-btn-back {
+      font-size: 11.5px;
+      color: #64748b;
+      background: none;
+      border: none;
+      font-weight: 700;
+      padding: 6px 0;
+      cursor: pointer;
+      display: block;
+      margin-top: 6px;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* BOTTOM SHEET MODAL */
+    .mce-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(2, 6, 23, 0.7);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: flex-end;
+      animation: mceFadeIn .2s ease both;
+    }
+    .mce-modal-backdrop.hidden { display: none !important; }
+    .mce-modal-sheet {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-top-left-radius: 28px;
+      border-top-right-radius: 28px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 -20px 25px -5px rgba(0, 0, 0, 0.2);
+      border-top: 1px solid #e2e8f0;
+      animation: mceSlideUp .22s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    .mce-modal-drag-bar-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .mce-modal-drag-bar {
+      width: 48px;
+      height: 5px;
+      background: #cbd5e1;
+      border-radius: 999px;
+      margin: 0 auto;
+    }
+    .mce-modal-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #475569;
+      border: none;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mce-modal-badge {
+      font-size: 10px;
+      font-weight: 900;
+      padding: 2px 8px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+    .mce-modal-title {
+      margin: 4px 0 0;
+      font-size: 15.5px;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.25;
+    }
+    .mce-simulated-dashboard {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid #1e293b;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mce-dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      font-family: var(--font-mono, monospace);
+    }
+    .mce-dash-file { color: #34d399; font-weight: 800; }
+    .mce-dash-status { color: #f59e0b; font-weight: 800; }
+    .mce-dash-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      text-align: center;
+    }
+    .mce-dash-box {
+      background: #1e293b;
+      padding: 8px 4px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+    .mce-dash-lbl {
+      display: block;
+      font-size: 9px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+    .mce-dash-val {
+      display: block;
+      font-size: 12px;
+      font-weight: 900;
+      margin-top: 2px;
+    }
+    .mce-text-blue { color: #60a5fa; }
+    .mce-modal-trust-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 11.5px;
+    }
+    .mce-modal-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #1e293b;
+      font-weight: 700;
+      background: #ecfdf5;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid #a7f3d0;
+    }
+    .mce-modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 8px;
+      border-top: 1px solid #f1f5f9;
+    }
+    .mce-modal-price {
+      display: block;
+      font-size: 18px;
+      font-weight: 900;
+      color: #0f172a;
+    }
+    .mce-modal-orig {
+      display: block;
+      font-size: 10.5px;
+      color: #94a3b8;
+      text-decoration: line-through;
+      font-weight: 700;
+    }
+    .mce-modal-cta {
+      flex: 1;
+      background: linear-gradient(to right, #059669, #0d9488);
+      color: #ffffff;
+      font-weight: 900;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 12.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      box-shadow: 0 10px 20px -3px rgba(5, 150, 105, 0.4);
+      transition: transform .15s ease;
+    }
+    .mce-modal-cta:active { transform: scale(0.96); }
+
+    /* THUMB BAR */
+    .mce-thumb-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 480px;
+      margin: 0 auto;
+      z-index: 30;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid #e2e8f0;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.06);
+    }
+    .mce-thumb-sub {
+      font-size: 10px;
+      color: #64748b;
+      display: block;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    .mce-thumb-main {
+      font-size: 12px;
+      font-weight: 900;
+      color: #0f172a;
+    }
+    .mce-thumb-wa-btn {
+      background: linear-gradient(to right, #059669, #0d9488);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 12px;
+      padding: 8px 16px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+      transition: transform .15s ease;
+    }
+    .mce-thumb-wa-btn:active { transform: scale(0.95); }
+    .mce-icon-sm { width: 16px; height: 16px; }
+
+    @keyframes mceFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes mceSlideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+  }
+</style>
