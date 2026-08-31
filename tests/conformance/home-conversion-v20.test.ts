@@ -19,6 +19,8 @@ test('homepage conversion V20 preserves transparent dual-path persuasion', () =>
   assert.match(script, /home_custom_system_deep/);
   assert.match(script, /home_custom_whatsapp/);
   assert.match(script, /905393333303/);
-  assert.doesNotMatch(script, /905419305372/);
+  const retiredMentions = script.match(/905419305372/g) ?? [];
+  assert.equal(retiredMentions.length, 1, 'retired number may appear only in the fail-closed detector');
+  assert.match(script, /html\.includes\('905419305372'\).*retired WhatsApp number resurfaced/);
   assert.doesNotMatch(script, /stokta son|son \d+|geri sayım|sadece bugün/i);
 });
