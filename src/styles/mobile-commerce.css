@@ -1,64 +1,100 @@
-/* Mobile commerce base layer — component-specific responsive behavior lives with each scene. */
+/* Mobile commerce premium foundation — shared across the storefront. */
 @media (max-width: 720px) {
-  html { scroll-behavior: smooth; }
+  :root {
+    --mobile-gutter: 14px;
+    --mobile-radius: 22px;
+    --mobile-shadow: 0 14px 38px rgba(15, 23, 42, .09);
+    --mobile-border: #dfe6e2;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: #fff;
+  }
+
   body {
-    overflow-x: hidden;
-    padding-bottom: calc(68px + env(safe-area-inset-bottom));
+    overflow-x: clip;
+    padding-bottom: calc(86px + env(safe-area-inset-bottom));
+    -webkit-text-size-adjust: 100%;
+  }
+
+  button,
+  a,
+  summary,
+  input,
+  select {
+    -webkit-tap-highlight-color: transparent;
   }
 
   .site-container,
   .container-site {
-    width: calc(100% - 32px) !important;
+    width: calc(100% - (var(--mobile-gutter) * 2)) !important;
     max-width: none !important;
     margin-inline: auto !important;
   }
 
   .site-section,
   .site-section--alt {
-    padding-block: 42px !important;
+    padding-block: 48px !important;
   }
 
   .section-head {
-    margin-bottom: 22px !important;
+    margin-bottom: 24px !important;
   }
 
   .section-head--row {
     align-items: flex-start !important;
-    gap: 10px !important;
+    gap: 12px !important;
   }
 
   .section-head__kicker {
-    font-size: 12.5px !important;
-    letter-spacing: .08em !important;
+    font-size: 12px !important;
+    letter-spacing: .09em !important;
   }
 
   .section-head__title {
     margin-top: 8px !important;
-    font-size: 29px !important;
-    line-height: 1.04 !important;
-    letter-spacing: -.035em !important;
+    max-width: 18ch;
+    font-size: clamp(29px, 8vw, 36px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -.04em !important;
+    text-wrap: balance;
   }
 
   .section-head__lead {
-    margin-top: 10px !important;
-    max-width: 100% !important;
-    font-size: 13px !important;
-    line-height: 1.5 !important;
+    margin-top: 12px !important;
+    max-width: 38ch !important;
+    font-size: 15px !important;
+    line-height: 1.62 !important;
+    color: #586579 !important;
   }
 
   .section-head__link {
-    font-size: 12.5px !important;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px !important;
+    font-weight: 800 !important;
     white-space: nowrap;
+  }
+
+  /* Premium mobile card baseline. Component-specific colors remain local. */
+  .premium-card,
+  .product-card,
+  .decision-card,
+  .template-card {
+    border-radius: var(--mobile-radius) !important;
+  }
+
+  details > summary {
+    min-height: 48px;
   }
 }
 
 @media (max-width: 390px) {
-  .site-container,
-  .container-site {
-    width: calc(100% - 24px) !important;
-  }
+  :root { --mobile-gutter: 12px; }
 
   .section-head__title {
-    font-size: 27px !important;
+    font-size: 29px !important;
   }
 }

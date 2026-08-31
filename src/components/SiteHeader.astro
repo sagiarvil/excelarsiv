@@ -19,15 +19,11 @@ const menu = [
 const isActive = (href: string) =>
   href === '/sablonlar' ? pathname.startsWith('/sablon') : pathname === href;
 
-// Kritik performans kuralı: mobil fallback hiçbir koşulda 785 KB PNG olamaz.
-// Chromium preload scanner <img src> değerini <picture> media seçimi tamamlanmadan
-// aday olarak indirebildiği için hafif inline SVG fallback'te tutulur; ağır marka
-// görseli yalnızca masaüstü source eşleştiğinde istenir.
 const mobileBrandMark =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230b7440'/%3E%3Cpath d='M11 10h18v20H11z' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M15 15l10 10M25 15L15 25' stroke='%23fff' stroke-width='2.7' stroke-linecap='round'/%3E%3C/svg%3E";
 ---
 
-<header class="site-header">
+<header class="site-header" data-mobile-premium-header>
   <div class="site-container site-header__inner">
     <a href="/" class="site-header__brand" aria-label="Excel Arşiv ana sayfa">
       <picture class="site-header__logo-wrap">
@@ -67,15 +63,24 @@ const mobileBrandMark =
     </nav>
 
     <div class="site-header__actions">
-      <a class="site-header__cta" href="/sablonlar">
+      <a class="site-header__cta" href="/sablonlar" data-cta="header_systems" data-location="header">
         <span class="site-header__cta-desktop">Sistemleri İncele</span>
-        <span class="site-header__cta-mobile">Sistemler</span>
+        <span class="site-header__cta-mobile">Sistem Bul</span>
       </a>
       <details class="site-header__menu">
         <summary aria-label="Menüyü aç"><span></span><span></span><span></span></summary>
-        <nav class="site-header__mobile-nav" aria-label="Mobil menü">
-          {menu.map((item) => <a href={item.href}>{item.label}</a>)}
-        </nav>
+        <div class="site-header__mobile-sheet">
+          <div class="site-header__mobile-sheet-head">
+            <div><strong>Excel Arşiv</strong><span>İhtiyacınızı seçin, doğru sisteme gidin.</span></div>
+          </div>
+          <div class="site-header__mobile-primary">
+            <a href="/sablonlar" data-cta="mobile_menu_ready" data-location="mobile_menu"><strong>Hazır sistemler</strong><span>İncele · demo · satın al</span></a>
+            <a href="/ozel-excel-sistemleri" data-cta="mobile_menu_custom" data-location="mobile_menu"><strong>Size özel sistem</strong><span>İşletmenize göre kuralım</span></a>
+          </div>
+          <nav class="site-header__mobile-nav" aria-label="Mobil menü">
+            {menu.slice(2).map((item) => <a href={item.href}>{item.label}<span aria-hidden="true">→</span></a>)}
+          </nav>
+        </div>
       </details>
     </div>
   </div>
@@ -105,149 +110,58 @@ const mobileBrandMark =
     text-decoration: none;
     flex-shrink: 0;
   }
-  .site-header__logo-wrap {
-    display: block;
-    width: 40px;
-    height: 40px;
-    flex: none;
-  }
-  .site-header__logo {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    display: block;
-    flex: none;
-  }
-  .site-header__brand-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.15;
-  }
-  .site-header__wordmark {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    color: var(--xl-ink-900);
-    white-space: nowrap;
-  }
-  .site-header__tagline {
-    font-size: 9px;
-    letter-spacing: 0.02em;
-    color: var(--xl-ink-3);
-  }
-  .site-header__nav {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-inline: auto;
-  }
-  .site-header__link {
-    padding: 9px 9px;
-    border-radius: 9px;
-    font-size: 13px;
-    font-weight: 550;
-    color: var(--xl-ink-3);
-    text-decoration: none;
-    transition: color 150ms ease-out, background 150ms ease-out;
-  }
-  .site-header__link:hover,
-  .site-header__link.is-active {
-    color: var(--xl-green-dark);
-    background: var(--xl-accent-soft);
-  }
-  .site-header__actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-  }
-  .site-header__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 42px;
-    padding-inline: 16px;
-    border-radius: 11px;
-    background: var(--xl-green);
-    color: #fff;
-    font-family: var(--font-mono);
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: none;
-  }
-  .site-header__cta:hover { background: var(--xl-accent-dark); }
-  .site-header__cta-mobile,
-  .site-header__menu { display: none; }
+  .site-header__logo-wrap { display:block;width:40px;height:40px;flex:none; }
+  .site-header__logo { width:40px;height:40px;object-fit:contain;display:block;flex:none; }
+  .site-header__brand-text { display:flex;flex-direction:column;line-height:1.15; }
+  .site-header__wordmark { font-family:var(--font-display);font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--xl-ink-900);white-space:nowrap; }
+  .site-header__tagline { font-size:9px;letter-spacing:.02em;color:var(--xl-ink-3); }
+  .site-header__nav { display:flex;align-items:center;gap:4px;margin-inline:auto; }
+  .site-header__link { padding:9px;border-radius:9px;font-size:13px;font-weight:550;color:var(--xl-ink-3);text-decoration:none;transition:color 150ms ease-out,background 150ms ease-out; }
+  .site-header__link:hover,.site-header__link.is-active { color:var(--xl-green-dark);background:var(--xl-accent-soft); }
+  .site-header__actions { display:flex;align-items:center;gap:8px;flex-shrink:0; }
+  .site-header__cta { display:inline-flex;align-items:center;justify-content:center;height:42px;padding-inline:16px;border-radius:11px;background:var(--xl-green);color:#fff;font-family:var(--font-mono);font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 8px 20px rgba(11,116,64,.14); }
+  .site-header__cta:hover { background:var(--xl-accent-dark); }
+  .site-header__cta-mobile,.site-header__menu { display:none; }
 
   @media (max-width: 1020px) {
-    .site-header__nav { display: none; }
-    .site-header__menu { display: block; position: relative; }
-    .site-header__menu summary {
-      display: grid;
-      place-content: center;
-      gap: 4px;
-      width: 38px;
-      height: 38px;
-      border: 1px solid var(--xl-border);
-      border-radius: 10px;
-      background: #fff;
-      cursor: pointer;
-      list-style: none;
-    }
-    .site-header__menu summary::-webkit-details-marker { display: none; }
-    .site-header__menu summary span {
-      display: block;
-      width: 16px;
-      height: 1.5px;
-      background: var(--xl-ink-900);
-      border-radius: 2px;
-    }
-    .site-header__mobile-nav {
-      position: absolute;
-      top: 46px;
-      right: 0;
-      display: grid;
-      min-width: 220px;
-      padding: 8px;
-      border: 1px solid var(--xl-border);
-      border-radius: 14px;
-      background: #fff;
-      box-shadow: 0 18px 48px rgba(24, 55, 38, 0.16);
-    }
-    .site-header__mobile-nav a {
-      padding: 11px 12px;
-      border-radius: 9px;
-      color: var(--xl-ink-900);
-      font-size: 13px;
-      text-decoration: none;
-    }
-    .site-header__mobile-nav a:hover { background: var(--xl-accent-soft); }
+    .site-header__nav { display:none; }
+    .site-header__menu { display:block;position:relative; }
+    .site-header__menu summary { display:grid;place-content:center;gap:4px;width:40px;height:40px;border:1px solid var(--xl-border);border-radius:12px;background:#fff;cursor:pointer;list-style:none;box-shadow:0 4px 14px rgba(15,23,42,.05); }
+    .site-header__menu summary::-webkit-details-marker { display:none; }
+    .site-header__menu summary span { display:block;width:17px;height:1.7px;background:var(--xl-ink-900);border-radius:2px; }
+    .site-header__mobile-sheet { position:absolute;top:50px;right:0;width:min(390px,calc(100vw - 24px));padding:12px;border:1px solid #dce5df;border-radius:22px;background:rgba(255,255,255,.99);box-shadow:0 26px 70px rgba(15,23,42,.18);backdrop-filter:blur(18px); }
+    .site-header__mobile-sheet-head { padding:7px 7px 12px; }
+    .site-header__mobile-sheet-head strong { display:block;color:#0f172a;font-size:16px;line-height:1.2; }
+    .site-header__mobile-sheet-head span { display:block;margin-top:4px;color:#64748b;font-size:12px;line-height:1.4; }
+    .site-header__mobile-primary { display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px; }
+    .site-header__mobile-primary a { min-width:0;display:flex;flex-direction:column;justify-content:center;min-height:78px;padding:13px;border-radius:16px;text-decoration:none;border:1px solid #d9e5dd;background:#f7fbf8;color:#0f5130; }
+    .site-header__mobile-primary a:nth-child(2) { border-color:#dbe2ef;background:#f7f9fd;color:#172033; }
+    .site-header__mobile-primary strong { font-size:14px;line-height:1.2; }
+    .site-header__mobile-primary span { margin-top:5px;font-size:11px;line-height:1.35;opacity:.72; }
+    .site-header__mobile-nav { display:grid;border-top:1px solid #edf1ee;padding-top:7px; }
+    .site-header__mobile-nav a { min-height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;border-radius:11px;color:var(--xl-ink-900);font-size:14px;font-weight:650;text-decoration:none; }
+    .site-header__mobile-nav a:hover { background:var(--xl-accent-soft); }
+    .site-header__mobile-nav a span { color:#8a958e; }
   }
 
   @media (max-width: 640px) {
-    .site-header__inner {
-      min-height: 56px;
-      gap: 10px;
-    }
-    .site-header__logo-wrap,
-    .site-header__logo { width: 32px; height: 32px; }
-    .site-header__wordmark { font-size: 16px; }
-    .site-header__cta {
-      min-height: 36px;
-      height: 36px;
-      padding-inline: 11px;
-      font-size: 12px;
-    }
-    .site-header__cta-desktop { display: none; }
-    .site-header__cta-mobile { display: inline; }
-    .site-header__tagline { display: none; }
-    .site-header__menu summary { width: 36px; height: 36px; }
+    .site-header { border-bottom-color:#e6ece8;box-shadow:0 5px 18px rgba(15,23,42,.035); }
+    .site-header__inner { min-height:60px;gap:8px; }
+    .site-header__logo-wrap,.site-header__logo { width:34px;height:34px; }
+    .site-header__wordmark { font-size:16px;letter-spacing:-.025em; }
+    .site-header__tagline { display:none; }
+    .site-header__cta { min-height:40px;height:40px;padding-inline:13px;border-radius:12px;font-size:12px; }
+    .site-header__cta-desktop { display:none; }
+    .site-header__cta-mobile { display:inline; }
+    .site-header__menu summary { width:40px;height:40px; }
+    .site-header__mobile-sheet { position:fixed;top:68px;left:12px;right:12px;width:auto;max-height:calc(100dvh - 92px);overflow:auto; }
   }
 
-  @media (max-width: 420px) {
-    .site-header__wordmark { font-size: 15px; }
-    .site-header__brand { gap: 7px; }
-    .site-header__cta { padding-inline: 9px; }
+  @media (max-width: 390px) {
+    .site-header__wordmark { font-size:15px; }
+    .site-header__brand { gap:7px; }
+    .site-header__cta { padding-inline:11px; }
+    .site-header__mobile-primary { grid-template-columns:1fr; }
+    .site-header__mobile-primary a { min-height:66px; }
   }
 </style>
