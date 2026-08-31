@@ -30,11 +30,18 @@ test('homepage conversion V20 preserves Size Özel funnel while restoring the or
   assert.match(hero, /class="hero-mobile-copy"/);
   assert.match(hero, /srcset="\/images\/hero\.jpg"/);
   assert.match(hero, /aspect-ratio:\s*3\s*\/\s*1/);
+  assert.match(hero, /İşletmeler İçin Finansal Karar ve Excel Sistemleri/);
+  assert.match(hero, /Hazır Finansal Sistemleri İnceleyin/);
+  assert.match(hero, /İşletmenize Özel Sistem Kuralım/);
+  assert.match(hero, /class="hero-route-actions"/);
+  assert.match(hero, /home_ready_systems/);
+  assert.match(hero, /home_custom_system/);
   assert.doesNotMatch(hero, /class="hero-panel"/);
   assert.doesNotMatch(hero, /class="hero-copy"/);
 
   assert.match(script, /home-original-hero-v21-css/);
   assert.match(script, /original homepage hero contract missing/);
+  assert.match(script, /dual hero CTA contract missing/);
   assert.match(script, /redesigned split hero leaked back into homepage/);
   assert.match(script, /deceptive urgency language detected/);
   assert.match(script, /\.test\(html\)/);
