@@ -91,6 +91,35 @@
   }
 }
 
+/* Mobile Header Menu Backdrop & Frictionless Sheet Isolation */
+@media (max-width: 1020px) {
+  .site-header__menu[open]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 85;
+    pointer-events: auto;
+  }
+
+  .site-header__menu[open] .site-header__mobile-sheet {
+    z-index: 95 !important;
+    background: #ffffff !important;
+    border: 1px solid #dce5df !important;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.28) !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}
+
 @media (max-width: 390px) {
   :root { --mobile-gutter: 12px; }
 
