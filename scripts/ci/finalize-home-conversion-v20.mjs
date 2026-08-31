@@ -19,12 +19,6 @@ const waHref = `https://wa.me/${WA_PHONE}?text=${waText}`;
 
 if (!html.includes('data-home-conversion-v20')) html = html.replace(/<body\b([^>]*)>/u, '<body$1 data-home-conversion-v20>');
 
-if (!html.includes('class="hero-decision-note-v20"')) {
-  const anchor = '<nav class="hero-chips"';
-  if (!html.includes(anchor)) throw new Error('HOME CONVERSION V20: hero chips anchor missing');
-  html = html.replace(anchor, `<div class="hero-decision-note-v20" aria-label="Çözüm seçimi rehberi"><span><b>Hazır sistem</b> · standart ihtiyacı hemen çözün</span><span><b>Size özel</b> · süreci dosyaya değil, sistemi sürecinize uydurun</span></div>\n        ${anchor}`);
-}
-
 const customBuild = `
 <section class="custom-build custom-build-v20" data-experience-stage aria-labelledby="custom-build-v20-title">
   <div class="home-shell custom-build-v20__shell">
@@ -70,10 +64,10 @@ html = html.replace(customPattern, customBuild);
 
 if (!html.includes('id="home-conversion-v20-css"')) html = html.replace('</head>', `<style id="home-conversion-v20-css">${css}</style>\n</head>`);
 
-for (const token of ['data-home-conversion-v20','hero-decision-note-v20','custom-build-v20','home_custom_system_deep','home_custom_whatsapp',WA_PHONE]) {
+for (const token of ['data-home-conversion-v20','custom-build-v20','home_custom_system_deep','home_custom_whatsapp',WA_PHONE]) {
   if (!html.includes(token)) throw new Error(`HOME CONVERSION V20: required token missing: ${token}`);
 }
 if (/stokta son|geri sayım|sadece bugün/iu.test(html)) throw new Error('HOME CONVERSION V20: deceptive urgency language detected');
 
 fs.writeFileSync(file, html, 'utf8');
-console.log('HOME CONVERSION V20 PASS — transparent decision psychology, premium custom-system persuasion and direct special-system conversion are active.');
+console.log('HOME CONVERSION V20 PASS — custom-system persuasion remains active without modifying the restored homepage hero.');
