@@ -74,9 +74,9 @@ const css = `<style id="dual-funnel-home-v17-css">
 </style>`;
 html = html.replace('</head>', `${css}\n</head>`);
 
-for (const token of ['İşletmeler İçin','Finansal Karar','finance-pillars','high-ticket-bridge','home_finance_cash','home_finance_credit','home_finance_cost','home_finance_budget','ProfessionalService']) {
+for (const token of ['finance-pillars','high-ticket-bridge','home_finance_cash','home_finance_credit','home_finance_cost','home_finance_budget','ProfessionalService']) {
   if (!html.includes(token)) throw new Error(`HOME DUAL FUNNEL V17: required token missing: ${token}`);
 }
 
 fs.writeFileSync(file, html, 'utf8');
-console.log('HOME DUAL FUNNEL V17 PASS — dual-action hero + four finance pillars + high-ticket bridge + bottom WhatsApp CTA + entity schema.');
+console.log('HOME DUAL FUNNEL V17 PASS — finance pillars, high-ticket bridge, bottom WhatsApp CTA and entity schema active; homepage hero ownership left untouched.');

@@ -8,6 +8,15 @@ if (!fs.existsSync(file)) throw new Error('HOME CONVERSION V20: dist/index.html 
 if (!fs.existsSync(cssFile)) throw new Error('HOME CONVERSION V20: CSS missing');
 let html = fs.readFileSync(file, 'utf8');
 const css = fs.readFileSync(cssFile, 'utf8').trim();
+const heroRestoreCss = `@media(min-width:1021px){
+body[data-desktop-premium-v19] .hero-section{position:relative!important;z-index:60!important;margin:28px 0 46px!important;padding:0!important;background:transparent!important}
+body[data-desktop-premium-v19] .hero-shell{position:relative!important;z-index:60!important;width:min(1680px,calc(100% - 64px))!important;margin-inline:auto!important;padding-bottom:28px!important}
+body[data-desktop-premium-v19] .hero-mobile-copy{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+body[data-desktop-premium-v19] .hero-artwork{position:relative!important;display:block!important;overflow:hidden!important;width:100%!important;margin:0 auto!important;aspect-ratio:3 / 1!important;min-height:0!important;border:1px solid rgba(16,124,65,.12)!important;border-radius:24px!important;background:#eef3f6!important;box-shadow:0 24px 60px rgba(24,55,38,.13)!important}
+body[data-desktop-premium-v19] .hero-artwork::before{content:none!important;background:none!important}
+body[data-desktop-premium-v19] .hero-artwork img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important}
+body[data-desktop-premium-v19] .hero-search-rail{position:absolute!important;left:50%!important;bottom:0!important;z-index:70!important;width:min(690px,calc(100% - 48px))!important;margin:0!important;transform:translateX(-50%)!important;scroll-margin-top:90px!important}
+}`;
 
 for (const marker of ['data-dual-funnel-home-v17','data-mobile-premium-v18','data-desktop-premium-v19']) {
   if (!html.includes(marker)) throw new Error(`HOME CONVERSION V20: prerequisite missing: ${marker}`);
@@ -18,12 +27,6 @@ const waText = encodeURIComponent('Merhaba Barış Bey, excelarsiv.com ana sayfa
 const waHref = `https://wa.me/${WA_PHONE}?text=${waText}`;
 
 if (!html.includes('data-home-conversion-v20')) html = html.replace(/<body\b([^>]*)>/u, '<body$1 data-home-conversion-v20>');
-
-if (!html.includes('class="hero-decision-note-v20"')) {
-  const anchor = '<nav class="hero-chips"';
-  if (!html.includes(anchor)) throw new Error('HOME CONVERSION V20: hero chips anchor missing');
-  html = html.replace(anchor, `<div class="hero-decision-note-v20" aria-label="Çözüm seçimi rehberi"><span><b>Hazır sistem</b> · standart ihtiyacı hemen çözün</span><span><b>Size özel</b> · süreci dosyaya değil, sistemi sürecinize uydurun</span></div>\n        ${anchor}`);
-}
 
 const customBuild = `
 <section class="custom-build custom-build-v20" data-experience-stage aria-labelledby="custom-build-v20-title">
@@ -69,11 +72,14 @@ if (!customPattern.test(html)) throw new Error('HOME CONVERSION V20: custom-buil
 html = html.replace(customPattern, customBuild);
 
 if (!html.includes('id="home-conversion-v20-css"')) html = html.replace('</head>', `<style id="home-conversion-v20-css">${css}</style>\n</head>`);
+if (!html.includes('id="home-original-hero-v21-css"')) html = html.replace('</head>', `<style id="home-original-hero-v21-css">${heroRestoreCss}</style>\n</head>`);
 
-for (const token of ['data-home-conversion-v20','hero-decision-note-v20','custom-build-v20','home_custom_system_deep','home_custom_whatsapp',WA_PHONE]) {
+for (const token of ['data-home-conversion-v20','custom-build-v20','home_custom_system_deep','home_custom_whatsapp',WA_PHONE,'home-original-hero-v21-css']) {
   if (!html.includes(token)) throw new Error(`HOME CONVERSION V20: required token missing: ${token}`);
 }
+if (!html.includes('class="hero-mobile-copy"') || !html.includes('srcset="/images/hero.jpg"')) throw new Error('HOME CONVERSION V20: original homepage hero contract missing');
+if (html.includes('class="hero-panel"') || html.includes('class="hero-copy"')) throw new Error('HOME CONVERSION V20: redesigned split hero leaked back into homepage');
 if (/stokta son|geri sayım|sadece bugün/iu.test(html)) throw new Error('HOME CONVERSION V20: deceptive urgency language detected');
 
 fs.writeFileSync(file, html, 'utf8');
-console.log('HOME CONVERSION V20 PASS — transparent decision psychology, premium custom-system persuasion and direct special-system conversion are active.');
+console.log('HOME CONVERSION V20 PASS — original homepage hero restored; conversion architecture remains outside the hero.');
