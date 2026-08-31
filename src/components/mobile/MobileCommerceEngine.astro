@@ -9,7 +9,7 @@ interface Props {
 
 const {
   initialTab = 'home',
-  whatsappNumber = '905419305372'
+  whatsappNumber = '905393333303'
 } = Astro.props;
 ---
 
@@ -424,7 +424,7 @@ const {
 
     const dataEl = document.getElementById('mce-template-data');
     const templates = dataEl ? JSON.parse(dataEl.textContent || '[]') : [];
-    const waNumber = root.dataset.waNumber || '905419305372';
+    const waNumber = root.dataset.waNumber || '905393333303';
     const waBase = `https://wa.me/${waNumber}?text=`;
 
     // Connect dynamic WhatsApp links on client mount
