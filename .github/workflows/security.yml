@@ -156,3 +156,5 @@ jobs:
       - name: Fail on Trivy findings
         if: steps.trivy_scan.outcome == 'failure'
         run: cat trivy-security.log && exit 1
+
+# Intentional user-authored retrigger after the verified lock remediation.
