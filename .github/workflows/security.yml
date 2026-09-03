@@ -28,7 +28,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          npm audit --omit=dev --audit-level=high 2>&1 | tee security-site-audit.log
+          timeout 120s npm audit --omit=dev --audit-level=high 2>&1 | tee security-site-audit.log
       - name: Upload site audit diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -46,7 +46,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          npm audit --prefix functions --omit=dev --audit-level=high 2>&1 | tee security-functions-audit.log
+          timeout 120s npm audit --prefix functions --omit=dev --audit-level=high 2>&1 | tee security-functions-audit.log
       - name: Upload Functions audit diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -74,7 +74,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Trivy filesystem security scan
+      - id: trivy_scan
+        name: Trivy filesystem security scan
+        continue-on-error: true
         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1
         with:
           scan-type: fs
@@ -83,4 +85,17 @@ jobs:
           severity: CRITICAL,HIGH
           ignore-unfixed: true
           exit-code: '1'
+          format: table
+          output: trivy-security.log
           skip-dirs: node_modules,dist,.git
+      - name: Upload Trivy diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-security-diagnostics
+          path: trivy-security.log
+          if-no-files-found: error
+          retention-days: 2
+      - name: Fail on Trivy findings
+        if: steps.trivy_scan.outcome == 'failure'
+        run: cat trivy-security.log && exit 1
