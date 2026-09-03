@@ -1,0 +1,26 @@
+name: sro-llms-integrity
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  llms-search-revenue-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Build canonical production artifacts
+        run: npm run build
+      - name: Verify recursive LLMS graph and crawler policy
+        run: node scripts/seo/verify-llms-graph.mjs --dir dist
+      - name: Re-run enterprise SEO conformance
+        run: npm run seo:conformance
