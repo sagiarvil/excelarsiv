@@ -1,3 +1,11 @@
+## Canonical SEO / GEO / LLMS mandate — mandatory
+
+Before any SEO, GEO, AEO, LLMS, sitemap, robots, canonical, structured-data, search-content, internal-link, redirect or search-measurement change, read `SAGIARVIL_SEARCH_REVENUE_OS_MANDATE.md` completely.
+
+For those scopes, `SAGIARVIL_SEARCH_REVENUE_OS_MANDATE.md` is the single canonical Search Revenue mandate and supersedes older SEO/GEO/LLMS instruction documents. Runtime SEO data, `robots.txt`, sitemap generators/files, `llms.txt`, `llms-full.txt`, `/llms/**`, schema code and `data/seo/**` remain operational/source assets governed by that mandate; they are not obsolete instruction documents.
+
+User's latest explicit instruction remains highest authority. `DESIGN.md` remains the canonical visual contract and product/commerce/source-of-truth rules remain authoritative in their own domains.
+
 ## Mandatory reading order
 
 Before making any user-facing UI, CSS, layout, responsive or component change:
