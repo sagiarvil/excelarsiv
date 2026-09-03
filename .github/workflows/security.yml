@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   production-dependency-audit:
@@ -17,50 +17,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
-      - name: Patch vulnerable fast-uri lock deterministically
-        shell: bash
-        run: |
-          node - <<'NODE'
-          const fs=require('fs');
-          const file='functions/package-lock.json';
-          const lock=JSON.parse(fs.readFileSync(file,'utf8'));
-          const entry=lock.packages?.['node_modules/fast-uri'];
-          if(!entry) throw new Error('fast-uri lock entry missing');
-          entry.version='3.1.6';
-          entry.resolved='https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.6.tgz';
-          entry.integrity='sha512-7Ical1vFEMr0onbVzEDIreM22I4khW+fzyQPwvAFWBp1iwdshSZRsL4jjRvPG9JP1uiqMHRto+YU6R2/CzDz5Q==';
-          fs.writeFileSync(file, JSON.stringify(lock,null,2)+'\n');
-          NODE
-      - name: Verify patched fast-uri lock
-        run: node -e "const l=require('./functions/package-lock.json');const e=l.packages?.['node_modules/fast-uri'];if(e?.version!=='3.1.6'||e?.resolved!=='https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.6.tgz'||e?.integrity!=='sha512-7Ical1vFEMr0onbVzEDIreM22I4khW+fzyQPwvAFWBp1iwdshSZRsL4jjRvPG9JP1uiqMHRto+YU6R2/CzDz5Q=='){console.error(e);process.exit(1)}console.log('fast-uri secure lock verified')"
-      - name: Persist verified Functions lock to PR branch
-        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-        shell: bash
-        run: |
-          set -euo pipefail
-          if git diff --quiet -- functions/package-lock.json; then
-            echo 'LOCK_ALREADY_CURRENT=1'
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add functions/package-lock.json
-          git commit -m 'security: pin fast-uri 3.1.6 in functions lock'
-          git push origin HEAD:${{ github.head_ref }}
-      - name: Upload refreshed Functions lock
-        uses: actions/upload-artifact@v4
-        with:
-          name: refreshed-functions-package-lock
-          path: functions/package-lock.json
-          if-no-files-found: error
-          retention-days: 2
+      - name: Verify committed secure fast-uri lock
+        run: node -e "const l=require('./functions/package-lock.json');const e=l.packages?.['node_modules/fast-uri'];if(e?.version!=='3.1.6'||e?.resolved!=='https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.6.tgz'||e?.integrity!=='sha512-7Ical1vFEMr0onbVzEDIreM22I4khW+fzyQPwvAFWBp1iwdshSZRsL4jjRvPG9JP1uiqMHRto+YU6R2/CzDz5Q=='){console.error('insecure or drifted fast-uri lock',e);process.exit(1)}console.log('fast-uri secure source lock verified')"
       - id: site_audit
         name: Audit site production dependencies
         continue-on-error: true
@@ -113,24 +76,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Use Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - name: Patch vulnerable fast-uri lock deterministically
-        shell: bash
-        run: |
-          node - <<'NODE'
-          const fs=require('fs');
-          const file='functions/package-lock.json';
-          const lock=JSON.parse(fs.readFileSync(file,'utf8'));
-          const entry=lock.packages?.['node_modules/fast-uri'];
-          if(!entry) throw new Error('fast-uri lock entry missing');
-          entry.version='3.1.6';
-          entry.resolved='https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.6.tgz';
-          entry.integrity='sha512-7Ical1vFEMr0onbVzEDIreM22I4khW+fzyQPwvAFWBp1iwdshSZRsL4jjRvPG9JP1uiqMHRto+YU6R2/CzDz5Q==';
-          fs.writeFileSync(file, JSON.stringify(lock,null,2)+'\n');
-          NODE
+      - name: Verify committed secure fast-uri lock
+        run: node -e "const l=require('./functions/package-lock.json');const e=l.packages?.['node_modules/fast-uri'];if(e?.version!=='3.1.6'){console.error('insecure fast-uri source lock',e);process.exit(1)}"
       - id: trivy_scan
         name: Trivy filesystem security scan
         continue-on-error: true
@@ -156,5 +103,3 @@ jobs:
       - name: Fail on Trivy findings
         if: steps.trivy_scan.outcome == 'failure'
         run: cat trivy-security.log && exit 1
-
-# Intentional user-authored retrigger after the verified lock remediation.
