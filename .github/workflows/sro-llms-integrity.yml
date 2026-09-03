@@ -18,6 +18,16 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Guard protected surfaces
+        run: npm run guard:protected
+      - name: Guard design system
+        run: npm run guard:design
+      - name: Guard source language and claims
+        run: npm run guard:source
+      - name: Guard forbidden SEO routes
+        run: npm run seo:forbidden
+      - name: Guard answer graph
+        run: npm run seo:answer-graph
       - name: Build canonical production artifacts
         run: npm run build
       - name: Verify recursive LLMS graph and crawler policy
