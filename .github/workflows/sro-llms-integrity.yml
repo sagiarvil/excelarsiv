@@ -61,8 +61,24 @@ jobs:
         run: npm run seo:generate
       - name: Promote special systems
         run: node scripts/seo/promote-special-systems.mjs
-      - name: Validate SEO artifacts
-        run: npm run seo:validate
+      - id: validate_artifacts
+        name: Validate SEO artifacts
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run seo:validate 2>&1 | tee sro-seo-validator.log
+      - name: Upload validator diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: sro-seo-validator-diagnostics
+          path: sro-seo-validator.log
+          if-no-files-found: error
+          retention-days: 2
+      - name: Fail on validator error
+        if: steps.validate_artifacts.outcome == 'failure'
+        run: cat sro-seo-validator.log && exit 1
       - name: Test sitemap semantics
         run: npm run seo:test
       - name: Enterprise SEO guard
