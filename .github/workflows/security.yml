@@ -23,7 +23,7 @@ jobs:
           node-version: '22'
           cache: npm
       - name: Refresh Functions lock from declared security overrides
-        run: npm install --prefix functions --package-lock-only --ignore-scripts
+        run: timeout 120s npm install --prefix functions --package-lock-only --ignore-scripts
       - name: Verify patched fast-uri lock
         run: node -e "const l=require('./functions/package-lock.json');const v=l.packages?.['node_modules/fast-uri']?.version;if(!v||/^3\.1\.[0-5]$/.test(v)){console.error('unpatched fast-uri',v);process.exit(1)}console.log('fast-uri',v)"
       - name: Upload refreshed Functions lock
@@ -90,7 +90,7 @@ jobs:
         with:
           node-version: '22'
       - name: Refresh Functions lock from declared security overrides
-        run: npm install --prefix functions --package-lock-only --ignore-scripts
+        run: timeout 120s npm install --prefix functions --package-lock-only --ignore-scripts
       - id: trivy_scan
         name: Trivy filesystem security scan
         continue-on-error: true
