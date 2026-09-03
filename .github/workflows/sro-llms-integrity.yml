@@ -1,0 +1,89 @@
+name: sro-llms-integrity
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  llms-search-revenue-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Guard protected surfaces
+        run: npm run guard:protected
+      - name: Guard design system
+        run: npm run guard:design
+      - name: Guard source language and claims
+        run: npm run guard:source
+      - name: Guard forbidden SEO routes
+        run: npm run seo:forbidden
+      - name: Guard answer graph
+        run: npm run seo:answer-graph
+      - name: Astro production build
+        run: PUBLIC_TEMPLATE_CARD_VARIANT=stable npx astro build
+      - name: Context and premium injection phase
+        run: |
+          node scripts/ci/inject-contextual-images.mjs
+          node scripts/ci/premium-ux-fixes.mjs
+          node scripts/ci/localize-typography-font.mjs
+          node scripts/ci/final-ui-contrast-fixes.mjs
+          node scripts/ci/remove-unverified-contact.mjs
+      - name: Special-system injection phase
+        run: |
+          node scripts/ci/inject-special-innovation-v5.mjs
+          node scripts/ci/repair-special-css.mjs
+          node scripts/ci/inject-native-infographics.mjs
+          node scripts/ci/inline-small-product-css.mjs
+          node scripts/ci/inject-exact-anchor-scroll.mjs
+      - name: Enterprise visual injection phase
+        run: |
+          node scripts/ci/inject-enterprise-light-color-suite-v3.mjs
+          node scripts/ci/inject-home-authority-contrast-v34.mjs
+      - name: Final source and funnel phase
+        run: |
+          node scripts/ci/finalize-special-source-v5.mjs
+          node scripts/ci/finalize-home-dual-funnel-v17.mjs
+          node scripts/ci/finalize-special-premium-v17.mjs
+          node scripts/ci/finalize-mobile-premium-v18.mjs
+          node scripts/ci/finalize-home-desktop-premium-v19.mjs
+          node scripts/ci/finalize-home-conversion-v20.mjs
+          node scripts/ci/assert-no-retired-whatsapp-v17.mjs
+      - name: Generate SEO artifacts
+        run: npm run seo:generate
+      - name: Promote special systems
+        run: node scripts/seo/promote-special-systems.mjs
+      - id: validate_artifacts
+        name: Validate SEO artifacts
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run seo:validate 2>&1 | tee sro-seo-validator.log
+      - name: Upload validator diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: sro-seo-validator-diagnostics
+          path: sro-seo-validator.log
+          if-no-files-found: error
+          retention-days: 2
+      - name: Fail on validator error
+        if: steps.validate_artifacts.outcome == 'failure'
+        run: cat sro-seo-validator.log && exit 1
+      - name: Test sitemap semantics
+        run: npm run seo:test
+      - name: Enterprise SEO guard
+        run: npm run seo:guard
+      - name: Verify recursive LLMS graph and crawler policy
+        run: node scripts/seo/verify-llms-graph.mjs --dir dist
+      - name: Re-run enterprise SEO conformance
+        run: npm run seo:conformance

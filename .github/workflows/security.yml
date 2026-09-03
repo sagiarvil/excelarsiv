@@ -22,10 +22,68 @@ jobs:
         with:
           node-version: '22'
           cache: npm
-      - name: Audit site production dependencies
-        run: npm audit --omit=dev --audit-level=high
-      - name: Audit Functions production dependencies
-        run: npm audit --prefix functions --omit=dev --audit-level=high
+      - name: Verify committed secure fast-uri lock
+        run: node -e "const l=require('./functions/package-lock.json');const e=l.packages?.['node_modules/fast-uri'];if(e?.version!=='3.1.6'||e?.resolved!=='https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.6.tgz'||e?.integrity!=='sha512-7Ical1vFEMr0onbVzEDIreM22I4khW+fzyQPwvAFWBp1iwdshSZRsL4jjRvPG9JP1uiqMHRto+YU6R2/CzDz5Q=='){console.error('insecure or drifted fast-uri lock',e);process.exit(1)}console.log('fast-uri secure source lock verified')"
+      - id: site_audit
+        name: Audit site production dependencies
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          : > security-site-audit.log
+          for attempt in 1 2; do
+            set +e
+            timeout 90s npm audit --omit=dev --audit-level=high > /tmp/site-audit.log 2>&1
+            rc=$?
+            set -e
+            cat /tmp/site-audit.log | tee -a security-site-audit.log
+            if [ "$rc" -eq 0 ]; then exit 0; fi
+            if [ "$rc" -ne 124 ]; then exit "$rc"; fi
+            echo "npm audit registry timeout attempt=${attempt}/2" | tee -a security-site-audit.log
+            if [ "$attempt" -eq 2 ]; then exit 124; fi
+            sleep 2
+          done
+      - name: Upload site audit diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-site-audit-diagnostics
+          path: security-site-audit.log
+          if-no-files-found: error
+          retention-days: 2
+      - name: Fail on site dependency audit
+        if: steps.site_audit.outcome == 'failure'
+        run: cat security-site-audit.log && exit 1
+      - id: functions_audit
+        name: Audit Functions production dependencies
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          : > security-functions-audit.log
+          for attempt in 1 2; do
+            set +e
+            timeout 90s npm audit --prefix functions --omit=dev --audit-level=high > /tmp/functions-audit.log 2>&1
+            rc=$?
+            set -e
+            cat /tmp/functions-audit.log | tee -a security-functions-audit.log
+            if [ "$rc" -eq 0 ]; then exit 0; fi
+            if [ "$rc" -ne 124 ]; then exit "$rc"; fi
+            echo "npm audit registry timeout attempt=${attempt}/2" | tee -a security-functions-audit.log
+            if [ "$attempt" -eq 2 ]; then exit 124; fi
+            sleep 2
+          done
+      - name: Upload Functions audit diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-functions-audit-diagnostics
+          path: security-functions-audit.log
+          if-no-files-found: error
+          retention-days: 2
+      - name: Fail on Functions dependency audit
+        if: steps.functions_audit.outcome == 'failure'
+        run: cat security-functions-audit.log && exit 1
       - name: Generate SBOM
         run: npm run sbom
       - name: Upload SBOM artifacts
@@ -42,8 +100,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Trivy filesystem security scan
-        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0, patched after 2026 Trivy supply-chain incident
+      - name: Verify committed secure fast-uri lock
+        run: node -e "const l=require('./functions/package-lock.json');const e=l.packages?.['node_modules/fast-uri'];if(e?.version!=='3.1.6'){console.error('insecure fast-uri source lock',e);process.exit(1)}"
+      - id: trivy_scan
+        name: Trivy filesystem security scan
+        continue-on-error: true
+        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1
         with:
           scan-type: fs
           scan-ref: .
@@ -51,4 +113,17 @@ jobs:
           severity: CRITICAL,HIGH
           ignore-unfixed: true
           exit-code: '1'
+          format: table
+          output: trivy-security.log
           skip-dirs: node_modules,dist,.git
+      - name: Upload Trivy diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-security-diagnostics
+          path: trivy-security.log
+          if-no-files-found: error
+          retention-days: 2
+      - name: Fail on Trivy findings
+        if: steps.trivy_scan.outcome == 'failure'
+        run: cat trivy-security.log && exit 1

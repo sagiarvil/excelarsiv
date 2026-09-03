@@ -1,14 +1,17 @@
-# excelarsiv.com — robots.txt
-# Kurumsal Excel çalışma sistemleri kataloğu (tr-TR)
-# Universal SEO & Applied GEO v6.0 Enterprise Standardı
+# excelarsiv.com — Search Revenue OS crawler policy
+# Public canonical commerce/content is searchable; private technical surfaces stay blocked.
 
-User-agent: *
+User-agent: Googlebot
 Allow: /
 Disallow: /api/
 Disallow: /_astro/
 
-# --- AI & LLM Search Retrieval Gateways (GEO Authorized) ---
-# Public içerik açık; teknik API yüzeyi özel bot gruplarında da kapalıdır.
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /_astro/
+
+# --- Search / retrieval crawlers ---
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /api/
@@ -17,11 +20,11 @@ User-agent: ChatGPT-User
 Allow: /
 Disallow: /api/
 
-User-agent: GPTBot
+User-agent: Claude-SearchBot
 Allow: /
 Disallow: /api/
 
-User-agent: ClaudeBot
+User-agent: Claude-User
 Allow: /
 Disallow: /api/
 
@@ -33,33 +36,35 @@ User-agent: PerplexityBot
 Allow: /
 Disallow: /api/
 
+# --- Training / model-improvement crawlers: separate policy class ---
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
 User-agent: Google-Extended
-Allow: /
-Disallow: /api/
+Disallow: /
 
 User-agent: Applebot-Extended
-Allow: /
-Disallow: /api/
-
-User-agent: Amazonbot
-Allow: /
-Disallow: /api/
-
-User-agent: Meta-ExternalAgent
-Allow: /
-Disallow: /api/
-
-User-agent: Bytespider
-Allow: /
-Disallow: /api/
-
-User-agent: cohere-ai
-Allow: /
-Disallow: /api/
+Disallow: /
 
 User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /_astro/
 
 Sitemap: https://excelarsiv.com/sitemap.xml
 # LLM Knowledge Graph & Discovery Layer: https://excelarsiv.com/llms.txt

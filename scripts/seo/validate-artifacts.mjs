@@ -57,6 +57,12 @@ function assertSitemapFile(name) {
   return { locs, lastmods };
 }
 
+function robotsGroup(text, userAgent) {
+  const groups = text.split(/\n\s*\n/);
+  const needle = new RegExp(`^User-agent:\\s*${userAgent.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'mi');
+  return groups.find((group) => needle.test(group)) || '';
+}
+
 for (const file of requiredArtifacts) readRequired(file);
 
 const pages = discoverBuiltPages();
@@ -143,8 +149,9 @@ for (const requiredChild of ['sitemap-pages.xml', 'sitemap-products.xml', 'sitem
 }
 
 const robots = readRequired('robots.txt');
-if (!/^User-agent:\s*\*/mi.test(robots)) fail('robots.txt: genel User-agent kuralı yok');
-if (/Disallow:\s*\/$/mi.test(robots)) fail('robots.txt: sitewide crawl block tespit edildi');
+const wildcardRobots = robotsGroup(robots, '*');
+if (!wildcardRobots) fail('robots.txt: genel User-agent kuralı yok');
+if (/^Disallow:\s*\/$/mi.test(wildcardRobots)) fail('robots.txt: genel User-agent grubunda sitewide crawl block tespit edildi');
 if (!robots.includes(`Sitemap: ${SITE_ORIGIN}/sitemap.xml`)) fail('robots.txt: canonical sitemap.xml bildirimi eksik');
 
 if (!existsSync(join(DIST_DIR, 'katalog.json'))) {
