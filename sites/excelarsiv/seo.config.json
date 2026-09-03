@@ -22,10 +22,23 @@
   },
   "policy": {
     "aiBots": {
-      "aiTraining": "allow",
+      "aiTraining": "block",
       "aiSearch": "allow",
       "custom": {
-        "OAI-SearchBot": "allow", "ChatGPT-User": "allow", "GPTBot": "allow", "ClaudeBot": "allow", "PerplexityBot": "allow", "Google-Extended": "allow"
+        "OAI-SearchBot": "allow",
+        "ChatGPT-User": "allow",
+        "Claude-SearchBot": "allow",
+        "Claude-User": "allow",
+        "Claude-Web": "allow",
+        "PerplexityBot": "allow",
+        "GPTBot": "block",
+        "ClaudeBot": "block",
+        "Google-Extended": "block",
+        "Applebot-Extended": "block",
+        "CCBot": "block",
+        "Bytespider": "block",
+        "Meta-ExternalAgent": "block",
+        "cohere-ai": "block"
       }
     },
     "blockedSections": ["/api/"],
