@@ -22,10 +22,42 @@ jobs:
         with:
           node-version: '22'
           cache: npm
-      - name: Audit site production dependencies
-        run: npm audit --omit=dev --audit-level=high
-      - name: Audit Functions production dependencies
-        run: npm audit --prefix functions --omit=dev --audit-level=high
+      - id: site_audit
+        name: Audit site production dependencies
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm audit --omit=dev --audit-level=high 2>&1 | tee security-site-audit.log
+      - name: Upload site audit diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-site-audit-diagnostics
+          path: security-site-audit.log
+          if-no-files-found: error
+          retention-days: 2
+      - name: Fail on site dependency audit
+        if: steps.site_audit.outcome == 'failure'
+        run: cat security-site-audit.log && exit 1
+      - id: functions_audit
+        name: Audit Functions production dependencies
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm audit --prefix functions --omit=dev --audit-level=high 2>&1 | tee security-functions-audit.log
+      - name: Upload Functions audit diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-functions-audit-diagnostics
+          path: security-functions-audit.log
+          if-no-files-found: error
+          retention-days: 2
+      - name: Fail on Functions dependency audit
+        if: steps.functions_audit.outcome == 'failure'
+        run: cat security-functions-audit.log && exit 1
       - name: Generate SBOM
         run: npm run sbom
       - name: Upload SBOM artifacts
@@ -43,7 +75,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Trivy filesystem security scan
-        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0, patched after 2026 Trivy supply-chain incident
+        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1
         with:
           scan-type: fs
           scan-ref: .
