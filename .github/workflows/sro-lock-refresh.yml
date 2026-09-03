@@ -1,0 +1,30 @@
+name: sro-lock-refresh
+
+on:
+  push:
+    branches: [sro/excelarsiv-p1]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh-functions-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: functions/package-lock.json
+      - name: Refresh Functions package lock with declared overrides
+        run: npm install --prefix functions --package-lock-only --ignore-scripts
+      - name: Verify patched fast-uri is present
+        run: node -e "const l=require('./functions/package-lock.json'); const v=l.packages?.['node_modules/fast-uri']?.version; if(!v || /^3\.1\.[0-5]$/.test(v)) { console.error('unpatched fast-uri',v); process.exit(1); } console.log('fast-uri',v)"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: refreshed-functions-package-lock
+          path: functions/package-lock.json
+          if-no-files-found: error
+          retention-days: 2
