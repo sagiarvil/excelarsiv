@@ -29,8 +29,20 @@ jobs:
         continue-on-error: true
         shell: bash
         run: |
-          set -o pipefail
-          timeout 120s npm audit --omit=dev --audit-level=high 2>&1 | tee security-site-audit.log
+          set -euo pipefail
+          : > security-site-audit.log
+          for attempt in 1 2; do
+            set +e
+            timeout 90s npm audit --omit=dev --audit-level=high > /tmp/site-audit.log 2>&1
+            rc=$?
+            set -e
+            cat /tmp/site-audit.log | tee -a security-site-audit.log
+            if [ "$rc" -eq 0 ]; then exit 0; fi
+            if [ "$rc" -ne 124 ]; then exit "$rc"; fi
+            echo "npm audit registry timeout attempt=${attempt}/2" | tee -a security-site-audit.log
+            if [ "$attempt" -eq 2 ]; then exit 124; fi
+            sleep 2
+          done
       - name: Upload site audit diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -47,8 +59,20 @@ jobs:
         continue-on-error: true
         shell: bash
         run: |
-          set -o pipefail
-          timeout 120s npm audit --prefix functions --omit=dev --audit-level=high 2>&1 | tee security-functions-audit.log
+          set -euo pipefail
+          : > security-functions-audit.log
+          for attempt in 1 2; do
+            set +e
+            timeout 90s npm audit --prefix functions --omit=dev --audit-level=high > /tmp/functions-audit.log 2>&1
+            rc=$?
+            set -e
+            cat /tmp/functions-audit.log | tee -a security-functions-audit.log
+            if [ "$rc" -eq 0 ]; then exit 0; fi
+            if [ "$rc" -ne 124 ]; then exit "$rc"; fi
+            echo "npm audit registry timeout attempt=${attempt}/2" | tee -a security-functions-audit.log
+            if [ "$attempt" -eq 2 ]; then exit 124; fi
+            sleep 2
+          done
       - name: Upload Functions audit diagnostics
         if: always()
         uses: actions/upload-artifact@v4
