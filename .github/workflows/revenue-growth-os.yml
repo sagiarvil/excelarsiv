@@ -1,0 +1,24 @@
+name: revenue-growth-os
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, growth/revenue-os-v1]
+
+permissions:
+  contents: read
+
+jobs:
+  growth-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run growth:verify
+      - run: npm run seo:analytics-events
+      - run: npm run seo:consent
