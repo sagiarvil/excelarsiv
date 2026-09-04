@@ -20,7 +20,8 @@ const GROWTH_ALIAS: Partial<Record<AnalyticsEventName, typeof growthEvents[keyof
 };
 
 export function trackAnalyticsEvent(eventName: AnalyticsEventName, payload: AnalyticsPayload): boolean {
-  if (typeof window === 'undefined' || !hasAnalyticsConsent()) return false;
+  if (typeof window === 'undefined') return false;
+  if (!hasAnalyticsConsent()) return false;
   const growthAlias = GROWTH_ALIAS[eventName];
   if (growthAlias) {
     const normalized: AnalyticsPayload = { ...payload };
