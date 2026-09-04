@@ -2,6 +2,7 @@
 /**
  * PAID-PRODUCT READINESS DENETİMİ
  * Firebase Storage'daki satış dosyalarını katalog ve isteğe bağlı local delivery kaynağıyla doğrular.
+ * Bu betik delivery release katmanının fail-closed readiness/parity kanıtıdır.
  *
  * Kullanım:
  *   node scripts/check-paid-products.mjs
