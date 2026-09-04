@@ -16,14 +16,13 @@ jobs:
       - uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-      - name: Create and harden private paid-product bucket
+      - name: Provision and prove Firebase default private Storage bucket
         shell: bash
         run: |
           set -euo pipefail
           project='carbon-web-1265b'
-          bucket='gs://carbon-web-1265b-paid-products-eu'
-          runtime_sa='7943100684-compute@developer.gserviceaccount.com'
-          ci_sa="$(node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync(process.env.GOOGLE_APPLICATION_CREDENTIALS,'utf8'));process.stdout.write(x.client_email)")"
+          bucket='gs://carbon-web-1265b.firebasestorage.app'
+          orphan='gs://carbon-web-1265b-paid-products-eu'
 
           if ! gcloud storage buckets describe "$bucket" --project "$project" >/dev/null 2>&1; then
             gcloud storage buckets create "$bucket" \
@@ -32,18 +31,16 @@ jobs:
               --uniform-bucket-level-access \
               --public-access-prevention
           fi
-
           gcloud storage buckets update "$bucket" --pap --uniform-bucket-level-access
-          gcloud storage buckets add-iam-policy-binding "$bucket" \
-            --member="serviceAccount:${runtime_sa}" \
-            --role='roles/storage.objectViewer'
-          gcloud storage buckets add-iam-policy-binding "$bucket" \
-            --member="serviceAccount:${ci_sa}" \
-            --role='roles/storage.objectAdmin'
 
           printf 'excelarsiv-private-storage-probe\n' >/tmp/storage-probe.txt
           gcloud storage cp /tmp/storage-probe.txt "$bucket/.release-probe.txt"
           gcloud storage cat "$bucket/.release-probe.txt" | grep -Fx 'excelarsiv-private-storage-probe'
           gcloud storage rm "$bucket/.release-probe.txt"
+
+          if gcloud storage buckets describe "$orphan" --project "$project" >/dev/null 2>&1; then
+            gcloud storage rm --recursive "$orphan/**" >/dev/null 2>&1 || true
+            gcloud storage buckets delete "$orphan" --quiet >/dev/null 2>&1 || true
+          fi
 
           gcloud storage buckets describe "$bucket" --format='yaml(name,location,uniformBucketLevelAccess,publicAccessPrevention)'
