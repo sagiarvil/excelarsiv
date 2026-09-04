@@ -41,7 +41,8 @@ try {
   console.error('firebase-admin gerekli (npm ci --prefix scripts)');
   process.exit(2);
 }
-const bucketName = process.env.STORAGE_BUCKET || 'carbon-web-1265b.firebasestorage.app';
+const requestedBucket = process.env.STORAGE_BUCKET;
+const bucketName = !requestedBucket || requestedBucket === 'carbon-web-1265b.firebasestorage.app' ? 'carbon-web-1265b-paid-products-eu' : requestedBucket;
 if (admin.apps.length === 0) {
   const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
   if (credPath && existsSync(credPath)) {
