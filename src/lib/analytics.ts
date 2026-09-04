@@ -1,5 +1,6 @@
 import { analytics, type AnalyticsEventName, type DownloadSource } from '../config/analytics';
 import { hasAnalyticsConsent } from './consent';
+import { growthEvents, trackGrowthEvent } from './growth';
 
 declare global {
   interface Window {
@@ -9,9 +10,27 @@ declare global {
 
 export type AnalyticsPayload = Record<string, string | number | boolean>;
 
+const GROWTH_ALIAS: Partial<Record<AnalyticsEventName, typeof growthEvents[keyof typeof growthEvents]>> = {
+  [analytics.events.templateView]: growthEvents.productView,
+  [analytics.events.checkoutIntent]: growthEvents.checkoutStart,
+  [analytics.events.downloadStart]: growthEvents.ctaClick,
+  [analytics.events.downloadComplete]: growthEvents.toolComplete,
+  [analytics.events.signup]: growthEvents.leadSubmit,
+  [analytics.events.templateCardClick]: growthEvents.ctaClick,
+};
+
 export function trackAnalyticsEvent(eventName: AnalyticsEventName, payload: AnalyticsPayload): boolean {
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return false;
-  if (!hasAnalyticsConsent()) return false;
+  if (typeof window === 'undefined' || !hasAnalyticsConsent()) return false;
+  const growthAlias = GROWTH_ALIAS[eventName];
+  if (growthAlias) {
+    const normalized: AnalyticsPayload = { ...payload };
+    if ('packId' in payload) normalized.product = String(payload.packId);
+    if ('templateId' in payload) normalized.product = String(payload.templateId);
+    if ('templateSlug' in payload) normalized.product = String(payload.templateSlug);
+    if (eventName === analytics.events.checkoutIntent) normalized.cta_id = 'checkout-primary';
+    trackGrowthEvent(growthAlias, normalized);
+  }
+  if (typeof window.gtag !== 'function') return false;
   window.gtag('event', eventName, payload);
   return true;
 }
