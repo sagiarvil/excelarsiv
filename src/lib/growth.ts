@@ -1,4 +1,4 @@
-import { hasAnalyticsConsent } from './consent';
+import { hasAnalyticsConsent } from './consent.ts';
 
 export const growthEvents = Object.freeze({
   sessionStart: 'session_start',
