@@ -1,3 +1,5 @@
+import { growthEvents, trackGrowthEvent } from '../lib/growth.ts';
+
 export interface FinderProduct {
   slug: string;
   name: string;
@@ -53,9 +55,7 @@ export function secUrunler(products: FinderProduct[], answers: FinderAnswers): F
     if (product && !unique.some((item) => item.slug === product.slug)) unique.push(product);
     if (unique.length === 3) break;
   }
-  if (unique.length === 0) {
-    return products.filter((item) => item.category === answers.alan).slice(0, 3);
-  }
+  if (unique.length === 0) return products.filter((item) => item.category === answers.alan).slice(0, 3);
   return unique.slice(0, 3);
 }
 
@@ -63,6 +63,15 @@ export function mountUrunBulucu(root: HTMLElement, products: FinderProduct[]): v
   const form = root.querySelector<HTMLFormElement>('[data-finder-form]');
   const output = root.querySelector<HTMLElement>('[data-finder-sonuc]');
   if (!form || !output) return;
+
+  trackGrowthEvent(growthEvents.toolView, { tool_id: 'akilli-excel-urun-bulucu', page_type: 'hero_tool' });
+  let started = false;
+  form.addEventListener('change', () => {
+    if (started) return;
+    started = true;
+    trackGrowthEvent(growthEvents.toolStart, { tool_id: 'akilli-excel-urun-bulucu', page_type: 'hero_tool' });
+  }, { once: true });
+
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     const data = new FormData(form);
@@ -74,14 +83,39 @@ export function mountUrunBulucu(root: HTMLElement, products: FinderProduct[]): v
       problem: String(data.get('problem') ?? ''),
     };
     const selected = secUrunler(products, answers);
+    const primary = selected[0];
+
+    trackGrowthEvent(growthEvents.toolComplete, {
+      tool_id: 'akilli-excel-urun-bulucu',
+      intent: answers.problem || answers.alan,
+      product: primary?.slug || 'none',
+      lead_score: selected.length ? 70 : 20,
+    });
+    trackGrowthEvent(growthEvents.toolResult, {
+      tool_id: 'akilli-excel-urun-bulucu',
+      tool_result: primary?.slug || 'no_match',
+      product: primary?.slug || 'none',
+      intent: answers.problem || answers.alan,
+    });
+
     output.hidden = false;
     output.innerHTML = selected
       .map((item, index) => `
-        <a class="${index === 0 ? 'is-ana' : ''}" href="${item.url}">
+        <a class="${index === 0 ? 'is-ana' : ''}" href="${item.url}" data-growth-result-product="${item.slug}">
           <small>${index === 0 ? 'Ana sistem' : 'İlgili sistem'} · ${item.categoryName}</small>
           <strong>${item.name}</strong>
           <span>${item.summary}</span>
         </a>`)
       .join('');
+  });
+
+  output.addEventListener('click', (event) => {
+    const anchor = (event.target as Element | null)?.closest<HTMLAnchorElement>('[data-growth-result-product]');
+    if (!anchor) return;
+    trackGrowthEvent(growthEvents.ctaClick, {
+      cta_id: 'finder-product-result',
+      tool_id: 'akilli-excel-urun-bulucu',
+      product: anchor.dataset.growthResultProduct || 'unknown',
+    });
   });
 }
