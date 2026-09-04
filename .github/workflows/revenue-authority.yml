@@ -1,0 +1,17 @@
+name: revenue-authority
+
+on:
+  pull_request:
+  push:
+    branches: [main, 'seo-**']
+
+jobs:
+  authority:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Revenue query ownership + authority graph
+        run: node scripts/seo/revenue-authority.mjs

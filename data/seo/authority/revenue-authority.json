@@ -1,0 +1,59 @@
+{
+  "version": "1.0.0",
+  "site": "excelarsiv.com",
+  "policy": {
+    "minSupportRoutes": 2,
+    "minContextualAnchors": 3,
+    "maxReviewAgeDays": 120,
+    "requireDirectAnswer": true,
+    "requireEvidence": true,
+    "forbidDuplicateQueryOwners": true
+  },
+  "clusters": [
+    {
+      "id": "cashflow-13w",
+      "commercialOwner": "/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi",
+      "ownedQueries": ["13 haftalık nakit akışı excel", "nakit akışı excel", "ödeme planlama excel"],
+      "hub": "/sablonlar",
+      "supportRoutes": ["/rehber", "/karar"],
+      "contextualAnchors": ["13 haftalık nakit akışı", "nakit akışı excel", "ödeme planlama"],
+      "answer": {
+        "question": "13 haftalık nakit akışı Excel ile nasıl planlanır?",
+        "requiredSelector": "[data-direct-answer], #direct-answer, .direct-answer"
+      },
+      "evidence": ["gerçek ürün ekranları", "formül ve sayfa kapsamı", "sürüm ve son güncelleme"],
+      "conversion": "shopier_checkout",
+      "lastMaterialReview": "2026-08-24"
+    },
+    {
+      "id": "cash-register",
+      "commercialOwner": "/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi",
+      "ownedQueries": ["kasa defteri excel", "gelir gider excel", "nakit takip excel"],
+      "hub": "/sablonlar",
+      "supportRoutes": ["/rehber", "/karar"],
+      "contextualAnchors": ["kasa defteri excel", "günlük nakit kontrolü", "gelir gider takibi"],
+      "answer": {
+        "question": "Kasa defteri Excel ile günlük nakit nasıl kontrol edilir?",
+        "requiredSelector": "[data-direct-answer], #direct-answer, .direct-answer"
+      },
+      "evidence": ["gerçek ürün ekranları", "girdi-çıktı mimarisi", "Excel uyumluluğu"],
+      "conversion": "shopier_checkout",
+      "lastMaterialReview": "2026-08-24"
+    },
+    {
+      "id": "receivables-risk",
+      "commercialOwner": "/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi",
+      "ownedQueries": ["cari hesap takip excel", "tahsilat takip excel", "müşteri risk takip excel"],
+      "hub": "/sablonlar",
+      "supportRoutes": ["/rehber/cari-hesap-takip-excel", "/rehber", "/karar"],
+      "contextualAnchors": ["cari hesap takip excel", "tahsilat riski", "müşteri risk takibi"],
+      "answer": {
+        "question": "Cari hesap, tahsilat ve müşteri riski Excel'de nasıl birlikte izlenir?",
+        "requiredSelector": "[data-direct-answer], #direct-answer, .direct-answer"
+      },
+      "evidence": ["gerçek ürün ekranları", "vade ve risk çıktıları", "ürün kullanım sınırları"],
+      "conversion": "shopier_checkout",
+      "lastMaterialReview": "2026-08-24"
+    }
+  ]
+}
