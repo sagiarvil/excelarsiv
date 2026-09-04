@@ -16,31 +16,19 @@ jobs:
       - uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-      - name: Provision and prove Firebase default private Storage bucket
+      - name: Prove dedicated private paid-product bucket
         shell: bash
         run: |
           set -euo pipefail
           project='carbon-web-1265b'
-          bucket='gs://carbon-web-1265b.firebasestorage.app'
-          orphan='gs://carbon-web-1265b-paid-products-eu'
+          bucket='gs://carbon-web-1265b-paid-products-eu'
 
-          if ! gcloud storage buckets describe "$bucket" --project "$project" >/dev/null 2>&1; then
-            gcloud storage buckets create "$bucket" \
-              --project "$project" \
-              --location europe-west1 \
-              --uniform-bucket-level-access \
-              --public-access-prevention
-          fi
+          gcloud storage buckets describe "$bucket" --project "$project" >/dev/null
           gcloud storage buckets update "$bucket" --pap --uniform-bucket-level-access
 
           printf 'excelarsiv-private-storage-probe\n' >/tmp/storage-probe.txt
           gcloud storage cp /tmp/storage-probe.txt "$bucket/.release-probe.txt"
           gcloud storage cat "$bucket/.release-probe.txt" | grep -Fx 'excelarsiv-private-storage-probe'
           gcloud storage rm "$bucket/.release-probe.txt"
-
-          if gcloud storage buckets describe "$orphan" --project "$project" >/dev/null 2>&1; then
-            gcloud storage rm --recursive "$orphan/**" >/dev/null 2>&1 || true
-            gcloud storage buckets delete "$orphan" --quiet >/dev/null 2>&1 || true
-          fi
 
           gcloud storage buckets describe "$bucket" --format='yaml(name,location,uniformBucketLevelAccess,publicAccessPrevention)'
