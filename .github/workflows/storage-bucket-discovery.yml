@@ -33,7 +33,7 @@ jobs:
               --public-access-prevention
           fi
 
-          gcloud storage buckets update "$bucket" --public-access-prevention=enforced --uniform-bucket-level-access
+          gcloud storage buckets update "$bucket" --pap --uniform-bucket-level-access
           gcloud storage buckets add-iam-policy-binding "$bucket" \
             --member="serviceAccount:${runtime_sa}" \
             --role='roles/storage.objectViewer'
