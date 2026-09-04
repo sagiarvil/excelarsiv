@@ -19,7 +19,7 @@ const {
   fetchRecentShopierOrders,
 } = require('./shopier-api');
 
-initializeApp();
+initializeApp({ storageBucket: 'carbon-web-1265b-paid-products-eu' });
 
 const db = getFirestore();
 const bucket = getStorage().bucket();
