@@ -16,8 +16,11 @@ jobs:
       - uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-      - name: List project storage buckets
+      - name: List project storage buckets and function identities
         shell: bash
         run: |
           set -euo pipefail
+          echo 'BUCKETS'
           gcloud storage buckets list --project carbon-web-1265b --format='value(name)'
+          echo 'FUNCTION_IDENTITIES'
+          gcloud functions list --gen2 --regions=europe-west1 --project carbon-web-1265b --format='value(name,serviceConfig.serviceAccountEmail)'
