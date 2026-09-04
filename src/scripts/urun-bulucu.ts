@@ -1,4 +1,4 @@
-import { growthEvents, trackGrowthEvent } from '../lib/growth';
+import { growthEvents, trackGrowthEvent } from '../lib/growth.ts';
 
 export interface FinderProduct {
   slug: string;
