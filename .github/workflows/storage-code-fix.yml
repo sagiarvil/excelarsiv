@@ -23,52 +23,45 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
 
-          old = 'carbon-web-1265b.firebasestorage.app'
-          new = 'carbon-web-1265b-paid-products-eu'
-          paths = [
-              Path('scripts/sync-paid-products.mjs'),
-              Path('scripts/check-paid-products.mjs'),
-              Path('.github/workflows/deploy-firebase.yml'),
-          ]
+          legacy = 'carbon-web-1265b.firebasestorage.app'
+          target = 'carbon-web-1265b-paid-products-eu'
           changed = 0
-          for p in paths:
+
+          for name in ['scripts/sync-paid-products.mjs', 'scripts/check-paid-products.mjs']:
+              p = Path(name)
               s = p.read_text()
-              n = s.count(old)
-              if n:
-                  p.write_text(s.replace(old, new))
-                  changed += n
+              old = f"const bucketName = process.env.STORAGE_BUCKET || '{legacy}';"
+              new = f"const requestedBucket = process.env.STORAGE_BUCKET;\nconst bucketName = !requestedBucket || requestedBucket === '{legacy}' ? '{target}' : requestedBucket;"
+              if new not in s:
+                  if s.count(old) != 1:
+                      raise SystemExit(f'{name}: expected one legacy bucket declaration, found {s.count(old)}')
+                  p.write_text(s.replace(old, new, 1))
+                  changed += 1
+
           p = Path('functions/index.js')
           s = p.read_text()
           old_init = 'initializeApp();'
-          new_init = "initializeApp({ storageBucket: process.env.STORAGE_BUCKET || 'carbon-web-1265b-paid-products-eu' });"
+          new_init = f"initializeApp({{ storageBucket: '{target}' }});"
           if new_init not in s:
               if s.count(old_init) != 1:
-                  raise SystemExit(f'expected one initializeApp();, found {s.count(old_init)}')
+                  raise SystemExit(f'functions/index.js: expected one initializeApp();, found {s.count(old_init)}')
               p.write_text(s.replace(old_init, new_init, 1))
               changed += 1
 
-          remaining = []
-          for p in [Path('scripts/sync-paid-products.mjs'), Path('scripts/check-paid-products.mjs'), Path('.github/workflows/deploy-firebase.yml'), Path('functions/index.js')]:
-              if old in p.read_text(): remaining.append(str(p))
-          if remaining:
-              raise SystemExit('legacy nonexistent bucket remains: ' + ', '.join(remaining))
-          if changed == 0:
-              print('Production bucket wiring already applied')
-          else:
-              print(f'Applied {changed} exact bucket/init replacements')
+          print(f'Applied {changed} production bucket changes')
           PY
           git diff --check
-          git diff -- scripts/sync-paid-products.mjs scripts/check-paid-products.mjs functions/index.js .github/workflows/deploy-firebase.yml
+          git diff -- scripts/sync-paid-products.mjs scripts/check-paid-products.mjs functions/index.js
       - name: Commit production bucket wiring
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet -- scripts/sync-paid-products.mjs scripts/check-paid-products.mjs functions/index.js .github/workflows/deploy-firebase.yml; then
+          if git diff --quiet -- scripts/sync-paid-products.mjs scripts/check-paid-products.mjs functions/index.js; then
             echo 'No production patch required.'
             exit 0
           fi
           git config user.name 'sagiarvil-release-bot'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add scripts/sync-paid-products.mjs scripts/check-paid-products.mjs functions/index.js .github/workflows/deploy-firebase.yml
+          git add scripts/sync-paid-products.mjs scripts/check-paid-products.mjs functions/index.js
           git commit -m 'fix: wire dedicated paid-product bucket'
           git push origin HEAD:fix/storage-bucket-discovery
