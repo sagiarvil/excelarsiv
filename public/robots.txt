@@ -38,10 +38,12 @@ Disallow: /api/
 
 # --- Training / model-improvement crawlers: separate policy class ---
 User-agent: GPTBot
-Disallow: /
+Allow: /
+Disallow: /api/
 
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
+Disallow: /api/
 
 User-agent: Google-Extended
 Disallow: /
