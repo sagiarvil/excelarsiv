@@ -67,6 +67,9 @@ export function runFullQualityGates(
           if (!content.includes('rel="canonical"') && !content.includes("rel='canonical'")) {
             violations.push(`[G2 SSR] ${page.route} sayfasında Canonical etiket eksik!`);
           }
+          if ((page.role === 'product' || page.role === 'service') && !content.includes('hero-answer-engine')) {
+            violations.push(`[G2 SSR] ${page.route} sayfasında MANDATE hero-answer-engine bloğu eksik!`);
+          }
         }
       }
     }

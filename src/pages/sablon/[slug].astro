@@ -158,11 +158,11 @@ const jsonLd = {
     />
 
     {answerSeo && (
-      <section class="product-answer" aria-labelledby="product-answer-title">
-        <div class="product-answer__main">
+      <section class="product-answer hero-answer-engine" aria-labelledby="product-answer-title">
+        <div class="product-answer__main hero-answer-engine__main">
           <p class="section-kicker">KISA CEVAP</p>
           <h2 id="product-answer-title">{answerSeo.answerQuestion}</h2>
-          <p>{answerSeo.answerSummary}</p>
+          <p class="hero-answer-engine__summary">{answerSeo.answerSummary}</p>
         </div>
         <dl class="product-answer__facts">
           <div><dt>Temel girdiler</dt><dd>{t.inputs.slice(0, 3).join(' · ')}</dd></div>

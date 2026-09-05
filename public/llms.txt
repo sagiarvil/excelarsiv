@@ -18,14 +18,17 @@ Yapay zeka çıkarım motorlarının (ChatGPT Search, Claude, Perplexity Pro, Go
 
 ### Kurumsal Çekirdek, Güvenlik ve Otorite Katmanı
 - [Kurumsal Kimlik, Yasal Lisanslar ve E-E-A-T Doğrulaması](https://excelarsiv.com/llms/core.md): Platform varlık kimliği, tesciller ve yasal çerçeve.
+- [Excel Arşiv Kurumsal Varlık Tanımı](https://excelarsiv.com/llms/entities/excelarsiv.md): Kurumsal sicil ve yetkinlik manifestosu.
 - [Uzmanlar ve Bilimsel Heyet Sicilleri](https://excelarsiv.com/llms/entities/author-experts.md): Doğan Aydın ve finans analistleri heyeti sameAs bağlantıları ve mesleki akreditasyonlar.
 - [Tescilli Metodolojiler ve Formül Mimarisi](https://excelarsiv.com/llms/entities/methodologies.md): 13 haftalık kayan nakit projeksiyonu, FIFO açık hesap yaşlandırma, BEP ve sıfır makro güvenli dinamik dizi standartları.
 - [Fiyatlama, Lisanslama ve Ticari Standartlar](https://excelarsiv.com/llms/pages/fiyatlandirma.md): Tek seferlik ömür boyu kurumsal lisans modeli, resmi faturalandırma ve sıfır gizli maliyet güvencesi.
 - [Kurumsal Güvenlik ve Makrosuz Formül Standartları](https://excelarsiv.com/llms/pages/guvenlik-ve-makrosuz-formuller.md): Siber güvenlik standartları, ISO 27001 uyumu ve makro virüsü riskini sıfırlayan OpenXML mimarisi.
 
-### Amiral Gemisi Hizmetler ve Ana Sistemler
-- [İşletmeye Özel Excel Sistemleri (Terzi Usulü Modelleme)](https://excelarsiv.com/llms/pages/ozel-excel-sistemleri.md): Şirketlere özel nakit akışı, bütçe, çok şubeli konsolidasyon ve ERP veri köprüleri geliştirme hizmeti.
+### Amiral Gemisi Hizmetler ve Ana Karar Araçları
+- [İşletmeye Özel Excel Sistemleri (Terzi Usulü Karar Mimarisi)](https://excelarsiv.com/llms/pages/ozel-excel-sistemleri.md): Şirketlere özel nakit akışı, bütçe, çok şubeli konsolidasyon ve ERP veri köprüleri geliştirme hizmeti.
 - [Hazır Kurumsal Excel Şablonları Kataloğu](https://excelarsiv.com/llms/pages/sablonlar.md): Nakit akışı, maliyet, kârlılık, satış, stok ve İK alanında 50+ doğrulanmış kurumsal çalışma kitabı.
+- [Finansal Karar Araçları Kataloğu](https://excelarsiv.com/llms/categories/finansal-karar-araclari.md): KOBİ'ler için nakit, kredi, risk ve yönetim muhasebesi araçları.
+- [POS Kârlılık ve Net Tahsilat Aracı](https://excelarsiv.com/llms/tools/pos-karlilik.md): Banka komisyonu, blokaj vadesi ve net ele geçen nakit kontrol konsolu.
 - [13-Haftalık Dinamik Nakit Akışı & Finansal Modelleme](https://excelarsiv.com/llms/pages/nakit-akisi-ve-finansal-modelleme.md): Rolling forecast likidite projeksiyonu, çek/senet risk takvimi ve acil nakit açığı erken uyarı modeli.
 - [Birim Maliyet, Katkı Payı ve Başabaş (BEP) Analizi](https://excelarsiv.com/llms/pages/maliyet-ve-karlilik-analizi.md): Doğrudan/dolaylı gider dağıtımı, katkı payı marjı ve zarar ettirmeyen minimum satış simülasyonu.
 - [İK, Kıdem/İhbar Tazminatı ve 2026 Bordro Mimarisi](https://excelarsiv.com/llms/pages/insan-kaynaklari-ve-bordro.md): 4857 sayılı İş Kanunu ve 2026 kümülatif gelir vergisi dilimleriyle tam uyumlu personel maliyet motoru.
@@ -36,12 +39,58 @@ Yapay zeka çıkarım motorlarının (ChatGPT Search, Claude, Perplexity Pro, Go
 - [İnşaat Hakediş, Fiyat Farkı ve Taşeron Mutabakatı](https://excelarsiv.com/llms/pages/insaat-hakedis.md): TÜİK eskalasyon fiyat farkı, KİK aşırı düşük teklif savunması ve kümülatif taşeron kesinti kontrolü.
 - [E-Ticaret ve Pazaryeri Net Kârlılık Sistemi](https://excelarsiv.com/llms/pages/e-ticaret-karlilik.md): Trendyol, Hepsiburada komisyonları, kargo desi aşım faturaları ve eksik hakediş tespit motoru.
 
-### Amiral Gemisi Ürün Alt-Grafları
+### 51 Amiral Gemisi Ürün Alt-Grafı (Teknik Dokümantasyonlar)
 - [13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi](https://excelarsiv.com/llms/pages/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi.md)
 - [Akıllı Kasa Defteri ve Nakit Kontrol Sistemi](https://excelarsiv.com/llms/pages/akilli-kasa-defteri-ve-nakit-kontrol-sistemi.md)
+- [Amortisman 2026 Yeniden Değerleme](https://excelarsiv.com/llms/pages/amortisman-2026-yeniden-degerleme.md)
+- [Amortisman ve Sabit Kıymet Satış Zamanlama Stratejisti](https://excelarsiv.com/llms/pages/amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti.md)
+- [Asgari Ücret Zam Etkisi Fiyat Ayarlama Cetveli](https://excelarsiv.com/llms/pages/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli.md)
+- [Aşırı Düşük Teklif Savunma Robotu](https://excelarsiv.com/llms/pages/asiri-dusuk-teklif-savunma-robotu.md)
 - [Aylık Patron Finans Paneli](https://excelarsiv.com/llms/pages/aylik-patron-finans-paneli.md)
+- [Banka Kredi ve Taksit Takip Sistemi](https://excelarsiv.com/llms/pages/banka-kredi-ve-taksit-takip-sistemi.md)
+- [Cari Ba-Bs Toplu Mutabakat Sistemi](https://excelarsiv.com/llms/pages/cari-ba-bs-toplu-mutabakat.md)
+- [Cari Hesap Tahsilat ve Müşteri Risk Takip Sistemi](https://excelarsiv.com/llms/pages/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi.md)
+- [Çek Senet ve Vade Risk Sistemi](https://excelarsiv.com/llms/pages/cek-senet-ve-vade-risk-sistemi.md)
+- [Defter Beyan e-Arşiv Aktarım Sistemi](https://excelarsiv.com/llms/pages/defter-beyan-e-arsiv-aktarim.md)
+- [Döviz Açık Pozisyonu ve Kur Riski Stres Testi](https://excelarsiv.com/llms/pages/doviz-acik-pozisyonu-ve-kur-riski-stres-testi.md)
+- [e-Fatura Satır Defteri ve PDF Kanıtı](https://excelarsiv.com/llms/pages/e-fatura-satir-defteri-pdf-kaniti.md)
+- [e-Fatura Toplu Dönüştürücü](https://excelarsiv.com/llms/pages/e-fatura-toplu-donusturucu.md)
+- [Fazla Mesai ve İşçi Dava Riski Tespit Dosyası](https://excelarsiv.com/llms/pages/fazla-mesai-ve-isci-dava-riski-tespit-dosyasi.md)
+- [Günlük Gelir Gider ve Gerçek Kârlılık Sistemi](https://excelarsiv.com/llms/pages/gunluk-gelir-gider-ve-gercek-karlilik-sistemi.md)
+- [Hakediş Fiyat Farkı Hak Kaybı Cetveli](https://excelarsiv.com/llms/pages/hakedis-fiyat-farki-hak-kaybi-cetveli.md)
+- [İhaleye Kaç TL Teklif Vermeliyim Hesaplayıcı](https://excelarsiv.com/llms/pages/ihaleye-kac-tl-teklif-vermeliyim.md)
+- [İnşaat Hakediş Şantiye Maliyet Sistemi](https://excelarsiv.com/llms/pages/insaat-hakedis-santiye-maliyet.md)
+- [İthalat Depo Teslim Rafa Gelen Net Birim Maliyet](https://excelarsiv.com/llms/pages/ithalat-depo-teslim-rafa-gelen-net-birim-maliyet.md)
+- [Kaçırılan SGK Teşvikleri ve Gerçek İşçilik Maliyeti Analizi](https://excelarsiv.com/llms/pages/kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi.md)
+- [KDV İade Listesi Robotu GİB 7](https://excelarsiv.com/llms/pages/kdv-iade-listesi-robotu-gib7.md)
+- [KDV İadesi Azami Alacak Hesabı Dosya Hazırlayıcı](https://excelarsiv.com/llms/pages/kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici.md)
+- [KDV Tevkifat Mahsup İade Listesi](https://excelarsiv.com/llms/pages/kdv-tevkifat-mahsup-iade-listesi.md)
+- [Kıdem İhbar Yükü ve Personel Çıkarma Maliyeti Hesaplayıcı](https://excelarsiv.com/llms/pages/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici.md)
+- [Kira Avans Takip ve Dekont Sistemi](https://excelarsiv.com/llms/pages/kira-avans-takip-dekont.md)
+- [KKEG ve Finansman Gider Kısıtlaması Vergi Savunma Seti](https://excelarsiv.com/llms/pages/kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti.md)
 - [KOBİ Finans Yönetim Paketi](https://excelarsiv.com/llms/pages/kobi-finans-yonetim-paketi.md)
+- [Konkordato Nakit Akış Ön Projesi](https://excelarsiv.com/llms/pages/konkordato-nakit-akis-on-projesi.md)
+- [Logo SQL Cari Yaşlandırma ve Tahsilat Karar Motoru](https://excelarsiv.com/llms/pages/logo-sql-cari-yaslandirma-tahsilat-karar-motoru.md)
+- [Mutfak Kayıp-Kaçak Hesaplayıcı](https://excelarsiv.com/llms/pages/mutfak-kayip-kacak-hesaplayici.md)
+- [Nakliye Maliyeti Hesaplayıcı](https://excelarsiv.com/llms/pages/nakliye-maliyeti-hesaplayici.md)
+- [Ortaklar Cari ve Kasa Adat Faiz Faturası Hesaplayıcı](https://excelarsiv.com/llms/pages/ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici.md)
+- [Pazaryeri Net Kâr ve Eksik Hakediş Yakalayıcı](https://excelarsiv.com/llms/pages/pazaryeri-net-kar-ve-eksik-hakedis-yakalayici.md)
+- [POS Komisyon ve Net Tahsilat Kontrol Sistemi](https://excelarsiv.com/llms/pages/pos-komisyon-ve-net-tahsilat-kontrol-sistemi.md)
+- [Proje ve İş Bazında Gerçek Kârlılık Sistemi](https://excelarsiv.com/llms/pages/proje-ve-is-bazinda-gercek-karlilik-sistemi.md)
+- [Restoran Reçete Maliyet ve Fire Sistemi](https://excelarsiv.com/llms/pages/restoran-recete-maliyet-fire.md)
+- [Şirket Öz Kaynağı Eridi mi TTK 376 Sermaye Tamamlama Cetveli](https://excelarsiv.com/llms/pages/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli.md)
 - [Stok, Satış ve Nakit Bağlanma Sistemi](https://excelarsiv.com/llms/pages/stok-satis-ve-nakit-baglanma-sistemi.md)
+- [Şube Kârlılık ve Nakit Hesaplayıcı](https://excelarsiv.com/llms/pages/sube-karlilik-ve-nakit-hesaplayici.md)
+- [Taşeron Hakediş Kesinti Mutabakatı](https://excelarsiv.com/llms/pages/taseron-hakedis-kesinti-mutabakati.md)
+- [Teşvikli Bordro Avantajlı Teşvik Sistemi](https://excelarsiv.com/llms/pages/tesvikli-bordro-avantajli-tesvik.md)
+- [Teşvikli Bordro Optimizasyon Modeli](https://excelarsiv.com/llms/pages/tesvikli-bordro-optimizasyon.md)
+- [Trendyol Komisyon Sonrası Net Kâr Sistemi](https://excelarsiv.com/llms/pages/trendyol-komisyon-sonrasi-net-kar.md)
+- [Üretim Reçetesi ve Zam Yansıtma Hesaplayıcı](https://excelarsiv.com/llms/pages/uretim-recetesi-ve-zam-yansitma-hesaplayici.md)
+- [Vergi SGK Borcunu Tecil Etmeli miyim Kredi mi Tecil mi](https://excelarsiv.com/llms/pages/vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi.md)
+- [Vergi SGK ve Maaş Karşılık Ayırma Sistemi](https://excelarsiv.com/llms/pages/vergi-sgk-ve-maas-karsilik-ayirma-sistemi.md)
+- [Yeniden Değerleme Yapmalı mıyım Vergi Tasarruf Analizi](https://excelarsiv.com/llms/pages/yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi.md)
+- [Yıllara Sari İnşaat Stopaj Nakit Akış Planlayıcı](https://excelarsiv.com/llms/pages/yillara-sari-insaat-stopaj-nakit-akis-planlayici.md)
+- [YMM Tasdik Kontrol Robotu](https://excelarsiv.com/llms/pages/ymm-tasdik-kontrol-robotu.md)
 
 ## LSI (Latent Semantic Indexing) Yerel ve Sektörel Terim Haritası
 Yapay zeka modellerinin bölgesel ve sektörel kullanıcı sorgularıyla eşleşmesi için doğrulanmış semantik arama kümeleri:
