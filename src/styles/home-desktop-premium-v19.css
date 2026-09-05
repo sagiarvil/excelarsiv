@@ -73,8 +73,12 @@
   body[data-desktop-premium-v19] .custom-cta-card{border-radius:20px!important;box-shadow:0 14px 34px rgba(15,23,42,.055)!important}
 
   body[data-desktop-premium-v19] .high-ticket-bridge{padding:30px 0 78px!important;background:#fff!important}
-  body[data-desktop-premium-v19] .high-ticket-bridge__inner{width:min(1240px,calc(100% - 64px))!important;padding:54px 56px!important;border:1px solid #213149!important;border-radius:30px!important;background:radial-gradient(circle at 8% 0%,rgba(16,185,129,.14),transparent 32%),linear-gradient(135deg,#0f172a,#15243a)!important;box-shadow:0 28px 70px rgba(15,23,42,.18)!important}
-  body[data-desktop-premium-v19] .high-ticket-bridge__proof{border-radius:22px!important;background:rgba(17,28,47,.82)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.03)!important}
+  body[data-desktop-premium-v19] .high-ticket-bridge__inner{width:min(1240px,calc(100% - 64px))!important;padding:54px 56px!important;border:1px solid #dfe5e0!important;border-radius:30px!important;background:#fff!important;box-shadow:0 18px 48px rgba(15,23,42,.06)!important}
+  body[data-desktop-premium-v19] .high-ticket-bridge h2{color:#0f172a!important}
+  body[data-desktop-premium-v19] .high-ticket-bridge__copy>p:last-child{color:#526176!important}
+  body[data-desktop-premium-v19] .high-ticket-bridge__proof{border:1px solid #dfe5e0!important;border-radius:22px!important;background:#f8faf9!important;box-shadow:0 8px 24px rgba(15,23,42,.04)!important}
+  body[data-desktop-premium-v19] .high-ticket-bridge__proof ul{color:#334155!important}
+  body[data-desktop-premium-v19] .high-ticket-bridge__proof>a{background:linear-gradient(135deg,#087a46,#059669)!important;color:#fff!important}
 
   body[data-desktop-premium-v19] .home-finance-close{padding:0 0 76px!important;border-bottom:0!important;background:#fff!important}
   body[data-desktop-premium-v19] .home-finance-close__inner{width:min(1240px,calc(100% - 64px))!important;padding:34px 38px!important;border:1px solid #d8e7de!important;border-radius:26px!important;background:linear-gradient(135deg,#effcf3 0%,#f4f8ff 55%,#fff8ed 100%)!important;box-shadow:0 18px 42px rgba(15,23,42,.06)!important}

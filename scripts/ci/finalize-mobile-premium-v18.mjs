@@ -48,14 +48,14 @@ const mobileCss = `<style id="mobile-premium-v18-css">
   body[data-mobile-premium-v18] .finance-pillar--violet>a{background:#f8f5ff!important;border-color:#e6ddfb!important;color:#6d28d9!important}
   body[data-mobile-premium-v18] .finance-pillar--amber>a{background:#fff9ef!important;border-color:#f9dfb6!important;color:#a84f06!important}
 
-  body[data-mobile-premium-v18] .high-ticket-bridge{padding:14px 0 18px!important;background:#fff!important;color:#fff!important}
+  body[data-mobile-premium-v18] .high-ticket-bridge{padding:14px 0 18px!important;background:#fff!important;color:#0f172a!important}
   body[data-mobile-premium-v18] .high-ticket-bridge>.home-shell{width:calc(100% - 20px)!important}
-  body[data-mobile-premium-v18] .high-ticket-bridge__inner{display:grid!important;grid-template-columns:1fr!important;gap:20px!important;padding:25px 20px!important;border-radius:26px!important;background:linear-gradient(145deg,#0f172a,#132238)!important;box-shadow:0 18px 46px rgba(15,23,42,.18)!important}
-  body[data-mobile-premium-v18] .high-ticket-bridge h2{font-size:32px!important;line-height:1.02!important;text-wrap:balance}
-  body[data-mobile-premium-v18] .high-ticket-bridge__copy>p:last-child{font-size:15px!important;line-height:1.65!important}
-  body[data-mobile-premium-v18] .high-ticket-bridge__proof{padding:18px!important;border-radius:18px!important}
-  body[data-mobile-premium-v18] .high-ticket-bridge__proof ul{font-size:14px!important;line-height:1.5!important}
-  body[data-mobile-premium-v18] .high-ticket-bridge__proof>a{min-height:52px!important;border-radius:14px!important;font-size:13px!important;text-align:center!important}
+  body[data-mobile-premium-v18] .high-ticket-bridge__inner{display:grid!important;grid-template-columns:1fr!important;gap:20px!important;padding:25px 20px!important;border:1px solid #dfe5e0!important;border-radius:26px!important;background:#fff!important;box-shadow:0 12px 32px rgba(15,23,42,.06)!important}
+  body[data-mobile-premium-v18] .high-ticket-bridge h2{font-size:32px!important;line-height:1.02!important;color:#0f172a!important;text-wrap:balance}
+  body[data-mobile-premium-v18] .high-ticket-bridge__copy>p:last-child{font-size:15px!important;line-height:1.65!important;color:#526176!important}
+  body[data-mobile-premium-v18] .high-ticket-bridge__proof{padding:18px!important;border:1px solid #dfe5e0!important;border-radius:18px!important;background:#f8faf9!important}
+  body[data-mobile-premium-v18] .high-ticket-bridge__proof ul{font-size:14px!important;line-height:1.5!important;color:#334155!important}
+  body[data-mobile-premium-v18] .high-ticket-bridge__proof>a{min-height:52px!important;border-radius:14px!important;background:#059669!important;color:#fff!important;font-size:13px!important;text-align:center!important}
 
   body[data-mobile-premium-v18] .home-finance-close{padding:14px 0 30px!important;background:#fff!important}
   body[data-mobile-premium-v18] .home-finance-close>.home-shell{width:calc(100% - 20px)!important}

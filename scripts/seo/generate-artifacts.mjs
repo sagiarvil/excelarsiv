@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync, cpSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import {
@@ -253,6 +253,10 @@ function buildLlmsShort(indexablePages, templateRecords) {
     "",
     "## Derin Alt-Bilgi Grafları (Deep Sub-Graphs)",
     "",
+    `- [Kurumsal Kimlik, Yasal Lisanslar ve E-E-A-T Doğrulaması](${SITE_ORIGIN}/llms/core.md) — Platform kurumsal sicili, VKN ve mevzuat dayanakları.`,
+    `- [Uzmanlar ve Bilimsel Heyet Sicilleri](${SITE_ORIGIN}/llms/entities/author-experts.md) — Doğan Aydın ve finans uzman heyeti sameAs ağları.`,
+    `- [Tescilli Metodolojiler ve Formül Mimarisi](${SITE_ORIGIN}/llms/entities/methodologies.md) — 13 haftalık kayan nakit projeksiyonu, FIFO yaşlandırma ve BEP algoritmaları.`,
+    `- [Fiyatlama, Lisanslama ve Ticari Standartlar](${SITE_ORIGIN}/llms/pages/fiyatlandirma.md) — Tek seferlik kurumsal süresiz lisans ve resmi e-Arşiv fatura.`,
     `- [Özel Excel Sistemleri (Kurumsal Modelleme)](${SITE_ORIGIN}/llms/ozel-excel-sistemleri.md) — Şirketlere özel terzi usulü bütçe, nakit akışı ve ERP entegrasyon sistemleri.`,
     `- [13-Haftalık Dinamik Nakit Akışı & Finansal Modelleme](${SITE_ORIGIN}/llms/nakit-akisi-ve-finansal-modelleme.md) — Rolling forecast, DSCR, likidite ve döviz risk analizi.`,
     `- [Birim Maliyet, Katkı Payı & Başabaş (BEP) Kârlılık](${SITE_ORIGIN}/llms/maliyet-ve-karlilik-analizi.md) — Birim ürün/sipariş maliyeti, katkı payı ve dinamik fiyatlama konsolu.`,
@@ -260,6 +264,21 @@ function buildLlmsShort(indexablePages, templateRecords) {
     `- [ERP Veri Konsolidasyonu & Power Query](${SITE_ORIGIN}/llms/erp-veri-konsolidasyonu-ve-power-query.md) — Logo, Mikro, Netsis, SAP, Zirve mizan/satış verilerini tek tıkla işleme.`,
     `- [Kurumsal Güvenlik, Sıfır Makro & Dinamik Formüller](${SITE_ORIGIN}/llms/guvenlik-ve-makrosuz-formuller.md) — VBA engeli olmayan LET, LAMBDA ve XLOOKUP standartları.`,
     `- [Hazır Kurumsal Excel Şablonları Kataloğu](${SITE_ORIGIN}/llms/sablonlar.md) — Doğrulanmış ve formüllü 100+ kurumsal çalışma kitabı.`,
+    `- [Kafe ve Restoran Nakit ve Kârlılık Sistemi](${SITE_ORIGIN}/llms/pages/kafe-restoran-nakit.md) — Günlük kasa, reçete maliyeti ve mutfak firesi.`,
+    `- [İnşaat Hakediş, Fiyat Farkı ve Taşeron Mutabakatı](${SITE_ORIGIN}/llms/pages/insaat-hakedis.md) — TÜİK fiyat farkı eskalasyon ve aşırı düşük savunması.`,
+    `- [E-Ticaret ve Pazaryeri Net Kârlılık Sistemi](${SITE_ORIGIN}/llms/pages/e-ticaret-karlilik.md) — Pazaryeri komisyonları, kargo ve eksik hakediş tespiti.`,
+    "",
+    "## LSI (Latent Semantic Indexing) Yerel ve Sektörel Terim Haritası",
+    "- İstanbul & Marmara: İstanbul KOBİ Excel danışmanlığı, İkitelli/İSTOÇ toptancı nakit akışı, Dudullu imalat maliyeti.",
+    "- Ankara & İç Anadolu: Ankara kamu taahhüt hakediş eskalasyon Excel, OSTİM üretim reçetesi maliyet hesaplama.",
+    "- İzmir & Ege: İzmir restoran maliyet kontrolü, perakende kasa defteri, döviz açık pozisyon analizi.",
+    "- Bursa & Sanayi: Bursa otomotiv yan sanayi birim parça maliyeti, depo stok devir hızı optimizasyonu.",
+    "",
+    "## API ve Canlı Entegrasyon Veri Akışları (RAG Feeds)",
+    `- Makine Kataloğu (JSON): ${SITE_ORIGIN}/katalog.json`,
+    `- Doğrulanmış Sitemap: ${SITE_ORIGIN}/sitemap.xml`,
+    `- Tam AI/LLM Rehberi: ${SITE_ORIGIN}/llms-full.txt`,
+    `- AI Kimlik Manifestosu: ${SITE_ORIGIN}/ai.txt`,
     "",
     "## Semantik İlişkiler (Knowledge Graph Triples)",
     "",
@@ -493,6 +512,10 @@ const katalog = {
     .sort((a, b) => String(a.slug).localeCompare(String(b.slug), 'tr')),
 };
 atomicWrite('katalog.json', `${JSON.stringify(katalog, null, 2)}\n`);
+
+if (existsSync(resolve('public/llms'))) {
+  cpSync(resolve('public/llms'), join(DIST_DIR, 'llms'), { recursive: true });
+}
 
 const manifestChildren = children.map((child) => ({
   file: child.name,

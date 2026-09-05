@@ -61,3 +61,21 @@ Consult these guides before working on related tasks:
 - [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+
+---
+
+## MANDATE-SEO-GEO-2026-V6 MİMARİ STANDARDI
+
+> **ZORUNLU VE BAĞLAYICI MİMARİ STANDART:** Bu projede yapılacak tüm sayfa, şema, sitemap, routing ve içerik değişiklikleri MANDATE-SEO-GEO-2026-V6 şartnamesine %100 uymak zorundadır. Registry kaydı (`src/seo/registry.ts`) olmadan sayfa üretilemez, derin alt-graf (`/llms/*.md`) olmadan amiral gemisi rota açılamaz.
+
+### 8 Adımlı Deterministik Uygulama Protokolü (Playbook)
+
+1. **SSOT REGISTRY TANIMI:** `src/seo/registry.ts` dosyasına gidilir; rota, canonicalRoute, primaryIntent, primaryEntity ve modifiedAt alanları tanımlanır.
+2. **HERO ANSWER ENGINE KODLAMASI:** Sayfa HTML şablonunun en üstüne (ilk 100 piksel) 80-120 kelimelik `div.hero-answer-engine` özet kutusu eklenir (sayısal veri, kesin tanım, teknik parametreler).
+3. **@graph JSON-LD ŞEMA ENJEKSİYONU:** `src/seo/schema-builder.ts` çağrılarak Organization, WebSite, WebPage, BreadcrumbList ve sektörel şemalar ham HTML içine gömülür.
+4. **ÇOK KATMANLI LLM BİLGİ DOKÜMANI ÜRETİMİ:** `public/llms/pages/[slug].md` oluşturulur (Saf token-yoğun Markdown, RDF üçlüleri, FAQ) ve kök `public/llms.txt` manifestosuna bağlanır.
+5. **SITEMAP & ROBOTS.TXT DOĞRULAMASI:** Sayfanın sitemap.xml içerisine yalnız canonical adresiyle girdiği doğrulanır; robots.txt içinde GPTBot, ClaudeBot, PerplexityBot izinleri teyit edilir.
+6. **SUNUCU / EDGE MIME-TYPE YAPILANDIRMASI:** `/llms.txt` ve `/llms/**` yollarının `text/markdown; charset=utf-8` başlığıyla döndüğü doğrulanır.
+7. **MULTI-HUB INDEXNOW DAĞITIMI:** `node scripts/notify-indexnow.js https://excelarsiv.com/[slug]` komutuyla Bing, Yandex ve IndexNow API'ye anlık PUSH yapılır.
+8. **CANLI PROD HEALTH CHECK & KORUMA:** `npm run seo:ci-gate` çalıştırılarak tüm G0-G9 kapılarından sıfır hatayla geçildiği onaylanır.
+

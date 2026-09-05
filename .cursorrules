@@ -1,0 +1,14 @@
+# MANDATE-SEO-GEO-2026-V6 CURSOR & AGENT RULES
+# Statü: MECBURİ VE BAĞLAYICI MİMARİ STANDART (MANDATORY ENFORCEMENT)
+
+Bu projede yapılacak tüm sayfa, şema, sitemap, routing ve içerik değişiklikleri MANDATE-SEO-GEO-2026-V6 şartnamesine %100 uymak zorundadır. Registry kaydı (src/seo/registry.ts) olmadan sayfa üretilemez, derin alt-graf (/llms/*.md) olmadan amiral gemisi rota açılamaz.
+
+## Zorunlu 8 Adımlı Uygulama Protokolü:
+1. [SSOT REGISTRY]: src/seo/registry.ts içine rota, canonicalRoute, primaryIntent, primaryEntity, modifiedAt tanımlanır.
+2. [HERO ANSWER ENGINE]: İlk 100 pikselde 80-120 kelimelik div.hero-answer-engine özet kutusu kodlanır.
+3. [@graph JSON-LD]: src/seo/schema-builder.ts ile Organization, WebSite, WebPage, BreadcrumbList gömülür.
+4. [ÇOK KATMANLI LLM]: public/llms/pages/[slug].md derin alt-grafı (saf Markdown, RDF üçlüleri, FAQ) üretilir ve public/llms.txt manifestosuna bağlanır.
+5. [SITEMAP & ROBOTS]: Canonical URL sitemap.xml içine işlenir; 10+ AI bot izinleri teyit edilir.
+6. [EDGE CDN HEADERS]: /llms/** yollarına text/markdown; charset=utf-8 basılır.
+7. [MULTI-HUB INDEXNOW]: node scripts/notify-indexnow.js ile Bing, Yandex ve IndexNow API'ye anlık push yapılır.
+8. [G0-G9 CI GATES]: npm run seo:ci-gate komutuyla 0 hata doğrulanır.
