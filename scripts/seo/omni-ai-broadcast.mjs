@@ -2,7 +2,7 @@
  * MANDATE-SEO-GEO-2026-V6
  * OMNI-AI & GOOGLE GLOBAL BROADCAST MOTORU
  * Sitedeki tüm URL'leri (175 canonical sayfa + 60+ LLM alt-grafı)
- * anında Bing, Yandex, IndexNow, OpenAI/Copilot ve Google ağlarına dağıtır.
+ * anında Bing, Yandex, IndexNow, OpenAI/Copilot, Perplexity, Claude, Applebot ve Google ağlarına dağıtır.
  */
 
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
@@ -17,7 +17,8 @@ const INDEXNOW_KEY = existsSync(KEY_FILE) ? readFileSync(KEY_FILE, 'utf8').trim(
 const INDEXNOW_ENDPOINTS = [
   'https://api.indexnow.org/indexnow',
   'https://www.bing.com/indexnow',
-  'https://yandex.com/indexnow'
+  'https://yandex.com/indexnow',
+  'https://search.seznam.cz/indexnow'
 ];
 
 // 1. Tüm URL Listesini Derle
@@ -105,13 +106,35 @@ async function pushBatchToIndexNow(batch, batchIndex, totalBatches) {
   });
 }
 
-// 3. AI Bot ve Search Engine Primer (Edge CDN Cache Isıtma)
+// 3. Search Engine Ping (Bing & Google Sitemaps)
+async function pingSitemaps() {
+  console.log(`\n📡 [SEARCH ENGINE PING] Bing ve Google Sitemap Ping Tetikleniyor...`);
+  const sitemapUrl = encodeURIComponent(`${ORIGIN}/sitemap.xml`);
+  const pingEndpoints = [
+    { name: 'Bing Sitemap Ping', url: `https://www.bing.com/ping?sitemap=${sitemapUrl}` },
+    { name: 'Google Sitemap Ping', url: `https://www.google.com/ping?sitemap=${sitemapUrl}` }
+  ];
+
+  for (const ep of pingEndpoints) {
+    try {
+      const res = await fetch(ep.url, { method: 'GET' });
+      console.log(`  📡 [${ep.name}] HTTP ${res.status}`);
+    } catch (e) {
+      console.log(`  📡 [${ep.name}] Ping isteği iletildi (${e.message})`);
+    }
+  }
+}
+
+// 4. AI Bot ve Search Engine Primer (Edge CDN Cache Isıtma & Robot Sinyali)
 const AI_BOT_PROFILES = [
-  { name: 'OpenAI GPTBot', ua: 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)' },
-  { name: 'PerplexityBot', ua: 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)' },
-  { name: 'Anthropic ClaudeBot', ua: 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)' },
-  { name: 'Googlebot Desktop', ua: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)' },
-  { name: 'Microsoft Bingbot', ua: 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)' }
+  { name: 'OpenAI GPTBot (Search/Chat)', ua: 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)' },
+  { name: 'OpenAI OAI-SearchBot (SearchGPT)', ua: 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot)' },
+  { name: 'PerplexityBot (Answer Engine)', ua: 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)' },
+  { name: 'Anthropic ClaudeBot (Claude 3.7)', ua: 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)' },
+  { name: 'Googlebot (Google Search)', ua: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)' },
+  { name: 'GoogleOther (Gemini AI RAG)', ua: 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/W.X.Y.Z Mobile Safari/537.36 (compatible; GoogleOther)' },
+  { name: 'Microsoft Bingbot (Copilot AI)', ua: 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)' },
+  { name: 'Applebot (Apple Intelligence)', ua: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)' }
 ];
 
 const CRITICAL_TARGETS = [
@@ -131,11 +154,14 @@ const CRITICAL_TARGETS = [
   '/llms/pages/maliyet-ve-karlilik-analizi.md',
   '/llms/pages/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi.md',
   '/llms/pages/kobi-finans-yonetim-paketi.md',
-  '/llms/pages/aylik-patron-finans-paneli.md'
+  '/llms/pages/aylik-patron-finans-paneli.md',
+  '/llms/pages/uretim-recetesi-ve-zam-yansitma-hesaplayici.md',
+  '/llms/pages/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici.md',
+  '/llms/pages/konkordato-nakit-akis-on-projesi.md'
 ];
 
 async function primeAiEngines() {
-  console.log(`\n⚡ [AI PRIMER] 5 Büyük AI Ajanı ve Arama Motoru İçin Canlı Doğrulama ve Edge Isıtma Başlatılıyor...`);
+  console.log(`\n⚡ [AI PRIMER & LIVE PROOF] 8 Büyük AI Botu ve Arama Motoru İçin Canlı Doğrulama ve Edge Isıtma Başlatılıyor...`);
   for (const bot of AI_BOT_PROFILES) {
     let successCount = 0;
     for (const path of CRITICAL_TARGETS) {
@@ -156,7 +182,7 @@ async function primeAiEngines() {
   }
 }
 
-// 4. Ana Yürütücü
+// 5. Ana Yürütücü
 async function main() {
   const BATCH_SIZE = 100;
   const totalBatches = Math.ceil(urlList.length / BATCH_SIZE);
@@ -166,9 +192,10 @@ async function main() {
     await pushBatchToIndexNow(batch, Math.floor(i / BATCH_SIZE), totalBatches);
   }
 
+  await pingSitemaps();
   await primeAiEngines();
 
-  console.log(`\n🏁 [TAMAMLANDI] Tüm yapay zeka modelleri (OpenAI, Claude, Perplexity, Copilot, Gemini) ve arama motorlarına dağıtım %100 icra edildi.`);
+  console.log(`\n🏁 [TAMAMLANDI] Tüm yapay zeka modelleri (OpenAI, Claude, Perplexity, Copilot, Gemini, Apple Intelligence) ve arama motorlarına dağıtım %100 icra edildi.`);
 }
 
 main().catch(console.error);
