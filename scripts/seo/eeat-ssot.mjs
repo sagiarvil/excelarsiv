@@ -55,17 +55,21 @@ export const EEAT = {
   ],
 };
 
-export function buildEeatMarkdownSection({ headingLevel = 2 } = {}) {
+export function buildEeatMarkdownSection({ headingLevel = 2, includeProse = true } = {}) {
   const h = '#'.repeat(headingLevel);
   const { yazar, satici, guvenSayfalari, marka } = EEAT;
-  return [
+  const lines = [
     `${h} E-E-A-T — Deneyim, Uzmanlık, Otorite, Güven`,
     '',
-    `${marka}, ${yazar.ad} (${yazar.unvan}, VKN: ${satici.vkn} — ${satici.vknNotu}) tarafından tasarlanan ve denetlenen finansal karar sistemleri platformudur. Modeller %100 makrosuz (.xlsx) dinamik formül mimarisiyle geliştirilmiş olup Türk vergi ve ticaret mevzuatına (4857 İş Kanunu, 193 GVK 2026 dilimleri, 213 VUK ve 6102 TTK) tam uyumludur. Şirket verileri harici sunuculara çıkmaz, tek seferlik kurumsal lisansla çalışır. İletişim: ${satici.eposta} | Tel: ${satici.telefon} | Adres/MERSIS: ${satici.adresNotu}`,
-    '',
-    ...guvenSayfalari.map((p) => `- [${p.ad}](${p.url}): ${p.aciklama}`),
-    '',
-  ].join('\n');
+  ];
+  if (includeProse) {
+    lines.push(
+      `${marka}, ${yazar.ad} (${yazar.unvan}, VKN: ${satici.vkn} — ${satici.vknNotu}) tarafından tasarlanan ve denetlenen finansal karar sistemleri platformudur. Modeller %100 makrosuz (.xlsx) dinamik formül mimarisiyle geliştirilmiş olup Türk vergi ve ticaret mevzuatına (4857 İş Kanunu, 193 GVK 2026 dilimleri, 213 VUK ve 6102 TTK) tam uyumludur. Şirket verileri harici sunuculara çıkmaz, tek seferlik kurumsal lisansla çalışır. İletişim: ${satici.eposta} | Tel: ${satici.telefon} | Adres/MERSIS: ${satici.adresNotu}`,
+      '',
+    );
+  }
+  lines.push(...guvenSayfalari.map((p) => `- [${p.ad}](${p.url}): ${p.aciklama}`), '');
+  return lines.join('\n');
 }
 
 export function buildAiTxt(lastUpdatedIsoDate) {
