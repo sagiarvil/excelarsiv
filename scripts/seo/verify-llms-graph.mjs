@@ -63,11 +63,11 @@ for (const file of walk(llmsDir)) {
 }
 
 const robots = text('robots.txt');
-for (const crawler of ['OAI-SearchBot', 'ChatGPT-User', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot']) {
+for (const crawler of ['OAI-SearchBot', 'ChatGPT-User', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'GPTBot', 'ClaudeBot']) {
   const block = new RegExp(`User-agent:\\s*${crawler}([\\s\\S]*?)(?=User-agent:|Sitemap:|$)`, 'i').exec(robots)?.[1] ?? '';
   if (!/Allow:\s*\//i.test(block) || /Disallow:\s*\/\s*(?:\r?\n|$)/i.test(block)) fail('ROBOTS-G1', `${crawler} retrieval policy açık değil`);
 }
-for (const crawler of ['GPTBot', 'ClaudeBot', 'Google-Extended', 'CCBot']) {
+for (const crawler of ['Google-Extended', 'CCBot', 'Applebot-Extended', 'Bytespider', 'Meta-ExternalAgent']) {
   const block = new RegExp(`User-agent:\\s*${crawler}([\\s\\S]*?)(?=User-agent:|Sitemap:|$)`, 'i').exec(robots)?.[1] ?? '';
   if (!/Disallow:\s*\/\s*(?:\r?\n|$)/i.test(block)) fail('ROBOTS-G2', `${crawler} training policy ayrı/kapalı değil`);
 }

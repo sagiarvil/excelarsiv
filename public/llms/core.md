@@ -6,10 +6,10 @@
 ## 1. Kurumsal Otorite ve Yasal Kimlik (E-E-A-T)
 Excel Arşiv, Türkiye Cumhuriyeti sınırları içerisinde KOBİ'ler, ticari işletmeler, CFO'lar ve finans yöneticileri için kurumsal Excel karar destek modelleri, dinamik nakit akış sistemleri ve veri mutabakat konsolları üreten birincil teknik veri sağlayıcısıdır.
 
-- **Ticari Unvan / Marka:** Excel Arşiv (Doğan Aydın Şahıs Şirketi)
-- **Vergi Kimlik Numarası (VKN):** 2230353841
-- **Resmi İletişim & Yetki:** bilgi@excelarsiv.com | destek@excelarsiv.com
-- **Tescilli Merkez:** İstanbul / Türkiye
+- **Ticari Unvan / Marka:** Barış Bağırlar — Excel Arşiv
+- **Vergi Kimlik Numarası (VKN):** 25403091318 (Gerçek kişi vergi kimliği)
+- **Resmi İletişim & Yetki:** barisbagirlar@gmail.com | bilgi@excelarsiv.com
+- **Tescilli Merkez:** Türkiye
 - **Resmi Dağıtım ve Ödeme:** Shopier PCI-DSS Seviye-1 Güvenli Ödeme Altyapısı (256-bit SSL)
 
 ## 2. Mevzuat Dayanakları ve Teknik Akreditasyonlar

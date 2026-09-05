@@ -29,8 +29,8 @@ function addPromotedLine(text, anchor, line, label) {
 let short = readFileSync(files.short, 'utf8');
 short = addPromotedLine(
   short,
-  '- Katalog: https://excelarsiv.com/sablonlar',
-  `- İhtiyaca özel Excel sistemleri: ${SPECIAL_URL}`,
+  `- [Katalog ve Şablonlar](https://excelarsiv.com/sablonlar): Doğrulanmış kurumsal Excel çalışma sistemleri ve modelleri kataloğu.`,
+  `- [İhtiyaca Özel Excel Sistemleri](${SPECIAL_URL}): Şirketlere özel terzi usulü bütçe, nakit akışı ve ERP veri köprüleri mimarisi.`,
   'llms.txt catalog',
 );
 writeFileSync(files.short, short, 'utf8');
@@ -55,10 +55,10 @@ if (!index.includes('<loc>https://excelarsiv.com/sitemap-pages.xml</loc>')) {
   throw new Error('SPECIAL SYSTEMS DISCOVERY: sitemap index does not reference sitemap-pages.xml');
 }
 
-if (!readFileSync(files.short, 'utf8').includes(`- İhtiyaca özel Excel sistemleri: ${SPECIAL_URL}`)) {
+if (!readFileSync(files.short, 'utf8').includes(SPECIAL_URL)) {
   throw new Error('SPECIAL SYSTEMS DISCOVERY: llms.txt promotion missing');
 }
-if (!readFileSync(files.full, 'utf8').includes(`- İhtiyaca özel Excel sistemleri: ${SPECIAL_URL}`)) {
+if (!readFileSync(files.full, 'utf8').includes(SPECIAL_URL)) {
   throw new Error('SPECIAL SYSTEMS DISCOVERY: llms-full.txt promotion missing');
 }
 
