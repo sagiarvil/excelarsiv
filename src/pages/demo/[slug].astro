@@ -2,6 +2,7 @@
 import CommerceLayout from '../../layouts/CommerceLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Button from '../../components/Button.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 export async function getStaticPaths() {
   const templates = await getCollection('templates');
@@ -19,54 +20,136 @@ const { template } = Astro.props;
 const t = template.data;
 const productUrl = `/sablon/${template.id}`;
 const demoAnchor = `${productUrl}#demo-indir`;
-const title = `${t.name} — Ücretsiz Demo | Excel Arşiv`;
-const description = `${t.name} için ücretsiz demo: satın almadan önce 20 kayıtlık değerlendirme sürümünü indirin ve gerçek dosya yapısını inceleyin.`;
+const title = `${t.name} — Ücretsiz Demo İndir | Excel Arşiv`;
+const description = `${t.name} için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.`;
+
+const site = Astro.site ?? new URL('https://excelarsiv.com/');
+const currentUrl = new URL(`/demo/${template.id}`, site).href;
+const fullProductUrl = new URL(productUrl, site).href;
+
+const demoJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${currentUrl}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: new URL('/', site).href },
+        { '@type': 'ListItem', position: 2, name: 'Demo Kataloğu', item: new URL('/demo', site).href },
+        { '@type': 'ListItem', position: 3, name: `${t.name} (Demo)` },
+      ],
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': `${currentUrl}#software`,
+      name: `${t.name} — Ücretsiz Değerlendirme Demosu`,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Windows, macOS (Excel 2016 ve üzeri)',
+      fileFormat: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'TRY',
+        availability: 'https://schema.org/InStock',
+      },
+      isRelatedTo: {
+        '@type': 'Product',
+        name: t.name,
+        url: fullProductUrl,
+      },
+    },
+  ],
+};
 ---
 
 <CommerceLayout title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(demoJsonLd)} />
+  </Fragment>
+
   <section class="mx-auto max-w-3xl px-4 pb-24 pt-8">
-    <p class="font-mono text-xs tracking-widest text-ink-400">ÜCRETSİZ DEMO</p>
-    <h1 class="display mt-4">{t.name} — ücretsiz demo</h1>
-    <p class="lead mt-6">{t.summary}</p>
-    <p class="body-sm mt-6">
-      Satın almadan önce deneyin. Bu değerlendirme sürümü ürünün formül ve karar mantığını kısıtlı veri ile gösterir;
-      tam sürüm satın alma sonrası Excel Arşiv üzerinden indirilir.
-    </p>
-    <div class="mt-10 flex flex-wrap gap-3">
-      <Button href={demoAnchor}>Ücretsiz demoyu başlat</Button>
-      <Button href={`${productUrl}#satin-al`} variant="secondary">Tam sürümü incele</Button>
+    <Breadcrumbs
+      crumbs={[
+        { label: 'Ana Sayfa', href: '/' },
+        { label: 'Demo Kataloğu', href: '/demo' },
+        { label: t.name },
+      ]}
+    />
+
+    <div class="mt-6">
+      <p class="font-mono text-xs font-semibold tracking-widest text-accent-primary uppercase">Ücretsiz Demo & Ön İnceleme</p>
+      <h1 class="display mt-3">{t.name} — ücretsiz demo</h1>
     </div>
-    <ul class="mt-10 space-y-3 body-sm">
-      <li>· Minimum Excel: {t.minExcelVersion}</li>
-      <li>· Sayfa sayısı: {t.sheetCount}</li>
-      <li>· Fiyat (KDV dahil): {t.priceTL.toLocaleString('tr-TR')} TL</li>
-      <li>· Dil / locale: Türkçe arayüz; formül ayıracı virgül. İngilizce Excel’de bölge ayarını TR yapın.</li>
-    </ul>
-    <section class="demo-unlock mt-12" aria-labelledby="demo-unlock-title">
+
+    <!-- Hero Answer Engine: Arama motorları ve kullanıcılar için net yönetici özeti -->
+    <div class="hero-answer-engine mt-6 rounded-xl border border-rule-subtle bg-surface-subtle p-6">
+      <p class="font-mono text-xs font-bold uppercase tracking-wider text-accent-primary">Yönetici Özeti & Demo Kapsamı</p>
+      <p class="mt-2 text-base leading-relaxed text-ink-800">
+        <strong>{t.name}</strong>, {t.summary.toLowerCase().endsWith('.') ? t.summary.slice(0, -1) : t.summary}. Satın alma kararı öncesinde 20 satırlık formüllü değerlendirme sürümünü indirerek çalışma sayfası mimarisini, formül akışını, girdi-çıktı tutarlılığını ve canlı KPI panosunu Excel üzerinde doğrudan test edebilirsiniz.
+      </p>
+    </div>
+
+    <div class="mt-8 flex flex-wrap items-center gap-3">
+      <Button href={demoAnchor}>Ücretsiz demoyu başlat</Button>
+      <Button href={`${productUrl}#satin-al`} variant="secondary">Tam sürümü incele ({t.priceTL.toLocaleString('tr-TR')} TL)</Button>
+    </div>
+
+    <!-- Teknik Künye & Sistem Gereksinimleri (data-nosnippet ile korunur) -->
+    <section class="mt-10 rounded-xl border border-rule-hairline bg-surface-primary p-6 shadow-sm" data-nosnippet aria-label="Teknik Özellikler">
+      <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-ink-500">Teknik Künye & Sistem Uyumluluğu</h2>
+      <dl class="mt-4 grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
+        <div class="rounded-lg bg-surface-subtle p-3">
+          <dt class="font-mono text-xs text-ink-400">Excel Sürümü</dt>
+          <dd class="mt-1 font-semibold text-ink-900">{t.minExcelVersion}</dd>
+        </div>
+        <div class="rounded-lg bg-surface-subtle p-3">
+          <dt class="font-mono text-xs text-ink-400">Sayfa Sayısı</dt>
+          <dd class="mt-1 font-semibold text-ink-900">{t.sheetCount} Sayfa</dd>
+        </div>
+        <div class="rounded-lg bg-surface-subtle p-3">
+          <dt class="font-mono text-xs text-ink-400">Tam Sürüm Fiyatı</dt>
+          <dd class="mt-1 font-semibold text-ink-900">{t.priceTL.toLocaleString('tr-TR')} TL</dd>
+        </div>
+        <div class="rounded-lg bg-surface-subtle p-3">
+          <dt class="font-mono text-xs text-ink-400">Format & Dil</dt>
+          <dd class="mt-1 font-semibold text-ink-900">Türkçe (.xlsx)</dd>
+        </div>
+      </dl>
+      <p class="mt-4 text-xs text-ink-500">
+        Türkçe formül ayıracı (virgül) ile tam uyumludur. İngilizce Excel kullanıyorsanız bölge ayarını Türkiye yapmanız önerilir.
+      </p>
+    </section>
+
+    <section class="demo-unlock mt-10" aria-labelledby="demo-unlock-title">
       <h2 id="demo-unlock-title">Tam sürümde neler açılır?</h2>
       <dl>
         <div>
-          <dt>Demo</dt>
-          <dd>20 kayıtlık değerlendirme sürümü</dd>
+          <dt>Demo Sürümü</dt>
+          <dd>20 kayıtlık değerlendirme ve formül kontrol sürümü</dd>
         </div>
         <div>
-          <dt>Tam sürüm</dt>
-          <dd>Sınırsız operasyonel kayıt, tam raporlama, tüm kontroller ve tam dashboard</dd>
+          <dt>Tam Sürüm</dt>
+          <dd>Sınırsız operasyonel kayıt, tam raporlama, tüm dinamik pivot kontrolleri ve tam yönetim panosu</dd>
         </div>
       </dl>
-      <ul>
-        {t.outputs.map((item) => <li>{item}</li>)}
+      <ul class="mt-4 space-y-1.5 text-sm text-ink-700">
+        {t.outputs.map((item) => (
+          <li class="flex items-center gap-2">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent-primary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
       </ul>
     </section>
   </section>
 </CommerceLayout>
 
 <style>
-  .demo-unlock { padding: 20px; border: 1px solid #d7e2db; border-radius: 16px; background: #f6f9f7; }
+  .demo-unlock { padding: 20px; border: 1px solid var(--border-rule-hairline, #d7e2db); border-radius: 16px; background: var(--bg-surface-subtle, #f6f9f7); }
   .demo-unlock h2 { margin: 0; font-size: 18px; }
   .demo-unlock dl { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 0; }
-  .demo-unlock dt { font-family: var(--font-mono); font-size: 10px; font-weight: 800; color: #0d7040; }
+  .demo-unlock dt { font-family: var(--font-mono); font-size: 10px; font-weight: 800; color: var(--color-accent-primary, #0d7040); }
   .demo-unlock dd { margin: 4px 0 0; font-size: 13px; line-height: 1.5; }
-  .demo-unlock ul { display: grid; gap: 6px; margin: 16px 0 0; padding-left: 18px; font-size: 13px; }
+  .demo-unlock ul { display: grid; gap: 6px; margin: 16px 0 0; padding-left: 0; list-style: none; font-size: 13px; }
   @media (max-width: 640px) { .demo-unlock dl { grid-template-columns: 1fr; } }
 </style>
