@@ -241,6 +241,35 @@ const corePages: SeoPageRecord[] = [
       { name: 'Sektör', item: '/sablonlar' },
       { name: 'E-Ticaret Kârlılık', item: '/sektor/e-ticaret-karlilik' }
     ]
+  },
+  {
+    route: '/urun-bulucu',
+    locale: 'tr-TR',
+    role: 'tool',
+    indexDirective: 'index, follow',
+    canonicalRoute: '/urun-bulucu',
+    title: 'Ürün Bulucu — İşletmeniz İçin Doğru Excel Sistemini Seçin | Excel Arşiv',
+    metaDescription: 'İşletme büyüklüğünüze, sektörünüze ve veri hacminize göre en uygun Excel çalışma modelini 5 soruda belirleyen interaktif karar motoru.',
+    h1: 'Hangi Excel Sistemini Seçmelisiniz?',
+    primaryIntent: 'hangi excel sablonu urun bulucu',
+    primaryEntity: {
+      id: `${ORIGIN}/urun-bulucu#tool`,
+      name: 'Excel Arşiv Ürün Bulucu',
+      type: 'Service',
+      sameAs: []
+    },
+    semanticTriples: [
+      { subject: 'Ürün Bulucu', predicate: 'analizEder', object: 'İşletme Finansal ve Operasyonel İhtiyaçları' },
+      { subject: 'Ürün Bulucu', predicate: 'önerir', object: 'Doğrulanmış Kurumsal Excel Sistemleri' }
+    ],
+    heroAnswerEngine: 'Excel Arşiv Ürün Bulucu; nakit akışı, muhasebe, stok veya kârlılık alanındaki birincil darboğazınızı 5 parametrede analiz ederek en uygun doğrulanmış Excel modelini deterministik olarak önerir.',
+    publishedAt: PUBLISHED_BASE,
+    modifiedAt: MODIFIED_BASE,
+    llmSubGraphRoute: '/llms/pages/urun-bulucu.md',
+    breadcrumbs: [
+      { name: 'Ana Sayfa', item: '/' },
+      { name: 'Ürün Bulucu', item: '/urun-bulucu' }
+    ]
   }
 ];
 

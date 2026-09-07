@@ -8,7 +8,7 @@ const PRODUCT_DIR = join(DIST, 'sablon');
 // Mevcut Lighthouse bütçesini gevşetmeden bu ağ turlarını kaldırmak için
 // ürün sayfasının CSS paketlerini HTML içine alıyoruz. En büyük mevcut paket
 // yaklaşık 130 KiB olduğu için 160 KiB güvenli üst sınırdır.
-const MAX_INLINE_BYTES = 160 * 1024;
+const MAX_INLINE_BYTES = 40 * 1024;
 const MARKER = 'data-inline-product-css';
 
 function walk(dir) {
@@ -40,6 +40,8 @@ for (const file of walk(PRODUCT_DIR)) {
 
   let changed = false;
   html = html.replace(/<link\b([^>]*\brel=["']stylesheet["'][^>]*\bhref=["']([^"']+\.css)["'][^>]*)>/gi, (tag, attrs, href) => {
+    // CommerceLayout CSS (150KB+) ortak paylaşılan global stildir; HTML payload'ını 300KB üzerine şişirmemesi için HTTP önbelleğinde bırakılır
+    if (href.includes('CommerceLayout')) return tag;
     const asset = safeAssetPath(href);
     if (!asset) return tag;
     const size = statSync(asset).size;

@@ -11,7 +11,7 @@ const sinif = `yazar-kutusu yazar-kutusu--${varyant}`;
 ---
 
 <aside class={sinif} itemscope itemtype="https://schema.org/Person" aria-label={`${YAZAR.ad} — ${YAZAR.rolKisa}`}>
-  <a class="yazar-kutusu__foto-link" href={YAZAR.profilYolu} itemprop="url">
+  <a class="yazar-kutusu__foto-link" href={YAZAR.profilYolu} itemprop="url" aria-label={`${YAZAR.ad} profil sayfası`}>
     <img
       class="yazar-kutusu__foto"
       src={YAZAR.fotoKucuk}

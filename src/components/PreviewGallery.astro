@@ -18,6 +18,7 @@ const { images } = Astro.props;
         href={image.src}
         target="_blank"
         rel="noopener"
+        aria-label={`${image.alt} (tam boy görseli yeni sekmede aç)`}
         class="block border border-rule-hairline bg-surface-elevated transition-[border-color] duration-150 ease-out hover:border-accent-primary"
       >
         <img src={image.src} alt={image.alt} loading="lazy" width="1200" height="750" class="h-auto w-full" />

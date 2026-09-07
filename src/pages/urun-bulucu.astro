@@ -16,20 +16,23 @@ const templates = (await getCollection('templates')).map((entry) => ({
 ---
 
 <CommerceLayout
-  title="Ürün Bulucu | Excel Arşiv"
-  description="İş probleminize göre bir ana Excel sistemi ve en fazla iki ilgili sistemi bulun."
-  robots="noindex,follow"
+  title="Ürün Bulucu — İşletmeniz İçin Doğru Excel Sistemini Seçin | Excel Arşiv"
+  description="İş probleminize, sektörünüze ve veri hacminize göre en uygun kurumsal Excel çalışma sistemini 5 soruda belirleyin."
 >
   <section class="finder" data-urun-bulucu>
     <div class="site-container finder__inner">
-      <p class="finder__kicker">ÜRÜN BULUCU</p>
+      <p class="finder__kicker">ÜRÜN BULUCU · KARAR MOTORU</p>
       <h1>Hangi Excel sistemini seçmelisiniz?</h1>
       <p class="finder__lead">Beş soruya yanıt verin. Sonuçta 1 ana sistem ve en fazla 2 ilgili sistem görünür; uzun katalog listesi yok.</p>
 
+      <div class="hero-answer-engine mb-6 p-4 rounded-xl bg-[#f7faf8] border border-[#dbe6df] text-xs text-[#526158]">
+        <strong>Hızlı Özet:</strong> Excel Arşiv Ürün Bulucu, işletmenizin nakit akışı, muhasebe, stok, kârlılık veya bordro alanındaki birincil darboğazını 5 parametrede analiz ederek en uygun doğrulanmış Excel modelini deterministik olarak önerir.
+      </div>
+
       <form class="finder__form" data-finder-form>
-        <label>
+        <label for="finder-alan">
           <span>Ne takip etmek istiyorsunuz?</span>
-          <select name="alan" required>
+          <select id="finder-alan" name="alan" required aria-label="Takip etmek istediğiniz alan">
             <option value="">Seçin</option>
             <option value="nakit-akisi">Nakit, kasa, ödeme planı</option>
             <option value="muhasebe-ve-vergi">Cari, vergi, SGK, muhasebe</option>
@@ -40,9 +43,9 @@ const templates = (await getCollection('templates')).map((entry) => ({
             <option value="butce-ve-planlama">Bütçe ve dönem planı</option>
           </select>
         </label>
-        <label>
+        <label for="finder-tip">
           <span>İşletme tipiniz?</span>
-          <select name="tip" required>
+          <select id="finder-tip" name="tip" required aria-label="İşletme tipiniz">
             <option value="">Seçin</option>
             <option value="ticaret">Ticaret / toptan</option>
             <option value="hizmet">Hizmet</option>
@@ -51,18 +54,18 @@ const templates = (await getCollection('templates')).map((entry) => ({
             <option value="saha">Şantiye / saha</option>
           </select>
         </label>
-        <label>
+        <label for="finder-hacim">
           <span>Kaç kayıt yönetiyorsunuz?</span>
-          <select name="hacim" required>
+          <select id="finder-hacim" name="hacim" required aria-label="Kayıt hacminiz">
             <option value="">Seçin</option>
             <option value="az">50’ye kadar</option>
             <option value="orta">50–500</option>
             <option value="cok">500+</option>
           </select>
         </label>
-        <label>
+        <label for="finder-donem">
           <span>Kararınız hangi dönem için?</span>
-          <select name="donem" required>
+          <select id="finder-donem" name="donem" required aria-label="Karar dönemi">
             <option value="">Seçin</option>
             <option value="gun">Günlük / kasa</option>
             <option value="hafta">Haftalık nakit</option>
@@ -70,9 +73,9 @@ const templates = (await getCollection('templates')).map((entry) => ({
             <option value="yil">Yıllık vergi / amortisman</option>
           </select>
         </label>
-        <label>
+        <label for="finder-problem">
           <span>En büyük probleminiz?</span>
-          <select name="problem" required>
+          <select id="finder-problem" name="problem" required aria-label="En büyük probleminiz">
             <option value="">Seçin</option>
             <option value="nakit">Nakit yetişmiyor</option>
             <option value="tahsilat">Tahsilat ve cari risk</option>
@@ -82,7 +85,7 @@ const templates = (await getCollection('templates')).map((entry) => ({
             <option value="personel">Personel maliyeti belirsiz</option>
           </select>
         </label>
-        <button type="submit">Sistemi göster</button>
+        <button type="submit" aria-label="En uygun Excel sistemini göster">Sistemi göster</button>
       </form>
 
       <div class="finder__sonuc" data-finder-sonuc hidden></div>

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "1.0",
+  "name": "excelarsiv-mcp",
+  "version": "1.0.0",
+  "description": "Excel Arşiv Model Context Protocol (MCP) Server for AI Agents and Decision Systems",
+  "homepage": "https://excelarsiv.com",
+  "documentation": "https://excelarsiv.com/llms.txt",
+  "vendor": {
+    "name": "Excel Arşiv",
+    "url": "https://excelarsiv.com"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "tools": [
+    {
+      "name": "search_templates",
+      "description": "Search ready-to-use financial and operational Excel models by problem, keyword, or category.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query or business problem (e.g. 13 haftalık nakit akışı, hakediş)"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category slug (e.g. nakit-akisi, muhasebe-ve-vergi)"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "get_template_details",
+      "description": "Get detailed specifications, formula logic, input/output contracts, and demo links for an Excel template.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Template unique ID slug"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      }
+    },
+    {
+      "name": "run_product_finder",
+      "description": "Determine the optimal Excel system based on 5 business criteria.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "area": {
+            "type": "string",
+            "description": "Focus area (e.g. nakit-akisi, butce, vergi)"
+          },
+          "businessType": {
+            "type": "string",
+            "description": "Business type (e.g. ticaret, uretim, eticaret)"
+          },
+          "volume": {
+            "type": "string",
+            "description": "Record volume (az, orta, cok)"
+          },
+          "period": {
+            "type": "string",
+            "description": "Time horizon (gun, hafta, ay, yil)"
+          },
+          "coreProblem": {
+            "type": "string",
+            "description": "Primary bottleneck"
+          }
+        },
+        "required": [
+          "area",
+          "coreProblem"
+        ]
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "excelarsiv://llms",
+      "name": "LLMS Root Knowledge Graph",
+      "mimeType": "text/markdown",
+      "description": "Root manifest of Excel Arşiv knowledge architecture"
+    },
+    {
+      "uri": "excelarsiv://templates",
+      "name": "Excel Templates Full Catalog",
+      "mimeType": "application/json",
+      "description": "Complete list of 51 corporate Excel decision templates"
+    }
+  ]
+}

@@ -4183,15 +4183,15 @@
       "pageId": "excelarsiv:urun-bulucu",
       "route": "/urun-bulucu",
       "type": "landing",
-      "status": "unlisted",
+      "status": "live",
       "primaryQueryClusterId": null,
       "primaryEntity": "Ürün Bulucu",
-      "searchIntent": null,
+      "searchIntent": "navigational",
       "templateId": null,
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/urun-bulucu",
       "ownerRoute": null,
-      "notes": "Dönüşüm aracı; noindex. SEO route üretmez."
+      "notes": "İhtiyaca göre hazır Excel şablonu ve karar motoru bulucu."
     },
     {
       "pageId": "excelarsiv:sablon:logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
@@ -4224,6 +4224,20 @@
       "canonical": "https://excelarsiv.com/demo/logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
       "ownerRoute": null,
       "notes": "Registry parity sync — otomatik eklendi."
+    },
+    {
+      "pageId": "excelarsiv:gizlilik-politikasi",
+      "route": "/gizlilik-politikasi",
+      "type": "legal",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "Gizlilik Politikası",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/gizlilik-politikasi",
+      "ownerRoute": null,
+      "notes": "KVKK ve Gizlilik Politikası yasal bilgilendirme sayfası."
     }
   ]
 }

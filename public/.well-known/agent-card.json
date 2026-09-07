@@ -1,0 +1,46 @@
+{
+  "$schema": "https://a2a.dev/schemas/agent-card.json",
+  "name": "Excel Arşiv",
+  "version": "1.0.0",
+  "description": "Türkiye'deki işletmeler, finans yöneticileri ve KOBİ'ler için doğrulanmış kurumsal Excel karar sistemleri, nakit akışı modelleri ve finansal çalışma kitapları.",
+  "url": "https://excelarsiv.com",
+  "documentation": "https://excelarsiv.com/llms.txt",
+  "provider": {
+    "name": "Excel Arşiv",
+    "url": "https://excelarsiv.com",
+    "email": "barisbagirlar@gmail.com"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": false
+  },
+  "endpoints": {
+    "mcp": "https://excelarsiv.com/mcp",
+    "openapi": "https://excelarsiv.com/openapi.json",
+    "llms": "https://excelarsiv.com/llms.txt",
+    "catalog": "https://excelarsiv.com/sablonlar"
+  },
+  "skills": [
+    {
+      "id": "financial-analysis",
+      "name": "Finansal Analiz ve Kârlılık",
+      "description": "Kârlılık, maliyet, şube performansı ve yönetim raporlaması için Excel karar modelleri."
+    },
+    {
+      "id": "cash-flow",
+      "name": "13 Haftalık Nakit Akışı",
+      "description": "Haftalık nakit giriş-çıkış projeksiyonu, ödeme önceliklendirme ve likidite açığı tespiti."
+    },
+    {
+      "id": "tax-accounting",
+      "name": "Muhasebe ve Vergi",
+      "description": "KDV iadesi, tecil-taksitlendirme, amortisman, cari mutabakat ve SGK teşvik optimizasyonu."
+    },
+    {
+      "id": "template-finder",
+      "name": "Excel Ürün Bulucu",
+      "description": "İşletme problemine göre en uygun kurumsal Excel çalışma modelini belirleme."
+    }
+  ]
+}

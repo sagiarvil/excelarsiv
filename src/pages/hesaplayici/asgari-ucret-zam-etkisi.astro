@@ -17,19 +17,19 @@ import Button from '../../components/Button.astro';
     </p>
 
     <form class="mt-10 grid gap-4 rounded-2xl border border-rule-hairline bg-surface-elevated p-6" data-asgari-form>
-      <label class="grid gap-2">
+      <label for="asgari-mevcut" class="grid gap-2">
         <span class="font-mono text-xs text-ink-500">Mevcut aylık brüt işveren maliyeti (TL)</span>
-        <input class="min-h-11 rounded-lg border border-rule-hairline px-3" name="mevcut" type="number" min="0" step="1" required value="30000" />
+        <input id="asgari-mevcut" class="min-h-11 rounded-lg border border-rule-hairline px-3" name="mevcut" type="number" min="0" step="1" required value="30000" aria-label="Mevcut aylık brüt işveren maliyeti (TL)" />
       </label>
-      <label class="grid gap-2">
+      <label for="asgari-oran" class="grid gap-2">
         <span class="font-mono text-xs text-ink-500">Zam oranı (%)</span>
-        <input class="min-h-11 rounded-lg border border-rule-hairline px-3" name="oran" type="number" min="0" max="100" step="0.1" required value="30" />
+        <input id="asgari-oran" class="min-h-11 rounded-lg border border-rule-hairline px-3" name="oran" type="number" min="0" max="100" step="0.1" required value="30" aria-label="Zam oranı yüzde" />
       </label>
-      <label class="grid gap-2">
+      <label for="asgari-adet" class="grid gap-2">
         <span class="font-mono text-xs text-ink-500">Personel sayısı</span>
-        <input class="min-h-11 rounded-lg border border-rule-hairline px-3" name="adet" type="number" min="1" step="1" required value="5" />
+        <input id="asgari-adet" class="min-h-11 rounded-lg border border-rule-hairline px-3" name="adet" type="number" min="1" step="1" required value="5" aria-label="Personel sayısı" />
       </label>
-      <button type="submit" class="min-h-11 rounded-lg bg-accent-primary px-4 font-mono text-sm text-white">Hesapla</button>
+      <button type="submit" aria-label="Zam etkisini hesapla" class="min-h-11 rounded-lg bg-accent-primary px-4 font-mono text-sm text-white">Hesapla</button>
       <p class="font-mono text-sm text-ink-700" data-asgari-sonuc aria-live="polite">Sonuç burada görünür.</p>
     </form>
 

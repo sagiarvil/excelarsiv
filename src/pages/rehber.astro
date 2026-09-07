@@ -105,15 +105,19 @@ const guidesBreadcrumbLd = JSON.stringify({
           <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </div>
+          <label for="index-search" class="sr-only">Rehber ve şablon ara</label>
           <input
             id="index-search"
+            name="q"
             type="search"
+            aria-label="Rehber, formül, konu veya şablon ara"
             placeholder="Rehber, formül, konu veya hazır şablon adı ile dizinde arayın (örn: 13 haftalık nakit akışı, hakediş, cari yaşlandırma)..."
             class="w-full pl-11 pr-28 py-3.5 bg-slate-50/80 hover:bg-white focus:bg-white border border-slate-300 focus:border-blue rounded-xl text-sm text-navy placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-blue/10 transition-all shadow-inner"
           />
           <button
             type="button"
             id="search-btn"
+            aria-label="Dizinde Ara"
             class="absolute right-1.5 px-5 py-2 bg-blue hover:bg-blue-600 text-white font-bold text-xs rounded-lg transition-all shadow-sm"
           >
             Dizinde Ara
@@ -167,16 +171,16 @@ const guidesBreadcrumbLd = JSON.stringify({
               İçerik Türü
             </h2>
             <div class="mt-3 space-y-1.5 text-xs" id="type-filter-group">
-              <label class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-slate-50 cursor-pointer">
-                <input type="radio" name="item-type" value="all" checked class="text-blue focus:ring-blue" />
+              <label for="item-type-all" class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-slate-50 cursor-pointer">
+                <input id="item-type-all" type="radio" name="item-type" value="all" checked class="text-blue focus:ring-blue" aria-label="Tüm içerik türleri" />
                 <span class="font-bold text-slate-800">Tümü</span>
               </label>
-              <label class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-slate-50 cursor-pointer">
-                <input type="radio" name="item-type" value="guide" class="text-blue focus:ring-blue" />
+              <label for="item-type-guide" class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-slate-50 cursor-pointer">
+                <input id="item-type-guide" type="radio" name="item-type" value="guide" class="text-blue focus:ring-blue" aria-label="Uygulamalı Rehberler" />
                 <span class="text-slate-700">Uygulamalı Rehberler ({guides.length})</span>
               </label>
-              <label class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-slate-50 cursor-pointer">
-                <input type="radio" name="item-type" value="template" class="text-blue focus:ring-blue" />
+              <label for="item-type-template" class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-slate-50 cursor-pointer">
+                <input id="item-type-template" type="radio" name="item-type" value="template" class="text-blue focus:ring-blue" aria-label="Hazır Excel Sistemleri" />
                 <span class="text-slate-700">Hazır Excel Sistemleri</span>
               </label>
             </div>

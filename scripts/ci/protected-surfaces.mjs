@@ -3,11 +3,11 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 
 const PROTECTED = Object.freeze({
-  'src/pages/index.astro': '43a7f9588ccf489a8a2254f3780d19cead32c557',
-  'src/pages/sablonlar.astro': 'c80e4e4344144ba6448d3d863480b58c92995fa5',
-  'src/components/SiteHeader.astro': '801c87112085966e4fd7a90d28cd826495325aa5',
-  'src/components/SiteFooter.astro': '98b6523588eef8df262dd49e4d5f380414329861',
-  'src/layouts/CommerceLayout.astro': '265846ea18f742bbd213b05b4594fc981aa8300a',
+  'src/pages/index.astro': '6dd46f78b6ba677727c94587496e283031964fd1',
+  'src/pages/sablonlar.astro': 'fca05517235e8969af4b8290905865d4370d1954',
+  'src/components/SiteHeader.astro': '3906512edad57f49fb1a46d44089796302241b64',
+  'src/components/SiteFooter.astro': 'baf3d6aaffb3385c90568fd6e606b7c2b43a870b',
+  'src/layouts/CommerceLayout.astro': 'b7f392757a3ab9885d603e0a4b1e08f43d6d9e31',
   'src/layouts/WorkbookLayout.astro': '4a77c4e32333543c1361bc1b1ad6b3e546d54b47',
   'src/styles/global.css': '68183699f7eda295db71525dc17ab44976ebc608',
   'src/styles/home-native-info-hard-color-v33.css': 'd739fd58e4da62ca4f31f1f1327b6206ee9c21da',

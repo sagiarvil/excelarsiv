@@ -22,7 +22,7 @@ const faqLd = JSON.stringify({
   '@id': `${pageUrl}#faq`,
   url: pageUrl,
   inLanguage: 'tr-TR',
-  mainEntity: allFaq.map((item) => ({
+  mainEntity: allFaq.slice(0, 30).map((item) => ({
     '@type': 'Question',
     name: item.question,
     acceptedAnswer: { '@type': 'Answer', text: item.answer },
@@ -105,7 +105,7 @@ const pageLd = JSON.stringify({
             <a href={group.url} class="inline-flex justify-center rounded-xl bg-slate-900 px-4 py-3 text-sm font-bold text-white hover:bg-emerald-800">Ürün detayını incele →</a>
           </div>
           <div class="mt-5">
-            <FaqAccordion items={group.faq} />
+            <FaqAccordion items={group.faq.slice(0, 2)} />
           </div>
         </article>
       ))}

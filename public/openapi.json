@@ -1,0 +1,117 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Excel Arşiv API & Machine Discovery Services",
+    "version": "1.0.0",
+    "description": "Programmatic catalog discovery, decision templates metadata, and AI agent integration endpoints for excelarsiv.com.",
+    "contact": {
+      "name": "Excel Arşiv",
+      "url": "https://excelarsiv.com",
+      "email": "barisbagirlar@gmail.com"
+    },
+    "license": {
+      "name": "Commercial / Proprietary",
+      "url": "https://excelarsiv.com/lisans"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://excelarsiv.com",
+      "description": "Production Server"
+    }
+  ],
+  "paths": {
+    "/mcp": {
+      "get": {
+        "summary": "Model Context Protocol Manifest",
+        "description": "Returns capabilities, tools, and resource endpoints for AI agent clients.",
+        "operationId": "getMcpManifest",
+        "responses": {
+          "200": {
+            "description": "MCP server manifest JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/agent-card.json": {
+      "get": {
+        "summary": "A2A Agent Card",
+        "description": "Agent-to-agent discovery card defining agent capabilities, provider credentials, and endpoints.",
+        "operationId": "getAgentCard",
+        "responses": {
+          "200": {
+            "description": "A2A agent card specification JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "summary": "LLMS Knowledge Graph Manifest",
+        "description": "Token-optimized markdown manifest linking to high-density sub-graphs for LLM ingestion.",
+        "operationId": "getLlmsManifest",
+        "responses": {
+          "200": {
+            "description": "LLMS markdown document",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sablonlar": {
+      "get": {
+        "summary": "Excel Templates Catalog",
+        "description": "Browse and search full inventory of ready-to-use business Excel models.",
+        "operationId": "getCatalog",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Search keyword",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Catalog HTML response"
+          }
+        }
+      }
+    },
+    "/urun-bulucu": {
+      "get": {
+        "summary": "Excel Product Decision Engine",
+        "description": "Interactive decision funnel determining the right Excel model in 5 questions.",
+        "operationId": "getProductFinder",
+        "responses": {
+          "200": {
+            "description": "Product finder interface response"
+          }
+        }
+      }
+    }
+  }
+}

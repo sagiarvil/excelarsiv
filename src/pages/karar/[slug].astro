@@ -123,7 +123,7 @@ const jsonLd = {
             <div class="price">{primary.priceTL.toLocaleString('tr-TR')} TL <small>KDV dahil · tek ödeme</small></div>
             <div class="actions"><a class="primary" href={primary.url}>Sistemi inceleyin</a><a href={`/demo/${primary.slug}`}>Ücretsiz demo</a></div>
           </div>
-          {primary.kapak && <a href={primary.url} class="visual"><img src={primary.kapak} alt={`${primary.name} ürün görseli`} width="1200" height="900" loading="eager" /></a>}
+          {primary.kapak && <a href={primary.url} class="visual" aria-label={`${primary.name} ürün detayını inceleyin`}><img src={primary.kapak} alt={`${primary.name} ürün görseli`} width="1200" height="900" loading="eager" /></a>}
         </div>
       </section>
     )}

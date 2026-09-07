@@ -45,6 +45,7 @@ const satista = product?.satista !== false;
               required
               maxlength="254"
               placeholder="ornek@firma.com"
+              aria-label="E-posta (Shopier’de kullanacağınız adres)"
               data-checkout-email
             />
           </label>
@@ -84,8 +85,9 @@ const satista = product?.satista !== false;
           <details class="hidden" data-manual-verify>
             <summary>Ödeme yaptım ama doğrulanmadı</summary>
             <form data-order-form>
-              <input type="text" inputmode="text" maxlength="80" placeholder="Shopier sipariş numarası" data-order-id />
-              <button type="submit">Siparişi Doğrula</button>
+              <label for={`verify-order-id-${productSlug}`} class="sr-only">Shopier sipariş numarası</label>
+              <input id={`verify-order-id-${productSlug}`} name="order_id" type="text" inputmode="text" maxlength="80" placeholder="Shopier sipariş numarası" aria-label="Shopier sipariş numarası" data-order-id />
+              <button type="submit" aria-label="Siparişi Doğrula">Siparişi Doğrula</button>
             </form>
           </details>
         </div>

@@ -23,25 +23,27 @@ const { productSlug, name } = Astro.props;
   </p>
 
   <form class="demo-card__form" data-demo-form>
-    <label class="demo-card__email">
+    <label class="demo-card__email" for={`demo-email-${productSlug}`}>
       <span>E-posta</span>
       <input
+        id={`demo-email-${productSlug}`}
         type="email"
         name="email"
         autocomplete="email"
         inputmode="email"
         maxlength="254"
         placeholder="ornek@firma.com"
+        aria-label="Demo indirme için e-posta adresi"
         required
       />
     </label>
 
-    <button type="submit" data-demo-submit>
+    <button type="submit" data-demo-submit aria-label={`${name} ücretsiz demosunu indir`}>
       Ücretsiz Demo İndir <span aria-hidden="true">↓</span>
     </button>
 
-    <label class="demo-card__terms">
-      <input type="checkbox" name="terms" required />
+    <label class="demo-card__terms" for={`demo-terms-${productSlug}`}>
+      <input id={`demo-terms-${productSlug}`} type="checkbox" name="terms" required aria-label="Demo kullanım koşullarını kabul ediyorum" />
       <span><a href="/demo-kullanim-kosullari" target="_blank" rel="noopener noreferrer">Demo Kullanım Koşulları</a>'nı kabul ediyorum.</span>
     </label>
 

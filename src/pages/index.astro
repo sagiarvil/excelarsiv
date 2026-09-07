@@ -57,7 +57,7 @@ const homeJsonLd = {
         <div class="featured-grid">
           {featured.map((item) => item && (
             <article>
-              <a class="shot" href={item.url}><img class="premium-card__shot" src={item.kapak} alt={`${item.name} ürün kapağı`} width="1200" height="900" loading="lazy" /></a>
+              <a class="shot" href={item.url} aria-label={`${item.name} sistem detayını incele`}><img class="premium-card__shot" src={item.kapak} alt={`${item.name} ürün kapağı`} width="1200" height="900" loading="lazy" /></a>
               <div><small>{item.categoryName}</small><h3><a href={item.url}>{item.name}</a></h3><p>{item.summary}</p><strong>{item.priceTL.toLocaleString('tr-TR')} TL</strong></div>
             </article>
           ))}

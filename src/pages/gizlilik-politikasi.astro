@@ -1,0 +1,66 @@
+---
+import CommerceLayout from "../layouts/CommerceLayout.astro";
+import SectionLabel from "../components/SectionLabel.astro";
+import { SATICI } from "../data/satici";
+---
+
+<CommerceLayout
+  title="Gizlilik Politikası ve KVKK Aydınlatma | Excel Arşiv"
+  description="6698 sayılı KVKK ve ilgili mevzuat uyarınca Excel Arşiv gizlilik politikası, kişisel verilerin korunması, çerez yönetimi ve veri güvenliği ilkeleri."
+>
+  <section class="mx-auto max-w-3xl px-4 pb-24 pt-8">
+    <SectionLabel number={4} label="GİZLİLİK VE KVKK" />
+    <h1 class="display mt-6">Gizlilik Politikası ve Kişisel Verilerin Korunması</h1>
+    <p class="lead mt-6">
+      Excel Arşiv (excelarsiv.com) olarak kullanıcılarımızın, müşterilerimizin ve ziyaretçilerimizin kişisel verilerinin güvenliğine en üst düzeyde önem veriyoruz. 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") ve uluslararası veri güvenliği standartları uyarınca veri işleme süreçlerimiz aşağıda açıklanmıştır.
+    </p>
+    <p class="mt-3 text-xs text-ink-400">Yürürlük Tarihi: 07.09.2026 · Sürüm: 2026-v2</p>
+
+    <div class="mt-12 space-y-10">
+      <section>
+        <h2 class="h3">1 · Veri Sorumlusu</h2>
+        <p class="body-sm mt-3">
+          Veri Sorumlusu: {SATICI.gercekKisi} ({SATICI.marka} — {SATICI.site.replace("https://", "")}).
+          VKN: {SATICI.vkn} · E-posta: {SATICI.eposta} · Telefon: {SATICI.telefon}.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="h3">2 · İşlenen Kişisel Veriler ve Toplama Yöntemleri</h2>
+        <p class="body-sm mt-3">
+          Sitemizi ziyaret ettiğinizde, demo talep ettiğinizde veya Shopier üzerinden satın alma gerçekleştirdiğinizde; e-posta adresiniz, sipariş doğrulama kodunuz, IP adresiniz ve temel erişim kayıtlarınız işlenmektedir.
+        </p>
+        <p class="body-sm mt-3">
+          <strong>Ödeme Güvenliği:</strong> Kredi kartı, banka kartı ve hassas ödeme bilgileriniz Excel Arşiv sunucularında asla tutulmaz ve işlenmez. Tüm tahsilat işlemleri BDDK lisanslı ödeme kuruluşu Shopier güvencesiyle 256-bit SSL şifreleme ile gerçekleşir.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="h3">3 · Veri İşleme Amaçları ve Hukuki Sebepler</h2>
+        <p class="body-sm mt-3">
+          Kişisel verileriniz KVKK m. 5/2 (c) "Sözleşmenin kurulması ve ifası" ile (ç) "Veri sorumlusunun hukuki yükümlülüğü" kapsamında:
+        </p>
+        <ul class="body-sm mt-3 list-disc pl-5 space-y-1.5">
+          <li>Satın aldığınız Excel sistemlerinin dijital teslimatının sağlanması,</li>
+          <li>20 kayıtlık ücretsiz demo dosyalarının oluşturulması ve iletilmesi,</li>
+          <li>Sipariş doğrulama ve fatura/muhasebe kayıtlarının tutulması,</li>
+          <li>Bilgi güvenliği ve kötüye kullanımın engellenmesi amaçlarıyla işlenir.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="h3">4 · Çerezler ve Analitik Araçlar</h2>
+        <p class="body-sm mt-3">
+          Sitemizde kullanıcı deneyimini iyileştirmek, sipariş akışını doğrulamak ve anonim performans ölçümü yapmak amacıyla birinci taraf temel çerezler kullanılmaktadır. Ayrıntılı bilgi için <a class="text-accent-primary underline underline-offset-4" href="/cerez-politikasi">Çerez Politikası</a> sayfamızı inceleyebilirsiniz.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="h3">5 · KVKK Kapsamındaki Haklarınız</h2>
+        <p class="body-sm mt-3">
+          KVKK'nın 11. maddesi uyarınca; verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, silinmesini veya düzeltilmesini isteme ve kanuna aykırı işleme halinde zararın giderilmesini talep etme hakkına sahipsiniz. Başvurularınızı {SATICI.eposta} adresine iletebilirsiniz.
+        </p>
+      </section>
+    </div>
+  </section>
+</CommerceLayout>
