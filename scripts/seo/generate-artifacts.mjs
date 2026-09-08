@@ -242,6 +242,7 @@ function buildLlmsShort(indexablePages, templateRecords) {
     `- [Excel Arşiv Ana Sayfa](${SITE_ORIGIN}/): Türkiye'nin kurumsal finans, muhasebe ve operasyonel Excel karar sistemleri platformu.`,
     `- [Katalog ve Şablonlar](${SITE_ORIGIN}/sablonlar): Doğrulanmış kurumsal Excel çalışma sistemleri ve modelleri kataloğu.`,
     `- [İhtiyaca Özel Excel Sistemleri](${SITE_ORIGIN}/ozel-excel-sistemleri): Şirketlere özel terzi usulü bütçe, nakit akışı ve ERP veri köprüleri mimarisi.`,
+    `- [Ürün Bulucu — Karar Motoru](${SITE_ORIGIN}/urun-bulucu): İşletme büyüklüğünüze ve darboğazınıza göre en uygun Excel sistemini 5 soruda belirleyen interaktif karar motoru.`,
     `- [Uygulama Rehberleri](${SITE_ORIGIN}/rehber): Finans ve operasyon yöneticileri için adım adım uygulama rehberleri.`,
     `- [Sektörel Çözümler](${SITE_ORIGIN}/sektor/kafe-restoran-nakit): Restoran, inşaat ve e-ticaret sektörel nakit ve kârlılık modelleri.`,
     `- [Ücretsiz Demo Merkezi](${SITE_ORIGIN}/demo): Excel sistemleri canlı tarayıcı demoları ve test ortamı.`,
@@ -266,6 +267,7 @@ function buildLlmsShort(indexablePages, templateRecords) {
     `- [İK, Kıdem/İhbar Tazminatı ve Bordro Mimarisi](${SITE_ORIGIN}/llms/pages/insan-kaynaklari-ve-bordro.md): 4857 sayılı İş Kanunu ve 2026 kümülatif gelir vergisi dilimleri uyumlu model.`,
     `- [ERP Veri Konsolidasyonu ve Power Query](${SITE_ORIGIN}/llms/pages/erp-veri-konsolidasyonu-ve-power-query.md): Logo, Mikro, Netsis, Zirve ve SAP mizan/fatura veri köprüleri.`,
     `- [Hazır Kurumsal Excel Şablonları Kataloğu](${SITE_ORIGIN}/llms/pages/sablonlar.md): Doğrulanmış kurumsal çalışma kitapları teknik rehberi.`,
+    `- [Ürün Bulucu Karar Motoru Dokümantasyonu](${SITE_ORIGIN}/llms/pages/urun-bulucu.md): 5 parametreli işletme darboğaz analizi ve deterministik Excel eşleştirme mimarisi.`,
     '',
     '## Sektör dikeyleri',
     '',
@@ -436,13 +438,18 @@ atomicWrite('llms.txt', shortLlmsContent);
 if (existsSync(resolve('public/llms.txt'))) {
   writeFileSync(resolve('public/llms.txt'), shortLlmsContent, 'utf8');
 }
-atomicWrite('llms-full.txt', buildLlmsFull(indexablePages, templates));
+const fullLlmsContent = buildLlmsFull(indexablePages, templates);
+atomicWrite('llms-full.txt', fullLlmsContent);
+if (existsSync(resolve('public/llms-full.txt'))) {
+  writeFileSync(resolve('public/llms-full.txt'), fullLlmsContent, 'utf8');
+}
 {
   const lastUpdated = latestContentDate(indexablePages, templates);
-  atomicWrite(
-    'ai.txt',
-    buildAiTxt(lastUpdated ? lastUpdated.toISOString().slice(0, 10) : null),
-  );
+  const aiTxtContent = buildAiTxt(lastUpdated ? lastUpdated.toISOString().slice(0, 10) : null);
+  atomicWrite('ai.txt', aiTxtContent);
+  if (existsSync(resolve('public/ai.txt'))) {
+    writeFileSync(resolve('public/ai.txt'), aiTxtContent, 'utf8');
+  }
 }
 
 const katalog = {

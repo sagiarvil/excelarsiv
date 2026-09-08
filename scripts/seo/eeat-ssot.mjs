@@ -50,6 +50,7 @@ export const EEAT = {
     { ad: 'Mesafeli Satış Sözleşmesi', url: 'https://excelarsiv.com/mesafeli-satis-sozlesmesi', aciklama: 'Kurumsal süresiz lisanslama, teslimat ve yasal mesafeli satış şartları.' },
     { ad: 'Teslimat ve İade', url: 'https://excelarsiv.com/teslimat-ve-iade', aciklama: 'Sipariş sonrası anında güvenli indirme ve dijital lisans teslimat prosedürü.' },
     { ad: 'KVKK Aydınlatma', url: 'https://excelarsiv.com/kvkk-aydinlatma', aciklama: 'Kişisel verilerin korunması kanunu ve veri güvenliği standardı.' },
+    { ad: 'Gizlilik Politikası', url: 'https://excelarsiv.com/gizlilik-politikasi', aciklama: 'Kişisel verilerin işlenmesi, çerez yönetimi, veri güvenliği ve gizlilik ilkeleri.' },
     { ad: 'Shopier Veri Aktarımı', url: 'https://excelarsiv.com/shopier-veri-aktarimi', aciklama: 'BDDK lisanslı güvenli ödeme altyapısı ve sipariş entegrasyonu.' },
     { ad: 'Lisans', url: 'https://excelarsiv.com/lisans', aciklama: 'Kurumsal süresiz kullanım hakkı, sıfır gizli maliyet ve fikri mülkiyet şartları.' },
   ],

@@ -192,6 +192,14 @@ for (const llmName of ['llms.txt', 'llms-full.txt', 'ai.txt']) {
       `${SITE_ORIGIN}/`,
       `${SITE_ORIGIN}/images/baris-bagirlar.jpg`,
     ].includes(url)) continue;
+    if (url.startsWith(`${SITE_ORIGIN}/llms/`)) {
+      const relPath = url.replace(`${SITE_ORIGIN}/`, '');
+      const filePath = join(DIST_DIR, relPath);
+      if (!existsSync(filePath)) {
+        fail(`${llmName}: LLM sub-graph referansı diskte yok -> ${url} (beklenen dosya: ${filePath})`);
+      }
+      continue;
+    }
     const normalized = normalizeCanonical(url);
     if (normalized && !expected.has(normalized)) warn(`${llmName}: sitemap dışı public referans -> ${url}`);
   }
