@@ -1,0 +1,11 @@
+{
+  "name": "excelarsiv-n8n-dag",
+  "nodes": [
+    "Cron Trigger",
+    "Probe llms.txt",
+    "Ingest",
+    "Audit AST",
+    "Triage",
+    "Auto-Heal Purge"
+  ]
+}

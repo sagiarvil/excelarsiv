@@ -1,60 +1,78 @@
-import { readFileSync, existsSync } from 'node:fs';
-import { resolve } from 'node:path';
+import https from 'node:https';
 import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 
-const ROOT = resolve(fileURLToPath(new URL('../', import.meta.url)));
-const HOST = 'excelarsiv.com';
-const BASE_URL = `https://${HOST}`;
-const KEY_FILE = resolve(ROOT, 'public/indexnow-key.txt');
-const INDEXNOW_KEY = existsSync(KEY_FILE) ? readFileSync(KEY_FILE, 'utf8').trim() : '7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f';
+export const INDEXNOW_CONFIG = {
+  host: 'excelarsiv.com',
+  key: '7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f',
+  keyLocation: 'https://excelarsiv.com/7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f.txt',
+  endpoints: [
+    'https://api.indexnow.org/indexnow',
+    'https://www.bing.com/indexnow',
+    'https://yandex.com/indexnow'
+  ]
+};
 
-const ENDPOINTS = [
-  'https://api.indexnow.org/indexnow',
-  'https://www.bing.com/indexnow',
-  'https://yandex.com/indexnow'
-];
-
-export async function pushToIndexNow(urls) {
+export async function broadcastToIndexNow(urls) {
   const urlList = urls && urls.length > 0 ? urls : [
-    `${BASE_URL}/`,
-    `${BASE_URL}/ozel-excel-sistemleri`,
-    `${BASE_URL}/sablonlar`,
-    `${BASE_URL}/rehber`,
-    `${BASE_URL}/demo`,
-    `${BASE_URL}/sistemler/finans`,
-    `${BASE_URL}/sistemler/maliyet`,
-    `${BASE_URL}/sistemler/ik`,
-    `${BASE_URL}/neden-excel-arsiv`,
-    `${BASE_URL}/hakkinda`,
-    `${BASE_URL}/llms.txt`,
-    `${BASE_URL}/llms-full.txt`,
-    `${BASE_URL}/ai.txt`,
-    `${BASE_URL}/llms/ozel-excel-sistemleri.md`,
-    `${BASE_URL}/llms/nakit-akisi-ve-finansal-modelleme.md`,
-    `${BASE_URL}/llms/maliyet-ve-karlilik-analizi.md`,
-    `${BASE_URL}/llms/insan-kaynaklari-ve-bordro.md`,
-    `${BASE_URL}/llms/erp-veri-konsolidasyonu-ve-power-query.md`,
-    `${BASE_URL}/llms/guvenlik-ve-makrosuz-formuller.md`,
-    `${BASE_URL}/llms/sablonlar.md`
+    `https://${INDEXNOW_CONFIG.host}/`,
+    `https://${INDEXNOW_CONFIG.host}/ozel-excel-sistemleri`,
+    `https://${INDEXNOW_CONFIG.host}/sablonlar`,
+    `https://${INDEXNOW_CONFIG.host}/rehber`,
+    `https://${INDEXNOW_CONFIG.host}/demo`,
+    `https://${INDEXNOW_CONFIG.host}/sistemler/finans`,
+    `https://${INDEXNOW_CONFIG.host}/sistemler/maliyet`,
+    `https://${INDEXNOW_CONFIG.host}/sistemler/ik`,
+    `https://${INDEXNOW_CONFIG.host}/neden-excel-arsiv`,
+    `https://${INDEXNOW_CONFIG.host}/hakkinda`,
+    `https://${INDEXNOW_CONFIG.host}/urun-bulucu`,
+    `https://${INDEXNOW_CONFIG.host}/llms.txt`,
+    `https://${INDEXNOW_CONFIG.host}/llms-full.txt`,
+    `https://${INDEXNOW_CONFIG.host}/ai.txt`,
+    `https://${INDEXNOW_CONFIG.host}/llms/ozel-excel-sistemleri.md`,
+    `https://${INDEXNOW_CONFIG.host}/llms/nakit-akisi-ve-finansal-modelleme.md`,
+    `https://${INDEXNOW_CONFIG.host}/llms/maliyet-ve-karlilik-analizi.md`,
+    `https://${INDEXNOW_CONFIG.host}/llms/insan-kaynaklari-ve-bordro.md`,
+    `https://${INDEXNOW_CONFIG.host}/llms/erp-veri-konsolidasyonu-ve-power-query.md`,
+    `https://${INDEXNOW_CONFIG.host}/llms/guvenlik-ve-makrosuz-formuller.md`,
+    `https://${INDEXNOW_CONFIG.host}/llms/sablonlar.md`,
+    `https://${INDEXNOW_CONFIG.host}/llms/pages/urun-bulucu.md`
   ];
 
-  const payload = {
-    host: HOST,
-    key: INDEXNOW_KEY,
-    keyLocation: `${BASE_URL}/indexnow-key.txt`,
+  const payload = JSON.stringify({
+    host: INDEXNOW_CONFIG.host,
+    key: INDEXNOW_CONFIG.key,
+    keyLocation: INDEXNOW_CONFIG.keyLocation,
     urlList: urlList
-  };
+  });
 
-  console.log(`[IndexNow Broadcasting] ${urlList.length} adet URL küresel IndexNow & AI Hub ağlarına dağıtılıyor...`);
+  console.log(`[IndexNow Broadcasting] ${urlList.length} adet URL ${INDEXNOW_CONFIG.endpoints.length} merkeze dağıtılıyor...`);
 
   const results = await Promise.allSettled(
-    ENDPOINTS.map(async (endpoint) => {
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json; charset=utf-8' },
-        body: JSON.stringify(payload)
+    INDEXNOW_CONFIG.endpoints.map(async (endpoint) => {
+      const u = new URL(endpoint);
+      return new Promise((res) => {
+        const req = https.request(
+          {
+            hostname: u.hostname,
+            path: u.pathname,
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8',
+              'Content-Length': Buffer.byteLength(payload)
+            },
+            timeout: 7000
+          },
+          (response) => {
+            const ok = response.statusCode === 200 || response.statusCode === 202;
+            res({ endpoint, status: response.statusCode, ok });
+          }
+        );
+        req.on('error', (err) => res({ endpoint, status: 'ERROR', ok: false, error: err.message }));
+        req.on('timeout', () => { req.destroy(); res({ endpoint, status: 'TIMEOUT', ok: false }); });
+        req.write(payload);
+        req.end();
       });
-      return { endpoint, status: res.status, ok: res.ok || res.status === 200 || res.status === 202 };
     })
   );
 
@@ -64,14 +82,19 @@ export async function pushToIndexNow(urls) {
       if (ok) {
         console.log(`  ✅ [${new URL(endpoint).hostname}] ${urlList.length} URL kabul edildi (HTTP ${status})`);
       } else {
-        console.warn(`  ⚠️ [${new URL(endpoint).hostname}] Yanıt: HTTP ${status}`);
+        console.warn(`  ⚠️ [${new URL(endpoint).hostname}] HTTP ${status}`);
       }
     } else {
-      console.warn(`  ❌ Ağ Hatası: ${r.reason?.message || r.reason}`);
+      console.warn(`  ❌ Hata: ${r.reason?.message || r.reason}`);
     }
   });
+
+  return results;
 }
 
+export const pushToIndexNow = broadcastToIndexNow;
+
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  await pushToIndexNow();
+  const customUrls = process.argv.slice(2);
+  await broadcastToIndexNow(customUrls.length > 0 ? customUrls : undefined);
 }

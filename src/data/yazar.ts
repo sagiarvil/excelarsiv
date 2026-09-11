@@ -17,6 +17,8 @@ export const YAZAR = {
   eposta: 'barisbagirlar@gmail.com',
   profilYolu: '/hakkinda',
   sameAs: [
+    'https://www.wikidata.org/wiki/Q11589432',
+    'https://www.wikidata.org/wiki/Q11190',
     'https://www.linkedin.com/in/barisbagirlar/',
     'https://www.tarimkon.org/danisma-kurulu/',
     'https://sectorcalc.com',

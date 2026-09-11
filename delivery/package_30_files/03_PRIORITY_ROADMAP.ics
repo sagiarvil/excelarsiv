@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ExcelArsiv//AI Search Visibility Roadmap//TR
+BEGIN:VEVENT
+SUMMARY:ExcelArşiv Sprint 0-4 AI Search Gate Verification
+DTSTART:20260911T030000Z
+DTEND:20260911T040000Z
+DESCRIPTION:18-Engine Mandate Verification and Quality Gates Enforcement
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

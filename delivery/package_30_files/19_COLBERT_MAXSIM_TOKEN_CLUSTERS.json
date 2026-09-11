@@ -1,0 +1,24 @@
+{
+  "clusters": [
+    {
+      "concept": "Nakit Akışı",
+      "tokens": [
+        "13 haftalık",
+        "likidite",
+        "nakit açığı",
+        "tahsilat",
+        "ödeme"
+      ]
+    },
+    {
+      "concept": "Birim Maliyet",
+      "tokens": [
+        "reçete",
+        "fire",
+        "işçilik",
+        "genel üretim gideri",
+        "başabaş"
+      ]
+    }
+  ]
+}

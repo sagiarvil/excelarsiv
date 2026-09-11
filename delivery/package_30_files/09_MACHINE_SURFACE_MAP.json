@@ -1,0 +1,12 @@
+{
+  "domain": "excelarsiv.com",
+  "hub": "https://excelarsiv.com/llms.txt",
+  "surfaces": [
+    "/llms/core.md",
+    "/llms/entities/author-experts.md",
+    "/llms/entities/methodologies.md",
+    "/llms/pages/ozel-excel-sistemleri.md",
+    "/llms/pages/sablonlar.md",
+    "/llms/pages/urun-bulucu.md"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "excelarsiv-mcp-server",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "query_excel_templates",
+      "description": "Search corporate financial Excel templates"
+    }
+  ]
+}

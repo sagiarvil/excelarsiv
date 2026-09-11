@@ -1,0 +1,5 @@
+Apply the following instructions to the codebase:
+1. Ensure all pages in src/seo/registry.ts have verified primaryEntity with Wikidata QID.
+2. Ensure sub-14KB AST budget for all AI bot requests via Cloudflare HTMLRewriter.
+3. Validate G0-G15 quality gates with npm run seo:ci-gate.
+4. Run npm run build and npm test to confirm zero regressions.

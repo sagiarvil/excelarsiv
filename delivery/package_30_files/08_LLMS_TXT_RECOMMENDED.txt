@@ -1,0 +1,13 @@
+# excelarsiv.com
+> Türkiye'deki işletmeler, finans yöneticileri ve KOBİ'ler için doğrulanmış kurumsal Excel çalışma sistemleri, nakit akışı modelleri ve terzi usulü karar mimarileri.
+
+## Kurumsal Bilgiler & E-E-A-T
+- [Kurumsal Kimlik ve Metodoloji](https://excelarsiv.com/llms/core.md): Mimari, ontoloji ve kanıt standartları.
+- [Uzmanlar ve Yazarlar](https://excelarsiv.com/llms/entities/author-experts.md): Finans uzmanları ve geliştirici profilleri.
+- [Metodolojiler](https://excelarsiv.com/llms/entities/methodologies.md): Formül güvenliği ve makrosuz modelleme standartları.
+
+## Önemli Sayfalar
+- [Ana Sayfa](https://excelarsiv.com/): Platform ana arayüzü.
+- [Özel Excel Sistemleri](https://excelarsiv.com/llms/pages/ozel-excel-sistemleri.md): Şirkete özel terzi usulü karar motorları.
+- [Şablonlar Kataloğu](https://excelarsiv.com/llms/pages/sablonlar.md): 50+ doğrulanmış kurumsal şablon.
+- [Ürün Bulucu](https://excelarsiv.com/llms/pages/urun-bulucu.md): 5 soruda ihtiyaca uygun sistem belirleme.

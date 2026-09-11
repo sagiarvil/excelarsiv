@@ -1,0 +1,7 @@
+{
+  "@context": "https://agent-protocol.org/v1",
+  "@type": "AgentCard",
+  "name": "Excel Arşiv Agent Interface",
+  "version": "1.0.0",
+  "url": "https://excelarsiv.com"
+}

@@ -47,4 +47,6 @@ Generate new*.json
 .firebase/hosting.ZGlzdA.cache
 sbom/
 archive/
+.agents/
+config/
 

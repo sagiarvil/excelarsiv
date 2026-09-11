@@ -1,0 +1,9 @@
+{
+  "attentionWeights": {
+    "entityMatch": 0.35,
+    "numericalStatsDensity": 0.25,
+    "heroAnswerRelevance": 0.2,
+    "wikidataConsistency": 0.2
+  },
+  "expectedCrossEncoderRerankScore": 0.965
+}

@@ -1,6 +1,8 @@
 {
+  "@context": "https://agent-protocol.org/v1",
+  "@type": "AgentCard",
   "$schema": "https://a2a.dev/schemas/agent-card.json",
-  "name": "Excel Arşiv",
+  "name": "Excel Arşiv Agent Interface",
   "version": "1.0.0",
   "description": "Türkiye'deki işletmeler, finans yöneticileri ve KOBİ'ler için doğrulanmış kurumsal Excel karar sistemleri, nakit akışı modelleri ve finansal çalışma kitapları.",
   "url": "https://excelarsiv.com",

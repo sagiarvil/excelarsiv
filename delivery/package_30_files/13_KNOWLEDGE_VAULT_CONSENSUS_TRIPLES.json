@@ -1,0 +1,19 @@
+[
+  {
+    "subject": "Excel Arşiv",
+    "predicate": "isA",
+    "object": "Organization",
+    "wikidata": "Q11589432"
+  },
+  {
+    "subject": "Excel Arşiv",
+    "predicate": "develops",
+    "object": "Financial Spreadsheet Models",
+    "wikidata": "Q11190"
+  },
+  {
+    "subject": "Excel Arşiv",
+    "predicate": "serves",
+    "object": "Turkish SMEs & Finance Directors"
+  }
+]

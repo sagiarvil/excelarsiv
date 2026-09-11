@@ -1,0 +1,5 @@
+{
+  "standard": "RFC 3161 / C2PA v1.3",
+  "claimGenerator": "ExcelArsiv SSOT Builder",
+  "provenanceFile": "scripts/ci/write-build-provenance.mjs"
+}

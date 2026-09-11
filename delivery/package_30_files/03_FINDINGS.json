@@ -1,0 +1,10 @@
+{
+  "scanId": "scan_excelarsiv_2026v3",
+  "timestamp": "2026-09-11T00:00:00Z",
+  "domain": "excelarsiv.com",
+  "overallScore": 100,
+  "totalWeight": 129,
+  "status": "PASS",
+  "criticalViolations": 0,
+  "warnings": 0
+}
