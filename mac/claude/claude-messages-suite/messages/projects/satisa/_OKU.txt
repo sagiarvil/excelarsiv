@@ -1,0 +1,5 @@
+PROJE ADI : satisa
+DURUM     : 🟢 AKTİF (gemini-messages-suite bağlı)
+GÜNCELLEME: 2026-09-11
+KURAL YOLU: ~/.gemini/config/plugins/gemini-messages-suite/messages/projects/satisa/PROJE_TALİMATLARI.md
+HAFIZA    : Bu proje oturum özetlerini ve talimatlarını messages-suite üzerinden takip eder.

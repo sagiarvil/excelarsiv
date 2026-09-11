@@ -1,0 +1,21 @@
+{
+  "name": "claude-messages-suite",
+  "version": "1.0.0",
+  "description": "Claude Bağımsız Hafıza ve Mesajlaşma Eklentisi: Oturum konuşma günlükleri, proje dokümantasyonu, kullanıcı ve proje talimatları arşivi.",
+  "author": {
+    "name": "WebTasarimOfisim"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude",
+    "messages",
+    "memory",
+    "directives",
+    "session-logs"
+  ],
+  "capabilities": {
+    "memorySystem": true,
+    "directiveLogging": true,
+    "projectsIndex": true
+  }
+}

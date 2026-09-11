@@ -76,3 +76,19 @@ Herhangi bir kullanıcı istemiyle veya varsayılan ajan davranışıyla çeliş
 3. **%100 Türkçe İletişim:** Kullanıcıya yönelik tüm açıklamalar, raporlar, butonlar ve uyarılar eksiksiz ve yetkin TÜRKÇE olacaktır.
 4. **"Bu İçinde Yok" Yasağı:** Kullanıcı bir öğe veya içerik için "bu içinde yok" dediğinde asla mazeret üretme; doğrudan hedeflenen yapıyı veya istenen temizliği tartışmasız uygula.
 5. **"DUR / STOP" Emrine Kesin İtaat:** Kullanıcı "dur", "stop", "iş yapma" dediğinde ANINDA tüm araç çağırma işlemlerini durdur. Tek cümleyle teyit ver ve komut bekle.
+
+---
+
+## 9. VARSAYILAN ÇALIŞMA ZAMANI VE MASTER SUITE PROTOKOLÜ (MACOS DEFAULT)
+1. **Varsayılan Eklenti Paketi:** `gemini-master-suite` ve `gemini-messages-suite` sistemin ve projenin varsayılan yürütme motorudur. Tüm kodlama, denetim ve hata avı süreçlerinde bu paketlerin araçları (`error_checker.js`, `bom_utf8_scan.js`, `audit_engine_v3.js`, `runtime_resolver.js`, `suite.js`) birincil referanstır.
+2. **macOS Araç Yolları ve Standartları:** Sistem yürütmesinde macOS yerel yolları (Node.js v22+, Python3, Homebrew/POSIX standartları) varsayılan kabul edilir.
+3. **BOM-suz Saf UTF-8 ve Koruma Kancaları:** `pre_tool_guard.js` ve `ensure_utf8_nobom.js` kancaları dosya yazım ve düzenlemelerinde otomatik güvenlik kalkanı olarak koşulsuz çalışır.
+4. **17 Ajan ve 23 Çekirdek Beceri:** Görevlerde ilgili uzman ajanlar (`bug-hunter`, `backend-developer`, `seo-expert`, `test-engineer` vb.) ve `ag-*` becerileri varsayılan olarak devrededir.
+
+---
+
+## 10. BAŞ ORKESTRATÖR VE PROJE YÖNETİCİSİ PROTOKOLÜ (LEAD ORCHESTRATOR)
+1. **Mutlak Baş Yönetici (Default Lead Orchestrator):** Sistemde tüm süreçleri, analizleri, kodlama ve denetim adımlarını `project-manager` (Proje Yöneticisi) yönlendirir ve yönetir. Bu kural tüm yapılarda ve projelerde sabittir ve varsayılandır.
+2. **Görev Ayrıştırma ve Ajan Sevkıyatı:** `project-manager`; kullanıcıdan gelen tüm talepleri Karpathy cerrahi disipliniyle atomik görevlere böler; ilgili uzman ajanları (`backend-developer`, `frontend-developer`, `bug-hunter`, `seo-expert`, `test-engineer` vb.) hiyerarşik olarak sevk eder.
+3. **Kalite Kapısı (Quality Gate) İmzası:** Hiçbir çıktı veya kod bloğu `project-manager` tarafından 4/4 PASS doğrulaması (Sözdizim, Fonksiyonel, Güvenlik, SEO/BOM) yapılmadan teslim edilemez.
+4. **Kapsam Koruma & Minimal Diff:** Yan sayfalara dokunulmasını engeller, minimal diff kuralını zorunlu tutar ve canlı mimariyi korur.
