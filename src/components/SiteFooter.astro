@@ -3,127 +3,243 @@ const year = new Date().getFullYear();
 const sosyalProfiller = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/barisbagirlar/' },
 ];
-const productLinks = [
+
+const solutionLinks = [
   { label: 'Tüm Şablonlar', href: '/sablonlar' },
   { label: 'İşletmeye Özel Excel', href: '/ozel-excel-sistemleri' },
+  { label: '13 Haftalık Nakit Akışı', href: '/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi' },
+  { label: 'KOBİ Finans Paketi', href: '/sablon/kobi-finans-yonetim-paketi' },
+  { label: 'Kasa & Nakit Kontrolü', href: '/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi' },
+  { label: 'Cari Risk & Tahsilat', href: '/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi' },
+];
+
+const toolLinks = [
+  { label: 'Kafe / Restoran Maliyet', href: '/sektor/kafe-restoran-nakit' },
+  { label: 'İnşaat Hakediş & Şantiye', href: '/sektor/insaat-hakedis' },
+  { label: 'E-Ticaret Net Kârlılık', href: '/sektor/e-ticaret-karlilik' },
+  { label: 'Asgari Ücret Hesaplayıcı', href: '/hesaplayici/asgari-ucret-zam-etkisi' },
+  { label: 'Karar Rehberleri', href: '/karar' },
   { label: 'Ürün Bulucu', href: '/urun-bulucu' },
   { label: 'Ücretsiz Demo', href: '/demo' },
-  { label: 'Karar Rehberleri', href: '/karar' },
-  { label: 'Rehber ve Blog', href: '/rehber' },
-  { label: 'Kafe / Restoran', href: '/sektor/kafe-restoran-nakit' },
-  { label: 'İnşaat Hakediş', href: '/sektor/insaat-hakedis' },
-  { label: 'E-Ticaret Kârlılık', href: '/sektor/e-ticaret-karlilik' },
-  { label: 'Nasıl Çalışır', href: '/nasil-calisir' },
-  { label: 'Asgari Ücret Hesaplayıcı', href: '/hesaplayici/asgari-ucret-zam-etkisi' },
 ];
+
 const supportLinks = [
   { label: 'Hakkımızda', href: '/hakkinda' },
   { label: 'Neden Excel Arşiv', href: '/neden-excel-arsiv' },
+  { label: 'Nasıl Çalışır', href: '/nasil-calisir' },
   { label: 'Başarı Hikâyeleri', href: '/basari-hikayeleri' },
-  { label: 'İletişim', href: '/iletisim' },
   { label: 'Sık Sorulan Sorular', href: '/sss' },
+  { label: 'İletişim & Destek', href: '/iletisim' },
   { label: 'Teslimat ve İade', href: '/teslimat-ve-iade' },
 ];
+
 const legalLinks = [
-  { label: 'Lisans', href: '/lisans' },
+  { label: 'Lisans Koşulları', href: '/lisans' },
   { label: 'Gizlilik Politikası (KVKK)', href: '/gizlilik-politikasi' },
-  { label: 'KVKK Aydınlatma', href: '/kvkk-aydinlatma' },
+  { label: 'KVKK Aydınlatma Metni', href: '/kvkk-aydinlatma' },
   { label: 'Mesafeli Satış Sözleşmesi', href: '/mesafeli-satis-sozlesmesi' },
   { label: 'Shopier Veri Aktarımı', href: '/shopier-veri-aktarimi' },
   { label: 'Pazarlama Açık Rıza', href: '/pazarlama-acik-riza' },
   { label: 'Çerez Politikası', href: '/cerez-politikasi' },
 ];
-const trustSignals = ['Shopier güvenli ödeme', 'KDV dahil', 'E-posta teslimat'];
+
+const trustSignals = [
+  'Shopier 256-Bit SSL Güvenli Ödeme',
+  'KDV Dahil Kurumsal E-Fatura',
+  'Anında E-Posta İndirme Bağlantısı',
+  'Açık Formül · Makrosuz · Sıfır Kurulum'
+];
 ---
 
 <footer class="site-footer">
   <div class="site-container">
+
+    <!-- Pre-Footer Conversion / Assistance Strip -->
+    <div class="site-footer__pre">
+      <div class="site-footer__pre-copy">
+        <span class="site-footer__pre-badge">ÖZEL EXCEL MİMARİSİ</span>
+        <strong>İşletmenizin Muhasebe veya ERP Sürecine Özel Sistem İster misiniz?</strong>
+        <p>Mizan, nakit akışı ve cari yaşlandırma verilerinize göre 15 dakikada ihtiyacı netleştirip özel karar sisteminizi kuralım.</p>
+      </div>
+      <div class="site-footer__pre-actions">
+        <a href="/ozel-excel-sistemleri" class="site-footer__btn-primary">Size Özel Sistemi Görün →</a>
+        <a href="/urun-bulucu" class="site-footer__btn-secondary">Ürün Bulucu ile Seçin</a>
+      </div>
+    </div>
+
+    <!-- 5-Column Main Desktop Grid -->
     <div class="site-footer__grid site-footer__desktop">
       <div class="site-footer__brand">
-        <div class="site-footer__logo"><img src="/images/excel-logo.png" alt="Excel Arşiv logosu" width="30" height="28" loading="lazy" /><span>Excel Arşiv</span></div>
-        <p class="site-footer__desc">İşletmeler için indirilebilir, hazır dijital Excel çalışma kitapları ve sistemleri.</p>
+        <div class="site-footer__logo">
+          <img src="/images/excel-logo.png" alt="Excel Arşiv logosu" width="30" height="28" loading="lazy" />
+          <span>Excel Arşiv</span>
+        </div>
+        <p class="site-footer__desc">
+          Finans, muhasebe ve yönetim kararlarını hızlandıran indirilebilir kurumsal Excel karar sistemleri.
+        </p>
+        <div class="site-footer__authority">
+          <small>Finansal Karar Sistemleri Mimarı</small>
+          <strong>Barış Bağırlarlar</strong>
+        </div>
         <ul class="site-footer__social" aria-label="Sosyal profiller">
           {sosyalProfiller.map((link) => <li><a href={link.href} rel="noopener noreferrer" target="_blank">{link.label}</a></li>)}
         </ul>
       </div>
-      <nav class="site-footer__col" aria-label="Ürünler">
-        <h3 class="site-footer__heading">Ürünler</h3>
-        <ul>{productLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
+
+      <nav class="site-footer__col" aria-label="Çözümler">
+        <h3 class="site-footer__heading">Çözümler</h3>
+        <ul>{solutionLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
       </nav>
-      <nav class="site-footer__col" aria-label="Destek">
-        <h3 class="site-footer__heading">Destek</h3>
+
+      <nav class="site-footer__col" aria-label="Sektörel ve Araçlar">
+        <h3 class="site-footer__heading">Sektörel & Araçlar</h3>
+        <ul>{toolLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
+      </nav>
+
+      <nav class="site-footer__col" aria-label="Kurumsal ve Destek">
+        <h3 class="site-footer__heading">Kurumsal & Destek</h3>
         <ul>{supportLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
+      </nav>
+
+      <nav class="site-footer__col" aria-label="Yasal">
+        <h3 class="site-footer__heading">Yasal & Güvence</h3>
+        <ul>{legalLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
       </nav>
     </div>
 
+    <!-- Mobile Accordion View -->
     <div class="site-footer__mobile">
-      <div class="site-footer__logo"><img src="/images/excel-logo.png" alt="Excel Arşiv logosu" width="28" height="26" loading="lazy" /><span>Excel Arşiv</span></div>
-      <p class="site-footer__desc">İndirilebilir hazır dijital Excel sistemleri.</p>
+      <div class="site-footer__logo">
+        <img src="/images/excel-logo.png" alt="Excel Arşiv logosu" width="28" height="26" loading="lazy" />
+        <span>Excel Arşiv</span>
+      </div>
+      <p class="site-footer__desc">İndirilebilir hazır dijital Excel finans sistemleri.</p>
       <div class="site-footer__mobile-links">
-        <details><summary>Ürünler <span>+</span></summary><nav>{productLinks.map((link)=><a href={link.href}>{link.label}</a>)}</nav></details>
-        <details><summary>Destek <span>+</span></summary><nav>{supportLinks.map((link)=><a href={link.href}>{link.label}</a>)}</nav></details>
-        <details><summary>Yasal <span>+</span></summary><nav>{legalLinks.map((link)=><a href={link.href}>{link.label}</a>)}</nav></details>
+        <details><summary>Çözümler & Şablonlar <span>+</span></summary><nav>{solutionLinks.map((link)=><a href={link.href}>{link.label}</a>)}</nav></details>
+        <details><summary>Sektörel & Araçlar <span>+</span></summary><nav>{toolLinks.map((link)=><a href={link.href}>{link.label}</a>)}</nav></details>
+        <details><summary>Kurumsal & Destek <span>+</span></summary><nav>{supportLinks.map((link)=><a href={link.href}>{link.label}</a>)}</nav></details>
+        <details><summary>Yasal & Güvence <span>+</span></summary><nav>{legalLinks.map((link)=><a href={link.href}>{link.label}</a>)}</nav></details>
       </div>
     </div>
 
+    <!-- Sub-Footer Bottom Bar -->
     <div class="site-footer__bottom">
       <ul class="site-footer__signals">
         {trustSignals.map((signal) => <li><span class="site-footer__check" aria-hidden="true">✓</span>{signal}</li>)}
       </ul>
-      <ul class="site-footer__legal" aria-label="Yasal">
-        {legalLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
-      </ul>
-      <p class="site-footer__copy">© {year} Excel Arşiv · Tüm hakları saklıdır</p>
+      <p class="site-footer__copy">© {year} Excel Arşiv · Tüm hakları saklıdır · Finansal Karar Sistemleri</p>
     </div>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    border-top: 1px solid #203955;
-    background: #061a31;
-    padding-block: 48px 28px;
+    border-top: 1px solid #1c324b;
+    background: #07172b;
+    padding-block: 44px 28px;
     color: #ffffff;
   }
-  .site-footer__grid { display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:36px; }
-  .site-footer__logo { display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:18px; font-weight:800; letter-spacing:-0.01em; color:#ffffff !important; }
-  .site-footer__logo img { border-radius:6px; }
-  .site-footer__desc { max-width:300px; margin:12px 0 0; font-size:12px; line-height:1.6; color:#ffffff !important; }
-  .site-footer__social { display:flex; flex-wrap:wrap; gap:10px 14px; margin:14px 0 0; padding:0; list-style:none; }
-  .site-footer__social a { font-size:13px; font-weight:600; color:#ffffff !important; text-decoration:underline; text-underline-offset:3px; }
-  .site-footer__heading { margin:0 0 14px; font-family:var(--font-mono); font-size:12.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#ffffff !important; }
-  .site-footer__col ul { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px; }
-  .site-footer__col a { font-size:12px; line-height:1.6; color:#ffffff !important; text-decoration:none; transition:opacity 150ms ease-out; }
-  .site-footer__col a:hover, .site-footer__social a:hover, .site-footer__legal a:hover, .site-footer__mobile-links a:hover { color:#ffffff !important; opacity:.78; }
-  .site-footer__bottom { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 24px; margin-top:36px; padding-top:18px; border-top:1px solid #29415a; }
-  .site-footer__signals { display:flex; flex-wrap:wrap; gap:10px 24px; margin:0; padding:0; list-style:none; font-family:var(--font-mono); font-size:12px; color:#ffffff !important; }
-  .site-footer__check { color:#ffffff !important; font-weight:700; margin-right:6px; }
-  .site-footer__legal { display:flex; flex-wrap:wrap; gap:8px 18px; margin:0; padding:0; list-style:none; font-family:var(--font-mono); font-size:11px; }
-  .site-footer__legal a { color:#ffffff !important; text-decoration:none; transition:opacity 150ms ease-out; }
-  .site-footer__copy { margin:0; font-family:var(--font-mono); font-size:12px; color:#ffffff !important; }
-  .site-footer__mobile { display:none; }
 
-  /* Ana sayfa karar rehberleri CTA'sı global tema kurallarından bağımsız beyaz kalır. */
-  :global(.decision-all-btn), :global(.decision-all-btn:visited), :global(.decision-all-btn:hover), :global(.decision-all-btn:focus-visible) { color:#ffffff !important; }
-
-  @media (max-width:900px) {
-    .site-footer__grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-    .site-footer__brand { grid-column:1 / -1; }
+  /* Pre-Footer Conversion Box */
+  .site-footer__pre {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 24px 28px;
+    border: 1px solid #1d3959;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(16, 124, 65, 0.14) 0%, rgba(11, 35, 62, 0.8) 100%);
   }
-  @media (max-width:560px) {
-    .site-footer { padding:30px 0 calc(82px + env(safe-area-inset-bottom)); }
-    .site-footer__desktop { display:none; }
-    .site-footer__mobile { display:block; }
-    .site-footer__desc { margin-top:6px; font-size:11.5px; }
-    .site-footer__mobile-links { margin-top:18px; border-top:1px solid #29415a; }
-    .site-footer__mobile-links details { border-bottom:1px solid #29415a; }
-    .site-footer__mobile-links summary { display:flex; align-items:center; justify-content:space-between; min-height:44px; font-size:12.5px; font-weight:700; cursor:pointer; list-style:none; color:#ffffff !important; }
-    .site-footer__mobile-links summary::-webkit-details-marker { display:none; }
-    .site-footer__mobile-links summary span { color:#ffffff !important; }
-    .site-footer__mobile-links nav { display:grid; gap:8px; padding:0 0 12px; }
-    .site-footer__mobile-links a { font-size:12px; color:#ffffff !important; text-decoration:none; }
-    .site-footer__bottom { display:grid; gap:10px; margin-top:16px; padding-top:14px; }
-    .site-footer__signals { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px 10px; font-size:9.5px; }
-    .site-footer__copy { font-size:9.5px; }
+  .site-footer__pre-copy { max-width: 640px; }
+  .site-footer__pre-badge { display: inline-block; margin-bottom: 6px; font-family: var(--font-mono); font-size: 10px; font-weight: 800; letter-spacing: 0.12em; color: #4ade80; }
+  .site-footer__pre-copy strong { display: block; font-family: var(--font-display); font-size: 18px; line-height: 1.25; color: #ffffff; }
+  .site-footer__pre-copy p { margin: 6px 0 0; font-size: 13px; line-height: 1.55; color: #cbd5e1; }
+  .site-footer__pre-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .site-footer__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 18px;
+    border-radius: 12px;
+    background: #107c41;
+    color: #ffffff !important;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 140ms ease;
+  }
+  .site-footer__btn-primary:hover { background: #0b6334; color: #ffffff !important; }
+  .site-footer__btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 16px;
+    border: 1px solid #334d6b;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff !important;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 140ms ease;
+  }
+  .site-footer__btn-secondary:hover { background: rgba(255, 255, 255, 0.12); color: #ffffff !important; }
+
+  /* 5-Column Grid */
+  .site-footer__grid { display: grid; grid-template-columns: 1.25fr 1fr 1fr 1fr 1fr; gap: 28px; }
+  .site-footer__logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 18px; font-weight: 800; letter-spacing: -0.01em; color: #ffffff !important; }
+  .site-footer__logo img { border-radius: 6px; }
+  .site-footer__desc { max-width: 260px; margin: 12px 0 0; font-size: 12.5px; line-height: 1.6; color: #94a3b8 !important; }
+  .site-footer__authority { margin-top: 14px; padding-top: 12px; border-top: 1px solid #1e3550; max-width: 260px; }
+  .site-footer__authority small { display: block; font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #64748b; }
+  .site-footer__authority strong { display: block; margin-top: 2px; font-size: 13px; color: #e2e8f0; font-weight: 700; }
+  .site-footer__social { display: flex; flex-wrap: wrap; gap: 10px 14px; margin: 12px 0 0; padding: 0; list-style: none; }
+  .site-footer__social a { font-size: 12px; font-weight: 600; color: #38bdf8 !important; text-decoration: underline; text-underline-offset: 3px; }
+  .site-footer__heading { margin: 0 0 14px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #ffffff !important; }
+  .site-footer__col ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .site-footer__col a { font-size: 12.5px; line-height: 1.5; color: #cbd5e1 !important; text-decoration: none; transition: color 150ms ease-out, opacity 150ms ease-out; }
+  .site-footer__col a:hover, .site-footer__social a:hover, .site-footer__mobile-links a:hover { color: #ffffff !important; opacity: 1; text-decoration: none; }
+
+  /* Sub-Footer */
+  .site-footer__bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: 36px; padding-top: 20px; border-top: 1px solid #1a2f48; }
+  .site-footer__signals { display: flex; flex-wrap: wrap; gap: 10px 20px; margin: 0; padding: 0; list-style: none; font-family: var(--font-mono); font-size: 11.5px; color: #94a3b8 !important; }
+  .site-footer__check { color: #4ade80 !important; font-weight: 800; margin-right: 6px; }
+  .site-footer__copy { margin: 0; font-family: var(--font-mono); font-size: 11.5px; color: #64748b !important; }
+  .site-footer__mobile { display: none; }
+
+  :global(.decision-all-btn), :global(.decision-all-btn:visited), :global(.decision-all-btn:hover), :global(.decision-all-btn:focus-visible) { color: #ffffff !important; }
+
+  @media (max-width: 1080px) {
+    .site-footer__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+    .site-footer__brand { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-bottom: 1px solid #1e3550; padding-bottom: 20px; }
+  }
+  @media (max-width: 768px) {
+    .site-footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .site-footer__brand { grid-template-columns: 1fr; }
+    .site-footer__pre { flex-direction: column; align-items: flex-start; }
+    .site-footer__pre-actions { width: 100%; }
+    .site-footer__btn-primary, .site-footer__btn-secondary { width: 100%; }
+  }
+  @media (max-width: 560px) {
+    .site-footer { padding: 26px 0 calc(82px + env(safe-area-inset-bottom)); }
+    .site-footer__desktop { display: none; }
+    .site-footer__mobile { display: block; }
+    .site-footer__desc { margin-top: 6px; font-size: 11.5px; }
+    .site-footer__mobile-links { margin-top: 18px; border-top: 1px solid #1a2f48; }
+    .site-footer__mobile-links details { border-bottom: 1px solid #1a2f48; }
+    .site-footer__mobile-links summary { display: flex; align-items: center; justify-content: space-between; min-height: 46px; font-size: 13px; font-weight: 700; cursor: pointer; list-style: none; color: #ffffff !important; }
+    .site-footer__mobile-links summary::-webkit-details-marker { display: none; }
+    .site-footer__mobile-links summary span { color: #4ade80 !important; font-size: 16px; }
+    .site-footer__mobile-links nav { display: grid; gap: 9px; padding: 0 0 14px; }
+    .site-footer__mobile-links a { font-size: 12.5px; color: #cbd5e1 !important; text-decoration: none; padding-block: 4px; }
+    .site-footer__bottom { display: grid; gap: 10px; margin-top: 16px; padding-top: 14px; }
+    .site-footer__signals { display: grid; grid-template-columns: 1fr; gap: 6px; font-size: 10px; }
+    .site-footer__copy { font-size: 10px; }
   }
 </style>
+

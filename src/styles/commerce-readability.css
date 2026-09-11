@@ -203,25 +203,30 @@ main > section p,
   font-size: 13px !important;
   letter-spacing: 0.12em !important;
   font-weight: 700 !important;
-  color: #0f172a !important;
+  color: #ffffff !important;
 }
 
 .site-footer__col a,
 .site-footer__legal a {
-  font-size: 14.5px !important;
-  color: #475569 !important;
+  font-size: 13.5px !important;
+  color: #cbd5e1 !important;
+}
+
+.site-footer__col a:hover,
+.site-footer__legal a:hover {
+  color: #ffffff !important;
 }
 
 .site-footer__desc {
-  font-size: 15px !important;
-  line-height: 1.65 !important;
-  color: #475569 !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: #94a3b8 !important;
 }
 
 .site-footer__copy,
 .site-footer__signals {
-  font-size: 13.5px !important;
-  color: #64748b !important;
+  font-size: 12.5px !important;
+  color: #94a3b8 !important;
 }
 
 .announcement-bar {
