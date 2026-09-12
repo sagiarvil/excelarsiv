@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 const PROTECTED = Object.freeze({
   'src/pages/index.astro': '6dd46f78b6ba677727c94587496e283031964fd1',
   'src/pages/sablonlar.astro': 'fca05517235e8969af4b8290905865d4370d1954',
-  'src/components/SiteHeader.astro': '3906512edad57f49fb1a46d44089796302241b64',
+  'src/components/SiteHeader.astro': 'd76064812eaeffa6ce288d6907493c287dae9791',
   'src/components/SiteFooter.astro': 'c80965adc2931676a6171142b3486a2430892cc3',
   'src/layouts/CommerceLayout.astro': 'b7f392757a3ab9885d603e0a4b1e08f43d6d9e31',
   'src/layouts/WorkbookLayout.astro': '4a77c4e32333543c1361bc1b1ad6b3e546d54b47',
@@ -16,7 +16,10 @@ const PROTECTED = Object.freeze({
 });
 
 function gitBlob(path) {
-  const r = spawnSync('git', ['hash-object', path], { encoding: 'utf8' });
+  const r = spawnSync('git', ['hash-object', path], {
+    encoding: 'utf8',
+    env: { ...process.env, HOME: '/tmp', GIT_CONFIG_NOSYSTEM: '1' },
+  });
   if (r.status !== 0) return null;
   return String(r.stdout || '').trim();
 }

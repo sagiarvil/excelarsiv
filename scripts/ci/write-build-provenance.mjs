@@ -5,7 +5,10 @@ import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
 
 function git(args) {
-  const r = spawnSync('git', args, { encoding: 'utf8' });
+  const r = spawnSync('git', args, {
+    encoding: 'utf8',
+    env: { ...process.env, HOME: '/tmp', GIT_CONFIG_NOSYSTEM: '1' },
+  });
   if (r.status !== 0) throw new Error(`git ${args.join(' ')} failed: ${String(r.stderr || '').trim()}`);
   return String(r.stdout || '').trim();
 }

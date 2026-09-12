@@ -67,32 +67,203 @@ const mobileBrandMark =
         <span class="site-header__cta-desktop">Sistemleri İncele</span>
         <span class="site-header__cta-mobile">Sistem Bul</span>
       </a>
-      <details class="site-header__menu">
-        <summary aria-label="Menüyü aç"><span></span><span></span><span></span></summary>
-        <div class="site-header__mobile-sheet">
-          <div class="site-header__mobile-sheet-head">
-            <div><strong>Excel Arşiv</strong><span>İhtiyacınızı seçin, doğru sisteme gidin.</span></div>
+      <details class="site-header__menu" id="site-header-menu">
+        <summary aria-label="Menüyü aç/kapat">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </summary>
+        <div class="site-header__backdrop" id="site-header-backdrop" aria-hidden="true"></div>
+        <div class="site-header__mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobil gezinme menüsü">
+          <div class="site-header__drawer-top">
+            <a href="/" class="site-header__drawer-brand" aria-label="Excel Arşiv ana sayfa">
+              <picture class="site-header__logo-wrap">
+                <img
+                  src={mobileBrandMark}
+                  alt="Excel Arşiv"
+                  width="36"
+                  height="36"
+                  class="site-header__logo"
+                />
+              </picture>
+              <div class="site-header__drawer-brand-text">
+                <strong>Excel Arşiv</strong>
+                <span>İşletme Karar Sistemleri</span>
+              </div>
+            </a>
+            <button type="button" class="site-header__drawer-close" id="site-header-close-btn" aria-label="Menüyü kapat">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
           </div>
-          <div class="site-header__mobile-primary">
-            <a href="/sablonlar" data-cta="mobile_menu_ready" data-location="mobile_menu"><strong>Hazır sistemler</strong><span>İncele · demo · satın al</span></a>
-            <a href="/ozel-excel-sistemleri" data-cta="mobile_menu_custom" data-location="mobile_menu"><strong>Size özel sistem</strong><span>İşletmenize göre kuralım</span></a>
+
+          <div class="site-header__drawer-body">
+            <!-- Hızlı Arama & Sistem Bulucu -->
+            <a href="/sablonlar" class="site-header__drawer-search">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>51+ Excel şablonunda ara...</span>
+            </a>
+
+            <!-- 2 Büyük Aksiyon Kartı -->
+            <div class="site-header__drawer-primary">
+              <a href="/sablonlar" class="site-header__card-ready" data-cta="mobile_menu_ready" data-location="mobile_menu">
+                <div class="site-header__card-head">
+                  <span class="site-header__card-badge">51+ Çözüm</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+                <strong>Hazır Excel Sistemleri</strong>
+                <span>İncele · Demo Gör · Anında İndir</span>
+              </a>
+              <a href="/ozel-excel-sistemleri" class="site-header__card-custom" data-cta="mobile_menu_custom" data-location="mobile_menu">
+                <div class="site-header__card-head">
+                  <span class="site-header__card-badge site-header__card-badge--blue">15 Dk Ön Teşhis</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+                <strong>Size Özel Excel Çözümü</strong>
+                <span>İşletmenizin Akışına Birebir Kurulum</span>
+              </a>
+            </div>
+
+            <!-- Kategoriler Listesi -->
+            <div class="site-header__drawer-section">
+              <span class="site-header__drawer-subtitle">UZMANLIK ALANLARI & KATEGORİLER</span>
+              <div class="site-header__drawer-categories">
+                <a href="/sablonlar/finansal-analiz" class="site-header__cat-item">
+                  <span class="site-header__cat-dot" style="background:#0b7440"></span>
+                  <span>Finansal Analiz & Kârlılık</span>
+                </a>
+                <a href="/sablonlar/nakit-akisi" class="site-header__cat-item">
+                  <span class="site-header__cat-dot" style="background:#0f6cbd"></span>
+                  <span>Nakit Akışı & Kasa / Banka</span>
+                </a>
+                <a href="/sablonlar/muhasebe-ve-vergi" class="site-header__cat-item">
+                  <span class="site-header__cat-dot" style="background:#854d0e"></span>
+                  <span>Muhasebe, KDV & Vergi</span>
+                </a>
+                <a href="/sablonlar/butce-ve-planlama" class="site-header__cat-item">
+                  <span class="site-header__cat-dot" style="background:#4f46e5"></span>
+                  <span>Bütçe & Yıllık Planlama</span>
+                </a>
+                <a href="/sablonlar/stok-ve-uretim" class="site-header__cat-item">
+                  <span class="site-header__cat-dot" style="background:#0d9488"></span>
+                  <span>Stok, Reçete & Üretim</span>
+                </a>
+                <a href="/sablonlar/satis-ve-fiyatlama" class="site-header__cat-item">
+                  <span class="site-header__cat-dot" style="background:#d97706"></span>
+                  <span>Satış, Prim & Fiyatlama</span>
+                </a>
+                <a href="/sablonlar/personel-ve-bordro" class="site-header__cat-item">
+                  <span class="site-header__cat-dot" style="background:#e11d48"></span>
+                  <span>Personel, Maaş & Bordro</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Sayfalar Navigasyon -->
+            <div class="site-header__drawer-section">
+              <span class="site-header__drawer-subtitle">KURUMSAL & DESTEK</span>
+              <nav class="site-header__drawer-nav" aria-label="Mobil kurumsal gezinme">
+                <a href="/demo">Ücretsiz Demo İncele <span aria-hidden="true">→</span></a>
+                <a href="/nasil-calisir">Nasıl Çalışır? <span aria-hidden="true">→</span></a>
+                <a href="/rehber">Finans & Excel Rehberi <span aria-hidden="true">→</span></a>
+                <a href="/hakkinda">Hakkımızda <span aria-hidden="true">→</span></a>
+                <a href="/iletisim">İletişim & Destek <span aria-hidden="true">→</span></a>
+              </nav>
+            </div>
+
+            <!-- WhatsApp Destek Hattı -->
+            <div class="site-header__drawer-footer">
+              <a href="https://wa.me/905393333303?text=Merhaba,%20Excel%20Ar%C5%9Fiv%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="site-header__drawer-wa">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-5.795 1.52zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                <div>
+                  <strong>WhatsApp Danışma Hattı</strong>
+                  <span>Hızlı soru & sistem teşhisi</span>
+                </div>
+              </a>
+            </div>
           </div>
-          <nav class="site-header__mobile-nav" aria-label="Mobil menü">
-            {menu.slice(2).map((item) => <a href={item.href}>{item.label}<span aria-hidden="true">→</span></a>)}
-          </nav>
         </div>
       </details>
     </div>
   </div>
 </header>
 
+<script is:inline>
+  (function() {
+    function initMobileNav() {
+      const menu = document.getElementById('site-header-menu');
+      const backdrop = document.getElementById('site-header-backdrop');
+      const closeBtn = document.getElementById('site-header-close-btn');
+      if (!menu) return;
+
+      function closeMenu() {
+        menu.removeAttribute('open');
+        document.body.classList.remove('ea-menu-active');
+      }
+
+      function openMenu() {
+        document.body.classList.add('ea-menu-active');
+      }
+
+      menu.addEventListener('toggle', function() {
+        if (menu.open) {
+          openMenu();
+        } else {
+          closeMenu();
+        }
+      });
+
+      if (backdrop) {
+        backdrop.addEventListener('click', function(e) {
+          e.preventDefault();
+          closeMenu();
+        });
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          closeMenu();
+        });
+      }
+
+      // Menü içindeki linklere tıklanınca menüyü kapat
+      const links = menu.querySelectorAll('.site-header__mobile-drawer a');
+      links.forEach(function(link) {
+        link.addEventListener('click', function() {
+          closeMenu();
+        });
+      });
+
+      // Escape tuşu ile kapat
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && menu.hasAttribute('open')) {
+          closeMenu();
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMobileNav);
+    } else {
+      initMobileNav();
+    }
+  })();
+</script>
+
 <style>
   .site-header {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--xl-grid);
   }
   .site-header__inner {
@@ -125,43 +296,362 @@ const mobileBrandMark =
 
   @media (max-width: 1020px) {
     .site-header__nav { display:none; }
-    .site-header__menu { display:block;position:relative; }
-    .site-header__menu summary { display:grid;place-content:center;gap:4px;width:40px;height:40px;border:1px solid var(--xl-border);border-radius:12px;background:#fff;cursor:pointer;list-style:none;box-shadow:0 4px 14px rgba(15,23,42,.05); }
+    .site-header__menu { display:block;position:static; }
+    .site-header__menu summary {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:4.5px;
+      width:42px;
+      height:42px;
+      border:1px solid #dce5df;
+      border-radius:12px;
+      background:#fff;
+      cursor:pointer;
+      list-style:none;
+      box-shadow:0 4px 14px rgba(15,23,42,.05);
+      transition:background .15s ease,border-color .15s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
     .site-header__menu summary::-webkit-details-marker { display:none; }
-    .site-header__menu summary span { display:block;width:17px;height:1.7px;background:var(--xl-ink-900);border-radius:2px; }
-    .site-header__mobile-sheet { position:absolute;top:50px;right:0;width:min(390px,calc(100vw - 24px));padding:12px;border:1px solid #dce5df;border-radius:22px;background:rgba(255,255,255,.99);box-shadow:0 26px 70px rgba(15,23,42,.18);backdrop-filter:blur(18px); }
-    .site-header__mobile-sheet-head { padding:7px 7px 12px; }
-    .site-header__mobile-sheet-head strong { display:block;color:#0f172a;font-size:16px;line-height:1.2; }
-    .site-header__mobile-sheet-head span { display:block;margin-top:4px;color:#64748b;font-size:12px;line-height:1.4; }
-    .site-header__mobile-primary { display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px; }
-    .site-header__mobile-primary a { min-width:0;display:flex;flex-direction:column;justify-content:center;min-height:78px;padding:13px;border-radius:16px;text-decoration:none;border:1px solid #d9e5dd;background:#f7fbf8;color:#0f5130; }
-    .site-header__mobile-primary a:nth-child(2) { border-color:#dbe2ef;background:#f7f9fd;color:#172033; }
-    .site-header__mobile-primary strong { font-size:14px;line-height:1.2; }
-    .site-header__mobile-primary span { margin-top:5px;font-size:11px;line-height:1.35;opacity:.72; }
-    .site-header__mobile-nav { display:grid;border-top:1px solid #edf1ee;padding-top:7px; }
-    .site-header__mobile-nav a { min-height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;border-radius:11px;color:var(--xl-ink-900);font-size:14px;font-weight:650;text-decoration:none; }
-    .site-header__mobile-nav a:hover { background:var(--xl-accent-soft); }
-    .site-header__mobile-nav a span { color:#8a958e; }
+    .site-header__menu summary .bar {
+      display:block;
+      width:18px;
+      height:2px;
+      background:var(--xl-ink-900);
+      border-radius:2px;
+      transition:transform .2s ease,opacity .2s ease;
+    }
+
+    /* Menü açıkken hamburger -> X animasyonu */
+    .site-header__menu[open] summary .bar-1 {
+      transform:translateY(6.5px) rotate(45deg);
+    }
+    .site-header__menu[open] summary .bar-2 {
+      opacity:0;
+      transform:scaleX(0);
+    }
+    .site-header__menu[open] summary .bar-3 {
+      transform:translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* Koyu Backdrop Perde (Overlay) */
+    .site-header__backdrop {
+      display:none;
+      position:fixed;
+      inset:0;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      width:100vw;
+      height:100vh;
+      height:100dvh;
+      background:rgba(15,23,42,.62);
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
+      z-index:9998;
+    }
+    .site-header__menu[open] .site-header__backdrop {
+      display:block;
+    }
+
+    /* Mobil Drawer — Katı Opak #ffffff Arka Plan */
+    .site-header__mobile-drawer {
+      display:none;
+      position:fixed;
+      top:0;
+      right:0;
+      bottom:0;
+      width:min(420px,100vw);
+      height:100vh;
+      height:100dvh;
+      background:#ffffff !important;
+      z-index:9999;
+      box-shadow:-10px 0 45px rgba(15,23,42,.22);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      border-left:1px solid #e2e8e4;
+      opacity:0;
+      pointer-events:none;
+      transform:translateX(100%);
+      transition:transform .25s cubic-bezier(.16,1,.3,1),opacity .2s ease;
+    }
+
+    .site-header__menu[open] .site-header__mobile-drawer {
+      opacity:1;
+      pointer-events:auto;
+      transform:translateX(0);
+    }
+
+    .site-header__drawer-top {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 20px;
+      border-bottom:1px solid #edf2ef;
+      background:#ffffff;
+      flex-shrink:0;
+    }
+
+    .site-header__drawer-brand {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+    }
+    .site-header__drawer-brand-text strong {
+      display:block;
+      font-size:16px;
+      font-weight:800;
+      color:var(--xl-ink-900);
+      line-height:1.2;
+    }
+    .site-header__drawer-brand-text span {
+      display:block;
+      font-size:11px;
+      color:#64748b;
+      line-height:1.2;
+    }
+
+    .site-header__drawer-close {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:38px;
+      height:38px;
+      border-radius:11px;
+      border:1px solid #e2e8e4;
+      background:#f8faf9;
+      color:#0f172a;
+      cursor:pointer;
+      transition:background .15s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .site-header__drawer-close:active {
+      background:#eef4f0;
+    }
+
+    .site-header__drawer-body {
+      flex:1 1 auto;
+      overflow-y:auto;
+      -webkit-overflow-scrolling:touch;
+      padding:16px 18px 36px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      background:#ffffff;
+    }
+
+    /* Arama Barı */
+    .site-header__drawer-search {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:13px;
+      background:#f4f7f5;
+      border:1px solid #dfe7e2;
+      color:#64748b;
+      font-size:13.5px;
+      text-decoration:none;
+      font-weight:500;
+    }
+    .site-header__drawer-search:active {
+      background:#edf2ef;
+    }
+
+    /* 2 Büyük Kart */
+    .site-header__drawer-primary {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .site-header__card-ready,
+    .site-header__card-custom {
+      display:flex;
+      flex-direction:column;
+      padding:14px 16px;
+      border-radius:15px;
+      text-decoration:none;
+      transition:transform .12s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .site-header__card-ready:active,
+    .site-header__card-custom:active {
+      transform:scale(0.985);
+    }
+    .site-header__card-ready {
+      background:#f0fdf4;
+      border:1px solid #bbf7d0;
+      color:#166534;
+    }
+    .site-header__card-custom {
+      background:#f0f9ff;
+      border:1px solid #bae6fd;
+      color:#0369a1;
+    }
+    .site-header__card-head {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:6px;
+    }
+    .site-header__card-badge {
+      display:inline-block;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      padding:3px 8px;
+      border-radius:6px;
+      background:#dcfce7;
+      color:#15803d;
+    }
+    .site-header__card-badge--blue {
+      background:#e0f2fe;
+      color:#0284c7;
+    }
+    .site-header__card-ready strong,
+    .site-header__card-custom strong {
+      font-size:15px;
+      font-weight:800;
+      line-height:1.25;
+      color:#0f172a;
+    }
+    .site-header__card-ready span,
+    .site-header__card-custom span {
+      margin-top:4px;
+      font-size:12px;
+      opacity:.8;
+      line-height:1.3;
+    }
+
+    /* Başlıklar & Bölümler */
+    .site-header__drawer-section {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .site-header__drawer-subtitle {
+      font-size:10.5px;
+      font-weight:800;
+      letter-spacing:.08em;
+      color:#94a3b8;
+      text-transform:uppercase;
+      padding-inline:4px;
+    }
+
+    /* Kategori Grid/Listesi */
+    .site-header__drawer-categories {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:4px;
+    }
+    .site-header__cat-item {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:10px;
+      color:var(--xl-ink-900);
+      font-size:13.5px;
+      font-weight:600;
+      text-decoration:none;
+      background:#f8faf9;
+      border:1px solid #edf2ee;
+    }
+    .site-header__cat-item:active {
+      background:#edf5f0;
+    }
+    .site-header__cat-dot {
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      flex-shrink:0;
+    }
+
+    /* Kurumsal Nav */
+    .site-header__drawer-nav {
+      display:flex;
+      flex-direction:column;
+      border:1px solid #edf2ee;
+      border-radius:14px;
+      overflow:hidden;
+      background:#fff;
+    }
+    .site-header__drawer-nav a {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:11px 14px;
+      font-size:13.5px;
+      font-weight:600;
+      color:var(--xl-ink-900);
+      text-decoration:none;
+      border-bottom:1px solid #f1f5f3;
+    }
+    .site-header__drawer-nav a:last-child {
+      border-bottom:none;
+    }
+    .site-header__drawer-nav a:active {
+      background:#f8faf9;
+    }
+    .site-header__drawer-nav a span {
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    /* WhatsApp Footer */
+    .site-header__drawer-footer {
+      margin-top:auto;
+      padding-top:10px;
+    }
+    .site-header__drawer-wa {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px 16px;
+      border-radius:14px;
+      background:#25d366;
+      color:#ffffff;
+      text-decoration:none;
+      box-shadow:0 8px 20px rgba(37,211,102,.25);
+    }
+    .site-header__drawer-wa:active {
+      transform:scale(0.98);
+    }
+    .site-header__drawer-wa strong {
+      display:block;
+      font-size:13.5px;
+      font-weight:800;
+      line-height:1.2;
+    }
+    .site-header__drawer-wa span {
+      display:block;
+      font-size:11px;
+      opacity:.92;
+      line-height:1.2;
+    }
   }
 
   @media (max-width: 640px) {
-    .site-header { border-bottom-color:#e6ece8;box-shadow:0 5px 18px rgba(15,23,42,.035); }
+    .site-header { border-bottom-color:#e6ece8;box-shadow:0 4px 16px rgba(15,23,42,.04); }
     .site-header__inner { min-height:60px;gap:8px; }
     .site-header__logo-wrap,.site-header__logo { width:34px;height:34px; }
     .site-header__wordmark { font-size:16px;letter-spacing:-.025em; }
     .site-header__tagline { display:none; }
-    .site-header__cta { min-height:40px;height:40px;padding-inline:13px;border-radius:12px;font-size:12px; }
+    .site-header__cta { min-height:38px;height:38px;padding-inline:13px;border-radius:11px;font-size:12px; }
     .site-header__cta-desktop { display:none; }
     .site-header__cta-mobile { display:inline; }
-    .site-header__menu summary { width:40px;height:40px; }
-    .site-header__mobile-sheet { position:fixed;top:68px;left:12px;right:12px;width:auto;max-height:calc(100dvh - 92px);overflow:auto; }
+    .site-header__menu summary { width:38px;height:38px; }
   }
 
   @media (max-width: 390px) {
     .site-header__wordmark { font-size:15px; }
     .site-header__brand { gap:7px; }
-    .site-header__cta { padding-inline:11px; }
-    .site-header__mobile-primary { grid-template-columns:1fr; }
-    .site-header__mobile-primary a { min-height:66px; }
+    .site-header__cta { padding-inline:10px; }
   }
 </style>
