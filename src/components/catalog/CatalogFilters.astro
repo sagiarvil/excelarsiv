@@ -73,8 +73,10 @@ const { active = '', counts = {}, totalCount = 0 } = Astro.props;
   .catalog-filters__chip.is-active { border-color: #0b7040; background: #0d7040; color: #fff; box-shadow: 0 8px 18px rgba(13,112,64,.14); }
   .catalog-filters__chip.is-active b { background: rgba(255,255,255,.16); color: #fff; }
   @media (max-width: 560px) {
-    .catalog-filters { flex-wrap: nowrap; width: calc(100% + 18px); margin-right: -18px; padding-right: 18px; overflow-x: auto; scrollbar-width: none; }
+    .catalog-filters { flex-wrap: nowrap; width: calc(100% + 18px); margin-right: -18px; padding-right: 18px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
     .catalog-filters::-webkit-scrollbar { display: none; }
-    .catalog-filters__chip { flex: 0 0 auto; }
+    .catalog-filters__chip { flex: 0 0 auto; min-height: 44px; padding: 0 10px 0 14px; font-size: 11.5px; border-radius: 12px; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    .catalog-filters__chip b { min-width: 24px; height: 24px; border-radius: 8px; }
+    .catalog-filters__chip:active { transform: scale(0.96); }
   }
 </style>

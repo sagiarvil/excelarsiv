@@ -19,9 +19,9 @@ const { images } = Astro.props;
         target="_blank"
         rel="noopener"
         aria-label={`${image.alt} (tam boy görseli yeni sekmede aç)`}
-        class="block border border-rule-hairline bg-surface-elevated transition-[border-color] duration-150 ease-out hover:border-accent-primary"
+        class="block overflow-hidden rounded-xl border border-rule-hairline bg-surface-elevated shadow-sm transition-all duration-150 ease-out hover:border-accent-primary hover:shadow-md active:scale-[0.99]"
       >
-        <img src={image.src} alt={image.alt} loading="lazy" width="1200" height="750" class="h-auto w-full" />
+        <img src={image.src} alt={image.alt} loading="lazy" width="1200" height="750" class="h-auto w-full object-cover" />
       </a>
     ))
   }

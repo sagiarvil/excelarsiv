@@ -95,12 +95,24 @@
   padding:0 18px!important;
   border-radius:11px!important;
 }
-/* Primary: satın al — dolu yeşil */
+/* Primary: satın al — dolu yeşil, elit shimmer */
 .product-page .checkout-card__form>button,
 .product-page .checkout-card__progress-actions button{
+  position: relative;
+  overflow: hidden;
   border:1px solid #0b743f!important;
-  background:#0b743f!important;
+  background:linear-gradient(135deg, #0b743f 0%, #086134 100%)!important;
   color:#fff!important;
+  box-shadow: 0 8px 20px -4px rgba(11, 116, 63, 0.35)!important;
+}
+.product-page .checkout-card__form>button::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+  transform:translateX(-100%);
+  animation:mce-shimmer 3.6s infinite cubic-bezier(0.4,0,0.2,1);
+  pointer-events:none;
 }
 /* Secondary: demo — aynı ölçü, outline (bilinçli hiyerarşi) */
 .product-page .demo-card__form>button{
@@ -168,9 +180,27 @@
   .product-page .checkout-card__hint,
   .product-page .demo-card__terms{font-size:13px!important}
   .product-page .checkout-card__form>button,
-  .product-page .demo-card__form>button{white-space:normal!important;padding-block:12px!important;font-size:15px!important}
+  .product-page .demo-card__form>button{
+    white-space:normal!important;
+    padding-block:12px!important;
+    font-size:15px!important;
+    touch-action:manipulation!important;
+    -webkit-tap-highlight-color:transparent!important;
+    transition:transform .12s cubic-bezier(0.4,0,0.2,1), background .15s ease!important;
+  }
+  .product-page .checkout-card__form>button:active,
+  .product-page .demo-card__form>button:active{
+    transform:scale(0.97)!important;
+  }
   .product-page .tcard__summary{font-size:14.5px!important}
   .product-page .tcard__benefits li{font-size:14px!important}
+  .product-page .product-details__body,
+  .product-page .spec-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    mask-image: linear-gradient(to right, #000 88%, transparent 100%) !important;
+    -webkit-mask-image: linear-gradient(to right, #000 88%, transparent 100%) !important;
+  }
 }
 
 /* PRODUCT DARK PANEL WHITE TEXT LOCK 2026-08-24 */

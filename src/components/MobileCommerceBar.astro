@@ -8,19 +8,38 @@ const searchHref = isHome ? '/#hero-search' : '/sablonlar';
 ---
 
 <nav class="mobile-commerce-bar" aria-label="Mobil hızlı işlemler">
-  <a class={`mobile-commerce-bar__item mobile-commerce-bar__search ${isHome ? 'is-active' : ''}`} href={searchHref} data-cta="mobile_dock_search" data-location="mobile_dock">
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="7"/>
-      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-    </svg>
-    <span>{isHome ? 'Ana Sayfa' : 'Ara'}</span>
-  </a>
-  <a class={`mobile-commerce-bar__item mobile-commerce-bar__ready ${(isCatalog || isProduct) ? 'is-active' : ''}`} href="/sablonlar" data-cta="mobile_dock_ready" data-location="mobile_dock">
-    <span>Sistemler</span><small>51+ Hazır Çözüm</small>
-  </a>
-  <a class={`mobile-commerce-bar__item mobile-commerce-bar__custom ${isSpecial ? 'is-active' : ''}`} href="/ozel-excel-sistemleri" data-cta="mobile_dock_custom" data-location="mobile_dock">
-    <span>Size Özel</span><small>15 Dk Ön Teşhis</small>
-  </a>
+  {isProduct ? (
+    <>
+      <a class="mobile-commerce-bar__item mobile-commerce-bar__search" href="/sablonlar" data-cta="mobile_dock_all_systems" data-location="mobile_dock">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6h16M4 12h16M4 18h7" />
+        </svg>
+        <span>Katalog</span>
+      </a>
+      <a class="mobile-commerce-bar__item mobile-commerce-bar__ready" href="#demo" data-cta="mobile_dock_product_demo" data-location="mobile_dock">
+        <span>Ücretsiz Demo</span><small>Canlı İncele</small>
+      </a>
+      <a class="mobile-commerce-bar__item mobile-commerce-bar__custom" href="#satin-al" data-cta="mobile_dock_product_buy" data-location="mobile_dock">
+        <span>Hemen Al</span><small>Anında Teslimat</small>
+      </a>
+    </>
+  ) : (
+    <>
+      <a class={`mobile-commerce-bar__item mobile-commerce-bar__search ${isHome ? 'is-active' : ''}`} href={searchHref} data-cta="mobile_dock_search" data-location="mobile_dock">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <span>{isHome ? 'Ana Sayfa' : 'Ara'}</span>
+      </a>
+      <a class={`mobile-commerce-bar__item mobile-commerce-bar__ready ${(isCatalog) ? 'is-active' : ''}`} href="/sablonlar" data-cta="mobile_dock_ready" data-location="mobile_dock">
+        <span>Sistemler</span><small>51+ Hazır Çözüm</small>
+      </a>
+      <a class={`mobile-commerce-bar__item mobile-commerce-bar__custom ${isSpecial ? 'is-active' : ''}`} href="/ozel-excel-sistemleri" data-cta="mobile_dock_custom" data-location="mobile_dock">
+        <span>Size Özel</span><small>15 Dk Ön Teşhis</small>
+      </a>
+    </>
+  )}
 </nav>
 
 <style>
@@ -29,23 +48,27 @@ const searchHref = isHome ? '/#hero-search' : '/sablonlar';
   @media(max-width:720px){
     nav.mobile-commerce-bar{
       position:fixed;
-      left:10px;
-      right:10px;
-      bottom:calc(8px + env(safe-area-inset-bottom));
+      left:12px;
+      right:12px;
+      bottom:calc(10px + env(safe-area-inset-bottom));
       z-index:90;
       display:grid;
       grid-template-columns:58px minmax(0,1fr) minmax(0,1fr);
-      gap:7px;
+      gap:8px;
       padding:6px;
-      border:1px solid rgba(15,23,42,.09);
-      border-radius:20px;
-      background:rgba(255,255,255,.97);
-      box-shadow:0 20px 55px rgba(15,23,42,.17);
-      backdrop-filter:blur(18px) saturate(160%);
-      -webkit-backdrop-filter:blur(18px) saturate(160%);
+      border:1px solid rgba(220,235,226,.85);
+      border-radius:22px;
+      background:rgba(255,255,255,.92);
+      box-shadow:0 20px 48px -10px rgba(11,116,64,.2), 0 8px 24px rgba(15,23,42,.08), inset 0 1px 0 rgba(255,255,255,.95);
+      backdrop-filter:blur(28px) saturate(190%);
+      -webkit-backdrop-filter:blur(28px) saturate(190%);
+      touch-action:manipulation;
+      -webkit-user-select:none;
+      user-select:none;
     }
 
     nav.mobile-commerce-bar a{
+      position:relative;
       min-width:0;
       min-height:50px;
       display:flex;
@@ -54,11 +77,11 @@ const searchHref = isHome ? '/#hero-search' : '/sablonlar';
       border-radius:14px;
       text-decoration:none;
       -webkit-tap-highlight-color:transparent;
-      transition:transform .12s ease,background .12s ease;
+      transition:transform .14s cubic-bezier(0.16,1,0.3,1), background .15s ease, box-shadow .15s ease;
     }
 
     nav.mobile-commerce-bar a:active{
-      transform:scale(0.97);
+      transform:scale(0.95);
     }
 
     .mobile-commerce-bar__search{
@@ -70,6 +93,12 @@ const searchHref = isHome ? '/#hero-search' : '/sablonlar';
       font-family:var(--font-body);
       font-size:10px;
       font-weight:800;
+    }
+
+    .mobile-commerce-bar__search.is-active{
+      border-color:#0b7040;
+      background:#f0fdf4;
+      color:#0b7040;
     }
 
     .mobile-commerce-bar__ready,
@@ -86,10 +115,27 @@ const searchHref = isHome ? '/#hero-search' : '/sablonlar';
       color:#0b6339;
     }
 
+    .mobile-commerce-bar__ready.is-active{
+      border-color:#0b7040;
+      background:#e6f7ee;
+      box-shadow:0 0 0 1px #0b7040 inset;
+    }
+
     .mobile-commerce-bar__custom{
-      background:#059669;
+      overflow:hidden;
+      background:linear-gradient(135deg,#059669 0%,#047857 100%);
       color:#fff;
-      box-shadow:0 9px 20px rgba(5,150,105,.22);
+      box-shadow:0 10px 24px -4px rgba(5,150,105,.42);
+    }
+
+    .mobile-commerce-bar__custom::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.24),transparent);
+      transform:translateX(-100%);
+      animation:mce-shimmer 3.4s infinite cubic-bezier(0.4,0,0.2,1);
+      pointer-events:none;
     }
 
     .mobile-commerce-bar__ready span,
@@ -112,7 +158,7 @@ const searchHref = isHome ? '/#hero-search' : '/sablonlar';
       font-size:9.5px;
       line-height:1.2;
       font-weight:650;
-      opacity:.85;
+      opacity:.88;
     }
   }
 

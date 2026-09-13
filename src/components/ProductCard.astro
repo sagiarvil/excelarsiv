@@ -504,7 +504,11 @@ const shotOdak = catalogShotOdak(screenshotUrl);
 
   @media (max-width: 720px) {
     .card {
-      border-radius: 16px;
+      border-radius: 18px;
+      transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease;
+    }
+    .card:active {
+      transform: scale(0.985);
     }
     .card__screenshot--kapak {
       width: calc(100% - 16px);
@@ -514,14 +518,20 @@ const shotOdak = catalogShotOdak(screenshotUrl);
       gap: 8px;
     }
     .card__cta {
-      min-height: 44px;
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0 14px;
+      padding: 0 16px;
       font-size: 13.5px;
-      border-radius: 9px;
+      font-weight: 700;
+      border-radius: 12px;
       touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.12s ease;
+    }
+    .card__cta:active {
+      transform: scale(0.96);
     }
   }
 

@@ -5,17 +5,35 @@
     --mobile-radius: 22px;
     --mobile-shadow: 0 14px 38px rgba(15, 23, 42, .09);
     --mobile-border: #dfe6e2;
+    --spring-apple: cubic-bezier(0.16, 1, 0.3, 1);
+    --glow-emerald: 0 0 20px rgba(16, 185, 129, 0.25);
+  }
+
+  @keyframes mce-shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
   }
 
   html {
     scroll-behavior: smooth;
     background: #fff;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
     overflow-x: clip;
-    padding-bottom: calc(86px + env(safe-area-inset-bottom));
+    padding-bottom: calc(88px + env(safe-area-inset-bottom));
     -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Yatay Veri Tablolarında Sezgisel Kaydırma Maskesi */
+  .overflow-x-auto,
+  [class*="table-wrap"],
+  .table-responsive {
+    -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(to right, #000 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, #000 90%, transparent 100%);
   }
 
   button,
@@ -157,19 +175,48 @@ body.ea-menu-active {
     overscroll-behavior-x: contain;
   }
 
-  /* Mobil Buton & Dokunma Alanı (Min 44px) */
+  /* Mobil Buton & Dokunma Alanı (Min 48px Ergonomi Standardı) */
   .btn,
   .button,
   .cta-button,
   .catalog-filter__btn,
-  .site-header__cta {
-    min-height: 44px;
+  .site-header__cta,
+  .site-header__mobile-search-btn {
+    min-height: 48px;
     touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn:active,
+  .button:active,
+  .cta-button:active,
+  .site-header__cta:active,
+  .site-header__mobile-search-btn:active,
+  .catalog-filter__btn:active {
+    transform: scale(0.97);
+  }
+
+  /* Ultra-Premium Mobil Kart Hissiyatı */
+  .premium-card,
+  .product-card,
+  .decision-card,
+  .template-card {
+    border-radius: var(--mobile-radius) !important;
+    transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.18s ease !important;
+    touch-action: manipulation;
+  }
+
+  .premium-card:active,
+  .product-card:active,
+  .decision-card:active,
+  .template-card:active {
+    transform: scale(0.985);
   }
 
   /* Sayfa sonu mobil dock çakışma önleyici tampon */
   main {
-    padding-bottom: 24px;
+    padding-bottom: 32px;
   }
 }
 
@@ -185,5 +232,7 @@ body.ea-menu-active {
 @media (max-width: 720px) {
   nav.mobile-commerce-bar {
     touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
   }
 }
