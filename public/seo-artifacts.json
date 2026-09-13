@@ -10,6 +10,11 @@
       "file": "sitemap-products.xml",
       "urlCount": 51,
       "sha256": "284c480d958ee0b2336ce6dbe0069881d5f7ea27b9df7a97e9ffab880420ebf0"
+    },
+    {
+      "file": "sitemap-images.xml",
+      "urlCount": 50,
+      "sha256": "3d528ca65b7442d6bcc25af2f281da26bb4069eaaf4999c655dbd9e6240e0444"
     }
   ]
 }
