@@ -83,7 +83,7 @@ export function xmlValues(xml, tag) {
 
 export function validateChildXml(xml, { nowIso = new Date().toISOString(), label = 'child' } = {}) {
   const errors = [];
-  if (!/^<\?xml[^>]*>\s*<urlset\b/i.test(xml)) errors.push(`${label}: geçerli urlset değil`);
+  if (!/^<\?xml[^>]*>\s*(?:<\?xml-stylesheet[^>]*>\s*)?<urlset\b/i.test(xml)) errors.push(`${label}: geçerli urlset değil`);
   if (/<priority>|<changefreq>/i.test(xml)) errors.push(`${label}: priority/changefreq gürültüsü bulundu`);
   const locs = xmlValues(xml, 'loc');
   const lastmods = xmlValues(xml, 'lastmod');

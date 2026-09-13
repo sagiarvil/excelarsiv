@@ -83,7 +83,7 @@ for (const page of pages) {
 }
 
 const sitemapIndex = readRequired('sitemap.xml');
-if (!/^<\?xml[^>]*>\s*<sitemapindex\b/i.test(sitemapIndex)) fail('sitemap.xml: sitemapindex formatında değil');
+if (!/^<\?xml[^>]*>\s*(?:<\?xml-stylesheet[^>]*>\s*)?<sitemapindex\b/i.test(sitemapIndex)) fail('sitemap.xml: sitemapindex formatında değil');
 if (/<priority>|<changefreq>/i.test(sitemapIndex)) fail('sitemap.xml: priority/changefreq bulunamaz');
 
 const childUrls = xmlValues(sitemapIndex, 'loc');
