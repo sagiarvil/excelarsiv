@@ -24,6 +24,12 @@ function atomicWrite(name, content) {
   writeFileSync(temporary, content, 'utf8');
   renameSync(temporary, target);
   artifacts.add(name);
+
+  // public/ altına da güvenli eşitle
+  const pubTarget = resolve(process.cwd(), 'public', name);
+  try {
+    writeFileSync(pubTarget, content, 'utf8');
+  } catch {}
 }
 
 function cleanLegacyArtifacts() {
@@ -286,26 +292,28 @@ function buildLlmsShort(indexablePages, templateRecords) {
     '',
   ];
 
-  for (const page of products) {
+  // 14KB AST Bütçesi ve Lost-in-the-Middle Önleme:
+  // Kök llms.txt hub router olarak tutulur, tüm ürün ve sayfa kataloğu /llms-full.txt ve alt graflardadır.
+  lines.push(`> Tam katalog ve 100+ kurumsal model detayı için: [Genişletilmiş AI Keşif Rehberi (${SITE_ORIGIN}/llms-full.txt)](${SITE_ORIGIN}/llms-full.txt)`);
+  lines.push('');
+  
+  // Yalnızca en kritik vitrin modelleri
+  for (const page of products.slice(0, 5)) {
     const slug = page.pathname.split('/').at(-1);
     const product = templateRecords.get(slug);
     const desc = page.description || product?.summary || product?.name || 'Doğrulanmış kurumsal Excel karar destek sistemi.';
     lines.push(`- [${markdownEscape(page.title)}](${page.canonical}): ${markdownEscape(desc)}`);
   }
-  for (const page of categories) {
+  for (const page of categories.slice(0, 4)) {
     const desc = page.description || 'Kategori çalışma şablonları ve karar sistemleri.';
     lines.push(`- [${markdownEscape(page.title)}](${page.canonical}): ${markdownEscape(desc)}`);
   }
-  for (const page of guides) {
+  for (const page of guides.slice(0, 4)) {
     const desc = page.description || 'Uygulama ve hesaplama rehberi.';
     lines.push(`- [${markdownEscape(page.title)}](${page.canonical}): ${markdownEscape(desc)}`);
   }
-  for (const page of calculators) {
+  for (const page of calculators.slice(0, 4)) {
     const desc = page.description || 'Ücretsiz interaktif hesaplayıcı.';
-    lines.push(`- [${markdownEscape(page.title)}](${page.canonical}): ${markdownEscape(desc)}`);
-  }
-  for (const page of other) {
-    const desc = page.description || 'Kurumsal bilgi ve karar sayfası.';
     lines.push(`- [${markdownEscape(page.title)}](${page.canonical}): ${markdownEscape(desc)}`);
   }
 
@@ -425,11 +433,9 @@ const children = [
   ...writeSitemapGroup('products', products),
 ];
 
-const imageEntries = buildImageSitemapEntries(products);
-if (imageEntries.length > 0) {
-  atomicWrite('sitemap-images.xml', imageSitemapDocument(imageEntries));
-  children.push({ name: 'sitemap-images.xml', count: imageEntries.length });
-}
+// Görseller doğrudan ürün şeması ve canonical URL üzerinden indekslenir;
+// Çapraz mükerrerliği önlemek için ayrı sitemap-images.xml indekse eklenmez.
+
 
 if (children.length === 0) throw new Error('FAIL_SAFE_EMPTY_SITEMAP_INDEX');
 atomicWrite('sitemap.xml', sitemapIndexDocument(children));

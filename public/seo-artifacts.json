@@ -1,0 +1,15 @@
+{
+  "site": "https://excelarsiv.com",
+  "children": [
+    {
+      "file": "sitemap-pages.xml",
+      "urlCount": 126,
+      "sha256": "78057e3c34f581d51e51b48693b281dc1576cf77a7cf62c40eedd9646035b7ce"
+    },
+    {
+      "file": "sitemap-products.xml",
+      "urlCount": 51,
+      "sha256": "284c480d958ee0b2336ce6dbe0069881d5f7ea27b9df7a97e9ffab880420ebf0"
+    }
+  ]
+}
