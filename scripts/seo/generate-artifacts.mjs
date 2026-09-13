@@ -433,8 +433,12 @@ const children = [
   ...writeSitemapGroup('products', products),
 ];
 
-// Görseller doğrudan ürün şeması ve canonical URL üzerinden indekslenir;
-// Çapraz mükerrerliği önlemek için ayrı sitemap-images.xml indekse eklenmez.
+const imageEntries = buildImageSitemapEntries(products);
+if (imageEntries.length > 0) {
+  atomicWrite('sitemap-images.xml', imageSitemapDocument(imageEntries));
+  children.push({ name: 'sitemap-images.xml', count: imageEntries.length });
+}
+
 
 
 if (children.length === 0) throw new Error('FAIL_SAFE_EMPTY_SITEMAP_INDEX');
