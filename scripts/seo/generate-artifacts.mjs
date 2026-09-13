@@ -462,8 +462,9 @@ if (existsSync(resolve('public/llms-full.txt'))) {
   }
 }
 
+const lastUpdatedDate = latestContentDate(indexablePages, templates);
 const katalog = {
-  generatedAt: new Date().toISOString(),
+  generatedAt: lastUpdatedDate ? lastUpdatedDate.toISOString() : '2026-09-01T00:00:00.000Z',
   site: SITE_ORIGIN,
   currency: 'TRY',
   language: 'tr-TR',
