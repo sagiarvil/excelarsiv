@@ -49,6 +49,7 @@ body.ea-catalog-color-v3 input:focus-visible{outline:3px solid rgba(23,103,220,.
    ==================================================== */
 body.ea-home-color-v3 .home-v2{--green:var(--ea3-green)!important;--green-dark:#086f3b!important;--ink:var(--ea3-ink)!important;--muted:var(--ea3-muted)!important;--line:var(--ea3-line)!important;background:#fff!important}
 body.ea-home-color-v3 .hero-section{
+  padding-top:20px!important;
   background:
     linear-gradient(118deg,rgba(13,138,74,.18) 0%,rgba(13,138,74,.07) 22%,rgba(255,255,255,.96) 43%,rgba(23,103,220,.14) 65%,rgba(7,139,146,.11) 79%,rgba(224,138,5,.14) 100%)!important;
   border-bottom:1px solid #cbd8e4!important;

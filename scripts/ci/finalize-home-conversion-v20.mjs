@@ -9,7 +9,7 @@ if (!fs.existsSync(cssFile)) throw new Error('HOME CONVERSION V20: CSS missing')
 let html = fs.readFileSync(file, 'utf8');
 const css = fs.readFileSync(cssFile, 'utf8').trim();
 const heroRestoreCss = `@media(min-width:1021px){
-body[data-desktop-premium-v19] .hero-section{position:relative!important;z-index:60!important;margin:28px 0 46px!important;padding:0!important;background:transparent!important}
+body[data-desktop-premium-v19] .hero-section{position:relative!important;z-index:60!important;margin:28px 0 46px!important;padding:20px 0 0!important;background:transparent!important}
 body[data-desktop-premium-v19] .hero-shell{position:relative!important;z-index:60!important;width:min(1680px,calc(100% - 64px))!important;margin-inline:auto!important;padding-bottom:104px!important}
 body[data-desktop-premium-v19] .hero-mobile-copy{position:absolute!important;z-index:66!important;left:4.4%!important;top:14%!important;width:min(46%,700px)!important;height:auto!important;padding:0!important;margin:0!important;overflow:visible!important;clip:auto!important;white-space:normal!important;border:0!important}
 body[data-desktop-premium-v19] .hero-mobile-copy__eyebrow{margin:0!important;font:850 11px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;letter-spacing:.09em!important;color:#107c41!important}
