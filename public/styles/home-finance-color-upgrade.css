@@ -99,15 +99,16 @@
   transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease!important
 }
 .home-v2 .featured-grid article::before{content:"";position:absolute;left:0;right:0;top:0;height:7px;z-index:4;background:linear-gradient(90deg,var(--fx-green),var(--fx-green-bright))}
-.home-v2 .featured-grid article:nth-child(2)::before{background:linear-gradient(90deg,var(--fx-blue),var(--fx-blue-bright))}
-.home-v2 .featured-grid article:nth-child(3)::before{background:linear-gradient(90deg,var(--fx-amber),var(--fx-coral))}
-.home-v2 .featured-grid article:nth-child(1)>div{background:linear-gradient(180deg,#fff,#f1faf5)!important}
-.home-v2 .featured-grid article:nth-child(2)>div{background:linear-gradient(180deg,#fff,#f0f5ff)!important}
-.home-v2 .featured-grid article:nth-child(3)>div{background:linear-gradient(180deg,#fff,#fff6e8)!important}
+.home-v2 .featured-grid article:nth-child(3n+1)::before{background:linear-gradient(90deg,var(--fx-green),var(--fx-green-bright))}
+.home-v2 .featured-grid article:nth-child(3n+2)::before{background:linear-gradient(90deg,var(--fx-blue),var(--fx-blue-bright))}
+.home-v2 .featured-grid article:nth-child(3n)::before{background:linear-gradient(90deg,var(--fx-amber),var(--fx-coral))}
+.home-v2 .featured-grid article:nth-child(1)>div,.home-v2 .featured-grid article:nth-child(3n+1)>div{background:linear-gradient(180deg,#fff,#f1faf5)!important}
+.home-v2 .featured-grid article:nth-child(2)>div,.home-v2 .featured-grid article:nth-child(3n+2)>div{background:linear-gradient(180deg,#fff,#f0f5ff)!important}
+.home-v2 .featured-grid article:nth-child(3)>div,.home-v2 .featured-grid article:nth-child(3n)>div{background:linear-gradient(180deg,#fff,#fff6e8)!important}
 .home-v2 .featured-grid article:hover{transform:translateY(-5px)!important;box-shadow:0 28px 58px rgba(13,29,53,.15)!important;border-color:#aebfd0!important}
-.home-v2 .featured-grid article:nth-child(1) small{color:var(--fx-green)!important}
-.home-v2 .featured-grid article:nth-child(2) small{color:var(--fx-blue)!important}
-.home-v2 .featured-grid article:nth-child(3) small{color:#b66a00!important}
+.home-v2 .featured-grid article:nth-child(1) small,.home-v2 .featured-grid article:nth-child(3n+1) small{color:var(--fx-green)!important}
+.home-v2 .featured-grid article:nth-child(2) small,.home-v2 .featured-grid article:nth-child(3n+2) small{color:var(--fx-blue)!important}
+.home-v2 .featured-grid article:nth-child(3) small,.home-v2 .featured-grid article:nth-child(3n) small{color:#b66a00!important}
 .home-v2 .featured-grid strong{color:var(--fx-navy)!important}
 
 /* Difference — high contrast boardroom panel with explicit signal colors. */

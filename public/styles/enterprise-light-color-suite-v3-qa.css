@@ -132,6 +132,7 @@ body.ea-catalog-color-v3 .catalog-help__item{height:100%!important;min-height:13
   body.ea-home-color-v3 .authority-panel{grid-template-columns:1fr!important}
   body.ea-guide-color-v3 #icerik>main>div>div{grid-template-columns:220px minmax(0,1fr)!important;gap:22px!important}
   body.ea-catalog-color-v3 .template-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  body.ea-home-color-v3 .featured-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
 }
 
 @media(max-width:760px){

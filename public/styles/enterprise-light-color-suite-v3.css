@@ -85,12 +85,12 @@ body.ea-home-color-v3 .price-levels span:nth-child(5n+3){background:var(--ea3-te
 body.ea-home-color-v3 .price-levels span:nth-child(5n+4){background:var(--ea3-amber-soft)!important;border-color:#e9c66f!important;color:#945800!important}
 body.ea-home-color-v3 .price-levels span:nth-child(5n){background:var(--ea3-coral-soft)!important;border-color:#e8aca4!important;color:#a43d32!important}
 body.ea-home-color-v3 .featured-grid article{border-radius:16px!important;border:1px solid #c6d3df!important;box-shadow:var(--ea3-shadow-soft)!important;overflow:hidden!important;background:#fff!important}
-body.ea-home-color-v3 .featured-grid article:nth-child(1){box-shadow:inset 0 7px 0 var(--ea3-green),var(--ea3-shadow-soft)!important}
-body.ea-home-color-v3 .featured-grid article:nth-child(2){box-shadow:inset 0 7px 0 var(--ea3-blue),var(--ea3-shadow-soft)!important}
-body.ea-home-color-v3 .featured-grid article:nth-child(3){box-shadow:inset 0 7px 0 var(--ea3-amber),var(--ea3-shadow-soft)!important}
-body.ea-home-color-v3 .featured-grid article:nth-child(1)>div{background:linear-gradient(180deg,#fff,#edf9f2)!important}
-body.ea-home-color-v3 .featured-grid article:nth-child(2)>div{background:linear-gradient(180deg,#fff,#edf4ff)!important}
-body.ea-home-color-v3 .featured-grid article:nth-child(3)>div{background:linear-gradient(180deg,#fff,#fff5df)!important}
+body.ea-home-color-v3 .featured-grid article:nth-child(1),body.ea-home-color-v3 .featured-grid article:nth-child(3n+1){box-shadow:inset 0 7px 0 var(--ea3-green),var(--ea3-shadow-soft)!important}
+body.ea-home-color-v3 .featured-grid article:nth-child(2),body.ea-home-color-v3 .featured-grid article:nth-child(3n+2){box-shadow:inset 0 7px 0 var(--ea3-blue),var(--ea3-shadow-soft)!important}
+body.ea-home-color-v3 .featured-grid article:nth-child(3),body.ea-home-color-v3 .featured-grid article:nth-child(3n){box-shadow:inset 0 7px 0 var(--ea3-amber),var(--ea3-shadow-soft)!important}
+body.ea-home-color-v3 .featured-grid article:nth-child(1)>div,body.ea-home-color-v3 .featured-grid article:nth-child(3n+1)>div{background:linear-gradient(180deg,#fff,#edf9f2)!important}
+body.ea-home-color-v3 .featured-grid article:nth-child(2)>div,body.ea-home-color-v3 .featured-grid article:nth-child(3n+2)>div{background:linear-gradient(180deg,#fff,#edf4ff)!important}
+body.ea-home-color-v3 .featured-grid article:nth-child(3)>div,body.ea-home-color-v3 .featured-grid article:nth-child(3n)>div{background:linear-gradient(180deg,#fff,#fff5df)!important}
 body.ea-home-color-v3 .featured-grid article:hover{transform:translateY(-5px)!important;box-shadow:0 28px 60px rgba(16,43,74,.15)!important}
 
 /* Previously dark: now a bright boardroom decision section. */
