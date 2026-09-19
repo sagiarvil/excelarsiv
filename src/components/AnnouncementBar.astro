@@ -3,14 +3,14 @@ interface Props {
   message?: string;
 }
 
-const { message = 'Demo dosyaları satın almadan önce ücretsiz incelenebilir.' } = Astro.props;
+const { message = 'Excel karar sistemlerimiz için doğrudan WhatsApp üzerinden teklif alabilirsiniz.' } = Astro.props;
 ---
 
 <div class="announcement-bar" role="status">
   <div class="container-site announcement-bar-inner">
     <span class="announcement-bar-icon" aria-hidden="true">✓</span>
     <span class="announcement-bar-text announcement-bar-text--desktop">{message}</span>
-    <span class="announcement-bar-text announcement-bar-text--mobile">Satın almadan önce ücretsiz demo</span>
+    <span class="announcement-bar-text announcement-bar-text--mobile">WhatsApp ile doğrudan teklif alın</span>
   </div>
 </div>
 

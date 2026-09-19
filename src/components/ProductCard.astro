@@ -135,17 +135,17 @@ const shotOdak = catalogShotOdak(screenshotUrl);
 
     <div class="card__footer">
       <div class="card__price">
-        <span class="card__price-value">{price}</span>
-        <span class="card__price-label">KDV Dahil · Tek Seferlik</span>
+        <span class="card__price-value">{price || 'Teklif İste'}</span>
+        <span class="card__price-label">Şirketinize Özel</span>
       </div>
       <div class="card__actions">
         <a class="card__cta card__cta--ghost" href={detailUrl}>Detay</a>
         <a
-          class="card__cta card__cta--primary"
-          href={orderUrl}
-          target={orderIsExternal ? '_blank' : undefined}
-          rel={orderIsExternal ? 'noopener noreferrer sponsored' : undefined}
-        >{orderIsExternal ? 'Satın Al ↗' : 'Satın Al'}</a>
+          class="card__cta card__cta--primary card__cta--wa"
+          href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${workbookTitle} şablonu hakkında bilgi ve teklif almak istiyorum.`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >Teklif İste</a>
       </div>
     </div>
   </div>
@@ -468,6 +468,16 @@ const shotOdak = catalogShotOdak(screenshotUrl);
   .card__cta--primary {
     background: var(--ea-clay);
     color: var(--ea-paper);
+  }
+
+  .card__cta--wa {
+    background: #25D366 !important;
+    color: #ffffff !important;
+    font-weight: 700;
+  }
+  .card__cta--wa:hover,
+  .card__cta--wa:focus-visible {
+    background: #1da851 !important;
   }
 
   .card__cta--primary:hover,

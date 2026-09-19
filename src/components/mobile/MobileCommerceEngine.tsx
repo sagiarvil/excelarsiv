@@ -405,14 +405,14 @@ export default function MobileCommerceEngine({
                     Önizle
                   </button>
                   <a
-                    href={item.shopierUrl || `https://www.shopier.com/49652321`}
+                    href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.title} şablonu hakkında teklif almak istiyorum.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => showNotification('Ödeme sayfasına yönlendiriliyorsunuz...')}
+                    onClick={() => showNotification('WhatsApp üzerinden teklif hattına bağlanıyorsunuz...')}
                     className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-black px-4 py-2.5 rounded-2xl flex items-center gap-1.5 shadow-lg shadow-emerald-500/30 active:scale-95 transition-all"
                   >
                     <DownloadIcon />
-                    <span>Hemen Al</span>
+                    <span>Teklif İste</span>
                   </a>
                 </div>
               </div>
@@ -620,14 +620,14 @@ export default function MobileCommerceEngine({
                 
               </div>
               <a
-                href={selectedTemplate.shopierUrl || `https://www.shopier.com/49652321`}
+                href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${selectedTemplate.title} şablonu hakkında teklif almak istiyorum.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => showNotification('Ödeme güvenli Shopier altyapısında başlatılıyor...')}
+                onClick={() => showNotification('WhatsApp üzerinden teklif hattına bağlanıyorsunuz...')}
                 className="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black py-3 px-4 rounded-2xl text-xs flex items-center justify-center gap-1.5 shadow-xl shadow-emerald-500/40 active:scale-95 transition-all"
               >
                 <DownloadIcon />
-                <span>Hemen İndir ve Başla</span>
+                <span>WhatsApp'tan Teklif İste</span>
               </a>
             </div>
           </div>

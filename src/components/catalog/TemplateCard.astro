@@ -105,10 +105,18 @@ const kindLabel: Record<string, string> = { input: 'Girdi', calculation: 'Hesap'
 
     <div class="tcard__foot">
       <div class="tcard__price">
-        <small>KDV dahil net fiyat</small>
-        <strong>{price} <span>TL</span></strong>
+        <small>Şirketinize özel uyarlama</small>
+        <strong>Teklif Alın</strong>
       </div>
       <div class="tcard__actions">
+        <a
+          class="tcard__wp"
+          href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${name} şablonu hakkında teklif almak istiyorum.`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Teklif İste
+        </a>
         <a class="tcard__cta" href={`/sablon/${slug}`}>Detay →</a>
       </div>
     </div>
