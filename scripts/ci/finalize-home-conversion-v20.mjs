@@ -98,14 +98,12 @@ const customBuild = `
           <h3>Dağınık dosyalardan tek karar sistemine geçin.</h3>
           <p>Önce ihtiyacın gerçekten özel sistem gerektirip gerektirmediğini netleştirin. Hazır sistem yeterliyse onu seçin; yetmiyorsa işletmenize göre kuralım.</p>
           <div class="home-card-installments">
-            <span class="hci-title">Tüm Kartlara Peşin Fiyatına veya 12 Taksit:</span>
+            <span class="hci-title">Güvenli Ödeme &amp; Kurumsal Fatura:</span>
             <div class="hci-badges">
-              <span>Axess</span>
-              <span>Bonus</span>
-              <span>World</span>
-              <span>Maximum</span>
-              <span>CardFinans</span>
-              <span>Paraf</span>
+              <span>%100 Açık Formül</span>
+              <span>Sıfır Makro</span>
+              <span>Anında Teslim</span>
+              <span>E-Arşiv Fatura</span>
             </div>
           </div>
         </div>
