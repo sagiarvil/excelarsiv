@@ -4,7 +4,7 @@ const urun = Astro.url.searchParams.get('urun') ?? '';
 const productUrl = urun ? new URL(`/sablon/${urun}`, Astro.site).toString() : new URL('/', Astro.site).toString();
 const shareText = 'Excel Arşiv’de işletmeler için hazırlanmış bu Excel karar sistemine bakmanı öneririm:';
 const mailHref = `mailto:?subject=${encodeURIComponent('Excel Arşiv ürün önerisi')}&body=${encodeURIComponent(shareText + ' ' + productUrl)}`;
-const waHref = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + productUrl)}`;
+const waHref = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + productUrl)}`;
 ---
 
 <CommerceLayout title="Excel Sistemini Paylaş | Excel Arşiv" description="İşinize yarayan Excel Arşiv karar sistemini başka bir işletme sahibi veya mali müşavirle paylaşın.">

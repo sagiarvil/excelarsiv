@@ -39,8 +39,8 @@ const customBuild = `
     <div class="custom-build-v20__intro">
       <div class="custom-build-v20__copy">
         <p class="eyebrow">SİZE ÖZEL · KARAR SİSTEMİ</p>
-        <h2 id="custom-build-v20-title">Hazır tablo sürecinizi size uydurmaya zorluyorsa, sistemi işletmenize uydurun.</h2>
-        <p class="custom-build-v20__lead">Tahsilat, banka, maliyet, üretim veya raporlama akışınız standart bir şablona sığmıyorsa; aynı veriyi tekrar tekrar taşımak yerine işleyişinizi tek karar sisteminde birleştirin.</p>
+        <h2 id="custom-build-v20-title">Dağınık Tablo Yok, Formül Hatası Yok.</h2>
+        <p class="custom-build-v20__lead">Hazır şablonlar iş akışınızı sınırlandırıyorsa; süreci tabloya uydurmak yerine, sistemi işletmenize uyduralım. Tahsilat, banka, maliyet veya raporlama akışınızı tek karar motorunda birleştirin.</p>
         <div class="custom-build-v20__signal" role="note"><strong>Özel sistem ihtiyacının en net işareti:</strong><span>Rapor almak için birden fazla dosyayı birleştiriyor, aynı veriyi yeniden giriyor veya yönetici sorusuna cevap vermek için hesabı baştan kuruyorsanız.</span></div>
       </div>
       <div class="custom-build-v20__triggers" aria-label="Özel sistem ihtiyacı göstergeleri">
