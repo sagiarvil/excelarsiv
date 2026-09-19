@@ -8,7 +8,7 @@ let html = fs.readFileSync(file, 'utf8');
 
 const WA_PHONE = '905393333303';
 const wa = (message) => `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(message)}`;
-const bottomWa = wa('Merhaba Barış Bey, excelarsiv.com ana sayfasından ulaşıyorum. Şirketimizin finansal tıkanıklığını ve uygun Excel karar sistemini netleştirmek istiyorum.');
+const bottomWa = wa('Merhaba Barış Bey, excelarsiv.com üzerinden ulaşıyorum. Şirketimizin nakit açığı, banka kredi engelleri veya finansal tıkanıklığı için 90 dakikalık karar teşhisini netleştirmek istiyorum.');
 
 const requireReplace = (pattern, replacement, label) => {
   const next = html.replace(pattern, replacement);
@@ -27,36 +27,133 @@ requireReplace(/<title>[\s\S]*?<\/title>/u, '<title>Finansal Karar ve Excel Sist
 const financePillars = `
 <section class="finance-pillars" id="finans-sistemleri" data-experience-stage>
   <div class="home-shell">
-    <div class="finance-pillars__head">
-      <div>
-        <p class="eyebrow">TÜM FİNANSAL İHTİYAÇLARINIZ TEK ÇATIDA — EXCEL ARŞİV</p>
-        <h2>Nakit açığından maliyet hesabına, işletmenizin tüm finansal kontrolleri.</h2>
+    
+    <!-- 5 Saniyede Anlaşılan Değer Vaadi (İyzico & N Kolay Netliği) -->
+    <div class="decision-clarity-head">
+      <p class="decision-eyebrow">RAPOR DEĞİL, ŞİRKETİNİZİ KURTARAN NET KARAR</p>
+      <h2>90 Dakikada Bankanın Göreceği Kredi Engellerini ve Nakit Açığınızı Çıkarıyoruz.</h2>
+      <p class="decision-lead">Dağınık tablolarla veya aylarca süren danışmanlıklarla vakit kaybetmeyin. 17 yıllık ticari bankacılık refleksini şirketinizin kararlarına entegre edin.</p>
+      
+      <div class="decision-quick-steps" aria-label="3 Adımda Net Çözüm">
+        <div class="quick-step-box">
+          <span class="step-num">01</span>
+          <div>
+            <strong>Mevcut Verinizi Seçin</strong>
+            <small>Logo, SAP, ekstre veya dağınık tablolarınızı getirin; karmaşık şartname yok.</small>
+          </div>
+        </div>
+        <div class="quick-step-box">
+          <span class="step-num">02</span>
+          <div>
+            <strong>Bankacının Gözüyle Teşhis</strong>
+            <small>Kredi engellerini, nakit açığı alarmını ve kâr sızıntısını 90 dakikada görün.</small>
+          </div>
+        </div>
+        <div class="quick-step-box">
+          <span class="step-num">03</span>
+          <div>
+            <strong>Aynı Gün Çalışan Karar Sistemi</strong>
+            <small>%100 açık formül, sıfır makro, veriniz sadece cihazınızda kalır.</small>
+          </div>
+        </div>
       </div>
-      <p>Dağınık tablolarla vakit kaybetmeyin. 17 yıllık ticari bankacılık saha tecrübesiyle kurgulanmış, %100 açık formüllü Excel karar sistemlerini inceleyin veya şirketinize özel uyarlayın.</p>
     </div>
 
-    <!-- PDF Slayt 3 Şeması: Merkezi Excel Dashboard Mockup Sahnesi + 4 Altın Mühür -->
+    <!-- 4 Temel Acı ve Kesin Karar Bento Kutuları -->
+    <div class="pain-decision-grid" aria-label="4 Temel Finansal Tıkanıklık ve Net Çözüm">
+      
+      <!-- Kart 1: Kredi Engelleri & Limit Darboğazı -->
+      <article class="decision-card decision-card--navy">
+        <div class="decision-card__top">
+          <span class="tag-pill tag-pill--alert">KREDİ ENGELLERİ</span>
+          <span class="card-icon" aria-hidden="true">🏦</span>
+        </div>
+        <h3>Bankaya Yanlış Mizanla Gitmeyin</h3>
+        <div class="pain-point">
+          <strong>Pahalı Acı:</strong>
+          <p>Bankaya plansız veya tutarsız bilanço ile gitmek kredi limitinizi %50 düşürür, rotatif faizinizi yukarı çeker.</p>
+        </div>
+        <div class="solution-point">
+          <strong>Net Karar Çözümü:</strong>
+          <p>Kredi komitesinin bakacağı 6 rasyoyu önceden görün; hangi engelin limitinizi kestiğini 90 dakikada çözün.</p>
+        </div>
+        <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" class="decision-link" data-cta="home_finance_credit" data-location="finance_pillars">Banka &amp; Kredi Karar Sistemini İncele →</a>
+      </article>
+
+      <!-- Kart 2: 13 Haftalık Nakit Sıkışıklığı -->
+      <article class="decision-card decision-card--emerald">
+        <div class="decision-card__top">
+          <span class="tag-pill tag-pill--success">LİKİDİTE ALARMI</span>
+          <span class="card-icon" aria-hidden="true">⏱️</span>
+        </div>
+        <h3>13 Haftalık Dinamik Nakit Akışı</h3>
+        <div class="pain-point">
+          <strong>Pahalı Acı:</strong>
+          <p>Kasada bugün para varken 3 hafta sonraki çekin karşılıksız kalacağını görememek şirketi temerrüde sürükler.</p>
+        </div>
+        <div class="solution-point">
+          <strong>Net Karar Çözümü:</strong>
+          <p>Gün gün değil; 13 haftalık dinamik likidite stres testiyle nakit açığını 2 hafta önceden görüp finanse edin.</p>
+        </div>
+        <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="decision-link" data-cta="home_finance_cash" data-location="finance_pillars">Dinamik Nakit Akışı Sistemini İncele →</a>
+      </article>
+
+      <!-- Kart 3: Birim Maliyet & Dinamik Fiyatlama -->
+      <article class="decision-card decision-card--violet">
+        <div class="decision-card__top">
+          <span class="tag-pill tag-pill--purple">KÂR SIZINTISI</span>
+          <span class="card-icon" aria-hidden="true">🎯</span>
+        </div>
+        <h3>Ciro Yaptıkça Batmayı Durdurun</h3>
+        <div class="pain-point">
+          <strong>Pahalı Acı:</strong>
+          <p>Hammadde, döviz ve genel gider artışını anında fiyatlamayan şirketler, çok sattıkça özkaynaklarını tüketir.</p>
+        </div>
+        <div class="solution-point">
+          <strong>Net Karar Çözümü:</strong>
+          <p>Değişken maliyet ve katkı payı motoruyla hangi ürünün para kazandırdığını, hangisinin zarar ettirdiğini anında ayırın.</p>
+        </div>
+        <a href="/sablonlar?q=maliyet" class="decision-link" data-cta="home_finance_cost" data-location="finance_pillars">Birim Maliyet Karar Motorunu İncele →</a>
+      </article>
+
+      <!-- Kart 4: Bütçe, Şirket Değerleme & Finansman -->
+      <article class="decision-card decision-card--amber">
+        <div class="decision-card__top">
+          <span class="tag-pill tag-pill--warn">STRATEJİK KARAR</span>
+          <span class="card-icon" aria-hidden="true">📊</span>
+        </div>
+        <h3>Şirket Değerleme &amp; Senaryolu Bütçe</h3>
+        <div class="pain-point">
+          <strong>Pahalı Acı:</strong>
+          <p>Şirket değerini bilmeden ortak almak veya 3 senaryolu bütçe olmadan büyümeye kalkmak kontrolü kaybettirir.</p>
+        </div>
+        <div class="solution-point">
+          <strong>Net Karar Çözümü:</strong>
+          <p>DCF ve çarpan modelleriyle şirketin gerçek değerini, yatırım getirisini ve borçlanma kapasitesini masaya koyun.</p>
+        </div>
+        <a href="/sablonlar?q=butce" class="decision-link" data-cta="home_finance_budget" data-location="finance_pillars">Bütçe &amp; Değerleme Sistemini İncele →</a>
+      </article>
+
+    </div>
+
+    <!-- PDF Slayt 3 Şeması: Canlı Excel Kokpit Sahnesi + 4 Altın Mühür -->
     <div class="pdf-showcase-stage" aria-label="Excel Arşiv Finansal Kokpit Sahnesi">
       <div class="showcase-glow" aria-hidden="true"></div>
       <div class="laptop-mockup-wrapper">
         <div class="laptop-frame">
           <div class="laptop-screen">
-            <!-- Excel Ribbon & Başlık Çubuğu -->
             <div class="excel-ui-bar">
               <div class="excel-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
               <div class="excel-title-tab">📊 13_Haftalik_Nakit_Akisi_ve_Patron_Paneli.xlsx</div>
               <div class="excel-status-tag">SAF .XLSX · SIFIR MAKRO</div>
             </div>
-            <!-- Excel Menü Çubuğu -->
             <div class="excel-menu-strip">
               <span>Dosya</span><span class="active">Giriş</span><span>Ekle</span><span>Formüller</span><span>Veri</span><span>Gözden Geçir</span><span>Görünüm</span>
             </div>
-            <!-- Excel Formül Çubuğu -->
             <div class="excel-formula-bar">
               <span class="fx-label">fx</span>
               <span class="formula-text">=EĞER(HAFTALIK_NET_NAKİT&lt;0; "⚠️ DÖNEMSEL NAKİT AÇIĞI UYARISI"; "✅ LİKİDİTE GÜVENLİ BÖLGEDE")</span>
             </div>
-            <!-- Excel Tablo ve KPI Ekranı -->
             <div class="excel-grid-preview">
               <div class="excel-kpi-row">
                 <div class="excel-kpi-card kpi-green">
@@ -114,10 +211,9 @@ const financePillars = `
           <div class="laptop-base"><div class="laptop-notch"></div></div>
         </div>
 
-        <!-- Mockup Çevresindeki 4 Altın Mühür Rozeti (Floating Medallions) -->
         <div class="floating-medallion medallion-tl">
           <span class="medallion-icon">🔒</span>
-          <div><strong>%100 Açık Formül</strong><small>Gizli sayfa veya şifre yok</small></div>
+          <div><strong>%100 Açık Formül</strong><small>Gizli hücre veya şifre yok</small></div>
         </div>
         <div class="floating-medallion medallion-tr">
           <span class="medallion-icon">⚡</span>
@@ -125,16 +221,20 @@ const financePillars = `
         </div>
         <div class="floating-medallion medallion-bl">
           <span class="medallion-icon">🏦</span>
-          <div><strong>17 Yıl Bankacılık</strong><small>Mali tahlil ve nakit refleksi</small></div>
+          <div><strong>17 Yıl Bankacılık</strong><small>Mali tahlil ve karar refleksi</small></div>
         </div>
         <div class="floating-medallion medallion-br">
           <span class="medallion-icon">💾</span>
-          <div><strong>Yerel Cihazda Gizlilik</strong><small>Mali veriniz cihazınızda kalır</small></div>
+          <div><strong>Yerel Cihaz Gizliliği</strong><small>Mali veriniz cihazınızda kalır</small></div>
         </div>
       </div>
     </div>
 
-    <!-- PDF Slayt 3 Şeması: 15 Numaralı Excel Karar Sistemi Matrisi -->
+    <!-- 15 Temel Excel Karar Sistemi Haritası -->
+    <div class="section-divider-title">
+      <h3>15 Temel İşletme İhtiyacı İçin Hazır Karar Sistemleri</h3>
+      <p>Tek tıkla ihtiyacınız olan karar motorunu seçin, hemen kullanmaya başlayın.</p>
+    </div>
     <div class="finance-needs-grid" aria-label="15 Temel Çözüm İhtiyacı">
       <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="finance-need-item"><span class="need-badge">01</span><span class="need-name">13 Haftalık Dinamik Nakit Akışı</span></a>
       <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" class="finance-need-item"><span class="need-badge">02</span><span class="need-name">Çoklu Banka &amp; Kredi Taksit Takibi</span></a>
@@ -153,12 +253,12 @@ const financePillars = `
       <a href="/sablon/doviz-acik-pozisyonu-ve-kur-riski-stres-testi" class="finance-need-item"><span class="need-badge">15</span><span class="need-name">Döviz Pozisyonu &amp; Kur Riski Stres Testi</span></a>
     </div>
 
-    <!-- PDF Slayt 5 Şeması: 6'lı Kurumsal Güvence Bento Izgarası -->
+    <!-- Güven İnşaası: Neden Finansal Yönetimde Excel Arşiv Altyapısı? -->
     <div class="pdf-security-bento-section" aria-label="Kurumsal Güvenlik ve Güvence Standartları">
       <div class="bento-section-head">
-        <span class="eyebrow">KURUMSAL GÜVENLİK VE STANDARTLAR</span>
+        <span class="decision-eyebrow">KURUMSAL GÜVENLİK VE STANDARTLAR</span>
         <h3>Neden Finansal Yönetimde Excel Arşiv Altyapısı?</h3>
-        <p>İşletmenizin finansal mahremiyetini, veri güvenliğini ve operasyonel hızını koruyan 6 demir kural.</p>
+        <p>İşletmenizin finansal mahremiyetini, veri güvenliğini ve karar hızını koruyan 6 temel direk.</p>
       </div>
       <div class="pdf-six-bento-grid">
         <article class="bento-item">
@@ -194,10 +294,10 @@ const financePillars = `
       </div>
     </div>
 
-    <!-- PDF Slayt 21 Şeması: 7 Adımlı Neden ExcelArşiv Standartları -->
+    <!-- Neden Excel Arşiv 7 Demir Standart -->
     <div class="pdf-reasons-timeline-card" aria-label="Neden Excel Arşiv 7 Demir Standart">
       <div class="timeline-head">
-        <span class="eyebrow">NEDEN EXCEL ARŞİV?</span>
+        <span class="decision-eyebrow">NEDEN EXCEL ARŞİV?</span>
         <h4>Şirketlerin Karar Alırken Bizi Tercih Etmesinin 7 Nedeni</h4>
       </div>
       <div class="pdf-reasons-list">
@@ -211,7 +311,7 @@ const financePillars = `
       </div>
     </div>
 
-    <!-- PDF Slayt 7 Şeması: 15 Dakikada Hızlı Teşhis ve Karar Diyaloğu -->
+    <!-- 15 Dakikalık WhatsApp Ön Teşhis ve Çözüm Diyaloğu -->
     <div class="pdf-chat-dialog-card" aria-label="WhatsApp Ön Teşhis ve Çözüm Diyaloğu">
       <div class="pdf-chat-header">
         <span class="pdf-chat-kicker">15 DAKİKADA HIZLI TEŞHİS VE ÇÖZÜM</span>
@@ -239,7 +339,7 @@ const financePillars = `
       </div>
     </div>
 
-    <!-- PDF Slayt 23 Şeması: 24 Sektörde 1.000+ İşletme Referansı -->
+    <!-- 24 Sektör Referansı -->
     <div class="pdf-sector-ecosystem-card" aria-label="Sektörel Referanslar">
       <div class="sector-eco-head">
         <div>
@@ -264,13 +364,6 @@ const financePillars = `
       </div>
     </div>
 
-    <!-- PDF Slayt 24 Şeması: Tüm Finansal Karar Sistemleri Tek Çatıda (4 Sütun) -->
-    <div class="finance-pillars__grid">
-      <article class="finance-pillar finance-pillar--green"><span class="finance-pillar__no">01</span><h3>Nakit &amp; Likidite Sistemleri</h3><ul><li>13 Haftalık Dinamik Nakit Akışı Modeli</li><li>Günlük Kasa &amp; Banka Likidite Takip Paneli</li><li>Çek &amp; Senet Vade Yaşlandırma Tablosu</li></ul><a href="/sablonlar?q=nakit" data-cta="home_finance_cash" data-location="finance_pillars">Nakit sistemlerini gör →</a></article>
-      <article class="finance-pillar finance-pillar--blue"><span class="finance-pillar__no">02</span><h3>Banka, Kredi &amp; Teminat Sistemleri</h3><ul><li>Çoklu Banka Limit-Risk ve Kredi Portföyü</li><li>Rotatif Kredi Faiz ve Finansman Maliyet Simülatörü</li><li>Teminat Mektubu &amp; İpotek Karşılama Matrisi</li></ul><a href="/sablonlar?q=kredi" data-cta="home_finance_credit" data-location="finance_pillars">Banka sistemlerini gör →</a></article>
-      <article class="finance-pillar finance-pillar--violet"><span class="finance-pillar__no">03</span><h3>Birim Maliyet &amp; Dinamik Fiyatlama</h3><ul><li>Değişken Maliyet ve Hammadde Endeksli Fiyat Teklif Motoru</li><li>Ürün &amp; Müşteri Bazlı Katkı Payı ve Kârlılık Matrisi</li><li>Şirket &amp; Proje Başabaş (Break-Even) Hesaplayıcı</li></ul><a href="/sablonlar?q=maliyet" data-cta="home_finance_cost" data-location="finance_pillars">Maliyet sistemlerini gör →</a></article>
-      <article class="finance-pillar finance-pillar--amber"><span class="finance-pillar__no">04</span><h3>Bütçe, Projeksiyon &amp; Değerleme</h3><ul><li>3 Senaryolu Dinamik Bütçe &amp; Rolling Forecast Modeli</li><li>DCF İskontolanmış Nakit Akımları &amp; Yatırım Fizibilitesi</li><li>Net İşletme Sermayesi (NÖS) &amp; DSO Gösterge Kokpiti</li></ul><a href="/sablonlar?q=butce" data-cta="home_finance_budget" data-location="finance_pillars">Bütçe sistemlerini gör →</a></article>
-    </div>
   </div>
 </section>`;
 
@@ -288,7 +381,7 @@ if (!html.includes('class="high-ticket-bridge"')) requireReplace('<section class
 
 const bottom = `
 <section class="home-finance-close" data-experience-stage aria-labelledby="home-finance-close-title">
-  <div class="home-shell home-finance-close__inner"><div><p class="eyebrow">15 DAKİKALIK ÖN TEŞHİS</p><h2 id="home-finance-close-title">Şirketinizin Finansal Tıkanıklığını 15 Dakikada Teşhis Edelim.</h2><p>İster hazır model seçin, ister sürecinizi WhatsApp'tan yazın. Doğru çözüm yolunu ve gerekli kapsamı netleştirelim.</p></div><a class="home-finance-close__cta" href="${bottomWa}" target="_blank" rel="noopener noreferrer" data-event="cta_whatsapp_click" data-cta="home_bottom_whatsapp" data-location="bottom">WhatsApp'tan Doğrudan Danışın</a></div>
+  <div class="home-shell home-finance-close__inner"><div><p class="decision-eyebrow">90 DAKİKALIK KARAR TEŞHİSİ</p><h2 id="home-finance-close-title">Şirketinizin Kredi Engellerini ve Nakit Darboğazını 90 Dakikada Çözelim.</h2><p>İster hazır sistemi seçin, ister mali tablonuzu WhatsApp'tan iletin. Bankacının gözüyle engelleri ve net karar adımlarını hemen belirleyelim.</p></div><a class="home-finance-close__cta" href="${bottomWa}" target="_blank" rel="noopener noreferrer" data-event="cta_whatsapp_click" data-cta="home_bottom_whatsapp" data-location="bottom">WhatsApp'tan Doğrudan Danışın (Barış Bağırlar)</a></div>
 </section>`;
 
 if (!html.includes('class="home-finance-close"')) requireReplace('<section class="faq-close"', `${bottom}\n<section class="faq-close"`, 'bottom CTA');
@@ -304,7 +397,48 @@ const schema = {
 html = html.replace('</head>', `<script type="application/ld+json" id="dual-funnel-home-schema-v17">${JSON.stringify(schema)}</script>\n</head>`);
 
 const css = `<style id="dual-funnel-home-v17-css">
-.finance-pillars{padding:64px 0;border-bottom:1px solid #dfe5e0;background:#fff}.finance-pillars__head{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:42px;align-items:end;margin-bottom:28px}.finance-pillars__head h2{margin:10px 0 0;color:#0f172a;font-size:clamp(30px,3.6vw,48px);line-height:1.04;letter-spacing:-.04em}.finance-pillars__head>p{margin:0;color:#647068;font-size:15px;line-height:1.7}
+.finance-pillars{padding:60px 0;border-bottom:1px solid #dfe5e0;background:#fff}
+
+/* 5 Saniyede Anlaşılan Değer Vaadi */
+.decision-clarity-head{margin-bottom:34px}
+.decision-eyebrow{color:#059669;font:850 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;margin-bottom:10px}
+.decision-clarity-head h2{margin:0 0 14px;color:#0f172a;font-size:clamp(28px,3.5vw,46px);line-height:1.06;letter-spacing:-.04em}
+.decision-lead{max-width:820px;margin:0 0 24px;color:#475569;font-size:16px;line-height:1.6}
+
+.decision-quick-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:38px}
+.quick-step-box{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;border-radius:16px;background:#f8fafc;border:1px solid #e2e8f0;box-shadow:0 4px 12px rgba(15,23,42,.02)}
+.step-num{display:grid;place-items:center;flex-shrink:0;width:34px;height:34px;border-radius:10px;background:#059669;color:#fff;font:850 13px/1 ui-monospace,monospace}
+.quick-step-box strong{display:block;color:#0f172a;font-size:14.5px;font-weight:800;margin-bottom:4px}
+.quick-step-box small{display:block;color:#64748b;font-size:12.5px;line-height:1.45}
+
+/* 4 Bento Acı & Karar Kartı (iyzico tarzı) */
+.pain-decision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-bottom:46px}
+.decision-card{padding:28px 26px;border-radius:22px;border:1px solid #e2e8f0;background:#fff;box-shadow:0 10px 30px rgba(15,23,42,.04);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.decision-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px}
+.decision-card--navy::before{background:#1e3a8a}
+.decision-card--emerald::before{background:#059669}
+.decision-card--violet::before{background:#7c3aed}
+.decision-card--amber::before{background:#d97706}
+
+.decision-card__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.tag-pill{padding:4px 10px;border-radius:8px;font:800 10.5px/1 ui-monospace,monospace;letter-spacing:.06em}
+.tag-pill--alert{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+.tag-pill--success{background:#ecfdf5;color:#059669;border:1px solid #a7f3d0}
+.tag-pill--purple{background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe}
+.tag-pill--warn{background:#fffbeb;color:#d97706;border:1px solid #fde68a}
+.card-icon{font-size:24px}
+
+.decision-card h3{margin:0 0 16px;color:#0f172a;font-size:21px;letter-spacing:-.03em;font-weight:800}
+.pain-point{padding:12px 14px;border-radius:12px;background:#fef2f2;border-left:3px solid #ef4444;margin-bottom:12px}
+.pain-point strong{display:block;color:#991b1b;font-size:11.5px;font-weight:850;margin-bottom:3px}
+.pain-point p{margin:0;color:#7f1d1d;font-size:13px;line-height:1.5}
+
+.solution-point{padding:12px 14px;border-radius:12px;background:#f0fdf4;border-left:3px solid #10b981;margin-bottom:20px}
+.solution-point strong{display:block;color:#065f46;font-size:11.5px;font-weight:850;margin-bottom:3px}
+.solution-point p{margin:0;color:#064e3b;font-size:13px;line-height:1.5}
+
+.decision-link{margin-top:auto;display:inline-flex;align-items:center;color:#059669;font-size:13.5px;font-weight:800;text-decoration:none}
+.decision-link:hover{text-decoration:underline}
 
 /* Slayt 3 Mockup Sahnesi */
 .pdf-showcase-stage{position:relative;margin:12px 0 38px;padding:36px 20px 44px;border-radius:28px;background:linear-gradient(150deg,#0a192f 0%,#0f172a 60%,#064e3b 100%);box-shadow:0 24px 60px rgba(10,25,47,.22);overflow:hidden;border:1px solid #1e3a5f}
@@ -347,6 +481,10 @@ const css = `<style id="dual-funnel-home-v17-css">
 .medallion-tr{top:20px;right:-18px}
 .medallion-bl{bottom:40px;left:-18px}
 .medallion-br{bottom:40px;right:-18px}
+
+.section-divider-title{margin:36px 0 18px}
+.section-divider-title h3{margin:0 0 6px;color:#0f172a;font-size:22px;letter-spacing:-.03em}
+.section-divider-title p{margin:0;color:#64748b;font-size:14.5px}
 
 /* Slayt 3 15 Numaralı Matris */
 .finance-needs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:44px}
@@ -409,10 +547,10 @@ const css = `<style id="dual-funnel-home-v17-css">
 .pdf-sectors-pill-cloud{display:flex;flex-wrap:wrap;gap:8px}
 .sector-pill{padding:8px 14px;border-radius:11px;background:#f8fafc;color:#1e293b;font-size:12.5px;font-weight:750;border:1px solid #e2e8f0;box-shadow:0 2px 5px rgba(15,23,42,.02)}
 
-/* 4 Sütun */
-.finance-pillars__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.finance-pillar{position:relative;min-width:0;display:flex;flex-direction:column;padding:22px;border:1px solid #dfe5e0;border-radius:18px;background:#fff;box-shadow:0 10px 28px rgba(18,42,26,.05)}.finance-pillar::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;border-radius:18px 18px 0 0;background:#059669}.finance-pillar--blue::before{background:#2563eb}.finance-pillar--violet::before{background:#7c3aed}.finance-pillar--amber::before{background:#d97706}.finance-pillar__no{color:#64748b;font:800 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}.finance-pillar h3{margin:13px 0 0;color:#0f172a;font-size:19px;line-height:1.18;letter-spacing:-.025em}.finance-pillar ul{display:grid;gap:9px;margin:17px 0 22px;padding:0;list-style:none;color:#526176;font-size:13px;line-height:1.5}.finance-pillar li{position:relative;padding-left:15px}.finance-pillar li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:#c9d4cc}.finance-pillar>a{margin-top:auto;color:#075f39;font-size:13px;font-weight:800;text-decoration:none}.high-ticket-bridge{padding:68px 0;background:#fff;color:#0f172a}.high-ticket-bridge__inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:68px;align-items:center;padding:48px 44px;border:1px solid #dfe5e0;border-radius:24px;background:#fff;box-shadow:0 14px 36px rgba(18,42,26,.05)}.high-ticket-kicker{margin:0;color:#059669;font:850 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.high-ticket-bridge h2{max-width:760px;margin:12px 0 0;color:#0f172a;font-size:clamp(32px,4vw,50px);line-height:1.02;letter-spacing:-.045em}.high-ticket-bridge__copy>p:last-child{max-width:760px;margin:20px 0 0;color:#526176;font-size:16px;line-height:1.7}.high-ticket-bridge__proof{padding:26px;border:1px solid #dfe5e0;border-radius:18px;background:#f8faf9;box-shadow:0 8px 24px rgba(18,42,26,.04)}.high-ticket-bridge__proof ul{display:grid;gap:12px;margin:0 0 22px;padding:0;list-style:none;color:#334155;font-size:14px;line-height:1.45}.high-ticket-bridge__proof li{position:relative;padding-left:22px}.high-ticket-bridge__proof li::before{content:"✓";position:absolute;left:0;color:#059669;font-weight:900}.high-ticket-bridge__proof>a{min-height:48px;display:flex;align-items:center;justify-content:center;padding:0 18px;border-radius:12px;background:#059669;color:#fff;font-size:13px;font-weight:850;text-decoration:none;box-shadow:0 8px 20px rgba(5,150,105,.2)}.home-finance-close{padding:52px 0;border-bottom:1px solid #dfe5e0;background:linear-gradient(90deg,#f0fdf4,#eff6ff)}.home-finance-close__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center}.home-finance-close h2{margin:9px 0 0;color:#0f172a;font-size:clamp(28px,3.2vw,42px);line-height:1.05;letter-spacing:-.04em}.home-finance-close p:not(.eyebrow){max-width:760px;margin:12px 0 0;color:#526176;font-size:15px;line-height:1.65}.home-finance-close__cta{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:0 22px;border-radius:12px;background:#059669;color:#fff;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 12px 28px rgba(5,150,105,.2)}
-@media(max-width:980px){.pdf-six-bento-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.finance-needs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.chat-outcome-bar{grid-template-columns:1fr}.finance-pillars__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.high-ticket-bridge__inner{grid-template-columns:1fr;gap:28px}.floating-medallion{position:static;max-width:100%;margin-top:10px}}
-@media(max-width:720px){.pdf-showcase-stage{padding:20px 14px}.excel-kpi-row{grid-template-columns:1fr}.table-mock-head,.table-mock-row{grid-template-columns:40px repeat(2,1fr) 1fr}.table-mock-head span:nth-child(4),.table-mock-head span:nth-child(5),.table-mock-row span:nth-child(4),.table-mock-row span:nth-child(5){display:none}.pdf-six-bento-grid{grid-template-columns:1fr}.finance-needs-grid{grid-template-columns:1fr;gap:8px}.finance-pillars{padding:38px 0}.finance-pillars__head{grid-template-columns:1fr;gap:12px}.finance-pillars__head h2{font-size:28px}.finance-pillars__grid{grid-template-columns:1fr;gap:10px}.finance-pillar{padding:18px}.high-ticket-bridge{padding:42px 0}.high-ticket-bridge h2{font-size:32px}.high-ticket-bridge__proof{padding:20px}.home-finance-close{padding:38px 0}.home-finance-close__inner{grid-template-columns:1fr;gap:20px}.home-finance-close__cta{width:100%}}
+.high-ticket-bridge{padding:64px 0;background:#fff;color:#0f172a}.high-ticket-bridge__inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:68px;align-items:center;padding:48px 44px;border:1px solid #dfe5e0;border-radius:24px;background:#fff;box-shadow:0 14px 36px rgba(18,42,26,.05)}.high-ticket-kicker{margin:0;color:#059669;font:850 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.high-ticket-bridge h2{max-width:760px;margin:12px 0 0;color:#0f172a;font-size:clamp(32px,4vw,50px);line-height:1.02;letter-spacing:-.045em}.high-ticket-bridge__copy>p:last-child{max-width:760px;margin:20px 0 0;color:#526176;font-size:16px;line-height:1.7}.high-ticket-bridge__proof{padding:26px;border:1px solid #dfe5e0;border-radius:18px;background:#f8faf9;box-shadow:0 8px 24px rgba(18,42,26,.04)}.high-ticket-bridge__proof ul{display:grid;gap:12px;margin:0 0 22px;padding:0;list-style:none;color:#334155;font-size:14px;line-height:1.45}.high-ticket-bridge__proof li{position:relative;padding-left:22px}.high-ticket-bridge__proof li::before{content:"✓";position:absolute;left:0;color:#059669;font-weight:900}.high-ticket-bridge__proof>a{min-height:48px;display:flex;align-items:center;justify-content:center;padding:0 18px;border-radius:12px;background:#059669;color:#fff;font-size:13px;font-weight:850;text-decoration:none;box-shadow:0 8px 20px rgba(5,150,105,.2)}.home-finance-close{padding:52px 0;border-bottom:1px solid #dfe5e0;background:linear-gradient(90deg,#f0fdf4,#eff6ff)}.home-finance-close__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center}.home-finance-close h2{margin:9px 0 0;color:#0f172a;font-size:clamp(28px,3.2vw,42px);line-height:1.05;letter-spacing:-.04em}.home-finance-close p:not(.decision-eyebrow){max-width:760px;margin:12px 0 0;color:#526176;font-size:15px;line-height:1.65}.home-finance-close__cta{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:0 22px;border-radius:12px;background:#059669;color:#fff;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 12px 28px rgba(5,150,105,.2)}
+
+@media(max-width:980px){.decision-quick-steps{grid-template-columns:1fr}.pain-decision-grid{grid-template-columns:1fr}.pdf-six-bento-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.finance-needs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.chat-outcome-bar{grid-template-columns:1fr}.high-ticket-bridge__inner{grid-template-columns:1fr;gap:28px}.floating-medallion{position:static;max-width:100%;margin-top:10px}}
+@media(max-width:720px){.pdf-showcase-stage{padding:20px 14px}.excel-kpi-row{grid-template-columns:1fr}.table-mock-head,.table-mock-row{grid-template-columns:40px repeat(2,1fr) 1fr}.table-mock-head span:nth-child(4),.table-mock-head span:nth-child(5),.table-mock-row span:nth-child(4),.table-mock-row span:nth-child(5){display:none}.pdf-six-bento-grid{grid-template-columns:1fr}.finance-needs-grid{grid-template-columns:1fr;gap:8px}.finance-pillars{padding:38px 0}.high-ticket-bridge{padding:42px 0}.high-ticket-bridge h2{font-size:32px}.high-ticket-bridge__proof{padding:20px}.home-finance-close{padding:38px 0}.home-finance-close__inner{grid-template-columns:1fr;gap:20px}.home-finance-close__cta{width:100%}}
 </style>`;
 html = html.replace('</head>', `${css}\n</head>`);
 
@@ -421,4 +559,4 @@ for (const token of ['finance-pillars','high-ticket-bridge','home_finance_cash',
 }
 
 fs.writeFileSync(file, html, 'utf8');
-console.log('HOME DUAL FUNNEL V17 PASS — finance pillars, high-ticket bridge, bottom WhatsApp CTA and entity schema active; homepage hero ownership left untouched.');
+console.log('HOME DUAL FUNNEL V17 PASS — 5-second clarity, pain-decision grid and high-ticket decision pipeline active.');
