@@ -1,0 +1,422 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import SectionLabel from '../../components/SectionLabel.astro';
+import Button from '../../components/Button.astro';
+
+const breadcrumbs = [
+  { label: 'Ana Sayfa', href: '/' },
+  { label: 'Hesaplayıcılar', href: '/hesaplayici' },
+  { label: 'Pazaryeri Kâr & Komisyon Hesaplayıcı', href: '/hesaplayici/pazaryeri-komisyon-kar-hesaplama' },
+];
+
+const seoTitle = 'Pazaryeri Komisyon ve Net Kâr Hesaplayıcı (Trendyol, Hepsiburada, Amazon) — Excel Arşiv';
+const seoDesc = 'Pazaryeri komisyon oranı, kargo baremi, hizmet bedeli ve KDV tevkifatı sonrası gerçek net kârınızı ve başa baş satış fiyatınızı anında hesaplayın.';
+---
+
+<CommerceLayout
+  title={seoTitle}
+  description={seoDesc}
+>
+  <div class="mx-auto max-w-5xl px-4 py-8 md:py-12">
+    <!-- Breadcrumb -->
+    <nav class="mb-6 flex flex-wrap items-center gap-2 font-mono text-xs text-ink-500" aria-label="Breadcrumb">
+      {breadcrumbs.map((b, i) => (
+        <>
+          {i > 0 && <span class="text-rule-strong">/</span>}
+          {i === breadcrumbs.length - 1 ? (
+            <span class="text-ink-900 font-semibold">{b.label}</span>
+          ) : (
+            <a href={b.href} class="hover:text-accent-primary transition-colors">{b.label}</a>
+          )}
+        </>
+      ))}
+    </nav>
+
+    <div class="mb-8">
+      <SectionLabel number={1} label="E-Ticaret Karar Konsolu" />
+      <h1 class="display mt-4 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">
+        Pazaryeri Komisyon & Net Kâr Hesaplayıcı
+      </h1>
+      <p class="lead mt-3 max-w-3xl text-ink-700 text-base sm:text-lg">
+        Trendyol, Hepsiburada, Amazon veya Pazarama satışlarınızda komisyon, kargo, hizmet bedeli ve KDV kesintilerini düşerek ürün bazında gerçek net kârınızı, kâr marjınızı ve zarar etmeyeceğiniz minimum satış fiyatını hesaplayın.
+      </p>
+    </div>
+
+    <!-- Live Interactive Workbook Console -->
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+      <!-- Sol: Girdi Formu (Living Workbook Input) -->
+      <div class="lg:col-span-7">
+        <div class="rounded-2xl border border-rule-strong bg-surface-elevated p-6 shadow-sm">
+          <div class="mb-6 flex items-center justify-between border-b border-rule-hairline pb-4">
+            <div class="flex items-center gap-3">
+              <div class="flex h-8 w-8 items-center justify-center rounded bg-accent-primary text-white font-mono text-sm font-bold">
+                FX
+              </div>
+              <div>
+                <h2 class="font-sans text-lg font-bold text-ink-900">Satış ve Maliyet Parametreleri</h2>
+                <p class="font-mono text-xs text-ink-500">GİRDİ PANELİ • DEĞERLERİ GÜNCELLEYİN</p>
+              </div>
+            </div>
+            <span class="rounded-full bg-emerald-50 px-3 py-1 font-mono text-xs font-semibold text-emerald-800 border border-emerald-200">
+              Canlı Modül
+            </span>
+          </div>
+
+          <form id="marketplace-calc-form" class="space-y-4" onsubmit="return false;">
+            <!-- Pazaryeri ve Kategori Seçimi -->
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label for="m-pazaryeri" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+                  Pazaryeri
+                </label>
+                <select id="m-pazaryeri" class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 font-sans text-sm text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary">
+                  <option value="trendyol" selected>Trendyol</option>
+                  <option value="hepsiburada">Hepsiburada</option>
+                  <option value="amazon">Amazon Türkiye</option>
+                  <option value="pazarama">Pazarama</option>
+                  <option value="ciceksepeti">Çiçeksepeti</option>
+                  <option value="ozel">Özel / Kendi Sitem</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="m-komisyon" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+                  Komisyon Oranı (%)
+                </label>
+                <div class="relative">
+                  <input id="m-komisyon" type="number" step="0.1" min="0" max="100" value="18.0" class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 pr-8 font-mono text-sm text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary" />
+                  <span class="absolute right-3 top-3 font-mono text-xs text-ink-500">%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fiyatlandırma Parametreleri -->
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label for="m-satis-fiyati" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+                  Müşteri Satış Fiyatı (KDV Dahil)
+                </label>
+                <div class="relative">
+                  <input id="m-satis-fiyati" type="number" step="1" min="0" value="450" class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 pr-8 font-mono text-sm text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary" />
+                  <span class="absolute right-3 top-3 font-mono text-xs text-ink-500">TL</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="m-alis-maliyeti" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+                  Ürün Alış / Üretim Maliyeti (KDV Dahil)
+                </label>
+                <div class="relative">
+                  <input id="m-alis-maliyeti" type="number" step="1" min="0" value="180" class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 pr-8 font-mono text-sm text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary" />
+                  <span class="absolute right-3 top-3 font-mono text-xs text-ink-500">TL</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kargo ve İşlem Ücreti -->
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label for="m-kargo" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+                  Kargo Gönderim Ücreti (KDV Dahil)
+                </label>
+                <div class="relative">
+                  <input id="m-kargo" type="number" step="0.5" min="0" value="48.5" class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 pr-8 font-mono text-sm text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary" />
+                  <span class="absolute right-3 top-3 font-mono text-xs text-ink-500">TL</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="m-hizmet-bedeli" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+                  Pazaryeri Hizmet / Sipariş Bedeli
+                </label>
+                <div class="relative">
+                  <input id="m-hizmet-bedeli" type="number" step="0.5" min="0" value="7.5" class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 pr-8 font-mono text-sm text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary" />
+                  <span class="absolute right-3 top-3 font-mono text-xs text-ink-500">TL</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- KDV ve Risk / Fire Payı -->
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label for="m-kdv" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+                  Ürün KDV Oranı (%)
+                </label>
+                <select id="m-kdv" class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 font-mono text-sm text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary">
+                  <option value="20" selected>%20 (Genel Oran)</option>
+                  <option value="10">%10 (Gıda, Tekstil, vb.)</option>
+                  <option value="1">%1 (Temel Tarım)</option>
+                  <option value="0">%0 (İstisna)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="m-fire" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+                  İade, Fire & Paketleme Payı (%)
+                </label>
+                <div class="relative">
+                  <input id="m-fire" type="number" step="0.5" min="0" max="50" value="5.0" class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 pr-8 font-mono text-sm text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary" />
+                  <span class="absolute right-3 top-3 font-mono text-xs text-ink-500">%</span>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <!-- Bilgi Notu -->
+          <div class="mt-6 rounded-lg bg-surface border border-rule-hairline p-3 text-xs text-ink-700">
+            <span class="font-semibold text-accent-primary">💡 Finansal Doğruluk Notu:</span> Komisyon ve hizmet bedeli üzerinden pazaryerinin kestiği faturalardaki KDV indirimi otomatik hesaba dahil edilerek devlete ödenecek net KDV farkı hassas hesaplanmaktadır.
+          </div>
+        </div>
+      </div>
+
+      <!-- Sağ: Çıktı & Karar Konsolu (Executive KPI Deck) -->
+      <div class="lg:col-span-5 flex flex-col gap-6">
+        <div class="rounded-2xl border border-rule-strong bg-white p-6 shadow-sm">
+          <div class="flex items-center justify-between border-b border-rule-hairline pb-4">
+            <h3 class="font-sans text-base font-bold text-ink-900">Hesaplama Özeti & Net Kâr</h3>
+            <span id="res-status-badge" class="rounded px-2.5 py-0.5 font-mono text-xs font-bold bg-emerald-100 text-emerald-800">
+              KÂRLI
+            </span>
+          </div>
+
+          <!-- Ana KPI: Net Kâr -->
+          <div class="mt-6 rounded-xl bg-surface-elevated p-5 text-center border border-rule-hairline">
+            <div class="font-mono text-xs text-ink-500 uppercase tracking-wider">Sipariş Başına Net Kâr</div>
+            <div id="res-net-kar" class="mt-2 font-mono text-4xl font-extrabold text-emerald-700">
+              112,45 TL
+            </div>
+            <div class="mt-2 flex items-center justify-center gap-3 text-xs font-mono">
+              <span class="text-ink-700">Kâr Marjı: <strong id="res-kar-marji" class="text-ink-900">%24.9</strong></span>
+              <span class="text-rule-strong">•</span>
+              <span class="text-ink-700">ROI (Maliyet Getirisi): <strong id="res-roi" class="text-ink-900">%62.5</strong></span>
+            </div>
+          </div>
+
+          <!-- Dağılım Çubuğu (Cost Breakdown Bar) -->
+          <div class="mt-6">
+            <div class="flex justify-between text-xs font-mono text-ink-700 mb-1">
+              <span>Ciro Dağılımı</span>
+              <span id="res-ciro-toplam">450,00 TL</span>
+            </div>
+            <div class="h-4 w-full overflow-hidden rounded-full bg-surface flex">
+              <div id="bar-maliyet" class="bg-slate-400 h-full transition-all duration-300" title="Ürün Maliyeti" style="width: 40%;"></div>
+              <div id="bar-komisyon" class="bg-amber-400 h-full transition-all duration-300" title="Pazaryeri Komisyonu" style="width: 18%;"></div>
+              <div id="bar-kargo" class="bg-sky-400 h-full transition-all duration-300" title="Kargo & Hizmet" style="width: 12%;"></div>
+              <div id="bar-kdv" class="bg-rose-400 h-full transition-all duration-300" title="Ödenecek KDV" style="width: 5%;"></div>
+              <div id="bar-kar" class="bg-emerald-500 h-full transition-all duration-300" title="Net Kâr" style="width: 25%;"></div>
+            </div>
+            <div class="mt-3 grid grid-cols-3 gap-2 text-[11px] font-mono text-ink-700">
+              <div class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-slate-400"></span> Maliyet</div>
+              <div class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-amber-400"></span> Komisyon</div>
+              <div class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-sky-400"></span> Kargo/Hizmet</div>
+              <div class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-rose-400"></span> Net KDV</div>
+              <div class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-emerald-500"></span> Net Kâr</div>
+            </div>
+          </div>
+
+          <!-- Detaylı Tablo (Living Workbook Grid) -->
+          <div class="mt-6 space-y-2.5 font-mono text-xs border-t border-rule-hairline pt-4">
+            <div class="flex justify-between text-ink-700">
+              <span>Toplam Kesintiler:</span>
+              <span id="res-toplam-kesinti" class="font-bold text-ink-900">157,55 TL</span>
+            </div>
+            <div class="flex justify-between text-ink-700">
+              <span>Pazaryeri Komisyon Tutarı:</span>
+              <span id="res-komisyon-tutar" class="text-ink-900">81,00 TL</span>
+            </div>
+            <div class="flex justify-between text-ink-700">
+              <span>Kargo + Hizmet Bedeli:</span>
+              <span id="res-kargo-hizmet" class="text-ink-900">56,00 TL</span>
+            </div>
+            <div class="flex justify-between text-ink-700">
+              <span>Paketleme & İade Payı:</span>
+              <span id="res-fire-tutar" class="text-ink-900">22,50 TL</span>
+            </div>
+            <div class="flex justify-between text-ink-700">
+              <span>Devlete Net KDV Yükü:</span>
+              <span id="res-kdv-farki" class="text-ink-900">18,05 TL</span>
+            </div>
+            <div class="flex justify-between bg-surface-elevated p-2 rounded border border-rule-hairline font-bold text-ink-900">
+              <span>Başa Baş Satış Fiyatı (Min. Fiyat):</span>
+              <span id="res-basabas" class="text-accent-primary">312,40 TL</span>
+            </div>
+          </div>
+
+          <!-- Excel Formül Kutusu -->
+          <div class="mt-6 rounded-lg border border-rule-hairline bg-surface p-3">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-[11px] font-semibold text-ink-700">Excel Formülü (Kopyala):</span>
+              <button id="btn-copy-formula" class="font-mono text-[11px] text-accent-primary hover:underline">
+                Formülü Kopyala
+              </button>
+            </div>
+            <code id="formula-text" class="mt-1.5 block overflow-x-auto rounded bg-white p-2 font-mono text-[11px] text-ink-900 border border-rule-hairline">
+              =B2-(B2*C2)-(D2)-(E2)-(B2*F2)-((B2/(1+G2)*G2)-(D2/(1+G2)*G2))
+            </code>
+          </div>
+        </div>
+
+        <!-- Yüksek Güvenli Satın Alma Köprüsü (Commercial Bridge) -->
+        <div class="rounded-2xl border-2 border-accent-primary bg-emerald-50/50 p-6 shadow-sm">
+          <div class="flex items-start gap-3">
+            <div class="text-2xl">📊</div>
+            <div>
+              <h4 class="font-sans text-base font-bold text-ink-900">Binlerce Ürünü Tek Ekranda Yönetin</h4>
+              <p class="mt-1 text-xs text-ink-700 leading-relaxed">
+                Tek tek hesaplamak yerine <strong>Trendyol Komisyon Sonrası Net Kâr ve Eksik Hakediş Yakalayıcı</strong> Excel sistemimizle tüm mağazanızı, barem kargolarınızı ve mutabakatınızı sıfır hata ile denetleyin.
+              </p>
+              <div class="mt-4 flex flex-wrap items-center gap-3">
+                <Button href="/sablon/trendyol-komisyon-sonrasi-net-kar#satin-al">
+                  Tam Excel Sistemini İncele
+                </Button>
+                <Button href="/demo/trendyol-komisyon-sonrasi-net-kar" variant="secondary">
+                  Ücretsiz Demo
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</CommerceLayout>
+
+<script>
+  function calculate() {
+    const satisFiyati = Number((document.getElementById('m-satis-fiyati') as HTMLInputElement)?.value || 0);
+    const alisMaliyeti = Number((document.getElementById('m-alis-maliyeti') as HTMLInputElement)?.value || 0);
+    const komisyonOran = Number((document.getElementById('m-komisyon') as HTMLInputElement)?.value || 0) / 100;
+    const kargo = Number((document.getElementById('m-kargo') as HTMLInputElement)?.value || 0);
+    const hizmetBedeli = Number((document.getElementById('m-hizmet-bedeli') as HTMLInputElement)?.value || 0);
+    const kdvOran = Number((document.getElementById('m-kdv') as HTMLSelectElement)?.value || 20) / 100;
+    const fireOran = Number((document.getElementById('m-fire') as HTMLInputElement)?.value || 0) / 100;
+
+    // Komisyon Tutarı (KDV dahil satış fiyatı üzerinden kesilir)
+    const komisyonTutar = satisFiyati * komisyonOran;
+    
+    // Paketleme, fire ve reklam payı
+    const fireTutar = satisFiyati * fireOran;
+
+    // KDV Hesaplama (Vergi Mantığı)
+    // Satış KDV'si:
+    const satisKdv = satisFiyati - (satisFiyati / (1 + kdvOran));
+    // Alış ve Gider KDV'leri (İndirilecek KDV):
+    const alisKdv = alisMaliyeti - (alisMaliyeti / (1 + kdvOran));
+    const kargoKdv = kargo - (kargo / (1 + 0.20)); // Kargo genel kdv %20
+    const komisyonKdv = komisyonTutar - (komisyonTutar / (1 + 0.20)); // Komisyon faturası kdv %20
+    const hizmetKdv = hizmetBedeli - (hizmetBedeli / (1 + 0.20));
+
+    const toplamIndirilecekKdv = alisKdv + kargoKdv + komisyonKdv + hizmetKdv;
+    const devleteKdv = Math.max(0, satisKdv - toplamIndirilecekKdv);
+
+    // Toplam Kesintiler (Maliyet hariç masraflar)
+    const toplamGider = komisyonTutar + kargo + hizmetBedeli + fireTutar + devleteKdv;
+    const netKar = satisFiyati - alisMaliyeti - toplamGider;
+    const karMarji = satisFiyati > 0 ? (netKar / satisFiyati) * 100 : 0;
+    const roi = alisMaliyeti > 0 ? (netKar / alisMaliyeti) * 100 : 0;
+
+    // Başa baş minimum satış fiyatı formülü (Net kâr = 0 yapan satış fiyatı)
+    // Satis * (1 - komisyonOran - fireOran - efektifKdv) = Alis + Kargo + Hizmet
+    const payda = 1 - komisyonOran - fireOran - (kdvOran / (1 + kdvOran) * 0.5);
+    const basabas = payda > 0 ? (alisMaliyeti + kargo + hizmetBedeli) / payda : 0;
+
+    // UI Güncelleme
+    const netKarEl = document.getElementById('res-net-kar');
+    const karMarjiEl = document.getElementById('res-kar-marji');
+    const roiEl = document.getElementById('res-roi');
+    const statusBadge = document.getElementById('res-status-badge');
+    const toplamKesintiEl = document.getElementById('res-toplam-kesinti');
+    const komisyonTutarEl = document.getElementById('res-komisyon-tutar');
+    const kargoHizmetEl = document.getElementById('res-kargo-hizmet');
+    const fireTutarEl = document.getElementById('res-fire-tutar');
+    const kdvFarkiEl = document.getElementById('res-kdv-farki');
+    const basabasEl = document.getElementById('res-basabas');
+    const ciroToplamEl = document.getElementById('res-ciro-toplam');
+
+    const fmt = (val: number) => val.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' TL';
+
+    if (netKarEl) netKarEl.textContent = fmt(netKar);
+    if (karMarjiEl) karMarjiEl.textContent = '%' + karMarji.toFixed(1);
+    if (roiEl) roiEl.textContent = '%' + roi.toFixed(1);
+    if (ciroToplamEl) ciroToplamEl.textContent = fmt(satisFiyati);
+    if (toplamKesintiEl) toplamKesintiEl.textContent = fmt(toplamGider);
+    if (komisyonTutarEl) komisyonTutarEl.textContent = fmt(komisyonTutar);
+    if (kargoHizmetEl) kargoHizmetEl.textContent = fmt(kargo + hizmetBedeli);
+    if (fireTutarEl) fireTutarEl.textContent = fmt(fireTutar);
+    if (kdvFarkiEl) kdvFarkiEl.textContent = fmt(devleteKdv);
+    if (basabasEl) basabasEl.textContent = fmt(basabas);
+
+    // Renk ve Rozet Mantığı
+    if (statusBadge && netKarEl) {
+      if (netKar > 0 && karMarji >= 15) {
+        statusBadge.className = 'rounded px-2.5 py-0.5 font-mono text-xs font-bold bg-emerald-100 text-emerald-800';
+        statusBadge.textContent = 'GÜVENLİ VE KÂRLI';
+        netKarEl.className = 'mt-2 font-mono text-4xl font-extrabold text-emerald-700';
+      } else if (netKar > 0 && karMarji < 15) {
+        statusBadge.className = 'rounded px-2.5 py-0.5 font-mono text-xs font-bold bg-amber-100 text-amber-800';
+        statusBadge.textContent = 'DÜŞÜK KÂR MARJI';
+        netKarEl.className = 'mt-2 font-mono text-4xl font-extrabold text-amber-600';
+      } else {
+        statusBadge.className = 'rounded px-2.5 py-0.5 font-mono text-xs font-bold bg-rose-100 text-rose-800';
+        statusBadge.textContent = 'ZARARINA SATIŞ';
+        netKarEl.className = 'mt-2 font-mono text-4xl font-extrabold text-rose-600';
+      }
+    }
+
+    // Dağılım Çubukları
+    if (satisFiyati > 0) {
+      const pMaliyet = Math.min(100, Math.max(0, (alisMaliyeti / satisFiyati) * 100));
+      const pKomisyon = Math.min(100, Math.max(0, (komisyonTutar / satisFiyati) * 100));
+      const pKargo = Math.min(100, Math.max(0, ((kargo + hizmetBedeli) / satisFiyati) * 100));
+      const pKdv = Math.min(100, Math.max(0, (devleteKdv / satisFiyati) * 100));
+      const pKar = Math.min(100, Math.max(0, (Math.max(0, netKar) / satisFiyati) * 100));
+
+      const barM = document.getElementById('bar-maliyet');
+      const barK = document.getElementById('bar-komisyon');
+      const barG = document.getElementById('bar-kargo');
+      const barD = document.getElementById('bar-kdv');
+      const barR = document.getElementById('bar-kar');
+
+      if (barM) barM.style.width = pMaliyet + '%';
+      if (barK) barK.style.width = pKomisyon + '%';
+      if (barG) barG.style.width = pKargo + '%';
+      if (barD) barD.style.width = pKdv + '%';
+      if (barR) barR.style.width = pKar + '%';
+    }
+  }
+
+  // Dinamik Pazaryeri Komisyon Oranları Değişimi
+  const pSelect = document.getElementById('m-pazaryeri') as HTMLSelectElement;
+  const komInput = document.getElementById('m-komisyon') as HTMLInputElement;
+
+  pSelect?.addEventListener('change', () => {
+    const val = pSelect.value;
+    if (val === 'trendyol' && komInput) komInput.value = '18.0';
+    else if (val === 'hepsiburada' && komInput) komInput.value = '17.5';
+    else if (val === 'amazon' && komInput) komInput.value = '15.0';
+    else if (val === 'pazarama' && komInput) komInput.value = '14.0';
+    else if (val === 'ciceksepeti' && komInput) komInput.value = '19.0';
+    calculate();
+  });
+
+  // Dinleyiciler
+  const form = document.getElementById('marketplace-calc-form');
+  form?.querySelectorAll('input, select').forEach((el) => {
+    el.addEventListener('input', calculate);
+    el.addEventListener('change', calculate);
+  });
+
+  // Kopyalama Butonu
+  const copyBtn = document.getElementById('btn-copy-formula');
+  copyBtn?.addEventListener('click', () => {
+    const formula = document.getElementById('formula-text')?.textContent?.trim() || '';
+    navigator.clipboard.writeText(formula).then(() => {
+      const prev = copyBtn.textContent;
+      copyBtn.textContent = 'Kopyalandı!';
+      setTimeout(() => { copyBtn.textContent = prev; }, 2000);
+    });
+  });
+
+  // İlk çalıştırma
+  calculate();
+</script>

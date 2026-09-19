@@ -1,0 +1,325 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import SectionLabel from '../../components/SectionLabel.astro';
+import Button from '../../components/Button.astro';
+
+const breadcrumbs = [
+  { label: 'Ana Sayfa', href: '/' },
+  { label: 'Hesaplayıcılar', href: '/hesaplayici' },
+  { label: 'WhatsApp Link & Numara Temizleyici', href: '/hesaplayici/whatsapp-link-ve-telefon-formatlayici' },
+];
+
+const seoTitle = 'Toplu WhatsApp Linki ve Telefon Formatlayıcı — Excel Arşiv';
+const seoDesc = 'Karışık müşteri telefon numaralarını tek tıkla standart formata çevirin, toplu WhatsApp wa.me bağlantıları ve doğrudan çalışan Excel formülü üretin.';
+---
+
+<CommerceLayout
+  title={seoTitle}
+  description={seoDesc}
+>
+  <div class="mx-auto max-w-5xl px-4 py-8 md:py-12">
+    <!-- Breadcrumb -->
+    <nav class="mb-6 flex flex-wrap items-center gap-2 font-mono text-xs text-ink-500" aria-label="Breadcrumb">
+      {breadcrumbs.map((b, i) => (
+        <>
+          {i > 0 && <span class="text-rule-strong">/</span>}
+          {i === breadcrumbs.length - 1 ? (
+            <span class="text-ink-900 font-semibold">{b.label}</span>
+          ) : (
+            <a href={b.href} class="hover:text-accent-primary transition-colors">{b.label}</a>
+          )}
+        </>
+      ))}
+    </nav>
+
+    <div class="mb-8">
+      <SectionLabel number={2} label="Müşteri İletişim Otomasyonu" />
+      <h1 class="display mt-4 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">
+        Toplu WhatsApp Linki & Telefon Formatlayıcı
+      </h1>
+      <p class="lead mt-3 max-w-3xl text-ink-700 text-base sm:text-lg">
+        Excel veya e-ticaret panelinizden kopyaladığınız düzensiz numaraları (parantezli, boşluklu, 0'lı veya +90'lı) anında E.164 uluslararası formatına dönüştürün, tek tıkla açılan WhatsApp sipariş/bildirim linkleri ve formülleri üretin.
+      </p>
+    </div>
+
+    <!-- Live Workspace Grid -->
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+      <!-- Sol: Giriş Alanı -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="rounded-2xl border border-rule-strong bg-surface-elevated p-6 shadow-sm">
+          <div class="mb-4 flex items-center justify-between border-b border-rule-hairline pb-3">
+            <div class="flex items-center gap-2">
+              <span class="flex h-7 w-7 items-center justify-center rounded bg-accent-primary text-white font-mono text-xs font-bold">
+                IN
+              </span>
+              <h2 class="font-sans text-base font-bold text-ink-900">Numara Listesini Yapıştırın</h2>
+            </div>
+            <span class="font-mono text-xs text-ink-500">Her satıra bir numara</span>
+          </div>
+
+          <div>
+            <textarea
+              id="wa-input-raw"
+              rows="10"
+              class="w-full rounded-xl border border-rule-hairline bg-white p-3 font-mono text-xs leading-relaxed text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary"
+              placeholder="Örnek Girdi:
+0532 111 22 33
++90 (555) 444 55 66
+542 000 11 22
+05051234567
+0 (533) 987 65 43"
+            >0532 111 22 33
++90 (555) 444 55 66
+0 (542) 789 12 34
+5051234567
++905339876543</textarea>
+          </div>
+
+          <!-- Mesaj Şablonu -->
+          <div class="mt-4">
+            <label for="wa-msg-template" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+              Otomatik Mesaj Şablonu (İsteğe Bağlı)
+            </label>
+            <input
+              id="wa-msg-template"
+              type="text"
+              value="Merhaba, Excel Arşiv siparişiniz onaylandı. Takip numaranız hazırlandı."
+              placeholder="Örn: Merhaba, siparişiniz kargoya verildi."
+              class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 font-sans text-xs text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary"
+            />
+          </div>
+
+          <div class="mt-4 flex flex-wrap gap-2">
+            <button
+              id="btn-format-wa"
+              type="button"
+              class="min-h-10 rounded-lg bg-accent-primary px-4 font-mono text-xs font-bold text-white hover:bg-emerald-700 transition-colors"
+            >
+              Listeyi Dönüştür
+            </button>
+            <button
+              id="btn-clear-wa"
+              type="button"
+              class="min-h-10 rounded-lg border border-rule-hairline bg-white px-3 font-mono text-xs text-ink-700 hover:bg-surface transition-colors"
+            >
+              Temizle
+            </button>
+          </div>
+        </div>
+
+        <!-- Excel Fonksiyonu Kutusu -->
+        <div class="rounded-2xl border border-rule-hairline bg-surface p-5">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="font-sans text-sm font-bold text-ink-900">Excel'de Doğrudan Kullanım Formülü</h3>
+            <button id="btn-copy-wa-formula" class="font-mono text-xs text-accent-primary hover:underline">
+              Formülü Kopyala
+            </button>
+          </div>
+          <p class="text-xs text-ink-500 mb-2 leading-relaxed">
+            Telefon numarasının <strong>A2</strong> hücresinde olduğu tablolar için tam uyumlu formül:
+          </p>
+          <code id="wa-excel-formula" class="block overflow-x-auto rounded-lg bg-white p-3 font-mono text-xs text-ink-900 border border-rule-hairline">
+=KÖPRÜ("https://wa.me/90" & METİNTEMİZLE(YERİNEKOY(YERİNEKOY(YERİNEKOY(YERİNEKOY(A2;" ";"");"("; "");")";"");"+";"")); "WhatsApp'tan Yaz")
+          </code>
+        </div>
+      </div>
+
+      <!-- Sağ: Çıktı ve Link Konsolu -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="rounded-2xl border border-rule-strong bg-white p-6 shadow-sm">
+          <div class="flex items-center justify-between border-b border-rule-hairline pb-3">
+            <h3 class="font-sans text-base font-bold text-ink-900">Temizlenmiş Sonuçlar</h3>
+            <div class="flex items-center gap-2 font-mono text-xs">
+              <span class="rounded bg-emerald-100 px-2 py-0.5 text-emerald-800 font-bold" id="cnt-valid">5 Geçerli</span>
+              <span class="rounded bg-rose-100 px-2 py-0.5 text-rose-800 font-bold" id="cnt-invalid">0 Hatalı</span>
+            </div>
+          </div>
+
+          <!-- Canlı Link Tablosu -->
+          <div class="mt-4 max-h-80 overflow-y-auto rounded-xl border border-rule-hairline bg-surface">
+            <table class="w-full text-left font-mono text-xs border-collapse">
+              <thead class="bg-surface-elevated border-b border-rule-hairline text-ink-500 uppercase sticky top-0">
+                <tr>
+                  <th class="p-2.5 font-medium">#</th>
+                  <th class="p-2.5 font-medium">Temiz Numara</th>
+                  <th class="p-2.5 font-medium text-right">Eylem</th>
+                </tr>
+              </thead>
+              <tbody id="wa-results-body" class="divide-y divide-rule-hairline text-ink-900">
+                <!-- JS ile dinamik doldurulur -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Dışa Aktarma Eylemleri -->
+          <div class="mt-4 flex flex-wrap gap-2 pt-2 border-t border-rule-hairline">
+            <button
+              id="btn-copy-clean-numbers"
+              type="button"
+              class="min-h-10 rounded-lg bg-surface-elevated border border-rule-hairline px-3 font-mono text-xs text-ink-900 hover:bg-white transition-colors"
+            >
+              Temiz Numaraları Kopyala
+            </button>
+            <button
+              id="btn-copy-wa-links"
+              type="button"
+              class="min-h-10 rounded-lg bg-surface-elevated border border-rule-hairline px-3 font-mono text-xs text-ink-900 hover:bg-white transition-colors"
+            >
+              WhatsApp Linklerini Kopyala
+            </button>
+          </div>
+        </div>
+
+        <!-- Ticari Köprü: Müşteri Takip Sistemi -->
+        <div class="rounded-2xl border-2 border-accent-primary bg-emerald-50/50 p-6 shadow-sm">
+          <div class="flex items-start gap-3">
+            <div class="text-2xl">📱</div>
+            <div>
+              <h4 class="font-sans text-base font-bold text-ink-900">Müşteri & Sipariş Takibini Profesyonelleştirin</h4>
+              <p class="mt-1 text-xs text-ink-700 leading-relaxed">
+                Tüm müşteri portföyünüzü, tahsilat vadelerini ve sipariş teslim durumlarını tek tıkla WhatsApp entegre takip etmek için hazır şablonumuzu keşfedin.
+              </p>
+              <div class="mt-4 flex flex-wrap items-center gap-3">
+                <Button href="/sablon/pos-komisyon-ve-net-tahsilat-kontrol-sistemi#satin-al">
+                  Cari & Tahsilat Sistemini Gör
+                </Button>
+                <Button href="/sablonlar" variant="secondary">
+                  Tüm Şablonlar
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</CommerceLayout>
+
+<script>
+  interface ParsedPhone {
+    original: string;
+    clean: string;
+    isValid: boolean;
+    link: string;
+  }
+
+  function cleanPhone(raw: string, template: string): ParsedPhone {
+    let digits = raw.replace(/[^0-9]/g, '');
+    
+    if (digits.startsWith('90') && digits.length === 12) {
+      digits = digits.slice(2);
+    } else if (digits.startsWith('0') && digits.length === 11) {
+      digits = digits.slice(1);
+    }
+
+    const isValid = digits.length === 10 && digits.startsWith('5');
+    const fullNumber = '90' + digits;
+    const encodedMsg = encodeURIComponent(template.trim());
+    const link = isValid ? 'https://wa.me/' + fullNumber + (encodedMsg ? '?text=' + encodedMsg : '') : '';
+
+    return {
+      original: raw,
+      clean: isValid ? '0' + digits.slice(0,3) + ' ' + digits.slice(3,6) + ' ' + digits.slice(6,8) + ' ' + digits.slice(8,10) : raw,
+      isValid,
+      link
+    };
+  }
+
+  function processList() {
+    const rawText = (document.getElementById('wa-input-raw') as HTMLTextAreaElement)?.value || '';
+    const template = (document.getElementById('wa-msg-template') as HTMLInputElement)?.value || '';
+    const lines = rawText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+
+    const parsed = lines.map(line => cleanPhone(line, template));
+    const validCount = parsed.filter(p => p.isValid).length;
+    const invalidCount = parsed.length - validCount;
+
+    const cntValid = document.getElementById('cnt-valid');
+    const cntInvalid = document.getElementById('cnt-invalid');
+    if (cntValid) cntValid.textContent = validCount + ' Geçerli';
+    if (cntInvalid) cntInvalid.textContent = invalidCount + ' Hatalı';
+
+    const tbody = document.getElementById('wa-results-body');
+    if (tbody) {
+      tbody.innerHTML = '';
+      parsed.forEach((item, idx) => {
+        const tr = document.createElement('tr');
+        tr.className = item.isValid ? 'hover:bg-white' : 'bg-rose-50/50 hover:bg-rose-50';
+        
+        const tdIdx = document.createElement('td');
+        tdIdx.className = 'p-2.5 text-ink-500';
+        tdIdx.textContent = String(idx + 1);
+
+        const tdNum = document.createElement('td');
+        tdNum.className = 'p-2.5 font-medium ' + (item.isValid ? 'text-ink-900' : 'text-rose-600 line-through');
+        tdNum.textContent = item.clean;
+        if (!item.isValid) {
+          const span = document.createElement('span');
+          span.className = 'ml-1 text-[10px] text-rose-500 font-sans';
+          span.textContent = ' (Geçersiz)';
+          tdNum.appendChild(span);
+        }
+
+        const tdAction = document.createElement('td');
+        tdAction.className = 'p-2.5 text-right';
+        if (item.isValid) {
+          const a = document.createElement('a');
+          a.href = item.link;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.className = 'inline-flex items-center gap-1 rounded bg-emerald-50 px-2 py-1 text-[11px] font-bold text-emerald-700 hover:bg-emerald-100 border border-emerald-200 transition-colors';
+          a.textContent = 'Aç ↗';
+          tdAction.appendChild(a);
+        } else {
+          tdAction.textContent = '-';
+        }
+
+        tr.appendChild(tdIdx);
+        tr.appendChild(tdNum);
+        tr.appendChild(tdAction);
+        tbody.appendChild(tr);
+      });
+    }
+
+    (window as any)._parsedPhones = parsed;
+  }
+
+  document.getElementById('btn-format-wa')?.addEventListener('click', processList);
+  document.getElementById('wa-msg-template')?.addEventListener('input', processList);
+  document.getElementById('wa-input-raw')?.addEventListener('input', processList);
+
+  document.getElementById('btn-clear-wa')?.addEventListener('click', () => {
+    const input = document.getElementById('wa-input-raw') as HTMLTextAreaElement;
+    if (input) input.value = '';
+    processList();
+  });
+
+  document.getElementById('btn-copy-clean-numbers')?.addEventListener('click', () => {
+    const list: ParsedPhone[] = (window as any)._parsedPhones || [];
+    const valid = list.filter(p => p.isValid).map(p => p.clean).join('\n');
+    if (valid) {
+      navigator.clipboard.writeText(valid).then(() => {
+        alert('Geçerli temiz numaralar panoya kopyalandı!');
+      });
+    }
+  });
+
+  document.getElementById('btn-copy-wa-links')?.addEventListener('click', () => {
+    const list: ParsedPhone[] = (window as any)._parsedPhones || [];
+    const links = list.filter(p => p.isValid).map(p => p.link).join('\n');
+    if (links) {
+      navigator.clipboard.writeText(links).then(() => {
+        alert('WhatsApp bağlantıları panoya kopyalandı!');
+      });
+    }
+  });
+
+  document.getElementById('btn-copy-wa-formula')?.addEventListener('click', () => {
+    const formula = document.getElementById('wa-excel-formula')?.textContent?.trim() || '';
+    navigator.clipboard.writeText(formula).then(() => {
+      alert('Excel formülü panoya kopyalandı!');
+    });
+  });
+
+  processList();
+</script>

@@ -2,57 +2,212 @@
 import CommerceLayout from '../../layouts/CommerceLayout.astro';
 import SectionLabel from '../../components/SectionLabel.astro';
 import Button from '../../components/Button.astro';
+
+const breadcrumbs = [
+  { label: 'Ana Sayfa', href: '/' },
+  { label: 'Hesaplayıcılar', href: '/hesaplayici' },
+  { label: 'Asgari Ücret Zam Etkisi', href: '/hesaplayici/asgari-ucret-zam-etkisi' },
+];
+
+const seoTitle = 'Asgari Ücret Zam Etkisi ve İşveren Maliyeti Hesaplayıcı — Excel Arşiv';
+const seoDesc = 'Asgari ücret artış oranının personel bütçesine, toplam işveren yüküne ve birim maliyetlere etkisini kuruşu kuruşuna hesaplayın.';
 ---
 
 <CommerceLayout
-  title="Asgari Ücret Zam Etkisi — Ücretsiz Web Hesaplayıcı"
-  description="Asgari ücret zammının personel maliyeti ve fiyat ayarına etkisini hızlı hesaplayın; tam Excel sistemine geçiş yolu."
+  title={seoTitle}
+  description={seoDesc}
 >
-  <section class="mx-auto max-w-3xl px-4 pb-16 pt-8">
-    <SectionLabel number={7} label="Lead Magnet" />
-    <h1 class="display mt-6">Asgari ücret zam etkisi — mini hesaplayıcı</h1>
-    <p class="lead mt-6">
-      Kabaca maliyet artışını görün. Detaylı senaryo, fiyat yansıtma ve rapor için tam Excel
-      ürününe geçin. Bu sayfa karar desteğidir; mali müşavirlik yerine geçmez.
-    </p>
+  <div class="mx-auto max-w-5xl px-4 py-8 md:py-12">
+    <!-- Breadcrumb -->
+    <nav class="mb-6 flex flex-wrap items-center gap-2 font-mono text-xs text-ink-500" aria-label="Breadcrumb">
+      {breadcrumbs.map((b, i) => (
+        <>
+          {i > 0 && <span class="text-rule-strong">/</span>}
+          {i === breadcrumbs.length - 1 ? (
+            <span class="text-ink-900 font-semibold">{b.label}</span>
+          ) : (
+            <a href={b.href} class="hover:text-accent-primary transition-colors">{b.label}</a>
+          )}
+        </>
+      ))}
+    </nav>
 
-    <form class="mt-10 grid gap-4 rounded-2xl border border-rule-hairline bg-surface-elevated p-6" data-asgari-form>
-      <label for="asgari-mevcut" class="grid gap-2">
-        <span class="font-mono text-xs text-ink-500">Mevcut aylık brüt işveren maliyeti (TL)</span>
-        <input id="asgari-mevcut" class="min-h-11 rounded-lg border border-rule-hairline px-3" name="mevcut" type="number" min="0" step="1" required value="30000" aria-label="Mevcut aylık brüt işveren maliyeti (TL)" />
-      </label>
-      <label for="asgari-oran" class="grid gap-2">
-        <span class="font-mono text-xs text-ink-500">Zam oranı (%)</span>
-        <input id="asgari-oran" class="min-h-11 rounded-lg border border-rule-hairline px-3" name="oran" type="number" min="0" max="100" step="0.1" required value="30" aria-label="Zam oranı yüzde" />
-      </label>
-      <label for="asgari-adet" class="grid gap-2">
-        <span class="font-mono text-xs text-ink-500">Personel sayısı</span>
-        <input id="asgari-adet" class="min-h-11 rounded-lg border border-rule-hairline px-3" name="adet" type="number" min="1" step="1" required value="5" aria-label="Personel sayısı" />
-      </label>
-      <button type="submit" aria-label="Zam etkisini hesapla" class="min-h-11 rounded-lg bg-accent-primary px-4 font-mono text-sm text-white">Hesapla</button>
-      <p class="font-mono text-sm text-ink-700" data-asgari-sonuc aria-live="polite">Sonuç burada görünür.</p>
-    </form>
-
-    <div class="mt-10 flex flex-wrap gap-3">
-      <Button href="/sablon/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli#satin-al">Tam Excel sistemini al</Button>
-      <Button href="/demo/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli" variant="secondary">Ücretsiz Demo</Button>
+    <div class="mb-8">
+      <SectionLabel number={4} label="İşgücü Maliyet Simülatörü" />
+      <h1 class="display mt-4 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">
+        Asgari Ücret Zam Etkisi & İşveren Yükü Hesaplayıcı
+      </h1>
+      <p class="lead mt-3 max-w-3xl text-ink-700 text-base sm:text-lg">
+        Olası veya kesinleşen asgari ücret zam oranının personel başı ve toplam kadronuzdaki aylık/yıllık nakit çıkışına etkisini ölçün; fiyatlarınıza yansıtmanız gereken asgari zam oranını görün.
+      </p>
     </div>
-  </section>
+
+    <!-- Live Workspace Grid -->
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+      <!-- Sol: Giriş Formu -->
+      <div class="lg:col-span-7">
+        <div class="rounded-2xl border border-rule-strong bg-surface-elevated p-6 shadow-sm">
+          <div class="mb-6 flex items-center justify-between border-b border-rule-hairline pb-4">
+            <div class="flex items-center gap-3">
+              <div class="flex h-8 w-8 items-center justify-center rounded bg-accent-primary text-white font-mono text-sm font-bold">
+                İK
+              </div>
+              <div>
+                <h2 class="font-sans text-lg font-bold text-ink-900">Bordro ve Kadro Parametreleri</h2>
+                <p class="font-mono text-xs text-ink-500">İŞVEREN MALİYETİ SİMÜLASYONU</p>
+              </div>
+            </div>
+            <span class="rounded-full bg-emerald-50 px-3 py-1 font-mono text-xs font-semibold text-emerald-800 border border-emerald-200">
+              Canlı Model
+            </span>
+          </div>
+
+          <form id="asgari-calc-form" class="space-y-4" onsubmit="return false;">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label for="asgari-mevcut" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+                  Mevcut Kişi Başı Brüt Maliyet
+                </label>
+                <div class="relative">
+                  <input id="asgari-mevcut" type="number" step="500" min="0" value="30500" class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 pr-8 font-mono text-sm text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary" />
+                  <span class="absolute right-3 top-3 font-mono text-xs text-ink-500">TL</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="asgari-oran" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+                  Tahmini / Kesinleşen Zam Oranı (%)
+                </label>
+                <div class="relative">
+                  <input id="asgari-oran" type="number" step="1" min="0" max="150" value="30" class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 pr-8 font-mono text-sm text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary" />
+                  <span class="absolute right-3 top-3 font-mono text-xs text-ink-500">%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label for="asgari-adet" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+                  Etkilenen Personel Sayısı
+                </label>
+                <div class="relative">
+                  <input id="asgari-adet" type="number" step="1" min="1" value="8" class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 pr-8 font-mono text-sm text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary" />
+                  <span class="absolute right-3 top-3 font-mono text-xs text-ink-500">Kişi</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="asgari-isgucu-payi" class="block font-mono text-xs font-medium text-ink-700 mb-1">
+                  İşçiliğin Cirodaki Payı (%)
+                </label>
+                <div class="relative">
+                  <input id="asgari-isgucu-payi" type="number" step="1" min="1" max="100" value="25" class="w-full min-h-11 rounded-lg border border-rule-hairline bg-white px-3 pr-8 font-mono text-sm text-ink-900 focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary" />
+                  <span class="absolute right-3 top-3 font-mono text-xs text-ink-500">%</span>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="mt-6 rounded-lg bg-surface border border-rule-hairline p-3 text-xs text-ink-700">
+            <span class="font-semibold text-accent-primary">📌 Yansıtma Notu:</span> İşçiliğin maliyet içerisindeki payına göre kâr marjınızı korumak için satış fiyatlarınıza yansıtmanız gereken matematiksel oran sağ panelde hesaplanmaktadır.
+          </div>
+        </div>
+      </div>
+
+      <!-- Sağ: Çıktı Paneli -->
+      <div class="lg:col-span-5 flex flex-col gap-6">
+        <div class="rounded-2xl border border-rule-strong bg-white p-6 shadow-sm">
+          <div class="flex items-center justify-between border-b border-rule-hairline pb-4">
+            <h3 class="font-sans text-base font-bold text-ink-900">Bütçe Etkisi ve Karar</h3>
+            <span class="rounded px-2.5 py-0.5 font-mono text-xs font-bold bg-amber-100 text-amber-800">
+              EK YÜK
+            </span>
+          </div>
+
+          <!-- Ana KPI -->
+          <div class="mt-6 rounded-xl bg-surface-elevated p-5 text-center border border-rule-hairline">
+            <div class="font-mono text-xs text-ink-500 uppercase tracking-wider">Aylık Toplam Ek Maliyet</div>
+            <div id="asgari-res-aylik-fark" class="mt-2 font-mono text-4xl font-extrabold text-amber-600">
+              73.200 TL
+            </div>
+            <div class="mt-2 text-xs font-mono text-ink-700">
+              Yıllık Bütçe Yükü: <span id="asgari-res-yillik-fark" class="font-bold text-ink-900">878.400 TL</span>
+            </div>
+          </div>
+
+          <div class="mt-6 space-y-2.5 font-mono text-xs border-t border-rule-hairline pt-4">
+            <div class="flex justify-between text-ink-700">
+              <span>Personel Başı Yeni Maliyet:</span>
+              <span id="asgari-res-yeni-maliyet" class="font-bold text-ink-900">39.650 TL</span>
+            </div>
+            <div class="flex justify-between text-ink-700">
+              <span>Personel Başı Aylık Artış:</span>
+              <span id="asgari-res-kisi-fark" class="text-rose-600 font-bold">+9.150 TL</span>
+            </div>
+            <div class="flex justify-between bg-surface-elevated p-2 rounded border border-rule-hairline font-bold text-ink-900">
+              <span>Fiyatlara Yansıtılması Gereken Zam:</span>
+              <span id="asgari-res-fiyat-zam" class="text-accent-primary font-mono text-sm">%7.5</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border-2 border-accent-primary bg-emerald-50/50 p-6 shadow-sm">
+          <div class="flex items-start gap-3">
+            <div class="text-2xl">📑</div>
+            <div>
+              <h4 class="font-sans text-base font-bold text-ink-900">Tam Fiyat Ayarlama Cetveli</h4>
+              <p class="mt-1 text-xs text-ink-700 leading-relaxed">
+                Tüm ürünlerinizin maliyet reçetesini güncelleyip doğru fiyat listesini otomatik oluşturan tam Excel sistemine geçin.
+              </p>
+              <div class="mt-4 flex flex-wrap items-center gap-3">
+                <Button href="/sablon/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli#satin-al">
+                  Tam Excel Sistemini Al
+                </Button>
+                <Button href="/demo/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli" variant="secondary">
+                  Ücretsiz Demo
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </CommerceLayout>
 
 <script>
-  const form = document.querySelector<HTMLFormElement>('[data-asgari-form]');
-  const sonuc = document.querySelector<HTMLElement>('[data-asgari-sonuc]');
-  form?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const data = new FormData(form);
-    const mevcut = Number(data.get('mevcut') || 0);
-    const oran = Number(data.get('oran') || 0) / 100;
-    const adet = Number(data.get('adet') || 1);
+  function calcAsgari() {
+    const mevcut = Number((document.getElementById('asgari-mevcut') as HTMLInputElement)?.value || 0);
+    const oran = Number((document.getElementById('asgari-oran') as HTMLInputElement)?.value || 0) / 100;
+    const adet = Number((document.getElementById('asgari-adet') as HTMLInputElement)?.value || 1);
+    const isgucuPayi = Number((document.getElementById('asgari-isgucu-payi') as HTMLInputElement)?.value || 25) / 100;
+
     const yeni = mevcut * (1 + oran);
-    const fark = (yeni - mevcut) * adet;
-    if (sonuc) {
-      sonuc.textContent = `Yaklaşık aylık ek işveren yükü: ${Math.round(fark).toLocaleString('tr-TR')} TL (kabaca; tam model Excel’de).`;
-    }
+    const kisiBasiFark = yeni - mevcut;
+    const aylikToplamFark = kisiBasiFark * adet;
+    const yillikToplamFark = aylikToplamFark * 12;
+    const fiyatZamIhtiyaci = oran * isgucuPayi * 100;
+
+    const fmt = (v: number) => Math.round(v).toLocaleString('tr-TR') + ' TL';
+
+    const aylikFarkEl = document.getElementById('asgari-res-aylik-fark');
+    const yillikFarkEl = document.getElementById('asgari-res-yillik-fark');
+    const yeniMaliyetEl = document.getElementById('asgari-res-yeni-maliyet');
+    const kisiFarkEl = document.getElementById('asgari-res-kisi-fark');
+    const fiyatZamEl = document.getElementById('asgari-res-fiyat-zam');
+
+    if (aylikFarkEl) aylikFarkEl.textContent = fmt(aylikToplamFark);
+    if (yillikFarkEl) yillikFarkEl.textContent = fmt(yillikToplamFark);
+    if (yeniMaliyetEl) yeniMaliyetEl.textContent = fmt(yeni);
+    if (kisiFarkEl) kisiFarkEl.textContent = '+' + fmt(kisiBasiFark);
+    if (fiyatZamEl) fiyatZamEl.textContent = '%' + fiyatZamIhtiyaci.toFixed(1);
+  }
+
+  const form = document.getElementById('asgari-calc-form');
+  form?.querySelectorAll('input').forEach((el) => {
+    el.addEventListener('input', calcAsgari);
+    el.addEventListener('change', calcAsgari);
   });
+
+  calcAsgari();
 </script>

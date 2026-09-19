@@ -4,7 +4,7 @@ Bu belge canlı build içindeki indexlenebilir ve canonical public sayfalardan t
 
 ## Site kimliği
 
-- Son güncelleme: 2026-09-13
+- Son güncelleme: 2026-09-19
 - Marka: Excel Arşiv
 - Canonical origin: https://excelarsiv.com
 - Dil: Türkçe (tr-TR)
@@ -42,7 +42,7 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 
 ### Finansal Karar ve Excel Sistemleri | Excel Arşiv
 - URL: https://excelarsiv.com/
-- Açıklama: Nakit akışı, kasa, cari, KDV, stok, personel ve kârlılık için hazır Excel karar sistemleri. Gerçek ekranları görün, karar rehberlerinden doğru ürünü seçin.
+- Açıklama: Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için hazır Excel karar sistemleri. Gerçek ekranları ve demoları görün; ihtiyacınıza uygun sistemi seçin.
 
 ### Nasıl Çalışır — Excel Arşiv
 - URL: https://excelarsiv.com/nasil-calisir
@@ -200,9 +200,21 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 
 ## Ücretsiz hesaplayıcılar
 
-### Asgari Ücret Zam Etkisi — Ücretsiz Web Hesaplayıcı
+### Asgari Ücret Zam Etkisi ve İşveren Maliyeti Hesaplayıcı — Excel Arşiv
 - URL: https://excelarsiv.com/hesaplayici/asgari-ucret-zam-etkisi
-- Açıklama: Asgari ücret zammının personel maliyeti ve fiyat ayarına etkisini hızlı hesaplayın; tam Excel sistemine geçiş yolu.
+- Açıklama: Asgari ücret artış oranının personel bütçesine, toplam işveren yüküne ve birim maliyetlere etkisini kuruşu kuruşuna hesaplayın.
+
+### Freelancer & Şahıs Şirketi Gelir-Gider, KDV ve Net Kalan Hesaplayıcı — Excel Arşiv
+- URL: https://excelarsiv.com/hesaplayici/freelancer-gelir-gider-kdv-vergi-hesaplayici
+- Açıklama: Fatura geliriniz, KDV tahakkuku, stopaj, Bağkur ve gelir vergisi dilimleri sonrası elinize net ne kadar para kaldığını kuruşu kuruşuna hesaplayın.
+
+### Pazaryeri Komisyon ve Net Kâr Hesaplayıcı (Trendyol, Hepsiburada, Amazon) — Excel Arşiv
+- URL: https://excelarsiv.com/hesaplayici/pazaryeri-komisyon-kar-hesaplama
+- Açıklama: Pazaryeri komisyon oranı, kargo baremi, hizmet bedeli ve KDV tevkifatı sonrası gerçek net kârınızı ve başa baş satış fiyatınızı anında hesaplayın.
+
+### Toplu WhatsApp Linki ve Telefon Formatlayıcı — Excel Arşiv
+- URL: https://excelarsiv.com/hesaplayici/whatsapp-link-ve-telefon-formatlayici
+- Açıklama: Karışık müşteri telefon numaralarını tek tıkla standart formata çevirin, toplu WhatsApp wa.me bağlantıları ve doğrudan çalışan Excel formülü üretin.
 
 ## Güven, yasal ve uzmanlık
 
@@ -263,6 +275,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 ### Gizlilik Politikası ve KVKK Aydınlatma | Excel Arşiv
 - URL: https://excelarsiv.com/gizlilik-politikasi
 - Açıklama: 6698 sayılı KVKK ve ilgili mevzuat uyarınca Excel Arşiv gizlilik politikası, kişisel verilerin korunması, çerez yönetimi ve veri güvenliği ilkeleri.
+
+### Ücretsiz Excel Hesaplayıcılar ve Karar Konsolları — Excel Arşiv
+- URL: https://excelarsiv.com/hesaplayici
+- Açıklama: E-ticaret pazaryeri komisyonları, WhatsApp link formatlama, freelancer gelir vergisi ve bordro maliyetlerini anında hesaplayan profesyonel ücretsiz karar araçları.
 
 ### Excel Karar Rehberleri | Excel Arşiv
 - URL: https://excelarsiv.com/karar
@@ -340,9 +356,17 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - URL: https://excelarsiv.com/karar/ttk-376-sermaye-kaybi-excel
 - Açıklama: Öz kaynak erimesi, sermaye kaybı ve borca batıklık göstergelerini değerlendirmek için uygun Excel sistemini görün.
 
+### Mali Müşavir İş Ortaklığı | Excel Arşiv
+- URL: https://excelarsiv.com/ortaklik-mali-musavir
+- Açıklama: Müşterilerinizde tekrar eden nakit, kredi, tahsilat ve finans raporlama işlerini hazır Excel karar sistemleriyle standartlaştırın. Ürünleri inceleyin ve pilot iş ortaklığına katılın.
+
 ### İhtiyaca Özel Excel Finans ve Karar Sistemleri | Excel Arşiv
 - URL: https://excelarsiv.com/ozel-excel-sistemleri
 - Açıklama: Hazır Excel dosyaları işinize uymuyorsa; nakit akışı, banka-kredi, maliyet, bütçe, fizibilite ve yönetim raporlaması için işletmenize özel Excel sistemi kuruyoruz.
+
+### Excel Sistemini Paylaş | Excel Arşiv
+- URL: https://excelarsiv.com/referans
+- Açıklama: İşinize yarayan Excel Arşiv karar sistemini başka bir işletme sahibi veya mali müşavirle paylaşın.
 
 ### Ürün Bulucu — İşletmeniz İçin Doğru Excel Sistemini Seçin | Excel Arşiv
 - URL: https://excelarsiv.com/urun-bulucu
@@ -440,10 +464,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/asiri-dusuk-teklif-savunma-robotu#satin-al
 - Demo açılış: https://excelarsiv.com/demo/asiri-dusuk-teklif-savunma-robotu
 
-### Finans Dashboard Excel | Aylık Patron Paneli
+### Finans Paneli Satın Al | Aylık Patron Excel Paneli
 - URL: https://excelarsiv.com/sablon/aylik-patron-finans-paneli
 - Ürün adı: Aylık Patron Finans Paneli
-- Arama açıklaması: Nakit, borç, tahsilat ve kârlılık göstergelerini tek yönetici ekranında birleştiren aylık finans dashboard Excel sistemini inceleyin.
+- Arama açıklaması: Aylık finans panelini satın almadan önce gerçek Excel ekranlarını ve ücretsiz demoyu inceleyin. Ciro, kâr, nakit ve alacak göstergelerini tek yönetici ekranında görün.
 - Ürün özeti: Ciro, net kâr, nakit, alacak günü ve FAVÖK göstergelerini aylık tek panelde toplayın; trendi yön tablosuyla okuyun.
 - Kategori kodu: finansal-analiz
 - Fiyat: 999 TL (KDV dahil)
