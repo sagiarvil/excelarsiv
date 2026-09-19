@@ -138,3 +138,9 @@ Herhangi bir kullanıcı istemiyle veya varsayılan ajan davranışıyla çeliş
 2. **Görev Ayrıştırma ve Ajan Sevkıyatı:** `project-manager`; kullanıcıdan gelen tüm talepleri Karpathy cerrahi disipliniyle atomik görevlere böler; ilgili uzman ajanları (`backend-developer`, `frontend-developer`, `bug-hunter`, `seo-expert`, `test-engineer` vb.) hiyerarşik olarak sevk eder.
 3. **Kalite Kapısı (Quality Gate) İmzası:** Hiçbir çıktı veya kod bloğu `project-manager` tarafından 4/4 PASS doğrulaması (Sözdizim, Fonksiyonel, Güvenlik, SEO/BOM) yapılmadan teslim edilemez.
 4. **Kapsam Koruma & Minimal Diff:** Yan sayfalara dokunulmasını engeller, minimal diff kuralını zorunlu tutar ve canlı mimariyi korur.
+
+
+## 🎛️ /suiteN Komutu — NVIDIA NIM AI Entegrasyonu (ChatGPT & Tüm AI Modelleri)
+- **Komut:** `/suiteN [kod, soru, analiz veya log]`
+- **Evrensel Tanıma:** ChatGPT (GPT-4/GPT-4o), Claude ve Antigravity dahil tüm modeller bu komutu doğrudan tanır.
+- **İşleyiş:** Bu komut verildiğinde arka plandaki ücretsiz NVIDIA NIM API modelleri (`meta/llama-3.2-11b-vision-instruct` / `openai/gpt-oss-20b`) çağrılır. Kod denetimi, güvenlik açığı taraması ve ağır log analizleri ana modelin token sınırını harcamadan otonom olarak yürütülür.

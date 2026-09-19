@@ -47,6 +47,9 @@ Generate new*.json
 .firebase/hosting.ZGlzdA.cache
 sbom/
 archive/
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
 .agents/
 config/
-
