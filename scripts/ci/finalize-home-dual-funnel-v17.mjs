@@ -24,43 +24,11 @@ if (html.includes('data-dual-funnel-home-v17')) {
 requireReplace(/<body\b([^>]*)>/u, '<body$1 data-dual-funnel-home-v17>', 'body marker');
 requireReplace(/<title>[\s\S]*?<\/title>/u, '<title>Finansal Karar ve Excel Sistemleri | Excel Arşiv</title>', 'title');
 
-const financePillars = `
-<section class="finance-pillars" id="finans-sistemleri" data-experience-stage>
+const painCardsSection = `
+<section class="home-pain-grid-section" id="finans-karar-kartlari" data-experience-stage style="padding:48px 0 32px;background:#fff;border-bottom:1px solid #dfe5e0;">
   <div class="home-shell">
-    
-    <!-- 5 Saniyede Anlaşılan Değer Vaadi (İyzico & N Kolay Netliği) -->
-    <div class="decision-clarity-head">
-      <p class="decision-eyebrow">RAPOR DEĞİL, ŞİRKETİNİZİ KURTARAN NET KARAR</p>
-      <h2>90 Dakikada Bankanın Göreceği Kredi Engellerini ve Nakit Açığınızı Çıkarıyoruz.</h2>
-      <p class="decision-lead">Dağınık tablolarla veya aylarca süren danışmanlıklarla vakit kaybetmeyin. 17 yıllık ticari bankacılık refleksini şirketinizin kararlarına entegre edin.</p>
-      
-      <div class="decision-quick-steps" aria-label="3 Adımda Net Çözüm">
-        <div class="quick-step-box">
-          <span class="step-num">01</span>
-          <div>
-            <strong>Mevcut Verinizi Seçin</strong>
-            <small>Logo, SAP, ekstre veya dağınık tablolarınızı getirin; karmaşık şartname yok.</small>
-          </div>
-        </div>
-        <div class="quick-step-box">
-          <span class="step-num">02</span>
-          <div>
-            <strong>Bankacının Gözüyle Teşhis</strong>
-            <small>Kredi engellerini, nakit açığı alarmını ve kâr sızıntısını 90 dakikada görün.</small>
-          </div>
-        </div>
-        <div class="quick-step-box">
-          <span class="step-num">03</span>
-          <div>
-            <strong>Aynı Gün Çalışan Karar Sistemi</strong>
-            <small>%100 açık formül, sıfır makro, veriniz sadece cihazınızda kalır.</small>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- 4 Temel Acı ve Kesin Karar Bento Kutuları -->
-    <div class="pain-decision-grid" aria-label="4 Temel Finansal Tıkanıklık ve Net Çözüm">
+    <div class="pain-decision-grid" aria-label="4 Temel Finansal Tıkanıklık ve Net Çözüm" style="margin-bottom:0;">
       
       <!-- Kart 1: Kredi Engelleri & Limit Darboğazı -->
       <article class="decision-card decision-card--navy">
@@ -134,6 +102,70 @@ const financePillars = `
         <a href="/sablonlar?q=butce" class="decision-link" data-cta="home_finance_budget" data-location="finance_pillars">Bütçe &amp; Değerleme Sistemini İncele →</a>
       </article>
 
+    </div>
+  </div>
+</section>
+`;
+
+const financePillars = `
+<section class="finance-pillars" id="finans-sistemleri" data-experience-stage>
+  <div class="home-shell">
+    
+    <!-- PDF Slayt 2 & 24 Stili: Kurumsal Güven ve Entegrasyon Ekosistemi -->
+    <div class="pdf-ecosystem-hero-card" aria-label="Kurumsal Finans Ekosistemi">
+      <div class="eco-hero-left">
+        <span class="decision-eyebrow">KURUMSAL GÜVENCE VE ALTYAPI</span>
+        <h3 class="eco-hero-title">17 Yıllık Ticari Bankacılık Gücüyle Reel Sektör Karar Mimarisi</h3>
+        <p class="eco-hero-desc">Mali tablolarınızı, nakit akışınızı ve kredi riskinizi ağır ve maliyetli yazılımlara bağımlı kalmadan; güvenli, açık formüllü ve yerel çalışan Excel sistemleriyle yönetin.</p>
+        
+        <div class="eco-pill-stack">
+          <div class="eco-pill-box">
+            <span class="eco-pill-icon">🏛️</span>
+            <div>
+              <strong>17 Yıllık Ticari Bankacılık Metodolojisi</strong>
+              <small>Kredi komitelerinin ve tecrübeli CFO'ların baktığı rasyolarla modellenmiş hazır finansal refleks.</small>
+            </div>
+          </div>
+          <div class="eco-pill-box">
+            <span class="eco-pill-icon">⚡</span>
+            <div>
+              <strong>51 Hazır Karar Sistemi &amp; Özel Çözüm Mimarisi</strong>
+              <small>İster 10 saniyede hazır sistemi indirin, ister şirketinize has darboğazı 3 günde karar motoruna dönüştürelim.</small>
+            </div>
+          </div>
+          <div class="eco-pill-box">
+            <span class="eco-pill-icon">🔒</span>
+            <div>
+              <strong>%100 Yerel Veri Mahremiyeti &amp; Sıfır Makro</strong>
+              <small>Cironuz ve müşteri veriniz asla buluta çıkmaz; saf .xlsx formatında virüssüz ve engelsiz çalışır.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="eco-hero-right">
+        <div class="eco-banner-card">
+          <div class="eco-banner-header">
+            <span class="eco-badge">TAM ENTEGRASYON VE UYUM</span>
+            <h4>Reel Sektör &amp; Finans Ekosistemi</h4>
+            <p>Mevcut ERP mizanlarınızı ve banka ekstrelerinizi tek bir standart veri tablosuna bağlayarak anında karar üretin.</p>
+          </div>
+          <div class="eco-logos-grid">
+            <div class="eco-logo-item"><strong>Logo</strong><span>Muhasebe</span></div>
+            <div class="eco-logo-item"><strong>SAP</strong><span>ERP Mizan</span></div>
+            <div class="eco-logo-item"><strong>Mikro</strong><span>Yazılım</span></div>
+            <div class="eco-logo-item"><strong>Zirve</strong><span>Ticari</span></div>
+            <div class="eco-logo-item"><strong>Garanti</strong><span>BBVA Ekstre</span></div>
+            <div class="eco-logo-item"><strong>Akbank</strong><span>Kredi &amp; POS</span></div>
+            <div class="eco-logo-item"><strong>İş Bankası</strong><span>Mali Tahlil</span></div>
+            <div class="eco-logo-item"><strong>Yapı Kredi</strong><span>Ticari Portföy</span></div>
+            <div class="eco-logo-item"><strong>Ziraat</strong><span>Kredi Takip</span></div>
+            <div class="eco-logo-item"><strong>QNB</strong><span>Nakit Yönetimi</span></div>
+            <div class="eco-logo-item"><strong>Vakıfbank</strong><span>Limit Risk</span></div>
+            <div class="eco-logo-item"><strong>Halkbank</strong><span>KOBİ Destek</span></div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- PDF Slayt 3 Şeması: Canlı Excel Kokpit Sahnesi + 4 Altın Mühür -->
@@ -230,6 +262,71 @@ const financePillars = `
       </div>
     </div>
 
+    <!-- Slayt 3 15 Numaralı Matris -->
+    <div class="section-divider-title">
+      <span class="decision-eyebrow">TEK TIKLA ÇALIŞAN FİNANSAL SİSTEMLER</span>
+      <h3>15 Temel İşletme İhtiyacı İçin Hazır Karar Sistemleri</h3>
+      <p>Tek tıkla ihtiyacınız olan karar motorunu seçin, hemen kullanmaya başlayın.</p>
+    </div>
+    <div class="finance-needs-grid" aria-label="15 Temel Çözüm İhtiyacı">
+      <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="finance-need-item"><span class="need-badge">01</span><span class="need-name">13 Haftalık Dinamik Nakit Akışı</span></a>
+      <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" class="finance-need-item"><span class="need-badge">02</span><span class="need-name">Çoklu Banka &amp; Kredi Taksit Takibi</span></a>
+      <a href="/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi" class="finance-need-item"><span class="need-badge">03</span><span class="need-name">Kasa Defteri &amp; Günlük Likidite</span></a>
+      <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="finance-need-item"><span class="need-badge">04</span><span class="need-name">Müşteri Risk Skoru &amp; Cari Yaşlandırma</span></a>
+      <a href="/sablonlar?q=maliyet" class="finance-need-item"><span class="need-badge">05</span><span class="need-name">Birim Maliyet &amp; Dinamik Fiyatlama</span></a>
+      <a href="/sablon/aylik-patron-finans-paneli" class="finance-need-item"><span class="need-badge">06</span><span class="need-name">Aylık Patron &amp; Yönetici Finans Paneli</span></a>
+      <a href="/sablon/cek-senet-ve-vade-risk-sistemi" class="finance-need-item"><span class="need-badge">07</span><span class="need-name">Çek - Senet &amp; Vade Risk Portföyü</span></a>
+      <a href="/sablonlar?q=pazaryeri" class="finance-need-item"><span class="need-badge">08</span><span class="need-name">Pazaryeri Net Kâr &amp; Komisyon Hesabı</span></a>
+      <a href="/sablonlar?q=butce" class="finance-need-item"><span class="need-badge">09</span><span class="need-name">3 Senaryolu Dinamik Bütçe &amp; Tahmin</span></a>
+      <a href="/sablon/ithalat-depo-teslim-rafa-gelen-net-birim-maliyet" class="finance-need-item"><span class="need-badge">10</span><span class="need-name">İthalat Depo Teslim Birim Maliyet</span></a>
+      <a href="/sablon/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici" class="finance-need-item"><span class="need-badge">11</span><span class="need-name">Kıdem, İhbar &amp; Personel Maliyeti</span></a>
+      <a href="/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli" class="finance-need-item"><span class="need-badge">12</span><span class="need-name">Şirket Öz Kaynağı &amp; TTK 376 Cetveli</span></a>
+      <a href="/sablon/pos-komisyon-ve-net-tahsilat-kontrol-sistemi" class="finance-need-item"><span class="need-badge">13</span><span class="need-name">POS Komisyonu &amp; Net Tahsilat Kontrolü</span></a>
+      <a href="/sablon/uretim-recetesi-ve-zam-yansitma-hesaplayici" class="finance-need-item"><span class="need-badge">14</span><span class="need-name">Üretim Reçetesi &amp; Zam Yansıtma</span></a>
+      <a href="/sablon/doviz-acik-pozisyonu-ve-kur-riski-stres-testi" class="finance-need-item"><span class="need-badge">15</span><span class="need-name">Döviz Pozisyonu &amp; Kur Riski Stres Testi</span></a>
+    </div>
+
+    <!-- PDF Slayt 4 & 6 Stili: ERP & Banka Ekstreleriyle Uyumlu Karar Altyapısı (Görsel Destekli) -->
+    <div class="pdf-erp-sync-card" aria-label="ERP ve Banka Veri Entegrasyon Altyapısı">
+      <div class="erp-sync-copy">
+        <span class="decision-eyebrow">HIZLI VERİ ENTEGRASYONU</span>
+        <h3>Ağır Yazılımlara Aylar ve Yüz Binlerce TL Harcamayın</h3>
+        <p>Muhasebe programınız veya bankanız ne olursa olsun; standart mizan ve ekstrelerinizi kopyala-yapıştır ile karar motoruna aktarın.</p>
+        
+        <div class="erp-checklist">
+          <div class="erp-check-item">
+            <span class="check-icon">✓</span>
+            <span>Mizan ve hesap ekstrelerinizi tek sütunla sisteme aktarın</span>
+          </div>
+          <div class="erp-check-item">
+            <span class="check-icon">✓</span>
+            <span>400.000 TL ve 6 aylık ERP kurulum ve danışmanlık maliyetinden kurtulun</span>
+          </div>
+          <div class="erp-check-item">
+            <span class="check-icon">✓</span>
+            <span>Banka kredi komitelerinin baktığı rasyoları aynı gün canlı ekranda izleyin</span>
+          </div>
+          <div class="erp-check-item">
+            <span class="check-icon">✓</span>
+            <span>Sıfır makro, açık formül; ekibinizin alıştığı Excel arayüzünde tam kontrol</span>
+          </div>
+        </div>
+        
+        <a href="/sablonlar" class="erp-action-btn">51 Hazır Karar Sistemini İncele →</a>
+      </div>
+
+      <div class="erp-sync-visual">
+        <div class="visual-frame">
+          <img src="/images/site/excel-analytics-section.webp" alt="Excel Arşiv Finansal Analitik ve Karar Paneli" loading="lazy" class="erp-visual-img" />
+          <div class="visual-badges-strip">
+            <span class="v-badge">📑 Banka Ekstre Ayrıştırıcı</span>
+            <span class="v-badge">🔄 ERP / Mizan Eşleştirici</span>
+            <span class="v-badge">🛒 Pazaryeri Komisyon Hesabı</span>
+            <span class="v-badge">⚡ Canlı Yönetici Kokpiti</span>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <!-- MANDATE BÖLÜM 3: PROBLEM MAĞAZASI (Kullanıcı ürün adı bilmeden doğrudan problemle buluşur) -->
     <div class="problem-store-section" id="problemler" aria-label="Problem Mağazası">
@@ -345,30 +442,8 @@ const financePillars = `
         </a>
       </div>
     </div>
-\n    <!-- 15 Temel Excel Karar Sistemi Haritası -->
-    <div class="section-divider-title">
-      <h3>15 Temel İşletme İhtiyacı İçin Hazır Karar Sistemleri</h3>
-      <p>Tek tıkla ihtiyacınız olan karar motorunu seçin, hemen kullanmaya başlayın.</p>
-    </div>
-    <div class="finance-needs-grid" aria-label="15 Temel Çözüm İhtiyacı">
-      <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="finance-need-item"><span class="need-badge">01</span><span class="need-name">13 Haftalık Dinamik Nakit Akışı</span></a>
-      <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" class="finance-need-item"><span class="need-badge">02</span><span class="need-name">Çoklu Banka &amp; Kredi Taksit Takibi</span></a>
-      <a href="/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi" class="finance-need-item"><span class="need-badge">03</span><span class="need-name">Kasa Defteri &amp; Günlük Likidite</span></a>
-      <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="finance-need-item"><span class="need-badge">04</span><span class="need-name">Müşteri Risk Skoru &amp; Cari Yaşlandırma</span></a>
-      <a href="/sablonlar?q=maliyet" class="finance-need-item"><span class="need-badge">05</span><span class="need-name">Birim Maliyet &amp; Dinamik Fiyatlama</span></a>
-      <a href="/sablon/aylik-patron-finans-paneli" class="finance-need-item"><span class="need-badge">06</span><span class="need-name">Aylık Patron &amp; Yönetici Finans Paneli</span></a>
-      <a href="/sablon/cek-senet-ve-vade-risk-sistemi" class="finance-need-item"><span class="need-badge">07</span><span class="need-name">Çek - Senet &amp; Vade Risk Portföyü</span></a>
-      <a href="/sablonlar?q=pazaryeri" class="finance-need-item"><span class="need-badge">08</span><span class="need-name">Pazaryeri Net Kâr &amp; Komisyon Hesabı</span></a>
-      <a href="/sablonlar?q=butce" class="finance-need-item"><span class="need-badge">09</span><span class="need-name">3 Senaryolu Dinamik Bütçe &amp; Tahmin</span></a>
-      <a href="/sablon/ithalat-depo-teslim-rafa-gelen-net-birim-maliyet" class="finance-need-item"><span class="need-badge">10</span><span class="need-name">İthalat Depo Teslim Birim Maliyet</span></a>
-      <a href="/sablon/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici" class="finance-need-item"><span class="need-badge">11</span><span class="need-name">Kıdem, İhbar &amp; Personel Maliyeti</span></a>
-      <a href="/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli" class="finance-need-item"><span class="need-badge">12</span><span class="need-name">Şirket Öz Kaynağı &amp; TTK 376 Cetveli</span></a>
-      <a href="/sablon/pos-komisyon-ve-net-tahsilat-kontrol-sistemi" class="finance-need-item"><span class="need-badge">13</span><span class="need-name">POS Komisyonu &amp; Net Tahsilat Kontrolü</span></a>
-      <a href="/sablon/uretim-recetesi-ve-zam-yansitma-hesaplayici" class="finance-need-item"><span class="need-badge">14</span><span class="need-name">Üretim Reçetesi &amp; Zam Yansıtma</span></a>
-      <a href="/sablon/doviz-acik-pozisyonu-ve-kur-riski-stres-testi" class="finance-need-item"><span class="need-badge">15</span><span class="need-name">Döviz Pozisyonu &amp; Kur Riski Stres Testi</span></a>
-    </div>
 
-    <!-- Güven İnşaası: Neden Finansal Yönetimde Excel Arşiv Altyapısı? -->
+    <!-- Güven İnşaası: Neden Finansal Yönetimde Excel Arşiv Altyapısı? (6'lı Bento Grid) -->
     <div class="pdf-security-bento-section" aria-label="Kurumsal Güvenlik ve Güvence Standartları">
       <div class="bento-section-head">
         <span class="decision-eyebrow">KURUMSAL GÜVENLİK VE STANDARTLAR</span>
@@ -427,20 +502,78 @@ const financePillars = `
       </div>
     </div>
 
-    <!-- Neden Excel Arşiv 7 Demir Standart -->
-    <div class="pdf-reasons-timeline-card" aria-label="Neden Excel Arşiv 7 Demir Standart">
-      <div class="timeline-head">
+    <!-- PDF Slayt 18 & 21 Stili: Neden Excel Arşiv? Ortada Görsel ve 6 Simetrik Karar Standardı -->
+    <div class="pdf-reasons-center-stage" aria-label="Neden Excel Arşiv Karar Standartları">
+      <div class="reasons-stage-head">
         <span class="decision-eyebrow">NEDEN EXCEL ARŞİV?</span>
-        <h4>Şirketlerin Karar Alırken Bizi Tercih Etmesinin 7 Nedeni</h4>
+        <h3>Finansal Yönetimde 6 Katı Karar Standardı</h3>
+        <p>Yazılımcı mantığıyla değil, reel sektör şirketlerinin mali tahlilini yönetmiş bankacı refleksiyle kurgulandı.</p>
       </div>
-      <div class="pdf-reasons-list">
-        <div class="reason-row"><span class="r-no">1</span><div class="r-content"><strong>17 Yıllık Saha ve Ticari Bankacılık Disiplini</strong><p>Banka kredi komitelerinin ve tecrübeli CFO'ların baktığı rasyolarla modellenmiş hazır finansal refleks.</p></div></div>
-        <div class="reason-row"><span class="r-no">2</span><div class="r-content"><strong>Ağır ERP'lere Göre %95 Daha Düşük Maliyet</strong><p>Yüz binlerce liralık hantal ERP kurulumları ve aylar süren uyarlama süreçleri yerine aynı gün çalışan net çözüm.</p></div></div>
-        <div class="reason-row"><span class="r-no">3</span><div class="r-content"><strong>Sıfır Kurulum ve Sıfır Eğitim Maliyeti</strong><p>Ekibinizin halihazırda bildiği Excel ortamında çalışır. Personel eğitim maliyeti ve adaptasyon kaybı yaşanmaz.</p></div></div>
-        <div class="reason-row"><span class="r-no">4</span><div class="r-content"><strong>Logo, SAP, Mikro ve Zirve Verileriyle Tam Uyum</strong><p>Muhasebe veya ERP programınızdan aldığınız standart mizan ve ekstreleri kolayca besleyebilir, tek ekranda karar üretebilirsiniz.</p></div></div>
-        <div class="reason-row"><span class="r-no">5</span><div class="r-content"><strong>24 Farklı Sektörde 1.000+ İşletmede Kanıtlandı</strong><p>İnşaattan e-ticarete, üretimden toptan ticarete kadar piyasa gerçekleriyle test edilmiş 51+ karar sistemi.</p></div></div>
-        <div class="reason-row"><span class="r-no">6</span><div class="r-content"><strong>Doğrudan Finansal Sistem Mimarı Desteği</strong><p>Standart şablonların ötesinde, şirketinize özel karmaşık darboğazlar için doğrudan Barış Bağırlar mimari danışmanlığı.</p></div></div>
-        <div class="reason-row"><span class="r-no">7</span><div class="r-content"><strong>Sürekli Güncellenen Finans ve Mevzuat Standartları</strong><p>TTK 376, güncel kıdem tavanı, asgari ücret parametreleri ve bankacılık mevzuatıyla daima güncel kalan model yapısı.</p></div></div>
+
+      <div class="reasons-three-col-layout">
+        <!-- Sol 3 Madde (1, 2, 3) -->
+        <div class="reasons-col">
+          <div class="reason-pill-box">
+            <span class="r-circle-num">1</span>
+            <div>
+              <strong>17 Yıllık Saha ve Bankacılık Disiplini</strong>
+              <p>Kredi komitelerinin ve tecrübeli CFO'ların baktığı rasyolarla modellenmiş hazır finansal refleks.</p>
+            </div>
+          </div>
+          <div class="reason-pill-box">
+            <span class="r-circle-num">2</span>
+            <div>
+              <strong>Aynı Gün İndirme &amp; Anında Kullanım</strong>
+              <p>Sipariş sonrası 10 saniyede indirin. Aylar süren eğitim veya kurulum beklemeden doğrudan kullanmaya başlayın.</p>
+            </div>
+          </div>
+          <div class="reason-pill-box">
+            <span class="r-circle-num">3</span>
+            <div>
+              <strong>%100 Açık Formül &amp; Sıfır Makro</strong>
+              <p>Kilitli sayfa veya gizli hücre yok. Şirketinizin değişen ihtiyaçlarına göre istediğiniz gibi genişletin.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orta Görsel Sahnesi -->
+        <div class="reasons-center-visual">
+          <div class="center-img-wrapper">
+            <img src="/images/kapak/kobi-finans-yonetim-paketi.webp" alt="Excel Arşiv KOBİ Finans Karar Sistemi" loading="lazy" class="center-kobi-img" />
+            <div class="center-floating-tag">
+              <span class="tag-icon">⭐</span>
+              <div>
+                <strong>Ticari &amp; KOBİ'lerin 1 Numaralı Tercihi</strong>
+                <small>24 Sektörde 1.000+ Aktif İşletme</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sağ 3 Madde (4, 5, 6) -->
+        <div class="reasons-col">
+          <div class="reason-pill-box">
+            <span class="r-circle-num">4</span>
+            <div>
+              <strong>Yazılımcıya Finans Anlatma Derdi Yok</strong>
+              <p>İş kuralları gerçek şirket bilançoları, çek-senet döngüsü ve banka limit-risk gerçekleriyle hazır kodlandı.</p>
+            </div>
+          </div>
+          <div class="reason-pill-box">
+            <span class="r-circle-num">5</span>
+            <div>
+              <strong>Logo, SAP, Mikro ve Ekstrelerle Uyumlu</strong>
+              <p>Verilerinizi tek bir standart veri tablosuna bağlayarak mutabakat süresini günlerden dakikalara indirin.</p>
+            </div>
+          </div>
+          <div class="reason-pill-box">
+            <span class="r-circle-num">6</span>
+            <div>
+              <strong>Tek Seferlik Ödeme (Sıfır Lisans Yükü)</strong>
+              <p>Aylık veya yıllık abonelik dayatması yok. Bir kez satın alın, ömür boyu sınırsız şirket içi kullanın.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -472,6 +605,52 @@ const financePillars = `
       </div>
     </div>
 
+    <!-- PDF Slayt 24 Stili: Bankacılık Gücüyle Dijital Karar Çözümleri Tek Çatı Altında -->
+    <div class="pdf-umbrella-vision-section" aria-label="Finansal Karar Ekosistemi">
+      <div class="umbrella-copy">
+        <span class="decision-eyebrow">BÜTÜNCÜL KARAR EKOSİSTEMİ</span>
+        <h3>Piyasa Değişir, Şirketinizin Karar Gücü Baki Kalır</h3>
+        <p>17 yıllık ticari bankacılık disiplini, güçlü finansal rasyolar ve pratik Excel sistemleriyle işletmenizi geleceğe taşıyın. Şirketinizin finansal sağlığını korumak bir söylem değil, karar sistemlerimizin temelidir.</p>
+        <div class="umbrella-cta-row">
+          <a href="/sablonlar" class="umbrella-primary-btn">51 Karar Sistemini Keşfedin →</a>
+          <a href="/ozel-excel-sistemleri" class="umbrella-secondary-btn">Özel Mimari Talep Edin</a>
+        </div>
+      </div>
+
+      <div class="umbrella-cluster-visual">
+        <div class="cluster-bubble bubble-main">
+          <span class="bubble-icon">🏛️</span>
+          <strong>Excel Arşiv</strong>
+          <small>Karar Mimarisi</small>
+        </div>
+        <div class="cluster-bubble bubble-1">
+          <span class="bubble-icon">💸</span>
+          <strong>Nakit Akışı</strong>
+          <small>13 Hafta</small>
+        </div>
+        <div class="cluster-bubble bubble-2">
+          <span class="bubble-icon">🏦</span>
+          <strong>Banka &amp; Kredi</strong>
+          <small>Limit Risk</small>
+        </div>
+        <div class="cluster-bubble bubble-3">
+          <span class="bubble-icon">📈</span>
+          <strong>Birim Maliyet</strong>
+          <small>Fiyatlama</small>
+        </div>
+        <div class="cluster-bubble bubble-4">
+          <span class="bubble-icon">📊</span>
+          <strong>Senaryolu Bütçe</strong>
+          <small>Projeksiyon</small>
+        </div>
+        <div class="cluster-bubble bubble-5">
+          <span class="bubble-icon">⚡</span>
+          <strong>Özel Sistemler</strong>
+          <small>Kurumsal</small>
+        </div>
+      </div>
+    </div>
+
     <!-- 24 Sektör Referansı -->
     <div class="pdf-sector-ecosystem-card" aria-label="Sektörel Referanslar">
       <div class="sector-eco-head">
@@ -500,7 +679,8 @@ const financePillars = `
   </div>
 </section>`;
 
-if (!html.includes('class="finance-pillars"')) requireReplace('<section class="catalog-proof"', `${financePillars}\n<section class="catalog-proof"`, 'finance pillars');
+if (!html.includes('class="home-pain-grid-section"')) requireReplace('<section class="catalog-proof"', `${painCardsSection}\n<section class="catalog-proof"`, 'pain cards before catalog');
+if (!html.includes('class="finance-pillars"')) requireReplace('<section class="difference"', `${financePillars}\n<section class="difference"`, 'finance pillars');
 
 const bridge = `
 <section class="high-ticket-bridge" data-experience-stage aria-labelledby="high-ticket-title">
@@ -711,6 +891,70 @@ const css = `<style id="dual-funnel-home-v17-css">
 
 .high-ticket-bridge{padding:64px 0;background:#fff;color:#0f172a}.high-ticket-bridge__inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:68px;align-items:center;padding:48px 44px;border:1px solid #dfe5e0;border-radius:24px;background:#fff;box-shadow:0 14px 36px rgba(18,42,26,.05)}.high-ticket-kicker{margin:0;color:#059669;font:850 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.high-ticket-bridge h2{max-width:760px;margin:12px 0 0;color:#0f172a;font-size:clamp(32px,4vw,50px);line-height:1.02;letter-spacing:-.045em}.high-ticket-bridge__copy>p:last-child{max-width:760px;margin:20px 0 0;color:#526176;font-size:16px;line-height:1.7}.high-ticket-bridge__proof{padding:26px;border:1px solid #dfe5e0;border-radius:18px;background:#f8faf9;box-shadow:0 8px 24px rgba(18,42,26,.04)}.high-ticket-bridge__proof ul{display:grid;gap:12px;margin:0 0 22px;padding:0;list-style:none;color:#334155;font-size:14px;line-height:1.45}.high-ticket-bridge__proof li{position:relative;padding-left:22px}.high-ticket-bridge__proof li::before{content:"✓";position:absolute;left:0;color:#059669;font-weight:900}.high-ticket-bridge__proof>a{min-height:48px;display:flex;align-items:center;justify-content:center;padding:0 18px;border-radius:12px;background:#059669;color:#fff;font-size:13px;font-weight:850;text-decoration:none;box-shadow:0 8px 20px rgba(5,150,105,.2)}.home-finance-close{padding:52px 0;border-bottom:1px solid #dfe5e0;background:linear-gradient(90deg,#f0fdf4,#eff6ff)}.home-finance-close__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center}.home-finance-close h2{margin:9px 0 0;color:#0f172a;font-size:clamp(28px,3.2vw,42px);line-height:1.05;letter-spacing:-.04em}.home-finance-close p:not(.decision-eyebrow){max-width:760px;margin:12px 0 0;color:#526176;font-size:15px;line-height:1.65}.home-finance-close__cta{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:0 22px;border-radius:12px;background:#059669;color:#fff;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 12px 28px rgba(5,150,105,.2)}
 
+/* PDF Slayt 2 & 24: Kurumsal Güven ve Entegrasyon Ekosistemi */
+.pdf-ecosystem-hero-card{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center;padding:38px 36px;border-radius:28px;background:linear-gradient(140deg,#f8fafc 0%,#eff6ff 60%,#ecfdf5 100%);border:1px solid #dbeafe;box-shadow:0 12px 34px rgba(15,23,42,.04);margin-bottom:44px}
+.eco-hero-title{margin:8px 0 12px;color:#0f172a;font-size:clamp(22px,2.4vw,32px);line-height:1.15;letter-spacing:-.03em}
+.eco-hero-desc{margin:0 0 20px;color:#475569;font-size:15px;line-height:1.6}
+.eco-pill-stack{display:grid;gap:12px}
+.eco-pill-box{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;border-radius:16px;background:#ffffff;border:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(15,23,42,.025)}
+.eco-pill-icon{font-size:24px;line-height:1;flex-shrink:0}
+.eco-pill-box strong{display:block;color:#0f172a;font-size:14px;font-weight:800;margin-bottom:3px}
+.eco-pill-box small{display:block;color:#64748b;font-size:12px;line-height:1.45}
+.eco-banner-card{padding:28px 24px;border-radius:22px;background:linear-gradient(150deg,#0f172a 0%,#1e3a8a 100%);color:#fff;box-shadow:0 16px 36px rgba(15,23,42,.18)}
+.eco-badge{display:inline-block;padding:4px 10px;border-radius:8px;background:rgba(255,255,255,.15);color:#93c5fd;font:850 10.5px/1 ui-monospace,monospace;letter-spacing:.08em;margin-bottom:10px}
+.eco-banner-header h4{margin:0 0 6px;color:#fff;font-size:20px;letter-spacing:-.02em}
+.eco-banner-header p{margin:0;color:#cbd5e1;font-size:13px;line-height:1.5}
+.eco-logos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:20px}
+.eco-logo-item{background:#ffffff;color:#0f172a;padding:10px 8px;border-radius:12px;text-align:center;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06);display:grid;gap:2px}
+.eco-logo-item strong{font-size:13.5px;font-weight:850;color:#0f172a;line-height:1.1}
+.eco-logo-item span{font-size:10.5px;color:#64748b;font-weight:600}
+
+/* PDF Slayt 4 & 6: ERP & Banka Ekstre Entegrasyonu (Görsel Destekli) */
+.pdf-erp-sync-card{display:grid;grid-template-columns:1.15fr 1fr;gap:36px;align-items:center;padding:36px 34px;border-radius:28px;background:#ffffff;border:1px solid #e2e8f0;box-shadow:0 12px 36px rgba(15,23,42,.04);margin:40px 0}
+.pdf-erp-sync-card h3{margin:8px 0 12px;color:#0f172a;font-size:clamp(22px,2.4vw,32px);line-height:1.15;letter-spacing:-.03em}
+.pdf-erp-sync-card p{margin:0 0 18px;color:#475569;font-size:15px;line-height:1.6}
+.erp-checklist{display:grid;gap:10px;margin-bottom:24px}
+.erp-check-item{display:flex;align-items:center;gap:12px;padding:11px 16px;border-radius:12px;background:#f0fdf4;border:1px solid #bbf7d0;color:#064e3b;font-size:13.5px;font-weight:750}
+.erp-check-item .check-icon{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#059669;color:#fff;font-size:12px;font-weight:900;flex-shrink:0}
+.erp-action-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:12px;background:#059669;color:#fff;font-size:13.5px;font-weight:850;text-decoration:none;box-shadow:0 8px 20px rgba(5,150,105,.22);transition:all .15s ease}
+.erp-action-btn:hover{background:#047857;transform:translateY(-1.5px)}
+.visual-frame{border-radius:20px;overflow:hidden;border:1px solid #cbd5e1;box-shadow:0 16px 40px rgba(15,23,42,.09);background:#f8fafc}
+.erp-visual-img{width:100%;height:auto;display:block;object-fit:cover}
+.visual-badges-strip{display:flex;flex-wrap:wrap;gap:8px;padding:12px 14px;background:#f8fafc;border-top:1px solid #e2e8f0}
+.v-badge{padding:5px 10px;border-radius:8px;background:#ffffff;border:1px solid #cbd5e1;font-size:11.5px;font-weight:750;color:#334155}
+
+/* PDF Slayt 18 & 21: Neden Excel Arşiv? (Ortada Görsel + 6 Simetrik Standart) */
+.pdf-reasons-center-stage{margin:40px 0;padding:38px 34px;border-radius:28px;background:#ffffff;border:1px solid #dfe5e0;box-shadow:0 12px 36px rgba(15,23,42,.04)}
+.reasons-stage-head{margin-bottom:28px}
+.reasons-stage-head h3{margin:8px 0 6px;color:#0f172a;font-size:clamp(22px,2.4vw,32px);letter-spacing:-.03em}
+.reasons-stage-head p{margin:0;color:#64748b;font-size:15px}
+.reasons-three-col-layout{display:grid;grid-template-columns:1fr 1.05fr 1fr;gap:24px;align-items:center}
+.reasons-col{display:grid;gap:14px}
+.reason-pill-box{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border-radius:18px;background:#f8fafc;border:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(15,23,42,.02)}
+.r-circle-num{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#059669;color:#fff;font:850 14px/1 ui-monospace,monospace;flex-shrink:0;box-shadow:0 4px 10px rgba(5,150,105,.25)}
+.reason-pill-box strong{display:block;color:#0f172a;font-size:14px;font-weight:800;margin-bottom:3px}
+.reason-pill-box p{margin:0;color:#526176;font-size:12.5px;line-height:1.5}
+.center-img-wrapper{position:relative;border-radius:20px;overflow:hidden;border:2px solid #e2e8f0;box-shadow:0 18px 44px rgba(15,23,42,.12)}
+.center-kobi-img{width:100%;height:auto;display:block}
+.center-floating-tag{position:absolute;bottom:12px;left:12px;right:12px;background:rgba(15,23,42,.92);backdrop-filter:blur(8px);padding:10px 14px;border-radius:12px;display:flex;align-items:center;gap:10px;color:#fff;border:1px solid rgba(255,255,255,.2)}
+.center-floating-tag .tag-icon{font-size:20px}
+.center-floating-tag strong{display:block;font-size:12.5px;font-weight:850;color:#fff}
+.center-floating-tag small{display:block;font-size:10.5px;color:#93c5fd}
+
+/* PDF Slayt 24: Ekosistem Küreleri */
+.pdf-umbrella-vision-section{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;margin:40px 0;padding:42px 38px;border-radius:28px;background:linear-gradient(135deg,#0a192f 0%,#0f172a 60%,#1e3a8a 100%);color:#fff;border:1px solid #1e3a5f;box-shadow:0 24px 60px rgba(10,25,47,.25)}
+.pdf-umbrella-vision-section h3{margin:8px 0 12px;color:#fff;font-size:clamp(22px,2.4vw,34px);line-height:1.12;letter-spacing:-.03em}
+.pdf-umbrella-vision-section p{margin:0;color:#cbd5e1;font-size:15px;line-height:1.65}
+.umbrella-cta-row{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap}
+.umbrella-primary-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:12px;background:#059669;color:#fff;font-size:13.5px;font-weight:850;text-decoration:none;box-shadow:0 8px 20px rgba(5,150,105,.3)}
+.umbrella-secondary-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:12px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);font-size:13.5px;font-weight:750;text-decoration:none}
+.umbrella-cluster-visual{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;padding:10px}
+.cluster-bubble{padding:14px 18px;border-radius:20px;background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);text-align:center;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.25);display:flex;flex-direction:column;align-items:center;gap:3px;transition:all .15s ease}
+.cluster-bubble .bubble-icon{font-size:22px;line-height:1}
+.cluster-bubble strong{font-size:13px;font-weight:850;color:#fff}
+.cluster-bubble small{font-size:10.5px;color:#93c5fd}
+.cluster-bubble.bubble-main{background:linear-gradient(135deg,#059669,#10b981);border-color:#34d399;transform:scale(1.08);box-shadow:0 12px 28px rgba(5,150,105,.35)}
+
 @media(max-width:980px){
   .decision-quick-steps{grid-template-columns:1fr}
   .pain-decision-grid{grid-template-columns:1fr}
@@ -719,6 +963,10 @@ const css = `<style id="dual-funnel-home-v17-css">
   .chat-outcome-bar{grid-template-columns:1fr}
   .high-ticket-bridge__inner{grid-template-columns:1fr;gap:28px}
   .floating-medallion{position:static;max-width:100%;margin-top:10px}
+  .pdf-ecosystem-hero-card{grid-template-columns:1fr;gap:28px}
+  .pdf-erp-sync-card{grid-template-columns:1fr;gap:28px}
+  .reasons-three-col-layout{grid-template-columns:1fr;gap:24px}
+  .pdf-umbrella-vision-section{grid-template-columns:1fr;gap:28px}
 }
 @media(max-width:768px){
   .finance-pillars{padding:36px 0;overflow-x:clip}
@@ -758,6 +1006,15 @@ const css = `<style id="dual-funnel-home-v17-css">
   .floating-medallion strong{font-size:11.5px}
   .floating-medallion small{font-size:9.5px}
 
+  /* PDF Yeni Blok Mobil Kuralları */
+  .pdf-ecosystem-hero-card{padding:20px 16px;border-radius:20px;margin-bottom:30px}
+  .eco-logos-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .pdf-erp-sync-card{padding:20px 16px;border-radius:20px;margin:28px 0}
+  .erp-action-btn{width:100%;box-sizing:border-box;text-align:center}
+  .pdf-reasons-center-stage{padding:20px 16px;border-radius:20px;margin:28px 0}
+  .pdf-umbrella-vision-section{padding:24px 18px;border-radius:20px;margin:28px 0}
+  .umbrella-cta-row a{width:100%;box-sizing:border-box;text-align:center}
+
   /* Problem Mağazası Mobil Standardı */
   .problem-store-section{margin:24px 0 32px;padding:20px 14px;border-radius:20px}
   .problem-store-grid{grid-template-columns:1fr;gap:12px;margin-top:16px}
@@ -783,16 +1040,6 @@ const css = `<style id="dual-funnel-home-v17-css">
   .bento-num{font-size:12px;padding:3px 8px}
   .bento-item h4{font-size:16px;margin-bottom:8px}
   .bento-item p{font-size:13px;line-height:1.55}
-
-  /* 7 Demir Standart */
-  .pdf-reasons-timeline-card{margin:0 0 32px;padding:20px 14px;border-radius:20px}
-  .timeline-head{margin-bottom:18px}
-  .timeline-head h4{font-size:clamp(20px,5vw,25px);line-height:1.25}
-  .pdf-reasons-list{gap:10px}
-  .reason-row{grid-template-columns:32px 1fr;gap:12px;padding:12px 14px;border-radius:12px}
-  .r-no{width:32px;height:32px;font-size:13px;border-radius:8px}
-  .r-content strong{font-size:14px;line-height:1.3}
-  .r-content p{font-size:12.5px;line-height:1.45}
 
   /* Chat Teşhis */
   .pdf-chat-dialog-card{margin:0 0 32px;padding:18px 14px;border-radius:20px}
@@ -838,6 +1085,7 @@ const css = `<style id="dual-funnel-home-v17-css">
   .table-mock-head span:nth-child(3),.table-mock-row span:nth-child(3){display:none}
   .r-content strong{font-size:13.5px}
   .bento-item h4{font-size:15px}
+  .eco-logos-grid{grid-template-columns:1fr}
 }
 </style>`;
 html = html.replace('</head>', `${css}\n</head>`);
