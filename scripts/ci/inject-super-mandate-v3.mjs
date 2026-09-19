@@ -57,8 +57,11 @@ for (const filePath of htmlFiles) {
     modified = true;
   }
 
-  // 3. Hero Answer Engine (AEO-005) - Ensure all pages have a hero answer in the first 100px
-  if (!content.includes('hero-answer') && !content.includes('hero-answer-engine')) {
+  // 3. Hero Answer Engine (AEO-005)
+  // Homepage already has a purpose-built semantic hero; injecting another visible
+  // answer box after H1 creates duplicate copy and layout collisions.
+  const isHomepage = /(?:^|[\\/])dist[\\/]index\\.html$/u.test(filePath);
+  if (!isHomepage && !content.includes('hero-answer') && !content.includes('hero-answer-engine')) {
     // Extract title or description to form an accurate, high-density hero answer (29-80 words)
     let metaDesc = '';
     const descMatch = content.match(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i);
