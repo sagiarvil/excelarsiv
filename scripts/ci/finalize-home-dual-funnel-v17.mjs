@@ -62,30 +62,6 @@ const financePillars = `
           </div>
         </div>
       </div>
-
-      <div class="eco-hero-right">
-        <div class="eco-banner-card">
-          <div class="eco-banner-header">
-            <span class="eco-badge">TAM ENTEGRASYON VE UYUM</span>
-            <h4>Reel Sektör &amp; Finans Ekosistemi</h4>
-            <p>Mevcut ERP mizanlarınızı ve banka ekstrelerinizi tek bir standart veri tablosuna bağlayarak anında karar üretin.</p>
-          </div>
-          <div class="eco-logos-grid">
-            <div class="eco-logo-item"><strong>Logo</strong><span>Muhasebe</span></div>
-            <div class="eco-logo-item"><strong>SAP</strong><span>ERP Mizan</span></div>
-            <div class="eco-logo-item"><strong>Mikro</strong><span>Yazılım</span></div>
-            <div class="eco-logo-item"><strong>Zirve</strong><span>Ticari</span></div>
-            <div class="eco-logo-item"><strong>Garanti</strong><span>BBVA Ekstre</span></div>
-            <div class="eco-logo-item"><strong>Akbank</strong><span>Kredi &amp; POS</span></div>
-            <div class="eco-logo-item"><strong>İş Bankası</strong><span>Mali Tahlil</span></div>
-            <div class="eco-logo-item"><strong>Yapı Kredi</strong><span>Ticari Portföy</span></div>
-            <div class="eco-logo-item"><strong>Ziraat</strong><span>Kredi Takip</span></div>
-            <div class="eco-logo-item"><strong>QNB</strong><span>Nakit Yönetimi</span></div>
-            <div class="eco-logo-item"><strong>Vakıfbank</strong><span>Limit Risk</span></div>
-            <div class="eco-logo-item"><strong>Halkbank</strong><span>KOBİ Destek</span></div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- PDF Slayt 3 Şeması: Canlı Excel Kokpit Sahnesi + 4 Altın Mühür -->
@@ -811,23 +787,15 @@ const css = `<style id="dual-funnel-home-v17-css">
 
 .high-ticket-bridge{padding:64px 0;background:#fff;color:#0f172a}.high-ticket-bridge__inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:68px;align-items:center;padding:48px 44px;border:1px solid #dfe5e0;border-radius:24px;background:#fff;box-shadow:0 14px 36px rgba(18,42,26,.05)}.high-ticket-kicker{margin:0;color:#059669;font:850 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.high-ticket-bridge h2{max-width:760px;margin:12px 0 0;color:#0f172a;font-size:clamp(32px,4vw,50px);line-height:1.02;letter-spacing:-.045em}.high-ticket-bridge__copy>p:last-child{max-width:760px;margin:20px 0 0;color:#526176;font-size:16px;line-height:1.7}.high-ticket-bridge__proof{padding:26px;border:1px solid #dfe5e0;border-radius:18px;background:#f8faf9;box-shadow:0 8px 24px rgba(18,42,26,.04)}.high-ticket-bridge__proof ul{display:grid;gap:12px;margin:0 0 22px;padding:0;list-style:none;color:#334155;font-size:14px;line-height:1.45}.high-ticket-bridge__proof li{position:relative;padding-left:22px}.high-ticket-bridge__proof li::before{content:"✓";position:absolute;left:0;color:#059669;font-weight:900}.high-ticket-bridge__proof>a{min-height:48px;display:flex;align-items:center;justify-content:center;padding:0 18px;border-radius:12px;background:#059669;color:#fff;font-size:13px;font-weight:850;text-decoration:none;box-shadow:0 8px 20px rgba(5,150,105,.2)}.home-finance-close{padding:52px 0;border-bottom:1px solid #dfe5e0;background:linear-gradient(90deg,#f0fdf4,#eff6ff)}.home-finance-close__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center}.home-finance-close h2{margin:9px 0 0;color:#0f172a;font-size:clamp(28px,3.2vw,42px);line-height:1.05;letter-spacing:-.04em}.home-finance-close p:not(.decision-eyebrow){max-width:760px;margin:12px 0 0;color:#526176;font-size:15px;line-height:1.65}.home-finance-close__cta{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:0 22px;border-radius:12px;background:#059669;color:#fff;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 12px 28px rgba(5,150,105,.2)}
 
-/* PDF Slayt 2 & 24: Kurumsal Güven ve Entegrasyon Ekosistemi */
-.pdf-ecosystem-hero-card{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center;padding:38px 36px;border-radius:28px;background:linear-gradient(140deg,#f8fafc 0%,#eff6ff 60%,#ecfdf5 100%);border:1px solid #dbeafe;box-shadow:0 12px 34px rgba(15,23,42,.04);margin-bottom:44px}
+/* PDF Slayt 2 & 24: Kurumsal Güven ve Finans Mimarisi */
+.pdf-ecosystem-hero-card{padding:38px 36px;border-radius:28px;background:linear-gradient(140deg,#f8fafc 0%,#eff6ff 60%,#ecfdf5 100%);border:1px solid #dbeafe;box-shadow:0 12px 34px rgba(15,23,42,.04);margin-bottom:44px}
 .eco-hero-title{margin:8px 0 12px;color:#0f172a;font-size:clamp(22px,2.4vw,32px);line-height:1.15;letter-spacing:-.03em}
-.eco-hero-desc{margin:0 0 20px;color:#475569;font-size:15px;line-height:1.6}
-.eco-pill-stack{display:grid;gap:12px}
-.eco-pill-box{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;border-radius:16px;background:#ffffff;border:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(15,23,42,.025)}
+.eco-hero-desc{margin:0 0 24px;color:#475569;font-size:15px;line-height:1.6;max-width:860px}
+.eco-pill-stack{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:16px}
+.eco-pill-box{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;border-radius:16px;background:#ffffff;border:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(15,23,42,.025)}
 .eco-pill-icon{font-size:24px;line-height:1;flex-shrink:0}
 .eco-pill-box strong{display:block;color:#0f172a;font-size:14px;font-weight:800;margin-bottom:3px}
 .eco-pill-box small{display:block;color:#64748b;font-size:12px;line-height:1.45}
-.eco-banner-card{padding:28px 24px;border-radius:22px;background:linear-gradient(150deg,#0f172a 0%,#1e3a8a 100%);color:#fff;box-shadow:0 16px 36px rgba(15,23,42,.18)}
-.eco-badge{display:inline-block;padding:4px 10px;border-radius:8px;background:rgba(255,255,255,.15);color:#93c5fd;font:850 10.5px/1 ui-monospace,monospace;letter-spacing:.08em;margin-bottom:10px}
-.eco-banner-header h4{margin:0 0 6px;color:#fff;font-size:20px;letter-spacing:-.02em}
-.eco-banner-header p{margin:0;color:#cbd5e1;font-size:13px;line-height:1.5}
-.eco-logos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:20px}
-.eco-logo-item{background:#ffffff;color:#0f172a;padding:10px 8px;border-radius:12px;text-align:center;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06);display:grid;gap:2px}
-.eco-logo-item strong{font-size:13.5px;font-weight:850;color:#0f172a;line-height:1.1}
-.eco-logo-item span{font-size:10.5px;color:#64748b;font-weight:600}
 
 /* PDF Slayt 4 & 6: ERP & Banka Ekstre Entegrasyonu (Görsel Destekli) */
 .pdf-erp-sync-card{display:grid;grid-template-columns:1.15fr 1fr;gap:36px;align-items:center;padding:36px 34px;border-radius:28px;background:#ffffff;border:1px solid #e2e8f0;box-shadow:0 12px 36px rgba(15,23,42,.04);margin:40px 0}
