@@ -64,100 +64,6 @@ const financePillars = `
       </div>
     </div>
 
-    <!-- PDF Slayt 3 Şeması: Canlı Excel Kokpit Sahnesi + 4 Altın Mühür -->
-    <div class="pdf-showcase-stage" aria-label="Excel Arşiv Finansal Kokpit Sahnesi">
-      <div class="showcase-glow" aria-hidden="true"></div>
-      <div class="laptop-mockup-wrapper">
-        <div class="laptop-frame">
-          <div class="laptop-screen">
-            <div class="excel-ui-bar">
-              <div class="excel-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
-              <div class="excel-title-tab">📊 13_Haftalik_Nakit_Akisi_ve_Patron_Paneli.xlsx</div>
-              <div class="excel-status-tag">SAF .XLSX · SIFIR MAKRO</div>
-            </div>
-            <div class="excel-menu-strip">
-              <span>Dosya</span><span class="active">Giriş</span><span>Ekle</span><span>Formüller</span><span>Veri</span><span>Gözden Geçir</span><span>Görünüm</span>
-            </div>
-            <div class="excel-formula-bar">
-              <span class="fx-label">fx</span>
-              <span class="formula-text">=EĞER(HAFTALIK_NET_NAKİT&lt;0; "⚠️ DÖNEMSEL NAKİT AÇIĞI UYARISI"; "✅ LİKİDİTE GÜVENLİ BÖLGEDE")</span>
-            </div>
-            <div class="excel-grid-preview">
-              <div class="excel-kpi-row">
-                <div class="excel-kpi-card kpi-green">
-                  <small>Haftalık Net Nakit Akışı</small>
-                  <strong>+₺1.845.000</strong>
-                  <span>Dinamik 13 Hafta Projeksiyonu</span>
-                </div>
-                <div class="excel-kpi-card kpi-blue">
-                  <small>Çoklu Banka Rotatif Kredi Limiti</small>
-                  <strong>₺4.500.000</strong>
-                  <span>Faiz &amp; Taksit Vade Simülasyonu</span>
-                </div>
-                <div class="excel-kpi-card kpi-amber">
-                  <small>Cari Tahsilat Yaşlandırma &amp; Risk</small>
-                  <strong>%94.2 Güvenli</strong>
-                  <span>Vadesi Geçen Alacak Alarmı</span>
-                </div>
-              </div>
-              <div class="excel-table-mock">
-                <div class="table-mock-head">
-                  <span class="cell-id">Hafta</span>
-                  <span>Açılış Kasası</span>
-                  <span>Tahsilat Projeksiyonu</span>
-                  <span>Tediye &amp; Tedarikçi</span>
-                  <span>Kredi Taksiti</span>
-                  <span class="cell-status">Net Likidite</span>
-                </div>
-                <div class="table-mock-row">
-                  <span class="cell-id">H1</span>
-                  <span>₺620.000</span>
-                  <span>₺1.150.000</span>
-                  <span>(₺780.000)</span>
-                  <span>(₺120.000)</span>
-                  <span class="status-pos">+₺870.000</span>
-                </div>
-                <div class="table-mock-row">
-                  <span class="cell-id">H2</span>
-                  <span>₺870.000</span>
-                  <span>₺980.000</span>
-                  <span>(₺650.000)</span>
-                  <span>(₺140.000)</span>
-                  <span class="status-pos">+₺1.060.000</span>
-                </div>
-                <div class="table-mock-row is-alert">
-                  <span class="cell-id">H3</span>
-                  <span>₺1.060.000</span>
-                  <span>₺450.000</span>
-                  <span>(₺1.820.000)</span>
-                  <span>(₺120.000)</span>
-                  <span class="status-neg">⚠️ -₺430.000 (Erken Uyarı)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="laptop-base"><div class="laptop-notch"></div></div>
-        </div>
-
-        <div class="floating-medallion medallion-tl">
-          <span class="medallion-icon">🔒</span>
-          <div><strong>%100 Açık Formül</strong><small>Gizli hücre veya şifre yok</small></div>
-        </div>
-        <div class="floating-medallion medallion-tr">
-          <span class="medallion-icon">⚡</span>
-          <div><strong>Sıfır Makro Riski</strong><small>Saf .xlsx, virüs uyarısı yok</small></div>
-        </div>
-        <div class="floating-medallion medallion-bl">
-          <span class="medallion-icon">🏦</span>
-          <div><strong>17 Yıl Bankacılık</strong><small>Mali tahlil ve karar refleksi</small></div>
-        </div>
-        <div class="floating-medallion medallion-br">
-          <span class="medallion-icon">💾</span>
-          <div><strong>Yerel Cihaz Gizliliği</strong><small>Mali veriniz cihazınızda kalır</small></div>
-        </div>
-      </div>
-    </div>
-
     <!-- Slayt 3 15 Numaralı Matris -->
     <div class="section-divider-title">
       <span class="decision-eyebrow">TEK TIKLA ÇALIŞAN FİNANSAL SİSTEMLER</span>
@@ -182,48 +88,6 @@ const financePillars = `
       <a href="/sablon/doviz-acik-pozisyonu-ve-kur-riski-stres-testi" class="finance-need-item"><span class="need-badge">15</span><span class="need-name">Döviz Pozisyonu &amp; Kur Riski Stres Testi</span></a>
     </div>
 
-    <!-- PDF Slayt 4 & 6 Stili: ERP & Banka Ekstreleriyle Uyumlu Karar Altyapısı (Görsel Destekli) -->
-    <div class="pdf-erp-sync-card" aria-label="ERP ve Banka Veri Entegrasyon Altyapısı">
-      <div class="erp-sync-copy">
-        <span class="decision-eyebrow">HIZLI VERİ ENTEGRASYONU</span>
-        <h3>Ağır Yazılımlara Aylar ve Yüz Binlerce TL Harcamayın</h3>
-        <p>Muhasebe programınız veya bankanız ne olursa olsun; standart mizan ve ekstrelerinizi kopyala-yapıştır ile karar motoruna aktarın.</p>
-        
-        <div class="erp-checklist">
-          <div class="erp-check-item">
-            <span class="check-icon">✓</span>
-            <span>Mizan ve hesap ekstrelerinizi tek sütunla sisteme aktarın</span>
-          </div>
-          <div class="erp-check-item">
-            <span class="check-icon">✓</span>
-            <span>400.000 TL ve 6 aylık ERP kurulum ve danışmanlık maliyetinden kurtulun</span>
-          </div>
-          <div class="erp-check-item">
-            <span class="check-icon">✓</span>
-            <span>Banka kredi komitelerinin baktığı rasyoları aynı gün canlı ekranda izleyin</span>
-          </div>
-          <div class="erp-check-item">
-            <span class="check-icon">✓</span>
-            <span>Sıfır makro, açık formül; ekibinizin alıştığı Excel arayüzünde tam kontrol</span>
-          </div>
-        </div>
-        
-        <a href="/sablonlar" class="erp-action-btn">51 Hazır Karar Sistemini İncele →</a>
-      </div>
-
-      <div class="erp-sync-visual">
-        <div class="visual-frame">
-          <img src="/images/site/excel-analytics-section.webp" alt="Excel Arşiv Finansal Analitik ve Karar Paneli" loading="lazy" class="erp-visual-img" />
-          <div class="visual-badges-strip">
-            <span class="v-badge">📑 Banka Ekstre Ayrıştırıcı</span>
-            <span class="v-badge">🔄 ERP / Mizan Eşleştirici</span>
-            <span class="v-badge">🛒 Pazaryeri Komisyon Hesabı</span>
-            <span class="v-badge">⚡ Canlı Yönetici Kokpiti</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    
     <!-- MANDATE BÖLÜM 3: PROBLEM MAĞAZASI (Kullanıcı ürün adı bilmeden doğrudan problemle buluşur) -->
     <div class="problem-store-section" id="problemler" aria-label="Problem Mağazası">
       <div class="section-divider-title">
@@ -650,47 +514,6 @@ const css = `<style id="dual-funnel-home-v17-css">
 .decision-link:hover{text-decoration:underline}
 
 /* Slayt 3 Mockup Sahnesi */
-.pdf-showcase-stage{position:relative;margin:12px 0 38px;padding:36px 20px 44px;border-radius:28px;background:linear-gradient(150deg,#0a192f 0%,#0f172a 60%,#064e3b 100%);box-shadow:0 24px 60px rgba(10,25,47,.22);overflow:hidden;border:1px solid #1e3a5f}
-.showcase-glow{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:680px;height:340px;background:radial-gradient(ellipse at center,rgba(16,185,129,.18) 0%,rgba(37,99,235,.12) 45%,transparent 70%);pointer-events:none}
-.laptop-mockup-wrapper{position:relative;max-width:880px;margin:0 auto;z-index:2}
-.laptop-frame{background:#1e293b;border-radius:18px 18px 0 0;padding:12px 12px 0;box-shadow:0 20px 50px rgba(0,0,0,.45);border:2px solid #334155;border-bottom:0}
-.laptop-screen{background:#ffffff;border-radius:10px 10px 0 0;overflow:hidden;border:1px solid #cbd5e1}
-.excel-ui-bar{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:#107c41;color:#fff;font-size:12px;font-weight:700}
-.excel-dots{display:flex;gap:6px}.excel-dots span{width:9px;height:9px;border-radius:50%}
-.dot-red{background:#ef4444}.dot-yellow{background:#f59e0b}.dot-green{background:#10b981}
-.excel-title-tab{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.01em}
-.excel-status-tag{padding:3px 8px;border-radius:6px;background:rgba(255,255,255,.2);font:800 10px/1 ui-monospace,monospace;letter-spacing:.06em}
-.excel-menu-strip{display:flex;gap:14px;padding:6px 14px;background:#f1f5f9;border-bottom:1px solid #cbd5e1;font-size:11.5px;color:#475569;font-weight:600}
-.excel-menu-strip .active{color:#107c41;font-weight:800;border-bottom:2px solid #107c41}
-.excel-formula-bar{display:flex;align-items:center;gap:8px;padding:6px 14px;background:#ffffff;border-bottom:1px solid #e2e8f0;font-size:12px;font-family:ui-monospace,monospace}
-.fx-label{color:#64748b;font-weight:850;font-style:italic}
-.formula-text{color:#0f172a;font-weight:700;letter-spacing:-.01em}
-.excel-grid-preview{padding:16px 18px 20px;background:#f8fafc}
-.excel-kpi-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:14px}
-.excel-kpi-card{padding:12px 14px;border-radius:12px;border:1px solid #e2e8f0;background:#fff;display:grid;gap:4px}
-.excel-kpi-card small{color:#64748b;font-size:11px;font-weight:700}
-.excel-kpi-card strong{font-size:18px;font-weight:850;line-height:1}
-.excel-kpi-card span{color:#475569;font-size:10.5px}
-.kpi-green strong{color:#059669}.kpi-blue strong{color:#2563eb}.kpi-amber strong{color:#d97706}
-.excel-table-mock{border:1px solid #cbd5e1;border-radius:8px;background:#fff;overflow:hidden;font-size:12px}
-.table-mock-head{display:grid;grid-template-columns:50px repeat(4,minmax(0,1fr)) 1.2fr;gap:6px;padding:8px 10px;background:#f1f5f9;font-weight:750;color:#334155;border-bottom:1px solid #cbd5e1}
-.table-mock-row{display:grid;grid-template-columns:50px repeat(4,minmax(0,1fr)) 1.2fr;gap:6px;padding:7px 10px;border-bottom:1px solid #f1f5f9;color:#1e293b}
-.table-mock-row.is-alert{background:#fffbeb;font-weight:700}
-.cell-id{color:#64748b;font-family:ui-monospace,monospace;font-weight:750}
-.status-pos{color:#059669;font-weight:800}.status-neg{color:#b45309;font-weight:800}
-.laptop-base{height:16px;background:linear-gradient(180deg,#64748b 0%,#475569 100%);border-radius:0 0 16px 16px;position:relative;box-shadow:0 8px 18px rgba(0,0,0,.3)}
-.laptop-notch{width:90px;height:5px;background:#334155;border-radius:0 0 5px 5px;margin:0 auto}
-
-/* Floating Medallions */
-.floating-medallion{position:absolute;z-index:10;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:rgba(15,23,42,.88);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2);box-shadow:0 12px 30px rgba(0,0,0,.35);color:#fff;width:fit-content;max-width:210px}
-.floating-medallion .medallion-icon{font-size:20px;line-height:1}
-.floating-medallion strong{display:block;font-size:12px;font-weight:850;color:#fff;line-height:1.2}
-.floating-medallion small{display:block;font-size:10px;color:#94a3b8;line-height:1.2;margin-top:2px}
-.medallion-tl{top:20px;left:-18px}
-.medallion-tr{top:20px;right:-18px}
-.medallion-bl{bottom:40px;left:-18px}
-.medallion-br{bottom:40px;right:-18px}
-
 
 /* Problem Mağazası Stilleri (PDF Şablon Kutuları) */
 .problem-store-section{margin:36px 0 44px;padding:36px 32px;border-radius:26px;background:linear-gradient(180deg,#f8faf9 0%,#f0fdf4 100%);border:1px solid #d1fae5}
@@ -797,19 +620,6 @@ const css = `<style id="dual-funnel-home-v17-css">
 .eco-pill-box strong{display:block;color:#0f172a;font-size:14px;font-weight:800;margin-bottom:3px}
 .eco-pill-box small{display:block;color:#64748b;font-size:12px;line-height:1.45}
 
-/* PDF Slayt 4 & 6: ERP & Banka Ekstre Entegrasyonu (Görsel Destekli) */
-.pdf-erp-sync-card{display:grid;grid-template-columns:1.15fr 1fr;gap:36px;align-items:center;padding:36px 34px;border-radius:28px;background:#ffffff;border:1px solid #e2e8f0;box-shadow:0 12px 36px rgba(15,23,42,.04);margin:40px 0}
-.pdf-erp-sync-card h3{margin:8px 0 12px;color:#0f172a;font-size:clamp(22px,2.4vw,32px);line-height:1.15;letter-spacing:-.03em}
-.pdf-erp-sync-card p{margin:0 0 18px;color:#475569;font-size:15px;line-height:1.6}
-.erp-checklist{display:grid;gap:10px;margin-bottom:24px}
-.erp-check-item{display:flex;align-items:center;gap:12px;padding:11px 16px;border-radius:12px;background:#f0fdf4;border:1px solid #bbf7d0;color:#064e3b;font-size:13.5px;font-weight:750}
-.erp-check-item .check-icon{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#059669;color:#fff;font-size:12px;font-weight:900;flex-shrink:0}
-.erp-action-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:12px;background:#059669;color:#fff;font-size:13.5px;font-weight:850;text-decoration:none;box-shadow:0 8px 20px rgba(5,150,105,.22);transition:all .15s ease}
-.erp-action-btn:hover{background:#047857;transform:translateY(-1.5px)}
-.visual-frame{border-radius:20px;overflow:hidden;border:1px solid #cbd5e1;box-shadow:0 16px 40px rgba(15,23,42,.09);background:#f8fafc}
-.erp-visual-img{width:100%;height:auto;display:block;object-fit:cover}
-.visual-badges-strip{display:flex;flex-wrap:wrap;gap:8px;padding:12px 14px;background:#f8fafc;border-top:1px solid #e2e8f0}
-.v-badge{padding:5px 10px;border-radius:8px;background:#ffffff;border:1px solid #cbd5e1;font-size:11.5px;font-weight:750;color:#334155}
 
 /* PDF Slayt 18 & 21: Neden Excel Arşiv? (Ortada Görsel + 6 Simetrik Standart) */
 .pdf-reasons-center-stage{margin:40px 0;padding:38px 34px;border-radius:28px;background:#ffffff;border:1px solid #dfe5e0;box-shadow:0 12px 36px rgba(15,23,42,.04)}
@@ -858,9 +668,7 @@ const css = `<style id="dual-funnel-home-v17-css">
   .finance-needs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .chat-outcome-bar{grid-template-columns:1fr}
   .high-ticket-bridge__inner{grid-template-columns:1fr;gap:28px}
-  .floating-medallion{position:static;max-width:100%;margin-top:10px}
-  .pdf-ecosystem-hero-card{grid-template-columns:1fr;gap:28px}
-  .pdf-erp-sync-card{grid-template-columns:1fr;gap:28px}
+
   .reasons-three-col-layout{grid-template-columns:1fr;gap:24px}
   .pdf-umbrella-vision-section{grid-template-columns:1fr;gap:28px}
   .pdf-ref-brand-grid{grid-template-columns:repeat(2,1fr);gap:10px}
@@ -878,36 +686,8 @@ const css = `<style id="dual-funnel-home-v17-css">
   .pain-point,.solution-point{padding:10px 12px;margin-bottom:10px}
   .pain-point p,.solution-point p{font-size:12.5px}
 
-  /* Mockup Sahnesi ve Taşma İzolasyonu */
-  .pdf-showcase-stage{padding:18px 12px 22px;border-radius:20px;margin:10px 0 30px}
-  .showcase-glow{width:100%;height:220px}
-  .laptop-frame{padding:8px 8px 0;border-radius:14px 14px 0 0;border-width:1.5px}
-  .excel-ui-bar{padding:6px 10px;font-size:11px}
-  .excel-dots span{width:7px;height:7px}
-  .excel-title-tab{font-size:10.5px}
-  .excel-status-tag{padding:2px 6px;font-size:9.5px}
-  .excel-menu-strip{padding:5px 10px;font-size:10.5px;gap:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
-  .excel-formula-bar{padding:5px 10px;font-size:11px;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
-  .excel-grid-preview{padding:12px 10px 14px}
-  .excel-kpi-row{grid-template-columns:1fr;gap:8px;margin-bottom:10px}
-  .excel-kpi-card{padding:10px 12px;border-radius:10px}
-  .excel-kpi-card strong{font-size:16px}
-  .excel-table-mock{overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:11px;border-radius:6px}
-  .table-mock-head,.table-mock-row{grid-template-columns:36px repeat(2,minmax(75px,1fr)) minmax(130px,1.2fr);gap:4px;padding:6px 8px}
-  .table-mock-head span:nth-child(4),.table-mock-head span:nth-child(5),.table-mock-row span:nth-child(4),.table-mock-row span:nth-child(5){display:none}
-  .table-mock-row.is-alert .status-neg{font-size:10.5px;white-space:nowrap}
-  .laptop-base{height:12px;border-radius:0 0 12px 12px}
-  .laptop-notch{width:65px;height:4px}
-  .floating-medallion{position:static;max-width:100%;width:100%;box-sizing:border-box;margin:8px 0 0;padding:10px 12px;border-radius:12px}
-  .floating-medallion .medallion-icon{font-size:18px}
-  .floating-medallion strong{font-size:11.5px}
-  .floating-medallion small{font-size:9.5px}
-
   /* PDF Yeni Blok Mobil Kuralları */
   .pdf-ecosystem-hero-card{padding:20px 16px;border-radius:20px;margin-bottom:30px}
-  .eco-logos-grid{grid-template-columns:repeat(2,1fr);gap:8px}
-  .pdf-erp-sync-card{padding:20px 16px;border-radius:20px;margin:28px 0}
-  .erp-action-btn{width:100%;box-sizing:border-box;text-align:center}
   .pdf-reasons-center-stage{padding:20px 16px;border-radius:20px;margin:28px 0}
   .pdf-umbrella-vision-section{padding:24px 18px;border-radius:20px;margin:28px 0}
   .umbrella-cta-row a{width:100%;box-sizing:border-box;text-align:center}
