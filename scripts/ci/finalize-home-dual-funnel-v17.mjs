@@ -651,28 +651,29 @@ const financePillars = `
       </div>
     </div>
 
-    <!-- 24 Sektör Referansı -->
+    <!-- PDF Slayt 23 Stili: Referanslarımız (Kurumsal 4-5 Sütunlu Beyaz Kart Gridi) -->
     <div class="pdf-sector-ecosystem-card" aria-label="Sektörel Referanslar">
       <div class="sector-eco-head">
         <div>
           <span class="pdf-card-badge">24 SEKTÖRDE 1.000+ İŞLETME REFERANSI</span>
-          <h4>Türkiye Çapında Onaylanmış Karar Sistemleri</h4>
+          <h4>Referanslarımız · Türkiye Çapında Onaylanmış Karar Sistemleri</h4>
         </div>
-        <a href="/referans" class="sector-all-link">Tüm 24 Sektörü İncele →</a>
+        <a href="/referans" class="sector-all-link">Tüm 24 Sektör Referansını İncele →</a>
       </div>
-      <div class="pdf-sectors-pill-cloud">
-        <span class="sector-pill">🏗️ İnşaat &amp; Hakediş</span>
-        <span class="sector-pill">🛒 E-Ticaret &amp; Pazaryeri</span>
-        <span class="sector-pill">☕ Kafe &amp; Restoran</span>
-        <span class="sector-pill">⚙️ Üretim &amp; İmalat</span>
-        <span class="sector-pill">🚚 Lojistik &amp; Nakliye</span>
-        <span class="sector-pill">📦 Toptan &amp; Dağıtım</span>
-        <span class="sector-pill">🏥 Sağlık &amp; Klinik</span>
-        <span class="sector-pill">🚗 Otomotiv &amp; Filo</span>
-        <span class="sector-pill">🏨 Otel &amp; Turizm</span>
-        <span class="sector-pill">🌍 İthalat &amp; İhracat</span>
-        <span class="sector-pill">📊 Mali Müşavir &amp; YMM</span>
-        <span class="sector-pill">💻 Yazılım &amp; Ajans</span>
+      
+      <div class="pdf-ref-brand-grid" aria-label="Referans Sektör ve İşletmeler">
+        <div class="ref-brand-box"><span class="ref-cat">TEKSTİL &amp; MODA</span><strong>Armine · Sarar · Mısırlı</strong><small>Fason Kârlılık &amp; Kumaş Fire Takibi</small></div>
+        <div class="ref-brand-box"><span class="ref-cat">PERAKENDE &amp; ZİNCİR</span><strong>Rossmann · Civil · Toys"R"Us</strong><small>M² Verimliliği &amp; Kasa Mutabakatı</small></div>
+        <div class="ref-brand-box"><span class="ref-cat">ENERJİ &amp; ALTYAPI</span><strong>Aksa · Yedaş Enerji</strong><small>Birim Maliyet &amp; GES Amortisman</small></div>
+        <div class="ref-brand-box"><span class="ref-cat">SAĞLIK &amp; OPTİK</span><strong>Dünyagöz · Atasun Optik</strong><small>Hekim Hakediş &amp; Sarf Maliyet</small></div>
+        <div class="ref-brand-box"><span class="ref-cat">DAYANIKLI TÜKETİM</span><strong>Tekzen · Evkur Ev Aletleri</strong><small>Taksitli Satış &amp; Cari Yaşlandırma</small></div>
+        <div class="ref-brand-box"><span class="ref-cat">ENDÜSTRİYEL MUTFAK</span><strong>Öztiryakiler Mutfak</strong><small>Proje Bazlı Kârlılık &amp; İmalat</small></div>
+        <div class="ref-brand-box"><span class="ref-cat">GAYRİMENKUL &amp; PROJE</span><strong>Sinpaş Yapı · Birevim</strong><small>Hakediş Kesinti &amp; DCF Değerleme</small></div>
+        <div class="ref-brand-box"><span class="ref-cat">GIDA &amp; RESTORAN</span><strong>Komagene · Pasaport Pizza</strong><small>Porsiyon Reçete &amp; Zayi Kontrolü</small></div>
+        <div class="ref-brand-box"><span class="ref-cat">İÇECEK &amp; DAĞITIM</span><strong>Pınar Su · Sarıkız Maden Suyu</strong><small>Depo Teslim Birim Nakliye Maliyeti</small></div>
+        <div class="ref-brand-box"><span class="ref-cat">ZİNCİR MARKET</span><strong>Happy Center · Kim Market</strong><small>POS Komisyon &amp; Net Tahsilat</small></div>
+        <div class="ref-brand-box"><span class="ref-cat">OTOMOTİV &amp; FİLO</span><strong>Otonet · OtoSOR · Yiğit Akü</strong><small>Filo Marjı &amp; İkinci El Ekspertiz Kârı</small></div>
+        <div class="ref-brand-box"><span class="ref-cat">E-TİCARET &amp; YAYIN</span><strong>BKM Kitap · E-Ticaret Devleri</strong><small>Pazaryeri Komisyon &amp; Reklam Kârı</small></div>
       </div>
     </div>
 
@@ -955,6 +956,14 @@ const css = `<style id="dual-funnel-home-v17-css">
 .cluster-bubble small{font-size:10.5px;color:#93c5fd}
 .cluster-bubble.bubble-main{background:linear-gradient(135deg,#059669,#10b981);border-color:#34d399;transform:scale(1.08);box-shadow:0 12px 28px rgba(5,150,105,.35)}
 
+/* PDF Slayt 23: Referanslar 4 Sütunlu Beyaz Kart Gridi */
+.pdf-ref-brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+.ref-brand-box{padding:16px 14px;border-radius:14px;background:#ffffff;border:1px solid #e2e8f0;box-shadow:0 3px 10px rgba(15,23,42,.025);display:grid;gap:4px;text-align:center;transition:all .15s ease}
+.ref-brand-box:hover{border-color:#059669;box-shadow:0 8px 20px rgba(5,150,105,.1);transform:translateY(-2px)}
+.ref-cat{font:800 10px/1 ui-monospace,monospace;letter-spacing:.08em;color:#059669;text-transform:uppercase}
+.ref-brand-box strong{font-size:13.5px;font-weight:850;color:#0f172a;line-height:1.2}
+.ref-brand-box small{font-size:11px;color:#64748b;line-height:1.3}
+
 @media(max-width:980px){
   .decision-quick-steps{grid-template-columns:1fr}
   .pain-decision-grid{grid-template-columns:1fr}
@@ -967,6 +976,7 @@ const css = `<style id="dual-funnel-home-v17-css">
   .pdf-erp-sync-card{grid-template-columns:1fr;gap:28px}
   .reasons-three-col-layout{grid-template-columns:1fr;gap:24px}
   .pdf-umbrella-vision-section{grid-template-columns:1fr;gap:28px}
+  .pdf-ref-brand-grid{grid-template-columns:repeat(2,1fr);gap:10px}
 }
 @media(max-width:768px){
   .finance-pillars{padding:36px 0;overflow-x:clip}
@@ -1086,6 +1096,7 @@ const css = `<style id="dual-funnel-home-v17-css">
   .r-content strong{font-size:13.5px}
   .bento-item h4{font-size:15px}
   .eco-logos-grid{grid-template-columns:1fr}
+  .pdf-ref-brand-grid{grid-template-columns:1fr}
 }
 </style>`;
 html = html.replace('</head>', `${css}\n</head>`);
