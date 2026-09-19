@@ -24,88 +24,8 @@ if (html.includes('data-dual-funnel-home-v17')) {
 requireReplace(/<body\b([^>]*)>/u, '<body$1 data-dual-funnel-home-v17>', 'body marker');
 requireReplace(/<title>[\s\S]*?<\/title>/u, '<title>Finansal Karar ve Excel Sistemleri | Excel Arşiv</title>', 'title');
 
-const painCardsSection = `
-<section class="home-pain-grid-section" id="finans-karar-kartlari" data-experience-stage style="padding:48px 0 32px;background:#fff;border-bottom:1px solid #dfe5e0;">
-  <div class="home-shell">
-    <!-- 4 Temel Acı ve Kesin Karar Bento Kutuları -->
-    <div class="pain-decision-grid" aria-label="4 Temel Finansal Tıkanıklık ve Net Çözüm" style="margin-bottom:0;">
-      
-      <!-- Kart 1: Kredi Engelleri & Limit Darboğazı -->
-      <article class="decision-card decision-card--navy">
-        <div class="decision-card__top">
-          <span class="tag-pill tag-pill--alert">KREDİ ENGELLERİ</span>
-          <span class="card-icon" aria-hidden="true">🏦</span>
-        </div>
-        <h3>Bankaya Yanlış Mizanla Gitmeyin</h3>
-        <div class="pain-point">
-          <strong>Pahalı Acı:</strong>
-          <p>Bankaya plansız veya tutarsız bilanço ile gitmek kredi limitinizi %50 düşürür, rotatif faizinizi yukarı çeker.</p>
-        </div>
-        <div class="solution-point">
-          <strong>Net Karar Çözümü:</strong>
-          <p>Kredi komitesinin bakacağı 6 rasyoyu önceden görün; hangi engelin limitinizi kestiğini 90 dakikada çözün.</p>
-        </div>
-        <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" class="decision-link" data-cta="home_finance_credit" data-location="finance_pillars">Banka &amp; Kredi Karar Sistemini İncele →</a>
-      </article>
+const painCardsSection = '';
 
-      <!-- Kart 2: 13 Haftalık Nakit Sıkışıklığı -->
-      <article class="decision-card decision-card--emerald">
-        <div class="decision-card__top">
-          <span class="tag-pill tag-pill--success">LİKİDİTE ALARMI</span>
-          <span class="card-icon" aria-hidden="true">⏱️</span>
-        </div>
-        <h3>13 Haftalık Dinamik Nakit Akışı</h3>
-        <div class="pain-point">
-          <strong>Pahalı Acı:</strong>
-          <p>Kasada bugün para varken 3 hafta sonraki çekin karşılıksız kalacağını görememek şirketi temerrüde sürükler.</p>
-        </div>
-        <div class="solution-point">
-          <strong>Net Karar Çözümü:</strong>
-          <p>Gün gün değil; 13 haftalık dinamik likidite stres testiyle nakit açığını 2 hafta önceden görüp finanse edin.</p>
-        </div>
-        <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="decision-link" data-cta="home_finance_cash" data-location="finance_pillars">Dinamik Nakit Akışı Sistemini İncele →</a>
-      </article>
-
-      <!-- Kart 3: Birim Maliyet & Dinamik Fiyatlama -->
-      <article class="decision-card decision-card--violet">
-        <div class="decision-card__top">
-          <span class="tag-pill tag-pill--purple">KÂR SIZINTISI</span>
-          <span class="card-icon" aria-hidden="true">🎯</span>
-        </div>
-        <h3>Ciro Yaptıkça Batmayı Durdurun</h3>
-        <div class="pain-point">
-          <strong>Pahalı Acı:</strong>
-          <p>Hammadde, döviz ve genel gider artışını anında fiyatlamayan şirketler, çok sattıkça özkaynaklarını tüketir.</p>
-        </div>
-        <div class="solution-point">
-          <strong>Net Karar Çözümü:</strong>
-          <p>Değişken maliyet ve katkı payı motoruyla hangi ürünün para kazandırdığını, hangisinin zarar ettirdiğini anında ayırın.</p>
-        </div>
-        <a href="/sablonlar?q=maliyet" class="decision-link" data-cta="home_finance_cost" data-location="finance_pillars">Birim Maliyet Karar Motorunu İncele →</a>
-      </article>
-
-      <!-- Kart 4: Bütçe, Şirket Değerleme & Finansman -->
-      <article class="decision-card decision-card--amber">
-        <div class="decision-card__top">
-          <span class="tag-pill tag-pill--warn">STRATEJİK KARAR</span>
-          <span class="card-icon" aria-hidden="true">📊</span>
-        </div>
-        <h3>Şirket Değerleme &amp; Senaryolu Bütçe</h3>
-        <div class="pain-point">
-          <strong>Pahalı Acı:</strong>
-          <p>Şirket değerini bilmeden ortak almak veya 3 senaryolu bütçe olmadan büyümeye kalkmak kontrolü kaybettirir.</p>
-        </div>
-        <div class="solution-point">
-          <strong>Net Karar Çözümü:</strong>
-          <p>DCF ve çarpan modelleriyle şirketin gerçek değerini, yatırım getirisini ve borçlanma kapasitesini masaya koyun.</p>
-        </div>
-        <a href="/sablonlar?q=butce" class="decision-link" data-cta="home_finance_budget" data-location="finance_pillars">Bütçe &amp; Değerleme Sistemini İncele →</a>
-      </article>
-
-    </div>
-  </div>
-</section>
-`;
 
 const financePillars = `
 <section class="finance-pillars" id="finans-sistemleri" data-experience-stage>
@@ -269,15 +189,15 @@ const financePillars = `
       <p>Tek tıkla ihtiyacınız olan karar motorunu seçin, hemen kullanmaya başlayın.</p>
     </div>
     <div class="finance-needs-grid" aria-label="15 Temel Çözüm İhtiyacı">
-      <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="finance-need-item"><span class="need-badge">01</span><span class="need-name">13 Haftalık Dinamik Nakit Akışı</span></a>
-      <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" class="finance-need-item"><span class="need-badge">02</span><span class="need-name">Çoklu Banka &amp; Kredi Taksit Takibi</span></a>
+      <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="finance-need-item" data-cta="home_finance_cash"><span class="need-badge">01</span><span class="need-name">13 Haftalık Dinamik Nakit Akışı</span></a>
+      <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" class="finance-need-item" data-cta="home_finance_credit"><span class="need-badge">02</span><span class="need-name">Çoklu Banka &amp; Kredi Taksit Takibi</span></a>
       <a href="/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi" class="finance-need-item"><span class="need-badge">03</span><span class="need-name">Kasa Defteri &amp; Günlük Likidite</span></a>
       <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="finance-need-item"><span class="need-badge">04</span><span class="need-name">Müşteri Risk Skoru &amp; Cari Yaşlandırma</span></a>
-      <a href="/sablonlar?q=maliyet" class="finance-need-item"><span class="need-badge">05</span><span class="need-name">Birim Maliyet &amp; Dinamik Fiyatlama</span></a>
+      <a href="/sablonlar?q=maliyet" class="finance-need-item" data-cta="home_finance_cost"><span class="need-badge">05</span><span class="need-name">Birim Maliyet &amp; Dinamik Fiyatlama</span></a>
       <a href="/sablon/aylik-patron-finans-paneli" class="finance-need-item"><span class="need-badge">06</span><span class="need-name">Aylık Patron &amp; Yönetici Finans Paneli</span></a>
       <a href="/sablon/cek-senet-ve-vade-risk-sistemi" class="finance-need-item"><span class="need-badge">07</span><span class="need-name">Çek - Senet &amp; Vade Risk Portföyü</span></a>
       <a href="/sablonlar?q=pazaryeri" class="finance-need-item"><span class="need-badge">08</span><span class="need-name">Pazaryeri Net Kâr &amp; Komisyon Hesabı</span></a>
-      <a href="/sablonlar?q=butce" class="finance-need-item"><span class="need-badge">09</span><span class="need-name">3 Senaryolu Dinamik Bütçe &amp; Tahmin</span></a>
+      <a href="/sablonlar?q=butce" class="finance-need-item" data-cta="home_finance_budget"><span class="need-badge">09</span><span class="need-name">3 Senaryolu Dinamik Bütçe &amp; Tahmin</span></a>
       <a href="/sablon/ithalat-depo-teslim-rafa-gelen-net-birim-maliyet" class="finance-need-item"><span class="need-badge">10</span><span class="need-name">İthalat Depo Teslim Birim Maliyet</span></a>
       <a href="/sablon/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici" class="finance-need-item"><span class="need-badge">11</span><span class="need-name">Kıdem, İhbar &amp; Personel Maliyeti</span></a>
       <a href="/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli" class="finance-need-item"><span class="need-badge">12</span><span class="need-name">Şirket Öz Kaynağı &amp; TTK 376 Cetveli</span></a>
@@ -680,7 +600,6 @@ const financePillars = `
   </div>
 </section>`;
 
-if (!html.includes('class="home-pain-grid-section"')) requireReplace('<section class="catalog-proof"', `${painCardsSection}\n<section class="catalog-proof"`, 'pain cards before catalog');
 if (!html.includes('class="finance-pillars"')) requireReplace('<section class="difference"', `${financePillars}\n<section class="difference"`, 'finance pillars');
 
 const bridge = `
