@@ -36,6 +36,42 @@ const sectors = [
   { no: '24', name: 'Girişim & Startup', tag: 'RUNWAY HESABI', desc: '13 haftalık burn-rate nakit eritme hızı ve yatırımcı sunum simülatörü.' },
 ];
 
+const schemaLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': 'https://excelarsiv.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Referanslar', 'item': 'https://excelarsiv.com/referans' }
+      ]
+    },
+    {
+      '@type': 'ItemPage',
+      'name': '24 Sektörde Kurumsal Karar Altyapısı Referansları',
+      'headline': '24 Sektörde 1.000+ İşletmenin Güvendiği Finansal Karar Altyapısı',
+      'description': '24 sektörde 1.000\'den fazla işletme ve mali müşavir tarafından aktif olarak kullanılan 51+ hazır Excel karar sistemi referansları.',
+      'url': 'https://excelarsiv.com/referans',
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Excel Arşiv',
+        'url': 'https://excelarsiv.com/'
+      },
+      'mainEntity': {
+        '@type': 'ItemList',
+        'name': '24 Sektörel Karar Çözümleri Haritası',
+        'numberOfItems': sectors.length,
+        'itemListElement': sectors.map((s, idx) => ({
+          '@type': 'ListItem',
+          'position': idx + 1,
+          'name': s.name,
+          'description': `${s.tag}: ${s.desc}`
+        }))
+      }
+    }
+  ]
+});
+
 const pillars = [
   {
     title: 'Müşteri',
@@ -69,6 +105,9 @@ const pillars = [
   title="Referanslar & Sektörel Çözüm Ortaklığı — Excel Arşiv"
   description="24 sektörde 1.000'den fazla işletme ve mali müşavir tarafından aktif olarak kullanılan 51+ hazır Excel karar sistemi referansları."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={schemaLd} />
+  </Fragment>
   <main class="referrals-page">
     <section class="referrals-hero">
       <div class="wrap-shell">

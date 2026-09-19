@@ -59,6 +59,73 @@ const reasons = [
   },
 ];
 
+const schemaLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': 'https://excelarsiv.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Neden Excel Arşiv', 'item': 'https://excelarsiv.com/neden-excel-arsiv' }
+      ]
+    },
+    {
+      '@type': 'Article',
+      'headline': 'ExcelArşiv vs ChatGPT vs Boş Excel: Hangi Durumda Hangisi Doğru?',
+      'description': 'ExcelArşiv, ChatGPT ve boş Excel yaklaşımını kullanım amacı, doğruluk, denetim, veri gizliliği ve karar desteği açısından tarafsız biçimde karşılaştırın.',
+      'url': 'https://excelarsiv.com/neden-excel-arsiv',
+      'author': {
+        '@type': 'Person',
+        'name': 'Barış Bağırlar',
+        'jobTitle': 'Finansal Karar Sistemleri Mimarı',
+        'url': 'https://excelarsiv.com/hakkinda'
+      },
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Excel Arşiv',
+        'url': 'https://excelarsiv.com/'
+      }
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': [
+        {
+          '@type': 'Question',
+          'name': 'ExcelArşiv hazır şablonları ChatGPT\'den nasıl ayrılır?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'ChatGPT metinsel öneri ve serbest fikir üretiminde güçlüdür ancak hesaplamalarda formül hatası yapabilir ve veriler harici sunuculara gider. ExcelArşiv ise %100 açık formüllü, test edilmiş ve yerel bilgisayarınızda çalışan denetlenebilir sistemler sunar.'
+          }
+        },
+        {
+          '@type': 'Question',
+          'name': 'ExcelArşiv dosyalarında makro veya kod var mı?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Hayır. Sistemlerimiz sıfır makro prensibiyle hazırlanmıştır. Şirketinizin siber güvenlik duvarlarına takılmaz, antivirüs engeline uğramaz ve standart Excel işlevleriyle çalışır.'
+          }
+        },
+        {
+          '@type': 'Question',
+          'name': 'Aylık veya yıllık abonelik ücreti var mı?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Hayır. ExcelArşiv modelleri tek seferlik ödeme ile satın alınır. Süresiz ömür boyu lisanslıdır, tekrarlayan kart çekimi yapılmaz.'
+          }
+        },
+        {
+          '@type': 'Question',
+          'name': 'Mali verilerimiz güvende mi?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Evet. Dosyalar tamamen kendi bilgisayarınızda yerel çalışır. Ciro, maliyet veya müşteri verileriniz hiçbir harici bulut sunucusuna iletilmez.'
+          }
+        }
+      ]
+    }
+  ]
+});
+
 const pillars = [
   { label: 'MÜŞTERİ', text: 'Hazır iş akışı, sıfır zaman kaybı, aynı gün çalışan karar sistemi.' },
   { label: 'GÜVEN', text: 'Altın Kalkan: Verileriniz sunucuya gitmez, %100 açık formül, sıfır makro.' },
@@ -72,6 +139,9 @@ const pillars = [
   title="Neden ExcelArşiv? 7 Kesin Neden & Karşılaştırma — Excel Arşiv"
   description="ExcelArşiv, ChatGPT ve boş Excel yaklaşımını kullanım amacı, doğruluk, denetim, veri gizliliği ve karar desteği açısından tarafsız biçimde karşılaştırın."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={schemaLd} />
+  </Fragment>
   <main class="why-page">
     <section class="why-hero">
       <div class="wrap-shell">

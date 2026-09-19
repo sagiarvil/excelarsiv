@@ -254,6 +254,8 @@ function buildLlmsShort(indexablePages, templateRecords) {
     `- [Ücretsiz Demo Merkezi](${SITE_ORIGIN}/demo): Excel sistemleri canlı tarayıcı demoları ve test ortamı.`,
     `- [Nasıl Çalışır](${SITE_ORIGIN}/nasil-calisir): Güvenli indirme, lisans aktivasyonu ve kurulum adımları.`,
     `- [Sıkça Sorulan Sorular](${SITE_ORIGIN}/sss): Makrosuz formül mimarisi, sürüm uyumluluğu ve lisanslama detayları.`,
+    `- [Referanslar ve Sektörel Ağ](${SITE_ORIGIN}/referans): 24 sektörde 1.000+ işletmenin güvendiği finansal karar altyapısı ve çözüm ortaklığı.`,
+    `- [Neden Excel Arşiv (7 Kesin Neden)](${SITE_ORIGIN}/neden-excel-arsiv): %100 açık formül, sıfır makro, tek seferlik ödeme, 17 yıl bankacılık vizyonu ve tarafsız karşılaştırma.`,
     '',
     buildEeatMarkdownSection({ headingLevel: 2, includeProse: false }).trimEnd(),
     '',

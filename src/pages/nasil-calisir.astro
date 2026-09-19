@@ -81,10 +81,35 @@ const platforms = [
 
 const howToLd = JSON.stringify({
   '@context': 'https://schema.org',
-  '@type': 'Article',
-  name: 'Excel Arşiv şablonu satın alma ve güvenli indirme',
-  headline: 'Excel Arşiv şablonu satın alma ve güvenli indirme',
-  articleBody: steps.map((s, idx) => `${idx + 1}. ${s.title}: ${s.description}`).join('\n'),
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': 'https://excelarsiv.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Nasıl Çalışır', 'item': 'https://excelarsiv.com/nasil-calisir' }
+      ]
+    },
+    {
+      '@type': 'Article',
+      'name': 'Excel Arşiv şablonu satın alma ve güvenli indirme',
+      'headline': '10 Saniyede E-postanıza Teslim: Sıfır Kurulum, %100 Açık Formül, Anında Karar',
+      'description': 'Excel şablonunu seçme, Shopier ile 256-bit SSL ödeme, 10 saniyede e-posta teslimatı ve sıfır kurulumla Excel\'de çalıştırma süreci.',
+      'url': 'https://excelarsiv.com/nasil-calisir',
+      'articleBody': steps.map((s, idx) => `${idx + 1}. ${s.title}: ${s.description}`).join('\n')
+    },
+    {
+      '@type': 'HowTo',
+      'name': 'Excel Arşiv Karar Sistemi Satın Alma ve Kullanım Akışı',
+      'description': '4 adımda güvenli ödeme, 10 saniyede e-posta teslimatı ve sıfır kurulumla Excel karar sistemini çalıştırma rehberi.',
+      'step': steps.map((s, idx) => ({
+        '@type': 'HowToStep',
+        'position': idx + 1,
+        'name': s.title,
+        'text': s.description,
+        'url': `https://excelarsiv.com/nasil-calisir#adim-${s.step}`
+      }))
+    }
+  ]
 });
 ---
 
