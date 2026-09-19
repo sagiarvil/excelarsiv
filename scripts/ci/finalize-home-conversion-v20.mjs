@@ -49,12 +49,43 @@ const customBuild = `
         <article><span class="trigger-icon trigger-icon--amber">03</span><div><strong>Hazır şablon iş akışını bozuyor</strong><p>İşletme sürecini tabloya uydurmak yerine tabloyu gerçek sürecinize göre kurun.</p></div></article>
       </div>
     </div>
+
+    <!-- 5 Temel Direk Bento Izgarası -->
+    <div class="custom-build-v20__five-pillars" aria-label="ExcelArşiv 5 Temel Direk">
+      <article class="pillar-mini-box">
+        <div class="pillar-mini-top"><span class="p-no">01</span><span class="p-tag">MÜŞTERİ ODAĞI</span></div>
+        <strong>Saha Dili &amp; Aynı Gün Çözüm</strong>
+        <p>Aylarca ERP beklemek yerine, aynı gün çalışan hazır finansal karar motoru.</p>
+      </article>
+      <article class="pillar-mini-box">
+        <div class="pillar-mini-top"><span class="p-no">02</span><span class="p-tag">ALTIN KALKAN</span></div>
+        <strong>17 Yıl Bankacılık &amp; Sıfır Makro</strong>
+        <p>%100 açık formül. Mali verileriniz asla buluta gitmez, bilgisayarınızda kalır.</p>
+      </article>
+      <article class="pillar-mini-box">
+        <div class="pillar-mini-top"><span class="p-no">03</span><span class="p-tag">10 SN DAĞITIM</span></div>
+        <strong>Anında Teslim &amp; Sıfır Kurulum</strong>
+        <p>Windows, Mac ve iPad tam uyumlu. Tek seferlik ödeme, sıfır abonelik tuzağı.</p>
+      </article>
+      <article class="pillar-mini-box">
+        <div class="pillar-mini-top"><span class="p-no">04</span><span class="p-tag">24 SEKTÖR</span></div>
+        <strong>1.000+ İşletme Referansı</strong>
+        <p>Kafeden fabrikaya, inşaattan e-ticarete onaylanmış 51+ karar sistemi.</p>
+      </article>
+      <article class="pillar-mini-box">
+        <div class="pillar-mini-top"><span class="p-no">05</span><span class="p-tag">GÜVENLİ SATIŞ</span></div>
+        <strong>Tüm Kartlara 12 Taksit &amp; E-Fatura</strong>
+        <p>Shopier 256-bit SSL güvencesiyle anında resmi kurumsal e-arşiv fatura.</p>
+      </article>
+    </div>
+
     <div class="custom-build-v20__process">
       <article><span>01</span><div><strong>Süreci anlatın</strong><p>Teknik şartname hazırlamayın. Mevcut dosya, ekran görüntüsü veya işleyiş yeterli.</p></div></article>
       <article><span>02</span><div><strong>Karar noktalarını netleştirelim</strong><p>Hangi verinin girileceği, neyin hesaplanacağı ve yönetimin neyi görmesi gerektiği belirlenir.</p></div></article>
       <article><span>03</span><div><strong>Sistemi işleyişinize göre kuralım</strong><p>Giriş, kontrol, hesap ve yönetici ekranları aynı finansal mantıkta birleştirilir.</p></div></article>
       <article><span>04</span><div><strong>Gerçek veriyle doğrulayın</strong><p>Normal kullanımın yanında uç senaryolar ve hata koşullarıyla doğrulama yapılır.</p></div></article>
     </div>
+
     <div class="custom-build-v20__close">
       <div class="custom-build-v20__trust">
         <span>17 yıllık ticari bankacılık &amp; saha finans bakışı</span>
@@ -62,7 +93,22 @@ const customBuild = `
         <span>Gerektiği kadar sistem · gereksiz modül yok</span>
       </div>
       <div class="custom-build-v20__close-copy">
-        <div><small>ŞİRKETİNİZE ÖZEL</small><h3>Dağınık dosyalardan tek karar sistemine geçin.</h3><p>Önce ihtiyacın gerçekten özel sistem gerektirip gerektirmediğini netleştirin. Hazır sistem yeterliyse onu seçin; yetmiyorsa işletmenize göre kuralım.</p></div>
+        <div>
+          <small>ŞİRKETİNİZE ÖZEL</small>
+          <h3>Dağınık dosyalardan tek karar sistemine geçin.</h3>
+          <p>Önce ihtiyacın gerçekten özel sistem gerektirip gerektirmediğini netleştirin. Hazır sistem yeterliyse onu seçin; yetmiyorsa işletmenize göre kuralım.</p>
+          <div class="home-card-installments">
+            <span class="hci-title">Tüm Kartlara Peşin Fiyatına veya 12 Taksit:</span>
+            <div class="hci-badges">
+              <span>Axess</span>
+              <span>Bonus</span>
+              <span>World</span>
+              <span>Maximum</span>
+              <span>CardFinans</span>
+              <span>Paraf</span>
+            </div>
+          </div>
+        </div>
         <div class="custom-build-v20__cta-group">
           <a class="custom-build-v20__primary" href="/ozel-excel-sistemleri" data-cta="home_custom_system_deep" data-location="custom_build">İşletmenize Özel Sistemi İnceleyin →<small>Kapsamı, yöntemi ve örnek sistemi görün</small></a>
           <a class="custom-build-v20__secondary" href="${waHref}" target="_blank" rel="noopener noreferrer" data-event="cta_whatsapp_click" data-cta="home_custom_whatsapp" data-location="custom_build">WhatsApp'tan İhtiyacı Anlatın<small>Hazır mesajla doğrudan başlayın</small></a>

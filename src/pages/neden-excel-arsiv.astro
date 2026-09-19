@@ -4,95 +4,598 @@ import SectionLabel from '../components/SectionLabel.astro';
 import Button from '../components/Button.astro';
 
 const comparisonRows = [
-  ['Hazır iş akışı', 'Güçlü', 'Orta', 'Zayıf'],
-  ['Tekrarlanabilir süreç', 'Güçlü', 'Orta', 'Kullanıcının kurduğu yapıya bağlı'],
-  ['Serbest soru-cevap / fikir üretimi', 'Sınırlı', 'Güçlü', 'Sınırlı'],
-  ['Tamamen özel model kurma', 'Sınırlı', 'Destekleyici', 'Güçlü'],
-  ['Hazır girdi → çıktı disiplini', 'Güçlü', 'Prompt ve bağlama bağlı', 'Kullanıcının tasarımına bağlı'],
-  ['Satın almadan önce gerçek ürün ekranı', 'Var', 'Uygulanmaz', 'Uygulanmaz'],
+  ['Hazır Finansal Karar Akışı', '✓ Güçlü (Anında Hazır)', 'Orta (Prompt İster)', '✕ Zayıf (Yok)'],
+  ['Tekrarlanabilir Şirket Süreci', '✓ Güçlü (Sabit ve Net)', 'Orta (Bağlama Göre Değişir)', 'Kullanıcının Kurduğu Yapıya Bağlı'],
+  ['Serbest Fikir / Prompt Üretimi', 'Sınırlı (Karar Odaklı)', '✓ Çok Güçlü', '✕ Sınırlı'],
+  ['Formül Doğruluğu & Denetim', '✓ %100 Açık ve Formüllü', '⚠️ Halüsinasyon / Hata Riski', 'Kullanıcının Bilgisine Bağlı'],
+  ['Veri Gizliliği (Local Çalışma)', '✓ %100 Yerel (Buluta Gitmez)', '⚠️ Veri OpenAI Sunucusuna Gider', '✓ %100 Yerel'],
+  ['Satın Almadan Önce Gerçek Demo', '✓ Var (Tüm Ekranlar Açık)', 'Uygulanmaz', 'Uygulanmaz'],
+  ['Kurulum & Yazılım Bağımlılığı', '✓ Sıfır Kurulum (Saf .xlsx)', 'Tarayıcı / API Gerekir', 'Excel Gerekir'],
+  ['Ödeme Modeli', '✓ Tek Seferlik (Ömür Boyu)', 'Aylık Abonelik ($20+/ay)', 'Ücretsiz / Lisanslı'],
+];
+
+const reasons = [
+  {
+    no: '01',
+    title: '17 Yıllık Ticari Bankacılık & Saha Refleksi',
+    tag: 'FİNANSAL DİSİPLİN',
+    desc: 'Yalnızca formül yazmıyoruz; kredi, limit, vade, nakit açığı ve banka risk mantığını şirketinizin gerçek nakit akışıyla birleştiriyoruz.',
+  },
+  {
+    no: '02',
+    title: '%100 Açık Formüller ve Hücre Şeffaflığı',
+    tag: 'TAM KONTROL',
+    desc: 'Gizli kod, kilitli hücre veya kara kutu hesaplar yoktur. İstediğiniz satırı genişletebilir, kendi hesap planınıza göre uyarlayabilirsiniz.',
+  },
+  {
+    no: '03',
+    title: 'Sıfır Makro & Sıfır Güvenlik Riski',
+    tag: 'KURUMSAL GÜVEN',
+    desc: 'VBA/Makro içermez. Şirket bilgi işlem güvenlik duvarlarına veya antivirüslere takılmaz. Orijinal Excel fonksiyonlarıyla tıkır tıkır çalışır.',
+  },
+  {
+    no: '04',
+    title: 'Tek Seferlik Ödeme — Sıfır Abonelik Tuzağı',
+    tag: 'ÖMÜR BOYU LİSANS',
+    desc: 'Her ay kartınızdan yinelenen ücretler kesilmez. Bir kez satın alırsınız, ömür boyu şirketinizde sınırsız kullanırsınız.',
+  },
+  {
+    no: '05',
+    title: 'Sıfır Kurulum: Evrensel Cihaz Uyumu',
+    tag: 'ANINDA ÇALIŞIR',
+    desc: 'Windows, Mac, iPad ve Microsoft 365. Ek program, eklenti veya karmaşık veritabanı ayarı gerekmez; çift tıklayıp açarsınız.',
+  },
+  {
+    no: '06',
+    title: '10 Saniyede Teslimat & Resmi E-Arşiv Fatura',
+    tag: 'ŞEFFAF TİCARET',
+    desc: 'Shopier 256-bit SSL güvencesiyle sipariş anında doğrulanır. İndirme bağlantınız ekranınızda açılır ve kurumsal faturanız e-postanıza gelir.',
+  },
+  {
+    no: '07',
+    title: '51+ Canlı Karar Sistemi ve 24 Sektör Deneyimi',
+    tag: 'ONAYLANMIŞ BAŞARI',
+    desc: 'Kafeden fabrikaya, inşaattan e-ticarete Türkiye şartlarına ve mevzuatına (VUK, KDV, SGK) tam uyumlu, test edilmiş hazır modeller.',
+  },
+];
+
+const pillars = [
+  { label: 'MÜŞTERİ', text: 'Hazır iş akışı, sıfır zaman kaybı, aynı gün çalışan karar sistemi.' },
+  { label: 'GÜVEN', text: 'Altın Kalkan: Verileriniz sunucuya gitmez, %100 açık formül, sıfır makro.' },
+  { label: 'DAĞITIM', text: '10 saniyede e-postanıza teslim, ömür boyu lisans, sıfır kurulum.' },
+  { label: 'REFERANS', text: '24 sektörde 1.000+ KOBİ ve mali müşavirin aktif tercihi.' },
+  { label: 'SATIŞ KANALI', text: 'Tüm kartlara taksit imkanı, 256-bit SSL, anında e-arşiv fatura.' },
 ];
 ---
 
 <CommerceLayout
-  title="ExcelArşiv vs ChatGPT vs Boş Excel | Neden Excel Arşiv?"
-  description="ExcelArşiv, ChatGPT ve boş Excel yaklaşımını kullanım amacı, tekrar edilebilirlik, özelleştirme, denetim ve karar desteği açısından tarafsız biçimde karşılaştırın."
+  title="Neden ExcelArşiv? 7 Kesin Neden & Karşılaştırma — Excel Arşiv"
+  description="ExcelArşiv, ChatGPT ve boş Excel yaklaşımını kullanım amacı, doğruluk, denetim, veri gizliliği ve karar desteği açısından tarafsız biçimde karşılaştırın."
 >
-  <main class="mx-auto max-w-5xl px-4 pb-24 pt-8">
-    <section class="max-w-3xl">
-      <SectionLabel number={1} label="Karşılaştırma" />
-      <h1 class="display mt-6">ExcelArşiv, ChatGPT ve boş Excel: hangi iş için hangisi doğru?</h1>
-      <p class="lead mt-6">
-        Üç yaklaşım birbirinin yerine geçmek zorunda değildir. Doğru seçim; işin tekrar sıklığına,
-        serbest analiz ihtiyacına ve hazır bir karar akışına ne kadar ihtiyaç duyduğunuza bağlıdır.
-      </p>
-    </section>
+  <main class="why-page">
+    <section class="why-hero">
+      <div class="wrap-shell">
+        <SectionLabel number={1} label="KARŞILAŞTIRMA & GÜVENCE" />
+        <h1 class="why-title">ExcelArşiv, ChatGPT ve Boş Excel:<br /><em>Hangi Durumda Hangisi Doğru?</em></h1>
+        <p class="why-lead">
+          Üç yaklaşım birbirinin yerine geçmek zorunda değildir. Doğru seçim; işin tekrar sıklığına, mali verilerin gizliliğine, formül güvenilirliğine ve aynı gün çalışan hazır bir karar kokpitine ne kadar ihtiyaç duyduğunuza bağlıdır.
+        </p>
 
-    <section class="mt-12" aria-labelledby="comparison-title">
-      <h2 id="comparison-title" class="h3">Kısa karşılaştırma</h2>
-      <div class="table-wrap mt-5">
-        <table>
-          <thead><tr><th>Kriter</th><th>ExcelArşiv</th><th>ChatGPT</th><th>Boş Excel</th></tr></thead>
-          <tbody>{comparisonRows.map((row) => <tr>{row.map((cell) => <td>{cell}</td>)}</tr>)}</tbody>
-        </table>
+        <!-- 5 Temel Direk Özet Rozetleri -->
+        <div class="why-five-pillars" aria-label="5 Temel Direk">
+          {pillars.map((p) => (
+            <div class="pillar-pill">
+              <strong>{p.label}:</strong>
+              <span>{p.text}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
-    <section class="comparison-cards mt-10" aria-label="Hangi durumda hangisi">
-      <article>
-        <h2>ExcelArşiv ne zaman daha uygundur?</h2>
-        <p>Aynı finans, muhasebe, operasyon veya kontrol işini tekrar tekrar yürütüyor; girdi alanları, hesap akışı ve karar çıktıları önceden kurgulanmış bir Excel sistemi istiyorsanız.</p>
-      </article>
-      <article>
-        <h2>ChatGPT ne zaman daha uygundur?</h2>
-        <p>Bir problemi keşfetmek, soru sormak, alternatif üretmek, metin veya ilk taslak hazırlamak ve sabit bir şablona bağlı kalmadan analiz yapmak istiyorsanız.</p>
-      </article>
-      <article>
-        <h2>Boş Excel ne zaman daha uygundur?</h2>
-        <p>İhtiyacınız çok basitse veya modeli, formülleri, kontrolleri ve raporlamayı tamamen kendiniz tasarlamak istiyorsanız boş çalışma kitabı en esnek başlangıçtır.</p>
-      </article>
-    </section>
+    <!-- 7 Kesin Neden Bento Izgarası -->
+    <section class="seven-reasons-section">
+      <div class="wrap-shell">
+        <div class="section-kicker-head">
+          <span class="kicker-tag">7 KESİN NEDEN</span>
+          <h2>İşletmeler Neden ExcelArşiv Karar Sistemlerini Seçiyor?</h2>
+          <p>Yalnızca hazır bir tablo değil; finansal sağlığınızı koruyan, hata payını sıfıra indiren kurumsal bir altyapı.</p>
+        </div>
 
-    <section class="mt-12 max-w-3xl">
-      <h2 class="h3">ExcelArşiv neden ayrı bir kategori?</h2>
-      <div class="mt-6 space-y-8">
-        <section>
-          <h3 class="font-semibold">1 · Denetim ve kanıt</h3>
-          <p class="body-sm mt-3">Ürünler üretim mandası ve kapı testleriyle denetlenir. Amaç, rastgele hücre toplamı yerine tekrar kullanılabilir ve kontrol edilebilir bir çalışma akışı sunmaktır.</p>
-        </section>
-        <section>
-          <h3 class="font-semibold">2 · Mevzuat ve Türkiye iş dili</h3>
-          <p class="body-sm mt-3">KDV, SGK, VUK, TTK ve saha diline uygun etiketler kullanılır. Güncelleme politikası ürün sayfasında görünürdür.</p>
-        </section>
-        <section>
-          <h3 class="font-semibold">3 · Karar çıktısı</h3>
-          <p class="body-sm mt-3">Yönetici özeti, risk/güven göstergeleri ve aksiyon odaklı çıktılar hedeflenir. Demo ile satın almadan önce gerçek ekranlar incelenebilir.</p>
-        </section>
-        <section>
-          <h3 class="font-semibold">4 · Teslimat ve sorumluluk</h3>
-          <p class="body-sm mt-3">Ödeme, güvenli indirme, lisans ve yasal metinler ürün teslimat sürecinin parçasıdır.</p>
-        </section>
+        <div class="reasons-grid">
+          {reasons.map((r) => (
+            <article class="reason-card">
+              <div class="reason-top">
+                <span class="reason-no">{r.no}</span>
+                <span class="reason-tag">{r.tag}</span>
+              </div>
+              <h3>{r.title}</h3>
+              <p>{r.desc}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
 
-    <section class="decision mt-12 max-w-3xl">
-      <h2 class="h3">Pratik seçim kuralı</h2>
-      <p class="body-sm mt-3"><strong>Keşif ve serbest düşünme:</strong> ChatGPT. <strong>Tam özel model:</strong> boş Excel. <strong>Tekrarlanan ve tanımlı bir iş akışını hazır sistemle yürütme:</strong> ExcelArşiv.</p>
-      <p class="body-sm mt-3">ExcelArşiv’in iddiası “her durumda daha iyi” olmak değildir; belirli iş akışlarında kurulum ve standardizasyon yükünü azaltan hazır dijital Excel sistemleri sunmaktır.</p>
+    <!-- Karşılaştırma Tablosu -->
+    <section class="matrix-section" aria-labelledby="comparison-title">
+      <div class="wrap-shell">
+        <div class="section-kicker-head">
+          <span class="kicker-tag">DETAYLI MATRİS</span>
+          <h2 id="comparison-title">Tarafsız Yetenek Karşılaştırması</h2>
+          <p>Şirketinizin ihtiyacına en uygun yöntemi objektif kriterlerle belirleyin.</p>
+        </div>
+
+        <div class="matrix-table-wrap">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Kriter</th>
+                <th>ExcelArşiv Karar Sistemi</th>
+                <th>ChatGPT / LLM</th>
+                <th>Boş Excel Çalışma Kitabı</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map((row) => (
+                <tr>
+                  <td><strong>{row[0]}</strong></td>
+                  <td class="col-excelarsiv">{row[1]}</td>
+                  <td class="col-chatgpt">{row[2]}</td>
+                  <td class="col-blank">{row[3]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </section>
 
-    <section class="mt-8 max-w-3xl rounded-2xl border border-slate-200 bg-slate-50 p-5">
-      <h2 class="h3">Ürün bazında ne soruluyor?</h2>
-      <p class="body-sm mt-2">51 Excel sisteminin her biri için muhasebeci, mali müşavir ve finans ekiplerinin ürün seçerken sorduğu soruları ayrı ayrı inceleyebilirsiniz.</p>
-      <a href="/rehber/excel-sablonlari-sik-sorulan-sorular" class="mt-3 inline-flex text-sm font-bold text-accent-primary hover:underline">51 ürünün soru-cevap indeksini incele →</a>
+    <!-- Veri Gizliliği & Güvenlik Kalkanı -->
+    <section class="privacy-shield-section">
+      <div class="wrap-shell">
+        <div class="privacy-shield-box">
+          <div class="shield-icon">🛡️</div>
+          <div class="shield-copy">
+            <span class="kicker-tag">ALTIN KALKAN GÜVENCESİ</span>
+            <h2>Mali Verileriniz Asla Buluta Gitmez: %100 Yerel Çalışma</h2>
+            <p>
+              Yapay zeka araçlarına girilen hassas finansal veriler, müşteri listeleri ve ciro bilgileri harici sunuculara yüklenir. ExcelArşiv karar sistemleri ise tamamen kendi bilgisayarınızda çevrimdışı çalışır. Şirketinizin mali mahremiyeti %100 güvence altındadır.
+            </p>
+            <div class="shield-badges">
+              <span>✓ Sıfır Sunucu Aktarımı</span>
+              <span>✓ Çevrimdışı Çalışma</span>
+              <span>✓ Açık Formül Denetimi</span>
+              <span>✓ 256-Bit SSL Satın Alma</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <div class="mt-10 flex flex-wrap gap-3">
-      <Button href="/sablonlar">Excel sistemlerini incele</Button>
-      <Button href="/hakkinda" variant="secondary">Yazarı tanı</Button>
-    </div>
+    <!-- Hangi Durumda Hangisi Bento Kartları -->
+    <section class="scenarios-section">
+      <div class="wrap-shell">
+        <div class="section-kicker-head">
+          <span class="kicker-tag">PRATİK SEÇİM KILAVUZU</span>
+          <h2>Hangi problem için hangi araç en doğrusu?</h2>
+          <p>Doğru işe doğru aracı seçerek zaman ve kaynak israfının önüne geçin.</p>
+        </div>
+
+        <div class="scenarios-grid">
+          <article class="scenario-card is-excelarsiv">
+            <div class="scenario-badge">EN VERİMLİ ÇÖZÜM</div>
+            <h3>ExcelArşiv Ne Zaman Uygundur?</h3>
+            <p>
+              Aynı nakit akışı, cari hesap, maliyet, bütçe veya hakediş sürecini tekrar tekrar yürütüyor; girdi alanları, formülleri ve yönetici kokpiti baştan kurgulanmış profesyonel bir sistem istiyorsanız.
+            </p>
+            <ul>
+              <li>Hata riski olmayan formül mimarisi</li>
+              <li>Aynı gün devreye alma garantisi</li>
+              <li>17 yıllık ticari bankacılık vizyonu</li>
+            </ul>
+          </article>
+
+          <article class="scenario-card">
+            <div class="scenario-badge">SERBEST ANALİZ</div>
+            <h3>ChatGPT Ne Zaman Uygundur?</h3>
+            <p>
+              Yeni bir konsept keşfetmek, beyin fırtınası yapmak, metin taslağı oluşturmak veya serbest soru-cevap ile fikir üretmek istediğiniz anlarda idealdir.
+            </p>
+            <ul>
+              <li>Serbest düşünce ve strateji geliştirme</li>
+              <li>Yazışma ve e-posta taslağı çıkarma</li>
+              <li>Tek seferlik metinsel özetler</li>
+            </ul>
+          </article>
+
+          <article class="scenario-card">
+            <div class="scenario-badge">SIFIRDAN TASARIM</div>
+            <h3>Boş Excel Ne Zaman Uygundur?</h3>
+            <p>
+              İhtiyacınız yalnızca 3-4 satırlık basit bir toplama işleminden ibaretse veya formülleri, kontrolleri ve tasarımı sıfırdan kendiniz inşa edecek yeterli zamana ve bilgiye sahipseniz.
+            </p>
+            <ul>
+              <li>Çok basit mikro hesaplamalar</li>
+              <li>Kişisel ve serbest not defteri</li>
+              <li>Sınırsız özelleştirme özgürlüğü</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Soru & Satın Alma Çağrısı -->
+    <section class="cta-section">
+      <div class="wrap-shell cta-grid">
+        <div class="cta-card">
+          <span class="kicker-tag">51 HAZIR KARAR SİSTEMİ</span>
+          <h2>İşletmenizin finansal darboğazını bugün çözün.</h2>
+          <p>Nakit akışı, maliyet hesabı, bütçe simülasyonu veya cari risk takibi. Seçin, indirin ve dakikalar içinde kullanmaya başlayın.</p>
+          <div class="cta-actions">
+            <Button href="/sablonlar">Excel Sistemlerini İncele →</Button>
+            <Button href="/ozel-excel-sistemleri" variant="secondary">Size Özel Çözüm İsteyin</Button>
+          </div>
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid #e2e8f0">
+            <p style="margin:0 0 8px;font-size:13.5px;color:#64748b">51 Excel karar sistemi için muhasebe, finans, nakit, bütçe ve kullanım sorularını inceleyin:</p>
+            <a href="/rehber/excel-sablonlari-sik-sorulan-sorular" style="font-size:14px;font-weight:800;color:#059669;text-decoration:none">51 ürünün soru-cevap indeksini incele →</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </CommerceLayout>
 
 <style>
-  .table-wrap{overflow-x:auto;border:1px solid var(--xl-grid);border-radius:16px;background:#fff}table{width:100%;border-collapse:collapse;min-width:720px}th,td{padding:15px 16px;border-bottom:1px solid var(--xl-grid);text-align:left;font-size:13px;line-height:1.45}th{background:#f5f8f6;font-size:11px;letter-spacing:.03em}tbody tr:last-child td{border-bottom:0}.comparison-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.comparison-cards article,.decision{padding:24px;border:1px solid var(--xl-grid);border-radius:16px;background:#fff}.comparison-cards h2{margin:0 0 12px;font-family:var(--font-display);font-size:22px;letter-spacing:-.02em}.comparison-cards p{font-size:13px;line-height:1.7;color:#526158}.decision{background:#f6f8f7}@media(max-width:780px){.comparison-cards{grid-template-columns:1fr}}
-</style>
+.why-page {
+  padding-bottom: 96px;
+  background: #ffffff;
+  color: #0f172a;
+}
+.wrap-shell {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* HERO */
+.why-hero {
+  padding: 48px 0 40px;
+  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+.why-title {
+  margin: 20px 0 16px;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #0f172a;
+}
+.why-title em {
+  font-style: normal;
+  color: #059669;
+}
+.why-lead {
+  max-width: 820px;
+  margin: 0 0 28px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #475569;
+}
+
+/* 5 TEMEL DİREK */
+.why-five-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+.pillar-pill {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.pillar-pill strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #059669;
+  margin-bottom: 2px;
+}
+.pillar-pill span {
+  color: #475569;
+}
+
+/* HEADERS */
+.section-kicker-head {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+.kicker-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #059669;
+  margin-bottom: 8px;
+}
+.section-kicker-head h2 {
+  margin: 0 0 10px;
+  font-size: clamp(26px, 3.2vw, 38px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+}
+.section-kicker-head p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+/* 7 KESİN NEDEN */
+.seven-reasons-section {
+  padding: 64px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+.reason-card {
+  padding: 24px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.reason-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+  border-color: #cbd5e1;
+}
+.reason-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.reason-no {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.reason-card:nth-child(1) .reason-no { background: #059669; }
+.reason-card:nth-child(2) .reason-no { background: #2563eb; }
+.reason-card:nth-child(3) .reason-no { background: #d97706; }
+
+.reason-tag {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+.reason-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+.reason-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+/* MATRİS TABLOSU */
+.matrix-section {
+  padding: 64px 0;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+.matrix-table-wrap {
+  overflow-x: auto;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+.matrix-table th, .matrix-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.matrix-table th {
+  background: #f1f5f9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #334155;
+}
+.matrix-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.col-excelarsiv {
+  background: #f0fdf4;
+  color: #166534;
+  font-weight: 700;
+}
+.col-chatgpt {
+  color: #475569;
+}
+.col-blank {
+  color: #64748b;
+}
+
+/* GİZLİLİK VE GÜVENLİK KALKANI */
+.privacy-shield-section {
+  padding: 64px 0 0;
+}
+.privacy-shield-box {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  padding: 36px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
+  color: #ffffff;
+  box-shadow: 0 16px 40px rgba(6, 78, 59, 0.15);
+}
+.shield-icon {
+  font-size: 54px;
+  flex-shrink: 0;
+}
+.shield-copy .kicker-tag {
+  color: #34d399;
+}
+.shield-copy h2 {
+  margin: 0 0 12px;
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+}
+.shield-copy p {
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #cbd5e1;
+}
+.shield-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.shield-badges span {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* SENARYOLAR */
+.scenarios-section {
+  padding: 64px 0 0;
+}
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.scenario-card {
+  padding: 28px 24px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+}
+.scenario-card.is-excelarsiv {
+  border-color: #a7f3d0;
+  background: #f0fdf4;
+}
+.scenario-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.is-excelarsiv .scenario-badge {
+  background: #059669;
+  color: #ffffff;
+}
+.scenario-card h3 {
+  margin: 0 0 12px;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+.scenario-card p {
+  margin: 0 0 16px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #475569;
+}
+.scenario-card ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #334155;
+}
+
+/* CTA */
+.cta-section {
+  padding: 64px 0 0;
+}
+.cta-card {
+  padding: 40px;
+  border-radius: 24px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  max-width: 800px;
+  margin-inline: auto;
+}
+.cta-card h2 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.cta-card p {
+  max-width: 600px;
+  margin: 0 auto 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #475569;
+}
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 960px) {
+  .scenarios-grid { grid-template-columns: 1fr; }
+  .privacy-shield-box { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+</style>\n

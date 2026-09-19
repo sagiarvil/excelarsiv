@@ -1,40 +1,516 @@
 ---
 import CommerceLayout from '../layouts/CommerceLayout.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import Button from '../components/Button.astro';
+
 const urun = Astro.url.searchParams.get('urun') ?? '';
 const productUrl = urun ? new URL(`/sablon/${urun}`, Astro.site).toString() : new URL('/', Astro.site).toString();
 const shareText = 'Excel Arşiv’de işletmeler için hazırlanmış bu Excel karar sistemine bakmanı öneririm:';
 const mailHref = `mailto:?subject=${encodeURIComponent('Excel Arşiv ürün önerisi')}&body=${encodeURIComponent(shareText + ' ' + productUrl)}`;
 const waHref = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + productUrl)}`;
+
+const sectors = [
+  { no: '01', name: 'İnşaat & Taahhüt', tag: 'HAKEDİŞ & STOPAJ', desc: 'Taşeron hakediş kesintisi, yıllara sâri stopaj ve şantiye nakit akış planı.' },
+  { no: '02', name: 'E-Ticaret & Pazaryeri', tag: 'NET KÂR KOKPİTİ', desc: 'Trendyol, Hepsiburada komisyon, reklam gideri, kargo ve iade sonrası net kâr.' },
+  { no: '03', name: 'Kafe, Restoran & Gıda', tag: 'REÇETE & ZAYİ', desc: 'Porsiyon bazlı birim maliyet, zayi hesaplayıcı ve günlük kasa-banka mutabakatı.' },
+  { no: '04', name: 'Üretim & İmalat', tag: 'ZAM YANSITMA', desc: 'Hammadde artışlarını tekliflere anında yansıtan birim maliyet ve başabaş simülatörü.' },
+  { no: '05', name: 'Lojistik & Nakliye', tag: 'SEFER BAŞI KÂR', desc: 'Araç bazında km/yakıt endeksi, bakım amortismanı ve filo nakit planlayıcı.' },
+  { no: '06', name: 'Toptan & Dağıtım', tag: 'CARİ YAŞLANDIRMA', desc: 'DSO tahsilat süresi, vadesi geçen açık bakiyeler ve gecikme faizi motoru.' },
+  { no: '07', name: 'Tekstil & Konfeksiyon', tag: 'FASON KÂRLILIK', desc: 'Sipariş bazında kumaş/iplik fire hesabı ve fason dikim kârlılık takibi.' },
+  { no: '08', name: 'Sağlık & Klinik', tag: 'DOKTOR HAKEDİŞ', desc: 'Uzman hekim seans hakedişleri, sarf malzeme maliyeti ve klinik kârlılığı.' },
+  { no: '09', name: 'Otomotiv & Filo', tag: 'ALIM-SATIM MARJI', desc: 'İkinci el ekspertiz/onarım sonrası net marj ve filo kiralama getirisi.' },
+  { no: '10', name: 'Gayrimenkul & Proje', tag: 'DCF DEĞERLEME', desc: 'Kira çarpanı analizi, proje geri ödeme süresi ve dinamik nakit projeksiyonu.' },
+  { no: '11', name: 'Otel & Konaklama', tag: 'REVPAR & DOLULUK', desc: 'Oda başı gelir optimizasyonu, sezonluk nakit bütçesi ve enerji maliyet takibi.' },
+  { no: '12', name: 'İthalat & İhracat', tag: 'GÜMRÜK & KUR', desc: 'Kur dalgalanmalarına karşı forward koruma, navlun ve gümrük maliyet dağıtımı.' },
+  { no: '13', name: 'Mali Müşavirler & YMM', tag: 'MİZAN DENETİMİ', desc: '100-999 hesap planı tutarlılık kontrolü, KDV tevkifat ve tecil-terkin analizi.' },
+  { no: '14', name: 'Yazılım & Dijital Ajans', tag: 'PROJE ADAMLIK GÜN', desc: 'Yazılımcı adam/saat maliyeti, retainer sözleşme kârlılığı ve nakit akışı.' },
+  { no: '15', name: 'Perakende & Mağazacılık', tag: 'M² VERİMLİLİĞİ', desc: 'Mağaza başı metrekare cirosu, stok devir hızı ve kasa açığı kontrolü.' },
+  { no: '16', name: 'Tarım & Hayvancılık', tag: 'HASAT BÜTÇESİ', desc: 'Dönemsel gübre/yem girdi planlaması ve hasat vadeli nakit dengesi.' },
+  { no: '17', name: 'Enerji & Tesis', tag: 'KWH BİRİM MALİYET', desc: 'Güneş santrali (GES) amortisman simülasyonu ve üretim verim endeksi.' },
+  { no: '18', name: 'Danışmanlık & Denetim', tag: 'YÖNETİCİ KOKPİTİ', desc: 'Şirket sahipleri için tek ekranda net işletme sermayesi ve KPI paneli.' },
+  { no: '19', name: 'Mobilya & Dekorasyon', tag: 'ÖZEL SİPARİŞ', desc: 'Plaka bazlı fire payı, montaj/işçilik payı ve özel imalat teklif motoru.' },
+  { no: '20', name: 'Hizmet & Tesis Yönetimi', tag: 'VARDİYA & KIDEM', desc: 'Personel kıdem/ihbar karşılık ayırma ve vardiya bordro optimizasyonu.' },
+  { no: '21', name: 'Matbaa & Ambalaj', tag: 'BASKI TİRAJI', desc: 'Kâğıt kur endeksli tiraj maliyetlendirmesi ve kalıp amortismanı.' },
+  { no: '22', name: 'Kuyum & Kıymetli Maden', tag: 'ONS / HAS MALİYET', desc: 'Has altın dönüşüm katsayısı, işçilik farkı ve döviz pozisyon riski.' },
+  { no: '23', name: 'Eğitim & Kurs', tag: 'TAKSİT & TAHSİLAT', desc: 'Öğrenci dönemlik sözleşme tahsilatı ve eğitmen hakediş mutabakatı.' },
+  { no: '24', name: 'Girişim & Startup', tag: 'RUNWAY HESABI', desc: '13 haftalık burn-rate nakit eritme hızı ve yatırımcı sunum simülatörü.' },
+];
+
+const pillars = [
+  {
+    title: 'Müşteri',
+    kicker: 'ODAKTA İŞLETME VAR',
+    desc: 'Teknik detaylar yerine işletmenizin gerçek karar ihtiyacını karşılayan, kullanıcı dostu çözümler.',
+  },
+  {
+    title: 'Güven',
+    kicker: '17 YILLIK BANKACILIK',
+    desc: 'Ticari bankacılık disiplini, %100 açık formüller, sıfır makro. Verileriniz tamamen kendi bilgisayarınızda.',
+  },
+  {
+    title: 'Dağıtım',
+    kicker: '10 SANİYEDE TESLİM',
+    desc: 'Ödeme tamamlandığı an indirme bağlantınız ekranda ve e-postanızda. Ömür boyu sınırsız kullanım.',
+  },
+  {
+    title: 'Referans',
+    kicker: '24 SEKTÖR DENEYİMİ',
+    desc: 'Türkiye genelinde 1.000+ KOBİ, mali müşavir ve finans yöneticisi tarafından aktif olarak kullanılıyor.',
+  },
+  {
+    title: 'Satış Kanalı',
+    kicker: 'GÜVENLİ & FATURALI',
+    desc: 'Shopier 256-bit SSL, tüm kartlara 12 taksit seçeneği ve anında resmi e-arşiv fatura teslimi.',
+  },
+];
 ---
 
-<CommerceLayout title="Excel Sistemini Paylaş | Excel Arşiv" description="İşinize yarayan Excel Arşiv karar sistemini başka bir işletme sahibi veya mali müşavirle paylaşın.">
-  <section class="referral">
-    <div class="site-container">
-      <p class="eyebrow">REFERANS</p>
-      <h1>İşinize yaradıysa doğru kişiye iletin.</h1>
-      <p>Bir işletme sahibinin veya mali müşavirin aynı probleme tekrar tekrar zaman harcadığını biliyorsanız ürün sayfasını doğrudan paylaşın. Kapsam, demo ve güncel fiyat kanonik ürün sayfasında kalır.</p>
-      <div class="share-card">
-        <code>{productUrl}</code>
-        <div class="actions">
-          <a href={waHref} target="_blank" rel="noopener noreferrer">WhatsApp ile paylaş</a>
-          <a href={mailHref}>E-posta ile paylaş</a>
-          <button type="button" id="copyReferral">Bağlantıyı kopyala</button>
+<CommerceLayout
+  title="Referanslar & Sektörel Çözüm Ortaklığı — Excel Arşiv"
+  description="24 sektörde 1.000'den fazla işletme ve mali müşavir tarafından aktif olarak kullanılan 51+ hazır Excel karar sistemi referansları."
+>
+  <main class="referrals-page">
+    <section class="referrals-hero">
+      <div class="wrap-shell">
+        <SectionLabel number={1} label="REFERANSLAR & SEKTÖREL AĞ" />
+        <h1 class="hero-title">24 Sektörde 1.000+ İşletmenin Güvendiği<br /><em>Finansal Karar Altyapısı</em></h1>
+        <p class="hero-lead">
+          İnşaattan e-ticarete, restorandan fabrikaya; mali müşavirler, finans direktörleri ve şirket sahipleri nakit akışı, bütçe, maliyet ve risk yönetimini ExcelArşiv sistemleriyle güvenceye alıyor.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-box">
+            <strong>24</strong>
+            <span>Aktif Sektör</span>
+          </div>
+          <div class="stat-box">
+            <strong>51+</strong>
+            <span>Onaylı Karar Sistemi</span>
+          </div>
+          <div class="stat-box">
+            <strong>1.000+</strong>
+            <span>İşletme & Mali Müşavir</span>
+          </div>
+          <div class="stat-box">
+            <strong>17 Yıl</strong>
+            <span>Ticari Bankacılık Deneyimi</span>
+          </div>
         </div>
-        <small>Referans programı şu aşamada komisyon/ödül sistemi değildir; amaç gerçek kullanım ve tavsiye akışını ölçmektir.</small>
       </div>
-      <a class="partner" href="/ortaklik-mali-musavir">Mali müşavir misiniz? Pilot iş ortaklığını görün →</a>
-    </div>
-  </section>
+    </section>
+
+    <!-- 5 Temel Direk Bento Izgarası -->
+    <section class="pillars-section">
+      <div class="wrap-shell">
+        <div class="section-kicker-head">
+          <span class="kicker-tag">5 TEMEL DİREK</span>
+          <h2>Kurumsal Güven ve Mükemmelik Standartlarımız</h2>
+          <p>Her sistemimiz bu beş temel direğin sağlamlığı üzerine inşa edilir.</p>
+        </div>
+
+        <div class="pillars-grid">
+          {pillars.map((p, idx) => (
+            <article class="pillar-card">
+              <span class="pillar-no">0{idx + 1}</span>
+              <small class="pillar-kicker">{p.kicker}</small>
+              <h3>{p.title}</h3>
+              <p>{p.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 24 Kurumsal Sektör Bento Izgarası -->
+    <section class="sectors-section">
+      <div class="wrap-shell">
+        <div class="section-kicker-head">
+          <span class="kicker-tag">SEKTÖREL ÇÖZÜM HARİTASI</span>
+          <h2>Hangi Sektörde Hangi Karar Sistemi Kullanılıyor?</h2>
+          <p>Her sektörün dinamikleri ve mevzuat gereksinimleri farklıdır. Sistemlerimiz sektöre özel formüllerle çalışır.</p>
+        </div>
+
+        <div class="sectors-grid">
+          {sectors.map((s) => (
+            <article class="sector-card">
+              <div class="sector-top">
+                <span class="sector-no">{s.no}</span>
+                <span class="sector-tag">{s.tag}</span>
+              </div>
+              <h3>{s.name}</h3>
+              <p>{s.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tavsiye ve Referans Paylaşımı -->
+    <section class="share-section">
+      <div class="wrap-shell">
+        <div class="share-box">
+          <div class="share-copy">
+            <span class="kicker-tag">İŞİNİZE YARADIYSA DOĞRU KİŞİYE İLETİN</span>
+            <h2>Bir işletme sahibine veya mali müşavirinize önerin</h2>
+            <p>
+              Aynı nakit akışı veya maliyet problemine saatler harcayan bir meslektaşınız varsa, kanonik karar sistemi bağlantısını doğrudan paylaşın.
+            </p>
+            <div class="share-url-row">
+              <code>{productUrl}</code>
+              <button type="button" id="copyReferral" class="btn-copy">Bağlantıyı Kopyala</button>
+            </div>
+            <div class="share-action-buttons">
+              <a href={waHref} target="_blank" rel="noopener noreferrer" class="btn-wa">WhatsApp ile Paylaş</a>
+              <a href={mailHref} class="btn-mail">E-posta ile İlet</a>
+            </div>
+          </div>
+          <div class="partner-card">
+            <span class="kicker-tag">MALİ MÜŞAVİRLER İÇİN</span>
+            <h3>Mali Müşavir Pilot Ortaklığı</h3>
+            <p>Mükelleflerinizin finansal tablolarını standartlaştıran ve denetimi kolaylaştıran özel çözüm ortaklığımızı inceleyin.</p>
+            <a href="/ortaklik-mali-musavir" class="btn-partner">Pilot İş Ortaklığını Gör →</a>
+            <div style="margin-top:16px;padding-top:14px;border-top:1px solid #e2e8f0">
+              <a href="/rehber/excel-sablonlari-sik-sorulan-sorular" style="font-size:12.5px;font-weight:700;color:#059669;text-decoration:none">51 ürünün soru-cevap rehberi →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <script define:vars={{ productUrl }}>
     document.getElementById('copyReferral')?.addEventListener('click', async (event) => {
       try {
         await navigator.clipboard.writeText(productUrl);
         const button = event.currentTarget;
-        if (button instanceof HTMLButtonElement) button.textContent = 'Kopyalandı';
+        if (button instanceof HTMLButtonElement) {
+          button.textContent = '✓ Kopyalandı';
+          setTimeout(() => { button.textContent = 'Bağlantıyı Kopyala'; }, 2500);
+        }
       } catch {}
     });
   </script>
 </CommerceLayout>
+
 <style>
-.referral{padding:80px 0}.eyebrow{margin:0;font:800 10px var(--font-mono);letter-spacing:.11em;color:#0b7440}.referral h1{max-width:760px;margin:10px 0 14px;font:800 clamp(38px,5vw,58px)/1 var(--font-display);letter-spacing:-.04em;color:#16291e}.referral>div>p:not(.eyebrow){max-width:760px;font-size:15px;line-height:1.65;color:#526158}.share-card{max-width:760px;margin-top:28px;padding:22px;border:1px solid #dbe6df;border-radius:18px;background:#f7faf8}.share-card code{display:block;padding:12px;border-radius:10px;background:#fff;border:1px solid #dbe6df;overflow-wrap:anywhere;color:#173025}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.actions a,.actions button,.partner{display:inline-flex;align-items:center;min-height:42px;padding:0 14px;border:1px solid #cbd9d0;border-radius:9px;background:#fff;color:#173025;text-decoration:none;font:700 12px var(--font-body);cursor:pointer}.actions a:first-child{background:#107c41;color:#fff;border-color:#107c41}.share-card small{display:block;margin-top:15px;line-height:1.5;color:#69766e}.partner{margin-top:18px}
-</style>
+.referrals-page {
+  padding-bottom: 96px;
+  background: #ffffff;
+  color: #0f172a;
+}
+.wrap-shell {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* HERO */
+.referrals-hero {
+  padding: 48px 0 44px;
+  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+.hero-title {
+  margin: 20px 0 16px;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #0f172a;
+}
+.hero-title em {
+  font-style: normal;
+  color: #059669;
+}
+.hero-lead {
+  max-width: 820px;
+  margin: 0 0 32px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #475569;
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.stat-box {
+  padding: 20px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+}
+.stat-box strong {
+  display: block;
+  font-size: 32px;
+  font-weight: 800;
+  color: #059669;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-box span {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* HEADERS */
+.section-kicker-head {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+.kicker-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #059669;
+  margin-bottom: 8px;
+}
+.section-kicker-head h2 {
+  margin: 0 0 10px;
+  font-size: clamp(26px, 3.2vw, 38px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+}
+.section-kicker-head p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+/* 5 TEMEL DİREK */
+.pillars-section {
+  padding: 64px 0;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+.pillar-card {
+  padding: 24px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+}
+.pillar-no {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #059669;
+  margin-bottom: 6px;
+}
+.pillar-kicker {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+.pillar-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.pillar-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #475569;
+}
+
+/* 24 SEKTÖR BENTO */
+.sectors-section {
+  padding: 64px 0;
+}
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 14px;
+}
+.sector-card {
+  padding: 20px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sector-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  border-color: #cbd5e1;
+}
+.sector-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.sector-no {
+  font-size: 13px;
+  font-weight: 800;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #059669;
+}
+.sector-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.sector-card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.sector-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #475569;
+}
+
+/* PAYLAŞIM VE İŞ ORTAKLIĞI */
+.share-section {
+  padding: 64px 0 0;
+}
+.share-box {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: 28px;
+  padding: 36px;
+  border-radius: 24px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+.share-copy h2 {
+  margin: 0 0 10px;
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.share-copy p {
+  margin: 0 0 20px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #475569;
+}
+.share-url-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.share-url-row code {
+  flex-grow: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  color: #0f172a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.btn-copy {
+  flex-shrink: 0;
+  padding: 0 16px;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+.btn-copy:hover { background: #1e293b; }
+
+.share-action-buttons {
+  display: flex;
+  gap: 10px;
+}
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #059669;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn-wa:hover { background: #047857; }
+.btn-mail {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn-mail:hover { background: #f1f5f9; }
+
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+}
+.partner-card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.partner-card p {
+  margin: 0 0 18px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #64748b;
+}
+.btn-partner {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #059669;
+  text-decoration: none;
+}
+.btn-partner:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .share-box { grid-template-columns: 1fr; }
+  .share-url-row { flex-direction: column; }
+  .btn-copy { padding: 10px; }
+}
+@media (max-width: 600px) {
+  .hero-stats { grid-template-columns: 1fr; }
+  .sectors-grid { grid-template-columns: 1fr; }
+}
+</style>\n

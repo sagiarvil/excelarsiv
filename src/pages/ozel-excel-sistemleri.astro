@@ -173,6 +173,54 @@
     }
     @media(max-width:430px){.proof-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.hero h1{font-size:36px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+  
+    /* DIALOG & SHIELD BENTO STYLES */
+    .section-dialog{background:linear-gradient(180deg,#f8fafc 0%,#ffffff 100%);border-bottom:1px solid #e2e8f0;padding:64px 0}
+    .dialog-bento-grid{display:flex;flex-direction:column;gap:20px;max-width:920px;margin:0 auto}
+    .dialog-bubble{padding:26px 28px;border-radius:22px;box-shadow:0 10px 28px rgba(15,23,42,.04);border:1px solid #e2e8f0}
+    .bubble-client{background:#ffffff;border-left:5px solid #2563eb}
+    .bubble-advisor{background:#f0fdf4;border-left:5px solid #059669}
+    .bubble-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+    .bubble-avatar{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#f1f5f9;font-size:18px}
+    .bubble-advisor .bubble-avatar{background:#dcfce7}
+    .bubble-header strong{display:block;color:#0f172a;font-size:16px;font-weight:800}
+    .bubble-header small{display:block;color:#64748b;font-size:12px}
+    .bubble-tag{margin-left:auto;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:.06em}
+    .tag-problem{background:#eff6ff;color:#1d4ed8}
+    .tag-solution{background:#ecfdf5;color:#047857}
+    .bubble-text{margin:0;color:#334155;font-size:15px;line-height:1.65}
+    .dialog-flow-connector{display:flex;align-items:center;justify-content:center;gap:16px;margin:4px 0}
+    .connector-line{flex:1;height:1px;background:#cbd5e1}
+    .connector-badge{padding:6px 14px;border-radius:999px;background:#0f172a;color:#ffffff;font-size:11px;font-weight:800;letter-spacing:.08em}
+    .dialog-outcome-card{padding:24px 28px;border-radius:20px;background:#ffffff;border:1px solid #cbd5e1;box-shadow:0 8px 24px rgba(15,23,42,.04)}
+    .outcome-pill{display:inline-block;padding:4px 10px;border-radius:6px;background:#059669;color:#ffffff;font-size:11px;font-weight:800;letter-spacing:.08em;margin-bottom:16px}
+    .outcome-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .o-metric strong{display:block;color:#0f172a;font-size:18px;font-weight:800;margin-bottom:4px}
+    .o-metric span{color:#64748b;font-size:13px}
+
+    .section-shield{background:#ffffff;padding:64px 0;border-bottom:1px solid #e2e8f0}
+    .shield-bento-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px}
+    .shield-card{padding:36px;border-radius:24px;border:1px solid #e2e8f0;background:#ffffff;box-shadow:0 12px 36px rgba(15,23,42,.05)}
+    .shield-card.is-gold{background:linear-gradient(145deg,#064e3b 0%,#0f172a 100%);color:#ffffff}
+    .shield-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+    .shield-badge{padding:5px 12px;border-radius:8px;background:rgba(255,255,255,.15);color:#34d399;font-size:11px;font-weight:800;letter-spacing:.1em}
+    .shield-icon-pill{font-size:32px}
+    .shield-card.is-gold h3{margin:0 0 14px;color:#ffffff;font-size:clamp(22px,2.4vw,28px);font-weight:800;line-height:1.2;letter-spacing:-.02em}
+    .shield-card.is-gold p{margin:0 0 24px;color:#cbd5e1;font-size:15px;line-height:1.65}
+    .shield-features{display:grid;gap:10px}
+    .shield-features span{padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.08);color:#ffffff;font-size:13px;font-weight:700;border:1px solid rgba(255,255,255,.12)}
+
+    .five-pillars-subgrid{display:grid;grid-template-columns:1fr;gap:12px}
+    .pillar-mini-card{padding:18px 20px;border-radius:16px;background:#f8fafc;border:1px solid #e2e8f0}
+    .pillar-mini-card small{display:block;color:#059669;font-size:10px;font-weight:800;letter-spacing:.08em;margin-bottom:4px}
+    .pillar-mini-card strong{display:block;color:#0f172a;font-size:15px;font-weight:800;margin-bottom:4px}
+    .pillar-mini-card p{margin:0;color:#64748b;font-size:13px;line-height:1.5}
+
+    @media(max-width:960px){
+      .outcome-metrics{grid-template-columns:1fr;gap:12px}
+      .shield-bento-grid{grid-template-columns:1fr}
+    }
+
   </style>
 </head>
 <body data-special-source-v5>
@@ -273,6 +321,75 @@
       </div>
     </section>
 
+    <!-- WhatsApp Müşteri & Danışman Saha Diyaloğu (Pay'nkolay Tarzı Şematik Diyalog) -->
+    <section class="section section-dialog" id="gercek-diyalog">
+      <div class="wrap-wide">
+        <div class="section-head">
+          <span class="section-kicker">GERÇEK SAHA SENARYOSU</span>
+          <h2>İşletmeler Bize Nasıl Geliyor, Sorun Nasıl Çözülüyor?</h2>
+          <p>Müşterinin karmaşık ve dağınık gelen talebini, 3 gün içinde çalışan bir karar kokpitine dönüştürüyoruz.</p>
+        </div>
+
+        <div class="dialog-bento-grid">
+          <!-- Müşteri Mesaj Balonu -->
+          <div class="dialog-bubble bubble-client">
+            <div class="bubble-header">
+              <span class="bubble-avatar">🏢</span>
+              <div>
+                <strong>İşletme Sahibi / Finans Yöneticisi</strong>
+                <small>WhatsApp · 10:42</small>
+              </div>
+              <span class="bubble-tag tag-problem">DARBOĞAZ</span>
+            </div>
+            <p class="bubble-text">
+              “Barış Bey merhaba. 4 depomuz ve 3 pazaryerimiz var. Tüm cari hesaplar ve banka hareketleri farklı tablolarda tutuluyor. Kasa bir türlü tutmuyor, vadeli alacakları göremiyoruz, her ay sonu mutabakat 4 günümüzü alıyor. Ağır bir ERP için 400.000 TL ve 6 ay kurulum süresi istediler. Mevcut çalışma düzenimizi bozmadan bunu toparlayabilir miyiz?”
+            </p>
+          </div>
+
+          <!-- Ok / Bağlantı İnfografiği -->
+          <div class="dialog-flow-connector" aria-hidden="true">
+            <span class="connector-line"></span>
+            <span class="connector-badge">3 GÜNDE ANALİZ & KURULUM</span>
+            <span class="connector-line"></span>
+          </div>
+
+          <!-- Finans Mimarı Mesaj Balonu -->
+          <div class="dialog-bubble bubble-advisor">
+            <div class="bubble-header">
+              <span class="bubble-avatar">⚡</span>
+              <div>
+                <strong>Barış Bağırlar · Finansal Sistem Mimarı</strong>
+                <small>ExcelArşiv · 11:05</small>
+              </div>
+              <span class="bubble-tag tag-solution">NET ÇÖZÜM</span>
+            </div>
+            <p class="bubble-text">
+              “Merhaba. 6 ay beklemenize gerek yok. Mevcut Logo ve banka ekstrelerinizi tek bir standart veri tablosuna bağlayalım. Girdi anında hatalı kayıtları yakalayan, 13 haftalık dinamik nakit akışı ve otomatik cari yaşlandırma kokpitinizi 3 gün içinde teslim ederiz. Sıfır makro, %100 açık formül. Ekibiniz mevcut Excel alışkanlığını değiştirmeden anında kullanmaya başlar.”
+            </p>
+          </div>
+
+          <!-- Sonuç & Çıktı Kartı -->
+          <div class="dialog-outcome-card">
+            <div class="outcome-pill">✓ GERÇEKLEŞEN SONUÇ</div>
+            <div class="outcome-metrics">
+              <div class="o-metric">
+                <strong>4 Günden 15 Dk'ya</strong>
+                <span>Aylık mutabakat süresi</span>
+              </div>
+              <div class="o-metric">
+                <strong>2 Hafta Önceden</strong>
+                <span>Nakit açığı erken uyarısı</span>
+              </div>
+              <div class="o-metric">
+                <strong>%0 Veri Sızıntısı</strong>
+                <span>Tamamen yerel cihazda çalışma</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-green" id="alanlar">
       <div class="wrap-wide">
         <div class="section-head"><span class="section-kicker">ÇALIŞMA ALANLARI</span><h2>En sık hangi alanlarda sistem kuruyoruz?</h2><p>Tek bir konu için de çalışabiliriz; birbirine bağlı birkaç süreci aynı dosyada da toplayabiliriz.</p></div>
@@ -323,6 +440,64 @@
           <article class="why-card"><div class="why-icon">◎</div><h3>Sahada öğrenilmiş işletme dili</h3><p>“Rapor geç çıkıyor”, “kasa tutmuyor” veya “limit yetmiyor” gibi cümlelerin arkasındaki gerçek ihtiyacı ayrıştırırız.</p></article>
           <article class="why-card"><div class="why-icon">∑</div><h3>Muhasebe ve operasyon gerçekliği</h3><p>Hesap planı, mutabakat, dönem kapanışı, veri girişi ve raporlama akışını birbirinden koparmadan ele alırız.</p></article>
           <article class="why-card"><div class="why-icon">◇</div><h3>Amaca hizmet eden yapı</h3><p>Kullanmayacağınız modülü eklemek yerine, ihtiyacın gerçekten gerektirdiği ekranı, kontrolü ve çıktıyı kurarız.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Altın Kalkan Güvenlik & 5 Temel Direk Bento Izgarası -->
+    <section class="section section-shield" id="kurumsal-guvence">
+      <div class="wrap-wide">
+        <div class="section-head">
+          <span class="section-kicker">KURUMSAL GÜVENCE</span>
+          <h2>Veri Gizliliği, Şeffaflık ve 5 Temel Direk</h2>
+          <p>Mali mahremiyetiniz ve sistem sürekliliğiniz kurumsal sözleşmeler ve teknik güvencelerle korunur.</p>
+        </div>
+
+        <div class="shield-bento-grid">
+          <article class="shield-card is-gold">
+            <div class="shield-card-top">
+              <span class="shield-badge">ALTIN KALKAN</span>
+              <span class="shield-icon-pill">🛡️</span>
+            </div>
+            <h3>Mali Verileriniz Asla Cihazınızdan Çıkmaz</h3>
+            <p>
+              Tasarımını yaptığımız Excel sistemleri tamamen şirketinizin bilgisayarlarında yerel olarak çalışır. Verileriniz harici bulut sunucularına veya üçüncü taraflara gitmez. Kurumsal Gizlilik Sözleşmesi (NDA) ile tüm ticari sırlarınız yasal koruma altındadır.
+            </p>
+            <div class="shield-features">
+              <span>✓ İmzalı Gizlilik Sözleşmesi (NDA)</span>
+              <span>✓ %100 Açık Formül Mimarisi</span>
+              <span>✓ Sıfır Makro / Sıfır Güvenlik Duvarı Riski</span>
+              <span>✓ Bağımsız Çevrimdışı Çalışma</span>
+            </div>
+          </article>
+
+          <div class="five-pillars-subgrid">
+            <div class="pillar-mini-card">
+              <small>01 · MÜŞTERİ</small>
+              <strong>Saha Dili ve Gerçek İhtiyaç</strong>
+              <p>Karmaşık teknik jargon yok; kasanın, bankanın ve yöneticinin ihtiyacı olan doğrudan karar ekranları.</p>
+            </div>
+            <div class="pillar-mini-card">
+              <small>02 · GÜVEN</small>
+              <strong>17 Yıllık Ticari Bankacılık</strong>
+              <p>Risk, limit, vade ve faiz dengesini bilen finans uzmanı bakış açısıyla kurgulanan matematiksel modeller.</p>
+            </div>
+            <div class="pillar-mini-card">
+              <small>03 · DAĞITIM</small>
+              <strong>Şirketinizin Excel Sürümüne Uyum</strong>
+              <p>Windows veya Mac; mevcut Microsoft 365, 2019 veya 2021 sürümünüze göre optimize edilmiş teslim.</p>
+            </div>
+            <div class="pillar-mini-card">
+              <small>04 · REFERANS</small>
+              <strong>24 Sektörde Onaylanmış Modeller</strong>
+              <p>Üretim, inşaat, perakende, sağlık ve e-ticaret alanlarında test edilmiş ve başarısı kanıtlanmış akışlar.</p>
+            </div>
+            <div class="pillar-mini-card">
+              <small>05 · SATIŞ KANALI</small>
+              <strong>Şeffaf Kapsam ve Kurumsal Fatura</strong>
+              <p>Sürpriz maliyet yok. Net teslim takvimi, resmi e-fatura ve sözleşmeli geliştirme süreci.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
