@@ -470,6 +470,13 @@ const css = `<style id="dual-funnel-home-v17-css">
 .psc-solution-box p{margin:0;color:#334155;font-size:13px;font-weight:700;line-height:1.45}
 .psc-cta{margin-top:auto;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:#f0fdf4;color:#087a46;font-size:12.5px;font-weight:800;border:1px solid #bbf7d0;width:fit-content;transition:all .15s ease}
 .problem-store-card:hover .psc-cta{background:#059669;color:#ffffff;border-color:#059669}
+.problem-store-card:nth-child(1){background:#f0f7ff;border-color:#dbeafe}
+.problem-store-card:nth-child(2){background:#f0fdf4;border-color:#dcfce7}
+.problem-store-card:nth-child(3){background:#fff7ed;border-color:#ffedd5}
+.problem-store-card:nth-child(4){background:#f5f3ff;border-color:#ede9fe}
+.problem-store-card:nth-child(5){background:#fff1f2;border-color:#ffe4e6}
+.problem-store-card:nth-child(6){background:#fffbeb;border-color:#fef3c7}
+.problem-store-card .psc-solution-box{background:rgba(255,255,255,0.65)}
 @media(max-width:820px){.problem-store-grid{grid-template-columns:1fr}}
 
 .section-divider-title{margin:36px 0 18px}
