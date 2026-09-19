@@ -241,51 +241,106 @@ const financePillars = `
 
       <div class="problem-store-grid">
         <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="problem-store-card">
-          <span class="psc-badge">NAKİT DARBOĞAZI</span>
+          <div class="psc-top">
+            <span class="psc-badge">01 · NAKİT DARBOĞAZI</span>
+            <span class="psc-icon">💸</span>
+          </div>
           <h4>“Önümüzdeki haftalarda para yetişecek mi?”</h4>
-          <p class="psc-solution">→ 13 Haftalık Dinamik Nakit Akışı ve Likidite Karar Sistemi</p>
+          <div class="psc-solution-box">
+            <small>Hazır Karar Çözümü</small>
+            <p>13 Haftalık Dinamik Nakit Akışı ve Likidite Karar Sistemi</p>
+          </div>
           <span class="psc-cta">Problemi Çöz →</span>
         </a>
 
         <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="problem-store-card">
-          <span class="psc-badge">TAHSİLAT RİSKİ</span>
+          <div class="psc-top">
+            <span class="psc-badge">02 · TAHSİLAT RİSKİ</span>
+            <span class="psc-icon">👥</span>
+          </div>
           <h4>“Hangi müşteri nakdimi kilitliyor?”</h4>
-          <p class="psc-solution">→ Cari Yaşlandırma, Müşteri Risk Skoru ve Tahsilat Takip Sistemi</p>
+          <div class="psc-solution-box">
+            <small>Hazır Karar Çözümü</small>
+            <p>Cari Yaşlandırma, Müşteri Risk Skoru ve Tahsilat Takip Sistemi</p>
+          </div>
           <span class="psc-cta">Problemi Çöz →</span>
         </a>
 
         <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" class="problem-store-card">
-          <span class="psc-badge">KREDİ &amp; FAİZ</span>
+          <div class="psc-top">
+            <span class="psc-badge">03 · KREDİ &amp; FAİZ</span>
+            <span class="psc-icon">🏛️</span>
+          </div>
           <h4>“Kredilerim hangi ay sıkıştıracak?”</h4>
-          <p class="psc-solution">→ Çoklu Banka Kredi Portföyü, Rotatif Faiz ve Taksit Takip Sistemi</p>
+          <div class="psc-solution-box">
+            <small>Hazır Karar Çözümü</small>
+            <p>Çoklu Banka Kredi Portföyü, Rotatif Faiz ve Taksit Takip Sistemi</p>
+          </div>
           <span class="psc-cta">Problemi Çöz →</span>
         </a>
 
-        <a href="/sablonlar?q=maliyet" class="problem-store-card">
-          <span class="psc-badge">KÂR SIZINTISI</span>
+        <a href="/sablon/proje-ve-is-bazinda-gercek-karlilik-sistemi" class="problem-store-card">
+          <div class="psc-top">
+            <span class="psc-badge">04 · KÂR SIZINTISI</span>
+            <span class="psc-icon">📈</span>
+          </div>
           <h4>“Fiyat artırmazsam nerede zarar ediyorum?”</h4>
-          <p class="psc-solution">→ Değişken Birim Maliyet, Katkı Payı ve Dinamik Fiyatlama Motoru</p>
+          <div class="psc-solution-box">
+            <small>Hazır Karar Çözümü</small>
+            <p>Değişken Birim Maliyet, Katkı Payı ve Dinamik Fiyatlama Motoru</p>
+          </div>
           <span class="psc-cta">Problemi Çöz →</span>
         </a>
 
         <a href="/sablon/sube-karlilik-ve-nakit-hesaplayici" class="problem-store-card">
-          <span class="psc-badge">ŞUBE VERİMLİLİĞİ</span>
+          <div class="psc-top">
+            <span class="psc-badge">05 · ŞUBE VERİMLİLİĞİ</span>
+            <span class="psc-icon">🏢</span>
+          </div>
           <h4>“Şube gerçekten para kazanıyor mu?”</h4>
-          <p class="psc-solution">→ Şube Kârlılık, Metrekare Verimliliği ve Başabaş Noktası Sistemi</p>
+          <div class="psc-solution-box">
+            <small>Hazır Karar Çözümü</small>
+            <p>Şube Kârlılık, Metrekare Verimliliği ve Başabaş Noktası Sistemi</p>
+          </div>
           <span class="psc-cta">Problemi Çöz →</span>
         </a>
 
         <a href="/sablon/stok-satis-ve-nakit-baglanma-sistemi" class="problem-store-card">
-          <span class="psc-badge">ÖLÜ STOK</span>
+          <div class="psc-top">
+            <span class="psc-badge">06 · ÖLÜ STOK</span>
+            <span class="psc-icon">📦</span>
+          </div>
           <h4>“Stokta ne kadar para bekliyor?”</h4>
-          <p class="psc-solution">→ Stok Devir Hızı, Kilitlenen Nakit ve Tasfiye Analiz Sistemi</p>
+          <div class="psc-solution-box">
+            <small>Hazır Karar Çözümü</small>
+            <p>Stok Devir Hızı, Kilitlenen Nakit ve Tasfiye Analiz Sistemi</p>
+          </div>
           <span class="psc-cta">Problemi Çöz →</span>
         </a>
 
-        <a href="/sablonlar/muhasebe-ve-vergi" class="problem-store-card problem-store-card--full">
-          <span class="psc-badge">VERGİ &amp; DENETİM</span>
+        <a href="/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli" class="problem-store-card">
+          <div class="psc-top">
+            <span class="psc-badge">07 · VERGİ &amp; DENETİM</span>
+            <span class="psc-icon">⚖️</span>
+          </div>
           <h4>“Muhasebe hesabında hata yapıyor olabilir miyim?”</h4>
-          <p class="psc-solution">→ TTK 376 Özkaynak Koruma, Yeniden Değerleme ve Vergi Risk Sistemleri</p>
+          <div class="psc-solution-box">
+            <small>Hazır Karar Çözümü</small>
+            <p>TTK 376 Özkaynak Koruma, Yeniden Değerleme ve Vergi Risk Sistemleri</p>
+          </div>
+          <span class="psc-cta">Problemi Çöz →</span>
+        </a>
+
+        <a href="/sablon/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli" class="problem-store-card">
+          <div class="psc-top">
+            <span class="psc-badge">08 · PERSONEL &amp; MALİYET</span>
+            <span class="psc-icon">💼</span>
+          </div>
+          <h4>“Personel maliyetim kârımı ne kadar eritiyor?”</h4>
+          <div class="psc-solution-box">
+            <small>Hazır Karar Çözümü</small>
+            <p>Asgari Ücret Zam Etkisi, Kıdem Yükü ve İşçilik Maliyet Paneli</p>
+          </div>
           <span class="psc-cta">Problemi Çöz →</span>
         </a>
       </div>
@@ -322,32 +377,50 @@ const financePillars = `
       </div>
       <div class="pdf-six-bento-grid">
         <article class="bento-item">
-          <div class="bento-num">01</div>
+          <div class="bento-top">
+            <span class="bento-icon">🛡️</span>
+            <span class="bento-num">01</span>
+          </div>
           <h4>Tam Yerel Veri Mahremiyeti</h4>
           <p>Mali tablolarınız, müşteri bakiyeleriniz ve cironuz asla bulut sunuculara veya yabancı veritabanlarına aktarılmaz. Dosyalar %100 şirket bilgisayarınızda çalışır.</p>
         </article>
         <article class="bento-item">
-          <div class="bento-num">02</div>
+          <div class="bento-top">
+            <span class="bento-icon">🔒</span>
+            <span class="bento-num">02</span>
+          </div>
           <h4>Sıfır Makro &amp; Sıfır Virüs Güvencesi</h4>
           <p>Şablonlarımızda tek bir makro (.xlsm / VBA) kodu dahi bulunmaz. Saf .xlsx formatında olup antivirüs ve kurumsal IT güvenlik duvarlarına asla takılmaz.</p>
         </article>
         <article class="bento-item">
-          <div class="bento-num">03</div>
+          <div class="bento-top">
+            <span class="bento-icon">🔓</span>
+            <span class="bento-num">03</span>
+          </div>
           <h4>%100 Açık ve Düzenlenebilir Formül</h4>
           <p>Kilitli sayfa, gizli hücre veya şifreli formül yoktur. Şirketinizin değişen ihtiyaçlarına göre istediğiniz satırı, sütunu ve formülü özgürce genişletebilirsiniz.</p>
         </article>
         <article class="bento-item">
-          <div class="bento-num">04</div>
+          <div class="bento-top">
+            <span class="bento-icon">💳</span>
+            <span class="bento-num">04</span>
+          </div>
           <h4>Tek Seferlik Ödeme (Sıfır Abonelik)</h4>
           <p>Aylık veya yıllık zorunlu lisans yenileme ücreti yoktur. Bir kez satın alır, ömür boyu şirketiniz bünyesinde sınırsız olarak kullanırsınız.</p>
         </article>
         <article class="bento-item">
-          <div class="bento-num">05</div>
+          <div class="bento-top">
+            <span class="bento-icon">⚡</span>
+            <span class="bento-num">05</span>
+          </div>
           <h4>10 Saniyede Anında Dijital Teslimat</h4>
           <p>Siparişiniz tamamlandığı anda Excel dosyanız, kullanım kılavuzunuz ve kurumsal e-arşiv faturanız anında e-posta adresinize otomatik iletilir.</p>
         </article>
         <article class="bento-item">
-          <div class="bento-num">06</div>
+          <div class="bento-top">
+            <span class="bento-icon">🏛️</span>
+            <span class="bento-num">06</span>
+          </div>
           <h4>17 Yıllık Ticari Bankacılık Metodolojisi</h4>
           <p>Yazılımcı mantığıyla değil; yüzlerce reel sektör şirketinin mali tahlilini ve nakit akışını yönetmiş bankacı saha tecrübesiyle kurgulanmış karar mimarisi.</p>
         </article>
@@ -543,18 +616,23 @@ const css = `<style id="dual-funnel-home-v17-css">
 .medallion-br{bottom:40px;right:-18px}
 
 
-/* Problem Mağazası Stilleri */
-.problem-store-section{margin:36px 0 44px;padding:34px 30px;border-radius:26px;background:linear-gradient(180deg,#f8faf9 0%,#f0fdf4 100%);border:1px solid #d1fae5}
-.problem-store-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
-.problem-store-card{padding:22px 24px;border-radius:18px;background:#fff;border:1px solid #e2ece5;box-shadow:0 6px 18px rgba(15,23,42,.03);display:flex;flex-direction:column;text-decoration:none;transition:all .18s ease}
-.problem-store-card:hover{transform:translateY(-2px);border-color:#059669;box-shadow:0 12px 28px rgba(5,150,105,.12)}
-.problem-store-card--full{grid-column:span 2}
-.psc-badge{display:inline-block;padding:4px 9px;border-radius:6px;background:#ecfdf5;color:#059669;font:850 10.5px/1 ui-monospace,monospace;letter-spacing:.06em;width:fit-content;margin-bottom:10px}
-.problem-store-card h4{margin:0 0 8px;color:#0f172a;font-size:18px;font-weight:800;letter-spacing:-.025em;line-height:1.25}
-.psc-solution{margin:0 0 16px;color:#475569;font-size:13.5px;line-height:1.45}
-.psc-cta{margin-top:auto;color:#059669;font-size:13px;font-weight:850}
-@media(max-width:820px){.problem-store-grid{grid-template-columns:1fr}.problem-store-card--full{grid-column:span 1}}
-\n.section-divider-title{margin:36px 0 18px}
+/* Problem Mağazası Stilleri (PDF Şablon Kutuları) */
+.problem-store-section{margin:36px 0 44px;padding:36px 32px;border-radius:26px;background:linear-gradient(180deg,#f8faf9 0%,#f0fdf4 100%);border:1px solid #d1fae5}
+.problem-store-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:24px}
+.problem-store-card{position:relative;padding:24px 26px;border-radius:20px;background:#ffffff;border:1px solid #dbe5de;box-shadow:0 4px 16px rgba(15,23,42,.03);display:flex;flex-direction:column;text-decoration:none;transition:all .2s ease;overflow:hidden}
+.problem-store-card:hover{transform:translateY(-4px);border-color:#059669;box-shadow:0 16px 36px rgba(5,150,105,.12)}
+.psc-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.psc-badge{display:inline-flex;align-items:center;padding:5px 11px;border-radius:8px;background:#ecfdf5;color:#047857;font:850 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;border:1px solid #bbf7d0}
+.psc-icon{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:#f0fdf4;border:1px solid #dcfce7;font-size:17px;flex-shrink:0}
+.problem-store-card h4{margin:0 0 14px;color:#0f172a;font-size:18px;font-weight:800;letter-spacing:-.025em;line-height:1.3;min-height:46px}
+.psc-solution-box{padding:12px 14px;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;margin-bottom:18px;display:grid;gap:4px}
+.psc-solution-box small{color:#059669;font-weight:850;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;font-family:ui-monospace,monospace}
+.psc-solution-box p{margin:0;color:#334155;font-size:13px;font-weight:700;line-height:1.45}
+.psc-cta{margin-top:auto;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:#f0fdf4;color:#087a46;font-size:12.5px;font-weight:800;border:1px solid #bbf7d0;width:fit-content;transition:all .15s ease}
+.problem-store-card:hover .psc-cta{background:#059669;color:#ffffff;border-color:#059669}
+@media(max-width:820px){.problem-store-grid{grid-template-columns:1fr}}
+
+.section-divider-title{margin:36px 0 18px}
 .section-divider-title h3{margin:0 0 6px;color:#0f172a;font-size:22px;letter-spacing:-.03em}
 .section-divider-title p{margin:0;color:#64748b;font-size:14.5px}
 
@@ -565,16 +643,28 @@ const css = `<style id="dual-funnel-home-v17-css">
 .need-badge{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:28px;height:28px;border-radius:9px;background:#eaf6ee;color:#087a46;font:850 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace}
 .need-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* Slayt 5 6'lı Bento Grid */
+/* Slayt 5 6'lı Bento Grid (PDF Kurumsal Güvenlik Şablon Kutuları) */
 .pdf-security-bento-section{margin:0 0 44px;padding:36px;border-radius:24px;background:#f8fafc;border:1px solid #e2e8f0;box-shadow:0 10px 30px rgba(15,23,42,.03)}
 .bento-section-head{margin-bottom:28px}
 .bento-section-head h3{margin:8px 0 6px;color:#0f172a;font-size:clamp(22px,2.4vw,32px);letter-spacing:-.03em}
 .bento-section-head p{margin:0;color:#64748b;font-size:15px}
-.pdf-six-bento-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.bento-item{padding:22px;border-radius:18px;background:#fff;border:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(15,23,42,.03);display:flex;flex-direction:column}
-.bento-num{display:inline-block;color:#059669;font:850 16px/1 ui-monospace,monospace;margin-bottom:12px}
-.bento-item h4{margin:0 0 8px;color:#0f172a;font-size:16px;font-weight:800;letter-spacing:-.02em}
-.bento-item p{margin:0;color:#475569;font-size:13.5px;line-height:1.55}
+.pdf-six-bento-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.bento-item{position:relative;padding:26px 24px;border-radius:20px;background:#ffffff;border:1px solid #dbe5de;box-shadow:0 6px 20px rgba(15,23,42,.035);display:flex;flex-direction:column;overflow:hidden;transition:all .2s ease}
+.bento-item:hover{transform:translateY(-4px);border-color:#059669;box-shadow:0 16px 36px rgba(5,150,105,.1)}
+.bento-item::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#059669,#10b981)}
+.bento-item:nth-child(2)::before{background:linear-gradient(90deg,#2563eb,#3b82f6)}
+.bento-item:nth-child(3)::before{background:linear-gradient(90deg,#d97706,#f59e0b)}
+.bento-item:nth-child(4)::before{background:linear-gradient(90deg,#7c3aed,#8b5cf6)}
+.bento-item:nth-child(5)::before{background:linear-gradient(90deg,#059669,#10b981)}
+.bento-item:nth-child(6)::before{background:linear-gradient(90deg,#2563eb,#3b82f6)}
+.bento-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.bento-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#f0fdf4;border:1px solid #bbf7d0;font-size:22px;line-height:1;flex-shrink:0}
+.bento-item:nth-child(2) .bento-icon{background:#eff6ff;border-color:#bfdbfe}
+.bento-item:nth-child(3) .bento-icon{background:#fffbeb;border-color:#fde68a}
+.bento-item:nth-child(4) .bento-icon{background:#f5f3ff;border-color:#ddd6fe}
+.bento-num{padding:4px 10px;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0;color:#087a46;font:850 13px/1 ui-monospace,SFMono-Regular,Menlo,monospace}
+.bento-item h4{margin:0 0 10px;color:#0f172a;font-size:17px;font-weight:800;line-height:1.25;letter-spacing:-.02em}
+.bento-item p{margin:0;color:#475569;font-size:13.5px;line-height:1.6}
 
 /* Slayt 21 7 Numaralı Standart */
 .pdf-reasons-timeline-card{margin:0 0 44px;padding:34px;border-radius:24px;background:#fff;border:1px solid #dfe5e0;box-shadow:0 10px 32px rgba(15,23,42,.04)}
