@@ -1,0 +1,40 @@
+---
+import CommerceLayout from '../layouts/CommerceLayout.astro';
+const urun = Astro.url.searchParams.get('urun') ?? '';
+const productUrl = urun ? new URL(`/sablon/${urun}`, Astro.site).toString() : new URL('/', Astro.site).toString();
+const shareText = 'Excel Arşiv’de işletmeler için hazırlanmış bu Excel karar sistemine bakmanı öneririm:';
+const mailHref = `mailto:?subject=${encodeURIComponent('Excel Arşiv ürün önerisi')}&body=${encodeURIComponent(shareText + ' ' + productUrl)}`;
+const waHref = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + productUrl)}`;
+---
+
+<CommerceLayout title="Excel Sistemini Paylaş | Excel Arşiv" description="İşinize yarayan Excel Arşiv karar sistemini başka bir işletme sahibi veya mali müşavirle paylaşın.">
+  <section class="referral">
+    <div class="site-container">
+      <p class="eyebrow">REFERANS</p>
+      <h1>İşinize yaradıysa doğru kişiye iletin.</h1>
+      <p>Bir işletme sahibinin veya mali müşavirin aynı probleme tekrar tekrar zaman harcadığını biliyorsanız ürün sayfasını doğrudan paylaşın. Kapsam, demo ve güncel fiyat kanonik ürün sayfasında kalır.</p>
+      <div class="share-card">
+        <code>{productUrl}</code>
+        <div class="actions">
+          <a href={waHref} target="_blank" rel="noopener noreferrer">WhatsApp ile paylaş</a>
+          <a href={mailHref}>E-posta ile paylaş</a>
+          <button type="button" id="copyReferral">Bağlantıyı kopyala</button>
+        </div>
+        <small>Referans programı şu aşamada komisyon/ödül sistemi değildir; amaç gerçek kullanım ve tavsiye akışını ölçmektir.</small>
+      </div>
+      <a class="partner" href="/ortaklik-mali-musavir">Mali müşavir misiniz? Pilot iş ortaklığını görün →</a>
+    </div>
+  </section>
+  <script define:vars={{ productUrl }}>
+    document.getElementById('copyReferral')?.addEventListener('click', async (event) => {
+      try {
+        await navigator.clipboard.writeText(productUrl);
+        const button = event.currentTarget;
+        if (button instanceof HTMLButtonElement) button.textContent = 'Kopyalandı';
+      } catch {}
+    });
+  </script>
+</CommerceLayout>
+<style>
+.referral{padding:80px 0}.eyebrow{margin:0;font:800 10px var(--font-mono);letter-spacing:.11em;color:#0b7440}.referral h1{max-width:760px;margin:10px 0 14px;font:800 clamp(38px,5vw,58px)/1 var(--font-display);letter-spacing:-.04em;color:#16291e}.referral>div>p:not(.eyebrow){max-width:760px;font-size:15px;line-height:1.65;color:#526158}.share-card{max-width:760px;margin-top:28px;padding:22px;border:1px solid #dbe6df;border-radius:18px;background:#f7faf8}.share-card code{display:block;padding:12px;border-radius:10px;background:#fff;border:1px solid #dbe6df;overflow-wrap:anywhere;color:#173025}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.actions a,.actions button,.partner{display:inline-flex;align-items:center;min-height:42px;padding:0 14px;border:1px solid #cbd9d0;border-radius:9px;background:#fff;color:#173025;text-decoration:none;font:700 12px var(--font-body);cursor:pointer}.actions a:first-child{background:#107c41;color:#fff;border-color:#107c41}.share-card small{display:block;margin-top:15px;line-height:1.5;color:#69766e}.partner{margin-top:18px}
+</style>
