@@ -11,9 +11,11 @@ const categoryCount = new Set(templates.map((item) => item.categorySlug)).size;
 const minPrice = Math.min(...templates.map((item) => item.priceTL));
 const priceLevels = [...new Set(templates.map((item) => item.priceTL))].sort((a, b) => a - b);
 const featured = [
-  '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
   'aylik-patron-finans-paneli',
-  'akilli-kasa-defteri-ve-nakit-kontrol-sistemi',
+  '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+  'banka-kredi-ve-taksit-takip-sistemi',
+  'amortisman-2026-yeniden-degerleme',
+  'insaat-hakedis-yonetim-sistemi',
 ].map((slug) => templates.find((item) => item.slug === slug)).filter(Boolean);
 const homeDecisionSlugs = [
   'kobi-nakit-akisi-excel',
@@ -39,8 +41,8 @@ const homeJsonLd = {
 ---
 
 <CommerceLayout
-  title="Excel Karar Sistemleri ve Finans Şablonları | Excel Arşiv"
-  description="Nakit akışı, kasa, cari, KDV, stok, personel ve kârlılık için hazır Excel karar sistemleri. Gerçek ekranları görün, karar rehberlerinden doğru ürünü seçin."
+  title="İşletmeler İçin Hazır Excel Karar Sistemleri | Excel Arşiv"
+  description="Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için hazır Excel karar sistemleri. Gerçek ekranları ve demoları görün; ihtiyacınıza uygun sistemi seçin."
 >
   <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(homeJsonLd)} /></Fragment>
 
@@ -50,8 +52,8 @@ const homeJsonLd = {
     <section class="catalog-proof" data-experience-stage>
       <div class="home-shell">
         <div class="section-head">
-          <div><p class="eyebrow">KATALOG</p><h2>Hazır Excel sistemlerini gerçek ekranlarıyla inceleyin.</h2></div>
-          <a href="/sablonlar">Tüm sistemleri aç →</a>
+          <div><p class="eyebrow">EN ÇOK İHTİYAÇ DUYULAN 5 SİSTEM</p><h2>Önce işletmenizin para ve kontrol problemini çözen sistemi seçin.</h2></div>
+          <a href="/sablonlar">Diğer sistemleri gör →</a>
         </div>
         <div class="price-levels">{priceLevels.map((price) => <span>{price.toLocaleString('tr-TR')} TL</span>)}</div>
         <div class="featured-grid">
