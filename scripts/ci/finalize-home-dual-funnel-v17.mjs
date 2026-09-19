@@ -203,65 +203,6 @@ const financePillars = `
       </div>
     </div>
 
-    <!-- Güven İnşaası: Neden Finansal Yönetimde Excel Arşiv Altyapısı? (6'lı Bento Grid) -->
-    <div class="pdf-security-bento-section" aria-label="Kurumsal Güvenlik ve Güvence Standartları">
-      <div class="bento-section-head">
-        <span class="decision-eyebrow">KURUMSAL GÜVENLİK VE STANDARTLAR</span>
-        <h3>Neden Finansal Yönetimde Excel Arşiv Altyapısı?</h3>
-        <p>İşletmenizin finansal mahremiyetini, veri güvenliğini ve karar hızını koruyan 6 temel direk.</p>
-      </div>
-      <div class="pdf-six-bento-grid">
-        <article class="bento-item">
-          <div class="bento-top">
-            <span class="bento-icon">🛡️</span>
-            <span class="bento-num">01</span>
-          </div>
-          <h4>Tam Yerel Veri Mahremiyeti</h4>
-          <p>Mali tablolarınız, müşteri bakiyeleriniz ve cironuz asla bulut sunuculara veya yabancı veritabanlarına aktarılmaz. Dosyalar %100 şirket bilgisayarınızda çalışır.</p>
-        </article>
-        <article class="bento-item">
-          <div class="bento-top">
-            <span class="bento-icon">🔒</span>
-            <span class="bento-num">02</span>
-          </div>
-          <h4>Sıfır Makro &amp; Sıfır Virüs Güvencesi</h4>
-          <p>Şablonlarımızda tek bir makro (.xlsm / VBA) kodu dahi bulunmaz. Saf .xlsx formatında olup antivirüs ve kurumsal IT güvenlik duvarlarına asla takılmaz.</p>
-        </article>
-        <article class="bento-item">
-          <div class="bento-top">
-            <span class="bento-icon">🔓</span>
-            <span class="bento-num">03</span>
-          </div>
-          <h4>%100 Açık ve Düzenlenebilir Formül</h4>
-          <p>Kilitli sayfa, gizli hücre veya şifreli formül yoktur. Şirketinizin değişen ihtiyaçlarına göre istediğiniz satırı, sütunu ve formülü özgürce genişletebilirsiniz.</p>
-        </article>
-        <article class="bento-item">
-          <div class="bento-top">
-            <span class="bento-icon">💳</span>
-            <span class="bento-num">04</span>
-          </div>
-          <h4>Tek Seferlik Ödeme (Sıfır Abonelik)</h4>
-          <p>Aylık veya yıllık zorunlu lisans yenileme ücreti yoktur. Bir kez satın alır, ömür boyu şirketiniz bünyesinde sınırsız olarak kullanırsınız.</p>
-        </article>
-        <article class="bento-item">
-          <div class="bento-top">
-            <span class="bento-icon">⚡</span>
-            <span class="bento-num">05</span>
-          </div>
-          <h4>10 Saniyede Anında Dijital Teslimat</h4>
-          <p>Siparişiniz tamamlandığı anda Excel dosyanız, kullanım kılavuzunuz ve kurumsal e-arşiv faturanız anında e-posta adresinize otomatik iletilir.</p>
-        </article>
-        <article class="bento-item">
-          <div class="bento-top">
-            <span class="bento-icon">🏛️</span>
-            <span class="bento-num">06</span>
-          </div>
-          <h4>17 Yıllık Ticari Bankacılık Metodolojisi</h4>
-          <p>Yazılımcı mantığıyla değil; yüzlerce reel sektör şirketinin mali tahlilini ve nakit akışını yönetmiş bankacı saha tecrübesiyle kurgulanmış karar mimarisi.</p>
-        </article>
-      </div>
-    </div>
-
     <!-- PDF Slayt 18 & 21 Stili: Neden Excel Arşiv? Ortada Görsel ve 6 Simetrik Karar Standardı -->
     <div class="pdf-reasons-center-stage" aria-label="Neden Excel Arşiv Karar Standartları">
       <div class="reasons-stage-head">
@@ -542,28 +483,6 @@ const css = `<style id="dual-funnel-home-v17-css">
 .need-badge{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:28px;height:28px;border-radius:9px;background:#eaf6ee;color:#087a46;font:850 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace}
 .need-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* Slayt 5 6'lı Bento Grid (PDF Kurumsal Güvenlik Şablon Kutuları) */
-.pdf-security-bento-section{margin:0 0 44px;padding:36px;border-radius:24px;background:#f8fafc;border:1px solid #e2e8f0;box-shadow:0 10px 30px rgba(15,23,42,.03)}
-.bento-section-head{margin-bottom:28px}
-.bento-section-head h3{margin:8px 0 6px;color:#0f172a;font-size:clamp(22px,2.4vw,32px);letter-spacing:-.03em}
-.bento-section-head p{margin:0;color:#64748b;font-size:15px}
-.pdf-six-bento-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.bento-item{position:relative;padding:26px 24px;border-radius:20px;background:#ffffff;border:1px solid #dbe5de;box-shadow:0 6px 20px rgba(15,23,42,.035);display:flex;flex-direction:column;overflow:hidden;transition:all .2s ease}
-.bento-item:hover{transform:translateY(-4px);border-color:#059669;box-shadow:0 16px 36px rgba(5,150,105,.1)}
-.bento-item::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#059669,#10b981)}
-.bento-item:nth-child(2)::before{background:linear-gradient(90deg,#2563eb,#3b82f6)}
-.bento-item:nth-child(3)::before{background:linear-gradient(90deg,#d97706,#f59e0b)}
-.bento-item:nth-child(4)::before{background:linear-gradient(90deg,#7c3aed,#8b5cf6)}
-.bento-item:nth-child(5)::before{background:linear-gradient(90deg,#059669,#10b981)}
-.bento-item:nth-child(6)::before{background:linear-gradient(90deg,#2563eb,#3b82f6)}
-.bento-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
-.bento-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#f0fdf4;border:1px solid #bbf7d0;font-size:22px;line-height:1;flex-shrink:0}
-.bento-item:nth-child(2) .bento-icon{background:#eff6ff;border-color:#bfdbfe}
-.bento-item:nth-child(3) .bento-icon{background:#fffbeb;border-color:#fde68a}
-.bento-item:nth-child(4) .bento-icon{background:#f5f3ff;border-color:#ddd6fe}
-.bento-num{padding:4px 10px;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0;color:#087a46;font:850 13px/1 ui-monospace,SFMono-Regular,Menlo,monospace}
-.bento-item h4{margin:0 0 10px;color:#0f172a;font-size:17px;font-weight:800;line-height:1.25;letter-spacing:-.02em}
-.bento-item p{margin:0;color:#475569;font-size:13.5px;line-height:1.6}
 
 /* Slayt 21 7 Numaralı Standart */
 .pdf-reasons-timeline-card{margin:0 0 44px;padding:34px;border-radius:24px;background:#fff;border:1px solid #dfe5e0;box-shadow:0 10px 32px rgba(15,23,42,.04)}
@@ -664,7 +583,7 @@ const css = `<style id="dual-funnel-home-v17-css">
 @media(max-width:980px){
   .decision-quick-steps{grid-template-columns:1fr}
   .pain-decision-grid{grid-template-columns:1fr}
-  .pdf-six-bento-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+
   .finance-needs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .chat-outcome-bar{grid-template-columns:1fr}
   .high-ticket-bridge__inner{grid-template-columns:1fr;gap:28px}
@@ -706,17 +625,6 @@ const css = `<style id="dual-funnel-home-v17-css">
   .finance-need-item{padding:11px 14px;font-size:13px;min-height:44px;border-radius:12px}
   .need-name{white-space:normal;line-height:1.3}
 
-  /* 6'lı Bento Güvenlik */
-  .pdf-security-bento-section{margin:0 0 32px;padding:20px 14px;border-radius:20px}
-  .bento-section-head{margin-bottom:20px}
-  .bento-section-head h3{font-size:clamp(20px,5vw,26px);line-height:1.2}
-  .bento-section-head p{font-size:13.5px}
-  .pdf-six-bento-grid{grid-template-columns:1fr;gap:12px}
-  .bento-item{padding:20px 16px;border-radius:16px}
-  .bento-icon{width:38px;height:38px;font-size:19px;border-radius:10px}
-  .bento-num{font-size:12px;padding:3px 8px}
-  .bento-item h4{font-size:16px;margin-bottom:8px}
-  .bento-item p{font-size:13px;line-height:1.55}
 
   /* Chat Teşhis */
   .pdf-chat-dialog-card{margin:0 0 32px;padding:18px 14px;border-radius:20px}
