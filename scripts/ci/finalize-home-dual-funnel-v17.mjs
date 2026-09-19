@@ -35,8 +35,8 @@ const financePillars = `
       <p>Dağınık tablolarla vakit kaybetmeyin. İhtiyacınız olan finansal karar sistemini tek tıkla seçin veya doğrudan şirketinize özel kurun.</p>
     </div>
 
-    <!-- PDF Sayfa 3 Stili Hızlı İhtiyaç Matrisi -->
-    <div class="finance-needs-grid" aria-label="12 Temel Çözüm İhtiyacı">
+    <!-- PDF Sayfa 3 Stili 15 Numaralı Kurumsal Çözüm Matrisi -->
+    <div class="finance-needs-grid" aria-label="15 Temel Çözüm İhtiyacı">
       <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="finance-need-item"><span class="need-badge">01</span><span class="need-name">13 Haftalık Dinamik Nakit Akışı</span></a>
       <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" class="finance-need-item"><span class="need-badge">02</span><span class="need-name">Çoklu Banka &amp; Kredi Taksit Takibi</span></a>
       <a href="/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi" class="finance-need-item"><span class="need-badge">03</span><span class="need-name">Kasa Defteri &amp; Günlük Likidite</span></a>
@@ -49,6 +49,105 @@ const financePillars = `
       <a href="/sablon/ithalat-depo-teslim-rafa-gelen-net-birim-maliyet" class="finance-need-item"><span class="need-badge">10</span><span class="need-name">İthalat Depo Teslim Birim Maliyet</span></a>
       <a href="/sablon/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici" class="finance-need-item"><span class="need-badge">11</span><span class="need-name">Kıdem, İhbar &amp; Personel Maliyeti</span></a>
       <a href="/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli" class="finance-need-item"><span class="need-badge">12</span><span class="need-name">Şirket Öz Kaynağı &amp; TTK 376 Cetveli</span></a>
+      <a href="/sablon/pos-komisyon-ve-net-tahsilat-kontrol-sistemi" class="finance-need-item"><span class="need-badge">13</span><span class="need-name">POS Komisyonu &amp; Net Tahsilat Bloke</span></a>
+      <a href="/sablon/uretim-recetesi-ve-zam-yansitma-hesaplayici" class="finance-need-item"><span class="need-badge">14</span><span class="need-name">Üretim Reçetesi &amp; Zam Yansıtma</span></a>
+      <a href="/sablon/doviz-acik-pozisyonu-ve-kur-riski-stres-testi" class="finance-need-item"><span class="need-badge">15</span><span class="need-name">Döviz Pozisyonu &amp; Kur Riski Testi</span></a>
+    </div>
+
+    <!-- PDF Kurumsal Sunum İhtişamı Showroom Bloğu (Sayfa 4, 5, 7, 23 & 24) -->
+    <div class="pdf-presentation-showroom" aria-label="ExcelArşiv Kurumsal Standartları">
+      <div class="pdf-showroom__top-grid">
+        <!-- Sayfa 4: Tüm Kartlara Peşin Fiyatına Taksit Bento Kutusu -->
+        <article class="pdf-bento-card pdf-bento-card--royal">
+          <div class="pdf-card-badge">TÜM KARTLARA PEŞİN FİYATINA VEYA 12 TAKSİT</div>
+          <h3>Kurumsal Kartınızla Hemen Başlayın</h3>
+          <p>Türkiye'nin önde gelen tüm banka ve ticari kart programlarına 12 aya varan taksit avantajı.</p>
+          <div class="pdf-bank-cards-grid" aria-label="Anlaşmalı Banka Kart Programları">
+            <span class="bank-pill">axess</span>
+            <span class="bank-pill">advantage</span>
+            <span class="bank-pill">bankkart</span>
+            <span class="bank-pill">bonus</span>
+            <span class="bank-pill">cardfinans</span>
+            <span class="bank-pill">maximum</span>
+            <span class="bank-pill">paraf</span>
+            <span class="bank-pill">sağlam kart</span>
+            <span class="bank-pill">world</span>
+          </div>
+          <div class="pdf-card-footer-note">
+            <span>✓ 256-Bit SSL Şifreleme</span>
+            <span>✓ Anında E-Arşiv Fatura</span>
+          </div>
+        </article>
+
+        <!-- Sayfa 5 & 16: Altın Kalkan Güvenlik & Veri Mahremiyeti -->
+        <article class="pdf-bento-card pdf-bento-card--shield">
+          <div class="pdf-shield-head">
+            <span class="shield-badge-gold">ALTIN KALKAN GÜVENCESİ</span>
+            <span class="shield-3d-icon" aria-hidden="true">🛡️</span>
+          </div>
+          <h3>Mali Verileriniz Asla Cihazınızdan Çıkmaz</h3>
+          <p>Uluslararası bankacılık denetim standartlarında, %100 yerel ve güvenli mimari.</p>
+          <div class="pdf-shield-badges-grid">
+            <div class="shield-badge-item"><span>🔒</span><strong>%100 Açık Formül</strong><small>Gizli hücre / şifre yok</small></div>
+            <div class="shield-badge-item"><span>⚡</span><strong>Sıfır Makro</strong><small>VBA virüs riski sıfır</small></div>
+            <div class="shield-badge-item"><span>💾</span><strong>Yerel Çalışma</strong><small>Buluta veri aktarımı yok</small></div>
+            <div class="shield-badge-item"><span>♾️</span><strong>Tek Seferlik Ödeme</strong><small>Aylık abonelik tuzağı yok</small></div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Orta Kısım: Sayfa 7 Canlı WhatsApp Karar & Teşhis Diyaloğu -->
+      <div class="pdf-chat-dialog-card">
+        <div class="pdf-chat-header">
+          <span class="pdf-chat-kicker">15 DAKİKADA HIZLI TEŞHİS VE ÇÖZÜM</span>
+          <h4>İşletmeler Nasıl Sorun Yaşıyor, ExcelArşiv Nasıl Çözüyor?</h4>
+        </div>
+        <div class="pdf-chat-bubbles">
+          <div class="chat-bubble chat-bubble--client">
+            <div class="bubble-meta"><span class="avatar">🏢</span><strong>İşletme Sahibi / Finans Yöneticisi</strong><small>10:42</small><span class="b-tag b-tag--alert">DARBOĞAZ</span></div>
+            <p>“4 depomuz ve 3 pazaryerimiz var. Cari hesaplar ve banka hareketleri farklı tablolarda tutuluyor. Kasa bir türlü tutmuyor, vadeli alacakları göremiyoruz. Ağır bir ERP için 400.000 TL ve 6 ay kurulum süresi istediler. Çalışma düzenimizi bozmadan bunu çözebilir miyiz?”</p>
+          </div>
+          <div class="chat-divider">
+            <span class="divider-line"></span>
+            <span class="divider-badge">3 GÜNDE ANALİZ &amp; TESLİMAT</span>
+            <span class="divider-line"></span>
+          </div>
+          <div class="chat-bubble chat-bubble--advisor">
+            <div class="bubble-meta"><span class="avatar">⚡</span><strong>Barış Bağırlar · Finansal Sistem Mimarı</strong><small>11:05</small><span class="b-tag b-tag--success">NET ÇÖZÜM</span></div>
+            <p>“6 ay beklemenize gerek yok. Mevcut Logo ve banka ekstrelerinizi tek bir standart veri tablosuna bağlayalım. 13 haftalık dinamik nakit akışı ve otomatik cari yaşlandırma kokpitinizi 3 gün içinde teslim ederiz. Sıfır makro, %100 açık formül; ekibiniz anında kullanmaya başlar.”</p>
+          </div>
+        </div>
+        <div class="chat-outcome-bar">
+          <div class="outcome-stat"><strong>4 Günden 15 Dk'ya</strong><span>Aylık mutabakat süresi</span></div>
+          <div class="outcome-stat"><strong>2 Hafta Önceden</strong><span>Nakit açığı erken uyarısı</span></div>
+          <div class="outcome-stat"><strong>%0 Veri Sızıntısı</strong><span>Tamamen yerel cihazda çalışma</span></div>
+        </div>
+      </div>
+
+      <!-- Alt Kısım: Sayfa 23 24 Sektör Kurumsal Ağ Şeridi -->
+      <div class="pdf-sector-ecosystem-card">
+        <div class="sector-eco-head">
+          <div>
+            <span class="pdf-card-badge">24 SEKTÖRDE 1.000+ İŞLETME REFERANSI</span>
+            <h4>Türkiye Çapında Onaylanmış Karar Sistemleri</h4>
+          </div>
+          <a href="/referans" class="sector-all-link">Tüm 24 Sektörü İncele →</a>
+        </div>
+        <div class="pdf-sectors-pill-cloud">
+          <span class="sector-pill">🏗️ İnşaat &amp; Hakediş</span>
+          <span class="sector-pill">🛒 E-Ticaret &amp; Pazaryeri</span>
+          <span class="sector-pill">☕ Kafe &amp; Restoran</span>
+          <span class="sector-pill">⚙️ Üretim &amp; İmalat</span>
+          <span class="sector-pill">🚚 Lojistik &amp; Nakliye</span>
+          <span class="sector-pill">📦 Toptan &amp; Dağıtım</span>
+          <span class="sector-pill">🏥 Sağlık &amp; Klinik</span>
+          <span class="sector-pill">🚗 Otomotiv &amp; Filo</span>
+          <span class="sector-pill">🏨 Otel &amp; Turizm</span>
+          <span class="sector-pill">🌍 İthalat &amp; İhracat</span>
+          <span class="sector-pill">📊 Mali Müşavir &amp; YMM</span>
+          <span class="sector-pill">💻 Yazılım &amp; Ajans</span>
+        </div>
+      </div>
     </div>
 
     <div class="finance-pillars__grid">
@@ -96,7 +195,64 @@ const css = `<style id="dual-funnel-home-v17-css">
 .finance-need-item:hover{background:#fff;border-color:#059669;color:#059669;box-shadow:0 8px 18px rgba(5,150,105,.1);transform:translateY(-1.5px)}
 .need-badge{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:28px;height:28px;border-radius:9px;background:#eaf6ee;color:#087a46;font:850 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace}
 .need-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.finance-pillars__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.finance-pillar{position:relative;min-width:0;display:flex;flex-direction:column;padding:22px;border:1px solid #dfe5e0;border-radius:18px;background:#fff;box-shadow:0 10px 28px rgba(18,42,26,.05)}.finance-pillar::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;border-radius:18px 18px 0 0;background:#059669}.finance-pillar--blue::before{background:#2563eb}.finance-pillar--violet::before{background:#7c3aed}.finance-pillar--amber::before{background:#d97706}.finance-pillar__no{color:#64748b;font:800 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}.finance-pillar h3{margin:13px 0 0;color:#0f172a;font-size:19px;line-height:1.18;letter-spacing:-.025em}.finance-pillar ul{display:grid;gap:9px;margin:17px 0 22px;padding:0;list-style:none;color:#526176;font-size:13px;line-height:1.5}.finance-pillar li{position:relative;padding-left:15px}.finance-pillar li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:#c9d4cc}.finance-pillar>a{margin-top:auto;color:#075f39;font-size:13px;font-weight:800;text-decoration:none}.high-ticket-bridge{padding:68px 0;background:#fff;color:#0f172a}.high-ticket-bridge__inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:68px;align-items:center;padding:48px 44px;border:1px solid #dfe5e0;border-radius:24px;background:#fff;box-shadow:0 14px 36px rgba(18,42,26,.05)}.high-ticket-kicker{margin:0;color:#059669;font:850 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.high-ticket-bridge h2{max-width:760px;margin:12px 0 0;color:#0f172a;font-size:clamp(32px,4vw,50px);line-height:1.02;letter-spacing:-.045em}.high-ticket-bridge__copy>p:last-child{max-width:760px;margin:20px 0 0;color:#526176;font-size:16px;line-height:1.7}.high-ticket-bridge__proof{padding:26px;border:1px solid #dfe5e0;border-radius:18px;background:#f8faf9;box-shadow:0 8px 24px rgba(18,42,26,.04)}.high-ticket-bridge__proof ul{display:grid;gap:12px;margin:0 0 22px;padding:0;list-style:none;color:#334155;font-size:14px;line-height:1.45}.high-ticket-bridge__proof li{position:relative;padding-left:22px}.high-ticket-bridge__proof li::before{content:"✓";position:absolute;left:0;color:#059669;font-weight:900}.high-ticket-bridge__proof>a{min-height:48px;display:flex;align-items:center;justify-content:center;padding:0 18px;border-radius:12px;background:#059669;color:#fff;font-size:13px;font-weight:850;text-decoration:none;box-shadow:0 8px 20px rgba(5,150,105,.2)}.home-finance-close{padding:52px 0;border-bottom:1px solid #dfe5e0;background:linear-gradient(90deg,#f0fdf4,#eff6ff)}.home-finance-close__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center}.home-finance-close h2{margin:9px 0 0;color:#0f172a;font-size:clamp(28px,3.2vw,42px);line-height:1.05;letter-spacing:-.04em}.home-finance-close p:not(.eyebrow){max-width:760px;margin:12px 0 0;color:#526176;font-size:15px;line-height:1.65}.home-finance-close__cta{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:0 22px;border-radius:12px;background:#059669;color:#fff;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 12px 28px rgba(5,150,105,.2)}@media(max-width:980px){.finance-needs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.finance-pillars__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.high-ticket-bridge__inner{grid-template-columns:1fr;gap:28px}}@media(max-width:720px){.finance-needs-grid{grid-template-columns:1fr;gap:8px}.finance-pillars{padding:38px 0}.finance-pillars__head{grid-template-columns:1fr;gap:12px}.finance-pillars__head h2{font-size:28px}.finance-pillars__grid{grid-template-columns:1fr;gap:10px}.finance-pillar{padding:18px}.high-ticket-bridge{padding:42px 0}.high-ticket-bridge h2{font-size:32px}.high-ticket-bridge__proof{padding:20px}.home-finance-close{padding:38px 0}.home-finance-close__inner{grid-template-columns:1fr;gap:20px}.home-finance-close__cta{width:100%}}
+
+/* PDF Kurumsal Sunum Showroom Stilleri */
+.pdf-presentation-showroom{margin:28px 0 44px;display:grid;gap:20px}
+.pdf-showroom__top-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:20px}
+.pdf-bento-card{padding:28px 30px;border-radius:24px;border:1px solid #dfe5e0;box-shadow:0 12px 36px rgba(15,23,42,.05);display:flex;flex-direction:column}
+.pdf-bento-card--royal{background:linear-gradient(145deg,#0f172a 0%,#1e3a8a 100%);color:#fff;border-color:#1e40af}
+.pdf-bento-card--royal h3{margin:12px 0 8px;color:#fff;font-size:clamp(22px,2.2vw,28px);line-height:1.15;letter-spacing:-.03em}
+.pdf-bento-card--royal p{margin:0 0 20px;color:#cbd5e1;font-size:14px;line-height:1.55}
+.pdf-card-badge{display:inline-block;padding:5px 11px;border-radius:8px;background:rgba(255,255,255,.15);color:#93c5fd;font:800 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;width:fit-content}
+.pdf-bank-cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:18px}
+.bank-pill{padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.94);color:#0f172a;font-size:12px;font-weight:850;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.12);letter-spacing:-.01em}
+.pdf-card-footer-note{margin-top:auto;display:flex;gap:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15);font-size:12px;font-weight:750;color:#93c5fd}
+
+.pdf-bento-card--shield{background:linear-gradient(145deg,#064e3b 0%,#0f172a 100%);color:#fff;border-color:#047857}
+.pdf-shield-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.shield-badge-gold{display:inline-block;padding:5px 11px;border-radius:8px;background:rgba(255,255,255,.15);color:#34d399;font:800 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}
+.shield-3d-icon{font-size:32px}
+.pdf-bento-card--shield h3{margin:0 0 8px;color:#fff;font-size:clamp(22px,2.2vw,28px);line-height:1.15;letter-spacing:-.03em}
+.pdf-bento-card--shield p{margin:0 0 18px;color:#cbd5e1;font-size:14px;line-height:1.55}
+.pdf-shield-badges-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto}
+.shield-badge-item{padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:center}
+.shield-badge-item span{font-size:16px}
+.shield-badge-item strong{display:block;color:#fff;font-size:12.5px;line-height:1.2}
+.shield-badge-item small{display:block;color:#94a3b8;font-size:10.5px;grid-column:2}
+
+.pdf-chat-dialog-card{padding:26px 30px;border-radius:24px;background:#f8fafc;border:1px solid #e2e8f0;box-shadow:0 8px 26px rgba(15,23,42,.03)}
+.pdf-chat-header{margin-bottom:18px}
+.pdf-chat-kicker{color:#059669;font:800 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em}
+.pdf-chat-header h4{margin:6px 0 0;color:#0f172a;font-size:19px;letter-spacing:-.03em}
+.pdf-chat-bubbles{display:grid;gap:14px;margin-bottom:18px}
+.chat-bubble{padding:16px 20px;border-radius:18px;border:1px solid #e2e8f0}
+.chat-bubble--client{background:#fff;border-left:4px solid #f59e0b}
+.chat-bubble--advisor{background:#ecfdf5;border-left:4px solid #059669}
+.bubble-meta{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bubble-meta .avatar{font-size:16px}
+.bubble-meta strong{color:#0f172a;font-size:13.5px}
+.bubble-meta small{color:#64748b;font-size:11px}
+.b-tag{margin-left:auto;padding:3px 8px;border-radius:6px;font:800 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.05em}
+.b-tag--alert{background:#fef3c7;color:#b45309}
+.b-tag--success{background:#d1fae5;color:#047857}
+.chat-bubble p{margin:0;color:#334155;font-size:13.5px;line-height:1.6}
+.chat-divider{display:flex;align-items:center;gap:14px;margin:2px 0}
+.divider-line{flex:1;height:1px;background:#cbd5e1}
+.divider-badge{padding:4px 12px;border-radius:999px;background:#0f172a;color:#fff;font:800 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}
+.chat-outcome-bar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:16px 20px;border-radius:16px;background:#fff;border:1px solid #e2e8f0}
+.outcome-stat strong{display:block;color:#059669;font-size:16px;font-weight:850}
+.outcome-stat span{color:#64748b;font-size:12px}
+
+.pdf-sector-ecosystem-card{padding:24px 28px;border-radius:24px;background:#fff;border:1px solid #e2e8f0;box-shadow:0 8px 24px rgba(15,23,42,.03)}
+.sector-eco-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.sector-eco-head h4{margin:6px 0 0;color:#0f172a;font-size:18px;letter-spacing:-.03em}
+.sector-all-link{color:#059669;font-size:13px;font-weight:800;text-decoration:none}
+.pdf-sectors-pill-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.sector-pill{padding:8px 14px;border-radius:11px;background:#f8fafc;color:#1e293b;font-size:12.5px;font-weight:750;border:1px solid #e2e8f0;box-shadow:0 2px 5px rgba(15,23,42,.02)}
+
+.finance-pillars__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.finance-pillar{position:relative;min-width:0;display:flex;flex-direction:column;padding:22px;border:1px solid #dfe5e0;border-radius:18px;background:#fff;box-shadow:0 10px 28px rgba(18,42,26,.05)}.finance-pillar::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;border-radius:18px 18px 0 0;background:#059669}.finance-pillar--blue::before{background:#2563eb}.finance-pillar--violet::before{background:#7c3aed}.finance-pillar--amber::before{background:#d97706}.finance-pillar__no{color:#64748b;font:800 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}.finance-pillar h3{margin:13px 0 0;color:#0f172a;font-size:19px;line-height:1.18;letter-spacing:-.025em}.finance-pillar ul{display:grid;gap:9px;margin:17px 0 22px;padding:0;list-style:none;color:#526176;font-size:13px;line-height:1.5}.finance-pillar li{position:relative;padding-left:15px}.finance-pillar li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:#c9d4cc}.finance-pillar>a{margin-top:auto;color:#075f39;font-size:13px;font-weight:800;text-decoration:none}.high-ticket-bridge{padding:68px 0;background:#fff;color:#0f172a}.high-ticket-bridge__inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:68px;align-items:center;padding:48px 44px;border:1px solid #dfe5e0;border-radius:24px;background:#fff;box-shadow:0 14px 36px rgba(18,42,26,.05)}.high-ticket-kicker{margin:0;color:#059669;font:850 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.high-ticket-bridge h2{max-width:760px;margin:12px 0 0;color:#0f172a;font-size:clamp(32px,4vw,50px);line-height:1.02;letter-spacing:-.045em}.high-ticket-bridge__copy>p:last-child{max-width:760px;margin:20px 0 0;color:#526176;font-size:16px;line-height:1.7}.high-ticket-bridge__proof{padding:26px;border:1px solid #dfe5e0;border-radius:18px;background:#f8faf9;box-shadow:0 8px 24px rgba(18,42,26,.04)}.high-ticket-bridge__proof ul{display:grid;gap:12px;margin:0 0 22px;padding:0;list-style:none;color:#334155;font-size:14px;line-height:1.45}.high-ticket-bridge__proof li{position:relative;padding-left:22px}.high-ticket-bridge__proof li::before{content:"✓";position:absolute;left:0;color:#059669;font-weight:900}.high-ticket-bridge__proof>a{min-height:48px;display:flex;align-items:center;justify-content:center;padding:0 18px;border-radius:12px;background:#059669;color:#fff;font-size:13px;font-weight:850;text-decoration:none;box-shadow:0 8px 20px rgba(5,150,105,.2)}.home-finance-close{padding:52px 0;border-bottom:1px solid #dfe5e0;background:linear-gradient(90deg,#f0fdf4,#eff6ff)}.home-finance-close__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center}.home-finance-close h2{margin:9px 0 0;color:#0f172a;font-size:clamp(28px,3.2vw,42px);line-height:1.05;letter-spacing:-.04em}.home-finance-close p:not(.eyebrow){max-width:760px;margin:12px 0 0;color:#526176;font-size:15px;line-height:1.65}.home-finance-close__cta{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:0 22px;border-radius:12px;background:#059669;color:#fff;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 12px 28px rgba(5,150,105,.2)}
+@media(max-width:980px){.finance-needs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pdf-showroom__top-grid{grid-template-columns:1fr}.chat-outcome-bar{grid-template-columns:1fr}.finance-pillars__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.high-ticket-bridge__inner{grid-template-columns:1fr;gap:28px}}
+@media(max-width:720px){.finance-needs-grid{grid-template-columns:1fr;gap:8px}.pdf-bank-cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pdf-shield-badges-grid{grid-template-columns:1fr}.finance-pillars{padding:38px 0}.finance-pillars__head{grid-template-columns:1fr;gap:12px}.finance-pillars__head h2{font-size:28px}.finance-pillars__grid{grid-template-columns:1fr;gap:10px}.finance-pillar{padding:18px}.high-ticket-bridge{padding:42px 0}.high-ticket-bridge h2{font-size:32px}.high-ticket-bridge__proof{padding:20px}.home-finance-close{padding:38px 0}.home-finance-close__inner{grid-template-columns:1fr;gap:20px}.home-finance-close__cta{width:100%}}
 </style>`;
 html = html.replace('</head>', `${css}\n</head>`);
 
