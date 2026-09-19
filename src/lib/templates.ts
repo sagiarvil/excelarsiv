@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { pickCatalogScreenshot } from './catalog-screenshot';
+import { pickCatalogScreenshot, screenshotSlug } from './catalog-screenshot';
 import { kapakYolu, premiumKapakUrl } from './kapak';
 import { categories, getCategoryName, type CategorySlug } from './categories';
 import { shopierUrlForPrice } from './shopier';
@@ -62,7 +62,28 @@ export function toTemplateViewModel(entry: TemplateEntry): TemplateViewModel {
 
 export async function getAllTemplates(): Promise<TemplateViewModel[]> {
   const entries = await getCollection('templates');
-  return entries.map(toTemplateViewModel);
+  const models = entries.map(toTemplateViewModel);
+  const ids = new Set<string>();
+  const names = new Set<string>();
+  for (const model of models) {
+    if (ids.has(model.slug)) throw new Error(`Duplicate template slug: ${model.slug}`);
+    if (names.has(model.name)) throw new Error(`Duplicate template name: ${model.name}`);
+    ids.add(model.slug);
+    names.add(model.name);
+    if (model.preview?.src) {
+      const shotSlug = screenshotSlug(model.preview.src);
+      if (shotSlug && shotSlug !== model.slug) {
+        throw new Error(`Catalog screenshot mismatch: ${model.slug} -> ${model.preview.src}`);
+      }
+    }
+    if (model.kapak && !model.kapak.includes(`/${model.slug}.`)) {
+      throw new Error(`Catalog cover mismatch: ${model.slug} -> ${model.kapak}`);
+    }
+    if (model.url !== `/sablon/${model.slug}`) {
+      throw new Error(`Catalog detail URL mismatch: ${model.slug} -> ${model.url}`);
+    }
+  }
+  return models;
 }
 
 export async function getFeaturedTemplates(count = 6): Promise<TemplateViewModel[]> {
