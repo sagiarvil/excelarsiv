@@ -15,9 +15,10 @@ interface Props {
   sheetCount: number;
   minExcelVersion: string;
   macCompatible: boolean;
+  deferCommerce?: boolean;
 }
 
-const { productSlug, name, summary, categoryLabel, priceTL, screenshots, kapakUrl, outputs, sheetCount, minExcelVersion, macCompatible } = Astro.props;
+const { productSlug, name, summary, categoryLabel, priceTL, screenshots, kapakUrl, outputs, sheetCount, minExcelVersion, macCompatible, deferCommerce = false } = Astro.props;
 const price = priceTL.toLocaleString('tr-TR');
 const primary = screenshots[0] ?? screenshots[2];
 const categorySlug = categoryLabel
@@ -146,24 +147,28 @@ const outputDetail = outputs.slice(0, 3).join(' · ');
     </div>
   </div>
 
-  <div class="product-hero__decision-head">
-    <div>
-      <p>TEK KARAR ALANI</p>
-      <h2>Önce deneyin veya doğrudan satın alın.</h2>
-    </div>
-    <span>İki seçenek de burada. Aramanız gereken başka bir alan yok.</span>
-  </div>
+  {!deferCommerce && (
+    <>
+      <div class="product-hero__decision-head">
+        <div>
+          <p>TEK KARAR ALANI</p>
+          <h2>Önce deneyin veya doğrudan satın alın.</h2>
+        </div>
+        <span>İki seçenek de burada. Aramanız gereken başka bir alan yok.</span>
+      </div>
 
-  <div class="product-hero__actions" aria-label="Satın alma ve demo seçenekleri">
-    <CheckoutPanel productSlug={productSlug} name={name} priceTL={priceTL} />
-    <DemoDownloadBox productSlug={productSlug} name={name} />
-  </div>
+      <div class="product-hero__actions" aria-label="Satın alma ve demo seçenekleri">
+        <CheckoutPanel productSlug={productSlug} name={name} priceTL={priceTL} />
+        <DemoDownloadBox productSlug={productSlug} name={name} />
+      </div>
 
-  <div class="product-hero__trust" aria-label="Satın alma güvenceleri">
-    <span><b>01</b><small>Shopier ile güvenli ödeme</small></span>
-    <span><b>02</b><small>Ödeme doğrulanınca güvenli indirme</small></span>
-    <span><b>03</b><small>Demo ile satın almadan önce inceleme</small></span>
-  </div>
+      <div class="product-hero__trust" aria-label="Satın alma güvenceleri">
+        <span><b>01</b><small>Shopier ile güvenli ödeme</small></span>
+        <span><b>02</b><small>Ödeme doğrulanınca güvenli indirme</small></span>
+        <span><b>03</b><small>Demo ile satın almadan önce inceleme</small></span>
+      </div>
+    </>
+  )}
 
   <section class="product-flow" aria-labelledby={`product-flow-${productSlug}`} data-product-infographic>
     <div class="product-flow__head">
