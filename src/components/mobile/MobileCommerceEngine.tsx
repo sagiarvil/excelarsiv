@@ -318,8 +318,8 @@ export default function MobileCommerceEngine({
                 </div>
 
                 <div className="text-right shrink-0">
-                  <span className="block text-sm font-black text-emerald-600">₺{item.price}</span>
-                  <span className="block text-[10px] text-slate-400 line-through font-semibold">₺{item.originalPrice}</span>
+                  <span className="block text-sm font-black text-emerald-600">Teklif İste</span>
+                  
                 </div>
               </div>
             ))}
@@ -385,8 +385,8 @@ export default function MobileCommerceEngine({
               <div className="p-4 bg-white flex items-center justify-between">
                 <div>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-lg font-black text-slate-900">₺{item.price}</span>
-                    <span className="text-xs text-slate-400 line-through font-bold">₺{item.originalPrice}</span>
+                    <span className="text-lg font-black text-slate-900">Teklif İste</span>
+                    
                   </div>
                   <span className="text-[10px] text-emerald-600 font-black flex items-center gap-1">
                     <SparklesIcon />
@@ -616,8 +616,8 @@ export default function MobileCommerceEngine({
 
             <div className="flex items-center gap-3 pt-2 border-t border-slate-100">
               <div>
-                <span className="block text-lg font-black text-slate-900">₺{selectedTemplate.price}</span>
-                <span className="block text-[10px] text-slate-400 line-through font-bold">₺{selectedTemplate.originalPrice}</span>
+                <span className="block text-lg font-black text-slate-900">Teklif İste</span>
+                
               </div>
               <a
                 href={selectedTemplate.shopierUrl || `https://www.shopier.com/49652321`}

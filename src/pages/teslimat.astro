@@ -58,7 +58,7 @@ const recoveryProducts = Object.entries(shopierCatalog.products)
               <select id="recovery-product" required aria-label="Satın aldığınız Excel şablonu" class="mt-2 min-h-12 w-full border border-rule-strong bg-white px-3 text-sm text-ink-800 outline-none focus:border-accent-primary" data-recovery-product>
                 <option value="">Ürün seçin</option>
                 {recoveryProducts.map((product) => (
-                  <option value={product.slug}>{product.name} — {product.priceTL.toLocaleString('tr-TR')} TL</option>
+                  <option value={product.slug}>{product.name}</option>
                 ))}
               </select>
             </label>

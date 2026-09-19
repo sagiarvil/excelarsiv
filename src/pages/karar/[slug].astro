@@ -100,7 +100,7 @@ const jsonLd = {
                 <tr>
                   <td>{situation}</td>
                   <td><a href={product.url}>{product.name}</a></td>
-                  <td>{product.priceTL.toLocaleString('tr-TR')} TL</td>
+                  <td>Teklif İste</td>
                   <td>{reason}</td>
                 </tr>
               ))}
@@ -120,7 +120,7 @@ const jsonLd = {
             {primary.outputs && primary.outputs.length > 0 && (
               <ul>{primary.outputs.slice(0, 4).map((output) => <li>{output}</li>)}</ul>
             )}
-            <div class="price">{primary.priceTL.toLocaleString('tr-TR')} TL <small>KDV dahil · tek ödeme</small></div>
+            <div class="price">Teklif İste <small>Şirketinize Özel</small></div>
             <div class="actions"><a class="primary" href={primary.url}>Sistemi inceleyin</a><a href={`/demo/${primary.slug}`}>Ücretsiz demo</a></div>
           </div>
           {primary.kapak && <a href={primary.url} class="visual" aria-label={`${primary.name} ürün detayını inceleyin`}><img src={primary.kapak} alt={`${primary.name} ürün görseli`} width="1200" height="900" loading="eager" /></a>}
@@ -134,7 +134,7 @@ const jsonLd = {
           <h2>Alternatifler</h2>
           <div class="cards">
             {alternatives.map((item) => (
-              <article><h3><a href={item.url}>{item.name}</a></h3><p>{item.summary}</p><strong>{item.priceTL.toLocaleString('tr-TR')} TL</strong></article>
+              <article><h3><a href={item.url}>{item.name}</a></h3><p>{item.summary}</p><strong>Teklif İste</strong></article>
             ))}
           </div>
         </div>

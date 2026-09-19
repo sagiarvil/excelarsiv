@@ -148,8 +148,8 @@ const {
             </div>
 
             <div class="mce-quick-card__right">
-              <span class="mce-price-val">₺{item.price}</span>
-              <span class="mce-price-orig">₺{item.originalPrice}</span>
+              <span class="mce-price-val">Teklif İste</span>
+              
             </div>
           </div>
         ))}
@@ -201,8 +201,8 @@ const {
           <div class="mce-template-card__foot">
             <div class="mce-price-box">
               <div class="mce-price-row">
-                <span class="mce-foot-price">₺{item.price}</span>
-                <span class="mce-foot-orig">₺{item.originalPrice}</span>
+                <span class="mce-foot-price">Teklif İste</span>
+                
               </div>
               <span class="mce-foot-hint">
                 <svg class="mce-icon-sparkle-sm" viewBox="0 0 24 24" fill="currentColor">
@@ -373,8 +373,8 @@ const {
 
       <div class="mce-modal-actions">
         <div>
-          <span class="mce-modal-price" data-modal-price>₺649</span>
-          <span class="mce-modal-orig" data-modal-orig>₺1299</span>
+          <span class="mce-modal-price" data-modal-price>Teklif İste</span>
+          
         </div>
         <a
           href="#"
@@ -616,8 +616,8 @@ const {
         modalBadge.className = `mce-modal-badge ${item.badgeColor}`;
       }
       if (modalTitle) modalTitle.textContent = item.title;
-      if (modalPrice) modalPrice.textContent = `₺${item.price}`;
-      if (modalOrig) modalOrig.textContent = `₺${item.originalPrice}`;
+      if (modalPrice) modalPrice.textContent = 'Teklif İste';
+      
       if (modalCta) {
         modalCta.href = item.shopierUrl || `https://www.shopier.com/49652321`;
       }

@@ -91,7 +91,7 @@ export function getProductDecisionAnatomy(slug: string, summary: string, priceTL
       systemComputes: specific.systemComputes ?? outputs.slice(0, 2).join(' ve ') + ' hesaplar.',
       decisionAction: specific.decisionAction ?? 'Eksik veya hatalı kararları önleyerek zamanında doğru operasyonel adımı atmanızı sağlar.',
       wrongDataEffect: specific.wrongDataEffect ?? 'Formüller kilitli değildir; mantıksal kontrol hücreleri hatalı veri girişinde anında görsel uyarı verir.',
-      whyPayPrice: specific.whyPayPrice ?? `Danışmanlık veya yazılım maliyetlerinin yanında ${priceTL} TL tek ödemeyle anında kullanıma hazır karar altyapısı sağlar.`,
+      whyPayPrice: specific.whyPayPrice ?? `Danışmanlık veya yazılım maliyetlerinin yanında şirketinize özel teklifle anında kullanıma hazır karar altyapısı sağlar.`,
       concreteDecisionExample: specific.concreteDecisionExample
     };
   }
@@ -105,7 +105,7 @@ export function getProductDecisionAnatomy(slug: string, summary: string, priceTL
     systemComputes: outputs.length > 0 ? outputs.slice(0, 2).join(' ve ') : 'Gerekli finansal ve operasyonel rasyoları otomatik hesaplar.',
     decisionAction: 'Tahminlere göre değil, doğrulanmış matematiksel formüllere göre aksiyon alma imkanı sunar.',
     wrongDataEffect: 'Hücre doğrulama ve mantıksal denetim formülleri sayesinde hatalı girişlerde erken uyarı sinyali verir.',
-    whyPayPrice: `Yüz binlerce liralık hantal yazılımlar yerine ${priceTL} TL tek seferlik ödeme ile ömür boyu sınırsız kullanım elde edersiniz.`,
+    whyPayPrice: `Yüz binlerce liralık hantal yazılımlar yerine şirketinize özel teklifle ömür boyu sınırsız kullanım elde edersiniz.`,
     concreteDecisionExample: `Veriler sisteme girildiği anda ${outputs[0] || 'kritik karar çıktısı'} ekranda belirir ve derhal aksiyona dönüştürülür.`
   };
 }

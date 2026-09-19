@@ -36,7 +36,7 @@ const money = (value: number) => value.toLocaleString('tr-TR');
               <li><span>✓</span> Dijital teslimat</li>
             </ul>
             <div class="focal-product__foot">
-              <strong>{money(focal.priceTL)} TL</strong>
+              <strong>Teklif İste</strong>
               <a href={`/sablon/${focal.slug}`}>Sistemi inceleyin <span aria-hidden="true">→</span></a>
             </div>
           </div>
@@ -63,7 +63,7 @@ const money = (value: number) => value.toLocaleString('tr-TR');
             <article class={`side-product side-product--${index + 1}`}>
               <div class="side-product__top">
                 <span>{template.categoryName}</span>
-                <strong>{money(template.priceTL)} TL</strong>
+                <strong>Teklif İste</strong>
               </div>
               <h3>{template.name}</h3>
               <p>{template.summary}</p>
@@ -87,7 +87,7 @@ const money = (value: number) => value.toLocaleString('tr-TR');
           <a class="shelf-item" href={`/sablon/${template.slug}`}>
             <span class="shelf-item__category">{template.categoryName}</span>
             <strong>{template.name}</strong>
-            <span class="shelf-item__price">{money(template.priceTL)} TL <i aria-hidden="true">→</i></span>
+            <span class="shelf-item__price">Teklif İste <i aria-hidden="true">→</i></span>
           </a>
         ))}
       </div>

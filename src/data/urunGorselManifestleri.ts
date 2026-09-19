@@ -286,7 +286,7 @@ export function urunHikayeKatalogOgesi(template: TemplateViewModel): UrunHikayeK
     slug: template.slug,
     title: template.name,
     href: template.url,
-    priceText: `₺${template.priceTL.toLocaleString('tr-TR')}`,
+    priceText: 'Teklif İste',
     badge: 'Excel Şablonu',
     categorySlug: template.categorySlug,
     categoryLabel: template.categoryName,
