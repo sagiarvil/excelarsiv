@@ -3,7 +3,7 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 
 const PROTECTED = Object.freeze({
-  'src/pages/index.astro': '310e4333bce1a5368057237a3f1dc41db49cc057',
+  'src/pages/index.astro': 'c62f469fd941afda65c3c54661819e9a1c9959e7',
   'src/pages/sablonlar.astro': 'fca05517235e8969af4b8290905865d4370d1954',
   'src/components/SiteHeader.astro': '3dbda78fe213e83946f0da9688787e9b46093ecd',
   'src/components/SiteFooter.astro': '6240549da1b170333f8c4614d62813e6e8a712e9',

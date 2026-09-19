@@ -107,12 +107,12 @@ const homeJsonLd = {
         <div class="soho-category-headband">
           <h2 class="soho-category-title">
             <a href="/sablonlar">
-              <span class="soho-title-icon">🏷️</span> POPULAR TEMPLATES
+              <span class="soho-title-icon">🏷️</span> EN ÇOK TERCİH EDİLEN ŞABLONLAR
             </a>
           </h2>
-          <div class="soho-category-more"><a href="/sablonlar">View more ›</a></div>
+          <div class="soho-category-more"><a href="/sablonlar">Tümünü İncele ›</a></div>
         </div>
-        <p class="soho-category-desc">Recently most requested Excel &amp; financial decision systems. Fully compatible with both Windows and Mac. Ready to use without macro risks.</p>
+        <p class="soho-category-desc">İşletmeler tarafından en çok talep edilen Excel ve finansal karar sistemleri. Hem Windows hem Mac ile %100 uyumlu, makro riski olmadan hemen kullanıma hazır.</p>
 
         <div class="soho-product-grid">
           {popularTemplates.map((item) => item && (
@@ -124,7 +124,7 @@ const homeJsonLd = {
                 </a>
                 <div class="someka-card-details">
                   <h3 class="single-post-title"><a href={item.url}>{item.name}</a></h3>
-                  <div class="vcex-star-rating" aria-label="5 stars">
+                  <div class="vcex-star-rating" aria-label="5 yıldız">
                     <span class="star-active">★</span>
                     <span class="star-active">★</span>
                     <span class="star-active">★</span>
@@ -147,7 +147,7 @@ const homeJsonLd = {
           <div class="soho-category-headband" style="margin-top: 54px;">
             <h2 class="soho-category-title">
               <a href="/sablonlar">
-                <span class="soho-title-icon">📑</span> TEMPLATE CATEGORIES
+                <span class="soho-title-icon">📑</span> ŞABLON KATEGORİLERİ
               </a>
             </h2>
             <div class="soho-category-more"><a href="/sablonlar">Tüm Kategoriler ›</a></div>
@@ -161,7 +161,7 @@ const homeJsonLd = {
             <button type="button" class="soho-tab-btn" :class="{ 'is-active': tab === 'muhasebe' }" @click="tab = 'muhasebe'">Muhasebe &amp; Vergi</button>
             <button type="button" class="soho-tab-btn" :class="{ 'is-active': tab === 'butce' }" @click="tab = 'butce'">Bütçe &amp; Maliyet</button>
             <button type="button" class="soho-tab-btn" :class="{ 'is-active': tab === 'satis' }" @click="tab = 'satis'">Satış &amp; Fiyatlama</button>
-            <button type="button" class="soho-tab-btn" :class="{ 'is-active': tab === 'paket' }" @click="tab = 'paket'">Paketler (Bundles)</button>
+            <button type="button" class="soho-tab-btn" :class="{ 'is-active': tab === 'paket' }" @click="tab = 'paket'">Avantajlı Paketler</button>
           </div>
 
           <!-- Sekme 1: Nakit Akışı -->
@@ -331,12 +331,12 @@ const homeJsonLd = {
         <div class="soho-category-headband" style="margin-top: 54px;">
           <h2 class="soho-category-title">
             <a href="/sablonlar?orderby=date">
-              <span class="soho-title-icon">🚀</span> NEW RELEASES
+              <span class="soho-title-icon">🚀</span> YENİ ÇIKAN KARAR SİSTEMLERİ
             </a>
           </h2>
-          <div class="soho-category-more"><a href="/sablonlar?orderby=date">View more ›</a></div>
+          <div class="soho-category-more"><a href="/sablonlar?orderby=date">Tümünü İncele ›</a></div>
         </div>
-        <p class="soho-category-desc">Our newest templates here. We publish decision systems on a regular basis. Make sure you check our latest releases.</p>
+        <p class="soho-category-desc">En son yayına alınan karar sistemlerimiz. Sürekli yeni finans ve yönetim modelleri ekliyoruz; en güncel çözümleri hemen keşfedin.</p>
 
         <div class="soho-product-grid">
           {newTemplates.map((item) => (
@@ -344,11 +344,11 @@ const homeJsonLd = {
               <article class="someka-product-custom-card">
                 <a class="someka-card-thumb-wrap" href={item.url} aria-label={item.name}>
                   <img class="someka-thumb-img premium-card__shot" src={item.kapak} alt={item.name} width="727" height="373" loading="lazy" />
-                  <span class="someka-category-tag someka-tag--new">New</span>
+                  <span class="someka-category-tag someka-tag--new">Yeni</span>
                 </a>
                 <div class="someka-card-details">
                   <h3 class="single-post-title"><a href={item.url}>{item.name}</a></h3>
-                  <div class="vcex-star-rating">
+                  <div class="vcex-star-rating" aria-label="5 yıldız">
                     <span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span>
                   </div>
                   <p class="vcex-post-excerpt">{item.summary}</p>
@@ -369,7 +369,7 @@ const homeJsonLd = {
       <div class="home-shell difference-shell">
         <div class="soho-category-headband" style="margin-bottom: 6px;">
           <h2 class="soho-category-title">
-            <span>⚙️</span> WHY EXCEL ARŞİV?
+            <span>⚙️</span> NEDEN EXCEL ARŞİV?
           </h2>
         </div>
         <p class="soho-category-desc">Aylık yazılım ücreti veya karmaşık kurulumlar yok. Finansçılar, mali müşavirler ve şirket yöneticileri için sıfır makro riskiyle tasarlanmış kurumsal karar altyapısı.</p>
@@ -427,7 +427,7 @@ const homeJsonLd = {
         <div class="custom-build-copy">
           <div class="soho-category-headband" style="margin-bottom: 8px;">
             <h2 class="soho-category-title">
-              <span>🛠️</span> CUSTOM SERVICES
+              <span>🛠️</span> ÖZEL SİSTEM GELİŞTİRME
             </h2>
           </div>
           <h3 class="someka-custom-lead-title">İşletmenize Özel Excel Karar Motoru mu Gerekiyor?</h3>
@@ -486,7 +486,7 @@ const homeJsonLd = {
         <div class="decision-intro">
           <div class="soho-category-headband" style="margin-bottom: 8px;">
             <h2 class="soho-category-title">
-              <span>🎯</span> DECISION HELP
+              <span>🎯</span> KARAR YARDIMI &amp; REHBERLER
             </h2>
           </div>
           <p class="soho-category-desc">İşletmenizin yaşadığı darboğaza en yakın problemden başlayın. Doğru ürünü belirlemek için karar rehberlerini karşılaştırın.</p>
@@ -514,7 +514,7 @@ const homeJsonLd = {
     <section class="authority" data-experience-stage>
       <div class="home-shell authority-panel">
         <div class="authority-copy">
-          <p class="eyebrow light">FOUNDER &amp; LEAD FINANCIAL ARCHITECT</p>
+          <p class="eyebrow light">KURUCU VE BAŞ FİNANS MİMARI</p>
           <h2>Barış Bağırlar</h2>
           <p class="authority-lead">17 yıllık ticari bankacılık ve saha finans yöneticiliği tecrübesiyle; Excel Arşiv sistemleri yalnız tablo düzenlemek için değil, yönetim kurulu ve şirket sahiplerine net karar aldırmak için hazırlanır.</p>
           <div class="authority-links">
@@ -536,7 +536,7 @@ const homeJsonLd = {
         <div>
           <div class="soho-category-headband" style="margin-bottom: 8px;">
             <h2 class="soho-category-title">
-              <span>❓</span> FREQUENTLY ASKED QUESTIONS
+              <span>❓</span> SIKÇA SORULAN SORULAR
             </h2>
           </div>
           <p class="soho-category-desc">Ürünü seçmeden önce lisans, format, ücretsiz demo ve anında indirme bilgilerini kontrol edin.</p>
