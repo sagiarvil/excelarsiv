@@ -134,11 +134,7 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     <div class="card__divider" aria-hidden="true"></div>
 
     <div class="card__footer">
-      <div class="card__price">
-        <span class="card__price-value">{price || 'Teklif İste'}</span>
-        <span class="card__price-label">Şirketinize Özel</span>
-      </div>
-      <div class="card__actions">
+      <div class="card__actions card__actions--full">
         <a class="card__cta card__cta--ghost" href={detailUrl}>Detay</a>
         <a
           class="card__cta card__cta--primary card__cta--wa"
@@ -454,6 +450,12 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     display: flex;
     gap: 0.5rem;
   }
+  .card__actions--full {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 0.5rem;
+  }
 
   .card__cta {
     font-family: var(--ea-body);
@@ -463,6 +465,10 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     padding: 0.5rem 0.75rem;
     border: 1px solid transparent;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .card__cta--primary {
