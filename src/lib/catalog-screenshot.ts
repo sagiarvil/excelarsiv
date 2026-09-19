@@ -15,7 +15,7 @@ const ODAK = KATALOG_EKRAN_ODAK;
 const DEFAULT_ODAK: CatalogShotOdak = { x: 50, y: 28, s: 1.62 };
 
 export function screenshotSlug(src: string): string | undefined {
-  const match = src.match(/\/screenshots\/(.+)-\d\.(?:png|webp)$/i);
+  const match = src.match(/\/screenshots\/(.+)-\d\.(?:png|webp|svg)$/i);
   return match?.[1];
 }
 
