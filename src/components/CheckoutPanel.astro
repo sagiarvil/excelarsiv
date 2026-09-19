@@ -23,20 +23,20 @@ const satista = product?.satista !== false;
 >
   <div class="checkout-card__head">
     <div>
-      <p class="checkout-card__kicker">TAM SÜRÜM</p>
-      <h2>Satın Al</h2>
+      <p class="checkout-card__kicker">TAM KARAR SİSTEMİ</p>
+      <h2>Bu Sistemi İndir</h2>
     </div>
     <p class="checkout-card__price">{price} <small>TL</small></p>
   </div>
 
-  <p class="checkout-card__lead">Ödemeyi Shopier’de güvenle tamamlayın; ardından ExcelArşiv teslimat ekranına dönüp dosyanızı bilgisayarınıza indirin.</p>
+  <p class="checkout-card__lead">Ödemeyi 256-bit SSL Shopier güvencesiyle tamamlayın; ardından anında açılan teslimat ekranından dosyanızı bilgisayarınıza indirin.</p>
 
   {
     tierInfo && satista ? (
       <>
         <form class="checkout-card__form" data-checkout-form novalidate>
           <label for={`checkout-email-${productSlug}`}>
-            <span>E-posta (Shopier’de kullanacağınız adres)</span>
+            <span>E-posta (Shopier ve fatura adresiniz)</span>
             <input
               id={`checkout-email-${productSlug}`}
               name="email"
@@ -45,12 +45,12 @@ const satista = product?.satista !== false;
               required
               maxlength="254"
               placeholder="ornek@firma.com"
-              aria-label="E-posta (Shopier’de kullanacağınız adres)"
+              aria-label="E-posta (Shopier ve fatura adresiniz)"
               data-checkout-email
             />
           </label>
           <button type="submit" data-checkout-submit>
-            Shopier'de Ödemeye Geç <span aria-hidden="true">→</span>
+            Bu Sistemi İndir — {price} TL <span aria-hidden="true">→</span>
           </button>
         </form>
 

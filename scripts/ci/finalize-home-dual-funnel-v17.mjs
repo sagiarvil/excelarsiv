@@ -230,7 +230,67 @@ const financePillars = `
       </div>
     </div>
 
-    <!-- 15 Temel Excel Karar Sistemi Haritası -->
+    
+    <!-- MANDATE BÖLÜM 3: PROBLEM MAĞAZASI (Kullanıcı ürün adı bilmeden doğrudan problemle buluşur) -->
+    <div class="problem-store-section" id="problemler" aria-label="Problem Mağazası">
+      <div class="section-divider-title">
+        <p class="decision-eyebrow">PROBLEM MAĞAZASI · İŞLETME DARBOĞAZLARI</p>
+        <h3>İşletmenizde Hangi Karar Tıkanıyor?</h3>
+        <p>Ürün adı ezberlemek zorunda değilsiniz. Şirketinizdeki soruya tıklayın, doğrudan çözen karar sistemine gidin.</p>
+      </div>
+
+      <div class="problem-store-grid">
+        <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="problem-store-card">
+          <span class="psc-badge">NAKİT DARBOĞAZI</span>
+          <h4>“Önümüzdeki haftalarda para yetişecek mi?”</h4>
+          <p class="psc-solution">→ 13 Haftalık Dinamik Nakit Akışı ve Likidite Karar Sistemi</p>
+          <span class="psc-cta">Problemi Çöz →</span>
+        </a>
+
+        <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="problem-store-card">
+          <span class="psc-badge">TAHSİLAT RİSKİ</span>
+          <h4>“Hangi müşteri nakdimi kilitliyor?”</h4>
+          <p class="psc-solution">→ Cari Yaşlandırma, Müşteri Risk Skoru ve Tahsilat Takip Sistemi</p>
+          <span class="psc-cta">Problemi Çöz →</span>
+        </a>
+
+        <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" class="problem-store-card">
+          <span class="psc-badge">KREDİ &amp; FAİZ</span>
+          <h4>“Kredilerim hangi ay sıkıştıracak?”</h4>
+          <p class="psc-solution">→ Çoklu Banka Kredi Portföyü, Rotatif Faiz ve Taksit Takip Sistemi</p>
+          <span class="psc-cta">Problemi Çöz →</span>
+        </a>
+
+        <a href="/sablonlar?q=maliyet" class="problem-store-card">
+          <span class="psc-badge">KÂR SIZINTISI</span>
+          <h4>“Fiyat artırmazsam nerede zarar ediyorum?”</h4>
+          <p class="psc-solution">→ Değişken Birim Maliyet, Katkı Payı ve Dinamik Fiyatlama Motoru</p>
+          <span class="psc-cta">Problemi Çöz →</span>
+        </a>
+
+        <a href="/sablon/sube-karlilik-ve-nakit-hesaplayici" class="problem-store-card">
+          <span class="psc-badge">ŞUBE VERİMLİLİĞİ</span>
+          <h4>“Şube gerçekten para kazanıyor mu?”</h4>
+          <p class="psc-solution">→ Şube Kârlılık, Metrekare Verimliliği ve Başabaş Noktası Sistemi</p>
+          <span class="psc-cta">Problemi Çöz →</span>
+        </a>
+
+        <a href="/sablon/stok-satis-ve-nakit-baglanma-sistemi" class="problem-store-card">
+          <span class="psc-badge">ÖLÜ STOK</span>
+          <h4>“Stokta ne kadar para bekliyor?”</h4>
+          <p class="psc-solution">→ Stok Devir Hızı, Kilitlenen Nakit ve Tasfiye Analiz Sistemi</p>
+          <span class="psc-cta">Problemi Çöz →</span>
+        </a>
+
+        <a href="/sablonlar/muhasebe-ve-vergi" class="problem-store-card problem-store-card--full">
+          <span class="psc-badge">VERGİ &amp; DENETİM</span>
+          <h4>“Muhasebe hesabında hata yapıyor olabilir miyim?”</h4>
+          <p class="psc-solution">→ TTK 376 Özkaynak Koruma, Yeniden Değerleme ve Vergi Risk Sistemleri</p>
+          <span class="psc-cta">Problemi Çöz →</span>
+        </a>
+      </div>
+    </div>
+\n    <!-- 15 Temel Excel Karar Sistemi Haritası -->
     <div class="section-divider-title">
       <h3>15 Temel İşletme İhtiyacı İçin Hazır Karar Sistemleri</h3>
       <p>Tek tıkla ihtiyacınız olan karar motorunu seçin, hemen kullanmaya başlayın.</p>
@@ -482,7 +542,19 @@ const css = `<style id="dual-funnel-home-v17-css">
 .medallion-bl{bottom:40px;left:-18px}
 .medallion-br{bottom:40px;right:-18px}
 
-.section-divider-title{margin:36px 0 18px}
+
+/* Problem Mağazası Stilleri */
+.problem-store-section{margin:36px 0 44px;padding:34px 30px;border-radius:26px;background:linear-gradient(180deg,#f8faf9 0%,#f0fdf4 100%);border:1px solid #d1fae5}
+.problem-store-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
+.problem-store-card{padding:22px 24px;border-radius:18px;background:#fff;border:1px solid #e2ece5;box-shadow:0 6px 18px rgba(15,23,42,.03);display:flex;flex-direction:column;text-decoration:none;transition:all .18s ease}
+.problem-store-card:hover{transform:translateY(-2px);border-color:#059669;box-shadow:0 12px 28px rgba(5,150,105,.12)}
+.problem-store-card--full{grid-column:span 2}
+.psc-badge{display:inline-block;padding:4px 9px;border-radius:6px;background:#ecfdf5;color:#059669;font:850 10.5px/1 ui-monospace,monospace;letter-spacing:.06em;width:fit-content;margin-bottom:10px}
+.problem-store-card h4{margin:0 0 8px;color:#0f172a;font-size:18px;font-weight:800;letter-spacing:-.025em;line-height:1.25}
+.psc-solution{margin:0 0 16px;color:#475569;font-size:13.5px;line-height:1.45}
+.psc-cta{margin-top:auto;color:#059669;font-size:13px;font-weight:850}
+@media(max-width:820px){.problem-store-grid{grid-template-columns:1fr}.problem-store-card--full{grid-column:span 1}}
+\n.section-divider-title{margin:36px 0 18px}
 .section-divider-title h3{margin:0 0 6px;color:#0f172a;font-size:22px;letter-spacing:-.03em}
 .section-divider-title p{margin:0;color:#64748b;font-size:14.5px}
 

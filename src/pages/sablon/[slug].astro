@@ -21,6 +21,7 @@ import { getCommerceProduct } from '../../lib/shopier';
 import { yazarPersonId } from '../../data/yazar';
 import { IADE_POLITIKASI } from '../../data/satici';
 import { getProductAnswerSeo } from '../../data/productAnswerSeo';
+import { getProductDecisionAnatomy } from '../../data/productDecisionAnatomy';
 
 export async function getStaticPaths() {
   const templates = await getCollection('templates');
@@ -88,6 +89,7 @@ const coreCommercial: Record<string, { problem: string; result: string }> = {
   },
 };
 const coreOffer = coreCommercial[template.id];
+const decision = getProductDecisionAnatomy(template.id, t.summary, t.priceTL, t.inputs, t.outputs);
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -183,12 +185,67 @@ const jsonLd = {
       deferCommerce={Boolean(coreOffer)}
     />
 
-    {coreOffer && (
-      <section class="core-decision" aria-label="Problem ve beklenen sonuç">
-        <article><p class="section-kicker">PROBLEM</p><h2>Bu dosya hangi sorunu çözüyor?</h2><p>{coreOffer.problem}</p></article>
-        <article><p class="section-kicker">SONUÇ</p><h2>Dosyayı kullandığınızda ne görürsünüz?</h2><p>{coreOffer.result}</p></article>
-      </section>
-    )}
+    <!-- MANDATE: 7 Zorunlu Soru & Satış Anatomisi (Problem, Acının Fiyatı, Karar Örneği) -->
+    <section class="mandate-decision-suite" aria-label="Karar Sistemi Satış Anatomisi">
+      <div class="mandate-pain-grid">
+        <article class="mandate-pain-card mandate-pain-card--problem">
+          <p class="section-kicker">1 · ÇÖZÜLEN PAHALI PROBLEM</p>
+          <h2>{decision.problem}</h2>
+          <div class="mandate-pain-price">
+            <strong>Acının Somut Maliyeti:</strong>
+            <p>{decision.painPrice}</p>
+          </div>
+        </article>
+
+        <article class="mandate-pain-card mandate-pain-card--decision">
+          <p class="section-kicker">5 · ALDIRDIĞI SOMUT KARAR</p>
+          <h2>{decision.decisionAction}</h2>
+          <div class="mandate-concrete-example">
+            <strong>Gerçek Karar Örneği:</strong>
+            <p>“{decision.concreteDecisionExample}”</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- 7 Soruya Net Cevap Matrisi -->
+      <div class="mandate-seven-questions">
+        <div class="section-head section-head--compact">
+          <div>
+            <p class="section-kicker">ŞEFFAF KARAR ANATOMİSİ</p>
+            <h2>Satın Almadan Önce 7 Kritik Sorunun Cevabı</h2>
+          </div>
+          <p>Excel Arşiv ürünleri sıradan şablon veya rapor değil; doğrudan aksiyon aldıran karar sistemleridir.</p>
+        </div>
+
+        <div class="seven-q-grid">
+          <div class="q-item">
+            <span class="q-num">02</span>
+            <strong>Kim İçin Tasarlandı?</strong>
+            <p>{decision.whoIsItFor}</p>
+          </div>
+          <div class="q-item">
+            <span class="q-num">03</span>
+            <strong>Hangi Verileri Giriyorum?</strong>
+            <p>{decision.inputs.join(' · ')}</p>
+          </div>
+          <div class="q-item">
+            <span class="q-num">04</span>
+            <strong>Sistem Ne Hesaplıyor?</strong>
+            <p>{decision.systemComputes}</p>
+          </div>
+          <div class="q-item">
+            <span class="q-num">06</span>
+            <strong>Hatalı/Eksik Veride Ne Oluyor?</strong>
+            <p>{decision.wrongDataEffect}</p>
+          </div>
+          <div class="q-item q-item--highlight">
+            <span class="q-num">07</span>
+            <strong>Neden {t.priceTL.toLocaleString('tr-TR')} TL Ödemeliyim?</strong>
+            <p>{decision.whyPayPrice}</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     {answerSeo && (
       <section class="product-answer hero-answer-engine" aria-labelledby="product-answer-title">
@@ -373,4 +430,30 @@ const jsonLd = {
   @media(max-width:900px){.product-page{width:min(100% - 32px,1180px)}.section-head,.product-answer{grid-template-columns:1fr;gap:10px}.section-head>a{justify-self:start}.technical-grid{grid-template-columns:1fr}.io-grid,.eligibility-grid{grid-template-columns:1fr}.product-section--flow,.product-section--quiet{margin-inline:-10px;padding-inline:18px}}
   @media(max-width:620px){.product-page{width:calc(100% - 24px);padding-top:16px}.product-section{padding:44px 0}.section-head{margin-bottom:18px}.section-head h2{font-size:29px}.section-head>p{font-size:11.5px}.product-answer{padding:18px;margin-top:18px}.product-section--flow,.product-section--quiet{margin-inline:-4px;padding-inline:14px;border-radius:18px}.io-card{padding:17px}.product-details summary{padding:14px;font-size:11px}.product-details__body{padding:0 12px 14px}}
 .core-decision{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 8px}.core-decision article{padding:22px;border:1px solid #dbe6df;border-radius:18px;background:#fff}.core-decision h2{margin:7px 0 9px;font:800 clamp(22px,2.4vw,30px)/1.08 var(--font-display);color:#16291e}.core-decision p:last-child{margin:0;font-size:13px;line-height:1.65;color:#526158}.core-conversion{padding:clamp(42px,5vw,64px) 0;border-top:1px solid #e2e8e4}.core-conversion__actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}.core-conversion__trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;padding:14px 16px;border:1px solid #dbe6df;border-radius:12px;background:#f7faf8;font-size:12px;color:#365044}.product-referral{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;margin-top:34px;padding:22px;border:1px solid #dbe6df;border-radius:18px;background:#f7faf8}.product-referral h2{margin:6px 0 8px;font:800 24px/1.1 var(--font-display);color:#16291e}.product-referral p:last-child{margin:0;max-width:760px;font-size:12px;line-height:1.6;color:#526158}.product-referral>a{padding:12px 16px;border-radius:10px;background:#107c41;color:#fff;text-decoration:none;font-size:12px;font-weight:800}@media(max-width:760px){.core-decision,.core-conversion__actions,.product-referral{grid-template-columns:1fr}.product-referral>a{justify-self:start}}
+
+/* Mandate Decision Suite Stilleri */
+.mandate-decision-suite{margin:28px 0 36px;display:grid;gap:24px}
+.mandate-pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mandate-pain-card{padding:24px 26px;border-radius:20px;border:1px solid #e2e8e4;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,.03);display:flex;flex-direction:column}
+.mandate-pain-card--problem{border-top:4px solid #ef4444}
+.mandate-pain-card--decision{border-top:4px solid #10b981}
+.mandate-pain-card h2{margin:8px 0 14px;font:800 clamp(20px,2.2vw,28px)/1.15 var(--font-display);color:#16291e}
+.mandate-pain-price{margin-top:auto;padding:12px 14px;border-radius:12px;background:#fef2f2;border-left:3px solid #ef4444}
+.mandate-pain-price strong{display:block;color:#991b1b;font-size:11px;font-weight:850;margin-bottom:3px}
+.mandate-pain-price p{margin:0;color:#7f1d1d;font-size:12.5px;line-height:1.5}
+.mandate-concrete-example{margin-top:auto;padding:12px 14px;border-radius:12px;background:#ecfdf5;border-left:3px solid #10b981}
+.mandate-concrete-example strong{display:block;color:#065f46;font-size:11px;font-weight:850;margin-bottom:3px}
+.mandate-concrete-example p{margin:0;color:#064e3b;font-size:12.5px;line-height:1.5;font-weight:700}
+
+.mandate-seven-questions{padding:26px 28px;border-radius:22px;background:#f8faf9;border:1px solid #dfe7e2}
+.section-head--compact{margin-bottom:18px}
+.seven-q-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.q-item{padding:16px 18px;border-radius:14px;background:#fff;border:1px solid #e2ece5;display:flex;flex-direction:column}
+.q-num{display:inline-block;color:#059669;font:850 13px/1 ui-monospace,monospace;margin-bottom:8px}
+.q-item strong{display:block;color:#16291e;font-size:13.5px;font-weight:800;margin-bottom:6px}
+.q-item p{margin:0;color:#526158;font-size:12px;line-height:1.55}
+.q-item--highlight{background:#f0fdf4;border-color:#bbf7d0;grid-column:span 2}
+.q-item--highlight strong{color:#065f46}
+
+@media(max-width:900px){.mandate-pain-grid{grid-template-columns:1fr}.seven-q-grid{grid-template-columns:1fr}.q-item--highlight{grid-column:span 1}}
 </style>
