@@ -64,7 +64,7 @@ for (const filePath of htmlFiles) {
   const isHomepage = normalizedFilePath === 'dist/index.html' || normalizedFilePath.endsWith('/dist/index.html');
   if (isHomepage) {
     const before = content;
-    content = content.replace(/\\s*<div\\s+class=["']hero-answer-engine\\b[^>]*>[\\s\\S]*?<\\/div>/iu, '');
+    content = content.replace(/\s*<div\s+class=["']hero-answer-engine\b[^>]*>[\s\S]*?<\/div>/iu, '');
     if (content !== before) modified = true;
   }
   if (!isHomepage && !content.includes('hero-answer') && !content.includes('hero-answer-engine')) {
