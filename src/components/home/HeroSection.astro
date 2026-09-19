@@ -18,6 +18,8 @@ const { searchIndex } = Astro.props;
       <div class="hero-mobile-actions" aria-label="Çözüm seçimi">
         <a href="/sablonlar" class="hero-mobile-actions__primary" data-cta="home_ready_systems" data-location="hero">En Çok Kullanılan 5 Sistemi Görün <span>↓</span></a>
         <a href="/urun-bulucu" class="hero-mobile-actions__secondary" data-cta="home_custom_system" data-location="hero">İhtiyacınıza Uygun Sistemi Bulun <span>→</span></a>
+        <a href="/demo" class="hero-mobile-actions__demo" data-cta="home_hero_demo" data-location="hero">Ücretsiz Demoları İnceleyin <span>📥</span></a>
+        <a href="/nasil-calisir" class="hero-mobile-actions__trust" data-cta="home_hero_trust_flow" data-location="hero">Nasıl Çalışır &amp; Güvenli Teslimat <span>⚡</span></a>
       </div>
       <nav class="hero-mobile-chips" aria-label="Finansal karar alanları">
         <a href="/sablonlar?q=nakit">Nakit &amp; likidite</a>
@@ -45,6 +47,8 @@ const { searchIndex } = Astro.props;
       <div class="hero-route-actions" aria-label="Ana çözüm yolları">
         <a href="/sablonlar" class="hero-route-actions__ready" data-cta="home_ready_systems" data-location="hero">Hazır Finansal Sistemleri İnceleyin <span aria-hidden="true">↓</span></a>
         <a href="/urun-bulucu" class="hero-route-actions__custom" data-cta="home_custom_system" data-location="hero">İşletmenize Özel Sistem Kuralım <span aria-hidden="true">→</span></a>
+        <a href="/demo" class="hero-route-actions__demo" data-cta="home_hero_demo" data-location="hero">Ücretsiz Demoları İnceleyin <span aria-hidden="true">📥</span></a>
+        <a href="/nasil-calisir" class="hero-route-actions__trust" data-cta="home_hero_trust_flow" data-location="hero">Nasıl Çalışır &amp; Güvenli Teslimat <span aria-hidden="true">⚡</span></a>
       </div>
     </div>
   </div>
@@ -52,7 +56,7 @@ const { searchIndex } = Astro.props;
 
 <style>
   .hero-section { position: relative; z-index: 60; margin-top: 28px; margin-bottom: 46px; padding-top: 20px; }
-  .hero-shell { position: relative; z-index: 60; width: min(1680px, calc(100% - 64px)); margin-inline: auto; padding-bottom: 104px; }
+  .hero-shell { position: relative; z-index: 60; width: min(1680px, calc(100% - 64px)); margin-inline: auto; padding-bottom: 156px; }
   .hero-mobile-copy { position:absolute; z-index:66; left:4.4%; top:14%; width:min(46%,700px); height:auto; padding:0; margin:0; overflow:visible; clip:auto; white-space:normal; border:0; }
   .hero-mobile-copy__eyebrow { margin:0; font:850 11px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:.09em; color:#107c41; }
   .hero-title { max-width:700px; margin:13px 0 0; font:820 clamp(40px,3.65vw,64px)/.99 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; letter-spacing:-.05em; color:#122019; text-wrap:balance; }
@@ -63,9 +67,12 @@ const { searchIndex } = Astro.props;
   .hero-artwork img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
   .hero-search-rail { position:absolute; left:4.4%; bottom:0; z-index:70; width:min(700px,calc(50% - 30px)); transform:none; scroll-margin-top:90px; }
   .hero-route-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
-  .hero-route-actions a { min-height:44px; display:flex; align-items:center; justify-content:center; gap:8px; padding:0 14px; border-radius:12px; font:800 12px/1.2 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; letter-spacing:-.01em; text-align:center; text-decoration:none; box-shadow:0 8px 18px rgba(15,23,42,.08); }
+  .hero-route-actions a { min-height:44px; display:flex; align-items:center; justify-content:center; gap:8px; padding:0 14px; border-radius:12px; font:800 12px/1.2 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; letter-spacing:-.01em; text-align:center; text-decoration:none; box-shadow:0 8px 18px rgba(15,23,42,.08); transition:transform .15s ease,box-shadow .15s ease; }
+  .hero-route-actions a:hover { transform:translateY(-1px); box-shadow:0 10px 22px rgba(15,23,42,.12); }
   .hero-route-actions__ready { background:#107c41; color:#fff; border:1px solid #107c41; }
   .hero-route-actions__custom { background:rgba(255,255,255,.96); color:#17251d; border:1px solid #d8e2db; }
+  .hero-route-actions__demo { background:rgba(240,253,244,.96); color:#087a46; border:1px solid #bbf7d0; }
+  .hero-route-actions__trust { background:rgba(240,247,255,.96); color:#1d4ed8; border:1px solid #bfdbfe; }
   .hero-route-actions a:focus-visible { outline:3px solid rgba(16,124,65,.25); outline-offset:2px; }
 
   @media (min-width: 721px) and (max-width: 1180px) { .hero-shell { width:calc(100% - 40px); } }
@@ -77,10 +84,12 @@ const { searchIndex } = Astro.props;
     .hero-mobile-copy__eyebrow { margin:0; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:10px; font-weight:850; line-height:1.2; letter-spacing:.1em; color:#107c41; }
     .hero-title { max-width:560px; margin:10px 0 0; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size:clamp(31px,9.6vw,42px); font-weight:820; line-height:.98; letter-spacing:-.052em; color:#122019; text-wrap:balance; }
     .hero-mobile-copy__summary { max-width:560px; margin:13px 0 0; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size:14px; line-height:1.55; color:#5b6961; }
-    .hero-mobile-actions { display:grid; grid-template-columns:1fr; gap:9px; margin-top:18px; }
-    .hero-mobile-actions a { min-height:50px; display:flex; align-items:center; justify-content:center; gap:8px; padding:0 15px; border-radius:13px; font:800 13px/1.2 var(--font-body); text-align:center; text-decoration:none; }
-    .hero-mobile-actions__primary { background:#107c41; color:#fff; box-shadow:0 9px 20px rgba(16,124,65,.2); }
+    .hero-mobile-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:16px; }
+    .hero-mobile-actions a { min-height:48px; display:flex; align-items:center; justify-content:center; gap:6px; padding:0 10px; border-radius:12px; font:800 12px/1.2 var(--font-body); text-align:center; text-decoration:none; }
+    .hero-mobile-actions__primary { background:#107c41; color:#fff; box-shadow:0 8px 18px rgba(16,124,65,.2); }
     .hero-mobile-actions__secondary { border:1px solid #cfdcd3; background:#fff; color:#25372c; }
+    .hero-mobile-actions__demo { border:1px solid #bbf7d0; background:#f0fdf4; color:#087a46; }
+    .hero-mobile-actions__trust { border:1px solid #bfdbfe; background:#f0f7ff; color:#1d4ed8; }
     .hero-mobile-chips { display:flex; gap:7px; margin:12px -14px 0; padding:0 14px 3px; overflow-x:auto; scrollbar-width:none; scroll-snap-type:x proximity; }
     .hero-mobile-chips::-webkit-scrollbar { display:none; }
     .hero-mobile-chips a { flex:0 0 auto; scroll-snap-align:start; padding:8px 11px; border:1px solid #dde6e0; border-radius:999px; background:#fff; color:#415148; font:750 11px/1 var(--font-body); text-decoration:none; }
