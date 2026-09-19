@@ -271,7 +271,7 @@ const financePillars = `
             <span class="r-circle-num">6</span>
             <div>
               <strong>Tek Seferlik Ödeme (Sıfır Lisans Yükü)</strong>
-              <p>Aylık veya yıllık abonelik dayatması yok. Bir kez satın alın, ömür boyu sınırsız şirket içi kullanın.</p>
+              <p>Aylık veya yıllık abonelik dayatması yok. Teklifinizi alın, ömür boyu sınırsız şirket içi kullanın.</p>
             </div>
           </div>
         </div>

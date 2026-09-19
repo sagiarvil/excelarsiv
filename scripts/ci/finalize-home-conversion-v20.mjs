@@ -74,8 +74,8 @@ const customBuild = `
       </article>
       <article class="pillar-mini-box">
         <div class="pillar-mini-top"><span class="p-no">05</span><span class="p-tag">GÜVENLİ SATIŞ</span></div>
-        <strong>Tüm Kartlara 12 Taksit &amp; E-Fatura</strong>
-        <p>Shopier 256-bit SSL güvencesiyle anında resmi kurumsal e-arşiv fatura.</p>
+        <strong>Hızlı Teklif &amp; Kurumsal E-Fatura</strong>
+        <p>WhatsApp hattımız üzerinden hızlı teklif ve resmi kurumsal e-arşiv fatura.</p>
       </article>
     </div>
 

@@ -51,9 +51,9 @@ const homeDecisionSlugs = [
 const homeDecisions = homeDecisionSlugs.map((slug) => kararPages.find((item) => item.slug === slug)).filter(Boolean);
 
 const faqItems = [
-  { q: 'Satın almadan önce dosyayı inceleyebilir miyim?', a: 'Uygun ürünlerde ücretsiz demo ve gerçek ürün ekranları bulunur. Ürün detay sayfasından kapsamı, fiyatı ve demo bağlantısını satın almadan önce kontrol edebilirsiniz.' },
-  { q: 'Fiyatlar ana sayfada elle mi yazılıyor?', a: 'Hayır. Bu sayfadaki ürün sayısı ve örnek ürün fiyatları mevcut ürün veri kaynağından build sırasında hesaplanır.' },
-  { q: 'Ödeme nerede yapılıyor?', a: 'Ödeme Shopier üzerinde tamamlanır. Excel Arşiv kart bilgisi saklamaz; ödeme sonrasında teslimat akışı üzerinden ürün dosyasına erişilir.' },
+  { q: 'Teklif almadan önce dosyayı inceleyebilir miyim?', a: 'Uygun ürünlerde ücretsiz demo ve gerçek ürün ekranları bulunur. Ürün detay sayfasından kapsamı ve demo bağlantısını teklif almadan önce kontrol edebilirsiniz.' },
+  { q: 'Fiyatlandırma ve teklif süreci nasıl işliyor?', a: 'Her işletmenin veri boyutu ve uyarlama ihtiyacı farklı olduğu için WhatsApp üzerinden hızlıca ihtiyacınızı dinleyip en uygun teklifi sunuyoruz.' },
+  { q: 'Teklif ve kurulum süreci nasıl işliyor?', a: 'WhatsApp üzerinden doğrudan uzmanımızla görüşüp şirketinize özel teklif ve kurulum desteği alabilirsiniz.' },
   { q: 'Hangi sistemi seçmem gerektiğini bilmiyorsam ne yapmalıyım?', a: 'Karar rehberlerinden işletme probleminize en yakın soruyu seçebilir veya ürün bulucuyu kullanabilirsiniz.' },
   { q: 'Excel Arşiv bir ERP veya muhasebe programı mı?', a: 'Hayır. Ürünler belirli finans, muhasebe ve operasyon karar problemlerine odaklanan indirilebilir Excel çalışma sistemleridir.' },
 ];
@@ -133,7 +133,7 @@ const homeJsonLd = {
                   </div>
                   <p class="vcex-post-excerpt">{item.summary}</p>
                   <div class="someka-card-bottom">
-                    <span class="price">Teklif İste</span>
+                    <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Ver</a>
                     <a href={item.url} class="btn-someka-view">Detay ›</a>
                   </div>
                 </div>
@@ -181,7 +181,7 @@ const homeJsonLd = {
                       </div>
                       <p class="vcex-post-excerpt">{item.summary}</p>
                       <div class="someka-card-bottom">
-                        <span class="price">Teklif İste</span>
+                        <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Ver</a>
                         <a href={item.url} class="btn-someka-view">Detay ›</a>
                       </div>
                     </div>
@@ -208,7 +208,7 @@ const homeJsonLd = {
                       </div>
                       <p class="vcex-post-excerpt">{item.summary}</p>
                       <div class="someka-card-bottom">
-                        <span class="price">Teklif İste</span>
+                        <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Ver</a>
                         <a href={item.url} class="btn-someka-view">Detay ›</a>
                       </div>
                     </div>
@@ -235,7 +235,7 @@ const homeJsonLd = {
                       </div>
                       <p class="vcex-post-excerpt">{item.summary}</p>
                       <div class="someka-card-bottom">
-                        <span class="price">Teklif İste</span>
+                        <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Ver</a>
                         <a href={item.url} class="btn-someka-view">Detay ›</a>
                       </div>
                     </div>
@@ -262,7 +262,7 @@ const homeJsonLd = {
                       </div>
                       <p class="vcex-post-excerpt">{item.summary}</p>
                       <div class="someka-card-bottom">
-                        <span class="price">Teklif İste</span>
+                        <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Ver</a>
                         <a href={item.url} class="btn-someka-view">Detay ›</a>
                       </div>
                     </div>
@@ -289,7 +289,7 @@ const homeJsonLd = {
                       </div>
                       <p class="vcex-post-excerpt">{item.summary}</p>
                       <div class="someka-card-bottom">
-                        <span class="price">Teklif İste</span>
+                        <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Ver</a>
                         <a href={item.url} class="btn-someka-view">Detay ›</a>
                       </div>
                     </div>
@@ -316,7 +316,7 @@ const homeJsonLd = {
                       </div>
                       <p class="vcex-post-excerpt">{item.summary}</p>
                       <div class="someka-card-bottom">
-                        <span class="price">Teklif İste</span>
+                        <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Ver</a>
                         <a href={item.url} class="btn-someka-view">Detay ›</a>
                       </div>
                     </div>
@@ -353,7 +353,7 @@ const homeJsonLd = {
                   </div>
                   <p class="vcex-post-excerpt">{item.summary}</p>
                   <div class="someka-card-bottom">
-                    <span class="price">Teklif İste</span>
+                    <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Ver</a>
                     <a href={item.url} class="btn-someka-view">Detay ›</a>
                   </div>
                 </div>
@@ -400,14 +400,14 @@ const homeJsonLd = {
             <span class="soho-feat-icon">♾️</span>
             <div class="soho-feat-content">
               <strong>Aylık Lisans / Abonelik Yok</strong>
-              <p>Bir kez satın alın, ömür boyu sınırsız kullanın. Kullanıcı başı ücret veya yenileme maliyeti sıfırdır.</p>
+              <p>Abonelik dayatması yok. Teklifinizi alın, ömür boyu sınırsız kullanın. Yenileme maliyeti sıfırdır.</p>
             </div>
           </div>
           <div class="soho-feature-box">
             <span class="soho-feat-icon">⚡</span>
             <div class="soho-feat-content">
               <strong>10 Saniyede Teslimat</strong>
-              <p>Shopier 256-Bit SSL güvencesiyle ödeyin; indirme bağlantısı ve faturanız anında e-postanıza ulaşsın.</p>
+              <p>WhatsApp hattımız üzerinden hızlıca teklif alın; sisteminiz anında ve size özel teslim edilsin.</p>
             </div>
           </div>
           <div class="soho-feature-box">
@@ -816,6 +816,24 @@ const homeJsonLd = {
     font-weight: bold;
     font-size: 1.1em;
     color: #666666;
+  }
+  .btn-someka-teklif {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #25d366;
+    color: #ffffff !important;
+    font-size: 12.5px;
+    font-weight: 800;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.25);
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-someka-teklif:hover {
+    background: #1da851;
+    transform: translateY(-1px);
   }
   .btn-someka-view {
     display: inline-block;
