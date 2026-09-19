@@ -7,6 +7,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 
 const DIST_DIR = path.resolve('dist');
 const HOME_HTML = path.join(DIST_DIR, 'index.html');
@@ -51,12 +52,17 @@ for (const sid of targetIds) {
 
 if (extractedCss.length > 0) {
   const combinedCss = extractedCss.join('\n\n');
-  const bundleFileName = 'site-premium-bundle.css';
-  const bundlePath = path.join(ASTRO_DIR, bundleFileName);
+  const bundleHash = crypto.createHash('md5').update(combinedCss).digest('hex').slice(0, 8);
+  const hashedBundleFileName = `site-premium-bundle.${bundleHash}.css`;
+  const hashedBundlePath = path.join(ASTRO_DIR, hashedBundleFileName);
+  const fallbackBundlePath = path.join(ASTRO_DIR, 'site-premium-bundle.css');
   
-  fs.writeFileSync(bundlePath, combinedCss, 'utf8');
+  fs.writeFileSync(hashedBundlePath, combinedCss, 'utf8');
+  fs.writeFileSync(fallbackBundlePath, combinedCss, 'utf8');
   
-  const linkTag = `<link rel="stylesheet" href="/_astro/${bundleFileName}">`;
+  const linkTag = `<link rel="stylesheet" href="/_astro/${hashedBundleFileName}">`;
+  // Clean any previous site-premium-bundle link tag if present
+  html = html.replace(/<link rel="stylesheet" href="\/_astro\/site-premium-bundle[^"]*">\n?/g, '');
   if (!html.includes(linkTag)) {
     html = html.replace('</head>', `  ${linkTag}\n</head>`);
   }
@@ -67,7 +73,7 @@ if (extractedCss.length > 0) {
   const pct = ((saved / initialSize) * 100).toFixed(1);
   
   console.log(`✅ [HTML-BUDGET] dist/index.html optimize edildi: ${initialSize} B -> ${finalSize} B (Tasarruf: ${saved} B, %${pct})`);
-  console.log(`✅ [HTML-BUDGET] Harici CSS oluşturuldu: /_astro/${bundleFileName} (${Buffer.byteLength(combinedCss, 'utf8')} B)`);
+  console.log(`✅ [HTML-BUDGET] Harici CSS oluşturuldu: /_astro/${hashedBundleFileName} (${Buffer.byteLength(combinedCss, 'utf8')} B)`);
 } else {
   console.log('ℹ️ [HTML-BUDGET] Ayrıştırılacak inline style bulunamadı.');
 }

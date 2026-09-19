@@ -97,108 +97,108 @@ const financePillars = `
       </div>
 
       <div class="problem-store-grid">
-        <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="problem-store-card">
+        <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="problem-store-card" style="background-color: #f0f7ff !important; border-color: #bfdbfe !important;">
           <div class="psc-top">
-            <span class="psc-badge">01 · NAKİT DARBOĞAZI</span>
-            <span class="psc-icon">💸</span>
+            <span class="psc-badge" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">01 · NAKİT DARBOĞAZI</span>
+            <span class="psc-icon" style="background: #e0f2fe; border-color: #bae6fd;">💸</span>
           </div>
           <h4>“Önümüzdeki haftalarda para yetişecek mi?”</h4>
-          <div class="psc-solution-box">
-            <small>Hazır Karar Çözümü</small>
+          <div class="psc-solution-box" style="background: rgba(255,255,255,0.85); border-color: #bfdbfe;">
+            <small style="color: #0284c7;">Hazır Karar Çözümü</small>
             <p>13 Haftalık Dinamik Nakit Akışı ve Likidite Karar Sistemi</p>
           </div>
-          <span class="psc-cta">Problemi Çöz →</span>
+          <span class="psc-cta" style="background: #0284c7; color: #ffffff; border-color: #0284c7;">Problemi Çöz →</span>
         </a>
 
-        <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="problem-store-card">
+        <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="problem-store-card" style="background-color: #f0fdf4 !important; border-color: #bbf7d0 !important;">
           <div class="psc-top">
-            <span class="psc-badge">02 · TAHSİLAT RİSKİ</span>
-            <span class="psc-icon">👥</span>
+            <span class="psc-badge" style="background: #dcfce7; color: #15803d; border-color: #bbf7d0;">02 · TAHSİLAT RİSKİ</span>
+            <span class="psc-icon" style="background: #dcfce7; border-color: #bbf7d0;">👥</span>
           </div>
           <h4>“Hangi müşteri nakdimi kilitliyor?”</h4>
-          <div class="psc-solution-box">
-            <small>Hazır Karar Çözümü</small>
+          <div class="psc-solution-box" style="background: rgba(255,255,255,0.85); border-color: #bbf7d0;">
+            <small style="color: #16a34a;">Hazır Karar Çözümü</small>
             <p>Cari Yaşlandırma, Müşteri Risk Skoru ve Tahsilat Takip Sistemi</p>
           </div>
-          <span class="psc-cta">Problemi Çöz →</span>
+          <span class="psc-cta" style="background: #16a34a; color: #ffffff; border-color: #16a34a;">Problemi Çöz →</span>
         </a>
 
-        <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" class="problem-store-card">
+        <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" class="problem-store-card" style="background-color: #fff7ed !important; border-color: #fed7aa !important;">
           <div class="psc-top">
-            <span class="psc-badge">03 · KREDİ &amp; FAİZ</span>
-            <span class="psc-icon">🏛️</span>
+            <span class="psc-badge" style="background: #ffedd5; color: #c2410c; border-color: #fed7aa;">03 · KREDİ &amp; FAİZ</span>
+            <span class="psc-icon" style="background: #ffedd5; border-color: #fed7aa;">🏛️</span>
           </div>
           <h4>“Kredilerim hangi ay sıkıştıracak?”</h4>
-          <div class="psc-solution-box">
-            <small>Hazır Karar Çözümü</small>
+          <div class="psc-solution-box" style="background: rgba(255,255,255,0.85); border-color: #fed7aa;">
+            <small style="color: #ea580c;">Hazır Karar Çözümü</small>
             <p>Çoklu Banka Kredi Portföyü, Rotatif Faiz ve Taksit Takip Sistemi</p>
           </div>
-          <span class="psc-cta">Problemi Çöz →</span>
+          <span class="psc-cta" style="background: #ea580c; color: #ffffff; border-color: #ea580c;">Problemi Çöz →</span>
         </a>
 
-        <a href="/sablon/proje-ve-is-bazinda-gercek-karlilik-sistemi" class="problem-store-card">
+        <a href="/sablon/proje-ve-is-bazinda-gercek-karlilik-sistemi" class="problem-store-card" style="background-color: #faf5ff !important; border-color: #e9d5ff !important;">
           <div class="psc-top">
-            <span class="psc-badge">04 · KÂR SIZINTISI</span>
-            <span class="psc-icon">📈</span>
+            <span class="psc-badge" style="background: #f3e8ff; color: #7e22ce; border-color: #e9d5ff;">04 · KÂR SIZINTISI</span>
+            <span class="psc-icon" style="background: #f3e8ff; border-color: #e9d5ff;">📈</span>
           </div>
           <h4>“Fiyat artırmazsam nerede zarar ediyorum?”</h4>
-          <div class="psc-solution-box">
-            <small>Hazır Karar Çözümü</small>
+          <div class="psc-solution-box" style="background: rgba(255,255,255,0.85); border-color: #e9d5ff;">
+            <small style="color: #9333ea;">Hazır Karar Çözümü</small>
             <p>Değişken Birim Maliyet, Katkı Payı ve Dinamik Fiyatlama Motoru</p>
           </div>
-          <span class="psc-cta">Problemi Çöz →</span>
+          <span class="psc-cta" style="background: #9333ea; color: #ffffff; border-color: #9333ea;">Problemi Çöz →</span>
         </a>
 
-        <a href="/sablon/sube-karlilik-ve-nakit-hesaplayici" class="problem-store-card">
+        <a href="/sablon/sube-karlilik-ve-nakit-hesaplayici" class="problem-store-card" style="background-color: #fff1f2 !important; border-color: #fecdd3 !important;">
           <div class="psc-top">
-            <span class="psc-badge">05 · ŞUBE VERİMLİLİĞİ</span>
-            <span class="psc-icon">🏢</span>
+            <span class="psc-badge" style="background: #ffe4e6; color: #be123c; border-color: #fecdd3;">05 · ŞUBE VERİMLİLİĞİ</span>
+            <span class="psc-icon" style="background: #ffe4e6; border-color: #fecdd3;">🏢</span>
           </div>
           <h4>“Şube gerçekten para kazanıyor mu?”</h4>
-          <div class="psc-solution-box">
-            <small>Hazır Karar Çözümü</small>
+          <div class="psc-solution-box" style="background: rgba(255,255,255,0.85); border-color: #fecdd3;">
+            <small style="color: #e11d48;">Hazır Karar Çözümü</small>
             <p>Şube Kârlılık, Metrekare Verimliliği ve Başabaş Noktası Sistemi</p>
           </div>
-          <span class="psc-cta">Problemi Çöz →</span>
+          <span class="psc-cta" style="background: #e11d48; color: #ffffff; border-color: #e11d48;">Problemi Çöz →</span>
         </a>
 
-        <a href="/sablon/stok-satis-ve-nakit-baglanma-sistemi" class="problem-store-card">
+        <a href="/sablon/stok-satis-ve-nakit-baglanma-sistemi" class="problem-store-card" style="background-color: #fffbeb !important; border-color: #fef08a !important;">
           <div class="psc-top">
-            <span class="psc-badge">06 · ÖLÜ STOK</span>
-            <span class="psc-icon">📦</span>
+            <span class="psc-badge" style="background: #fef3c7; color: #b45309; border-color: #fde68a;">06 · ÖLÜ STOK</span>
+            <span class="psc-icon" style="background: #fef3c7; border-color: #fde68a;">📦</span>
           </div>
           <h4>“Stokta ne kadar para bekliyor?”</h4>
-          <div class="psc-solution-box">
-            <small>Hazır Karar Çözümü</small>
+          <div class="psc-solution-box" style="background: rgba(255,255,255,0.85); border-color: #fde68a;">
+            <small style="color: #d97706;">Hazır Karar Çözümü</small>
             <p>Stok Devir Hızı, Kilitlenen Nakit ve Tasfiye Analiz Sistemi</p>
           </div>
-          <span class="psc-cta">Problemi Çöz →</span>
+          <span class="psc-cta" style="background: #d97706; color: #ffffff; border-color: #d97706;">Problemi Çöz →</span>
         </a>
 
-        <a href="/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli" class="problem-store-card">
+        <a href="/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli" class="problem-store-card" style="background-color: #f0fdfa !important; border-color: #99f6e4 !important;">
           <div class="psc-top">
-            <span class="psc-badge">07 · VERGİ &amp; DENETİM</span>
-            <span class="psc-icon">⚖️</span>
+            <span class="psc-badge" style="background: #ccfbf1; color: #0f766e; border-color: #99f6e4;">07 · VERGİ &amp; DENETİM</span>
+            <span class="psc-icon" style="background: #ccfbf1; border-color: #99f6e4;">⚖️</span>
           </div>
           <h4>“Muhasebe hesabında hata yapıyor olabilir miyim?”</h4>
-          <div class="psc-solution-box">
-            <small>Hazır Karar Çözümü</small>
+          <div class="psc-solution-box" style="background: rgba(255,255,255,0.85); border-color: #99f6e4;">
+            <small style="color: #0d9488;">Hazır Karar Çözümü</small>
             <p>TTK 376 Özkaynak Koruma, Yeniden Değerleme ve Vergi Risk Sistemleri</p>
           </div>
-          <span class="psc-cta">Problemi Çöz →</span>
+          <span class="psc-cta" style="background: #0d9488; color: #ffffff; border-color: #0d9488;">Problemi Çöz →</span>
         </a>
 
-        <a href="/sablon/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli" class="problem-store-card">
+        <a href="/sablon/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli" class="problem-store-card" style="background-color: #fdf4ff !important; border-color: #f5d0fe !important;">
           <div class="psc-top">
-            <span class="psc-badge">08 · PERSONEL &amp; MALİYET</span>
-            <span class="psc-icon">💼</span>
+            <span class="psc-badge" style="background: #fae8ff; color: #86198f; border-color: #f5d0fe;">08 · PERSONEL &amp; MALİYET</span>
+            <span class="psc-icon" style="background: #fae8ff; border-color: #f5d0fe;">💼</span>
           </div>
           <h4>“Personel maliyetim kârımı ne kadar eritiyor?”</h4>
-          <div class="psc-solution-box">
-            <small>Hazır Karar Çözümü</small>
+          <div class="psc-solution-box" style="background: rgba(255,255,255,0.85); border-color: #f5d0fe;">
+            <small style="color: #a21caf;">Hazır Karar Çözümü</small>
             <p>Asgari Ücret Zam Etkisi, Kıdem Yükü ve İşçilik Maliyet Paneli</p>
           </div>
-          <span class="psc-cta">Problemi Çöz →</span>
+          <span class="psc-cta" style="background: #a21caf; color: #ffffff; border-color: #a21caf;">Problemi Çöz →</span>
         </a>
       </div>
     </div>

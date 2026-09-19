@@ -121,7 +121,7 @@ const { items = [] } = Astro.props;
             <span class="catalog-command__body">
               <span class="catalog-command__title-row">
                 <strong class="catalog-command__title">${escapeHtml(item.name)}</strong>
-                ${item.priceTL > 0 ? `<span class="catalog-command__price">${new Intl.NumberFormat('tr-TR').format(item.priceTL)} TL</span>` : ''}
+                <span class="catalog-command__price" style="color:#059669;font-weight:700;">Teklif İste</span>
               </span>
               <span class="catalog-command__summary">${escapeHtml(item.summary)}</span>
               <span class="catalog-command__badges">

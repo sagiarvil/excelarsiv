@@ -19,7 +19,9 @@ const { name, satista = true } = Astro.props;
     {satista ? (
       <div class="flex shrink-0 flex-col items-end gap-1.5">
         <a
-          href="#satin-al"
+          href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${name} sistemi için detaylı bilgi ve teklif almak istiyorum.`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex min-h-11 shrink-0 items-center bg-[#25D366] px-5 font-mono text-sm font-bold text-white transition-colors duration-150 ease-out hover:bg-[#1da851] rounded-lg"
         >
           WhatsApp'tan Teklif Al
