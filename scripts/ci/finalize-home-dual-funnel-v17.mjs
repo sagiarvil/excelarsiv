@@ -711,8 +711,134 @@ const css = `<style id="dual-funnel-home-v17-css">
 
 .high-ticket-bridge{padding:64px 0;background:#fff;color:#0f172a}.high-ticket-bridge__inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:68px;align-items:center;padding:48px 44px;border:1px solid #dfe5e0;border-radius:24px;background:#fff;box-shadow:0 14px 36px rgba(18,42,26,.05)}.high-ticket-kicker{margin:0;color:#059669;font:850 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.high-ticket-bridge h2{max-width:760px;margin:12px 0 0;color:#0f172a;font-size:clamp(32px,4vw,50px);line-height:1.02;letter-spacing:-.045em}.high-ticket-bridge__copy>p:last-child{max-width:760px;margin:20px 0 0;color:#526176;font-size:16px;line-height:1.7}.high-ticket-bridge__proof{padding:26px;border:1px solid #dfe5e0;border-radius:18px;background:#f8faf9;box-shadow:0 8px 24px rgba(18,42,26,.04)}.high-ticket-bridge__proof ul{display:grid;gap:12px;margin:0 0 22px;padding:0;list-style:none;color:#334155;font-size:14px;line-height:1.45}.high-ticket-bridge__proof li{position:relative;padding-left:22px}.high-ticket-bridge__proof li::before{content:"✓";position:absolute;left:0;color:#059669;font-weight:900}.high-ticket-bridge__proof>a{min-height:48px;display:flex;align-items:center;justify-content:center;padding:0 18px;border-radius:12px;background:#059669;color:#fff;font-size:13px;font-weight:850;text-decoration:none;box-shadow:0 8px 20px rgba(5,150,105,.2)}.home-finance-close{padding:52px 0;border-bottom:1px solid #dfe5e0;background:linear-gradient(90deg,#f0fdf4,#eff6ff)}.home-finance-close__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center}.home-finance-close h2{margin:9px 0 0;color:#0f172a;font-size:clamp(28px,3.2vw,42px);line-height:1.05;letter-spacing:-.04em}.home-finance-close p:not(.decision-eyebrow){max-width:760px;margin:12px 0 0;color:#526176;font-size:15px;line-height:1.65}.home-finance-close__cta{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:0 22px;border-radius:12px;background:#059669;color:#fff;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 12px 28px rgba(5,150,105,.2)}
 
-@media(max-width:980px){.decision-quick-steps{grid-template-columns:1fr}.pain-decision-grid{grid-template-columns:1fr}.pdf-six-bento-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.finance-needs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.chat-outcome-bar{grid-template-columns:1fr}.high-ticket-bridge__inner{grid-template-columns:1fr;gap:28px}.floating-medallion{position:static;max-width:100%;margin-top:10px}}
-@media(max-width:720px){.pdf-showcase-stage{padding:20px 14px}.excel-kpi-row{grid-template-columns:1fr}.table-mock-head,.table-mock-row{grid-template-columns:40px repeat(2,1fr) 1fr}.table-mock-head span:nth-child(4),.table-mock-head span:nth-child(5),.table-mock-row span:nth-child(4),.table-mock-row span:nth-child(5){display:none}.pdf-six-bento-grid{grid-template-columns:1fr}.finance-needs-grid{grid-template-columns:1fr;gap:8px}.finance-pillars{padding:38px 0}.high-ticket-bridge{padding:42px 0}.high-ticket-bridge h2{font-size:32px}.high-ticket-bridge__proof{padding:20px}.home-finance-close{padding:38px 0}.home-finance-close__inner{grid-template-columns:1fr;gap:20px}.home-finance-close__cta{width:100%}}
+@media(max-width:980px){
+  .decision-quick-steps{grid-template-columns:1fr}
+  .pain-decision-grid{grid-template-columns:1fr}
+  .pdf-six-bento-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .finance-needs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chat-outcome-bar{grid-template-columns:1fr}
+  .high-ticket-bridge__inner{grid-template-columns:1fr;gap:28px}
+  .floating-medallion{position:static;max-width:100%;margin-top:10px}
+}
+@media(max-width:768px){
+  .finance-pillars{padding:36px 0;overflow-x:clip}
+  .decision-clarity-head{margin-bottom:24px}
+  .decision-clarity-head h2{font-size:clamp(23px,5.8vw,34px);line-height:1.15;letter-spacing:-.03em}
+  .decision-lead{font-size:14.5px;line-height:1.55;margin-bottom:18px}
+  .decision-quick-steps{gap:10px;margin-bottom:28px}
+  .quick-step-box{padding:14px 16px;border-radius:14px}
+  .pain-decision-grid{gap:14px;margin-bottom:32px}
+  .decision-card{padding:20px 18px;border-radius:18px}
+  .decision-card h3{font-size:18px;margin-bottom:12px}
+  .pain-point,.solution-point{padding:10px 12px;margin-bottom:10px}
+  .pain-point p,.solution-point p{font-size:12.5px}
+
+  /* Mockup Sahnesi ve Taşma İzolasyonu */
+  .pdf-showcase-stage{padding:18px 12px 22px;border-radius:20px;margin:10px 0 30px}
+  .showcase-glow{width:100%;height:220px}
+  .laptop-frame{padding:8px 8px 0;border-radius:14px 14px 0 0;border-width:1.5px}
+  .excel-ui-bar{padding:6px 10px;font-size:11px}
+  .excel-dots span{width:7px;height:7px}
+  .excel-title-tab{font-size:10.5px}
+  .excel-status-tag{padding:2px 6px;font-size:9.5px}
+  .excel-menu-strip{padding:5px 10px;font-size:10.5px;gap:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+  .excel-formula-bar{padding:5px 10px;font-size:11px;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+  .excel-grid-preview{padding:12px 10px 14px}
+  .excel-kpi-row{grid-template-columns:1fr;gap:8px;margin-bottom:10px}
+  .excel-kpi-card{padding:10px 12px;border-radius:10px}
+  .excel-kpi-card strong{font-size:16px}
+  .excel-table-mock{overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:11px;border-radius:6px}
+  .table-mock-head,.table-mock-row{grid-template-columns:36px repeat(2,minmax(75px,1fr)) minmax(130px,1.2fr);gap:4px;padding:6px 8px}
+  .table-mock-head span:nth-child(4),.table-mock-head span:nth-child(5),.table-mock-row span:nth-child(4),.table-mock-row span:nth-child(5){display:none}
+  .table-mock-row.is-alert .status-neg{font-size:10.5px;white-space:nowrap}
+  .laptop-base{height:12px;border-radius:0 0 12px 12px}
+  .laptop-notch{width:65px;height:4px}
+  .floating-medallion{position:static;max-width:100%;width:100%;box-sizing:border-box;margin:8px 0 0;padding:10px 12px;border-radius:12px}
+  .floating-medallion .medallion-icon{font-size:18px}
+  .floating-medallion strong{font-size:11.5px}
+  .floating-medallion small{font-size:9.5px}
+
+  /* Problem Mağazası Mobil Standardı */
+  .problem-store-section{margin:24px 0 32px;padding:20px 14px;border-radius:20px}
+  .problem-store-grid{grid-template-columns:1fr;gap:12px;margin-top:16px}
+  .problem-store-card{padding:18px 16px;border-radius:16px}
+  .problem-store-card h4{font-size:16px;min-height:auto;margin-bottom:12px;line-height:1.35}
+  .psc-solution-box{padding:10px 12px;border-radius:10px;margin-bottom:14px}
+  .psc-solution-box p{font-size:12.5px;line-height:1.45}
+  .psc-cta{width:100%;box-sizing:border-box;justify-content:center;min-height:44px;font-size:13px;border-radius:10px;touch-action:manipulation}
+
+  /* 15 İhtiyaç Matrisi */
+  .finance-needs-grid{grid-template-columns:1fr;gap:8px;margin-bottom:32px}
+  .finance-need-item{padding:11px 14px;font-size:13px;min-height:44px;border-radius:12px}
+  .need-name{white-space:normal;line-height:1.3}
+
+  /* 6'lı Bento Güvenlik */
+  .pdf-security-bento-section{margin:0 0 32px;padding:20px 14px;border-radius:20px}
+  .bento-section-head{margin-bottom:20px}
+  .bento-section-head h3{font-size:clamp(20px,5vw,26px);line-height:1.2}
+  .bento-section-head p{font-size:13.5px}
+  .pdf-six-bento-grid{grid-template-columns:1fr;gap:12px}
+  .bento-item{padding:20px 16px;border-radius:16px}
+  .bento-icon{width:38px;height:38px;font-size:19px;border-radius:10px}
+  .bento-num{font-size:12px;padding:3px 8px}
+  .bento-item h4{font-size:16px;margin-bottom:8px}
+  .bento-item p{font-size:13px;line-height:1.55}
+
+  /* 7 Demir Standart */
+  .pdf-reasons-timeline-card{margin:0 0 32px;padding:20px 14px;border-radius:20px}
+  .timeline-head{margin-bottom:18px}
+  .timeline-head h4{font-size:clamp(20px,5vw,25px);line-height:1.25}
+  .pdf-reasons-list{gap:10px}
+  .reason-row{grid-template-columns:32px 1fr;gap:12px;padding:12px 14px;border-radius:12px}
+  .r-no{width:32px;height:32px;font-size:13px;border-radius:8px}
+  .r-content strong{font-size:14px;line-height:1.3}
+  .r-content p{font-size:12.5px;line-height:1.45}
+
+  /* Chat Teşhis */
+  .pdf-chat-dialog-card{margin:0 0 32px;padding:18px 14px;border-radius:20px}
+  .pdf-chat-header h4{font-size:17px;line-height:1.3}
+  .pdf-chat-bubbles{gap:12px;margin-bottom:14px}
+  .chat-bubble{padding:14px 14px;border-radius:14px}
+  .bubble-meta{flex-wrap:wrap;gap:6px}
+  .bubble-meta strong{font-size:12.5px}
+  .bubble-meta small{font-size:10px}
+  .chat-bubble p{font-size:12.5px;line-height:1.55}
+  .chat-divider{margin:0}
+  .divider-badge{font-size:9.5px;padding:3px 10px}
+  .chat-outcome-bar{grid-template-columns:1fr;gap:10px;padding:14px 16px;border-radius:14px}
+  .outcome-stat strong{font-size:15px}
+  .outcome-stat span{font-size:11.5px}
+
+  /* Sektör Bulutu */
+  .pdf-sector-ecosystem-card{margin:0 0 32px;padding:18px 14px;border-radius:20px}
+  .sector-eco-head{flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:14px}
+  .sector-eco-head h4{font-size:17px}
+  .sector-all-link{font-size:12.5px}
+  .pdf-sectors-pill-cloud{gap:6px}
+  .sector-pill{padding:6px 10px;font-size:11.5px;border-radius:8px}
+
+  /* Alt Dönüşüm Köprüleri */
+  .high-ticket-bridge{padding:36px 0;overflow-x:clip}
+  .high-ticket-bridge__inner{padding:26px 18px;border-radius:20px;gap:22px}
+  .high-ticket-bridge h2{font-size:clamp(22px,5.5vw,32px);line-height:1.1}
+  .high-ticket-bridge__copy>p:last-child{font-size:14px;margin-top:14px;line-height:1.6}
+  .high-ticket-bridge__proof{padding:18px 16px;border-radius:16px}
+  .high-ticket-bridge__proof ul{font-size:13px;gap:10px;margin-bottom:18px}
+  .high-ticket-bridge__proof>a{min-height:46px;font-size:12.5px;text-align:center;padding:0 14px}
+  .home-finance-close{padding:32px 0;overflow-x:clip}
+  .home-finance-close__inner{grid-template-columns:1fr;gap:18px}
+  .home-finance-close h2{font-size:clamp(21px,5vw,30px);line-height:1.2}
+  .home-finance-close p:not(.decision-eyebrow){font-size:13.5px;line-height:1.55}
+  .home-finance-close__cta{min-height:48px;font-size:13.5px;width:100%;box-sizing:border-box;text-align:center;padding:0 16px}
+}
+@media(max-width:480px){
+  .quick-step-box{flex-direction:column;gap:8px}
+  .step-num{width:28px;height:28px;font-size:12px;border-radius:8px}
+  .table-mock-head,.table-mock-row{grid-template-columns:30px 1fr 1fr;font-size:10px}
+  .table-mock-head span:nth-child(3),.table-mock-row span:nth-child(3){display:none}
+  .r-content strong{font-size:13.5px}
+  .bento-item h4{font-size:15px}
+}
 </style>`;
 html = html.replace('</head>', `${css}\n</head>`);
 
