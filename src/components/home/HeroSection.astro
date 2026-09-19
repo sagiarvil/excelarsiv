@@ -18,8 +18,6 @@ const { searchIndex } = Astro.props;
       <div class="hero-mobile-actions" aria-label="Çözüm seçimi">
         <a href="#problemler" class="hero-mobile-actions__primary" data-cta="home_ready_systems" data-location="hero">Probleminizi Seçin <span>↓</span></a>
         <a href="/sablonlar" class="hero-mobile-actions__secondary" data-cta="home_custom_system" data-location="hero">Gerçek Ürünleri Görün <span>→</span></a>
-        <a href="/demo" class="hero-mobile-actions__demo" data-cta="home_hero_demo" data-location="hero">Ücretsiz Demoları İnceleyin <span>📥</span></a>
-        <a href="/nasil-calisir" class="hero-mobile-actions__trust" data-cta="home_hero_trust_flow" data-location="hero">Nasıl Çalışır &amp; Güvenli Teslimat <span>⚡</span></a>
       </div>
       <nav class="hero-mobile-chips" aria-label="Finansal karar alanları">
         <a href="/sablonlar?q=nakit">Nakit &amp; likidite</a>
@@ -47,8 +45,6 @@ const { searchIndex } = Astro.props;
       <div class="hero-route-actions" aria-label="Ana çözüm yolları">
         <a href="#problemler" class="hero-route-actions__ready" data-cta="home_ready_systems" data-location="hero">Probleminizi Seçin <span aria-hidden="true">↓</span></a>
         <a href="/sablonlar" class="hero-route-actions__custom" data-cta="home_custom_system" data-location="hero">Gerçek Ürünleri Görün <span aria-hidden="true">→</span></a>
-        <a href="/demo" class="hero-route-actions__demo" data-cta="home_hero_demo" data-location="hero">Ücretsiz Demoları İnceleyin <span aria-hidden="true">📥</span></a>
-        <a href="/nasil-calisir" class="hero-route-actions__trust" data-cta="home_hero_trust_flow" data-location="hero">Nasıl Çalışır &amp; Güvenli Teslimat <span aria-hidden="true">⚡</span></a>
       </div>
     </div>
   </div>
@@ -71,8 +67,6 @@ const { searchIndex } = Astro.props;
   .hero-route-actions a:hover { transform:translateY(-1px); box-shadow:0 10px 22px rgba(15,23,42,.12); }
   .hero-route-actions__ready { background:#107c41; color:#fff; border:1px solid #107c41; }
   .hero-route-actions__custom { background:rgba(255,255,255,.96); color:#17251d; border:1px solid #d8e2db; }
-  .hero-route-actions__demo { background:rgba(240,253,244,.96); color:#087a46; border:1px solid #bbf7d0; }
-  .hero-route-actions__trust { background:rgba(240,247,255,.96); color:#1d4ed8; border:1px solid #bfdbfe; }
   .hero-route-actions a:focus-visible { outline:3px solid rgba(16,124,65,.25); outline-offset:2px; }
 
   @media (min-width: 721px) and (max-width: 1180px) { .hero-shell { width:calc(100% - 40px); } }
@@ -88,8 +82,6 @@ const { searchIndex } = Astro.props;
     .hero-mobile-actions a { min-height:48px; display:flex; align-items:center; justify-content:center; gap:6px; padding:0 10px; border-radius:12px; font:800 12px/1.2 var(--font-body); text-align:center; text-decoration:none; }
     .hero-mobile-actions__primary { background:#107c41; color:#fff; box-shadow:0 8px 18px rgba(16,124,65,.2); }
     .hero-mobile-actions__secondary { border:1px solid #cfdcd3; background:#fff; color:#25372c; }
-    .hero-mobile-actions__demo { border:1px solid #bbf7d0; background:#f0fdf4; color:#087a46; }
-    .hero-mobile-actions__trust { border:1px solid #bfdbfe; background:#f0f7ff; color:#1d4ed8; }
     .hero-mobile-chips { display:flex; gap:7px; margin:12px -14px 0; padding:0 14px 3px; overflow-x:auto; scrollbar-width:none; scroll-snap-type:x proximity; }
     .hero-mobile-chips::-webkit-scrollbar { display:none; }
     .hero-mobile-chips a { flex:0 0 auto; scroll-snap-align:start; padding:8px 11px; border:1px solid #dde6e0; border-radius:999px; background:#fff; color:#415148; font:750 11px/1 var(--font-body); text-decoration:none; }
