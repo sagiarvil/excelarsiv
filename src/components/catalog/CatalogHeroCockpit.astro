@@ -1,0 +1,555 @@
+---
+interface Props {
+  templateCount?: number;
+}
+const { templateCount = 51 } = Astro.props;
+---
+
+<div class="catalog-hero-cockpit" aria-hidden="true">
+  <!-- Üst Terminal Durum Çubuğu -->
+  <div class="chc-terminal-bar">
+    <div class="chc-dots">
+      <span class="chc-dot chc-dot--green"></span>
+      <span class="chc-dot chc-dot--amber"></span>
+      <span class="chc-dot chc-dot--cyan"></span>
+    </div>
+    <div class="chc-terminal-title">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <rect x="2" y="2" width="12" height="12" rx="2" stroke="#10b981" stroke-width="1.6"/>
+        <path d="M5 8h6M8 5v6" stroke="#10b981" stroke-width="1.6"/>
+      </svg>
+      <span>EXCEL KARAR RADARI · CANLI ANALİTİK KOKPİT</span>
+    </div>
+    <div class="chc-live-badge">
+      <span class="chc-live-ping"></span>
+      <span class="chc-live-dot"></span>
+      <span class="chc-live-text">{templateCount} SİSTEM ÇALIŞIYOR</span>
+    </div>
+  </div>
+
+  <!-- Dinamik Grafik ve Karar Sahnesi -->
+  <div class="chc-stage">
+    <svg class="chc-svg" viewBox="0 0 680 320" fill="none" preserveAspectRatio="none">
+      <defs>
+        <!-- Kılavuz Grid -->
+        <pattern id="chc-grid" width="34" height="32" patternUnits="userSpaceOnUse">
+          <path d="M 34 0 L 0 0 0 32" fill="none" stroke="rgba(16, 185, 129, 0.08)" stroke-width="1" />
+        </pattern>
+        <!-- Nakit Akışı Zümrüt Alanı -->
+        <linearGradient id="chc-cash-area" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#10b981" stop-opacity="0.35" />
+          <stop offset="55%" stop-color="#10b981" stop-opacity="0.10" />
+          <stop offset="100%" stop-color="#10b981" stop-opacity="0.00" />
+        </linearGradient>
+        <!-- Mavi Hedef Projeksiyon Alanı -->
+        <linearGradient id="chc-blue-area" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.18" />
+          <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.00" />
+        </linearGradient>
+        <!-- Çizgi Gradyanları -->
+        <linearGradient id="chc-cash-stroke" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#059669" />
+          <stop offset="35%" stop-color="#10b981" />
+          <stop offset="70%" stop-color="#34d399" />
+          <stop offset="100%" stop-color="#6ee7b7" />
+        </linearGradient>
+        <linearGradient id="chc-blue-stroke" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#1d4ed8" />
+          <stop offset="50%" stop-color="#38bdf8" />
+          <stop offset="100%" stop-color="#93c5fd" />
+        </linearGradient>
+        <linearGradient id="chc-amber-stroke" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#b45309" />
+          <stop offset="50%" stop-color="#f59e0b" />
+          <stop offset="100%" stop-color="#fde68a" />
+        </linearGradient>
+        <!-- Glow Filtresi -->
+        <filter id="chc-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3.5" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+
+      <!-- Zemin Grid -->
+      <rect width="680" height="320" fill="url(#chc-grid)" />
+
+      <!-- Yatay Kılavuz Çizgileri -->
+      <line x1="0" y1="60" x2="680" y2="60" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4" />
+      <line x1="0" y1="125" x2="680" y2="125" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4" />
+      <line x1="0" y1="190" x2="680" y2="190" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4" />
+      <line x1="0" y1="260" x2="680" y2="260" stroke="rgba(255,255,255,0.09)" />
+
+      <!-- Eksen Değer Etiketleri -->
+      <text x="14" y="56" fill="rgba(52,211,153,0.75)" font-family="ui-monospace, monospace" font-size="10" font-weight="800">₺18.6M [TEPE LİKİDİTE]</text>
+      <text x="14" y="121" fill="rgba(56,189,248,0.7)" font-family="ui-monospace, monospace" font-size="10" font-weight="700">₺12.4M [HEDEF KAPASİTE]</text>
+      <text x="14" y="186" fill="rgba(245,158,11,0.7)" font-family="ui-monospace, monospace" font-size="10" font-weight="700">₺6.8M [BAŞABAŞ EŞİĞİ]</text>
+      <text x="14" y="256" fill="rgba(255,255,255,0.35)" font-family="ui-monospace, monospace" font-size="10">₺1.4M [GÜVENLİK DİP]</text>
+
+      <text x="110" y="302" fill="rgba(255,255,255,0.4)" font-family="ui-monospace, monospace" font-size="9.5">H01 · GİRİŞ</text>
+      <text x="250" y="302" fill="rgba(255,255,255,0.4)" font-family="ui-monospace, monospace" font-size="9.5">H05 · DÖNGÜ</text>
+      <text x="390" y="302" fill="rgba(255,255,255,0.4)" font-family="ui-monospace, monospace" font-size="9.5">H09 · TAHSİLAT</text>
+      <text x="530" y="302" fill="rgba(52,211,153,0.85)" font-family="ui-monospace, monospace" font-size="9.5" font-weight="800">H13 · ZİRVE</text>
+
+      <!-- İkincil Projeksiyon Alanı (Mavi) -->
+      <path d="M 40 230 C 130 220, 210 180, 310 160 C 410 140, 510 110, 640 85 L 640 260 L 40 260 Z" fill="url(#chc-blue-area)" />
+      <path d="M 40 230 C 130 220, 210 180, 310 160 C 410 140, 510 110, 640 85" stroke="url(#chc-blue-stroke)" stroke-width="2.2" stroke-dasharray="6 4" />
+
+      <!-- Kehribar Stres Testi Eğrisi -->
+      <path d="M 40 250 C 140 258, 220 205, 320 215 C 420 225, 520 165, 640 145" stroke="url(#chc-amber-stroke)" stroke-width="1.8" stroke-dasharray="3 3" opacity="0.8" />
+
+      <!-- Ana Zümrüt Nakit Akışı Alanı -->
+      <path d="M 40 215 C 120 200, 180 245, 260 165 C 340 85, 420 135, 500 75 C 560 30, 600 45, 640 38 L 640 260 L 40 260 Z" fill="url(#chc-cash-area)" />
+
+      <!-- Ana Zümrüt Nakit Akışı Eğrisi -->
+      <path d="M 40 215 C 120 200, 180 245, 260 165 C 340 85, 420 135, 500 75 C 560 30, 600 45, 640 38" stroke="url(#chc-cash-stroke)" stroke-width="3.6" stroke-linecap="round" filter="url(#chc-glow)" />
+
+      <!-- Akan Beyaz Enerji Dalgası -->
+      <path d="M 40 215 C 120 200, 180 245, 260 165 C 340 85, 420 135, 500 75 C 560 30, 600 45, 640 38" stroke="#ffffff" stroke-width="4.8" stroke-linecap="round" class="chc-pulse-beam" />
+
+      <!-- Karar Düğümleri (Canlı Pulsing Daireler) -->
+      <!-- Düğüm 1: Kehribar -->
+      <g transform="translate(180, 245)">
+        <circle r="13" class="chc-ping chc-ping--amber" />
+        <circle r="4.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+      </g>
+      <!-- Düğüm 2: Mavi -->
+      <g transform="translate(260, 165)">
+        <circle r="15" class="chc-ping chc-ping--blue" />
+        <circle r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.8" />
+      </g>
+      <!-- Düğüm 3: Zümrüt -->
+      <g transform="translate(500, 75)">
+        <circle r="17" class="chc-ping chc-ping--green" />
+        <circle r="5.5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+      </g>
+      <!-- Düğüm 4: Zirve Parlayan Tepe -->
+      <g transform="translate(640, 38)">
+        <circle r="22" class="chc-ping chc-ping--super" />
+        <circle r="7" fill="#34d399" stroke="#ffffff" stroke-width="2.5" filter="url(#chc-glow)" />
+      </g>
+    </svg>
+
+    <!-- Soldan Sağa Lazer Tarama Işını -->
+    <div class="chc-laser-scan"></div>
+
+    <!-- 4 Adet Cam Efektli Kokpit Kartı -->
+    <!-- Kart 1: Canlı Formül Motoru -->
+    <div class="chc-card chc-card--formula">
+      <div class="chc-card__header">
+        <span class="chc-badge-fx">fx</span>
+        <span class="chc-card__tag">KARAR MOTORU</span>
+      </div>
+      <div class="chc-formula-code">=XLOOKUP(Likidite, KararEşik, "GÜVENLİ POZİSYON")</div>
+    </div>
+
+    <!-- Kart 2: Zirve Göstergesi & KPI -->
+    <div class="chc-card chc-card--kpi">
+      <div class="chc-kpi-row">
+        <div class="chc-kpi-icon">↑</div>
+        <div>
+          <span class="chc-kpi-val">₺18.650.000</span>
+          <span class="chc-kpi-sub">13 Haftalık Likidite Tepe</span>
+        </div>
+      </div>
+      <div class="chc-kpi-trend">
+        <span class="chc-trend-tag">+34.2% Tahmini Artış</span>
+        <span class="chc-trend-desc">DSCR: 1.84x (A+)</span>
+      </div>
+    </div>
+
+    <!-- Kart 3: 51 Şablon Güvencesi -->
+    <div class="chc-card chc-card--system">
+      <div class="chc-system-icon">
+        <svg viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+      <div>
+        <div class="chc-system-title">{templateCount} Doğrulanmış Sistem</div>
+        <div class="chc-system-meta">%100 Açık Formül · Sıfır Makro</div>
+      </div>
+    </div>
+
+    <!-- Kart 4: Gerçek Zamanlı Denetim Rozeti -->
+    <div class="chc-card chc-card--audit">
+      <div class="chc-audit-pulse"></div>
+      <div class="chc-audit-text">
+        <strong>Bankacılık &amp; Saha Standardı</strong>
+        <small>Formül Denetimi: %100 Doğrulanmış</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .catalog-hero-cockpit {
+    position: relative;
+    width: 100%;
+    max-width: 660px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background: linear-gradient(155deg, #091a12 0%, #0d271a 48%, #07170f 100%);
+    border: 1px solid rgba(16, 185, 129, 0.28);
+    box-shadow:
+      0 20px 50px rgba(9, 26, 18, 0.28),
+      0 4px 16px rgba(16, 124, 65, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+    color: #fff;
+    user-select: none;
+  }
+
+  /* Üst Terminal Çubuğu */
+  .chc-terminal-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.15);
+    backdrop-filter: blur(8px);
+  }
+  .chc-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .chc-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+  }
+  .chc-dot--green { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.6); }
+  .chc-dot--amber { background: #f59e0b; }
+  .chc-dot--cyan { background: #38bdf8; }
+
+  .chc-terminal-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #a7f3d0;
+  }
+  .chc-live-badge {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+  }
+  .chc-live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #34d399;
+  }
+  .chc-live-ping {
+    position: absolute;
+    left: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34d399;
+    animation: chc-live-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  .chc-live-text {
+    font-family: ui-monospace, monospace;
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: 0.06em;
+    color: #6ee7b7;
+  }
+
+  /* Grafik Sahnesi */
+  .chc-stage {
+    position: relative;
+    width: 100%;
+    height: 270px;
+    overflow: hidden;
+  }
+  .chc-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* Akan Enerji Işını */
+  .chc-pulse-beam {
+    stroke-dasharray: 70 340;
+    animation: chc-flow-pulse 3s linear infinite;
+  }
+
+  /* Nabız Noktaları */
+  .chc-ping {
+    animation: chc-ping-wave 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  .chc-ping--green { fill: rgba(16, 185, 129, 0.4); }
+  .chc-ping--blue { fill: rgba(56, 189, 248, 0.45); animation-delay: 0.8s; }
+  .chc-ping--amber { fill: rgba(245, 158, 11, 0.45); animation-delay: 1.4s; }
+  .chc-ping--super { fill: rgba(52, 211, 153, 0.55); animation-delay: 0.3s; }
+
+  /* Dikey Lazer Tarama */
+  .chc-laser-scan {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(52,211,153,0) 0%, rgba(52,211,153,0.9) 40%, rgba(110,231,183,1) 50%, rgba(52,211,153,0.9) 60%, rgba(52,211,153,0) 100%);
+    box-shadow: 0 0 16px rgba(52, 211, 153, 0.8), 0 0 32px rgba(16, 185, 129, 0.4);
+    animation: chc-laser-sweep 5s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+
+  /* Cam Efektli Kokpit Kartları */
+  .chc-card {
+    position: absolute;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 12px;
+    padding: 8px 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: transform 0.2s ease;
+  }
+  .chc-card--formula {
+    top: 14px;
+    left: 14px;
+    background: rgba(6, 26, 16, 0.85);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    animation: chc-float-1 4.5s ease-in-out infinite alternate;
+  }
+  .chc-card__header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .chc-badge-fx {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 5px;
+    border-radius: 4px;
+    background: #107c41;
+    font-family: ui-monospace, monospace;
+    font-size: 9px;
+    font-weight: 850;
+    color: #fff;
+  }
+  .chc-card__tag {
+    font-family: ui-monospace, monospace;
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #6ee7b7;
+  }
+  .chc-formula-code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: #ecfdf5;
+    letter-spacing: -0.01em;
+  }
+
+  /* Kart 2: Zirve & KPI */
+  .chc-card--kpi {
+    top: 14px;
+    right: 14px;
+    background: rgba(8, 30, 20, 0.88);
+    border: 1px solid rgba(52, 211, 153, 0.45);
+    animation: chc-float-2 4s ease-in-out infinite alternate;
+  }
+  .chc-kpi-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .chc-kpi-icon {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    background: #10b981;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 900;
+  }
+  .chc-kpi-val {
+    display: block;
+    font-family: ui-monospace, monospace;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+  .chc-kpi-sub {
+    display: block;
+    font-size: 9px;
+    color: #a7f3d0;
+    font-weight: 600;
+  }
+  .chc-kpi-trend {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .chc-trend-tag {
+    padding: 1px 5px;
+    border-radius: 4px;
+    background: rgba(16, 185, 129, 0.25);
+    color: #34d399;
+    font-family: ui-monospace, monospace;
+    font-size: 8.5px;
+    font-weight: 800;
+  }
+  .chc-trend-desc {
+    font-family: ui-monospace, monospace;
+    font-size: 8.5px;
+    color: #93c5fd;
+  }
+
+  /* Kart 3: 51 Şablon Güvencesi */
+  .chc-card--system {
+    bottom: 12px;
+    left: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(7, 24, 16, 0.85);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    animation: chc-float-3 5s ease-in-out infinite alternate;
+  }
+  .chc-system-icon {
+    width: 20px;
+    height: 20px;
+    color: #10b981;
+  }
+  .chc-system-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: #ffffff;
+  }
+  .chc-system-meta {
+    font-size: 9px;
+    color: #a7f3d0;
+  }
+
+  /* Kart 4: Denetim Rozeti */
+  .chc-card--audit {
+    bottom: 12px;
+    right: 14px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(9, 28, 19, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    animation: chc-float-4 4.8s ease-in-out infinite alternate;
+  }
+  .chc-audit-pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 8px #38bdf8;
+  }
+  .chc-audit-text strong {
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    color: #e0f2fe;
+  }
+  .chc-audit-text small {
+    display: block;
+    font-size: 8.5px;
+    color: #93c5fd;
+  }
+
+  /* Keyframe Animasyonları (60 FPS GPU) */
+  @keyframes chc-flow-pulse {
+    0% { stroke-dashoffset: 410; }
+    100% { stroke-dashoffset: 0; }
+  }
+  @keyframes chc-ping-wave {
+    0% { r: 5px; opacity: 0.85; }
+    70% { r: 24px; opacity: 0.15; }
+    100% { r: 28px; opacity: 0; }
+  }
+  @keyframes chc-laser-sweep {
+    0% { left: 4%; }
+    100% { left: 96%; }
+  }
+  @keyframes chc-live-pulse {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    50% { transform: scale(2.2); opacity: 0; }
+    100% { transform: scale(2.2); opacity: 0; }
+  }
+  @keyframes chc-float-1 {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-4px); }
+  }
+  @keyframes chc-float-2 {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(4px); }
+  }
+  @keyframes chc-float-3 {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-3px); }
+  }
+  @keyframes chc-float-4 {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(3px); }
+  }
+
+  /* Mobil Uyum */
+  @media (max-width: 720px) {
+    .catalog-hero-cockpit {
+      max-width: 100%;
+      border-radius: 16px;
+    }
+    .chc-stage {
+      height: 220px;
+    }
+    .chc-card--formula {
+      left: 8px;
+      top: 8px;
+      padding: 6px 9px;
+    }
+    .chc-formula-code {
+      font-size: 8.5px;
+    }
+    .chc-card--kpi {
+      right: 8px;
+      top: 8px;
+      padding: 6px 9px;
+    }
+    .chc-kpi-val {
+      font-size: 13px;
+    }
+    .chc-card--system,
+    .chc-card--audit {
+      display: none; /* Mobilde aşırı kalabalık olmaması için iki alt kart gizlenir, ana grafik ve üst iki kart öne çıkar */
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chc-pulse-beam,
+    .chc-ping,
+    .chc-laser-scan,
+    .chc-live-ping,
+    .chc-card {
+      animation: none !important;
+    }
+  }
+</style>

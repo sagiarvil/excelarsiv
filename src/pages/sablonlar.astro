@@ -1,6 +1,7 @@
 ---
 import CommerceLayout from '../layouts/CommerceLayout.astro';
 import CatalogSearch from '../components/catalog/CatalogSearch.astro';
+import CatalogHeroCockpit from '../components/catalog/CatalogHeroCockpit.astro';
 import TemplateGrid from '../components/catalog/TemplateGrid.astro';
 import UrunHikayeIzgara from '../components/urun-hikayesi/UrunHikayeIzgara.astro';
 import { categories } from '../lib/categories';
@@ -58,17 +59,23 @@ const catalogBreadcrumbLd = JSON.stringify({
   <section class="catalog-intro" aria-labelledby="catalog-title">
     <div class="site-container catalog-intro__inner">
       <div class="catalog-intro__top">
-        <div class="catalog-intro__copy">
-          <span>EXCEL ARŞİV · İŞLETME SİSTEMLERİ</span>
-          <h1 id="catalog-title">Excel Şablonları</h1>
-          <p>Finans, nakit, tahsilat, stok ve operasyon için kullanıma hazır Excel karar sistemleri.</p>
+        <div class="catalog-intro__left">
+          <div class="catalog-intro__copy">
+            <span>EXCEL ARŞİV · İŞLETME SİSTEMLERİ</span>
+            <h1 id="catalog-title">Excel Şablonları</h1>
+            <p>Finans, nakit, tahsilat, stok ve operasyon için kullanıma hazır Excel karar sistemleri.</p>
+          </div>
+
+          <div class="catalog-intro__proof" aria-label="Katalog güvenceleri">
+            <div><b>{templates.length}</b><span>satışta sistem</span></div>
+            <div><b>{categories.length}</b><span>işletme alanı</span></div>
+            {minPriceTL && <div><b>{minPriceTL.toLocaleString('tr-TR')} TL</b><span>başlayan fiyat</span></div>}
+            <div class="catalog-intro__trust"><i>✓</i><span>Demo + gerçek ürün ekranları</span></div>
+          </div>
         </div>
 
-        <div class="catalog-intro__proof" aria-label="Katalog güvenceleri">
-          <div><b>{templates.length}</b><span>satışta sistem</span></div>
-          <div><b>{categories.length}</b><span>işletme alanı</span></div>
-          {minPriceTL && <div><b>{minPriceTL.toLocaleString('tr-TR')} TL</b><span>başlayan fiyat</span></div>}
-          <div class="catalog-intro__trust"><i>✓</i><span>Demo + gerçek ürün ekranları</span></div>
+        <div class="catalog-intro__visual">
+          <CatalogHeroCockpit templateCount={templates.length} />
         </div>
       </div>
 
@@ -151,9 +158,20 @@ const catalogBreadcrumbLd = JSON.stringify({
   }
   .catalog-intro__top {
     display:grid;
-    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);
     gap:36px;
-    align-items:end;
+    align-items:center;
+  }
+  .catalog-intro__left {
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .catalog-intro__visual {
+    display:flex;
+    justify-content:center;
+    width:100%;
+    min-width:0;
   }
   .catalog-intro__copy > span {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;

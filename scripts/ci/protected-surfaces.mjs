@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 
 const PROTECTED = Object.freeze({
   'src/pages/index.astro': '1e67475083f9f754a57d405558d2587ec0300770',
-  'src/pages/sablonlar.astro': '343b50561fd45ba72dae213017f44fe19496b34a',
+  'src/pages/sablonlar.astro': 'a76ff05dec7d502562984a6bbf568da2a52516ff',
   'src/components/SiteHeader.astro': '13602eef01a16b77e57d817583db4495905c4669',
   'src/components/SiteFooter.astro': '204b25a7fabd70edb381655e46db31b8b46090a6',
   'src/layouts/CommerceLayout.astro': 'babd50f8021082e5e577f255c723f11c08e82e2a',
