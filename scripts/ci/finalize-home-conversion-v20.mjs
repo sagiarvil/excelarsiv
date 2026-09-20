@@ -12,9 +12,9 @@ const heroRestoreCss = `@media(min-width:1021px){
 body[data-desktop-premium-v19] .hero-section{position:relative!important;z-index:60!important;margin:16px 0 28px!important;padding:8px 0 0!important;background:transparent!important}
 body[data-desktop-premium-v19] .hero-shell{position:relative!important;z-index:60!important;width:min(1150px,calc(100% - 40px))!important;margin-inline:auto!important;padding-bottom:56px!important}
 body[data-desktop-premium-v19] .hero-mobile-copy{position:absolute!important;z-index:66!important;left:4%!important;top:10%!important;width:min(48%,520px)!important;height:auto!important;padding:0!important;margin:0!important;overflow:visible!important;clip:auto!important;white-space:normal!important;border:0!important}
-body[data-desktop-premium-v19] .hero-mobile-copy__eyebrow{margin:0!important;font:800 11px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;letter-spacing:.08em!important;color:#107c41!important}
-body[data-desktop-premium-v19] .hero-title{max-width:500px!important;margin:8px 0 0!important;font:800 clamp(28px,2.3vw,38px)/1.08 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:-.03em!important;color:#122019!important;text-wrap:balance!important}
-body[data-desktop-premium-v19] .hero-mobile-copy__summary{max-width:480px!important;margin:10px 0 0!important;font:500 14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;color:#4f5e55!important}
+body[data-desktop-premium-v19] .hero-mobile-copy__eyebrow{margin:0!important;font:800 12.5px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;letter-spacing:.08em!important;color:#107c41!important}
+body[data-desktop-premium-v19] .hero-title{max-width:520px!important;margin:8px 0 0!important;font:800 clamp(32px,2.6vw,40px)/1.12 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:-.03em!important;color:#222222!important;text-wrap:balance!important}
+body[data-desktop-premium-v19] .hero-mobile-copy__summary{max-width:500px!important;margin:10px 0 0!important;font:500 16px/1.55 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;color:#444444!important}
 body[data-desktop-premium-v19] .hero-artwork{position:relative!important;display:block!important;overflow:hidden!important;width:100%!important;margin:0 auto!important;aspect-ratio:3 / 1!important;min-height:0!important;border:1px solid rgba(16,124,65,.12)!important;border-radius:16px!important;background:#eef3f6!important;box-shadow:0 12px 32px rgba(24,55,38,.07)!important}
 body[data-desktop-premium-v19] .hero-artwork::before{content:none!important;background:none!important}
 body[data-desktop-premium-v19] .hero-panel::after{content:none!important;background:none!important}
@@ -24,11 +24,11 @@ body[data-desktop-premium-v19] .hero-search-rail{position:absolute!important;lef
 body[data-desktop-premium-v19] .home-shell{width:min(1150px,calc(100% - 40px))!important}
 body[data-desktop-premium-v19] .soho-reviews-bar{background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:10px!important;padding:10px 16px!important;margin-top:0!important;margin-bottom:24px!important}
 body[data-desktop-premium-v19] .soho-category-headband{margin-top:32px!important;border-bottom:2px solid #eeeeee!important;padding-bottom:2px!important;display:flex!important;align-items:baseline!important;justify-content:space-between!important}
-body[data-desktop-premium-v19] .soho-category-title{font-size:19.5px!important;font-weight:700!important;color:#222!important;border-bottom:2px solid #4a97c2!important;padding-bottom:3px!important;margin:0!important}
-body[data-desktop-premium-v19] .soho-category-title a{color:#222!important;text-decoration:none!important}
-body[data-desktop-premium-v19] .soho-category-more a{color:#4a97c2!important;font-size:14px!important;text-decoration:none!important}
+body[data-desktop-premium-v19] .soho-category-title{font-size:22px!important;font-weight:700!important;color:#222222!important;border-bottom:2px solid #107c41!important;padding-bottom:3px!important;margin:0!important}
+body[data-desktop-premium-v19] .soho-category-title a{color:#222222!important;text-decoration:none!important}
+body[data-desktop-premium-v19] .soho-category-more a{color:#107c41!important;font-size:14.5px!important;font-weight:600!important;text-decoration:none!important}
 body[data-desktop-premium-v19] .soho-category-more a:hover{text-decoration:underline!important}
-body[data-desktop-premium-v19] .soho-category-desc{margin:8px 0 20px!important;font-size:13.5px!important;line-height:1.5!important;color:#666!important;font-weight:400!important}
+body[data-desktop-premium-v19] .soho-category-desc{margin:8px 0 20px!important;font-size:14.5px!important;line-height:1.55!important;color:#555555!important;font-weight:400!important}
 
 /* SOMEKA KART STİLİ %100 BİREBİR */
 body[data-desktop-premium-v19] .soho-product-grid{gap:16px!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;margin-bottom:28px!important}
@@ -40,10 +40,10 @@ body[data-desktop-premium-v19] .someka-card-thumb-wrap:hover .someka-thumb-img{t
 body[data-desktop-premium-v19] .someka-category-tag{display:none!important}
 body[data-desktop-premium-v19] .someka-card-details{padding:12px 10px 14px!important;text-align:center!important;display:flex!important;flex-direction:column!important;flex:1!important}
 body[data-desktop-premium-v19] .single-post-title{margin:2px 0 4px!important;min-height:38px!important;line-height:1.35!important;text-align:center!important}
-body[data-desktop-premium-v19] .single-post-title a{color:#4a97c2!important;font-size:15px!important;font-weight:700!important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif!important;text-decoration:none!important;transition:color .15s ease!important}
-body[data-desktop-premium-v19] .single-post-title a:hover{color:#222222!important}
+body[data-desktop-premium-v19] .single-post-title a{color:#222222!important;font-size:16px!important;font-weight:700!important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif!important;text-decoration:none!important;transition:color .15s ease!important}
+body[data-desktop-premium-v19] .single-post-title a:hover{color:#107c41!important}
 body[data-desktop-premium-v19] .vcex-star-rating{display:none!important}
-body[data-desktop-premium-v19] .vcex-post-excerpt{display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;font-size:12px!important;line-height:1.45!important;color:#777777!important;margin:4px 0 0!important;min-height:35px!important;text-align:center!important}
+body[data-desktop-premium-v19] .vcex-post-excerpt{display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;font-size:14px!important;line-height:1.5!important;color:#555555!important;margin:4px 0 0!important;min-height:35px!important;text-align:center!important}
 body[data-desktop-premium-v19] .someka-card-bottom{display:none!important}
 }
 /* SOMEKA BOLD TİPOGRAFİ STANDARDI — TÜM SİTE VE TÜM SAYFALAR */
@@ -60,10 +60,10 @@ body[data-desktop-premium-v19] .someka-card-bottom{display:none!important}
 .soho-product-grid .single-post-title,
 .soho-product-grid .single-post-title a {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-  font-size: 15px !important;
+  font-size: 16px !important;
   font-weight: 700 !important;
   line-height: 1.35 !important;
-  color: #4a97c2 !important;
+  color: #222222 !important;
   text-decoration: none !important;
   transition: color .15s ease !important;
   letter-spacing: -0.01em !important;
@@ -73,7 +73,7 @@ body[data-desktop-premium-v19] .someka-card-bottom{display:none!important}
 .tcard__title a:hover,
 [data-template-card] .card__title a:hover,
 .soho-product-grid .single-post-title a:hover {
-  color: #222222 !important;
+  color: #107c41 !important;
 }`;
 
 for (const marker of ['data-dual-funnel-home-v17','data-mobile-premium-v18','data-desktop-premium-v19']) {

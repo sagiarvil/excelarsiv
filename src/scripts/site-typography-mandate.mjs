@@ -9,41 +9,64 @@ const typographyStyles = `
 <style ${MANDATE}>
   :root{
     --ea-font-sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-    --ea-type-body:15px;
-    --ea-type-nav:14.5px;
-    --ea-type-small:13px;
-    --ea-type-h1:clamp(26px,3.5vw,32px);
-    --ea-type-h2:clamp(20px,2.4vw,24px);
-    --ea-type-h3:clamp(17px,1.8vw,19px);
-    --ea-type-h4:15px;
-    --ea-leading-body:1.5;
-    --ea-color-body:#545454;
-    --ea-color-heading:#333333;
-    --ea-color-muted:#777777;
+    --ea-type-body:16px;
+    --ea-type-nav:15px;
+    --ea-type-small:13.5px;
+    --ea-type-h1:clamp(32px,4vw,44px);
+    --ea-type-h2:clamp(24px,2.8vw,32px);
+    --ea-type-h3:clamp(19px,2vw,24px);
+    --ea-type-h4:17px;
+    --ea-leading-body:1.6;
+    --ea-color-body:#444444;
+    --ea-color-heading:#222222;
+    --ea-color-muted:#666666;
+    --ea-color-accent:#107c41;
   }
-  html{font-size:15px!important}
+  html{font-size:16px!important}
   body,button,input,select,textarea{font-family:var(--ea-font-sans)!important}
-  body{font-size:15px!important;line-height:var(--ea-leading-body)!important;color:#545454!important;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-  header nav a,header [role="navigation"] a,nav[aria-label] a{font-size:14.5px!important;font-weight:600!important;line-height:1.4!important}
-  h1,h2,h3,h4,h5,h6{color:#333333!important;font-weight:700!important;line-height:1.3!important}
-  h1{font-size:clamp(26px,3.5vw,32px)!important}
-  h2{font-size:clamp(20px,2.4vw,24px)!important}
-  h3{font-size:clamp(17px,1.8vw,19px)!important}
-  h4{font-size:15px!important}
-  main p,main li,main td,main th,main details,main summary{font-family:var(--ea-font-sans)!important;font-size:15px!important;line-height:1.5!important;color:#545454!important}
-  main p{margin-bottom:1.15em}
-  main button,main a[class*="btn"],main a[class*="button"]{font-size:14.5px!important;font-weight:600!important}
-  main input,main select,main textarea{font-size:14.5px!important;line-height:1.45!important;color:#333333!important}
-  main small,.text-muted,.meta{font-size:13px!important;line-height:1.45!important;color:#777777!important}
-  footer,footer a{font-family:var(--ea-font-sans)!important;font-size:13px!important;line-height:1.5!important;color:#777777!important}
-  footer strong,footer h3,footer h4{color:#333333!important}
+  body{font-size:16px!important;line-height:var(--ea-leading-body)!important;color:#444444!important;background:#ffffff;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  
+  /* Someka Başlık Renkleri & Hiyerarşisi */
+  h1,h2,h3,h4,h5,h6,.display,.hero-title,.section-title{color:#222222!important;font-weight:700!important;line-height:1.25!important;letter-spacing:-0.02em}
+  h1,.display,.hero-title{font-size:clamp(32px,4vw,44px)!important;font-weight:800!important;line-height:1.15!important;letter-spacing:-0.03em!important}
+  h2,.section-title{font-size:clamp(24px,2.8vw,32px)!important;font-weight:700!important}
+  h3{font-size:clamp(19px,2vw,24px)!important}
+  h4{font-size:17px!important}
+  h5,h6{font-size:15px!important}
+
+  /* Someka Gövde Metinleri & Paragraflar */
+  main p,main li,main td,main th,main details,main summary,article p,article li{font-family:var(--ea-font-sans)!important;font-size:16px!important;line-height:1.6!important;color:#444444!important}
+  main p{margin-bottom:1.2em}
+  
+  /* Someka Kart Başlıkları & Ürün Başlıkları (Okunaklı & Tok) */
+  .single-post-title,.single-post-title a,.card__title,.card__title a,.tcard__title,.tcard__title a,[data-template-card] h3,[data-template-card] a,.mce-quick-card__title,.mce-template-card__title{font-family:var(--ea-font-sans)!important;font-size:16px!important;font-weight:700!important;line-height:1.35!important;color:#222222!important}
+  .single-post-title a:hover,.card__title a:hover,.tcard__title a:hover,[data-template-card] a:hover{color:#107c41!important}
+
+  /* Someka Kart Özetleri & Açıklamaları (Asla mikroskobik 11px/12px değil) */
+  .vcex-post-excerpt,.card__desc,.tcard__desc,[data-template-card] p,.template-card-desc,.soho-category-desc{font-size:14px!important;line-height:1.55!important;color:#555555!important}
+
+  /* Navigasyon & Butonlar */
+  header nav a,header [role="navigation"] a,nav[aria-label] a{font-size:15px!important;font-weight:600!important;line-height:1.4!important;color:#222222!important}
+  main button,main a[class*="btn"],main a[class*="button"]{font-size:15px!important;font-weight:600!important}
+  main input,main select,main textarea{font-size:15px!important;line-height:1.45!important;color:#222222!important}
+
+  /* Eyebrow / Kicker / Etiketler */
+  .eyebrow,.kicker,.hub-kicker,.hero-mobile-copy__eyebrow{font-size:12.5px!important;font-weight:700!important;letter-spacing:.06em!important;color:#107c41!important}
+
+  /* Yardımcı Metinler & Muted Bilgiler */
+  main small,.text-muted,.meta,span.text-xs{font-size:13.5px!important;line-height:1.5!important;color:#666666!important}
+
+  /* Footer */
+  footer,footer a{font-family:var(--ea-font-sans)!important;font-size:13.5px!important;line-height:1.55!important;color:#666666!important}
+  footer strong,footer h3,footer h4{color:#222222!important;font-size:15px!important}
+
   @media(max-width:760px){
-    :root{--ea-type-body:15px;--ea-type-nav:14px;--ea-type-small:13px}
-    body{font-size:15px!important}
-    h1{font-size:24px!important}
-    h2{font-size:19px!important}
-    h3{font-size:16.5px!important}
-    main p,main li,main td,main th,main details,main summary{font-size:15px!important}
+    :root{--ea-type-body:15.5px;--ea-type-nav:14.5px;--ea-type-small:13px}
+    body{font-size:15.5px!important}
+    h1,.display,.hero-title{font-size:28px!important}
+    h2,.section-title{font-size:22px!important}
+    h3{font-size:18px!important}
+    main p,main li,main td,main th,main details,main summary{font-size:15.5px!important}
   }
 </style>`;
 
