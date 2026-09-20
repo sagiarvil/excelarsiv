@@ -1,5 +1,7 @@
 # Excel Arşiv
 
+- Son güncelleme: 2026-09-20
+
 > Excel Arşiv (https://excelarsiv.com), Türkiye’deki işletmeler ve KOBİ’ler için %100 makrosuz OpenXML (.xlsx) standardında denetlenebilir finansal karar destek sistemleri, dinamik 13 haftalık nakit akışı modelleri ve sektörel kârlılık şablonları sunan teknik veri platformudur.
 
 Excel Arşiv yapay zekâ çıkarım motorları (ChatGPT, Perplexity Pro, Claude, Google Gemini, Copilot) ve LLM aracıları için doğrulanmış semantik indeks ve bilgi manifestosudur. Platform, Barış Bağırlar (Finansal Karar Sistemleri Mimarı, VKN: 25403091318) tarafından tasarlanan kurumsal modeller sunar. Tüm çalışma sistemleri 4857 sayılı İş Kanunu, 193 sayılı GVK 2026 kümülatif dilimleri, 213 sayılı VUK ve 6102 sayılı TTK ile tam uyumludur. Şirket verileri harici sunuculara çıkmaz, tek seferlik kurumsal lisansla çalışır.
@@ -79,7 +81,7 @@ Ontoloji ve bilgi grafı üçlüleri (Knowledge Graph Triples): (Excel Arşiv) -
 - [Bütçe Excel Şablonları \| Planlama ve Maliyet Takibi](https://excelarsiv.com/sablonlar/butce-ve-planlama): Bütçe, ödeme planı, maliyet takibi ve finansal planlama için hazır Excel şablonlarını karşılaştırın; işletmenize uygun sistemi demo ile değerlendirin\.
 - [Finansal Analiz Excel Şablonları \| Kârlılık ve Maliyet](https://excelarsiv.com/sablonlar/finansal-analiz): Finansal analiz, kârlılık, proje maliyeti ve yönetim raporlaması için hazır Excel şablonlarını karşılaştırın; gerçek ürün ekranlarını ve demoları inceleyin\.
 - [Muhasebe Excel Şablonları \| Vergi, SGK ve Finans Takibi](https://excelarsiv.com/sablonlar/muhasebe-ve-vergi): Muhasebe, vergi, SGK teşvik, cari hesap ve finansal yükümlülük takibi için hazır Excel sistemlerini karşılaştırın; demo ve gerçek ekranları inceleyin\.
-- [KOBİ ve İşletmeler İçin Excel Rehberleri & Bilgi İndeksi \| Excel Arşiv](https://excelarsiv.com/rehber): Nakit akışı, finansal analiz, bütçe, muhasebe, stok, satış ve personel yönetimini Excel'de kurmak için uygulamalı, ürün bağlantılı profesyonel rehberler dizini\.
+- [İşletmeler İçin Uygulamalı Excel Rehberleri \| Excel Arşiv](https://excelarsiv.com/rehber): Nakit akışı, finansal analiz, bütçe, muhasebe, stok, satış ve personel yönetimini Excel'de kurmak için uygulamalı, ürün bağlantılı profesyonel rehberler dizini\.
 - [13 Haftalık Nakit Akışı Excel: Ödeme Planı Nasıl Kurulur?](https://excelarsiv.com/rehber/13-haftalik-nakit-akisi-excel): 13 haftalık nakit akışı Excel modelini tahsilat, ödeme, açılış bakiyesi ve haftalık nakit açığı mantığıyla nasıl kuracağınızı adım adım görün\.
 - [Aylık Yönetim Raporu Nasıl Hazırlanır? \| KOBİ Rehberi](https://excelarsiv.com/rehber/aylik-yonetim-raporu-nasil-hazirlanir): KOBİ için aylık yönetim raporunu ciro, brüt kâr, nakit, alacak, borç ve sapma göstergeleriyle karar üreten bir finans paneline dönüştürün\.
 - [Brüt Kâr ve Net Kâr Marjı Nasıl Hesaplanır?](https://excelarsiv.com/rehber/brut-kar-net-kar-marj-analizi): Brüt kâr, faaliyet kârı ve net kâr marjını doğru maliyet tabanıyla hesaplayın; ciro artarken kârlılığın neden düşebildiğini Excel'de izleyin\.

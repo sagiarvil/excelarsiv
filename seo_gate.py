@@ -109,7 +109,8 @@ def main():
     children = re.findall(r"<loc>([^<]+)</loc>", sm)
     urls, child_maps = [], {}
     for c in children:
-        cs, _, cx = get(c)
+        c_req = re.sub(r"^https?://[^/]+", B, c)
+        cs, _, cx = get(c_req)
         if cs != 200:
             fail("INV-10", f"alt sitemap {c} HTTP {cs}")
             continue
@@ -174,11 +175,12 @@ def main():
     # ---------- sayfa sayfa ----------
     pages = {}
     for u in urls:
-        st, hd, h = get(u)
+        u_req = re.sub(r"^https?://[^/]+", B, u)
+        st, hd, h = get(u_req)
         if st != 200:
             fail("INV-05", f"sitemap URL'i 200 donmuyor: {u} -> {st}")
             continue
-        p = u.replace(B, "") or "/"
+        p = re.sub(r"^https?://[^/]+", "", u) or "/"
         nodes = ld_nodes(h)
         pages[p] = dict(h=h, hd=hd, nodes=nodes)
 

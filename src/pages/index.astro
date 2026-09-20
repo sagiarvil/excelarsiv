@@ -63,6 +63,18 @@ const homeJsonLd = {
   '@graph': [
     { '@type': 'WebSite', '@id': 'https://excelarsiv.com/#website', name: 'Excel Arşiv', url: 'https://excelarsiv.com/', inLanguage: 'tr-TR' },
     { '@type': 'FAQPage', '@id': 'https://excelarsiv.com/#faq', mainEntity: faqItems.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) },
+    {
+      '@type': 'ItemList',
+      '@id': 'https://excelarsiv.com/#catalog',
+      name: 'Öne Çıkan Hazır Excel Şablonları ve Karar Sistemleri',
+      numberOfItems: popularTemplates.length,
+      itemListElement: popularTemplates.map((item, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: item.name,
+        url: `https://excelarsiv.com${item.url}`,
+      })),
+    },
   ],
 };
 ---

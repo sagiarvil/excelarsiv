@@ -96,25 +96,13 @@ const howToLd = JSON.stringify({
       'description': 'Excel şablonunu seçme, Shopier ile 256-bit SSL ödeme, 10 saniyede e-posta teslimatı ve sıfır kurulumla Excel\'de çalıştırma süreci.',
       'url': 'https://excelarsiv.com/nasil-calisir',
       'articleBody': steps.map((s, idx) => `${idx + 1}. ${s.title}: ${s.description}`).join('\n')
-    },
-    {
-      '@type': 'HowTo',
-      'name': 'Excel Arşiv Karar Sistemi Satın Alma ve Kullanım Akışı',
-      'description': '4 adımda güvenli ödeme, 10 saniyede e-posta teslimatı ve sıfır kurulumla Excel karar sistemini çalıştırma rehberi.',
-      'step': steps.map((s, idx) => ({
-        '@type': 'HowToStep',
-        'position': idx + 1,
-        'name': s.title,
-        'text': s.description,
-        'url': `https://excelarsiv.com/nasil-calisir#adim-${s.step}`
-      }))
     }
   ]
 });
 ---
 
 <CommerceLayout
-  title="Nasıl Çalışır? 10 Saniyede Teslimat & Sıfır Kurulum — Excel Arşiv"
+  title="Nasıl Çalışır? 10 Saniyede Teslimat | Excel Arşiv"
   description="Excel şablonunu seçme, Shopier ile 256-bit SSL ödeme, 10 saniyede e-posta teslimatı ve sıfır kurulumla Excel'de çalıştırma süreci."
 >
   <Fragment slot="head">

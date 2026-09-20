@@ -55,6 +55,12 @@ Disallow: /
 User-agent: Bytespider
 Disallow: /
 
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
 User-agent: Meta-ExternalAgent
 Disallow: /
 
