@@ -160,18 +160,18 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     display: flex;
     flex-direction: column;
     background: #ffffff;
-    border: 1px solid #d6dce4;
-    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
     overflow: hidden;
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: #222222;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    color: #1e293b;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.02);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
   }
 
   .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.09);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
     border-color: #cbd5e1;
   }
 
@@ -320,17 +320,17 @@ const shotOdak = catalogShotOdak(screenshotUrl);
 
   .card__tab {
     position: absolute;
-    top: 6px;
-    left: 6px;
+    top: 8px;
+    left: 8px;
     z-index: 2;
-    background: rgba(30, 41, 59, 0.88);
+    background: rgba(15, 23, 42, 0.82);
     color: #ffffff;
     font-family: ui-sans-serif, system-ui, sans-serif;
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    padding: 2px 7px;
+    padding: 3px 8px;
     border-radius: 4px;
     backdrop-filter: blur(4px);
   }
@@ -338,18 +338,18 @@ const shotOdak = catalogShotOdak(screenshotUrl);
   .card__body {
     display: flex;
     flex-direction: column;
-    padding: 12px 14px 14px;
+    padding: 14px 16px 16px;
     flex: 1;
     text-align: center;
   }
 
   .card__title {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 15px;
+    font-size: 15.5px;
     line-height: 1.35;
-    font-weight: 600;
+    font-weight: 700;
     margin: 2px 0 6px;
-    min-height: 40px;
+    min-height: 42px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -358,21 +358,21 @@ const shotOdak = catalogShotOdak(screenshotUrl);
   }
 
   .card__title a {
-    color: #4a97c2;
+    color: #1e293b;
     text-decoration: none;
     transition: color 0.15s ease;
   }
 
   .card__title a:hover {
-    color: #1e293b;
+    color: #107c41;
   }
 
   .card__rating {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1px;
-    color: #ffc833;
+    gap: 2px;
+    color: #f59e0b;
     font-size: 13px;
     line-height: 1;
     margin-bottom: 6px;
@@ -390,11 +390,11 @@ const shotOdak = catalogShotOdak(screenshotUrl);
   }
 
   .card__benefit {
-    font-size: 12px;
-    line-height: 1.45;
-    color: #888888;
+    font-size: 12.5px;
+    line-height: 1.48;
+    color: #64748b;
     margin: 0 0 10px;
-    min-height: 35px;
+    min-height: 37px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -407,26 +407,26 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: 5px;
     list-style: none;
-    margin: 0 0 10px;
+    margin: 0 0 12px;
     padding: 0;
   }
 
   .card__meta li {
-    font-size: 10.5px;
+    font-size: 11px;
     font-weight: 600;
-    color: #475569;
+    color: #334155;
     background: #f1f5f9;
     border: 1px solid #e2e8f0;
     border-radius: 4px;
-    padding: 2px 7px;
+    padding: 2.5px 8px;
   }
 
   .card__divider {
     height: 1px;
     background: #f1f5f9;
-    margin: 0 0 10px;
+    margin: 0 0 12px;
   }
 
   .card__footer {
@@ -437,16 +437,16 @@ const shotOdak = catalogShotOdak(screenshotUrl);
   .card__actions--full {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 6px;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 8px;
   }
 
   .card__cta {
-    font-size: 12px;
+    font-size: 12.5px;
     font-weight: 600;
     text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: 6px;
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
@@ -457,28 +457,28 @@ const shotOdak = catalogShotOdak(screenshotUrl);
 
   .card__cta--ghost {
     background: #f8fafc;
-    border: 1px solid #d6dce4;
-    color: #4a97c2;
+    border: 1px solid #d1d5db;
+    color: #374151;
   }
 
   .card__cta--ghost:hover {
     background: #ffffff;
-    border-color: #4a97c2;
-    color: #34617b;
+    border-color: #9ca3af;
+    color: #111827;
   }
 
   .card__cta--wa {
-    background: #25D366 !important;
-    border: 1px solid #22bf5b !important;
+    background: #107c41 !important;
+    border: 1px solid #0d7040 !important;
     color: #ffffff !important;
     font-weight: 700;
-    box-shadow: 0 2px 5px rgba(37, 211, 102, 0.2);
+    box-shadow: 0 2px 6px rgba(16, 124, 65, 0.22);
   }
 
   .card__cta--wa:hover {
-    background: #1da851 !important;
+    background: #0b6333 !important;
     transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 4px 10px rgba(16, 124, 65, 0.32);
   }
 
   .card__screenshot--kapak {
