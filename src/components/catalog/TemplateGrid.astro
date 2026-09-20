@@ -1,5 +1,6 @@
 ---
 import KatalogUrunKarti from './KatalogUrunKarti.astro';
+import { categories } from '../../lib/categories';
 import type { TemplateViewModel } from '../../lib/templates';
 
 interface Props {
@@ -7,170 +8,272 @@ interface Props {
 }
 
 const { templates } = Astro.props;
-const mobileCategories = Array.from(
-  new Map(templates.map((template) => [template.categorySlug, template.categoryName])).entries(),
-);
 ---
 
 <div class="template-grid-wrap" data-template-grid-wrap>
-  <div class="mobile-catalog-dock" data-mobile-catalog-dock aria-label="Ürün kategorileri">
-    <div class="mobile-catalog-dock__top">
-      <div>
-        <span>ŞABLONLARI KEŞFET</span>
-        <strong>İhtiyacınıza göre daraltın</strong>
-      </div>
-      <span class="mobile-catalog-dock__count" data-mobile-visible-count>{templates.length} ürün</span>
-    </div>
-    <div class="mobile-catalog-dock__rail" role="group" aria-label="Kategori filtresi">
-      <button type="button" class="is-active" data-mobile-category="all">Tümü</button>
-      {mobileCategories.map(([slug, name]) => <button type="button" data-mobile-category={slug}>{name}</button>)}
+  <!-- KATEGORİ FİLTRELEME SEKMELERİ (Someka Tabbed Filter Bar) -->
+  <div class="catalog-category-filter-bar" aria-label="Şablon Kategorileri">
+    <div class="soho-tabs-nav" role="tablist">
+      <button type="button" class="soho-tab-btn is-active" data-cat-filter="all">
+        Tüm Şablonlar <span class="tab-count">({templates.length})</span>
+      </button>
+      {categories.map((cat) => {
+        const count = templates.filter((t) => t.categorySlug === cat.slug).length;
+        return (
+          <button type="button" class="soho-tab-btn" data-cat-filter={cat.slug}>
+            {cat.name} <span class="tab-count">({count})</span>
+          </button>
+        );
+      })}
     </div>
   </div>
 
-  <ul class="template-grid" data-template-grid>
-    {
-      templates.map((template, index) => (
-        <li
-          data-template-item
-          data-priority={index === 0 ? 'true' : undefined}
-          data-mobile-category={template.categorySlug}
-          data-mobile-name={`${template.name} ${template.summary} ${template.categoryName}`.toLocaleLowerCase('tr-TR')}
-        >
-          <KatalogUrunKarti template={template} priority={index === 0} />
-        </li>
-      ))
-    }
-  </ul>
+  <!-- ÜRÜN IZGARASI (Ana Sayfa ile %100 Birebir Aynı Someka 4 Sütunlu Grid) -->
+  <div class="soho-product-grid" data-template-grid>
+    {templates.map((template, index) => (
+      <div
+        class="soho-card-col"
+        data-template-item
+        data-category={template.categorySlug}
+        data-name={`${template.name} ${template.summary} ${template.categoryName}`.toLocaleLowerCase('tr-TR')}
+      >
+        <KatalogUrunKarti template={template} priority={index < 4} />
+      </div>
+    ))}
+  </div>
+
+  <!-- BOŞ DURUM (Sonuç Bulunamadı) -->
+  <div class="catalog-empty-state" data-catalog-empty style="display: none;">
+    <span class="empty-icon" aria-hidden="true">🔍</span>
+    <h3 class="empty-title">Aradığınız kriterlere uygun şablon bulunamadı</h3>
+    <p class="empty-desc">Farklı bir kelime aramayı deneyebilir veya kategori filtresini sıfırlayabilirsiniz.</p>
+    <button type="button" class="btn-clear-filter" data-btn-reset-filter>Tüm Şablonları Göster</button>
+  </div>
 </div>
 
 <script>
-  import { mountCatalogFilter } from '../../scripts/catalog-filter';
-  mountCatalogFilter();
+  function initCatalogFilter() {
+    const gridWrap = document.querySelector('[data-template-grid-wrap]');
+    if (!gridWrap) return;
 
-  const gridWrap = document.querySelector<HTMLElement>('[data-template-grid-wrap]');
-  const mobileDock = gridWrap?.querySelector<HTMLElement>('[data-mobile-catalog-dock]');
-  const items = gridWrap ? [...gridWrap.querySelectorAll<HTMLElement>('[data-template-item]')] : [];
-  const buttons = mobileDock ? [...mobileDock.querySelectorAll<HTMLButtonElement>('[data-mobile-category]')] : [];
-  const count = mobileDock?.querySelector<HTMLElement>('[data-mobile-visible-count]');
-  const search = document.querySelector<HTMLInputElement>('#catalog-search-input');
-  let activeCategory = 'all';
+    const items = Array.from(gridWrap.querySelectorAll<HTMLElement>('[data-template-item]'));
+    const buttons = Array.from(gridWrap.querySelectorAll<HTMLButtonElement>('[data-cat-filter]'));
+    const searchInput = document.querySelector<HTMLInputElement>('#catalog-search-input') ||
+                        document.querySelector<HTMLInputElement>('[data-catalog-search]');
+    const emptyState = gridWrap.querySelector<HTMLElement>('[data-catalog-empty]');
+    const resetBtn = gridWrap.querySelector<HTMLButtonElement>('[data-btn-reset-filter]');
 
-  import { searchEngine, type SearchItem } from '../../lib/search-engine';
+    let activeCategory = 'all';
 
-  const mobileSearchItems: SearchItem[] = items.map((item) => ({
-    name: item.dataset.mobileName ?? '',
-    summary: '',
-    category: item.dataset.mobileCategory ?? '',
-    url: '',
-  }));
+    function applyFilters() {
+      const rawQuery = (searchInput?.value ?? '').trim().toLocaleLowerCase('tr-TR');
+      let visibleCount = 0;
 
-  const applyMobileFilter = () => {
-    if (!gridWrap || window.matchMedia('(min-width: 681px)').matches) return;
-    const rawQuery = (search?.value ?? '').trim();
-    let visible = 0;
+      items.forEach((item) => {
+        const itemCat = item.getAttribute('data-category') ?? '';
+        const itemName = item.getAttribute('data-name') ?? '';
 
-    let matchedIndices = new Set<number>();
-    if (rawQuery.length > 0) {
-      const response = searchEngine(mobileSearchItems, rawQuery, { limit: 100, enableFuzzy: true });
-      response.results.forEach((resItem) => {
-        const idx = mobileSearchItems.indexOf(resItem);
-        if (idx >= 0) matchedIndices.add(idx);
+        const matchesCat = activeCategory === 'all' || itemCat === activeCategory;
+        const matchesSearch = rawQuery.length === 0 || itemName.includes(rawQuery);
+
+        if (matchesCat && matchesSearch) {
+          item.style.display = '';
+          item.removeAttribute('hidden');
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+          item.setAttribute('hidden', 'true');
+        }
+      });
+
+      if (emptyState) {
+        emptyState.style.display = visibleCount === 0 ? 'flex' : 'none';
+      }
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activeCategory = btn.getAttribute('data-cat-filter') ?? 'all';
+        buttons.forEach((b) => b.classList.toggle('is-active', b === btn));
+        applyFilters();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', applyFilters);
+    }
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        activeCategory = 'all';
+        buttons.forEach((b) => b.classList.toggle('is-active', b.getAttribute('data-cat-filter') === 'all'));
+        if (searchInput) searchInput.value = '';
+        applyFilters();
       });
     }
 
-    items.forEach((item, index) => {
-      const categoryMatch = activeCategory === 'all' || item.dataset.mobileCategory === activeCategory;
-      const textMatch = rawQuery.length === 0 || matchedIndices.has(index);
-      const show = categoryMatch && textMatch;
-      item.hidden = !show;
-      if (show) visible += 1;
-    });
-    if (count) count.textContent = `${visible} ürün`;
-  };
+    // URL parametre kontrolü: ?kategori=slug
+    const urlParams = new URLSearchParams(window.location.search);
+    const catParam = urlParams.get('kategori');
+    const qParam = urlParams.get('q');
 
-  buttons.forEach((button) => button.addEventListener('click', () => {
-    activeCategory = button.dataset.mobileCategory ?? 'all';
-    buttons.forEach((item) => item.classList.toggle('is-active', item === button));
-    applyMobileFilter();
-  }));
-
-  search?.addEventListener('input', applyMobileFilter);
-
-  const requestedQuery = new URLSearchParams(window.location.search).get('q');
-  if (requestedQuery && search) {
-    search.value = requestedQuery;
-    search.dispatchEvent(new Event('input', { bubbles: true }));
-    document.querySelector('#katalog')?.scrollIntoView({ block: 'start' });
+    if (catParam) {
+      const matchingBtn = buttons.find((b) => b.getAttribute('data-cat-filter') === catParam);
+      if (matchingBtn) {
+        matchingBtn.click();
+      }
+    } else if (qParam && searchInput) {
+      searchInput.value = qParam;
+      applyFilters();
+    }
   }
+
+  // DOM hazır olduğunda veya Astro sayfa geçişlerinde çalıştır
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCatalogFilter);
+  } else {
+    initCatalogFilter();
+  }
+  document.addEventListener('astro:page-load', initCatalogFilter);
 </script>
 
 <style>
-  .template-grid-wrap { min-width: 0; max-width: 1150px; margin-inline: auto; }
-  .mobile-catalog-dock { display:none; }
-  .template-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; margin:0; padding:0; list-style:none; }
-  .template-grid > *, .template-grid li { min-width:0; }
-  .template-grid > li { display:flex; align-items:stretch; }
-  .template-grid > li > :global(.card) { width:100%; height:100%; }
-  .template-grid li:not([data-priority='true']) { content-visibility:auto; contain-intrinsic-size:560px; }
-  .template-grid li[hidden] { display:none; }
-
-  @media (max-width:1200px) { .template-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; } }
-  @media (max-width:860px) { .template-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; } }
-
-  @media (max-width:680px) {
-    .template-grid-wrap { margin-inline:0; }
-    .mobile-catalog-dock { position:sticky; top:64px; z-index:24; display:block; margin:0 0 16px; padding:12px 14px 10px; border-block:1px solid #e2e8e4; background:rgba(255,255,255,.96); backdrop-filter:blur(16px); box-shadow:0 8px 22px rgba(20,54,35,.06); border-radius:10px; }
-    .mobile-catalog-dock__top { display:flex; align-items:flex-end; justify-content:space-between; gap:12px; }
-    .mobile-catalog-dock__top>div { display:grid; gap:3px; min-width:0; }
-    .mobile-catalog-dock__top span:first-child { font:850 9px/1 var(--font-mono); letter-spacing:.12em; color:#107c41; }
-    .mobile-catalog-dock__top strong { font:800 16px/1.15 var(--font-body); color:#17251c; }
-    .mobile-catalog-dock__count { flex:0 0 auto; padding:6px 8px; border:1px solid #dae3dd; border-radius:999px; background:#f7faf8; font:800 9px/1 var(--font-mono); color:#4f6056; }
-    .mobile-catalog-dock__rail { display:flex; gap:7px; margin:10px -14px 0; padding:0 14px 2px; overflow-x:auto; scrollbar-width:none; scroll-snap-type:x proximity; }
-    .mobile-catalog-dock__rail::-webkit-scrollbar { display:none; }
-    .mobile-catalog-dock__rail button { flex:0 0 auto; min-height:34px; padding:0 12px; border:1px solid #dce4df; border-radius:999px; background:#fff; color:#536158; font:750 10px/1 var(--font-body); scroll-snap-align:start; }
-    .mobile-catalog-dock__rail button.is-active { border-color:#107c41; background:#107c41; color:#fff; box-shadow:0 6px 14px rgba(16,124,65,.16); }
-    .template-grid { grid-template-columns:1fr; gap:14px; padding:0; }
-    .template-grid li:not([data-priority='true']) { contain-intrinsic-size:380px; }
+  .template-grid-wrap {
+    width: 100%;
+    margin-inline: auto;
   }
 
-  :global(.empty-state) { display:flex; flex-direction:column; align-items:center; gap:8px; padding:56px 24px; border:1px dashed var(--xl-border); border-radius:16px; background:#fff; text-align:center; }
-  :global(.empty-state[hidden]) { display:none; }
-  :global(.empty-state__icon) { font-family:var(--font-mono); font-size:28px; color:var(--xl-ink-3); }
-  :global(.empty-state__title) { margin:0; font-family:var(--font-body); font-size:18px; font-weight:700; color:var(--xl-ink-900); }
-  :global(.empty-state__text) { max-width:420px; margin:0; font-size:14px; line-height:1.6; color:var(--xl-ink-3); }
-</style>
+  /* KATEGORİ FİLTRELEME SEKMELERİ */
+  .catalog-category-filter-bar {
+    margin-bottom: 28px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .soho-tabs-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .soho-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  .soho-tab-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+  }
+  .soho-tab-btn.is-active {
+    background: #107c41 !important;
+    border-color: #107c41 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(16, 124, 65, 0.25);
+  }
+  .tab-count {
+    font-size: 11px;
+    opacity: 0.85;
+    font-weight: 500;
+  }
 
-<style is:global>
-  @media (max-width:680px) {
-    .catalog-intro { background:linear-gradient(180deg,#f7faf8 0%,#fff 100%)!important; }
-    .catalog-intro__inner { padding-block:18px 20px!important; }
-    .catalog-intro__top { display:block!important; }
-    .catalog-intro__copy>span { font-size:9px!important; letter-spacing:.12em!important; }
-    .catalog-intro h1 { margin-top:8px!important; font-size:36px!important; line-height:.98!important; letter-spacing:-.05em!important; }
-    .catalog-intro__copy p { margin-top:10px!important; font-size:13px!important; line-height:1.5!important; }
-    .catalog-intro__proof { display:none!important; }
-    .catalog-intro__search { margin-top:18px!important; }
-    .catalog-intro__search .catalog-search__topline { display:none!important; }
-    .catalog-intro__search .catalog-search__control { grid-template-columns:22px minmax(0,1fr) auto!important; min-height:58px!important; padding:8px 10px 8px 13px!important; border-radius:16px!important; box-shadow:0 10px 28px rgba(20,54,35,.09)!important; }
-    .catalog-intro__search .catalog-search__field label { display:none!important; }
-    .catalog-intro__search .catalog-search__input { height:36px!important; font-size:15px!important; }
-    .catalog-intro__search .catalog-search__send { display:none!important; }
-    .catalog-flow { padding:14px 0 18px!important; }
-    .catalog-flow__surface { padding:16px!important; border-radius:18px!important; }
-    .catalog-flow__head { display:block!important; margin-bottom:14px!important; }
-    .catalog-flow__head h2 { font-size:22px!important; line-height:1.04!important; }
-    .catalog-flow__head>span { display:none!important; }
-    .catalog-flow__track { display:grid!important; grid-template-columns:1fr!important; gap:7px!important; }
-    .catalog-flow__stage { grid-template-columns:40px 1fr!important; gap:9px!important; align-items:center!important; }
-    .catalog-flow__icon { width:40px!important; height:40px!important; margin:0!important; }
-    .catalog-flow__card { min-height:auto!important; padding:10px!important; }
-    .catalog-flow__card span { display:none!important; }
-    .catalog-flow__arrow { display:none!important; }
-    .catalog-flow__footer { display:none!important; }
-    .catalog-section { padding-top:12px!important; }
-    .catalog-section>.site-container { width:calc(100% - 28px)!important; }
-    .catalog-help { grid-template-columns:1fr!important; gap:8px!important; margin-top:22px!important; border:0!important; background:transparent!important; }
-    .catalog-help__item { border:1px solid #e1e6e2; border-radius:13px; padding:12px!important; }
-    .catalog-help__item p { margin-top:3px!important; }
+  /* SOMEKA 4 SÜTUNLU KART IZGARASI */
+  .soho-product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 36px;
+    list-style: none;
+    padding: 0;
+  }
+  .soho-card-col {
+    display: flex;
+    min-width: 0;
+  }
+
+  @media (max-width: 1200px) {
+    .soho-product-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+  }
+  @media (max-width: 860px) {
+    .soho-product-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+  }
+  @media (max-width: 580px) {
+    .soho-product-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .soho-tabs-nav {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .soho-tabs-nav::-webkit-scrollbar {
+      display: none;
+    }
+    .soho-tab-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+  }
+
+  /* BOŞ DURUM */
+  .catalog-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+    margin-bottom: 40px;
+  }
+  .empty-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+  .empty-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 8px;
+  }
+  .empty-desc {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0 0 20px;
+    max-width: 440px;
+  }
+  .btn-clear-filter {
+    padding: 9px 18px;
+    background: #107c41;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .btn-clear-filter:hover {
+    background: #0b6333;
   }
 </style>
