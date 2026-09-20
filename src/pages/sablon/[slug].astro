@@ -2,26 +2,19 @@
 import CommerceLayout from '../../layouts/CommerceLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import SpecTable from '../../components/SpecTable.astro';
-import PreviewGallery from '../../components/PreviewGallery.astro';
-import SheetMapTable from '../../components/SheetMapTable.astro';
-import EligibilityList from '../../components/EligibilityList.astro';
-import FaqAccordion from '../../components/FaqAccordion.astro';
 import KatalogUrunKarti from '../../components/catalog/KatalogUrunKarti.astro';
 import CellGrid from '../../components/CellGrid.astro';
 import { toTemplateViewModel } from '../../lib/templates';
 import { kapakYolu } from '../../lib/kapak';
 import PurchaseBar from '../../components/PurchaseBar.astro';
-import Notice from '../../components/Notice.astro';
-import ProductHeroPremium from '../../components/product/ProductHeroPremium.astro';
-import CheckoutPanel from '../../components/CheckoutPanel.astro';
-import DemoDownloadBox from '../../components/DemoDownloadBox.astro';
 import YazarKutusu from '../../components/YazarKutusu.astro';
 import { getCommerceProduct } from '../../lib/shopier';
 import { yazarPersonId } from '../../data/yazar';
 import { IADE_POLITIKASI } from '../../data/satici';
-import { getProductAnswerSeo } from '../../data/productAnswerSeo';
-import { getProductDecisionAnatomy } from '../../data/productDecisionAnatomy';
+import { getProductFullDescription } from '../../data/productDescriptions';
+import ProductGallerySlider from '../../components/product/ProductGallerySlider.astro';
+import ProductPurchaseCard from '../../components/product/ProductPurchaseCard.astro';
+import ProductTabsSomeka from '../../components/product/ProductTabsSomeka.astro';
 
 export async function getStaticPaths() {
   const templates = await getCollection('templates');
@@ -38,7 +31,6 @@ interface Props {
 const { template } = Astro.props;
 const t = template.data;
 const commerceProduct = getCommerceProduct(template.id);
-const answerSeo = getProductAnswerSeo(template.id);
 const kapak = kapakYolu(template.id);
 const kapakUrl = kapak ? new URL(kapak, Astro.site).href : undefined;
 
@@ -66,30 +58,20 @@ const priceValidUntil = t.updatedAt
   ? new Date(new Date(`${t.updatedAt}T00:00:00.000Z`).setUTCFullYear(new Date(`${t.updatedAt}T00:00:00.000Z`).getUTCFullYear() + 1)).toISOString()
   : new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString();
 const returnPolicyUrl = new URL('/teslimat-ve-iade', Astro.site).href;
-const coreCommercial: Record<string, { problem: string; result: string }> = {
-  'aylik-patron-finans-paneli': {
-    problem: 'Ciro, kâr, nakit ve alacak verileri farklı yerlerde kaldığında patron şirketin gerçekten güçlenip güçlenmediğini tek bakışta göremez.',
-    result: 'Aylık temel finans göstergelerini tek yönetim ekranında toplayıp yönü, nakit baskısını ve kârlılık değişimini görün.',
-  },
-  '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi': {
-    problem: 'Ödemeler yaklaşırken kasa açığını son anda görmek, kredi ve tedarikçi kararlarını pahalı hale getirir.',
-    result: '13 haftalık tahsilat ve ödeme takviminde nakit açığını önceden görün; hangi haftada aksiyon gerektiğini planlayın.',
-  },
-  'banka-kredi-ve-taksit-takip-sistemi': {
-    problem: 'Birden fazla banka, kredi ve taksit ayrı tablolarda izlendiğinde toplam borç yükü ve yaklaşan ödeme baskısı görünmez.',
-    result: 'Kredileri, kalan borcu ve taksit takvimini tek dosyada toplayıp yaklaşan ödeme yükünü kontrol edin.',
-  },
-  'amortisman-2026-yeniden-degerleme': {
-    problem: 'Amortisman ve yeniden değerleme hesabını dağınık yapmak vergi etkisini ve seçenekler arasındaki farkı görmeyi zorlaştırır.',
-    result: '2026 amortisman ve yeniden değerleme hesabını aynı çalışma sisteminde karşılaştırıp karar için gerekli vergi etkisini görün.',
-  },
-  'insaat-hakedis-yonetim-sistemi': {
-    problem: 'Hakediş, kesinti ve şantiye maliyeti farklı dosyalarda kaldığında tahsilat ve proje kârlılığı gecikmeli görülür.',
-    result: 'Hakediş ve şantiye maliyet akışını tek Excel sisteminde izleyip gecikme, kesinti ve maliyet farklarını görün.',
-  },
-};
-const coreOffer = coreCommercial[template.id];
-const decision = getProductDecisionAnatomy(template.id, t.summary, t.priceTL, t.inputs, t.outputs);
+
+// 51 Ürün İçin Zenginleştirilmiş Psikolojisi Güçlü Ürün Açıklaması
+const descriptionData = getProductFullDescription({
+  id: template.id,
+  name: t.name,
+  summary: t.summary,
+  category: t.category,
+  priceTL: t.priceTL,
+  sheetMap: t.sheetMap,
+  inputs: t.inputs,
+  outputs: t.outputs,
+  suitableFor: t.suitableFor,
+  notSuitableFor: t.notSuitableFor,
+});
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -161,262 +143,97 @@ const jsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </Fragment>
 
-  <main class="product-page">
-    <Breadcrumbs
-      crumbs={[
-        { label: 'Şablonlar', href: '/sablonlar' },
-        { label: categoryLabel, href: `/sablonlar/${t.category}` },
-        { label: t.name },
-      ]}
-    />
+  <main class="product-page-container">
+    <!-- Ekmek Kırıntısı (Breadcrumbs) -->
+    <div class="product-breadcrumb-wrap">
+      <Breadcrumbs
+        crumbs={[
+          { label: 'Şablonlar', href: '/sablonlar' },
+          { label: categoryLabel, href: `/sablonlar/${t.category}` },
+          { label: t.name },
+        ]}
+      />
+    </div>
 
-    <ProductHeroPremium
-      productSlug={template.id}
+    <!-- Üst Başlık Alanı (Someka Stili) -->
+    <header class="product-header">
+      <div class="product-category-tag">{categoryLabel}</div>
+      <h1 class="product-main-heading">{t.name}</h1>
+      <p class="product-subtitle-lead">{descriptionData.subTitle}</p>
+    </header>
+
+    <!-- 2 Kolonlu Hero Alanı (Someka Modeli: Sol Galeri, Sağ Satın Alma) -->
+    <section class="product-hero-cockpit" aria-label="Ürün Önizleme ve Satın Alma">
+      <!-- Sol Kolon: Geniş Görsel Slider & Thumbnails -->
+      <div class="hero-col-gallery">
+        <ProductGallerySlider
+          name={t.name}
+          kapakUrl={kapakUrl}
+          screenshots={t.screenshots}
+        />
+      </div>
+
+      <!-- Sağ Kolon: Demo İndir ve Satın Alma Kartı -->
+      <aside class="hero-col-purchase">
+        <ProductPurchaseCard
+          productSlug={template.id}
+          name={t.name}
+          priceTL={t.priceTL}
+          sheetCount={t.sheetCount}
+          minExcelVersion={t.minExcelVersion}
+          macCompatible={t.macCompatible}
+          hasMacros={t.hasMacros}
+        />
+      </aside>
+    </section>
+
+    <!-- Sekmeli Zengin İçerik Alanı (Someka Tabs) -->
+    <ProductTabsSomeka
       name={t.name}
-      summary={t.summary}
-      categoryLabel={categoryLabel}
-      priceTL={t.priceTL}
-      screenshots={t.screenshots}
-      kapakUrl={kapakUrl}
+      descriptionData={descriptionData}
+      sheetMap={t.sheetMap}
+      inputs={t.inputs}
       outputs={t.outputs}
-      sheetCount={t.sheetCount}
-      minExcelVersion={t.minExcelVersion}
-      macCompatible={t.macCompatible}
-      deferCommerce={false}
+      suitableFor={t.suitableFor}
+      notSuitableFor={t.notSuitableFor}
+      faq={t.faq}
+      spec={{
+        fileFormat: t.fileFormat,
+        version: t.version,
+        updatedAt: t.updatedAt,
+        sheetCount: t.sheetCount,
+        sizeMB: t.sizeMB,
+        hasMacros: t.hasMacros,
+        minExcelVersion: t.minExcelVersion,
+        macCompatible: t.macCompatible,
+        sheetsCompatibility: t.sheetsCompatibility,
+      }}
+      requirements={t.requirements}
+      updatePolicy={t.updatePolicy}
     />
 
-    <!-- MANDATE: 7 Zorunlu Soru & Satış Anatomisi (Problem, Acının Fiyatı, Karar Örneği) -->
-    <section class="mandate-decision-suite" aria-label="Karar Sistemi Satış Anatomisi">
-      <div class="mandate-pain-grid">
-        <article class="mandate-pain-card mandate-pain-card--problem">
-          <p class="section-kicker">1 · ÇÖZÜLEN PAHALI PROBLEM</p>
-          <h2>{decision.problem}</h2>
-          <div class="mandate-pain-price">
-            <strong>Acının Somut Maliyeti:</strong>
-            <p>{decision.painPrice}</p>
-          </div>
-        </article>
-
-        <article class="mandate-pain-card mandate-pain-card--decision">
-          <p class="section-kicker">5 · ALDIRDIĞI SOMUT KARAR</p>
-          <h2>{decision.decisionAction}</h2>
-          <div class="mandate-concrete-example">
-            <strong>Gerçek Karar Örneği:</strong>
-            <p>“{decision.concreteDecisionExample}”</p>
-          </div>
-        </article>
-      </div>
-
-      <!-- 7 Soruya Net Cevap Matrisi -->
-      <div class="mandate-seven-questions">
-        <div class="section-head section-head--compact">
-          <div>
-            <p class="section-kicker">ŞEFFAF KARAR ANATOMİSİ</p>
-            <h2>Satın Almadan Önce 7 Kritik Sorunun Cevabı</h2>
-          </div>
-          <p>Excel Arşiv ürünleri sıradan şablon veya rapor değil; doğrudan aksiyon aldıran karar sistemleridir.</p>
-        </div>
-
-        <div class="seven-q-grid">
-          <div class="q-item">
-            <span class="q-num">02</span>
-            <strong>Kim İçin Tasarlandı?</strong>
-            <p>{decision.whoIsItFor}</p>
-          </div>
-          <div class="q-item">
-            <span class="q-num">03</span>
-            <strong>Hangi Verileri Giriyorum?</strong>
-            <p>{decision.inputs.join(' · ')}</p>
-          </div>
-          <div class="q-item">
-            <span class="q-num">04</span>
-            <strong>Sistem Ne Hesaplıyor?</strong>
-            <p>{decision.systemComputes}</p>
-          </div>
-          <div class="q-item">
-            <span class="q-num">06</span>
-            <strong>Hatalı/Eksik Veride Ne Oluyor?</strong>
-            <p>{decision.wrongDataEffect}</p>
-          </div>
-          <div class="q-item q-item--highlight">
-            <span class="q-num">07</span>
-            <strong>Neden Teklif Almalıyım?</strong>
-            <p>{decision.whyPayPrice}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {answerSeo && (
-      <section class="product-answer hero-answer-engine" aria-labelledby="product-answer-title">
-        <div class="product-answer__main hero-answer-engine__main">
-          <p class="section-kicker">KISA CEVAP</p>
-          <h2 id="product-answer-title">{answerSeo.answerQuestion}</h2>
-          <p class="hero-answer-engine__summary">{answerSeo.answerSummary}</p>
-        </div>
-        <dl class="product-answer__facts">
-          <div><dt>Temel girdiler</dt><dd>{t.inputs.slice(0, 3).join(' · ')}</dd></div>
-          <div><dt>Temel çıktılar</dt><dd>{t.outputs.slice(0, 3).join(' · ')}</dd></div>
-          <div><dt>Uyumluluk</dt><dd>{t.minExcelVersion}+ · {t.macCompatible ? 'Windows ve Mac' : 'Windows'}</dd></div>
-        </dl>
-      </section>
-    )}
-
-    <section id="onizleme" class="product-section product-section--preview">
-      <div class="section-head">
-        <div>
-          <p class="section-kicker">GERÇEK ÜRÜN EKRANLARI</p>
-          <h2>Satın alacağınız dosyayı görün.</h2>
-        </div>
-        <p>Temsilî görsel değil; ürünün gerçek çalışma ekranları. Görselleri büyüterek yapıyı satın almadan önce inceleyebilirsiniz.</p>
-      </div>
-      <PreviewGallery images={t.screenshots} />
-    </section>
-
-    {coreOffer && (
-      <section class="core-conversion" aria-labelledby="core-conversion-title">
-        <div class="section-head">
-          <div><p class="section-kicker">DEMO → GÜVEN → TEKLİF AL</p><h2 id="core-conversion-title">Dosyayı önce inceleyin; ihtiyacınıza göre teklif alın.</h2></div>
-          <p>Gerçek ekranları gördünüz. Şimdi ücretsiz demoyu deneyebilir veya WhatsApp üzerinden uzmanımızdan şirketiniz için teklif isteyebilirsiniz.</p>
-        </div>
-        <div class="core-conversion__actions">
-          <DemoDownloadBox productSlug={template.id} name={t.name} />
-          <CheckoutPanel productSlug={template.id} name={t.name} priceTL={t.priceTL} />
-        </div>
-        <div class="core-conversion__trust">
-          <span>✓ Gerçek ürün ekranları</span><span>✓ Ücretsiz demo</span><span>✓ WhatsApp danışmanlık</span><span>✓ Şirketinize özel uyarlama</span>
-        </div>
-      </section>
-    )}
-
-    <section class="product-section product-section--flow">
-      <div class="section-head section-head--light">
-        <div>
-          <p class="section-kicker">NASIL ÇALIŞIR?</p>
-          <h2>Veriyi girin. Karar çıktısını alın.</h2>
-        </div>
-        <p>Karmaşık özellik listesi yerine sistemin sizden ne istediğini ve size ne verdiğini doğrudan görün.</p>
-      </div>
-
-      <div class="io-grid">
-        <div class="io-card">
-          <span>1 · GİRDİ</span>
-          <h3>Siz girersiniz</h3>
-          <ul>{t.inputs.map((item) => <li><b>→</b>{item}</li>)}</ul>
-        </div>
-        <div class="io-card io-card--output">
-          <span>2 · ÇIKTI</span>
-          <h3>Sistem üretir</h3>
-          <ul>{t.outputs.map((item) => <li><b>✓</b>{item}</li>)}</ul>
-        </div>
-      </div>
-
-      <details class="product-details">
-        <summary>Dosyanın içinde hangi sayfalar var? <span>+</span></summary>
-        <div class="product-details__body"><SheetMapTable sheets={t.sheetMap} /></div>
-      </details>
-    </section>
-
-    <section class="product-section">
-      <div class="section-head">
-        <div>
-          <p class="section-kicker">KİMLER İÇİN?</p>
-          <h2>Doğru ürünü seçtiğinizden emin olun.</h2>
-        </div>
-        <p>Yanlış satın almayı azaltmak için uygun ve uygun olmayan kullanım senaryolarını birlikte gösteriyoruz.</p>
-      </div>
-      <div class="eligibility-grid">
-        <EligibilityList title="Bu ürün size uygunsa" items={t.suitableFor} />
-        <EligibilityList title="Bu ürün size uygun değilse" items={t.notSuitableFor} negative />
-      </div>
-    </section>
-
-    <section class="product-section product-section--quiet">
-      <div class="section-head">
-        <div>
-          <p class="section-kicker">TEKNİK BİLGİLER</p>
-          <h2>Satın almadan önce bilmeniz gerekenler.</h2>
-        </div>
-        <p>Excel sürümü, platform, dosya tipi ve güncelleme koşulları burada. Karar için gerekli olmayan teknik detayları üst bölümde kalabalıklaştırmıyoruz.</p>
-      </div>
-
-      <details class="product-details" open>
-        <summary>Uyumluluk ve dosya bilgileri <span>+</span></summary>
-        <div class="product-details__body technical-grid">
-          <SpecTable
-            fileFormat={t.fileFormat}
-            version={t.version}
-            updatedAt={t.updatedAt}
-            sheetCount={t.sheetCount}
-            sizeMB={t.sizeMB}
-            hasMacros={t.hasMacros}
-            minExcelVersion={t.minExcelVersion}
-            macCompatible={t.macCompatible}
-            sheetsCompatibility={t.sheetsCompatibility}
-          />
-          <div class="requirements-card">
-            <p class="requirements-card__title">ÇALIŞTIRMA GEREKSİNİMLERİ</p>
-            <ul>{t.requirements.map((item) => <li><span>✓</span>{item}</li>)}</ul>
-            <div class="requirements-card__policy">
-              <small>GÜNCELLEME POLİTİKASI</small>
-              <p>{t.updatePolicy}</p>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      {
-        t.hasMacros && (
-          <div class="macro-notice">
-            <Notice type="warning">
-              Bu dosya makro içerir. İlk açılışta Excel güvenlik uyarısı verir; içeriğe güveniyorsanız "Makroları Etkinleştir" ile açabilirsiniz.
-            </Notice>
-          </div>
-        )
-      }
-    </section>
-
-    <section id="sss" class="product-section">
-      <div class="section-head">
-        <div>
-          <p class="section-kicker">SIK SORULAN SORULAR</p>
-          <h2>Kalan soruları burada kapatın.</h2>
-        </div>
-      </div>
-      <FaqAccordion items={t.faq} />
-    </section>
-
-    <section class="product-section product-section--author" aria-label="Tasarlayan ve denetleyen">
+    <!-- Tasarlayan ve Denetleyen Yazar Kutusu -->
+    <section class="product-author-section" aria-label="Tasarlayan ve Denetleyen">
       <YazarKutusu varyant="sablon" />
     </section>
 
-    <section class="product-referral" aria-label="Referans ve paylaşım">
-      <div>
-        <p class="section-kicker">REFERANS</p>
-        <h2>Bu sistem başka bir işletmenin işini de kolaylaştırabilir mi?</h2>
-        <p>Ürünü bir işletme sahibine veya mali müşavire iletin. Tavsiyenin kaynağı ürün sayfası olarak kalsın; fiyat ve kapsam herkes için aynı yerden görülsün.</p>
-      </div>
-      <a href={`/referans?urun=${encodeURIComponent(template.id)}`}>Paylaşım seçeneklerini aç →</a>
-    </section>
-
-    {
-      related.length > 0 && (
-        <section class="product-section product-section--related">
-          <div class="section-head">
-            <div>
-              <p class="section-kicker">BU SİSTEMLE BİRLİKTE KULLANILABİLECEK SİSTEMLER</p>
-              <h2>Aynı iş akışını tamamlayan ürünler.</h2>
-            </div>
-            <a href="/sablonlar">Tüm sistemleri görün →</a>
+    <!-- Birlikte Kullanılabilecek İlgili Sistemler -->
+    {related.length > 0 && (
+      <section class="product-related-section" aria-label="Benzer ve Tamamlayıcı Şablonlar">
+        <div class="related-section-header">
+          <div>
+            <span class="related-kicker">BENZER SİSTEMLER</span>
+            <h2>Aynı İş Akışını Tamamlayan Diğer Excel Şablonları</h2>
           </div>
-          <CellGrid>
-            {related.map((item) => (
-              <KatalogUrunKarti template={toTemplateViewModel(item)} />
-            ))}
-          </CellGrid>
-        </section>
-      )
-    }
+          <a href="/sablonlar" class="all-templates-link">Tüm Şablonları Gör →</a>
+        </div>
+        <CellGrid>
+          {related.map((item) => (
+            <KatalogUrunKarti template={toTemplateViewModel(item)} />
+          ))}
+        </CellGrid>
+      </section>
+    )}
   </main>
 
   <PurchaseBar name={t.name} priceTL={t.priceTL} satista={commerceProduct?.satista !== false} />
@@ -424,37 +241,136 @@ const jsonLd = {
 </CommerceLayout>
 
 <style>
-  .product-page{width:min(1180px,calc(100% - 48px));margin-inline:auto;padding:26px 0 104px}.product-section{padding:clamp(54px,6vw,78px) 0;border-top:1px solid #e2e8e4}.section-head{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(280px,.72fr);gap:40px;align-items:end;margin-bottom:24px}.section-kicker{margin:0;font-family:var(--font-mono);font-size:9px;font-weight:800;letter-spacing:.11em;color:#0b7440}.section-head h2{max-width:720px;margin:8px 0 0;font-family:var(--font-display);font-size:clamp(29px,3.1vw,42px);line-height:1.03;letter-spacing:-.035em;color:#16291e}.section-head>p{margin:0;font-size:12px;line-height:1.6;color:#69766e}.section-head>a{justify-self:end;color:#0b7440;font-size:10px;font-weight:700;text-decoration:none}.product-answer{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:28px;margin:26px 0 8px;padding:24px;border:1px solid #dbe6df;border-radius:20px;background:#f7faf8}.product-answer__main h2{margin:7px 0 10px;font-family:var(--font-display);font-size:clamp(25px,2.8vw,36px);line-height:1.08;letter-spacing:-.03em;color:#16291e}.product-answer__main>p:last-child{margin:0;max-width:720px;font-size:13px;line-height:1.65;color:#526158}.product-answer__facts{display:grid;gap:0;margin:0;border:1px solid #e0e8e3;border-radius:14px;background:#fff;overflow:hidden}.product-answer__facts div{padding:12px 14px;border-bottom:1px solid #e6ece8}.product-answer__facts div:last-child{border-bottom:0}.product-answer__facts dt{font-family:var(--font-mono);font-size:8px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#0b7440}.product-answer__facts dd{margin:5px 0 0;font-size:11px;line-height:1.5;color:#425149}.product-section--preview{padding-top:58px}.product-section--flow{margin:0 -24px;padding-inline:24px;border:0;border-radius:24px;background:#0b3727;color:#fff}.section-head--light .section-kicker{color:#85d6a7}.section-head--light h2{color:#fff}.section-head--light>p{color:rgba(245,255,249,.66)}
-  .io-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.io-card{padding:22px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.05)}.io-card--output{background:rgba(112,218,156,.09);border-color:rgba(112,218,156,.18)}.io-card>span{font-family:var(--font-mono);font-size:8.5px;font-weight:800;letter-spacing:.08em;color:#82d9a5}.io-card h3{margin:8px 0 0;font-size:19px;color:#fff}.io-card ul{display:grid;gap:8px;margin:16px 0 0;padding:0;list-style:none}.io-card li{display:flex;gap:8px;font-size:11.5px;line-height:1.45;color:rgba(245,255,249,.74)}.io-card li b{color:#83dda8;font-family:var(--font-mono)}
-  .product-details{margin-top:16px;border:1px solid #dce5df;border-radius:15px;background:#fff;color:#203128;overflow:hidden}.product-section--flow .product-details{border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:#fff}.product-details summary{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 18px;cursor:pointer;list-style:none;font-size:12px;font-weight:800}.product-details summary::-webkit-details-marker{display:none}.product-details summary span{font-size:18px;font-weight:400}.product-details[open] summary span{transform:rotate(45deg)}.product-details__body{padding:0 18px 18px}.product-section--flow .product-details__body{padding-top:4px;background:#fff;color:#203128}.eligibility-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.product-section--quiet{margin:0 -24px;padding-inline:24px;border:1px solid #e0e7e2;border-radius:24px;background:#f6f8f7}.technical-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(340px,1.1fr);gap:16px;align-items:start}.requirements-card{padding:20px;border:1px solid #dde5e0;border-radius:14px;background:#fff}.requirements-card__title,.requirements-card__policy small{margin:0;font-family:var(--font-mono);font-size:8.5px;font-weight:800;letter-spacing:.08em;color:#0b7440}.requirements-card ul{display:grid;gap:8px;margin:14px 0 0;padding:0;list-style:none}.requirements-card li{display:flex;gap:8px;font-size:11.5px;line-height:1.45;color:#46534b}.requirements-card li span{color:#0b7440;font-weight:800}.requirements-card__policy{margin-top:18px;padding-top:15px;border-top:1px solid #e3e9e5}.requirements-card__policy p{margin:7px 0 0;font-size:10.5px;line-height:1.5;color:#69756e}.macro-notice{margin-top:14px}.product-section--related{padding-bottom:12px}.product-section--author{padding-top:28px;padding-bottom:12px}
-  @media(max-width:900px){.product-page{width:min(100% - 32px,1180px)}.section-head,.product-answer{grid-template-columns:1fr;gap:10px}.section-head>a{justify-self:start}.technical-grid{grid-template-columns:1fr}.io-grid,.eligibility-grid{grid-template-columns:1fr}.product-section--flow,.product-section--quiet{margin-inline:-10px;padding-inline:18px}}
-  @media(max-width:620px){.product-page{width:calc(100% - 24px);padding-top:16px}.product-section{padding:44px 0}.section-head{margin-bottom:18px}.section-head h2{font-size:29px}.section-head>p{font-size:11.5px}.product-answer{padding:18px;margin-top:18px}.product-section--flow,.product-section--quiet{margin-inline:-4px;padding-inline:14px;border-radius:18px}.io-card{padding:17px}.product-details summary{padding:14px;font-size:11px}.product-details__body{padding:0 12px 14px}}
-.core-decision{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 8px}.core-decision article{padding:22px;border:1px solid #dbe6df;border-radius:18px;background:#fff}.core-decision h2{margin:7px 0 9px;font:800 clamp(22px,2.4vw,30px)/1.08 var(--font-display);color:#16291e}.core-decision p:last-child{margin:0;font-size:13px;line-height:1.65;color:#526158}.core-conversion{padding:clamp(42px,5vw,64px) 0;border-top:1px solid #e2e8e4}.core-conversion__actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}.core-conversion__trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;padding:14px 16px;border:1px solid #dbe6df;border-radius:12px;background:#f7faf8;font-size:12px;color:#365044}.product-referral{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;margin-top:34px;padding:22px;border:1px solid #dbe6df;border-radius:18px;background:#f7faf8}.product-referral h2{margin:6px 0 8px;font:800 24px/1.1 var(--font-display);color:#16291e}.product-referral p:last-child{margin:0;max-width:760px;font-size:12px;line-height:1.6;color:#526158}.product-referral>a{padding:12px 16px;border-radius:10px;background:#107c41;color:#fff;text-decoration:none;font-size:12px;font-weight:800}@media(max-width:760px){.core-decision,.core-conversion__actions,.product-referral{grid-template-columns:1fr}.product-referral>a{justify-self:start}}
+  .product-page-container {
+    width: min(1200px, calc(100% - 40px));
+    margin-inline: auto;
+    padding: 20px 0 80px;
+  }
 
-/* Mandate Decision Suite Stilleri */
-.mandate-decision-suite{margin:28px 0 36px;display:grid;gap:20px}
-.mandate-pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.mandate-pain-card{padding:20px 22px;border-radius:18px;border:1px solid #e2e8e4;background:#fff;box-shadow:0 4px 16px rgba(15,23,42,.03);display:flex;flex-direction:column}
-.mandate-pain-card--problem{border-top:3px solid #ef4444}
-.mandate-pain-card--decision{border-top:3px solid #10b981}
-.mandate-pain-card h2{margin:6px 0 12px;font:700 15px/1.5 var(--font-body);color:#16291e;letter-spacing:-.01em}
-.mandate-pain-price{margin-top:auto;padding:10px 12px;border-radius:10px;background:#fef2f2;border-left:3px solid #ef4444}
-.mandate-pain-price strong{display:block;color:#991b1b;font-size:11px;font-weight:800;margin-bottom:2px}
-.mandate-pain-price p{margin:0;color:#7f1d1d;font-size:12px;line-height:1.45}
-.mandate-concrete-example{margin-top:auto;padding:10px 12px;border-radius:10px;background:#ecfdf5;border-left:3px solid #10b981}
-.mandate-concrete-example strong{display:block;color:#065f46;font-size:11px;font-weight:800;margin-bottom:2px}
-.mandate-concrete-example p{margin:0;color:#064e3b;font-size:12px;line-height:1.45;font-weight:600}
+  .product-breadcrumb-wrap {
+    margin-bottom: 12px;
+  }
 
-.mandate-seven-questions{padding:22px 24px;border-radius:20px;background:#f8faf9;border:1px solid #dfe7e2}
-.section-head--compact{margin-bottom:16px}
-.section-head--compact h2{font-size:clamp(19px,2vw,23px);line-height:1.15;margin-top:5px}
-.seven-q-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.q-item{padding:14px 16px;border-radius:13px;background:#fff;border:1px solid #e2ece5;display:flex;flex-direction:column}
-.q-num{display:inline-block;color:#059669;font:800 12px/1 ui-monospace,monospace;margin-bottom:6px}
-.q-item strong{display:block;color:#16291e;font-size:13px;font-weight:800;margin-bottom:5px}
-.q-item p{margin:0;color:#526158;font-size:11.5px;line-height:1.5}
-.q-item--highlight{background:#f0fdf4;border-color:#bbf7d0;grid-column:span 2}
-.q-item--highlight strong{color:#065f46}
+  /* Üst Başlık */
+  .product-header {
+    margin-bottom: 24px;
+  }
+  .product-category-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #0b743f;
+    margin-bottom: 6px;
+  }
+  .product-main-heading {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.2vw, 38px);
+    line-height: 1.15;
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: -0.025em;
+    margin: 0 0 8px;
+  }
+  .product-subtitle-lead {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #475569;
+    max-width: 920px;
+    margin: 0;
+  }
 
-@media(max-width:900px){.mandate-pain-grid{grid-template-columns:1fr}.seven-q-grid{grid-template-columns:1fr}.q-item--highlight{grid-column:span 1}}
+  /* 2 Kolonlu Hero Alanı (Someka Modeli) */
+  .product-hero-cockpit {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(360px, 0.9fr);
+    gap: 32px;
+    align-items: start;
+  }
+
+  .hero-col-gallery {
+    min-width: 0;
+  }
+
+  .hero-col-purchase {
+    min-width: 0;
+    position: sticky;
+    top: 24px;
+  }
+
+  /* Yazar Kutusu */
+  .product-author-section {
+    margin-top: 48px;
+  }
+
+  /* İlgili Şablonlar */
+  .product-related-section {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid #e2e8f0;
+  }
+  .related-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .related-kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #0b743f;
+    margin-bottom: 4px;
+  }
+  .related-section-header h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.4vw, 28px);
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+  }
+  .all-templates-link {
+    color: #0b743f;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .all-templates-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1024px) {
+    .product-hero-cockpit {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .hero-col-purchase {
+      position: static;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .product-page-container {
+      width: calc(100% - 24px);
+      padding-top: 14px;
+    }
+    .product-main-heading {
+      font-size: 24px;
+    }
+    .product-subtitle-lead {
+      font-size: 13px;
+    }
+    .related-section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
 </style>

@@ -61,10 +61,10 @@ for(const entry of fs.readdirSync(productsDir,{withFileTypes:true})){
  const rel=`sablon/${entry.name}/index.html`;
  if(!fs.existsSync(path.join(DIST,rel)))continue;
  let html=withCss(read(rel));
- if(productMaps[entry.name]){
-   html=before(html,'<section class="product-section product-section--flow"',productBlock(entry.name,productMaps[entry.name]),`product-${entry.name}`);
-   customCount++;
- }
+  if(productMaps[entry.name]){
+    html=before(html,'<section class="product-author-section"',productBlock(entry.name,productMaps[entry.name]),`product-${entry.name}`);
+    customCount++;
+  }
  write(rel,html);productCount++;
 }
 

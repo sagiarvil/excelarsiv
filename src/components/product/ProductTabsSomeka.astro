@@ -1,0 +1,784 @@
+---
+import type { ProductDescription } from '../../data/productDescriptions';
+import SpecTable from '../SpecTable.astro';
+import FaqAccordion from '../FaqAccordion.astro';
+
+interface SheetMapItem {
+  name: string;
+  purpose: string;
+  kind: 'input' | 'calculation' | 'output';
+}
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  name: string;
+  descriptionData: ProductDescription;
+  sheetMap: SheetMapItem[];
+  inputs: string[];
+  outputs: string[];
+  suitableFor: string[];
+  notSuitableFor: string[];
+  faq: FaqItem[];
+  spec: {
+    fileFormat: 'xlsx' | 'xlsm';
+    version: string;
+    updatedAt: string;
+    sheetCount: number;
+    sizeMB: number;
+    hasMacros: boolean;
+    minExcelVersion: string;
+    macCompatible: boolean;
+    sheetsCompatibility: 'full' | 'partial' | 'none';
+  };
+  requirements: string[];
+  updatePolicy: string;
+}
+
+const {
+  name,
+  descriptionData,
+  sheetMap,
+  inputs,
+  outputs,
+  suitableFor,
+  notSuitableFor,
+  faq,
+  spec,
+  requirements,
+  updatePolicy
+} = Astro.props;
+---
+
+<section class="product-tabs-section" data-product-tabs aria-label="Ürün Detayları ve Bilgileri">
+  <!-- Tab Başlıkları (Someka Stili) -->
+  <div class="tabs-nav-bar" role="tablist" aria-label="Ürün Sekmeleri">
+    <button
+      type="button"
+      class="tab-nav-btn is-active"
+      role="tab"
+      aria-selected="true"
+      aria-controls="tab-content-info"
+      data-tab-target="tab-content-info"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <span>ÜRÜN BİLGİSİ</span>
+    </button>
+
+    <button
+      type="button"
+      class="tab-nav-btn"
+      role="tab"
+      aria-selected="false"
+      aria-controls="tab-content-features"
+      data-tab-target="tab-content-features"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+      <span>ŞABLON ÖZELLİKLERİ & SAYFALAR ({sheetMap.length})</span>
+    </button>
+
+    <button
+      type="button"
+      class="tab-nav-btn"
+      role="tab"
+      aria-selected="false"
+      aria-controls="tab-content-how"
+      data-tab-target="tab-content-how"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <span>NASIL KULLANILIR?</span>
+    </button>
+
+    <button
+      type="button"
+      class="tab-nav-btn"
+      role="tab"
+      aria-selected="false"
+      aria-controls="tab-content-faq"
+      data-tab-target="tab-content-faq"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span>SIK SORULAN SORULAR ({faq.length})</span>
+    </button>
+
+    <button
+      type="button"
+      class="tab-nav-btn"
+      role="tab"
+      aria-selected="false"
+      aria-controls="tab-content-specs"
+      data-tab-target="tab-content-specs"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span>TEKNİK ÖZELLİKLER</span>
+    </button>
+  </div>
+
+  <!-- TAB 1: ÜRÜN BİLGİSİ & ŞABLON AÇIKLAMASI -->
+  <div id="tab-content-info" class="tab-panel is-active" role="tabpanel">
+    <div class="article-content-block">
+      <h2 class="content-main-title">ŞABLON AÇIKLAMASI</h2>
+
+      <!-- Kanca & Giriş Paragrafları (Someka Stili) -->
+      <div class="sales-lead-box">
+        <p class="sales-hook-text">{descriptionData.hookQuestion}</p>
+        {descriptionData.salesPitch.map((paragraph) => (
+          <p class="sales-body-p">{paragraph}</p>
+        ))}
+      </div>
+
+      <!-- Neden Bu Şablon? / Temel Faydalar -->
+      <div class="benefits-container">
+        <h3 class="sub-heading-badge">Neden Bu Şablonu Tercih Etmelisiniz? (Temel Faydalar)</h3>
+        <div class="benefits-grid">
+          {descriptionData.keyBenefits.map((benefit) => (
+            <div class="benefit-card">
+              <div class="benefit-card__icon">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              </div>
+              <div class="benefit-card__text">
+                <h4>{benefit.title}</h4>
+                <p>{benefit.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Uygunluk / Kimler İçin? -->
+      <div class="suitability-box">
+        <div class="suitability-col suitability-col--pos">
+          <div class="suitability-header">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <h4>Bu Sistem Kimler İçin İdeal?</h4>
+          </div>
+          <ul>
+            {suitableFor.map((item) => <li><span>✓</span> {item}</li>)}
+          </ul>
+        </div>
+
+        <div class="suitability-col suitability-col--neg">
+          <div class="suitability-header">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v4a1 1 0 102 0V7zm-1 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+            <h4>Kimler İçin Uygun Değil?</h4>
+          </div>
+          <ul>
+            {notSuitableFor.map((item) => <li><span>✕</span> {item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: ŞABLON ÖZELLİKLERİ VE SAYFALAR (Someka Görsel 1 & 2 Modeli) -->
+  <div id="tab-content-features" class="tab-panel" role="tabpanel" hidden>
+    <div class="article-content-block">
+      <h2 class="content-main-title">{name} Özellikleri:</h2>
+      <p class="features-summary-text">
+        Bu Excel çalışma sistemi temelde <strong>{sheetMap.length} ana bölümden</strong> oluşmaktadır: {sheetMap.slice(0, 5).map((s) => s.name.replace(/_/g, ' ')).join(', ')}{sheetMap.length > 5 ? ' ve diğerleri.' : '.'}
+      </p>
+
+      <div class="sheets-detailed-list">
+        {descriptionData.sheetDescriptions.map((sheet) => (
+          <article class="sheet-feature-item">
+            <div class="sheet-feature-item__head">
+              <span class={`sheet-kind-tag sheet-kind-tag--${sheet.kind}`}>
+                {sheet.kind === 'input' ? 'VERİ GİRİŞİ' : sheet.kind === 'calculation' ? 'HESAPLAMA MOTORU' : 'YÖNETİM & ÇIKTI'}
+              </span>
+              <h3>{sheet.title}</h3>
+            </div>
+            <p class="sheet-feature-desc">{sheet.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: NASIL KULLANILIR? -->
+  <div id="tab-content-how" class="tab-panel" role="tabpanel" hidden>
+    <div class="article-content-block">
+      <h2 class="content-main-title">Nasıl Kullanılır? (3 Adımda Kolay Yönetim)</h2>
+      <p class="features-summary-text">
+        Hiçbir ileri seviye Excel bilgisi gerektirmez. Dosyayı indirip aşağıdaki 3 adımı uygulamanız yeterlidir:
+      </p>
+
+      <div class="how-steps-timeline">
+        {descriptionData.howToUseSteps.map((step) => (
+          <div class="how-step-card">
+            <div class="how-step-badge">{step.step}</div>
+            <div class="how-step-body">
+              <h3>{step.title}</h3>
+              <p>{step.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="io-summary-box">
+        <h3 class="sub-heading-badge">Veri Giriş ve Çıktı Tablosu</h3>
+        <div class="io-flex-grid">
+          <div class="io-half-col io-half-col--input">
+            <h4>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+              Sizin Gireceğiniz Bilgiler
+            </h4>
+            <ul>
+              {inputs.map((inp) => <li><span>→</span> {inp}</li>)}
+            </ul>
+          </div>
+          <div class="io-half-col io-half-col--output">
+            <h4>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+              Sistemin Otomatik Ürettiği Sonuçlar
+            </h4>
+            <ul>
+              {outputs.map((out) => <li><span>✓</span> {out}</li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 4: SIK SORULAN SORULAR -->
+  <div id="tab-content-faq" class="tab-panel" role="tabpanel" hidden>
+    <div class="article-content-block">
+      <h2 class="content-main-title">Sık Sorulan Sorular</h2>
+      <p class="features-summary-text">
+        Bu ürün, lisans koşulları ve kullanım hakkında en çok merak edilen konular:
+      </p>
+      <div class="faq-embed-wrapper">
+        <FaqAccordion items={faq} />
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 5: TEKNİK ÖZELLİKLER -->
+  <div id="tab-content-specs" class="tab-panel" role="tabpanel" hidden>
+    <div class="article-content-block">
+      <h2 class="content-main-title">Teknik Özellikler ve Sistem Gereksinimleri</h2>
+      <div class="specs-wrapper-grid">
+        <SpecTable
+          fileFormat={spec.fileFormat}
+          version={spec.version}
+          updatedAt={spec.updatedAt}
+          sheetCount={spec.sheetCount}
+          sizeMB={spec.sizeMB}
+          hasMacros={spec.hasMacros}
+          minExcelVersion={spec.minExcelVersion}
+          macCompatible={spec.macCompatible}
+          sheetsCompatibility={spec.sheetsCompatibility}
+        />
+        <div class="specs-policy-side">
+          <div class="policy-card">
+            <h4>ÇALIŞTIRMA GEREKSİNİMLERİ</h4>
+            <ul>
+              {requirements.map((req) => <li><span>✓</span> {req}</li>)}
+            </ul>
+          </div>
+          <div class="policy-card policy-card--update">
+            <h4>GÜNCELLEME VE DESTEK</h4>
+            <p>{updatePolicy}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initTabs() {
+    const containers = document.querySelectorAll<HTMLElement>('[data-product-tabs]');
+    containers.forEach((container) => {
+      const buttons = container.querySelectorAll<HTMLButtonElement>('.tab-nav-btn');
+      const panels = container.querySelectorAll<HTMLElement>('.tab-panel');
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.dataset.tabTarget;
+          if (!targetId) return;
+
+          // Buton aktifliği
+          buttons.forEach((b) => {
+            const isActive = b === btn;
+            b.classList.toggle('is-active', isActive);
+            b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          });
+
+          // Panel görünürlüğü
+          panels.forEach((p) => {
+            const isTarget = p.id === targetId;
+            p.classList.toggle('is-active', isTarget);
+            p.hidden = !isTarget;
+          });
+        });
+      });
+    });
+  }
+
+  initTabs();
+  document.addEventListener('astro:page-load', initTabs);
+</script>
+
+<style>
+  .product-tabs-section {
+    margin-top: 36px;
+    border-radius: 18px;
+    border: 1px solid #dbe5df;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+    overflow: hidden;
+  }
+
+  /* Sekme Çubuğu (Someka Stili) */
+  .tabs-nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    background: #f8faf9;
+    border-bottom: 1px solid #dbe5df;
+    padding: 0 8px;
+  }
+
+  .tab-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #475569;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .tab-nav-btn svg {
+    color: #64748b;
+    transition: color 0.2s ease;
+  }
+  .tab-nav-btn:hover {
+    color: #0b743f;
+    background: rgba(11, 116, 63, 0.04);
+  }
+  .tab-nav-btn.is-active {
+    color: #0b743f;
+    border-bottom-color: #0b743f;
+    background: #ffffff;
+  }
+  .tab-nav-btn.is-active svg {
+    color: #0b743f;
+  }
+
+  /* Tab Panel */
+  .tab-panel {
+    display: none;
+    padding: 36px 38px;
+  }
+  .tab-panel.is-active {
+    display: block;
+  }
+
+  .article-content-block {
+    max-width: 100%;
+  }
+
+  .content-main-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 16px;
+    letter-spacing: -0.01em;
+  }
+
+  /* Satış Kancası ve Metinler */
+  .sales-lead-box {
+    margin-bottom: 32px;
+  }
+  .sales-hook-text {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.55;
+    color: #0b743f;
+    margin-bottom: 16px;
+    padding: 14px 18px;
+    border-left: 4px solid #0b743f;
+    background: #f0fdf4;
+    border-radius: 0 10px 10px 0;
+  }
+  .sales-body-p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #334155;
+    margin-bottom: 14px;
+  }
+
+  /* Faydalar */
+  .benefits-container {
+    margin: 32px 0;
+  }
+  .sub-heading-badge {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 18px;
+  }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .benefit-card {
+    display: flex;
+    gap: 14px;
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #f8faf9;
+    transition: all 0.2s ease;
+  }
+  .benefit-card:hover {
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+  .benefit-card__icon {
+    flex-shrink: 0;
+    color: #0b743f;
+    margin-top: 2px;
+  }
+  .benefit-card__text h4 {
+    margin: 0 0 5px;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .benefit-card__text p {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #475569;
+  }
+
+  /* Uygunluk */
+  .suitability-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+  }
+  .suitability-col {
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+  }
+  .suitability-col--pos {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+  }
+  .suitability-col--neg {
+    background: #fef2f2;
+    border-color: #fecaca;
+  }
+  .suitability-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .suitability-col--pos .suitability-header {
+    color: #15803d;
+  }
+  .suitability-col--neg .suitability-header {
+    color: #b91c1c;
+  }
+  .suitability-header h4 {
+    margin: 0;
+    font-size: 14.5px;
+    font-weight: 800;
+  }
+  .suitability-col ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .suitability-col li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+  .suitability-col--pos li {
+    color: #166534;
+  }
+  .suitability-col--pos li span {
+    font-weight: 800;
+    color: #15803d;
+  }
+  .suitability-col--neg li {
+    color: #991b1b;
+  }
+  .suitability-col--neg li span {
+    font-weight: 800;
+    color: #dc2626;
+  }
+
+  /* Sayfa Özellikleri (Someka Modeli) */
+  .features-summary-text {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .sheets-detailed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .sheet-feature-item {
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    transition: all 0.2s ease;
+  }
+  .sheet-feature-item:hover {
+    border-color: #0b743f;
+    box-shadow: 0 2px 10px rgba(11, 116, 63, 0.06);
+  }
+  .sheet-feature-item__head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .sheet-kind-tag {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .sheet-kind-tag--input {
+    background: #e0f2fe;
+    color: #0369a1;
+  }
+  .sheet-kind-tag--calculation {
+    background: #fef3c7;
+    color: #b45309;
+  }
+  .sheet-kind-tag--output {
+    background: #dcfce7;
+    color: #15803d;
+  }
+  .sheet-feature-item__head h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f172a;
+  }
+  .sheet-feature-desc {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #475569;
+  }
+
+  /* Nasıl Kullanılır Adımları */
+  .how-steps-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+  .how-step-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 18px 22px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    background: #f8faf9;
+  }
+  .how-step-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #0b743f;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .how-step-body h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f172a;
+  }
+  .how-step-body p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #475569;
+  }
+
+  /* Girdi / Çıktı Grid */
+  .io-summary-box {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+  }
+  .io-flex-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .io-half-col {
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+  }
+  .io-half-col--input {
+    background: #f8fafc;
+  }
+  .io-half-col--output {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+  }
+  .io-half-col h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 12px;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .io-half-col--input h4 {
+    color: #0369a1;
+  }
+  .io-half-col--output h4 {
+    color: #15803d;
+  }
+  .io-half-col ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .io-half-col li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: #334155;
+  }
+  .io-half-col li span {
+    font-weight: 800;
+  }
+  .io-half-col--input li span {
+    color: #0284c7;
+  }
+  .io-half-col--output li span {
+    color: #16a34a;
+  }
+
+  /* Teknik Tab */
+  .specs-wrapper-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+  }
+  .specs-policy-side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .policy-card {
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #f8faf9;
+  }
+  .policy-card h4 {
+    margin: 0 0 10px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #0b743f;
+  }
+  .policy-card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .policy-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: #334155;
+  }
+  .policy-card li span {
+    color: #0b743f;
+    font-weight: 800;
+  }
+  .policy-card--update p {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #475569;
+  }
+
+  @media (max-width: 900px) {
+    .suitability-box,
+    .io-flex-grid,
+    .specs-wrapper-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .tab-panel {
+      padding: 24px 18px;
+    }
+    .tabs-nav-bar {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      padding: 0 4px;
+    }
+    .tab-nav-btn {
+      padding: 12px 14px;
+      font-size: 12px;
+    }
+    .content-main-title {
+      font-size: 20px;
+    }
+    .sales-hook-text {
+      font-size: 15px;
+    }
+  }
+</style>

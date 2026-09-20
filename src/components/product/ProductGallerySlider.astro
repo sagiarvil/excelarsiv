@@ -1,0 +1,373 @@
+---
+interface Screenshot {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  name: string;
+  kapakUrl?: string;
+  screenshots: Screenshot[];
+}
+
+const { name, kapakUrl, screenshots } = Astro.props;
+
+// Galeride gösterilecek tüm görseller: Kapak varsa ilk sırada, ardından screenshots
+const allImages: Screenshot[] = [];
+if (kapakUrl) {
+  allImages.push({ src: kapakUrl, alt: `${name} — Genel Görünüm ve Kapak` });
+}
+screenshots.forEach((s) => {
+  if (!allImages.some((img) => img.src === s.src)) {
+    allImages.push(s);
+  }
+});
+---
+
+<div class="product-gallery-slider" data-gallery-slider>
+  <!-- Ana Büyük Görsel Alanı -->
+  <div class="gallery-main-frame">
+    <button type="button" class="gallery-nav-btn gallery-nav-btn--prev" data-gallery-prev aria-label="Önceki Görsel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="gallery-active-wrapper">
+      <img
+        src={allImages[0]?.src ?? ''}
+        alt={allImages[0]?.alt ?? name}
+        class="gallery-active-image"
+        data-gallery-main-img
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="1200"
+        height="750"
+      />
+      <div class="gallery-zoom-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <line x1="11" y1="8" x2="11" y2="14"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+        </svg>
+        <span>Büyütmek için tıklayın</span>
+      </div>
+    </div>
+
+    <button type="button" class="gallery-nav-btn gallery-nav-btn--next" data-gallery-next aria-label="Sonraki Görsel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Küçük Önizleme Resimleri (Thumbnails) -->
+  {allImages.length > 1 && (
+    <div class="gallery-thumbnails" role="tablist" aria-label="Ürün Görselleri">
+      {allImages.map((img, index) => (
+        <button
+          type="button"
+          class={`gallery-thumb-btn ${index === 0 ? 'is-active' : ''}`}
+          data-gallery-thumb={index}
+          data-src={img.src}
+          data-alt={img.alt}
+          aria-label={`Görsel ${index + 1}`}
+        >
+          <img src={img.src} alt={img.alt} loading="lazy" width="120" height="75" />
+        </button>
+      ))}
+    </div>
+  )}
+
+  <!-- Lightbox Modal -->
+  <div class="gallery-lightbox" data-gallery-lightbox hidden aria-hidden="true">
+    <div class="gallery-lightbox__backdrop" data-lightbox-close></div>
+    <div class="gallery-lightbox__content">
+      <button type="button" class="gallery-lightbox__close" data-lightbox-close aria-label="Kapat">
+        ✕
+      </button>
+      <img src="" alt="" data-lightbox-img />
+    </div>
+  </div>
+</div>
+
+<script>
+  function initGallery() {
+    const containers = document.querySelectorAll<HTMLElement>('[data-gallery-slider]');
+    containers.forEach((container) => {
+      const mainImg = container.querySelector<HTMLImageElement>('[data-gallery-main-img]');
+      const thumbs = container.querySelectorAll<HTMLButtonElement>('[data-gallery-thumb]');
+      const prevBtn = container.querySelector<HTMLButtonElement>('[data-gallery-prev]');
+      const nextBtn = container.querySelector<HTMLButtonElement>('[data-gallery-next]');
+      const lightbox = container.querySelector<HTMLElement>('[data-gallery-lightbox]');
+      const lightboxImg = container.querySelector<HTMLImageElement>('[data-lightbox-img]');
+      const lightboxCloses = container.querySelectorAll('[data-lightbox-close]');
+      const activeWrapper = container.querySelector<HTMLElement>('.gallery-active-wrapper');
+
+      if (!mainImg || thumbs.length === 0) return;
+
+      let currentIndex = 0;
+      const images: { src: string; alt: string }[] = [];
+      thumbs.forEach((t) => {
+        images.push({
+          src: t.dataset.src || '',
+          alt: t.dataset.alt || ''
+        });
+      });
+
+      function setActive(index: number) {
+        if (index < 0) index = images.length - 1;
+        if (index >= images.length) index = 0;
+        currentIndex = index;
+
+        const target = images[currentIndex];
+        if (!target) return;
+
+        mainImg.src = target.src;
+        mainImg.alt = target.alt;
+
+        thumbs.forEach((btn, i) => {
+          if (i === currentIndex) {
+            btn.classList.add('is-active');
+            btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          } else {
+            btn.classList.remove('is-active');
+          }
+        });
+      }
+
+      thumbs.forEach((btn, index) => {
+        btn.addEventListener('click', () => setActive(index));
+      });
+
+      prevBtn?.addEventListener('click', () => setActive(currentIndex - 1));
+      nextBtn?.addEventListener('click', () => setActive(currentIndex + 1));
+
+      // Lightbox açma
+      activeWrapper?.addEventListener('click', () => {
+        if (!lightbox || !lightboxImg) return;
+        const target = images[currentIndex];
+        if (!target) return;
+        lightboxImg.src = target.src;
+        lightboxImg.alt = target.alt;
+        lightbox.hidden = false;
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+
+      // Lightbox kapama
+      lightboxCloses.forEach((el) => {
+        el.addEventListener('click', () => {
+          if (!lightbox) return;
+          lightbox.hidden = true;
+          lightbox.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
+      });
+    });
+  }
+
+  // İlk yüklemede ve sayfa geçişlerinde çalıştır
+  initGallery();
+  document.addEventListener('astro:page-load', initGallery);
+</script>
+
+<style>
+  .product-gallery-slider {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .gallery-main-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 16px;
+    border: 1px solid #dbe5df;
+    background: #f8faf9;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallery-active-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: zoom-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallery-active-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #ffffff;
+    transition: opacity 0.2s ease;
+  }
+
+  .gallery-zoom-hint {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    pointer-events: none;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+  }
+  .gallery-active-wrapper:hover .gallery-zoom-hint {
+    opacity: 1;
+  }
+
+  .gallery-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #cbd5e1;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: all 0.2s ease;
+  }
+  .gallery-nav-btn:hover {
+    background: #ffffff;
+    color: #0b743f;
+    border-color: #0b743f;
+    transform: translateY(-50%) scale(1.06);
+  }
+  .gallery-nav-btn--prev {
+    left: 12px;
+  }
+  .gallery-nav-btn--next {
+    right: 12px;
+  }
+
+  .gallery-thumbnails {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+  }
+  .gallery-thumbnails::-webkit-scrollbar {
+    height: 5px;
+  }
+  .gallery-thumbnails::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+
+  .gallery-thumb-btn {
+    flex: 0 0 92px;
+    height: 58px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    padding: 0;
+    overflow: hidden;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+  }
+  .gallery-thumb-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .gallery-thumb-btn:hover {
+    border-color: #94a3b8;
+  }
+  .gallery-thumb-btn.is-active {
+    border-color: #0b743f;
+    box-shadow: 0 0 0 1px #0b743f;
+  }
+
+  /* Lightbox */
+  .gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .gallery-lightbox[hidden] {
+    display: none !important;
+  }
+  .gallery-lightbox__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(6px);
+  }
+  .gallery-lightbox__content {
+    position: relative;
+    max-width: 92vw;
+    max-height: 90vh;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gallery-lightbox__content img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    background: #fff;
+  }
+  .gallery-lightbox__close {
+    position: absolute;
+    top: -46px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  @media (max-width: 640px) {
+    .gallery-main-frame {
+      aspect-ratio: 4 / 3;
+    }
+    .gallery-nav-btn {
+      width: 34px;
+      height: 34px;
+    }
+    .gallery-thumb-btn {
+      flex: 0 0 76px;
+      height: 48px;
+    }
+  }
+</style>
