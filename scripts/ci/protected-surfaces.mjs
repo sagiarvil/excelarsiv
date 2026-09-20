@@ -5,13 +5,13 @@ import { readFileSync } from 'node:fs';
 const PROTECTED = Object.freeze({
   'src/pages/index.astro': '1e67475083f9f754a57d405558d2587ec0300770',
   'src/pages/sablonlar.astro': '343b50561fd45ba72dae213017f44fe19496b34a',
-  'src/components/SiteHeader.astro': '3dbda78fe213e83946f0da9688787e9b46093ecd',
-  'src/components/SiteFooter.astro': '6240549da1b170333f8c4614d62813e6e8a712e9',
+  'src/components/SiteHeader.astro': '13602eef01a16b77e57d817583db4495905c4669',
+  'src/components/SiteFooter.astro': '204b25a7fabd70edb381655e46db31b8b46090a6',
   'src/layouts/CommerceLayout.astro': 'babd50f8021082e5e577f255c723f11c08e82e2a',
   'src/layouts/WorkbookLayout.astro': '4a77c4e32333543c1361bc1b1ad6b3e546d54b47',
   'src/styles/global.css': '1d8b5673d8f77ba3e8a29446ec884d0fc91b2569',
   'src/styles/home-native-info-hard-color-v33.css': 'd739fd58e4da62ca4f31f1f1327b6206ee9c21da',
-  'public/images/excel-logo.png': '024ebb12404fa297ba04e4afa1834acf1769f442',
+  'public/images/excel-logo.png': 'fb85f04d742b13f7fe3a057fedba740e013e6b7a',
   'public/images/brand/excelarsiv-header-logo.png': 'fedfef196954861df583c2a0ff2aed8dc8fe496b',
 });
 

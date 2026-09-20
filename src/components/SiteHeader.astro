@@ -19,8 +19,7 @@ const menu = [
 const isActive = (href: string) =>
   href === '/sablonlar' ? pathname.startsWith('/sablon') : pathname === href;
 
-const mobileBrandMark =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230b7440'/%3E%3Cpath d='M11 10h18v20H11z' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M15 15l10 10M25 15L15 25' stroke='%23fff' stroke-width='2.7' stroke-linecap='round'/%3E%3C/svg%3E";
+const mobileBrandMark = "/images/brand/excelarsiv-header-logo.png";
 ---
 
 <header class="site-header" data-mobile-premium-header>
@@ -29,7 +28,7 @@ const mobileBrandMark =
       <picture class="site-header__logo-wrap">
         <source media="(min-width: 761px)" srcset="/images/brand/excelarsiv-header-logo.png" />
         <img
-          src={mobileBrandMark}
+          src="/images/brand/excelarsiv-header-logo.png"
           alt="Excel Arşiv"
           width="40"
           height="40"
