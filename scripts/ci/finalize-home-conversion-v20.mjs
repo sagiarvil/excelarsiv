@@ -20,6 +20,7 @@ body[data-desktop-premium-v19] .hero-artwork::before{content:none!important;back
 body[data-desktop-premium-v19] .hero-panel::after{content:none!important;background:none!important}
 body[data-desktop-premium-v19] .hero-artwork::after{content:""!important;position:absolute!important;inset:0!important;pointer-events:none!important;background:linear-gradient(90deg,#f7faf8 0%,#f7faf8 48%,rgba(247,250,248,.96) 54%,rgba(247,250,248,.72) 60%,rgba(247,250,248,0) 68%)!important}
 body[data-desktop-premium-v19] .hero-artwork img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important}
+body[data-desktop-premium-v19] .hero-tech-visual{position:absolute!important;right:0!important;top:0!important;bottom:0!important;width:55%!important;z-index:3!important;pointer-events:none!important;display:flex!important;align-items:center!important;justify-content:center!important}
 body[data-desktop-premium-v19] .hero-search-rail{position:absolute!important;left:4%!important;bottom:0!important;z-index:70!important;width:min(520px,calc(50% - 20px))!important;margin:0!important;transform:none!important;scroll-margin-top:90px!important}
 body[data-desktop-premium-v19] .home-shell{width:min(1150px,calc(100% - 40px))!important}
 body[data-desktop-premium-v19] .soho-reviews-bar{background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:10px!important;padding:10px 16px!important;margin-top:0!important;margin-bottom:24px!important}

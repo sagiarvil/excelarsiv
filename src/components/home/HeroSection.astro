@@ -27,18 +27,111 @@ const { searchIndex } = Astro.props;
       </nav>
     </div>
 
-    <picture class="hero-artwork">
-      <source media="(min-width: 721px)" srcset="/images/hero.jpg" />
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-        alt="İşletmeler için hazır Excel karar sistemleri"
-        width="1600"
-        height="533"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      />
-    </picture>
+    <div class="hero-artwork">
+      <picture class="hero-artwork__media">
+        <source media="(min-width: 721px)" srcset="/images/hero.jpg" />
+        <img
+          src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+          alt="İşletmeler için hazır Excel karar sistemleri"
+          width="1600"
+          height="533"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+
+      <!-- YÜKSEK TEKNOLOJİ HAREKETLİ FİNANS & EXCEL KARAR GRAFİĞİ -->
+      <div class="hero-tech-visual" aria-hidden="true">
+        <div class="htv-scan-beam"></div>
+        <svg class="htv-svg" viewBox="0 0 800 360" fill="none" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="htv-grad-green" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#10b981" stop-opacity="0.32" />
+              <stop offset="60%" stop-color="#10b981" stop-opacity="0.06" />
+              <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient id="htv-grad-blue" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.20" />
+              <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient id="htv-stroke-green" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#059669" />
+              <stop offset="40%" stop-color="#10b981" />
+              <stop offset="75%" stop-color="#34d399" />
+              <stop offset="100%" stop-color="#6ee7b7" />
+            </linearGradient>
+            <linearGradient id="htv-stroke-blue" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#2563eb" />
+              <stop offset="60%" stop-color="#38bdf8" />
+              <stop offset="100%" stop-color="#7dd3fc" />
+            </linearGradient>
+            <filter id="htv-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          <!-- Kılavuz Grid Çizgileri -->
+          <g class="htv-lines" stroke="rgba(16,124,65,0.09)" stroke-width="1" stroke-dasharray="4 4">
+            <line x1="0" y1="70" x2="800" y2="70" />
+            <line x1="0" y1="140" x2="800" y2="140" />
+            <line x1="0" y1="210" x2="800" y2="210" />
+            <line x1="0" y1="280" x2="800" y2="280" />
+            <line x1="160" y1="0" x2="160" y2="360" />
+            <line x1="320" y1="0" x2="320" y2="360" />
+            <line x1="480" y1="0" x2="480" y2="360" />
+            <line x1="640" y1="0" x2="640" y2="360" />
+          </g>
+
+          <!-- İkincil Projeksiyon Çizgisi (Mavi) -->
+          <path class="htv-area-blue" d="M0,290 C120,300 220,230 340,240 C460,250 560,170 660,180 C720,185 760,130 800,135 L800,360 L0,360 Z" fill="url(#htv-grad-blue)" />
+          <path class="htv-path-blue" d="M0,290 C120,300 220,230 340,240 C460,250 560,170 660,180 C720,185 760,130 800,135" fill="none" stroke="url(#htv-stroke-blue)" stroke-width="2" stroke-dasharray="5 3" opacity="0.85" />
+
+          <!-- Ana Finansal Karar / Nakit Akışı Eğrisi (Yeşil) -->
+          <path class="htv-area-green" d="M0,240 C100,260 180,160 300,175 C420,190 500,90 620,105 C700,115 740,40 800,50 L800,360 L0,360 Z" fill="url(#htv-grad-green)" />
+          <path class="htv-path-main" d="M0,240 C100,260 180,160 300,175 C420,190 500,90 620,105 C700,115 740,40 800,50" fill="none" stroke="url(#htv-stroke-green)" stroke-width="3.2" filter="url(#htv-glow)" />
+
+          <!-- Canlı Veri Akış Hattı (Hareketli Işık Dalgası) -->
+          <path class="htv-path-pulse" d="M0,240 C100,260 180,160 300,175 C420,190 500,90 620,105 C700,115 740,40 800,50" fill="none" stroke="#ffffff" stroke-width="3.2" />
+
+          <!-- Nabız Gibi Atan Karar Düğümleri -->
+          <g class="htv-node" transform="translate(300, 175)">
+            <circle class="htv-ping" r="14" />
+            <circle class="htv-dot" r="4.5" fill="#10b981" stroke="#fff" stroke-width="2" />
+          </g>
+          <g class="htv-node" transform="translate(620, 105)">
+            <circle class="htv-ping" r="16" />
+            <circle class="htv-dot" r="5" fill="#059669" stroke="#fff" stroke-width="2" />
+          </g>
+          <g class="htv-node" transform="translate(740, 40)">
+            <circle class="htv-ping htv-ping--fast" r="18" />
+            <circle class="htv-dot" r="5.5" fill="#10b981" stroke="#fff" stroke-width="2.2" />
+          </g>
+        </svg>
+
+        <!-- Yüzen Yüksek Teknoloji Kokpit Kartları -->
+        <div class="htv-badge htv-badge--top">
+          <span class="htv-badge__fx">fx</span>
+          <code>=XLOOKUP(CARI; NAKIT; ONAY)</code>
+          <span class="htv-badge__tag">CANLI</span>
+        </div>
+
+        <div class="htv-badge htv-badge--mid">
+          <div class="htv-pulse-dot"></div>
+          <div>
+            <strong>₺5.42M Likidite Tepe</strong>
+            <small>13-Hafta Dinamik Projeksiyon</small>
+          </div>
+          <span class="htv-pill">+28.4%</span>
+        </div>
+
+        <div class="htv-badge htv-badge--bottom">
+          <span class="htv-badge__icon">⚡</span>
+          <span>Finans Karar Modeli: <strong>99.4% Doğruluk</strong></span>
+        </div>
+      </div>
+    </div>
 
     <div class="hero-search-rail" id="hero-search">
       <HeroSearch searchIndex={searchIndex} />
@@ -58,9 +151,167 @@ const { searchIndex } = Astro.props;
   .hero-title { max-width:560px; margin:10px 0 0; font:800 clamp(32px,2.6vw,42px)/1.08 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; letter-spacing:-.035em; color:#122019; text-wrap:balance; }
   .hero-mobile-copy__summary { max-width:520px; margin:12px 0 0; font:500 14.5px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:#4f5e55; }
   .hero-mobile-actions,.hero-mobile-chips { display:none; }
-  .hero-artwork { position:relative; display:block; overflow:hidden; width:100%; margin-inline:auto; aspect-ratio:2.8 / 1; border:1px solid rgba(16,124,65,.12); border-radius:20px; background:#eef3f6; box-shadow:0 16px 40px rgba(24,55,38,.09); }
-  .hero-artwork::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(90deg,#f7faf8 0%,#f7faf8 48%,rgba(247,250,248,.96) 54%,rgba(247,250,248,.72) 60%,rgba(247,250,248,0) 68%); }
-  .hero-artwork img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+  .hero-artwork { position:relative; display:block; overflow:hidden; width:100%; margin-inline:auto; aspect-ratio:2.8 / 1; border:1px solid rgba(16,124,65,.14); border-radius:20px; background:#eef5f1; box-shadow:0 16px 40px rgba(24,55,38,.09); }
+  .hero-artwork__media { display:block; width:100%; height:100%; }
+  .hero-artwork__media img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; opacity:0.85; }
+  .hero-artwork::after { content:""; position:absolute; inset:0; pointer-events:none; z-index:2; background:linear-gradient(90deg,#f7faf8 0%,#f7faf8 44%,rgba(247,250,248,.92) 50%,rgba(247,250,248,.65) 58%,rgba(247,250,248,0) 70%); }
+
+  /* YÜKSEK TEKNOLOJİ HAREKETLİ GRAFİK STİLLERİ */
+  .hero-tech-visual { position:absolute; right:0; top:0; bottom:0; width:58%; z-index:3; pointer-events:none; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .htv-svg { width:100%; height:100%; display:block; filter:drop-shadow(0 10px 24px rgba(16,124,65,.15)); }
+
+  .htv-path-pulse {
+    stroke-dasharray: 90 710;
+    animation: htvPulseFlow 3.8s linear infinite;
+  }
+  @keyframes htvPulseFlow {
+    from { stroke-dashoffset: 800; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  .htv-ping {
+    fill: rgba(16,185,129,0.22);
+    stroke: #10b981;
+    stroke-width: 1.5;
+    transform-origin: center;
+    animation: htvPing 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  .htv-ping--fast {
+    animation-duration: 1.8s;
+  }
+  @keyframes htvPing {
+    0% { r: 4px; opacity: 1; }
+    70% { r: 18px; opacity: 0; }
+    100% { r: 18px; opacity: 0; }
+  }
+
+  .htv-scan-beam {
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:linear-gradient(180deg, transparent, rgba(52,211,153,0.7), transparent);
+    box-shadow:0 0 16px rgba(16,185,129,0.8);
+    animation: htvScan 6s ease-in-out infinite alternate;
+  }
+  @keyframes htvScan {
+    0% { left: 8%; opacity: 0.2; }
+    50% { opacity: 0.9; }
+    100% { left: 92%; opacity: 0.2; }
+  }
+
+  .htv-badge {
+    position:absolute;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 12px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.92);
+    border:1px solid rgba(16,124,65,0.22);
+    box-shadow:0 8px 24px rgba(15,23,42,0.12), inset 0 1px 0 rgba(255,255,255,1);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    animation: htvFloat 4s ease-in-out infinite alternate;
+  }
+  .htv-badge--top {
+    top:14%;
+    right:12%;
+    font-size:11px;
+    animation-delay: 0s;
+  }
+  .htv-badge__fx {
+    display:grid;
+    place-items:center;
+    width:18px;
+    height:18px;
+    border-radius:5px;
+    background:#107c41;
+    color:#fff;
+    font-weight:800;
+    font-size:10px;
+    font-family:serif;
+  }
+  .htv-badge code {
+    font-family:ui-monospace,Menlo,Consolas,monospace;
+    font-weight:700;
+    color:#1e293b;
+    font-size:10.5px;
+  }
+  .htv-badge__tag {
+    padding:2px 6px;
+    border-radius:4px;
+    background:#ecfdf5;
+    color:#059669;
+    font-weight:800;
+    font-size:9.5px;
+    letter-spacing:.04em;
+  }
+
+  .htv-badge--mid {
+    bottom:28%;
+    right:8%;
+    font-size:11.5px;
+    animation-delay: -2s;
+  }
+  .htv-pulse-dot {
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#10b981;
+    box-shadow:0 0 0 3px rgba(16,185,129,0.25);
+    animation: htvDotPulse 1.6s infinite;
+  }
+  @keyframes htvDotPulse {
+    0%,100% { transform:scale(1); opacity:1; }
+    50% { transform:scale(1.3); opacity:0.7; }
+  }
+  .htv-badge--mid strong {
+    display:block;
+    color:#0f172a;
+    font-size:12px;
+    line-height:1.2;
+    font-weight:800;
+  }
+  .htv-badge--mid small {
+    display:block;
+    color:#64748b;
+    font-size:10px;
+  }
+  .htv-pill {
+    padding:3px 7px;
+    border-radius:6px;
+    background:#107c41;
+    color:#fff;
+    font-weight:800;
+    font-size:10.5px;
+  }
+
+  .htv-badge--bottom {
+    bottom:8%;
+    right:36%;
+    font-size:11px;
+    color:#475569;
+    animation-delay: -1s;
+  }
+  .htv-badge--bottom strong {
+    color:#059669;
+    font-weight:800;
+  }
+
+  @keyframes htvFloat {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-6px); }
+  }
+
+  @media (max-width: 900px) {
+    .htv-badge--bottom { display:none; }
+    .hero-tech-visual { width:52%; }
+  }
+  @media (max-width: 720px) {
+    .hero-tech-visual { display:none; }
+  }
   .hero-search-rail { position:absolute; left:4%; bottom:0; z-index:70; width:min(580px,calc(50% - 20px)); transform:none; scroll-margin-top:90px; }
   .hero-route-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
   .hero-route-actions a { min-height:44px; display:flex; align-items:center; justify-content:center; gap:8px; padding:0 14px; border-radius:12px; font:800 12px/1.2 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; letter-spacing:-.01em; text-align:center; text-decoration:none; box-shadow:0 8px 18px rgba(15,23,42,.08); transition:transform .15s ease,box-shadow .15s ease; }
