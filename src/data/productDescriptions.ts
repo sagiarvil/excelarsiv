@@ -142,8 +142,8 @@ export function getProductFullDescription(template: {
         : 'Beklenmeyen nakit açıkları, geciken ödemeler ve kârlılık sapmalarını henüz oluşmadan yakalar ve aksiyon almanızı sağlar.'
     },
     {
-      title: 'Tek Seferlik Ödeme, Ömür Boyu Sahiplik',
-      desc: `Aylık veya yıllık yinelenen lisans ücreti yoktur. ₺${template.priceTL.toLocaleString('tr-TR')} tek seferlik ödemeyle dosya tamamen sizin olur, sınır olmadan kullanabilirsiniz.`
+      title: 'Şeffaf Teklif Modeli, Ömür Boyu Sahiplik',
+      desc: 'Aylık veya yıllık yinelenen gizli lisans ücreti yoktur. Şirketinize özel tek seferlik teklifle dosya tamamen firmanıza devredilir, süre sınırı olmadan kullanabilirsiniz.'
     },
     {
       title: 'Windows ve Mac ile %100 Uyumlu',

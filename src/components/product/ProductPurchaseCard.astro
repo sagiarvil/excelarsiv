@@ -1,132 +1,109 @@
 ---
-import { getCommerceProduct } from '../../lib/shopier';
-
 interface Props {
   productSlug: string;
   name: string;
-  priceTL: number;
   sheetCount: number;
   minExcelVersion: string;
   macCompatible: boolean;
   hasMacros: boolean;
 }
 
-const { productSlug, name, priceTL, sheetCount, minExcelVersion, macCompatible, hasMacros } = Astro.props;
-const formattedPrice = priceTL.toLocaleString('tr-TR');
-const commerceProduct = getCommerceProduct(productSlug);
-const isSatista = commerceProduct?.satista !== false;
+const { productSlug, name, sheetCount, minExcelVersion, macCompatible, hasMacros } = Astro.props;
 
 const demoUrl = `/demo/${productSlug}.xlsx`;
-const shopierUrl = commerceProduct?.shopierUrl ?? `https://www.shopier.com/ShowProductNew/products.php?id=${productSlug}`;
-const waUrl = `https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${name} Excel sistemi hakkında bilgi ve teklif almak istiyorum.`)}`;
+const waNumber = '905393333303';
+const waFormatted = '0539 333 33 03';
+const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(`Merhaba, ${name} Excel sistemi için teklif almak istiyorum.`)}`;
 ---
 
 <div class="product-purchase-card" data-purchase-card>
-  <!-- 1. Ücretsiz Demo İndir Butonu (Someka Stili) -->
-  <div class="demo-action-wrap">
-    <a
-      href={demoUrl}
-      download
-      class="btn-demo-download"
-      data-demo-track
-    >
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="19" height="19">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-        <polyline points="7 10 12 15 17 10"></polyline>
-        <line x1="12" y1="15" x2="12" y2="3"></line>
-      </svg>
-      <span>Ücretsiz Demo İndir (.XLSX)</span>
-    </a>
-    <div class="demo-sublinks">
-      <a href={`/demo/${productSlug}`}>Demo Sayfası</a> · 
-      <a href="/demo-kullanim-kosullari" target="_blank" rel="noopener noreferrer">Demo Kullanım Koşulları</a>
-    </div>
-  </div>
-
-  <!-- 2. Satın Alma Paneli (Someka Stili) -->
   <div class="purchase-box">
+    <!-- Kart Başlığı ve Kurumsal Rozet -->
     <div class="purchase-box__header">
-      <span class="purchase-box__title">ŞABLONU SATIN AL</span>
-      <span class="purchase-box__badge">ÖMÜR BOYU LİSANS</span>
+      <div>
+        <span class="purchase-box__kicker">KURUMSAL LİSANS</span>
+        <h2 class="purchase-box__title">Sistem Teklifi Alın</h2>
+      </div>
+      <span class="purchase-box__badge">ÖMÜR BOYU KULLANIM</span>
     </div>
 
-    <!-- Lisans & Fiyat Alanı -->
-    <div class="purchase-box__license-selector">
-      <label class="license-label">Lisans Türü:</label>
-      <div class="license-selected-box">
-        <div class="license-info">
-          <strong>Tam Sürüm — Tekli Lisans</strong>
-          <small>Tek seferlik ödeme, süresiz kullanım</small>
-        </div>
-        <div class="license-price">
-          <span class="currency">₺</span>
-          <span class="amount">{formattedPrice}</span>
-        </div>
+    <!-- Lisans & Kapsam Bilgisi (Fiyatsız - Teklif Odaklı) -->
+    <div class="purchase-box__license-card">
+      <div class="license-info">
+        <strong>Tam Sürüm — Şirketinize Özel</strong>
+        <p>İşletmenizin veri akışına ve ihtiyaçlarına göre uyarlanabilir şifresiz sistem.</p>
+      </div>
+      <div class="license-tag">
+        <span class="pulse-dot"></span>
+        <span>Anında Teklif</span>
       </div>
     </div>
 
-    <!-- Hizmet ve Kalite Güvenceleri -->
+    <!-- Kalite & Kapsam Güvenceleri -->
     <ul class="purchase-features-list">
       <li>
-        <svg viewBox="0 0 20 20" fill="currentColor" width="15" height="15"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-        <span><strong>Şifresiz Açık Formüller:</strong> Tüm hücreleri dilediğiniz gibi özelleştirebilirsiniz.</span>
+        <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        <span><strong>Şifresiz Açık Formüller:</strong> Tüm hücreleri ve mantığı dilediğiniz gibi düzenleyebilirsiniz.</span>
       </li>
       <li>
-        <svg viewBox="0 0 20 20" fill="currentColor" width="15" height="15"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-        <span><strong>{sheetCount} Çalışma Sayfası:</strong> Kapsamlı yönetim, hesap ve karar sayfaları.</span>
+        <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        <span><strong>{sheetCount} Çalışma Sayfası:</strong> Dashboard, hesaplama motoru ve karar sayfaları.</span>
       </li>
       <li>
-        <svg viewBox="0 0 20 20" fill="currentColor" width="15" height="15"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
         <span><strong>Tam Uyumluluk:</strong> {minExcelVersion} · {macCompatible ? 'Windows & Mac' : 'Windows'}</span>
       </li>
       <li>
-        <svg viewBox="0 0 20 20" fill="currentColor" width="15" height="15"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-        <span><strong>12 Ay Ücretsiz Destek & Güncelleme</strong></span>
+        <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        <span><strong>12 Ay Ücretsiz Destek, Güncelleme ve Kurumsal E-Fatura</strong></span>
       </li>
     </ul>
 
-    <!-- Eylem Butonları -->
+    <!-- Eylem Butonları: 1. Teklif Al (WhatsApp), 2. Ücretsiz Demo İndir -->
     <div class="purchase-actions">
-      {isSatista ? (
-        <a
-          href={shopierUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-buy-primary"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-          <span>Hemen Satın Al (Güvenli Ödeme)</span>
-        </a>
-      ) : (
-        <button type="button" class="btn-buy-primary is-disabled" disabled>
-          Geçici Olarak Satışa Kapalı
-        </button>
-      )}
-
+      <!-- 1. Birincil Buton: WhatsApp Teklif Butonu -->
       <a
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="btn-quote-whatsapp"
+        class="btn-action-primary-wa"
       >
-        <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        <span>WhatsApp İle Sor / Teklif Al</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <div class="btn-text-group">
+          <span class="btn-main-label">Teklif İste (WhatsApp)</span>
+          <span class="btn-sub-label">{waFormatted} · Hızlı Yanıt</span>
+        </div>
+      </a>
+
+      <!-- 2. İkincil Buton: Ücretsiz Demo İndir -->
+      <a
+        href={demoUrl}
+        download
+        class="btn-action-secondary-demo"
+        data-demo-track
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>Ücretsiz Demo İndir (.XLSX)</span>
       </a>
     </div>
 
-    <!-- Güven ve Teslimat Notları -->
+    <!-- Güven ve Koşul Linkleri -->
     <div class="purchase-trust-footer">
       <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Ödeme sonrası anında indirme linki</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Şirketinize ve sektörünüze göre esnek uyarlama</span>
       </div>
       <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Shopier 256-Bit SSL güvencesi & Fatura</span>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polyline points="20 6 9 17 4 12"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
         <span>{hasMacros ? 'Gelişmiş Makro Destekli' : 'Makrosuz / %100 Güvenli Excel'}</span>
+      </div>
+      <div class="demo-sublinks">
+        <a href={`/demo/${productSlug}`}>Demo Açılış Sayfası</a> · 
+        <a href="/demo-kullanim-kosullari" target="_blank" rel="noopener noreferrer">Demo Kullanım Koşulları</a>
       </div>
     </div>
   </div>
@@ -136,142 +113,120 @@ const waUrl = `https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${
   .product-purchase-card {
     display: flex;
     flex-direction: column;
-    gap: 14px;
     width: 100%;
-  }
-
-  /* Demo Butonu */
-  .demo-action-wrap {
-    text-align: center;
-  }
-  .btn-demo-download {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 13px 20px;
-    border-radius: 12px;
-    background: #0284c7;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 800;
-    text-decoration: none;
-    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
-    transition: all 0.2s ease;
-  }
-  .btn-demo-download:hover {
-    background: #0369a1;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
-  }
-  .demo-sublinks {
-    margin-top: 8px;
-    font-size: 11px;
-    color: #64748b;
-  }
-  .demo-sublinks a {
-    color: #0284c7;
-    text-decoration: none;
-  }
-  .demo-sublinks a:hover {
-    text-decoration: underline;
+    height: 100%;
   }
 
   /* Satın Alma Kutusu */
   .purchase-box {
-    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    border-radius: 18px;
     border: 1px solid #dbe5df;
     background: #ffffff;
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    padding: 24px 26px;
+    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.05);
   }
 
   .purchase-box__header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 14px;
-    padding-bottom: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
     border-bottom: 1px solid #f1f5f9;
+  }
+  .purchase-box__kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #0b743f;
+    margin-bottom: 3px;
   }
   .purchase-box__title {
     font-family: var(--font-display);
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: 0.02em;
+    font-size: 20px;
+    font-weight: 900;
     color: #0f172a;
+    letter-spacing: -0.01em;
+    margin: 0;
   }
   .purchase-box__badge {
     font-family: var(--font-mono);
     font-size: 10px;
     font-weight: 800;
-    padding: 4px 8px;
+    padding: 4px 9px;
     border-radius: 6px;
     background: #ecfdf5;
     color: #047857;
     border: 1px solid #a7f3d0;
+    white-space: nowrap;
   }
 
-  /* Lisans & Fiyat */
-  .purchase-box__license-selector {
-    margin-bottom: 16px;
-  }
-  .license-label {
-    display: block;
-    font-size: 11.5px;
-    font-weight: 700;
-    color: #475569;
-    margin-bottom: 6px;
-  }
-  .license-selected-box {
+  /* Lisans / Teklif Alanı */
+  .purchase-box__license-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 14px;
-    border-radius: 10px;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 12px;
     border: 1.5px solid #0b743f;
-    background: #f8faf9;
+    background: #f0fdf4;
+    margin-bottom: 18px;
   }
   .license-info strong {
     display: block;
-    font-size: 13.5px;
-    color: #0f172a;
+    font-size: 14px;
+    font-weight: 800;
+    color: #065f46;
+    margin-bottom: 2px;
   }
-  .license-info small {
-    display: block;
+  .license-info p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #047857;
+  }
+  .license-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #ffffff;
+    border: 1px solid #86efac;
     font-size: 11px;
-    color: #64748b;
+    font-weight: 800;
+    color: #15803d;
   }
-  .license-price {
-    text-align: right;
-    color: #0b743f;
-  }
-  .license-price .currency {
-    font-size: 15px;
-    font-weight: 700;
-    margin-right: 2px;
-  }
-  .license-price .amount {
-    font-size: 22px;
-    font-weight: 900;
-    font-family: var(--font-display);
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
   }
 
   /* Özellikler */
   .purchase-features-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin: 0 0 18px;
+    gap: 10px;
+    margin: 0 0 20px;
     padding: 0;
     list-style: none;
   }
   .purchase-features-list li {
     display: flex;
     align-items: flex-start;
-    gap: 8px;
-    font-size: 12px;
+    gap: 9px;
+    font-size: 12.5px;
     line-height: 1.45;
     color: #334155;
   }
@@ -286,59 +241,70 @@ const waUrl = `https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
-  .btn-buy-primary {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 13px 20px;
-    border-radius: 12px;
-    background: #0b743f;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 800;
-    text-decoration: none;
-    box-shadow: 0 4px 14px rgba(11, 116, 63, 0.25);
-    transition: all 0.2s ease;
-  }
-  .btn-buy-primary:hover {
-    background: #085a31;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(11, 116, 63, 0.35);
-  }
-  .btn-buy-primary.is-disabled {
-    background: #94a3b8;
-    cursor: not-allowed;
-    box-shadow: none;
+    margin-bottom: 16px;
   }
 
-  .btn-quote-whatsapp {
+  /* Birincil Buton (WhatsApp) */
+  .btn-action-primary-wa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 12px;
+    background: #15803d;
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(21, 128, 61, 0.28);
+    transition: all 0.2s ease;
+  }
+  .btn-action-primary-wa:hover {
+    background: #166534;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(21, 128, 61, 0.38);
+  }
+  .btn-text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn-main-label {
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .btn-sub-label {
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+
+  /* İkincil Buton (Demo İndir) */
+  .btn-action-secondary-demo {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     width: 100%;
-    padding: 11px 18px;
+    padding: 12px 18px;
     border-radius: 12px;
-    border: 1px solid #86efac;
-    background: #f0fdf4;
-    color: #15803d;
+    border: 1.5px solid #0284c7;
+    background: #f0f9ff;
+    color: #0369a1;
     font-size: 13.5px;
-    font-weight: 700;
+    font-weight: 800;
     text-decoration: none;
     transition: all 0.2s ease;
   }
-  .btn-quote-whatsapp:hover {
-    background: #dcfce7;
-    border-color: #4ade80;
+  .btn-action-secondary-demo:hover {
+    background: #e0f2fe;
+    border-color: #0369a1;
   }
 
   /* Güvenlik Bilgileri */
   .purchase-trust-footer {
-    margin-top: 14px;
-    padding-top: 12px;
+    padding-top: 14px;
     border-top: 1px solid #f1f5f9;
     display: flex;
     flex-direction: column;
@@ -347,12 +313,24 @@ const waUrl = `https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${
   .trust-item {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 11px;
+    gap: 7px;
+    font-size: 11.5px;
     color: #64748b;
   }
   .trust-item svg {
     color: #0b743f;
     flex-shrink: 0;
+  }
+  .demo-sublinks {
+    margin-top: 4px;
+    font-size: 11px;
+    color: #94a3b8;
+  }
+  .demo-sublinks a {
+    color: #0284c7;
+    text-decoration: none;
+  }
+  .demo-sublinks a:hover {
+    text-decoration: underline;
   }
 </style>

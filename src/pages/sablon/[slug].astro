@@ -162,8 +162,8 @@ const jsonLd = {
       <p class="product-subtitle-lead">{descriptionData.subTitle}</p>
     </header>
 
-    <!-- 2 Kolonlu Hero Alanı (Someka Modeli: Sol Galeri, Sağ Satın Alma) -->
-    <section class="product-hero-cockpit" aria-label="Ürün Önizleme ve Satın Alma">
+    <!-- 2 Kolonlu Hero Alanı (Someka Modeli: Sol Galeri, Sağ Teklif Kartı) -->
+    <section class="product-hero-cockpit" aria-label="Ürün Önizleme ve Teklif">
       <!-- Sol Kolon: Geniş Görsel Slider & Thumbnails -->
       <div class="hero-col-gallery">
         <ProductGallerySlider
@@ -173,12 +173,11 @@ const jsonLd = {
         />
       </div>
 
-      <!-- Sağ Kolon: Demo İndir ve Satın Alma Kartı -->
+      <!-- Sağ Kolon: Demo İndir ve Teklif Kartı -->
       <aside class="hero-col-purchase">
         <ProductPurchaseCard
           productSlug={template.id}
           name={t.name}
-          priceTL={t.priceTL}
           sheetCount={t.sheetCount}
           minExcelVersion={t.minExcelVersion}
           macCompatible={t.macCompatible}
@@ -236,7 +235,7 @@ const jsonLd = {
     )}
   </main>
 
-  <PurchaseBar name={t.name} priceTL={t.priceTL} satista={commerceProduct?.satista !== false} />
+  <PurchaseBar name={t.name} satista={commerceProduct?.satista !== false} />
   <div class="h-20 sm:hidden" aria-hidden="true" />
 </CommerceLayout>
 
@@ -244,60 +243,68 @@ const jsonLd = {
   .product-page-container {
     width: min(1200px, calc(100% - 40px));
     margin-inline: auto;
-    padding: 20px 0 80px;
+    padding: 24px 0 80px;
   }
 
   .product-breadcrumb-wrap {
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
   /* Üst Başlık */
   .product-header {
-    margin-bottom: 24px;
+    margin-bottom: 26px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e8edea;
   }
   .product-category-tag {
     display: inline-block;
     font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 800;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #0b743f;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
   }
   .product-main-heading {
     font-family: var(--font-display);
-    font-size: clamp(26px, 3.2vw, 38px);
+    font-size: clamp(28px, 3.4vw, 40px);
     line-height: 1.15;
     font-weight: 900;
     color: #0f172a;
     letter-spacing: -0.025em;
-    margin: 0 0 8px;
+    margin: 0 0 10px;
   }
   .product-subtitle-lead {
-    font-size: 14.5px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.65;
     color: #475569;
-    max-width: 920px;
+    max-width: 960px;
     margin: 0;
   }
 
-  /* 2 Kolonlu Hero Alanı (Someka Modeli) */
+  /* 2 Kolonlu Hero Alanı (Someka Modeli - Simetrik & Dengeli) */
   .product-hero-cockpit {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(360px, 0.9fr);
+    grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
     gap: 32px;
-    align-items: start;
+    align-items: stretch;
   }
 
   .hero-col-gallery {
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
 
   .hero-col-purchase {
     min-width: 0;
-    position: sticky;
-    top: 24px;
+    display: flex;
+    flex-direction: column;
   }
 
   /* Yazar Kutusu */
