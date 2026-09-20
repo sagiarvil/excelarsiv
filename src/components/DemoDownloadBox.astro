@@ -48,7 +48,7 @@ const { productSlug, name } = Astro.props;
     </label>
 
     <div class="demo-card__microcopy" aria-label="Demo bilgileri">
-      <span>10 dk bağlantı</span><i aria-hidden="true"></i><span>Tek kullanımlık</span><i aria-hidden="true"></i><span>Ham e-posta yazılmaz</span>
+      <span>Doğrudan cihaza iner</span><i aria-hidden="true"></i><span>E-posta beklemenize gerek yoktur</span><i aria-hidden="true"></i><span>10 dk bağlantı</span>
     </div>
     <p class="hidden demo-card__status" role="status" aria-live="polite" data-demo-status></p>
   </form>
@@ -107,7 +107,7 @@ const { productSlug, name } = Astro.props;
           fileType: fileTypeFromDownloadUrl(downloadUrl),
         });
         status.className = 'demo-card__status demo-card__status--ok';
-        status.textContent = 'Demo hazır. İndirme başlatılıyor…';
+        status.innerHTML = 'Demo hazır! Dosya doğrudan cihazınıza indirildi. İndirme başlamadıysa <a href="' + downloadUrl + '" style="text-decoration:underline;font-weight:700;color:#0b743f;">buraya tıklayın</a>.';
         window.location.assign(downloadUrl);
       } catch (error) {
         const code = error instanceof Error ? error.message : 'INTERNAL_ERROR';
