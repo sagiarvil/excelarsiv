@@ -35,11 +35,10 @@ const productMaps={
 
 function productBlock(slug,steps){const [a,b,c]=steps;return `<section class="native-info native-info--product" data-native-info="product-${slug}" aria-labelledby="product-map-${slug}"><p class="native-info__eyebrow">KARAR AKIŞI</p><h2 id="product-map-${slug}">Bu Excel dosyası hangi soruyu çözüyor?</h2><div class="native-info__flow"><article class="native-info__card"><small>1 · VERİ</small><strong>${a}</strong><span>İşletmede zaten bulunan bilgiyi düzenli girişe çevirir.</span></article><div class="native-info__arrow" aria-hidden="true">→</div><div class="native-info__core"><div><b>ƒx</b><strong>${b}</strong><span>Hesap + kontrol + karşılaştırma</span></div></div><div class="native-info__arrow" aria-hidden="true">→</div><article class="native-info__card"><small>3 · KARAR</small><strong>${c}</strong><span>Sonuç yalnız rakam değil, müdahale edilmesi gereken noktayı görünür kılar.</span></article></div></section>`}
 
-// Homepage — place before the current dark differentiation section.
+// Homepage — infografik dev bloğu anasayfadan kaldırıldı (Someka standartları)
 {
- let html=withCss(read('index.html'));
- html=before(html,'<section class="difference"',homeBlock,'home-system-map');
- write('index.html',html);
+  let html=withCss(read('index.html'));
+  write('index.html',html);
 }
 // Special systems — place before the final closing main so the section remains part of visible primary content.
 {
@@ -70,8 +69,7 @@ for(const entry of fs.readdirSync(productsDir,{withFileTypes:true})){
 }
 
 // Regression gates: visible semantics, internal links and unique product maps must survive the final build.
-const home=read('index.html'),special=read('ozel-excel-sistemleri/index.html'),guide=read('rehber/index.html');
-if(!home.includes('İŞLETME VERİSİ → KARAR')||!home.includes('/ozel-excel-sistemleri'))throw new Error('INFOGRAPHIC GATE: home map eksik');
+const special=read('ozel-excel-sistemleri/index.html'),guide=read('rehber/index.html');
 if(!special.includes('TABLODAN SİSTEME')||!special.includes('data-native-info="special-decision-map"'))throw new Error('INFOGRAPHIC GATE: special map eksik');
 if(!guide.includes('SORUDAN ÇÖZÜME')||!guide.includes('/rehber/cari-hesap-takip-excel'))throw new Error('INFOGRAPHIC GATE: guide map eksik');
 if(customCount!==Object.keys(productMaps).length)throw new Error(`INFOGRAPHIC GATE: özel ürün haritası ${customCount}/${Object.keys(productMaps).length}`);
