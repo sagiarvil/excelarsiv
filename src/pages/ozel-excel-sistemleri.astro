@@ -127,6 +127,12 @@
 
     .btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 20px;border:1px solid transparent;border-radius:12px;font-size:16px;line-height:1.2;font-weight:650;letter-spacing:-.02em;transition:transform .18s ease,background-color .18s ease,border-color .18s ease,box-shadow .18s ease}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--green);color:#fff;box-shadow:0 10px 22px rgba(22,131,77,.18)}.btn-primary:hover{background:var(--green-dark);box-shadow:0 12px 26px rgba(22,131,77,.22)}.btn-secondary{background:#fff;border-color:#a8cdb8;color:var(--green-dark)}.btn-secondary:hover{background:var(--green-soft);border-color:#7fba99}
 
+    /* 5 SANİYEDE ANLAŞILMA VE KARAR SİSTEMİ MİMARİSİ */
+    .five-sec-banner{margin:18px 0 0;padding:16px 20px;border-radius:14px;background:#f8fafc;border:1px solid #cbd5e1}
+    .five-sec-banner strong{display:block;color:#0f172a;font-size:15px;font-weight:800;margin-bottom:6px}
+    .five-sec-banner p{margin:0;color:#475569;font-size:14px;line-height:1.55}
+    .five-sec-banner em{font-style:normal;color:#0b7440;font-weight:750}
+
     .hero{position:relative;overflow:hidden;padding:76px 0 74px;background:linear-gradient(90deg,#fff 0%,#fff 54%,#f4fbf7 100%)}
     .hero::after{content:"";position:absolute;right:-90px;top:-70px;width:620px;height:620px;background-image:linear-gradient(rgba(22,131,77,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(22,131,77,.045) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(135deg,transparent 0%,#000 45%,#000 100%);pointer-events:none}
     .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:center;min-width:0}.hero-copy,.workbook{min-width:0}
@@ -154,6 +160,27 @@
 
     .section{padding:84px 0}.section-soft{background:var(--soft)}.section-green{background:linear-gradient(180deg,#f3fbf6 0%,#fff 100%)}.section-head{max-width:870px;margin:0 auto 38px;text-align:center}.section-head h2{margin:0;font-size:clamp(34px,3.6vw,46px);line-height:1.08;font-weight:720;letter-spacing:-.04em;text-wrap:balance}.section-head p{margin:14px auto 0;max-width:760px;color:var(--muted);font-size:18px;line-height:1.52}.section-kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;color:var(--green);font-size:13px;font-weight:750;letter-spacing:.02em}.section-kicker::before{content:"";width:24px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--green) 0 45%,var(--amber) 45% 70%,var(--violet) 70%)}
 
+    /* ACININ GERÇEK BEDELİ (COST OF INACTION) */
+    .cost-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
+    .cost-card{border:1px solid #fed7d7;border-radius:18px;background:#fffafa;padding:24px;display:flex;flex-direction:column}
+    .cost-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .cost-card-head span{font-size:22px}
+    .cost-badge{padding:3px 8px;border-radius:6px;background:#fee2e2;color:#b91c1c;font-size:10.5px;font-weight:800;letter-spacing:.04em}
+    .cost-card h3{margin:0 0 10px;font-size:17px;font-weight:800;line-height:1.3;color:#1e293b}
+    .cost-card p{margin:0 0 16px;font-size:14px;line-height:1.5;color:#64748b;flex-grow:1}
+    .cost-loss{padding:10px 12px;border-radius:10px;background:#fff;border:1px solid #fecaca}
+    .cost-loss small{display:block;font-size:10px;font-weight:800;color:#dc2626;text-transform:uppercase}
+    .cost-loss strong{display:block;margin-top:2px;font-size:13.5px;color:#991b1b;font-weight:800}
+
+    /* BANKACI REFLEKSİ VE KREDİ KOMİTESİ BAKIŞI */
+    .banker-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
+    .banker-card{padding:28px;border-radius:20px;background:#1e293b;color:#fff;border:1px solid #334155}
+    .banker-card h3{margin:0 0 14px;font-size:20px;font-weight:800;color:#38bdf8}
+    .banker-card p{margin:0 0 18px;font-size:14.5px;line-height:1.6;color:#cbd5e1}
+    .banker-q-list{display:grid;gap:10px}
+    .banker-q-item{padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.06);border-left:4px solid #34d399;font-size:13.5px;line-height:1.45;color:#f1f5f9}
+    .banker-q-item strong{display:block;color:#6ee7b7;font-size:12.5px;margin-bottom:2px}
+
     .problem-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:stretch}.problem-card{height:100%;min-width:0;padding:24px;border:1px solid var(--line);border-radius:18px;background:#fff;display:flex;flex-direction:column;box-shadow:0 10px 24px rgba(31,55,80,.05)}.problem-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:13px;margin-bottom:18px;font-size:22px;font-weight:800}.problem-card h3{margin:0;font-size:20px;line-height:1.25;font-weight:700;letter-spacing:-.025em}.problem-card p{margin:11px 0 0;color:var(--muted);font-size:15px;line-height:1.5}.problem-card.green{border-top:4px solid var(--green);background:linear-gradient(180deg,var(--green-soft),#fff 45%)}.problem-card.green .problem-icon{background:#dff4e8;color:var(--green)}.problem-card.amber{border-top:4px solid var(--amber);background:linear-gradient(180deg,var(--amber-soft),#fff 45%)}.problem-card.amber .problem-icon{background:#ffedc7;color:#c77b18}.problem-card.coral{border-top:4px solid var(--coral);background:linear-gradient(180deg,var(--coral-soft),#fff 45%)}.problem-card.coral .problem-icon{background:#ffe0e0;color:#d74747}.problem-card.violet{border-top:4px solid var(--violet);background:linear-gradient(180deg,var(--violet-soft),#fff 45%)}.problem-card.violet .problem-icon{background:#e9ddff;color:var(--violet)}
 
     .area-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}.area-card{position:relative;height:100%;min-width:0;padding:24px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 8px 20px rgba(31,55,80,.04);overflow:hidden}.area-card::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--green)}.area-card:nth-child(2)::before{background:var(--blue)}.area-card:nth-child(3)::before{background:var(--amber)}.area-card:nth-child(4)::before{background:var(--coral)}.area-card:nth-child(5)::before{background:var(--violet)}.area-card:nth-child(6)::before{background:var(--teal)}.area-icon{width:44px;height:44px;display:grid;place-items:center;margin-bottom:16px;border-radius:12px;background:var(--green-soft);color:var(--green);font-weight:800}.area-card:nth-child(2) .area-icon{background:var(--blue-soft);color:var(--blue)}.area-card:nth-child(3) .area-icon{background:var(--amber-soft);color:#c77b18}.area-card:nth-child(4) .area-icon{background:var(--coral-soft);color:#d74747}.area-card:nth-child(5) .area-icon{background:var(--violet-soft);color:var(--violet)}.area-card:nth-child(6) .area-icon{background:var(--teal-soft);color:var(--teal)}.area-card h3{margin:0;font-size:21px;line-height:1.2;font-weight:700;letter-spacing:-.026em}.area-card p{margin:10px 0 0;color:var(--muted);font-size:15px;line-height:1.52}
@@ -172,13 +199,13 @@
 
     .footer{padding:36px 0;background:#fff;color:var(--muted)}.footer-grid{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(3,minmax(0,.7fr));gap:32px;align-items:start}.footer-brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:700}.footer-brand img{width:30px;height:30px}.footer-copy{margin:12px 0 0;max-width:280px;font-size:13px;line-height:1.5}.footer-col strong{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-col a{display:block;padding:3px 0;font-size:13px}.footer-col a:hover{color:var(--green)}.footer-bottom{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font-size:12px}
 
-    @media(max-width:1180px){.brand-copy small{display:none}.nav-links{gap:2px}.nav-links a{padding:8px 8px;font-size:13px}.hero-grid{gap:38px}.proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.problem-grid,.why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:1020px){.nav-links{display:none}.mobile-menu{display:block}.nav-actions{margin-left:auto}.nav-actions>.nav-cta{display:none}.hero{padding:58px 0}.hero-grid{grid-template-columns:1fr}.hero-copy{max-width:760px}.workbook{max-width:860px}.area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.faq-grid,.cta-shell{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:1180px){.brand-copy small{display:none}.nav-links{gap:2px}.nav-links a{padding:8px 8px;font-size:13px}.hero-grid{gap:38px}.proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.problem-grid,.why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cost-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:1020px){.nav-links{display:none}.mobile-menu{display:block}.nav-actions{margin-left:auto}.nav-actions>.nav-cta{display:none}.hero{padding:58px 0}.hero-grid{grid-template-columns:1fr}.hero-copy{max-width:760px}.workbook{max-width:860px}.area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.faq-grid,.cta-shell{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.banker-grid{grid-template-columns:1fr}}
     @media(max-width:800px){
       .comparison-wrap{padding:0;border:0;box-shadow:none;background:transparent}.comparison{border:0;border-radius:0;background:transparent;display:grid;gap:12px;overflow:visible}.comparison-head{display:none}.comparison-row{grid-template-columns:1fr;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}.comparison-row>div{display:grid;grid-template-columns:minmax(112px,.42fr) minmax(0,1fr);gap:14px;border-right:0;border-bottom:1px solid var(--line);padding:14px 16px;font-size:15px;line-height:1.4;background:#fff!important}.comparison-row>div::before{content:attr(data-label);color:var(--muted);font-size:13px;line-height:1.35;font-weight:600}.comparison-row>div:first-child{display:block;background:#f5f7f9!important;font-size:17px;font-weight:700}.comparison-row>div:first-child::before{display:none}.comparison-row>div:last-child{border-bottom:0;background:var(--green-soft)!important}
     }
     @media(max-width:660px){
-      .wrap,.wrap-wide{width:min(100% - 32px,var(--wide))}.nav-inner{min-height:60px}.brand img{width:34px;height:34px}.brand-copy strong{font-size:16px;letter-spacing:-.025em}.hero{padding:42px 0 48px}.eyebrow{font-size:13px}.hero h1{font-size:40px;line-height:1.06;letter-spacing:-.045em}.hero-lead{font-size:17px;line-height:1.52}.hero-actions{display:grid}.hero-actions .btn{width:100%}.hero-bullets{display:grid;gap:10px}.proof-grid{grid-template-columns:1fr 1fr}.metric-grid{grid-template-columns:1fr 1fr}.metric strong{font-size:18px}.wb-chart-grid,.wb-lists{grid-template-columns:1fr}.section{padding:62px 0}.section-head{margin-bottom:28px}.section-head h2,.faq-copy h2{font-size:31px}.section-head p,.faq-copy p{font-size:16px}.problem-grid,.area-grid,.process-grid,.why-grid{grid-template-columns:1fr}.problem-card,.area-card,.process-card,.why-card{padding:22px}.donut-wrap{grid-template-columns:82px minmax(0,1fr)}.donut{width:82px}.delivery-grid{grid-template-columns:1fr}.delivery-card,.fit-card{padding:24px}.faq-grid{gap:28px}.cta{padding:54px 0}.cta-shell{padding:24px}.cta h2{font-size:34px}.footer-grid{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column}.wb-note{display:none}
+      .wrap,.wrap-wide{width:min(100% - 32px,var(--wide))}.nav-inner{min-height:60px}.brand img{width:34px;height:34px}.brand-copy strong{font-size:16px;letter-spacing:-.025em}.hero{padding:42px 0 48px}.eyebrow{font-size:13px}.hero h1{font-size:40px;line-height:1.06;letter-spacing:-.045em}.hero-lead{font-size:17px;line-height:1.52}.hero-actions{display:grid}.hero-actions .btn{width:100%}.hero-bullets{display:grid;gap:10px}.proof-grid{grid-template-columns:1fr 1fr}.metric-grid{grid-template-columns:1fr 1fr}.metric strong{font-size:18px}.wb-chart-grid,.wb-lists{grid-template-columns:1fr}.section{padding:62px 0}.section-head{margin-bottom:28px}.section-head h2,.faq-copy h2{font-size:31px}.section-head p,.faq-copy p{font-size:16px}.problem-grid,.area-grid,.process-grid,.why-grid{grid-template-columns:1fr}.cost-grid{grid-template-columns:1fr}.problem-card,.area-card,.process-card,.why-card{padding:22px}.donut-wrap{grid-template-columns:82px minmax(0,1fr)}.donut{width:82px}.delivery-grid{grid-template-columns:1fr}.delivery-card,.fit-card{padding:24px}.faq-grid{gap:28px}.cta{padding:54px 0}.cta-shell{padding:24px}.cta h2{font-size:34px}.footer-grid{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column}.wb-note{display:none}
     }
     @media(max-width:430px){.proof-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.hero h1{font-size:36px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
@@ -229,7 +256,6 @@
       .outcome-metrics{grid-template-columns:1fr;gap:12px}
       .shield-bento-grid{grid-template-columns:1fr}
     }
-
   </style>
 </head>
 <body data-special-source-v5>
@@ -237,7 +263,7 @@
 
   <header class="site-nav">
     <div class="wrap-wide nav-inner">
-      <a class="brand" href="/" aria-label="Excel Arşiv ana sayfa">
+      <a class="brand" href="/" aria-label="Excel Arşiv ana space">
         <img src="/images/excel-logo.png" alt="Excel Arşiv logosu" width="38" height="38" loading="eager" decoding="async" />
         <span class="brand-copy">
           <strong>Excel Arşiv</strong>
@@ -286,6 +312,14 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="/iletisim">İhtiyacımı anlatmak istiyorum <span aria-hidden="true">→</span></a>
             <a class="btn btn-secondary" href="/sablonlar">Hazır sistemlere bak <span aria-hidden="true">→</span></a>
+          </div>
+
+          <!-- 5 SANİYEDE BİZİ ANLAYIN: RAPOR DEĞİL KARAR SİSTEMİ -->
+          <div class="five-sec-banner" aria-label="5 saniyede değer önermesi">
+            <strong>Görünmeyen Altın Maden: Ürününüz "Rapor" Değil, "KARAR"dır.</strong>
+            <p>
+              Biz sıradan bir Excel şablonu satmıyoruz. <em>17 yıllık ticari bankacılık ve kredi komitesi refleksiyle</em>; 90 dakikada bankanın şirketinizde göreceği kredi kısıtlarını, nakit açığınızı ve kâr kaçaklarınızı ortaya çıkaran karar kokpitini masanıza koyuyoruz.
+            </p>
           </div>
 
           <div class="hero-what-we-do" aria-labelledby="hero-what-we-do-title">
@@ -338,6 +372,98 @@
       </div>
     </section>
 
+    <!-- ACININ GERÇEK BEDELİ (THE COST OF INACTION - ACININ FİYATINI KONUMLANDIRMA) -->
+    <section class="section section-soft" id="acinin-maliyeti">
+      <div class="wrap-wide">
+        <div class="section-head">
+          <span class="section-kicker">ACININ GERÇEK MALİYETİ</span>
+          <h2>Görünmeyen Finansal Kanama: Şirketiniz Nerede, Ne Kadar Kaybediyor?</h2>
+          <p>KOBİ sahipleri genellikle Excel sisteminin bedelini düşünür; oysa asıl büyük bedel, her ay kör uçuşu yaparak ödenen gizli faturalardır.</p>
+        </div>
+        <div class="cost-grid">
+          <article class="cost-card">
+            <div class="cost-card-head"><span>🏦</span><span class="cost-badge">BANKA & LİMİT KÖRLÜĞÜ</span></div>
+            <h3>Rotatif Faiz Sarmalı ve Kredi Tıkanması</h3>
+            <p>Hangi kredinin ne zaman kapatılacağını bilmemek ve atlanan faiz artışları şirketi faiz sarmalına sokar; kredi komitesinde limit kilitlenir.</p>
+            <div class="cost-loss">
+              <small>ŞİRKETİNİZE YILLIK MALİYETİ</small>
+              <strong>250.000 TL – 1.800.000 TL Fazladan Faiz</strong>
+            </div>
+          </article>
+          <article class="cost-card">
+            <div class="cost-card-head"><span>⏳</span><span class="cost-badge">TAHSİLAT & VADE ÇIKMAZI</span></div>
+            <h3>Cuma Günü Çeki ve Maaşları Ödeyememe Stresi</h3>
+            <p>Kasanın 15 gün sonra nerede olacağı tabloda görünmüyorsa; her ay sonu nakit yangını çıkar, panik borçlanmayla kâr erir.</p>
+            <div class="cost-loss">
+              <small>ŞİRKETİNİZE YILLIK MALİYETİ</small>
+              <strong>Karşılıksız Çek, İtibar Kaybı & Acil Finansman Masrafı</strong>
+            </div>
+          </article>
+          <article class="cost-card">
+            <div class="cost-card-head"><span>📉</span><span class="cost-badge">YANILTICI KÂRLILIK</span></div>
+            <h3>Ciro Rekoru Kırarken Özkaynak Tüketmek</h3>
+            <p>Enflasyon, vade farkı ve gizli genel giderler birim fiyata yansıtılmadığında; şirket mal sattıkça büyüdüğünü sanır ama sermayesini eritir.</p>
+            <div class="cost-loss">
+              <small>ŞİRKETİNİZE YILLIK MALİYETİ</small>
+              <strong>%8 - %15 Net Kâr Marjı Buharlaşması</strong>
+            </div>
+          </article>
+          <article class="cost-card">
+            <div class="cost-card-head"><span>💻</span><span class="cost-badge">AĞIR ERP ÇÖKÜŞÜ</span></div>
+            <h3>400.000 TL Lisans + 6 Ay Kurulum Masrafı</h3>
+            <p>Ağır yazılımlar çalışan direnciyle karşılaşır. Aylar süren eğitimden sonra patron yine kasayı göremez ve dönüp dolaşıp Excel açar.</p>
+            <div class="cost-loss">
+              <small>ŞİRKETİNİZE YILLIK MALİYETİ</small>
+              <strong>400.000 TL+ Boşa Giden Lisans & 6 Ay Zaman Kaybı</strong>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANKACI REFLEKSİ: MASANIN DİĞER TARAFINDAKİ GÖZ -->
+    <section class="section" id="bankaci-refleksi">
+      <div class="wrap-wide">
+        <div class="section-head">
+          <span class="section-kicker">17 YILLIK TİCARİ BANKACILIK REFLEKSİ</span>
+          <h2>Masanın Diğer Tarafı: Bankacı ve Kredi Komitesi Şirketinizi Nasıl Okur?</h2>
+          <p>Biz sıradan bir danışman gibi "statik rapor" teslim etmiyoruz. İşletmenizin bilançosunu kredi komitesinin ve şirket yöneticisinin karar refleksine dönüştürüyoruz.</p>
+        </div>
+        <div class="banker-grid">
+          <div class="banker-card">
+            <h3>Sorduğumuz 3 Kritik Soru</h3>
+            <p>Sıradan bir danışman veya yazılımcı size renkli grafikler verir. Ancak şu soruların yanıtını vermez:</p>
+            <div class="banker-q-list">
+              <div class="banker-q-item">
+                <strong>01. Bankacı Bu Mizanı Nasıl Okur?</strong>
+                Kredi tahsis müdürü firmanıza baktığında hangi kalemi şüpheli görür? Hangi rasyo kredi limitinizi aşağı çeker?
+              </div>
+              <div class="banker-q-item">
+                <strong>02. Nerede Tutarsızlık Var?</strong>
+                Kasa, banka, stok ve cari hesaplar arasındaki gizli uyumsuzluk nerede başlıyor?
+              </div>
+              <div class="banker-q-item">
+                <strong>03. Yanlış Karar Hangi Koşulda Şirketi Kilitler?</strong>
+                Dolar kuru %10 arttığında veya ana müşteriniz vadesini 30 gün uzattığında nakit akışınız kaçıncı haftada patlar?
+              </div>
+            </div>
+          </div>
+          <div class="banker-card" style="background:#0f172a;border-color:#059669">
+            <h3 style="color:#34d399">90 Dakikada Çözülen Kredi & Nakit Darboğazı</h3>
+            <p>KOBİ sahibine <em>"Finansal danışmanlık veriyoruz"</em> demek yerine doğrudan şunu söylüyoruz:</p>
+            <div style="padding:18px;border-radius:12px;background:rgba(52,211,153,.1);border:1px solid #34d399;margin-bottom:18px">
+              <strong style="display:block;font-size:15.5px;line-height:1.55;color:#6ee7b7">
+                “90 dakikada bankanın şirketinizde göreceği kredi engellerini çıkarıyoruz ve hangi engelin kredi limitinizi aşağı çektiğini gösteriyoruz.”
+              </strong>
+            </div>
+            <p>
+              Bu mekanizma; kredi hazırlığı, nakit sıkışıklığı, finansman yapılandırması, şirket satın alma, değerleme kontrolü ve birim kârlılık denetimine doğrudan uygulanır.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-soft" id="ne-zaman">
       <div class="wrap-wide">
         <div class="section-head"><span class="section-kicker">İHTİYAÇ SİNYALLERİ</span><h2>Özel bir sisteme ne zaman ihtiyaç olur?</h2><p>İşin kendisi karmaşık olduğu için değil; mevcut dosya artık işi taşımadığı için özel çalışma gerekir.</p></div>
@@ -360,7 +486,6 @@
         </div>
 
         <div class="dialog-bento-grid">
-          <!-- Müşteri Mesaj Balonu -->
           <div class="dialog-bubble bubble-client">
             <div class="bubble-header">
               <span class="bubble-avatar">🏢</span>
@@ -375,14 +500,12 @@
             </p>
           </div>
 
-          <!-- Ok / Bağlantı İnfografiği -->
           <div class="dialog-flow-connector" aria-hidden="true">
             <span class="connector-line"></span>
             <span class="connector-badge">3 GÜNDE ANALİZ & KURULUM</span>
             <span class="connector-line"></span>
           </div>
 
-          <!-- Finans Mimarı Mesaj Balonu -->
           <div class="dialog-bubble bubble-advisor">
             <div class="bubble-header">
               <span class="bubble-avatar">⚡</span>
@@ -397,7 +520,6 @@
             </p>
           </div>
 
-          <!-- Sonuç & Çıktı Kartı -->
           <div class="dialog-outcome-card">
             <div class="outcome-pill">✓ GERÇEKLEŞEN SONUÇ</div>
             <div class="outcome-metrics">
