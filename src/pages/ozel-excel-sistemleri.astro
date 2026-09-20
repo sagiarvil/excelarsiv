@@ -153,14 +153,16 @@
 
     .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:0 18px;border:1px solid transparent;border-radius:10px;font-size:14px;line-height:1.2;font-weight:650;letter-spacing:-.015em;transition:transform .18s ease,background-color .18s ease,border-color .18s ease,box-shadow .18s ease}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--green);color:#fff;box-shadow:0 8px 18px rgba(22,131,77,.16)}.btn-primary:hover{background:var(--green-dark);box-shadow:0 10px 22px rgba(22,131,77,.20)}.btn-secondary{background:#fff;border-color:#a8cdb8;color:var(--green-dark)}.btn-secondary:hover{background:var(--green-soft);border-color:#7fba99}
 
-    .hero{position:relative;overflow:hidden;padding:52px 0 46px;background:linear-gradient(90deg,#fff 0%,#fff 54%,#f4fbf7 100%)}
+    /* 01 HERO */
+    .hero{position:relative;overflow:hidden;padding:48px 0 42px;background:linear-gradient(90deg,#fff 0%,#fff 54%,#f4fbf7 100%)}
     .hero::after{content:"";position:absolute;right:-90px;top:-70px;width:560px;height:560px;background-image:linear-gradient(rgba(22,131,77,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(22,131,77,.04) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(135deg,transparent 0%,#000 45%,#000 100%);pointer-events:none}
     .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:36px;align-items:center;min-width:0}.hero-copy,.workbook{min-width:0}
     .eyebrow{display:inline-flex;align-items:center;gap:7px;margin:0 0 14px;padding:5px 10px;border:1px solid #b9dec8;border-radius:999px;background:#fff;color:var(--green-dark);font-size:12.5px;line-height:1.2;font-weight:700}.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
-    .hero h1{margin:0;max-width:640px;font-size:clamp(32px,3.2vw,42px);line-height:1.15;font-weight:750;letter-spacing:-.035em;text-wrap:balance}.hero h1 em{font-style:normal;color:var(--green)}
-    .hero-lead{max-width:600px;margin:16px 0 0;color:#475569;font-size:15.5px;line-height:1.6;letter-spacing:-.01em}
+    .hero h1{margin:0;max-width:640px;font-size:clamp(30px,3.2vw,40px);line-height:1.15;font-weight:750;letter-spacing:-.035em;text-wrap:balance;color:#0f172a}.hero h1 em{font-style:normal;color:var(--green)}
+    .hero-lead{max-width:600px;margin:16px 0 0;color:#475569;font-size:15px;line-height:1.6;letter-spacing:-.01em}
     .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-    .hero-bullets{display:flex;flex-wrap:wrap;gap:10px 16px;margin:18px 0 0;padding:0;list-style:none}.hero-bullets li{display:flex;align-items:center;gap:6px;color:#475569;font-size:13px;line-height:1.35;font-weight:550}.hero-bullets li::before{content:"✓";display:grid;place-items:center;width:17px;height:17px;border:1px solid #82c5a0;border-radius:50%;color:var(--green);font-size:11px;font-weight:800;background:#fff}
+    .hero-trust-note{margin:10px 0 0;color:var(--green-dark);font-size:12.5px;line-height:1.4;font-weight:600}
+    .hero-bullets{display:flex;flex-wrap:wrap;gap:10px 16px;margin:16px 0 0;padding:0;list-style:none}.hero-bullets li{display:flex;align-items:center;gap:6px;color:#475569;font-size:13px;line-height:1.35;font-weight:550}.hero-bullets li::before{content:"✓";display:grid;place-items:center;width:17px;height:17px;border:1px solid #82c5a0;border-radius:50%;color:var(--green);font-size:11px;font-weight:800;background:#fff}
 
     .workbook{border:1px solid #d9e2e8;border-radius:18px;background:#fff;overflow:hidden;box-shadow:var(--shadow)}.wb-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 14px;border-bottom:1px solid var(--line);background:#fff}.wb-title{display:flex;align-items:center;gap:8px;min-width:0;font-size:13.5px;font-weight:700}.wb-title img{width:20px;height:20px;flex:0 0 auto}.wb-note{font-size:11.5px;color:var(--muted)}.wb-body{padding:12px;background:linear-gradient(180deg,#fff 0%,#fbfcfe 100%)}
     .metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.metric{min-width:0;padding:9px 10px;border-radius:9px;background:#fff;border:1px solid #e2e8ee}.metric small{display:block;color:var(--muted);font-size:11.5px;line-height:1.3}.metric strong{display:block;margin-top:4px;font-size:16px;line-height:1.2;font-weight:720;letter-spacing:-.025em}.metric span{display:block;margin-top:2px;color:#445066;font-size:11px;line-height:1.3}
@@ -169,39 +171,50 @@
     .donut-wrap{display:grid;grid-template-columns:74px minmax(0,1fr);gap:10px;align-items:center}.donut{width:74px;aspect-ratio:1;border-radius:50%;background:conic-gradient(var(--blue) 0 28%,var(--green) 28% 47%,var(--amber) 47% 67%,var(--coral) 67% 82%,var(--violet) 82% 100%);position:relative}.donut::after{content:"";position:absolute;inset:18px;border-radius:50%;background:#fff}.donut-list{display:grid;gap:4px;color:#4f5b6e;font-size:11px}.donut-list span{display:flex;align-items:center;gap:5px}.donut-list i{width:7px;height:7px;border-radius:50%}
     .wb-lists{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.75fr);gap:6px;margin-top:6px}.data-list,.alert-list{display:grid;gap:6px}.data-row,.alert-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px;align-items:center;font-size:11px;color:#445066}.alert-row{grid-template-columns:8px minmax(0,1fr) auto}.alert-row i{width:7px;height:7px;border-radius:50%;background:var(--coral)}.alert-row:nth-child(2) i{background:var(--amber)}.alert-row:nth-child(3) i{background:var(--green)}
 
-    .section{padding:58px 0}.section-soft{background:var(--soft)}.section-green{background:linear-gradient(180deg,#f3fbf6 0%,#fff 100%)}.section-head{max-width:740px;margin:0 auto 30px;text-align:center}.section-head h2{margin:0;font-size:clamp(24px,2.3vw,32px);line-height:1.22;font-weight:750;letter-spacing:-.028em;text-wrap:balance}.section-head p{margin:10px auto 0;max-width:640px;color:var(--muted);font-size:14.5px;line-height:1.55}.section-kicker{display:inline-flex;align-items:center;gap:7px;margin-bottom:8px;color:var(--green);font-size:11.5px;font-weight:750;letter-spacing:.02em}.section-kicker::before{content:"";width:20px;height:2.5px;border-radius:3px;background:linear-gradient(90deg,var(--green) 0 45%,var(--amber) 45% 70%,var(--violet) 70%)}
+    .section{padding:54px 0}.section-soft{background:var(--soft)}.section-green{background:linear-gradient(180deg,#f3fbf6 0%,#fff 100%)}.section-head{max-width:740px;margin:0 auto 28px;text-align:center}.section-head h2{margin:0;font-size:clamp(23px,2.2vw,30px);line-height:1.24;font-weight:750;letter-spacing:-.028em;text-wrap:balance}.section-head p{margin:10px auto 0;max-width:640px;color:var(--muted);font-size:14px;line-height:1.55}.section-kicker{display:inline-flex;align-items:center;gap:7px;margin-bottom:8px;color:var(--green);font-size:11.5px;font-weight:750;letter-spacing:.02em}.section-kicker::before{content:"";width:20px;height:2.5px;border-radius:3px;background:linear-gradient(90deg,var(--green) 0 45%,var(--amber) 45% 70%,var(--violet) 70%)}
 
-    /* 3 SOMUT ÇIKTI (ÖRNEK SİSTEMLER) */
-    .sample-systems-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:10px}
+    /* 02 MEKANİZMA (6 ADIM) */
+    .mech-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .mech-card{padding:18px 16px;border-radius:14px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .18s ease,border-color .18s ease}
+    .mech-card:hover{transform:translateY(-2px);border-color:#b9dec8}
+    .mech-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:var(--green-soft);color:var(--green-dark);font-size:11.5px;font-weight:800;margin-bottom:10px}
+    .mech-card h3{margin:0 0 6px;font-size:14.5px;line-height:1.3;font-weight:750;color:#0f172a}
+    .mech-card p{margin:0;font-size:12.5px;line-height:1.5;color:#475569}
+
+    /* 03 SOMUT ÇIKTI (3 KOKPİT) */
+    .sample-systems-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
     .sample-system-card{padding:22px 20px;border-radius:16px;background:#ffffff;border:1px solid #dce4ea;box-shadow:0 6px 20px rgba(15,23,42,.03);display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
     .sample-system-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,23,42,.07);border-color:#b9dec8}
     .ssc-tag{display:inline-block;align-self:flex-start;padding:3px 8px;border-radius:6px;font-size:10.5px;font-weight:800;letter-spacing:.04em;margin-bottom:12px}
     .ssc-tag.is-green{background:#ecfdf5;color:#047857;border:1px solid #a7f3d0}
     .ssc-tag.is-blue{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
     .ssc-tag.is-amber{background:#fffbeb;color:#b45309;border:1px solid #fde68a}
-    .sample-system-card h3{margin:0 0 8px;font-size:16.5px;line-height:1.3;font-weight:750;color:#0f172a}
-    .sample-system-card p{margin:0 0 14px;color:#475569;font-size:13.5px;line-height:1.52;flex-grow:1}
+    .sample-system-card h3{margin:0 0 10px;font-size:16.5px;line-height:1.3;font-weight:750;color:#0f172a}
+    .ssc-box{padding:9px 12px;border-radius:8px;margin-bottom:10px;font-size:12px;line-height:1.45}
+    .ssc-box.problem{background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
+    .ssc-box.output{background:var(--green-soft);border:1px solid #bbf7d0;color:var(--green-dark);margin-bottom:14px}
+    .ssc-box strong{display:block;font-weight:750;margin-bottom:2px}
     .ssc-list{margin:0;padding:0;list-style:none;display:grid;gap:6px;border-top:1px solid #edf2f7;padding-top:14px}
     .ssc-list li{font-size:12.5px;color:#334155;line-height:1.4;font-weight:550}
 
-    /* KENDİNİ TANI / NE ZAMAN */
-    .problem-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-    .problem-card{position:relative;min-width:0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .18s ease}
+    /* 04 KENDİNİ TANI / NE ZAMAN (6 PROBLEM KARTI) */
+    .problem-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .problem-card{position:relative;min-width:0;padding:18px 16px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .18s ease}
     .problem-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-    .problem-card::before{content:"";position:absolute;left:18px;right:18px;top:0;height:3.5px;border-radius:0 0 3px 3px}
-    .problem-card.green::before{background:var(--green)}.problem-card.amber::before{background:var(--amber)}.problem-card.coral::before{background:var(--coral)}.problem-card.violet::before{background:var(--violet)}
-    .problem-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;font-size:15px;font-weight:800;margin-bottom:12px}
-    .problem-card.green .problem-icon{background:var(--green-soft);color:var(--green)}.problem-card.amber .problem-icon{background:var(--amber-soft);color:var(--amber)}.problem-card.coral .problem-icon{background:var(--coral-soft);color:var(--coral)}.problem-card.violet .problem-icon{background:var(--violet-soft);color:var(--violet)}
-    .problem-card h3{margin:0 0 6px;font-size:14.5px;line-height:1.32;font-weight:700}.problem-card p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.5}
+    .problem-card::before{content:"";position:absolute;left:18px;right:18px;top:0;height:3px;border-radius:0 0 3px 3px}
+    .problem-card.green::before{background:var(--green)}.problem-card.amber::before{background:var(--amber)}.problem-card.coral::before{background:var(--coral)}.problem-card.violet::before{background:var(--violet)}.problem-card.blue::before{background:var(--blue)}.problem-card.teal::before{background:var(--teal)}
+    .problem-icon{width:32px;height:32px;display:grid;place-items:center;border-radius:8px;font-size:14px;font-weight:800;margin-bottom:10px}
+    .problem-card.green .problem-icon{background:var(--green-soft);color:var(--green)}.problem-card.amber .problem-icon{background:var(--amber-soft);color:var(--amber)}.problem-card.coral .problem-icon{background:var(--coral-soft);color:var(--coral)}.problem-card.violet .problem-icon{background:var(--violet-soft);color:var(--violet)}.problem-card.blue .problem-icon{background:var(--blue-soft);color:var(--blue)}.problem-card.teal .problem-icon{background:var(--teal-soft);color:var(--teal)}
+    .problem-card h3{margin:0 0 6px;font-size:14px;line-height:1.32;font-weight:700;color:#0f172a}.problem-card p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.5}
 
-    /* SAHA DİYALOĞU BENTO */
+    /* 05 SAHA SENARYOSU (ÖRNEK SENARYO DİYALOĞU) */
     .section-dialog{background:#ffffff}
     .dialog-bento-grid{display:grid;gap:14px;max-width:820px;margin:0 auto}
-    .dialog-bubble{padding:20px 22px;border-radius:16px;background:#f8fafc;border:1px solid #e2e8f0;box-shadow:0 4px 16px rgba(15,23,42,.02)}
-    .bubble-client{background:#fff8f6;border-color:#fed7aa}
+    .dialog-bubble{padding:18px 20px;border-radius:14px;background:#f8fafc;border:1px solid #e2e8f0;box-shadow:0 4px 16px rgba(15,23,42,.02)}
+    .bubble-client{background:#fffaf8;border-color:#fed7aa}
     .bubble-advisor{background:#f0fdf4;border-color:#bbf7d0}
     .bubble-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-    .bubble-avatar{width:34px;height:34px;display:grid;place-items:center;border-radius:8px;background:#fff;border:1px solid #e2e8f0;font-size:16px}
+    .bubble-avatar{width:32px;height:32px;display:grid;place-items:center;border-radius:8px;background:#fff;border:1px solid #e2e8f0;font-size:15px}
     .bubble-header div{display:flex;flex-direction:column}
     .bubble-header strong{font-size:13.5px;font-weight:750;color:#0f172a}
     .bubble-header small{font-size:10.5px;color:#64748b}
@@ -209,46 +222,55 @@
     .tag-problem{background:#ffedd5;color:#c2410c}
     .tag-solution{background:#dcfce7;color:#15803d}
     .bubble-text{margin:0;font-size:13.5px;line-height:1.6;color:#334155}
-    .dialog-flow-connector{display:flex;align-items:center;justify-content:center;gap:14px;padding:4px 0}
+    .dialog-flow-connector{display:flex;align-items:center;justify-content:center;gap:14px;padding:2px 0}
     .connector-line{flex-grow:1;height:1px;background:#cbd5e1}
-    .connector-badge{padding:5px 12px;border-radius:999px;background:#0f172a;color:#fff;font-size:11px;font-weight:750;letter-spacing:.02em}
+    .connector-badge{padding:4px 12px;border-radius:999px;background:#0f172a;color:#fff;font-size:11px;font-weight:750;letter-spacing:.02em}
     .dialog-outcome-card{padding:16px 20px;border-radius:14px;background:#ffffff;border:1.5px solid #059669;box-shadow:0 6px 20px rgba(5,150,105,.06)}
     .outcome-pill{font-size:10.5px;font-weight:850;letter-spacing:.06em;color:#047857;margin-bottom:10px}
     .outcome-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
     .o-metric strong{display:block;font-size:17px;font-weight:800;color:#0f172a}
     .o-metric span{display:block;margin-top:2px;font-size:11.5px;color:#64748b}
 
-    /* ALANLAR */
-    .area-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-    .area-card{min-width:0;padding:18px 20px;border:1px solid #d4e3d9;border-radius:14px;background:#fff;box-shadow:var(--shadow-sm);transition:transform .18s ease,border-color .18s ease}.area-card:hover{transform:translateY(-2px);border-color:#95cbb0}
-    .area-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:var(--green-soft);color:var(--green-dark);font-size:13px;font-weight:800;margin-bottom:12px}
-    .area-card h3{margin:0 0 6px;font-size:15px;line-height:1.3;font-weight:700}.area-card p{margin:0;color:#526075;font-size:12.5px;line-height:1.5}
+    /* 06 ÇALIŞMA ALANLARI (4 KATEGORİ) */
+    .areas-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .area-category-card{padding:20px 22px;border-radius:16px;background:#fff;border:1px solid #d4e3d9;box-shadow:var(--shadow-sm);transition:transform .18s ease,border-color .18s ease}
+    .area-category-card:hover{transform:translateY(-2px);border-color:#95cbb0}
+    .area-cat-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;border-bottom:1px solid #f1f5f9;padding-bottom:10px}
+    .area-cat-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:var(--green-soft);color:var(--green-dark);font-size:13px;font-weight:800}
+    .area-cat-head h3{margin:0;font-size:15px;font-weight:750;color:#0f172a}
+    .area-items-list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+    .area-items-list li{display:flex;align-items:flex-start;gap:7px;font-size:13px;line-height:1.45;color:#334155}
+    .area-items-list li::before{content:"✓";color:var(--green);font-weight:800;flex-shrink:0}
 
-    /* SÜREÇ */
+    /* 07 HİZMET KAPSAMLARI (3 SEVİYE) */
+    .tiers-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .tier-card{padding:22px 20px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .18s ease,border-color .18s ease}
+    .tier-card:hover{transform:translateY(-2px)}
+    .tier-badge{display:inline-block;align-self:flex-start;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:800;margin-bottom:10px;background:var(--soft);color:#475569;border:1px solid #e2e8f0}
+    .tier-card.featured{border-color:#059669;box-shadow:0 8px 24px rgba(5,150,105,.08)}
+    .tier-card.featured .tier-badge{background:var(--green-soft);color:var(--green-dark);border-color:#a7f3d0}
+    .tier-card h3{margin:0 0 8px;font-size:16px;line-height:1.3;font-weight:750;color:#0f172a}
+    .tier-card p{margin:0 0 14px;font-size:13px;line-height:1.52;color:#475569;flex-grow:1}
+    .tier-list{list-style:none;padding:0;margin:0;display:grid;gap:6px;border-top:1px solid #f1f5f9;padding-top:12px}
+    .tier-list li{font-size:12.5px;color:#334155;line-height:1.4}
+    .tiers-footer-note{margin-top:16px;text-align:center;font-size:13px;color:#64748b;font-weight:600}
+
+    /* 08 SÜREÇ (4 ADIM) */
     .process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
     .process-card{display:flex;flex-direction:column;min-width:0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow-sm)}
     .process-step{display:flex;align-items:center;gap:8px;margin-bottom:12px}.step-no{width:24px;height:24px;display:grid;place-items:center;border-radius:50%;background:var(--green-soft);color:var(--green-dark);font-size:11.5px;font-weight:800}.process-step strong{font-size:12px;color:var(--muted);font-weight:600}
     .process-card h3{margin:0 0 6px;font-size:14.5px;line-height:1.3;font-weight:700}.process-card p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.5;flex-grow:1}
     .process-art{margin-top:14px;padding:8px;border-radius:8px;background:var(--soft);text-align:center;font-size:15px;color:var(--green)}
 
-    /* KARŞILAŞTIRMA */
-    .comparison-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm)}
-    .comparison{min-width:600px;display:grid}
-    .comparison-head,.comparison-row{display:grid;grid-template-columns:160px repeat(3,minmax(0,1fr));align-items:stretch}
-    .comparison-head{background:var(--soft);border-bottom:1px solid var(--line);font-size:12px;font-weight:750;color:#2c3748}.comparison-head div{padding:11px 14px}
-    .comparison-row{border-bottom:1px solid #edf1f5;font-size:12.5px;line-height:1.45}.comparison-row:last-child{border-bottom:none}
-    .comparison-row div{padding:11px 14px;display:flex;align-items:center}.comparison-row [role="rowheader"]{font-weight:650;color:#1e293b;background:rgba(246,248,251,.5)}
-    .comparison-row [data-label="Size özel sistem"]{background:var(--green-soft);font-weight:600;color:var(--green-dark)}
-
-    /* NEDEN BİZ */
+    /* 09 NEDEN BİZ */
     .why-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
     .why-card{min-width:0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow-sm)}
     .why-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:#f0f5ff;color:var(--blue);font-size:15px;font-weight:800;margin-bottom:12px}
     .why-card h3{margin:0 0 6px;font-size:14.5px;line-height:1.3;font-weight:700}.why-card p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.5}
 
-    /* GÜVENCE BENTO */
+    /* 10 GÜVENCE BENTO */
     .section-shield{background:#f8fafc}
-    .shield-bento-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:16px;align-items:stretch}
+    .shield-bento-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:16px;align-items:stretch}
     .shield-card.is-gold{padding:24px;border-radius:18px;background:linear-gradient(145deg,#0c1e34,#132f50);color:#fff;display:flex;flex-direction:column;box-shadow:0 12px 30px rgba(12,30,52,.12)}
     .shield-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
     .shield-badge{padding:3px 8px;border-radius:5px;background:rgba(217,119,6,.2);border:1px solid #d97706;color:#fbbf24;font-size:10.5px;font-weight:800;letter-spacing:.05em}
@@ -258,40 +280,46 @@
     .shield-features{display:grid;gap:6px;padding-top:12px;border-top:1px solid rgba(255,255,255,.12)}
     .shield-features span{font-size:12px;color:#7ee2a8;font-weight:600}
 
-    .five-pillars-subgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .four-pillars-subgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
     .pillar-mini-card{padding:14px 16px;border-radius:12px;background:#fff;border:1px solid #e2e8f0}
-    .pillar-mini-card:last-child{grid-column:span 2}
     .pillar-mini-card small{display:block;font-size:10px;font-weight:800;color:var(--green);letter-spacing:.04em;margin-bottom:3px}
     .pillar-mini-card strong{display:block;font-size:13.5px;color:#0f172a;font-weight:750;margin-bottom:4px}
     .pillar-mini-card p{margin:0;font-size:12px;color:#64748b;line-height:1.45}
 
-    /* TESLİM VE ÖZEL SİSTEM GEREKMİYORSA */
-    .delivery-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:16px;align-items:stretch}
+    /* 11 KARŞILAŞTIRMA & TESLİM */
+    .comparison-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);margin-bottom:24px}
+    .comparison{min-width:600px;display:grid}
+    .comparison-head,.comparison-row{display:grid;grid-template-columns:160px repeat(3,minmax(0,1fr));align-items:stretch}
+    .comparison-head{background:var(--soft);border-bottom:1px solid var(--line);font-size:12px;font-weight:750;color:#2c3748}.comparison-head div{padding:11px 14px}
+    .comparison-row{border-bottom:1px solid #edf1f5;font-size:12.5px;line-height:1.45}.comparison-row:last-child{border-bottom:none}
+    .comparison-row div{padding:11px 14px;display:flex;align-items:center}.comparison-row [role="rowheader"]{font-weight:650;color:#1e293b;background:rgba(246,248,251,.5)}
+    .comparison-row [data-label="Size özel sistem"]{background:var(--green-soft);font-weight:600;color:var(--green-dark)}
+
+    .delivery-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:16px;align-items:stretch;margin-bottom:48px}
     .delivery-card,.fit-card{padding:22px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
-    .delivery-card h3,.fit-card h3{margin:0 0 12px;font-size:16.5px;line-height:1.3;font-weight:750}
+    .delivery-card h3,.fit-card h3{margin:0 0 12px;font-size:16px;line-height:1.3;font-weight:750}
     .delivery-list{margin:0;padding:0;list-style:none;display:grid;gap:8px}
     .delivery-list li{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:#334155;line-height:1.45}
     .delivery-list li::before{content:"✓";color:var(--green);font-weight:800}
     .fit-card{display:flex;flex-direction:column;justify-content:space-between;background:#edf9f2;border-color:#b9dec8}
     .fit-card p{margin:0 0 16px;font-size:13px;line-height:1.5;color:#274332}
 
-    /* SSS */
     .faq-grid{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:32px;align-items:start}
-    .faq-copy h2{margin:0 0 10px;font-size:26px;line-height:1.2;font-weight:750;letter-spacing:-.025em}
-    .faq-copy p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+    .faq-copy h2{margin:0 0 10px;font-size:24px;line-height:1.22;font-weight:750;letter-spacing:-.025em}
+    .faq-copy p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.5}
     .faq-list{display:grid;gap:8px}
-    .faq-list details{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;padding:13px 16px;transition:background .15s ease}
+    .faq-list details{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;padding:12px 15px;transition:background .15s ease}
     .faq-list details[open]{background:#fafbfc}
-    .faq-list summary{font-size:14px;font-weight:700;color:#0f172a;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between}
+    .faq-list summary{font-size:13.5px;font-weight:700;color:#0f172a;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between}
     .faq-list summary::-webkit-details-marker{display:none}
-    .faq-list summary::after{content:"+";font-size:18px;color:var(--muted);font-weight:400}
+    .faq-list summary::after{content:"+";font-size:17px;color:var(--muted);font-weight:400}
     .faq-list details[open] summary::after{content:"−"}
     .faq-list p{margin:10px 0 0;font-size:13px;line-height:1.5;color:#475569}
 
-    /* FINAL CTA */
-    .cta{padding:56px 0;background:linear-gradient(135deg,#0a4425 0%,#0f5f38 100%);color:#fff}
+    /* 12 FINAL CTA */
+    .cta{padding:54px 0;background:linear-gradient(135deg,#0a4425 0%,#0f5f38 100%);color:#fff}
     .cta-shell{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:36px;align-items:center}
-    .cta h2{margin:0 0 12px;font-size:clamp(23px,2.3vw,30px);line-height:1.2;font-weight:750;letter-spacing:-.025em}
+    .cta h2{margin:0 0 12px;font-size:clamp(22px,2.2vw,28px);line-height:1.2;font-weight:750;letter-spacing:-.025em}
     .cta p{margin:0 0 16px;font-size:14px;line-height:1.55;color:#d1fae5}
     .cta-points{display:flex;flex-wrap:wrap;gap:8px}
     .cta-points span{padding:4px 10px;border-radius:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);font-size:12px;font-weight:600;color:#fff}
@@ -316,9 +344,11 @@
 
     @media(max-width:1080px){
       .hero-grid{grid-template-columns:1fr;gap:32px}
-      .problem-grid,.why-grid,.process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .mech-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
       .sample-systems-grid{grid-template-columns:1fr}
-      .area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .problem-grid,.why-grid,.process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .tiers-grid{grid-template-columns:1fr}
+      .areas-grid{grid-template-columns:1fr}
       .shield-bento-grid{grid-template-columns:1fr}
       .delivery-grid{grid-template-columns:1fr}
       .faq-grid{grid-template-columns:1fr;gap:20px}
@@ -330,13 +360,12 @@
       .wrap-wide{width:calc(100% - 32px)}
       .nav-links{display:none}
       .mobile-menu{display:block}
-      .hero{padding:36px 0 30px}
-      .hero h1{font-size:28px}
-      .hero-lead{font-size:14.5px}
-      .section{padding:44px 0}
-      .problem-grid,.why-grid,.process-grid,.area-grid{grid-template-columns:1fr}
-      .five-pillars-subgrid{grid-template-columns:1fr}
-      .pillar-mini-card:last-child{grid-column:auto}
+      .hero{padding:34px 0 28px}
+      .hero h1{font-size:27px}
+      .hero-lead{font-size:14px}
+      .section{padding:40px 0}
+      .mech-grid,.problem-grid,.why-grid,.process-grid{grid-template-columns:1fr}
+      .four-pillars-subgrid{grid-template-columns:1fr}
       .footer-grid{grid-template-columns:1fr}
       .footer-bottom{flex-direction:column;gap:8px;text-align:center}
     }
@@ -348,7 +377,7 @@
 
   <header class="site-nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="/" aria-label="Excel Arşiv ana变">
+      <a class="brand" href="/" aria-label="Excel Arşiv ana sayfa">
         <img src="/images/excel-logo.png" alt="Excel Arşiv" width="38" height="38" />
         <span class="brand-copy"><strong>Excel Arşiv</strong><small>Hazır Excel işletme sistemleri</small></span>
       </a>
@@ -385,6 +414,7 @@
   </header>
 
   <main id="main-content">
+    <!-- 01 HERO -->
     <section class="hero">
       <div class="wrap-wide hero-grid">
         <div class="hero-copy">
@@ -395,6 +425,7 @@
             <a class="btn btn-primary" href="/iletisim">İhtiyacımı anlatmak istiyorum <span aria-hidden="true">→</span></a>
             <a class="btn btn-secondary" href="/sablonlar">Hazır sistemleri incele</a>
           </div>
+          <p class="hero-trust-note">Mevcut dosyanızı veya ihtiyacınızı gönderin. Önce özel sistem gerekip gerekmediğini netleştirelim.</p>
           <ul class="hero-bullets" aria-label="Hizmet özellikleri">
             <li>Size özel ve esnek</li>
             <li>Kontrollü veri girişi</li>
@@ -425,19 +456,39 @@
       </div>
     </section>
 
-    <!-- 3 SOMUT ÇIKTI (ÖRNEK SİSTEMLER) -->
-    <section class="section section-soft" id="ornek-sistemler">
+    <!-- 02 TAM OLARAK NE YAPIYORUZ? (MEKANİZMA) -->
+    <section class="section section-soft" id="nasil-isler">
+      <div class="wrap-wide">
+        <div class="section-head">
+          <span class="section-kicker">İŞLEYİŞ MEKANİZMASI</span>
+          <h2>Özel Excel Sistemi Nedir ve Nasıl Çalışır?</h2>
+          <p>Veri girişinden nihai yönetici kararına kadar tüm adımları birbirine bağlayan, hatayı kaynağında önleyen 6 adımlı canlı döngü.</p>
+        </div>
+        <div class="mech-grid">
+          <article class="mech-card"><span class="mech-num">01</span><h3>1. Veri Girişi</h3><p>Ekibinizin kolayca dolduracağı, hatalı girişi engelleyen kontrollü giriş alanları.</p></article>
+          <article class="mech-card"><span class="mech-num">02</span><h3>2. Otomatik Hesaplama</h3><p>Manuel kopyala-yapıştır yapmadan, arka planda çalışan dinamik formüller.</p></article>
+          <article class="mech-card"><span class="mech-num">03</span><h3>3. Kontrol & Doğrulama</h3><p>Çelişen kayıtları, eksik alanları ve tutarsızlıkları anında yakalayan denetimler.</p></article>
+          <article class="mech-card"><span class="mech-num">04</span><h3>4. Uyarı & Sapma</h3><p>Vade aşımı, bütçe aşımı veya kritik eşiklerde otomatik görsel uyarılar.</p></article>
+          <article class="mech-card"><span class="mech-num">05</span><h3>5. Yönetim Raporu</h3><p>Yöneticinin tek ekranda göreceği özet tablolar ve karar grafikleri.</p></article>
+          <article class="mech-card"><span class="mech-num">06</span><h3>6. Karar</h3><p>Rapor toplamakla vakit kaybetmeden doğrudan aksiyon alma imkânı.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 ÜRÜNÜ GÖSTER / DEMO (3 SOMUT KOKPİT) -->
+    <section class="section" id="ornek-sistemler">
       <div class="wrap-wide">
         <div class="section-head">
           <span class="section-kicker">SOMUT SİSTEM ÇIKTILARI</span>
-          <h2>İşletmenize Teslim Ettiğimiz 3 Temel Karar Kokpiti</h2>
+          <h2>İşletmenize Teslim Ettiğimiz Karar Kokpitlerinden Örnekler</h2>
           <p>Soyut danışmanlık değil; ekibinizin ilk günden itibaren güvenle kullanacağı, canlı çalışan dinamik modeller.</p>
         </div>
         <div class="sample-systems-grid">
           <article class="sample-system-card">
             <span class="ssc-tag is-green">LİKİDİTE KONTROLÜ</span>
             <h3>13 Haftalık Dinamik Nakit Akışı</h3>
-            <p>Kasa, banka, vadeli çekler, tahsilatlar ve tedarikçi ödemelerini tek akışta birleştirir. Nakit açığı doğmadan 14-21 gün önce erken uyarı verir.</p>
+            <div class="ssc-box problem"><strong>Problem:</strong> Kasada para var mı yok mu ancak ay sonunda veya ödeme günü gelince anlaşılıyor.</div>
+            <div class="ssc-box output"><strong>Çıktı:</strong> Önümüzdeki 13 haftanın nakit açığını ve fazlasını bugünden gösteren yuvarlanan likidite modeli.</div>
             <ul class="ssc-list">
               <li>✓ 90 günlük yuvarlanan nakit projeksiyonu</li>
               <li>✓ Vadeye göre otomatik nakit açığı tespiti</li>
@@ -447,8 +498,9 @@
 
           <article class="sample-system-card">
             <span class="ssc-tag is-blue">RİSK & LİMİT YÖNETİMİ</span>
-            <h3>Banka-Limit ve Risk Takibi</h3>
-            <p>Tüm bankalardaki rotatif, spot, taksitli kredi, teminat mektubu ve çek risk havuzunu tek ekranda toplar. Faiz yükünü ve limit doluluklarını anlık gösterir.</p>
+            <h3>Banka Limit-Risk ve Teminat Takibi</h3>
+            <div class="ssc-box problem"><strong>Problem:</strong> Hangi bankada ne kadar limit kaldı, faiz yükü ne oldu dağınık tablolarda kayboluyor.</div>
+            <div class="ssc-box output"><strong>Çıktı:</strong> Tüm banka kredilerini, rotatifleri, çek riskini ve teminatları tek ekranda toplayan risk kokpiti.</div>
             <ul class="ssc-list">
               <li>✓ Banka bazlı nakdi ve gayrinakdi limitler</li>
               <li>✓ Rotatif faiz ve komisyon yükü denetimi</li>
@@ -459,9 +511,10 @@
           <article class="sample-system-card">
             <span class="ssc-tag is-amber">YÖNETİM & KÂRLILIK</span>
             <h3>Yönetim Kokpiti & Birim Kârlılık</h3>
-            <p>ERP ve muhasebe dökümlerini yönetici özetine çevirir. Ürün, müşteri ve proje bazında net kâr marjlarını, başabaş noktasını ve sapmaları anında gösterir.</p>
+            <div class="ssc-box problem"><strong>Problem:</strong> Ciro artıyor ama hangi ürün veya müşteriden gerçekten para kazanıldığı net bilinmiyor.</div>
+            <div class="ssc-box output"><strong>Çıktı:</strong> Ürün, sipariş ve müşteri bazında net marjı ve başabaş noktasını gösteren yönetici paneli.</div>
             <ul class="ssc-list">
-              <li>✓ Dinamik birim maliyet ve teklif motoru</li>
+              <li>✓ Dinamik birim maliyet ve fiyatlama motoru</li>
               <li>✓ Ürün ve müşteri net kârlılık matrisi</li>
               <li>✓ Yönetim kurulu için tek sayfa özet ekran</li>
             </ul>
@@ -470,30 +523,32 @@
       </div>
     </section>
 
-    <!-- KENDİNİ TANI / NE ZAMAN GEREKİR? -->
-    <section class="section" id="ne-zaman">
+    <!-- 04 HANGİ SORUNLARI ÇÖZÜYORUZ? (6 PROBLEM KARTI) -->
+    <section class="section section-soft" id="ne-zaman">
       <div class="wrap-wide">
         <div class="section-head">
           <span class="section-kicker">İHTİYAÇ SİNYALLERİ</span>
           <h2>Özel bir sisteme ne zaman ihtiyaç olur?</h2>
-          <p>İşin kendisi karmaşık olduğu için değil; mevcut dosya artık işi taşımadığı için özel çalışma gerekir.</p>
+          <p>İşin kendisi karmaşık olduğu için değil; mevcut dosyalar artık işi taşımadığı için özel çalışma gerekir.</p>
         </div>
         <div class="problem-grid">
-          <article class="problem-card green"><div class="problem-icon">↻</div><h3>Her ay aynı raporu yeniden topluyorsunuz.</h3><p>Veri farklı dosyalarda dağınıksa, kopyalama ve birleştirme işi zaman kaybına dönüşür.</p></article>
-          <article class="problem-card amber"><div class="problem-icon">▣</div><h3>Aynı bilgi birden fazla dosyaya giriliyor.</h3><p>Müşteri, tahsilat, ödeme veya banka bilgisi tekrar tutuluyorsa tutarsızlık kaçınılmaz olur.</p></article>
-          <article class="problem-card coral"><div class="problem-icon">!</div><h3>Hata, rapor bozulduğunda fark ediliyor.</h3><p>Yanlış kayıt veya eksik tanım ay sonunda çıkıyorsa kontrol veri girişine daha yakın kurulmalıdır.</p></article>
-          <article class="problem-card violet"><div class="problem-icon">X</div><h3>ERP almak fazla, Excel ise yetersiz kalıyor.</h3><p>İhtiyaç belli birkaç süreçse, ağır yazılım yerine size göre kurulmuş Excel daha doğru olabilir.</p></article>
+          <article class="problem-card green"><div class="problem-icon">↻</div><h3>Her ay aynı raporu hazırlamak saatler alıyor.</h3><p>Veri farklı dosyalarda dağınıksa, kopyalama ve birleştirme işi zaman kaybına dönüşür.</p></article>
+          <article class="problem-card amber"><div class="problem-icon">▣</div><h3>Aynı veri birden fazla tabloya mükerrer giriliyor.</h3><p>Müşteri, cari, tahsilat veya stok bilgisi tekrar tutuldukça hatalar kaçınılmaz olur.</p></article>
+          <article class="problem-card coral"><div class="problem-icon">!</div><h3>Formüller bozuluyor, tablolara güven kalmıyor.</h3><p>Yanlışlıkla silinen hücreler veya kayan aralıklar sebebiyle hesaplamalar şüpheli hale gelir.</p></article>
+          <article class="problem-card violet"><div class="problem-icon">👤</div><h3>Şirket içi bilgi tek bir kişinin hafızasına bağlı.</h3><p>Süreç kurallara değil kişisel yöntemlere bağlıysa, o kişi olmadığında operasyon kilitlenir.</p></article>
+          <article class="problem-card blue"><div class="problem-icon">⚙</div><h3>ERP hantal kalıyor, mevcut tablolar yetersiz.</h3><p>Ağır yazılımlar aylarca sürer ve maliyetlidir; size özel kurulan Excel ise çok daha çeviktir.</p></article>
+          <article class="problem-card teal"><div class="problem-icon">📊</div><h3>Yönetici kritik bir anda doğru rakama ulaşamıyor.</h3><p>Özet bilgi hazır olmadığı için stratejik kararlar tahminle veya gecikmeyle alınır.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- ÖRNEK SAHA SENARYOSU (DİYALOG) -->
+    <!-- 05 GERÇEK / DOĞRULANABİLİR VAKA (ÖRNEK SENARYO) -->
     <section class="section section-dialog" id="ornek-senaryo">
       <div class="wrap-wide">
         <div class="section-head">
-          <span class="section-kicker">ÖRNEK SAHA SENARYOSU</span>
-          <h2>İşletmeler Bize Nasıl Geliyor, Sorun Nasıl Çözülüyor?</h2>
-          <p>Müşterinin karmaşık ve dağınık gelen talebini, kısa sürede çalışan bir karar kokpitine dönüştürüyoruz.</p>
+          <span class="section-kicker">ÖRNEK SENARYO</span>
+          <h2>Saha Senaryosu: Bir İşletmede Yaşanan Süreç</h2>
+          <p>Müşterinin karmaşık ve dağınık gelen operasyonel talebini, kısa sürede çalışan bir karar kokpitine dönüştürüyoruz.</p>
         </div>
 
         <div class="dialog-bento-grid">
@@ -507,13 +562,13 @@
               <span class="bubble-tag tag-problem">DARBOĞAZ</span>
             </div>
             <p class="bubble-text">
-              “Farklı depolardan ve pazaryerlerinden veri geliyor. Cari hesaplar ve banka hareketleri dağınık tablolarda tutuluyor. Kasa bir türlü netleşmiyor, vadeli alacakları göremiyoruz, her ay sonu mutabakat günlerce sürüyor. Ağır yazılımlar hem çok pahalı hem de aylar sürüyor. Mevcut çalışma düzenimizi bozmadan bunu toparlayabilir miyiz?”
+              “Farklı kanallardan ve pazaryerlerinden veri geliyor. Cari hesaplar, tahsilatlar ve banka hareketleri dağınık tablolarda tutuluyor. Kasa netleşmiyor, vadeli alacakları göremiyoruz, her ay sonu mutabakat günlerce sürüyor. Ağır yazılımlar hem çok pahalı hem de aylar sürüyor. Mevcut çalışma düzenimizi bozmadan bunu toparlayabilir miyiz?”
             </p>
           </div>
 
           <div class="dialog-flow-connector" aria-hidden="true">
             <span class="connector-line"></span>
-            <span class="connector-badge">KAPSAMLI ANALİZ & HIZLI KURULUM</span>
+            <span class="connector-badge">ANALİZ & HIZLI KURULUM</span>
             <span class="connector-line"></span>
           </div>
 
@@ -527,7 +582,7 @@
               <span class="bubble-tag tag-solution">NET ÇÖZÜM</span>
             </div>
             <p class="bubble-text">
-              “Aylarca beklemenize gerek yok. Mevcut muhasebe ve banka ekstrelerinizi tek bir standart veri yapısına bağlıyoruz. Girdi anında hatalı kayıtları yakalayan, 13 haftalık dinamik nakit akışı ve otomatik cari yaşlandırma kokpitinizi birkaç günde devreye alıyoruz. Sıfır makro, %100 açık formül. Ekibiniz mevcut Excel alışkanlığını değiştirmeden kullanmaya başlar.”
+              “Tüm veri girişlerinizi tekilleştiriyoruz. Girdi anında hatalı kayıtları yakalayan, 13 haftalık dinamik nakit akışı ve otomatik cari kontrol kokpitinizi birkaç günde devreye alıyoruz. Sıfır makro, %100 açık formül. Ekibiniz mevcut Excel alışkanlığını değiştirmeden kullanmaya başlıyor.”
             </p>
           </div>
 
@@ -552,57 +607,131 @@
       </div>
     </section>
 
-    <!-- ÇALIŞMA ALANLARI -->
+    <!-- 06 HANGİ SİSTEMLERİ KURUYORUZ? (4 ALAN KATEGORİSİ) -->
     <section class="section section-green" id="alanlar">
       <div class="wrap-wide">
         <div class="section-head">
           <span class="section-kicker">ÇALIŞMA ALANLARI</span>
           <h2>En sık hangi alanlarda sistem kuruyoruz?</h2>
-          <p>Tek bir konu için de çalışabiliriz; birbirine bağlı birkaç süreci aynı dosyada da toplayabiliriz.</p>
+          <p>Finans, maliyet, operasyon ve yönetim alanlarında birbirine entegre çalışan karar modelleri kuruyoruz.</p>
         </div>
-        <div class="area-grid">
-          <article class="area-card"><div class="area-icon">13W</div><h3>Dinamik nakit akışı (13-Week)</h3><p>13 haftalık yuvarlanan likidite projeksiyonu, nakit açığı erken uyarısı, senaryolu tahsilat ve dinamik ödeme planı.</p></article>
-          <article class="area-card"><div class="area-icon">₺</div><h3>Banka limit-risk ve teminat</h3><p>Nakdi/gayrinakdi limitler, rotatif faiz yükü, kredi taksitleri, çek risk havuzu ve teminat karşılama oranları.</p></article>
-          <article class="area-card"><div class="area-icon">%</div><h3>Birim maliyet ve dinamik fiyatlama</h3><p>Değişken maliyet endeksli teklif motoru, ürün ve müşteri bazlı kârlılık marjı, başabaş (break-even) simülatörü.</p></article>
-          <article class="area-card"><div class="area-icon">Σ</div><h3>Senaryolu bütçe ve projeksiyon</h3><p>Kur ve enflasyon şoklarına duyarlı 3 senaryolu dinamik bütçe, fiili-bütçe sapma analizi ve rolling forecast.</p></article>
-          <article class="area-card"><div class="area-icon">DCF</div><h3>Yatırım fizibilitesi ve değerleme</h3><p>İskontolanmış nakit akımları (DCF), IRR, geri ödeme süresi, EBITDA normalizasyonu ve borç servis (DSCR) modeli.</p></article>
-          <article class="area-card"><div class="area-icon">KPI</div><h3>ERP entegre CFO yönetim kokpiti</h3><p>Logo, SAP, Mikro veya Zirve verisinden beslenen net işletme sermayesi, DSO takibi ve anlık yönetici KPI paneli.</p></article>
+        <div class="areas-grid">
+          <article class="area-category-card">
+            <div class="area-cat-head">
+              <span class="area-cat-icon">₺</span>
+              <h3>Finans & Nakit Yönetimi</h3>
+            </div>
+            <ul class="area-items-list">
+              <li><strong>Dinamik nakit akışı (13-Week)</strong> — 13 haftalık yuvarlanan likidite ve nakit açığı erken uyarısı</li>
+              <li><strong>Banka limit-risk ve teminat</strong> — Rotatif faiz yükü, kredi taksitleri ve risk rasyoları</li>
+              <li><strong>Senaryolu bütçe ve projeksiyon</strong> — Enflasyon ve kura duyarlı dinamik bütçe modeli</li>
+              <li><strong>Yatırım fizibilitesi ve değerleme</strong> — İskontolanmış nakit akımları (DCF) ve geri ödeme süresi</li>
+            </ul>
+          </article>
+
+          <article class="area-category-card">
+            <div class="area-cat-head">
+              <span class="area-cat-icon">%</span>
+              <h3>Birim Maliyet & Kârlılık</h3>
+            </div>
+            <ul class="area-items-list">
+              <li><strong>Birim maliyet ve dinamik fiyatlama</strong> — Değişken maliyet endeksli fiyatlama ve teklif motoru</li>
+              <li>Ürün, sipariş ve müşteri bazında net kârlılık matrisi</li>
+              <li>Başabaş (break-even) ve marjinal kâr simülatörü</li>
+              <li>Gider merkezi dağıtım ve genel yönetim payı analizleri</li>
+            </ul>
+          </article>
+
+          <article class="area-category-card">
+            <div class="area-cat-head">
+              <span class="area-cat-icon">📦</span>
+              <h3>Operasyon & Cari Takip</h3>
+            </div>
+            <ul class="area-items-list">
+              <li>Otomatik cari yaşlandırma ve tahsilat vade takibi</li>
+              <li>Stok devir hızı ve kritik stok seviyesi erken uyarıları</li>
+              <li>Satınalma, sipariş kabul ve tedarikçi vade planlaması</li>
+              <li>Farklı şube veya depolardan gelen veri girişlerinin tekilleştirilmesi</li>
+            </ul>
+          </article>
+
+          <article class="area-category-card">
+            <div class="area-cat-head">
+              <span class="area-cat-icon">KPI</span>
+              <h3>Yönetim & Raporlama</h3>
+            </div>
+            <ul class="area-items-list">
+              <li><strong>ERP entegre CFO yönetim kokpiti</strong> — Logo, SAP, Mikro verisiyle çalışan yönetici paneli</li>
+              <li>Tek sayfalık yönetim kurulu ve icra özet ekranı</li>
+              <li>Fiili ile bütçe arasındaki sapmaları gösteren dinamik varyans raporu</li>
+              <li>Net işletme sermayesi ve alacak devir hızı (DSO) takibi</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- SÜREÇ -->
+    <!-- 07 HİZMET KAPSAMLARI (3 SEVİYE) -->
+    <section class="section section-soft" id="kapsamlar">
+      <div class="wrap-wide">
+        <div class="section-head">
+          <span class="section-kicker">GELİŞTİRME SEVİYELERİ</span>
+          <h2>İhtiyacınıza Uygun Geliştirme Seviyeleri</h2>
+          <p>İhtiyacın büyüklüğüne göre kapsamı netleştiriyor, gereksiz modüllerle bütçenizi şişirmiyoruz.</p>
+        </div>
+        <div class="tiers-grid">
+          <article class="tier-card">
+            <span class="tier-badge">SEVİYE 1</span>
+            <h3>Mevcut Dosya İyileştirme</h3>
+            <p>Elinizdeki mevcut tabloların formüllerini düzeltme, hata kontrolleri ekleme ve rapor formatını optimize etme.</p>
+            <ul class="tier-list">
+              <li>✓ Kayan ve bozuk formüllerin onarımı</li>
+              <li>✓ Veri doğrulama ve giriş kuralları</li>
+              <li>✓ Raporlama ekranlarının düzenlenmesi</li>
+            </ul>
+          </article>
+
+          <article class="tier-card featured">
+            <span class="tier-badge">SEVİYE 2 · EN ÇOK TERCİH EDİLEN</span>
+            <h3>Özel Excel Sistemi</h3>
+            <p>İş akışınıza özel sıfırdan sistem tasarımı, kontrollü veri girişi, otomatik hesaplama ve dinamik yönetim raporu.</p>
+            <ul class="tier-list">
+              <li>✓ İşletmeye özel sıfırdan veri mimarisi</li>
+              <li>✓ Kontrollü veri girişi ve otomatik denetimler</li>
+              <li>✓ Dinamik nakit, maliyet veya operasyon kokpiti</li>
+            </ul>
+          </article>
+
+          <article class="tier-card">
+            <span class="tier-badge">SEVİYE 3</span>
+            <h3>Entegre Karar Sistemi</h3>
+            <p>Çoklu veri kaynağı, senaryo analizleri, ERP/ekstre entegrasyonu ve kapsamlı yönetici karar kokpiti.</p>
+            <ul class="tier-list">
+              <li>✓ Muhasebe/ERP dökümleriyle entegre yapı</li>
+              <li>✓ Çoklu senaryo ve simülasyon motorları</li>
+              <li>✓ Yönetim kurulu tek sayfa kokpit mimarisi</li>
+            </ul>
+          </article>
+        </div>
+        <p class="tiers-footer-note">Hangi seviyenin size uygun olduğunu ön görüşmede birlikte belirliyoruz.</p>
+      </div>
+    </section>
+
+    <!-- 08 NASIL ÇALIŞIYORUZ? (SÜREÇ) -->
     <section class="section" id="surec">
       <div class="wrap-wide">
         <div class="section-head"><span class="section-kicker">ÇALIŞMA BİÇİMİ</span><h2>Nasıl çalışıyoruz?</h2><p>Dosyayı tasarlamadan önce işi, veri akışını ve karar mantığını netleştiriyoruz.</p></div>
         <div class="process-grid">
-          <article class="process-card"><div class="process-step"><span class="step-no">1</span><strong>Mevcut işi görürüz</strong></div><h3>Dosyaları ve iş akışını inceleriz.</h3><p>Hangi bilgi nereden geliyor, kim giriyor, nerede tekrar ediliyor ve hangi rapor elle hazırlanıyor; bunları netleştiririz.</p><div class="process-art"><span>⌕</span></div></article>
-          <article class="process-card"><div class="process-step"><span class="step-no">2</span><strong>Kuralları netleştiririz</strong></div><h3>Hesap ve kontrol mantığını yazarız.</h3><p>Bir kayıt hangi sonucu etkiliyor, hangi istisnalar var ve hangi hata kullanıcıya gösterilmeli; bunları baştan belirleriz.</p><div class="process-art"><span>✓</span></div></article>
-          <article class="process-card"><div class="process-step"><span class="step-no">3</span><strong>Kurar ve test ederiz</strong></div><h3>Dosyayı gerçek senaryolarla deneriz.</h3><p>Boş veri, yanlış seçim, yüksek kayıt sayısı ve dönem geçişi gibi durumları çalıştırıp sonucu doğrularız.</p><div class="process-art"><span>▥</span></div></article>
-          <article class="process-card"><div class="process-step"><span class="step-no">4</span><strong>Teslimi netleştiririz</strong></div><h3>Kullanımı dosyanın içinde anlaşılır kılarız.</h3><p>Giriş alanlarını, kontrolleri ve raporları ayrıştırır; kullanıcı hangi sayfada ne yapacağını görebilecek şekilde teslim ederiz.</p><div class="process-art"><span>↗</span></div></article>
+          <article class="process-card"><div class="process-step"><span class="step-no">1</span><strong>İhtiyacı Anlarız</strong></div><h3>Dosyaları ve iş akışını inceleriz.</h3><p>Hangi bilgi nereden geliyor, kim giriyor, nerede tekrar ediliyor ve hangi rapor elle hazırlanıyor; bunları netleştiririz.</p><div class="process-art"><span>⌕</span></div></article>
+          <article class="process-card"><div class="process-step"><span class="step-no">2</span><strong>Sistemi Haritalarız</strong></div><h3>Hesap ve kontrol mantığını yazarız.</h3><p>Bir kayıt hangi sonucu etkiliyor, hangi istisnalar var ve hangi hata kullanıcıya gösterilmeli; bunları baştan belirleriz.</p><div class="process-art"><span>✓</span></div></article>
+          <article class="process-card"><div class="process-step"><span class="step-no">3</span><strong>Kurar ve Test Ederiz</strong></div><h3>Dosyayı gerçek senaryolarla deneriz.</h3><p>Boş veri, yanlış seçim, yüksek kayıt sayısı ve dönem geçişi gibi durumları çalıştırıp sonucu doğrularız.</p><div class="process-art"><span>▥</span></div></article>
+          <article class="process-card"><div class="process-step"><span class="step-no">4</span><strong>Teslim ve Kullanım</strong></div><h3>Kullanımı dosyanın içinde anlaşılır kılarız.</h3><p>Giriş alanlarını, kontrolleri ve raporları ayrıştırır; kullanıcı hangi sayfada ne yapacağını görebilecek şekilde teslim ederiz.</p><div class="process-art"><span>↗</span></div></article>
         </div>
       </div>
     </section>
 
-    <!-- KARŞILAŞTIRMA -->
-    <section class="section section-soft" id="karsilastirma">
-      <div class="wrap-wide">
-        <div class="section-head"><span class="section-kicker">KARŞILAŞTIRMA</span><h2>Hazır şablon, standart geliştirme ve size özel Excel aynı şey değil.</h2><p>Doğru seçim; ihtiyacın büyüklüğüne, veri yapısına ve işletmenize özgü kuralların sayısına bağlıdır.</p></div>
-        <div class="comparison-wrap">
-          <div class="comparison" role="table" aria-label="Excel çözüm seçenekleri karşılaştırması">
-            <div class="comparison-head" role="row"><div role="columnheader">Kriter</div><div role="columnheader">Hazır şablon</div><div role="columnheader">Standart geliştirme</div><div role="columnheader">Size özel Excel sistemi</div></div>
-            <div class="comparison-row" role="row"><div role="rowheader">Başlangıç</div><div role="cell" data-label="Hazır şablon">Önceden hazırlanmış düzene uyarsınız.</div><div role="cell" data-label="Standart geliştirme">İstediğiniz ekran ve özellikler yapılır.</div><div role="cell" data-label="Size özel sistem">Önce mevcut işleyiş ve sorun netleştirilir.</div></div>
-            <div class="comparison-row" role="row"><div role="rowheader">Veri girişi</div><div role="cell" data-label="Hazır şablon">Şablon hangi alanı istiyorsa o girilir.</div><div role="cell" data-label="Standart geliştirme">Tanımlanan forma göre giriş yapılır.</div><div role="cell" data-label="Size özel sistem">Tekrar giriş ve gereksiz veri yükü azaltılmaya çalışılır.</div></div>
-            <div class="comparison-row" role="row"><div role="rowheader">Hata kontrolü</div><div role="cell" data-label="Hazır şablon">Kontrol çoğunlukla kullanıcıdadır.</div><div role="cell" data-label="Standart geliştirme">Tanımlanan teknik kontroller çalışır.</div><div role="cell" data-label="Size özel sistem">Hatanın nerede olduğu ve neyin düzeltilmesi gerektiği görünür hale getirilebilir.</div></div>
-            <div class="comparison-row" role="row"><div role="rowheader">Raporlama</div><div role="cell" data-label="Hazır şablon">Dosyada hangi rapor varsa onu kullanırsınız.</div><div role="cell" data-label="Standart geliştirme">İstenen raporlar hazırlanır.</div><div role="cell" data-label="Size özel sistem">Raporlar mümkün olduğunca aynı işlem verisinden beslenir.</div></div>
-            <div class="comparison-row" role="row"><div role="rowheader">Değişiklik</div><div role="cell" data-label="Hazır şablon">Uyarlama alanı sınırlıdır.</div><div role="cell" data-label="Standart geliştirme">Yeni talep ayrı geliştirme gerektirir.</div><div role="cell" data-label="Size özel sistem">Yapı işletmenin kullandığı kurallara göre baştan düzenlenir.</div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- NEDEN BİZ -->
-    <section class="section" id="neden">
+    <!-- 09 NEDEN EXCELARŞİV? -->
+    <section class="section section-soft" id="neden">
       <div class="wrap-wide">
         <div class="section-head"><span class="section-kicker">FARK NEREDE?</span><h2>Neden ExcelArşiv ile çalışmalısınız?</h2><p>Fark yalnız Excel bilgisinde değil; işletmenin anlattığı sorunu finans, muhasebe ve operasyon tarafında doğru okuyabilmekte.</p></div>
         <div class="why-grid">
@@ -614,12 +743,12 @@
       </div>
     </section>
 
-    <!-- KURUMSAL GÜVENCE BENTO -->
+    <!-- 10 GİZLİLİK VE VERİ GÜVENLİĞİ (GÜVENCE BENTO) -->
     <section class="section section-shield" id="kurumsal-guvence">
       <div class="wrap-wide">
         <div class="section-head">
           <span class="section-kicker">KURUMSAL GÜVENCE</span>
-          <h2>Veri Gizliliği, Şeffaflık ve 5 Temel Direk</h2>
+          <h2>Mali Verileriniz Şirketinizde Kalır</h2>
           <p>Mali mahremiyetiniz ve sistem sürekliliğiniz kurumsal sözleşmeler ve teknik güvencelerle korunur.</p>
         </div>
 
@@ -641,85 +770,93 @@
             </div>
           </article>
 
-          <div class="five-pillars-subgrid">
+          <div class="four-pillars-subgrid">
             <div class="pillar-mini-card">
-              <small>01 · MÜŞTERİ</small>
-              <strong>Saha Dili ve Gerçek İhtiyaç</strong>
-              <p>Karmaşık teknik jargon yok; kasanın, bankanın ve yöneticinin ihtiyacı olan doğrudan karar ekranları.</p>
+              <small>01 · MAHREMİYET</small>
+              <strong>Yerel Çalışma Prensibi</strong>
+              <p>Dosyalar üçüncü taraf bulut sunuculara yüklenmez; kendi bilgisayarınızda yerel çalışır.</p>
             </div>
             <div class="pillar-mini-card">
-              <small>02 · GÜVEN</small>
-              <strong>17 Yıllık Ticari Bankacılık</strong>
-              <p>Risk, limit, vade ve faiz dengesini bilen finans uzmanı bakış açısıyla kurgulanan matematiksel modeller.</p>
+              <small>02 · ŞEFFAFLIK</small>
+              <strong>Açık Formül Güvencesi</strong>
+              <p>Kilitli kara kutu formül yok; tüm hücreler açık, şeffaf ve kurumunuzca denetlenebilir.</p>
             </div>
             <div class="pillar-mini-card">
-              <small>03 · DAĞITIM</small>
-              <strong>Şirketinizin Excel Sürümüne Uyum</strong>
-              <p>Windows veya Mac; mevcut Microsoft 365, 2019 veya 2021 sürümünüze göre optimize edilmiş teslim.</p>
+              <small>03 · SÖZLEŞME</small>
+              <strong>Gizlilik Sözleşmesi (NDA)</strong>
+              <p>Talep eden tüm kurumsal müşterilerimizle resmi Gizlilik Sözleşmesi düzenlenir.</p>
             </div>
             <div class="pillar-mini-card">
-              <small>04 · REFERANS</small>
-              <strong>24 Sektörde Onaylanmış Modeller</strong>
-              <p>Üretim, inşaat, perakende, sağlık ve e-ticaret alanlarında test edilmiş ve başarısı kanıtlanmış akışlar.</p>
-            </div>
-            <div class="pillar-mini-card">
-              <small>05 · SATIŞ KANALI</small>
-              <strong>Şeffaf Kapsam ve Kurumsal Fatura</strong>
-              <p>Sürpriz maliyet yok. Net teslim takvimi, resmi e-fatura ve sözleşmeli geliştirme süreci.</p>
+              <small>04 · SÜREKLİLİK</small>
+              <strong>Sıfır Lisans Bağımlılığı</strong>
+              <p>Harici abonelik gerekmez; Microsoft Excel veya Google Sheets ile tam uyumludur.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TESLİM DETAYLARI & FIT KARTI -->
-    <section class="section section-soft">
-      <div class="wrap delivery-grid">
-        <div class="delivery-card">
-          <h3>Teslim ettiğimiz dosyada ne olmalı?</h3>
-          <ul class="delivery-list">
-            <li>Veri girilecek alanlar ile hesaplanan alanlar açıkça ayrılır.</li>
-            <li>Formüller ve kritik hücreler gerektiği kadar korunur.</li>
-            <li>Hatalı veya eksik girişler anlaşılır biçimde gösterilir.</li>
-            <li>Raporlar aynı veriyi yeniden istemeden üretilir.</li>
-            <li>Kullanıcı hangi sayfada ne yapacağını dosyanın içinde görebilir.</li>
-            <li>Mevcut dosyanın sağlam bölümleri kullanılabiliyorsa korunur.</li>
-          </ul>
+    <!-- 11 KARŞILAŞTIRMA VE SSS -->
+    <section class="section" id="karsilastirma">
+      <div class="wrap-wide">
+        <div class="section-head"><span class="section-kicker">KARŞILAŞTIRMA</span><h2>Hazır şablon, standart geliştirme ve size özel Excel aynı şey değil.</h2><p>Doğru seçim; ihtiyacın büyüklüğüne, veri yapısına ve işletmenize özgü kuralların sayısına bağlıdır.</p></div>
+        <div class="comparison-wrap">
+          <div class="comparison" role="table" aria-label="Excel çözüm seçenekleri karşılaştırması">
+            <div class="comparison-head" role="row"><div role="columnheader">Kriter</div><div role="columnheader">Hazır şablon</div><div role="columnheader">Standart geliştirme</div><div role="columnheader">Size özel Excel sistemi</div></div>
+            <div class="comparison-row" role="row"><div role="rowheader">Başlangıç</div><div role="cell" data-label="Hazır şablon">Önceden hazırlanmış düzene uyarsınız.</div><div role="cell" data-label="Standart geliştirme">İstediğiniz ekran ve özellikler yapılır.</div><div role="cell" data-label="Size özel sistem">Önce mevcut işleyiş ve sorun netleştirilir.</div></div>
+            <div class="comparison-row" role="row"><div role="rowheader">Veri girişi</div><div role="cell" data-label="Hazır şablon">Şablon hangi alanı istiyorsa o girilir.</div><div role="cell" data-label="Standart geliştirme">Tanımlanan forma göre giriş yapılır.</div><div role="cell" data-label="Size özel sistem">Tekrar giriş ve gereksiz veri yükü azaltılmaya çalışılır.</div></div>
+            <div class="comparison-row" role="row"><div role="rowheader">Hata kontrolü</div><div role="cell" data-label="Hazır şablon">Kontrol çoğunlukla kullanıcıdadır.</div><div role="cell" data-label="Standart geliştirme">Tanımlanan teknik kontroller çalışır.</div><div role="cell" data-label="Size özel sistem">Hatanın nerede olduğu ve neyin düzeltilmesi gerektiği görünür hale getirilebilir.</div></div>
+            <div class="comparison-row" role="row"><div role="rowheader">Raporlama</div><div role="cell" data-label="Hazır şablon">Dosyada hangi rapor varsa onu kullanırsınız.</div><div role="cell" data-label="Standart geliştirme">İstenen raporlar hazırlanır.</div><div role="cell" data-label="Size özel sistem">Raporlar mümkün olduğunca aynı işlem verisinden beslenir.</div></div>
+            <div class="comparison-row" role="row"><div role="rowheader">Değişiklik</div><div role="cell" data-label="Hazır şablon">Uyarlama alanı sınırlıdır.</div><div role="cell" data-label="Standart geliştirme">Yeni talep ayrı geliştirme gerektirir.</div><div role="cell" data-label="Size özel sistem">Yapı işletmenin kullandığı kurallara göre baştan düzenlenir.</div></div>
+          </div>
         </div>
-        <aside class="fit-card">
-          <h3>Özel sistem gerekmiyorsa bunu da söyleriz.</h3>
-          <p>Basit bir hesaplama, hazır bir şablon veya mevcut dosyada küçük bir düzeltme yeterliyse projeyi gereksiz yere büyütmek doğru değildir.</p>
-          <a class="btn btn-primary" href="/iletisim">Mevcut dosyamı anlatmak istiyorum</a>
-        </aside>
+
+        <div class="delivery-grid">
+          <div class="delivery-card">
+            <h3>Teslim ettiğimiz dosyada ne olmalı?</h3>
+            <ul class="delivery-list">
+              <li>Veri girilecek alanlar ile hesaplanan alanlar açıkça ayrılır.</li>
+              <li>Formüller ve kritik hücreler gerektiği kadar korunur.</li>
+              <li>Hatalı veya eksik girişler anlaşılır biçimde gösterilir.</li>
+              <li>Raporlar aynı veriyi yeniden istemeden üretilir.</li>
+              <li>Kullanıcı hangi sayfada ne yapacağını dosyanın içinde görebilir.</li>
+              <li>Mevcut dosyanın sağlam bölümleri kullanılabiliyorsa korunur.</li>
+            </ul>
+          </div>
+          <aside class="fit-card">
+            <h3>Özel sistem gerekmiyorsa bunu da söyleriz.</h3>
+            <p>Basit bir hesaplama, hazır bir şablon veya mevcut dosyada küçük bir düzeltme yeterliyse projeyi gereksiz yere büyütmek doğru değildir.</p>
+            <a class="btn btn-primary" href="/iletisim">Mevcut dosyamı anlatmak istiyorum</a>
+          </aside>
+        </div>
+
+        <div class="faq-grid" id="sss">
+          <div class="faq-copy">
+            <span class="section-kicker">SSS</span>
+            <h2>Sık sorulanlar</h2>
+            <p>İhtiyacınızı teknik terimlerle anlatmanız gerekmez. Mevcut dosyayı, yapılan işi ve sorun yaşanan noktayı göstermeniz yeterlidir.</p>
+          </div>
+          <div class="faq-list">
+            <details><summary>Özel Excel sistemi hazır şablondan nasıl ayrılır?</summary><p>Hazır şablon önceden belirlenmiş bir düzene göre çalışır. Özel sistemde veri girişi, hesaplama, kontrol ve raporlama sizin mevcut iş akışınıza göre kurulur.</p></details>
+            <details><summary>Mevcut Excel dosyalarım kullanılabilir mi?</summary><p>Evet. Kullanılabilir bölümler korunabilir. Tekrar, çelişki veya hata üreten bölümler yeniden düzenlenir.</p></details>
+            <details><summary>Makro kullanmak zorunlu mu?</summary><p>Hayır. İhtiyaç standart Excel işlevleriyle çözülebiliyorsa makro kullanılmaz. Otomasyon gerçekten gerekiyorsa kapsam ayrıca belirlenir.</p></details>
+            <details><summary>Fiyat nasıl belirleniyor?</summary><p>Veri yapısı, rapor sayısı, kontrol ihtiyacı, otomasyon düzeyi ve teslim kapsamı birlikte değerlendirilir.</p></details>
+            <details><summary>Teslimden sonra güncelleme gerekirse ne yapıyoruz?</summary><p>Açık formül mimarisi sayesinde küçük güncellemeleri kendiniz yapabilirsiniz. Kapsamlı revizyonlar için destek sağlamaya devam ediyoruz.</p></details>
+            <details><summary>Ekibimiz ileri düzey Excel bilmiyorsa sistemi kullanabilir mi?</summary><p>Evet. Veri giriş alanları korumalı ve basit tutulur. Kullanıcı sadece ilgili alanları doldurur, karmaşık formüllerle uğraşmaz.</p></details>
+            <details><summary>Basit bir ihtiyaç için de özel sistem gerekir mi?</summary><p>Hayır. Hazır bir sistem veya daha basit bir çalışma yeterliyse özel geliştirme önermek yerine daha uygun çözüm seçilir.</p></details>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- SSS -->
-    <section class="section" id="sss">
-      <div class="wrap faq-grid">
-        <div class="faq-copy">
-          <span class="section-kicker">SSS</span>
-          <h2>Sık sorulanlar</h2>
-          <p>İhtiyacınızı teknik terimlerle anlatmanız gerekmez. Mevcut dosyayı, yapılan işi ve sorun yaşanan noktayı göstermeniz yeterlidir.</p>
-        </div>
-        <div class="faq-list">
-          <details><summary>Özel Excel sistemi hazır şablondan nasıl ayrılır?</summary><p>Hazır şablon önceden belirlenmiş bir düzene göre çalışır. Özel sistemde veri girişi, hesaplama, kontrol ve raporlama sizin mevcut iş akışınıza göre kurulur.</p></details>
-          <details><summary>Mevcut Excel dosyalarım kullanılabilir mi?</summary><p>Evet. Kullanılabilir bölümler korunabilir. Tekrar, çelişki veya hata üreten bölümler yeniden düzenlenir.</p></details>
-          <details><summary>Makro kullanmak zorunlu mu?</summary><p>Hayır. İhtiyaç standart Excel işlevleriyle çözülebiliyorsa makro kullanılmaz. Otomasyon gerçekten gerekiyorsa kapsam ayrıca belirlenir.</p></details>
-          <details><summary>Fiyat nasıl belirleniyor?</summary><p>Veri yapısı, rapor sayısı, kontrol ihtiyacı, otomasyon düzeyi ve teslim kapsamı birlikte değerlendirilir.</p></details>
-          <details><summary>Basit bir ihtiyaç için de özel sistem gerekir mi?</summary><p>Hayır. Hazır bir sistem veya daha basit bir çalışma yeterliyse özel geliştirme önermek yerine daha uygun çözüm seçilir.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <!-- FİNAL SATIŞ HUNİSİ CTA -->
+    <!-- 12 FİNAL DÖNÜŞÜM BLOĞU (FINAL CTA) -->
     <section class="cta">
       <div class="wrap cta-shell">
         <div>
-          <h2>Dosyanızı Gönderin — 15 Dakikada Ne Gerektiğini Söyleyelim.</h2>
+          <h2>İşinizi Excel'e Uydurmayın. Excel'i İşinize Uyduralım.</h2>
           <p>Mevcut Excel tablonuzu veya yaşadığınız darboğazı WhatsApp'tan iletin. 15 dakikalık kısa bir görüşmede verinizi nasıl bir karar kokpitine dönüştürebileceğimizi netleştirelim.</p>
           <div class="cta-points">
-            <span>Önce ihtiyacı ayırırız</span>
+            <span>Önce ihtiyacı netleştiririz</span>
             <span>Gereksiz modül eklemeyiz</span>
             <span>Yerel ve açık formülle teslim ederiz</span>
           </div>
@@ -727,7 +864,7 @@
         <div class="cta-actions">
           <a class="btn btn-primary" href="/iletisim">İhtiyacımı anlat <span aria-hidden="true">→</span></a>
           <a class="btn btn-secondary" href="/sablonlar">Hazır sistemleri incele</a>
-          <p class="cta-note">Teknik anlatmanız gerekmez; işin nerede aksadığını yazmanız yeterli.</p>
+          <p class="cta-note">Özel sistem gerekmiyorsa bunu da açıkça söyleriz. Çözüm hazır bir dosyayla sağlanabiliyorsa sizi boşuna masrafa sokmayız.</p>
         </div>
       </div>
     </section>
@@ -737,7 +874,7 @@
     <div class="wrap-wide">
       <div class="footer-grid">
         <div><div class="footer-brand"><img src="/images/excel-logo.png" alt="Excel Arşiv logosu" width="30" height="30" /><span>ExcelArşiv</span></div><p class="footer-copy">İşletmeler için finans, muhasebe ve operasyon odaklı Excel sistemleri.</p></div>
-        <div class="footer-col"><strong>Hızlı bağlantılar</strong><a href="#ne-zaman">Ne zaman gerekir?</a><a href="#ornek-sistemler">Örnek Sistemler</a><a href="#ornek-senaryo">Saha Senaryosu</a><a href="#alanlar">Çalışma Alanları</a><a href="#surec">Nasıl Çalışıyoruz?</a><a href="#karsilastirma">Karşılaştırma</a><a href="#sss">SSS</a></div>
+        <div class="footer-col"><strong>Hızlı bağlantılar</strong><a href="#nasil-isler">Nasıl İşler?</a><a href="#ornek-sistemler">Örnek Kokpitler</a><a href="#ne-zaman">Ne Zaman Gerekir?</a><a href="#ornek-senaryo">Saha Senaryosu</a><a href="#alanlar">Çalışma Alanları</a><a href="#kapsamlar">Seviyeler</a><a href="#surec">Nasıl Çalışıyoruz?</a><a href="#karsilastirma">Karşılaştırma</a><a href="#sss">SSS</a></div>
         <div class="footer-col"><strong>Kurumsal</strong><a href="/hakkinda">Hakkımızda</a><a href="/sss">SSS</a><a href="/rehber">Rehber</a><a href="/iletisim">İletişim</a></div>
         <div class="footer-col"><strong>Sistemler</strong><a href="/sablonlar">Hazır sistemler</a><a href="/ozel-excel-sistemleri">Özel Excel sistemleri</a><a href="/rehber">Rehber</a></div>
       </div>
