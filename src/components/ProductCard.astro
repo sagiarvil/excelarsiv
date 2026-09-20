@@ -123,6 +123,14 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     <h3 class="card__title">
       <a href={detailUrl}>{title}</a>
     </h3>
+    <div class="card__rating" aria-label="5 üzerinden 5 yıldız">
+      <span class="star-active">★</span>
+      <span class="star-active">★</span>
+      <span class="star-active">★</span>
+      <span class="star-active">★</span>
+      <span class="star-active">★</span>
+      <span class="rating-score">5.0</span>
+    </div>
     <p class="card__benefit">{benefit}</p>
 
     <ul class="card__meta">
@@ -149,38 +157,22 @@ const shotOdak = catalogShotOdak(screenshotUrl);
 
 <style>
   .card {
-    --ea-ink: #1f2420;
-    --ea-paper: #f7f4ec;
-    --ea-paper-raised: #ffffff;
-    --ea-line: #dedac9;
-    --ea-clay: #b85c3a;
-    --ea-clay-dark: #953f26;
-    --ea-mono: var(--font-mono);
-    --ea-display: var(--font-display);
-    --ea-body: var(--font-sans);
-    --accent: #2f6b5e;
     display: flex;
     flex-direction: column;
-    background: var(--ea-paper-raised);
-    border: 1px solid var(--ea-line);
-    border-radius: 0;
+    background: #ffffff;
+    border: 1px solid #d6dce4;
+    border-radius: 6px;
     overflow: hidden;
-    font-family: var(--ea-body);
-    color: var(--ea-ink);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #222222;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
   }
 
-  .card[data-category='nakit-akisi'] { --accent: #2f6b5e; }
-  .card[data-category='muhasebe-ve-vergi'] { --accent: #7a2e2e; }
-  .card[data-category='personel-ve-bordro'] { --accent: #8a6a2f; }
-  .card[data-category='finansal-analiz'] { --accent: #35424a; }
-  .card[data-category='satis-ve-fiyatlama'] { --accent: #b0512e; }
-  .card[data-category='stok-ve-uretim'] { --accent: #4b5e3a; }
-  .card[data-category='butce-ve-planlama'] { --accent: #40415a; }
-
   .card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(31, 36, 32, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.09);
+    border-color: #cbd5e1;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -191,15 +183,16 @@ const shotOdak = catalogShotOdak(screenshotUrl);
   .card__frame {
     position: relative;
     display: block;
-    aspect-ratio: 4 / 3;
-    padding: 0.75rem 0.75rem 0.625rem;
-    background: linear-gradient(180deg, #efece3 0%, #e4e0d4 100%);
-    border-bottom: 1px solid var(--ea-line);
+    aspect-ratio: 16 / 9.5;
+    padding: 10px 10px 8px;
+    background: #f7f9fb;
+    border-bottom: 1px solid #edf2f7;
     overflow: hidden;
+    text-decoration: none;
   }
 
   .card__frame:focus-visible {
-    outline: 2px solid var(--ea-clay);
+    outline: 2px solid #4a97c2;
     outline-offset: 2px;
   }
 
@@ -210,9 +203,10 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     flex-direction: column;
     height: 100%;
     min-height: 0;
-    background: #fff;
-    border: 1px solid #c3c9bc;
-    box-shadow: 0 8px 20px rgba(31, 36, 32, 0.1);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
     overflow: hidden;
   }
 
@@ -221,15 +215,15 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     align-items: center;
     justify-content: space-between;
     gap: 0.5rem;
-    height: 1.625rem;
-    padding: 0 0.625rem;
-    background: #217346;
-    color: #fff;
+    height: 1.5rem;
+    padding: 0 0.5rem;
+    background: #107c41;
+    color: #ffffff;
   }
 
   .card__filename,
   .card__app {
-    font-family: var(--ea-mono);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.625rem;
     letter-spacing: 0.01em;
     white-space: nowrap;
@@ -254,9 +248,9 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     display: inline-flex;
     align-items: center;
     padding: 0 0.5rem;
-    background: #217346;
-    color: #fff;
-    font-family: var(--ea-mono);
+    background: #107c41;
+    color: #ffffff;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.5625rem;
     font-weight: 700;
   }
@@ -264,7 +258,7 @@ const shotOdak = catalogShotOdak(screenshotUrl);
   .card__fx-track {
     flex: 1;
     margin: 0.1875rem 0.375rem;
-    background: #fff;
+    background: #ffffff;
     border: 1px solid #d0d0d0;
   }
 
@@ -272,7 +266,7 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     flex: 1;
     min-height: 0;
     overflow: hidden;
-    background: #fff;
+    background: #ffffff;
   }
 
   .card__screenshot {
@@ -284,7 +278,7 @@ const shotOdak = catalogShotOdak(screenshotUrl);
 
   .card__screenshot--kapak {
     object-fit: contain;
-    background: #fff;
+    background: #ffffff;
   }
 
   .card__sheets {
@@ -300,16 +294,16 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     align-items: center;
     padding: 0 0.625rem;
     border-right: 1px solid #d0d0d0;
-    font-family: var(--ea-mono);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.5625rem;
     color: #6b7168;
     white-space: nowrap;
   }
 
   .card__sheet.is-active {
-    background: #fff;
-    color: #217346;
-    box-shadow: inset 0 2px 0 #217346;
+    background: #ffffff;
+    color: #107c41;
+    box-shadow: inset 0 2px 0 #107c41;
   }
 
   .card__stack {
@@ -319,199 +313,177 @@ const shotOdak = catalogShotOdak(screenshotUrl);
     bottom: 0;
     width: 10px;
     z-index: 1;
-    background:
-      linear-gradient(to right,
-        transparent 0%, transparent 40%,
-        var(--ea-line) 40%, var(--ea-line) 55%,
-        transparent 55%, transparent 70%,
-        var(--ea-line) 70%, var(--ea-line) 85%,
-        transparent 85%, transparent 100%);
+    background: linear-gradient(to right, transparent 0%, transparent 40%, #e2e8f0 40%, #e2e8f0 55%, transparent 55%, transparent 70%, #e2e8f0 70%, #e2e8f0 85%, transparent 85%, 100%);
     opacity: 0.6;
     pointer-events: none;
   }
 
   .card__tab {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 6px;
+    left: 6px;
     z-index: 2;
-    background: var(--accent);
-    color: var(--ea-paper);
-    font-family: var(--ea-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.04em;
+    background: rgba(30, 41, 59, 0.88);
+    color: #ffffff;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
-    padding: 0.375rem 0.625rem 0.375rem 0.875rem;
-    clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%);
+    padding: 2px 7px;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
   }
 
   .card__body {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem 1.125rem 1.125rem;
+    padding: 12px 14px 14px;
     flex: 1;
+    text-align: center;
   }
 
   .card__title {
-    font-family: var(--ea-display);
-    font-size: 1.0625rem;
-    line-height: 1.3;
-    font-weight: 700;
-    margin: 0;
-
-    /* Katalog satırlarında başlık eksenini sabitler. */
-    min-height: 2.6em;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.35;
+    font-weight: 600;
+    margin: 2px 0 6px;
+    min-height: 40px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
+    text-align: center;
   }
 
   .card__title a {
-    color: var(--ea-ink);
+    color: #4a97c2;
     text-decoration: none;
+    transition: color 0.15s ease;
   }
 
-  .card__title a:hover,
-  .card__title a:focus-visible {
-    text-decoration: underline;
-    text-decoration-color: var(--accent);
-    text-decoration-thickness: 2px;
+  .card__title a:hover {
+    color: #1e293b;
+  }
+
+  .card__rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    color: #ffc833;
+    font-size: 13px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .star-active {
+    display: inline-block;
+  }
+
+  .rating-score {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 700;
+    margin-left: 4px;
   }
 
   .card__benefit {
-    font-size: 0.875rem;
+    font-size: 12px;
     line-height: 1.45;
-    color: #4b544c;
-    margin: 0;
-
-    /* Açıklamalar kısa olsa bile bütün kartlarda aynı alan ayrılır. */
-    min-height: 2.9em;
+    color: #888888;
+    margin: 0 0 10px;
+    min-height: 35px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    text-align: center;
   }
 
   .card__meta {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 0.375rem;
+    gap: 4px;
     list-style: none;
-    margin: 0.25rem 0 0;
+    margin: 0 0 10px;
     padding: 0;
   }
 
   .card__meta li {
-    font-family: var(--ea-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.02em;
-    color: var(--ea-ink);
-    background: var(--ea-paper);
-    border: 1px solid var(--ea-line);
-    padding: 0.1875rem 0.5rem;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #475569;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 2px 7px;
   }
 
   .card__divider {
     height: 1px;
-    background: var(--ea-line);
-    margin: 0.5rem 0;
+    background: #f1f5f9;
+    margin: 0 0 10px;
   }
 
   .card__footer {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 0.75rem;
     margin-top: auto;
+    width: 100%;
   }
 
-  .card__price {
-    display: flex;
-    flex-direction: column;
-    gap: 0.125rem;
-  }
-
-  .card__price-value {
-    font-family: var(--ea-mono);
-    font-size: 1.375rem;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--ea-ink);
-  }
-
-  .card__price-label {
-    font-size: 0.6875rem;
-    color: #7a8179;
-  }
-
-  .card__actions {
-    display: flex;
-    gap: 0.5rem;
-  }
   .card__actions--full {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 0.5rem;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 6px;
   }
 
   .card__cta {
-    font-family: var(--ea-body);
-    font-size: 0.8125rem;
+    font-size: 12px;
     font-weight: 600;
     text-decoration: none;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid transparent;
+    padding: 6px 10px;
+    border-radius: 5px;
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    transition: all 0.15s ease;
   }
 
-  .card__cta--primary {
-    background: var(--ea-clay);
-    color: var(--ea-paper);
+  .card__cta--ghost {
+    background: #f8fafc;
+    border: 1px solid #d6dce4;
+    color: #4a97c2;
+  }
+
+  .card__cta--ghost:hover {
+    background: #ffffff;
+    border-color: #4a97c2;
+    color: #34617b;
   }
 
   .card__cta--wa {
     background: #25D366 !important;
+    border: 1px solid #22bf5b !important;
     color: #ffffff !important;
     font-weight: 700;
+    box-shadow: 0 2px 5px rgba(37, 211, 102, 0.2);
   }
-  .card__cta--wa:hover,
-  .card__cta--wa:focus-visible {
+
+  .card__cta--wa:hover {
     background: #1da851 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
   }
 
-  .card__cta--primary:hover,
-  .card__cta--primary:focus-visible {
-    background: var(--ea-clay-dark);
-  }
-
-  .card__cta--ghost {
-    border-color: var(--ea-line);
-    color: var(--ea-ink);
-  }
-
-  .card__cta--ghost:hover,
-  .card__cta--ghost:focus-visible {
-    border-color: var(--ea-ink);
-  }
-
-  .card__cta:focus-visible {
-    outline: 2px solid var(--ea-clay);
-    outline-offset: 2px;
-  }
-
-  /* CATALOG_PREMIUM_COVER_VISUAL_FILL_V1
-     Premium katalog kapakları paneli daha güçlü doldurur.
-     Crop/stretch yok; kaynak görsel oranı korunur. */
   .card__screenshot--kapak {
-    width: calc(100% - 24px);
-    height: calc(100% - 24px);
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
     max-width: none;
     max-height: none;
     object-fit: contain;
@@ -520,35 +492,15 @@ const shotOdak = catalogShotOdak(screenshotUrl);
 
   @media (max-width: 720px) {
     .card {
-      border-radius: 18px;
-      transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease;
-    }
-    .card:active {
-      transform: scale(0.985);
+      border-radius: 8px;
     }
     .card__screenshot--kapak {
-      width: calc(100% - 16px);
-      height: calc(100% - 16px);
-    }
-    .card__actions {
-      gap: 8px;
+      width: calc(100% - 12px);
+      height: calc(100% - 12px);
     }
     .card__cta {
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 16px;
-      font-size: 13.5px;
-      font-weight: 700;
-      border-radius: 12px;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-      transition: transform 0.12s ease;
-    }
-    .card__cta:active {
-      transform: scale(0.96);
+      min-height: 40px;
+      font-size: 12px;
     }
   }
-
 </style>
