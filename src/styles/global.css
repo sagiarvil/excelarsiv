@@ -271,9 +271,9 @@
   --space-32: 8rem; /* 128px */
   --space-40: 10rem; /* 160px */
 
-  /* Kompakt Premium ölçü sistemi (final standardı) */
-  --container-main: 1180px;
-  --container-wide: 1320px;
+  /* Kompakt Premium ölçü sistemi (Someka geniş ekran standardı) */
+  --container-main: 1320px;
+  --container-wide: 1360px;
   --page-pad-desktop: 24px;
   --page-pad-tablet: 20px;
   --page-pad-mobile: 16px;

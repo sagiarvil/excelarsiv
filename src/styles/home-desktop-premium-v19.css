@@ -44,7 +44,7 @@
   body[data-desktop-premium-v19] .hero-search--premium .hero-search__button{border-radius:13px!important;box-shadow:0 8px 18px rgba(5,150,105,.18)!important}
 
   body[data-desktop-premium-v19] .finance-pillars{padding:76px 0 72px!important;background:linear-gradient(180deg,#fff 0%,#fbfcfb 100%)!important}
-  body[data-desktop-premium-v19] .finance-pillars>.home-shell,body[data-desktop-premium-v19] .catalog-proof>.home-shell,body[data-desktop-premium-v19] .custom-build>.home-shell,body[data-desktop-premium-v19] .decision-help>.home-shell,body[data-desktop-premium-v19] .difference>.home-shell,body[data-desktop-premium-v19] .authority>.home-shell,body[data-desktop-premium-v19] .faq-close>.home-shell{width:min(1240px,calc(100% - 64px))!important}
+  body[data-desktop-premium-v19] .finance-pillars>.home-shell,body[data-desktop-premium-v19] .catalog-proof>.home-shell,body[data-desktop-premium-v19] .custom-build>.home-shell,body[data-desktop-premium-v19] .decision-help>.home-shell,body[data-desktop-premium-v19] .difference>.home-shell,body[data-desktop-premium-v19] .authority>.home-shell,body[data-desktop-premium-v19] .faq-close>.home-shell{width:min(1320px,calc(100% - 48px))!important}
   body[data-desktop-premium-v19] .finance-pillars__head{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important;gap:70px!important;margin-bottom:30px!important}
   body[data-desktop-premium-v19] .finance-pillars__head h2{font-size:clamp(38px,3.4vw,52px)!important;line-height:1.02!important;letter-spacing:-.05em!important}
   body[data-desktop-premium-v19] .finance-pillars__head>p{font-size:16px!important;line-height:1.72!important}
