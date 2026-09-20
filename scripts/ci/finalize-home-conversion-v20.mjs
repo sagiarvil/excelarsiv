@@ -23,19 +23,27 @@ body[data-desktop-premium-v19] .hero-artwork img{display:block!important;width:1
 body[data-desktop-premium-v19] .hero-search-rail{position:absolute!important;left:4%!important;bottom:0!important;z-index:70!important;width:min(520px,calc(50% - 20px))!important;margin:0!important;transform:none!important;scroll-margin-top:90px!important}
 body[data-desktop-premium-v19] .home-shell{width:min(1150px,calc(100% - 40px))!important}
 body[data-desktop-premium-v19] .soho-reviews-bar{background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:10px!important;padding:10px 16px!important;margin-top:0!important;margin-bottom:24px!important}
-body[data-desktop-premium-v19] .soho-category-headband{margin-top:24px!important;border-bottom:2px solid #eeeeee!important;padding-bottom:1px!important}
-body[data-desktop-premium-v19] .soho-category-title{font-size:18px!important;font-weight:750!important;border-bottom:2px solid #087a46!important;padding-bottom:2px!important}
-body[data-desktop-premium-v19] .soho-product-grid{gap:14px!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;margin-bottom:24px!important}
-body[data-desktop-premium-v19] .someka-product-custom-card{border:1px solid #d6dce4!important;border-radius:6px!important;box-shadow:0 1px 4px rgba(0,0,0,0.06)!important;transition:box-shadow .2s ease,transform .18s ease!important}
-body[data-desktop-premium-v19] .someka-product-custom-card:hover{box-shadow:0 8px 20px rgba(15,23,42,.08)!important;transform:translateY(-2px)!important;border-color:#cbd5e1!important}
-body[data-desktop-premium-v19] .someka-card-thumb-wrap{aspect-ratio:16 / 9!important;overflow:hidden!important;border-bottom:1px solid #e2e8f0!important}
-body[data-desktop-premium-v19] .someka-card-details{padding:8px 10px 10px!important}
-body[data-desktop-premium-v19] .single-post-title{font-size:13.5px!important;font-weight:700!important;line-height:1.25!important;min-height:34px!important;margin:2px 0 4px!important}
-body[data-desktop-premium-v19] .vcex-star-rating{font-size:11px!important;margin-bottom:6px!important}
-body[data-desktop-premium-v19] .vcex-post-excerpt{display:none!important}
-body[data-desktop-premium-v19] .someka-card-bottom{padding-top:6px!important;gap:6px!important;display:grid!important;grid-template-columns:1fr 1fr!important;border-top:1px solid #f1f5f9!important}
-body[data-desktop-premium-v19] .btn-someka-teklif{padding:5px 8px!important;font-size:11.5px!important;border-radius:4px!important}
-body[data-desktop-premium-v19] .btn-someka-view{padding:5px 8px!important;font-size:11.5px!important;border-radius:4px!important}
+body[data-desktop-premium-v19] .soho-category-headband{margin-top:32px!important;border-bottom:2px solid #eeeeee!important;padding-bottom:2px!important;display:flex!important;align-items:baseline!important;justify-content:space-between!important}
+body[data-desktop-premium-v19] .soho-category-title{font-size:19.5px!important;font-weight:700!important;color:#222!important;border-bottom:2px solid #4a97c2!important;padding-bottom:3px!important;margin:0!important}
+body[data-desktop-premium-v19] .soho-category-title a{color:#222!important;text-decoration:none!important}
+body[data-desktop-premium-v19] .soho-category-more a{color:#4a97c2!important;font-size:14px!important;text-decoration:none!important}
+body[data-desktop-premium-v19] .soho-category-more a:hover{text-decoration:underline!important}
+body[data-desktop-premium-v19] .soho-category-desc{margin:8px 0 20px!important;font-size:13.5px!important;line-height:1.5!important;color:#666!important;font-weight:400!important}
+
+/* SOMEKA KART STİLİ %100 BİREBİR */
+body[data-desktop-premium-v19] .soho-product-grid{gap:16px!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;margin-bottom:28px!important}
+body[data-desktop-premium-v19] .someka-product-custom-card{border:1px solid #d6dce4!important;border-radius:4px!important;background:#ffffff!important;box-shadow:0 1px 3px rgba(0,0,0,0.05)!important;transition:box-shadow .2s ease,transform .18s ease!important;overflow:hidden!important}
+body[data-desktop-premium-v19] .someka-product-custom-card:hover{box-shadow:0 8px 24px rgba(15,23,42,.09)!important;transform:translateY(-2px)!important;border-color:#cbd5e1!important}
+body[data-desktop-premium-v19] .someka-card-thumb-wrap{position:relative!important;display:block!important;aspect-ratio:16 / 10!important;background:#f8fafc!important;border-bottom:1px solid #eee!important;overflow:hidden!important}
+body[data-desktop-premium-v19] .someka-thumb-img{width:100%!important;height:116%!important;object-fit:cover!important;object-position:center bottom!important;margin-top:-8%!important;display:block!important}
+body[data-desktop-premium-v19] .someka-category-tag{display:none!important}
+body[data-desktop-premium-v19] .someka-card-details{padding:12px 10px 14px!important;text-align:center!important;display:flex!important;flex-direction:column!important;flex:1!important}
+body[data-desktop-premium-v19] .single-post-title{margin:2px 0 4px!important;min-height:38px!important;line-height:1.35!important;text-align:center!important}
+body[data-desktop-premium-v19] .single-post-title a{color:#4a97c2!important;font-size:14.5px!important;font-weight:600!important;text-decoration:none!important;transition:color .15s ease!important}
+body[data-desktop-premium-v19] .single-post-title a:hover{color:#222222!important}
+body[data-desktop-premium-v19] .vcex-star-rating{display:none!important}
+body[data-desktop-premium-v19] .vcex-post-excerpt{display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;font-size:12px!important;line-height:1.45!important;color:#777777!important;margin:4px 0 0!important;min-height:35px!important;text-align:center!important}
+body[data-desktop-premium-v19] .someka-card-bottom{display:none!important}
 }`;
 
 for (const marker of ['data-dual-funnel-home-v17','data-mobile-premium-v18','data-desktop-premium-v19']) {
