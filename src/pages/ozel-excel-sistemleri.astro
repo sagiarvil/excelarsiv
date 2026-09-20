@@ -153,19 +153,54 @@
 
     .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:0 18px;border:1px solid transparent;border-radius:10px;font-size:14px;line-height:1.2;font-weight:650;letter-spacing:-.015em;transition:transform .18s ease,background-color .18s ease,border-color .18s ease,box-shadow .18s ease}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--green);color:#fff;box-shadow:0 8px 18px rgba(22,131,77,.16)}.btn-primary:hover{background:var(--green-dark);box-shadow:0 10px 22px rgba(22,131,77,.20)}.btn-secondary{background:#fff;border-color:#a8cdb8;color:var(--green-dark)}.btn-secondary:hover{background:var(--green-soft);border-color:#7fba99}
 
-    /* 01 HERO */
-    .hero{position:relative;overflow:hidden;padding:48px 0 42px;background:linear-gradient(90deg,#fff 0%,#fff 54%,#f4fbf7 100%)}
-    .hero::after{content:"";position:absolute;right:-90px;top:-70px;width:560px;height:560px;background-image:linear-gradient(rgba(22,131,77,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(22,131,77,.04) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(135deg,transparent 0%,#000 45%,#000 100%);pointer-events:none}
-    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:36px;align-items:center;min-width:0}.hero-copy,.workbook{min-width:0}
-    .eyebrow{display:inline-flex;align-items:center;gap:7px;margin:0 0 14px;padding:5px 10px;border:1px solid #b9dec8;border-radius:999px;background:#fff;color:var(--green-dark);font-size:12.5px;line-height:1.2;font-weight:700}.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
-    .hero h1{margin:0;max-width:640px;font-size:clamp(30px,3.2vw,40px);line-height:1.15;font-weight:750;letter-spacing:-.035em;text-wrap:balance;color:#0f172a}.hero h1 em{font-style:normal;color:var(--green)}
-    .hero-lead{max-width:600px;margin:16px 0 0;color:#475569;font-size:15px;line-height:1.6;letter-spacing:-.01em}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-    .hero-trust-note{margin:10px 0 0;color:var(--green-dark);font-size:12.5px;line-height:1.4;font-weight:600}
-    .hero-bullets{display:flex;flex-wrap:wrap;gap:10px 16px;margin:16px 0 0;padding:0;list-style:none}.hero-bullets li{display:flex;align-items:center;gap:6px;color:#475569;font-size:13px;line-height:1.35;font-weight:550}.hero-bullets li::before{content:"✓";display:grid;place-items:center;width:17px;height:17px;border:1px solid #82c5a0;border-radius:50%;color:var(--green);font-size:11px;font-weight:800;background:#fff}
+    /* 01 NARROW MAGNETIC HERO */
+    .hero{position:relative;overflow:hidden;padding:38px 0 34px;background:linear-gradient(135deg,#ffffff 0%,#f8faf9 60%,#eff7f2 100%)}
+    .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(11,116,64,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(11,116,64,.035) 1px,transparent 1px);background-size:24px 24px;mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 60%,transparent 100%);pointer-events:none}
+    .hero::after{content:"";position:absolute;right:10%;top:10%;width:380px;height:380px;background:radial-gradient(circle,rgba(5,150,105,.08) 0%,transparent 70%);filter:blur(40px);pointer-events:none}
+    .hero>.wrap-wide{width:min(1020px,calc(100% - 48px));margin-inline:auto}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:24px;align-items:center;min-width:0}
+    .hero-copy,.workbook{min-width:0}
 
-    .workbook{border:1px solid #d9e2e8;border-radius:18px;background:#fff;overflow:hidden;box-shadow:var(--shadow)}.wb-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 14px;border-bottom:1px solid var(--line);background:#fff}.wb-title{display:flex;align-items:center;gap:8px;min-width:0;font-size:13.5px;font-weight:700}.wb-title img{width:20px;height:20px;flex:0 0 auto}.wb-note{font-size:11.5px;color:var(--muted)}.wb-body{padding:12px;background:linear-gradient(180deg,#fff 0%,#fbfcfe 100%)}
-    .metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.metric{min-width:0;padding:9px 10px;border-radius:9px;background:#fff;border:1px solid #e2e8ee}.metric small{display:block;color:var(--muted);font-size:11.5px;line-height:1.3}.metric strong{display:block;margin-top:4px;font-size:16px;line-height:1.2;font-weight:720;letter-spacing:-.025em}.metric span{display:block;margin-top:2px;color:#445066;font-size:11px;line-height:1.3}
+    .hero-badge{display:inline-flex;align-items:center;gap:7px;margin-bottom:12px;padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #b9dec8;box-shadow:0 2px 8px rgba(11,116,64,.06);font-size:12px;font-weight:700;color:var(--green-dark)}
+    .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(22,131,77,.2);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(22,131,77,.2)}50%{box-shadow:0 0 0 6px rgba(22,131,77,.05)}}
+    .badge-sep{color:#cbd5e1}
+    .badge-accent{color:#059669;font-weight:600}
+
+    .hero h1{margin:0;max-width:580px;font-size:clamp(28px,2.8vw,36px);line-height:1.14;font-weight:800;letter-spacing:-.035em;text-wrap:balance;color:#0f172a}
+    .hero h1 em{font-style:normal;color:var(--green);position:relative}
+    .hero-lead{max-width:540px;margin:12px 0 0;color:#475569;font-size:14.5px;line-height:1.58;letter-spacing:-.01em}
+
+    .hero-answer-engine{margin-top:12px;padding:9px 12px;border-radius:10px;background:rgba(22,131,77,.04);border:1px solid rgba(22,131,77,.14);font-size:12px;line-height:1.45;color:#2e4438}
+    .hero-answer{margin:0;}
+    .hero-answer strong{color:var(--green-dark);font-weight:750}
+
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .btn-magnetic{box-shadow:0 6px 20px rgba(5,150,105,.2)!important}
+    .hero-trust-note{margin:10px 0 0;font-size:12px;line-height:1.4;color:#475569}
+    .hero-trust-note strong{color:var(--green-dark)}
+    .hero-bullets{display:flex;flex-wrap:wrap;gap:8px 14px;margin:14px 0 0;padding:0;list-style:none}
+    .hero-bullets li{display:flex;align-items:center;gap:6px;color:#475569;font-size:12.5px;line-height:1.35;font-weight:550}
+    .hero-bullets li::before{content:"✓";display:grid;place-items:center;width:16px;height:16px;border:1px solid #82c5a0;border-radius:50%;color:var(--green);font-size:10.5px;font-weight:800;background:#fff}
+
+    .workbook{border:1px solid #cfe0d5;border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 18px 40px -10px rgba(15,23,42,.1),0 6px 16px -4px rgba(15,23,42,.04);transition:transform .2s ease,box-shadow .2s ease}
+    .workbook:hover{box-shadow:0 22px 48px -8px rgba(15,23,42,.14),0 8px 20px -4px rgba(15,23,42,.06)}
+    .wb-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);background:#fafcfb}
+    .wb-dots{display:flex;gap:5px}
+    .wb-dot{width:9px;height:9px;border-radius:50%;background:#e2e8f0}
+    .wb-dot.red{background:#f87171}.wb-dot.yellow{background:#fbbf24}.wb-dot.green{background:#34d399}
+    .wb-title{display:flex;align-items:center;gap:6px;min-width:0;font-size:12.5px;font-weight:750;color:#1e293b}
+    .wb-title img{width:16px;height:16px}
+    .wb-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:6px;background:#ecfdf5;border:1px solid #a7f3d0;color:#047857;font-size:10.5px;font-weight:700}
+    .wb-tabs{display:flex;gap:4px;padding:6px 12px;background:#f1f5f3;border-bottom:1px solid #e2e9e4}
+    .wb-tab{padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700;color:#64748b;cursor:default}
+    .wb-tab.active{background:#fff;color:#0f172a;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .wb-body{padding:10px;background:#fff}
+    .metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+    .metric{min-width:0;padding:8px 9px;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0}
+    .metric small{display:block;color:var(--muted);font-size:10.5px;line-height:1.25}
+    .metric strong{display:block;margin-top:3px;font-size:14.5px;line-height:1.2;font-weight:800;letter-spacing:-.02em;color:#0f172a}
+    .metric span{display:block;margin-top:2px;color:#059669;font-size:10.5px;line-height:1.2;font-weight:600}
     .wb-chart-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:6px;margin-top:6px}.panel{min-width:0;padding:10px 12px;border-radius:9px;background:#fff;border:1px solid #e2e8ee}.panel h3, .panel .panel-title{margin:0 0 6px;font-size:12.5px;line-height:1.3;font-weight:700;display:block}.chart-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px;color:var(--muted);font-size:11px}.chart-legend span{display:flex;align-items:center;gap:4px}.chart-legend i{width:7px;height:7px;border-radius:2px}.legend-in{background:var(--green)}.legend-out{background:var(--coral)}.legend-bal{background:var(--blue)}
     .chart-area{position:relative;height:120px;border-bottom:1px solid #dfe5eb;background-image:linear-gradient(#eef2f6 1px,transparent 1px);background-size:100% 30px}.bar-pairs{position:absolute;inset:8px 4px 0;display:flex;align-items:flex-end;justify-content:space-around;gap:8px}.bar-pair{position:relative;display:flex;align-items:flex-end;gap:3px;height:100%;flex:1}.bar-pair i{display:block;width:46%;border-radius:3px 3px 0 0}.bar-pair .in{background:var(--green)}.bar-pair .out{background:var(--coral)}.bar-pair:nth-child(1) .in{height:42%}.bar-pair:nth-child(1) .out{height:18%}.bar-pair:nth-child(2) .in{height:61%}.bar-pair:nth-child(2) .out{height:34%}.bar-pair:nth-child(3) .in{height:52%}.bar-pair:nth-child(3) .out{height:27%}.bar-pair:nth-child(4) .in{height:70%}.bar-pair:nth-child(4) .out{height:44%}.bar-pair:nth-child(5) .in{height:60%}.bar-pair:nth-child(5) .out{height:32%}.bar-pair:nth-child(6) .in{height:78%}.bar-pair:nth-child(6) .out{height:46%}.chart-line{position:absolute;left:12%;right:8%;top:43%;height:2px;background:var(--blue);transform:rotate(-7deg);transform-origin:left center}.chart-line::after{content:"";position:absolute;right:-2px;top:-3px;width:7px;height:7px;border-radius:50%;background:var(--blue)}
     .donut-wrap{display:grid;grid-template-columns:74px minmax(0,1fr);gap:10px;align-items:center}.donut{width:74px;aspect-ratio:1;border-radius:50%;background:conic-gradient(var(--blue) 0 28%,var(--green) 28% 47%,var(--amber) 47% 67%,var(--coral) 67% 82%,var(--violet) 82% 100%);position:relative}.donut::after{content:"";position:absolute;inset:18px;border-radius:50%;background:#fff}.donut-list{display:grid;gap:4px;color:#4f5b6e;font-size:11px}.donut-list span{display:flex;align-items:center;gap:5px}.donut-list i{width:7px;height:7px;border-radius:50%}
@@ -414,18 +449,30 @@
   </header>
 
   <main id="main-content">
-    <!-- 01 HERO -->
+    <!-- 01 NARROW MAGNETIC HERO -->
     <section class="hero">
       <div class="wrap-wide hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">İşletmeye Özel Excel Mimarisi</span>
+          <div class="hero-badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span>İşletmeye Özel Finans & Karar Mimarisi</span>
+            <span class="badge-sep" aria-hidden="true">·</span>
+            <span class="badge-accent">Sıfır Makro & Yerel Çalışma</span>
+          </div>
           <h1>Hazır dosya işinize uymuyorsa, <em>Excel'i işinize göre kuralım.</em></h1>
-          <p class="hero-lead">İşletmenizin veri akışını, hesaplama kurallarını ve raporlama ihtiyaçlarını tek bir dinamik Excel sisteminde birleştiriyoruz. Formüller açık, yerel çalışır, ekibinize özel teslim edilir.</p>
+          <p class="hero-lead">Ağır ERP yazılımlarına aylar harcamadan; şirketinizin mevcut veri akışına tam oturan dinamik nakit, risk, maliyet ve yönetim kokpitlerini kuruyoruz. Verileriniz bilgisayarınızdan çıkmaz, formüller %100 açıktır.</p>
+
+          <div class="hero-answer-engine" data-chunk-id="hero-answer-summary">
+            <p class="hero-answer">
+              <strong>Yönetici Özeti:</strong> İşletmenizin veri girişinden yönetim kararına kadar tüm akışını bağlayan, Türkiye mevzuatına tam uyumlu, makrosuz ve doğrulanmış formül mimarisiyle çalışan işletmeye özel Excel sistemleri.
+            </p>
+          </div>
+
           <div class="hero-actions">
-            <a class="btn btn-primary" href="/iletisim">İhtiyacımı anlatmak istiyorum <span aria-hidden="true">→</span></a>
+            <a class="btn btn-primary btn-magnetic" href="/iletisim">İhtiyacımı anlatmak istiyorum <span aria-hidden="true">→</span></a>
             <a class="btn btn-secondary" href="/sablonlar">Hazır sistemleri incele</a>
           </div>
-          <p class="hero-trust-note">Mevcut dosyanızı veya ihtiyacınızı gönderin. Önce özel sistem gerekip gerekmediğini netleştirelim.</p>
+          <p class="hero-trust-note"><strong>🔒 15 Dk Görüşme:</strong> Mevcut tablonuzu veya ihtiyacınızı iletin. Özel sistem gerekmiyorsa bunu da açıkça söyleriz.</p>
           <ul class="hero-bullets" aria-label="Hizmet özellikleri">
             <li>Size özel ve esnek</li>
             <li>Kontrollü veri girişi</li>
@@ -434,22 +481,31 @@
           </ul>
         </div>
 
-        <div class="workbook" aria-label="Temsili Excel işletme takip ekranı">
-          <div class="wb-top"><div class="wb-title"><img src="/images/excel-logo.png" alt="" width="24" height="24" /><span>İşletme Takip Paneli</span></div><span class="wb-note">Temsili görünüm</span></div>
+        <div class="workbook" aria-label="ExcelArşiv Yönetim Karar Kokpiti">
+          <div class="wb-top">
+            <div class="wb-dots" aria-hidden="true"><span class="wb-dot red"></span><span class="wb-dot yellow"></span><span class="wb-dot green"></span></div>
+            <div class="wb-title"><img src="/images/excel-logo.png" alt="" width="18" height="18" /><span>ExcelArşiv Karar Kokpiti</span></div>
+            <span class="wb-badge">● Canlı Model</span>
+          </div>
+          <div class="wb-tabs" aria-hidden="true">
+            <span class="wb-tab active">13-Hafta Nakit</span>
+            <span class="wb-tab">Limit & Risk</span>
+            <span class="wb-tab">Birim Kârlılık</span>
+          </div>
           <div class="wb-body">
             <div class="metric-grid">
-              <div class="metric"><small>Kasa + Banka</small><strong>₺ 2.375.000</strong><span>Nakit bakiyesi</span></div>
-              <div class="metric"><small>30 Gün Tahsilat</small><strong>₺ 620.000</strong><span>Beklenen giriş</span></div>
-              <div class="metric"><small>30 Gün Ödeme</small><strong>₺ 910.000</strong><span>Planlanan çıkış</span></div>
-              <div class="metric"><small>Açık Bakiyeler</small><strong>₺ 184.000</strong><span>Tahsil edilecek</span></div>
+              <div class="metric"><small>Kasa + Banka</small><strong>₺ 2.375.000</strong><span>▲ Nakit mevcudu</span></div>
+              <div class="metric"><small>13-Hafta Net</small><strong>+₺ 410.000</strong><span>● Projeksiyon OK</span></div>
+              <div class="metric"><small>Limit Doluluk</small><strong>%64</strong><span>✓ Güvenli bölge</span></div>
+              <div class="metric"><small>Net Kâr Marjı</small><strong>%28.4</strong><span>▲ Bütçe üzeri</span></div>
             </div>
             <div class="wb-chart-grid">
               <div class="panel"><div class="panel-title">Nakit Akış Görünümü</div><div class="chart-legend"><span><i class="legend-in"></i>Giriş</span><span><i class="legend-out"></i>Çıkış</span><span><i class="legend-bal"></i>Bakiye</span></div><div class="chart-area"><div class="bar-pairs"><span class="bar-pair"><i class="in"></i><i class="out"></i></span><span class="bar-pair"><i class="in"></i><i class="out"></i></span><span class="bar-pair"><i class="in"></i><i class="out"></i></span><span class="bar-pair"><i class="in"></i><i class="out"></i></span><span class="bar-pair"><i class="in"></i><i class="out"></i></span><span class="bar-pair"><i class="in"></i><i class="out"></i></span></div><i class="chart-line"></i></div></div>
-              <div class="panel"><div class="panel-title">Gider Dağılımı</div><div class="donut-wrap"><div class="donut" aria-hidden="true"></div><div class="donut-list"><span><i style="background:var(--blue)"></i>Tedarik</span><span><i style="background:var(--green)"></i>Personel</span><span><i style="background:var(--amber)"></i>Kira</span><span><i style="background:var(--coral)"></i>Finansman</span><span><i style="background:var(--violet)"></i>Diğer</span></div></div></div>
+              <div class="panel"><div class="panel-title">Gider Dağılımı</div><div class="donut-wrap"><div class="donut" aria-hidden="true"></div><div class="donut-list"><span><i style="background:var(--blue)"></i>Tedarik</span><span><i style="background:var(--green)"></i>Personel</span><span><i style="background:var(--amber)"></i>Kira</span><span><i style="background:var(--coral)"></i>Finans</span><span><i style="background:var(--violet)"></i>Diğer</span></div></div></div>
             </div>
             <div class="wb-lists">
               <div class="panel"><div class="panel-title">Yaklaşan Tahsilatlar</div><div class="data-list"><div class="data-row"><span>ABC Ltd. Şti.</span><strong>₺ 120.000</strong><span>15 May</span></div><div class="data-row"><span>XYZ Ticaret</span><strong>₺ 85.000</strong><span>18 May</span></div><div class="data-row"><span>QRS A.Ş.</span><strong>₺ 75.000</strong><span>22 May</span></div></div></div>
-              <div class="panel"><div class="panel-title">Kritik Uyarılar</div><div class="alert-list"><div class="alert-row"><i></i><span>Eksik hesap tanımı</span><strong>2</strong></div><div class="alert-row"><i></i><span>Vadesi yaklaşan ödeme</span><strong>3</strong></div><div class="alert-row"><i></i><span>Mutabakat bekleyen</span><strong>1</strong></div></div></div>
+              <div class="panel"><div class="panel-title">Akıllı Uyarı & Kontrol</div><div class="alert-list"><div class="alert-row"><i></i><span>14 Gün sonrası açık dengelendi</span><strong>✓</strong></div><div class="alert-row"><i style="background:var(--amber)"></i><span>2 Faturada vade riski</span><strong>!</strong></div><div class="alert-row"><i style="background:var(--blue)"></i><span>Mutabakat otomatik doğrulandı</span><strong>OK</strong></div></div></div>
             </div>
           </div>
         </div>
