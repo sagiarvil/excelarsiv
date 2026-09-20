@@ -31,38 +31,6 @@ const financePillars = `
 <section class="finance-pillars" id="finans-sistemleri" data-experience-stage>
   <div class="home-shell">
     
-    <!-- PDF Slayt 2 & 24 Stili: Kurumsal Güven ve Entegrasyon Ekosistemi -->
-    <div class="pdf-ecosystem-hero-card" aria-label="Kurumsal Finans Ekosistemi">
-      <div class="eco-hero-left">
-        <span class="decision-eyebrow">KURUMSAL GÜVENCE VE ALTYAPI</span>
-        <h3 class="eco-hero-title">17 Yıllık Ticari Bankacılık Gücüyle Reel Sektör Karar Mimarisi</h3>
-        <p class="eco-hero-desc">Mali tablolarınızı, nakit akışınızı ve kredi riskinizi ağır ve maliyetli yazılımlara bağımlı kalmadan; güvenli, açık formüllü ve yerel çalışan Excel sistemleriyle yönetin.</p>
-        
-        <div class="eco-pill-stack">
-          <div class="eco-pill-box">
-            <span class="eco-pill-icon">🏛️</span>
-            <div>
-              <strong>17 Yıllık Ticari Bankacılık Metodolojisi</strong>
-              <small>Kredi komitelerinin ve tecrübeli CFO'ların baktığı rasyolarla modellenmiş hazır finansal refleks.</small>
-            </div>
-          </div>
-          <div class="eco-pill-box">
-            <span class="eco-pill-icon">⚡</span>
-            <div>
-              <strong>51 Hazır Karar Sistemi &amp; Özel Çözüm Mimarisi</strong>
-              <small>İster 10 saniyede hazır sistemi indirin, ister şirketinize has darboğazı 3 günde karar motoruna dönüştürelim.</small>
-            </div>
-          </div>
-          <div class="eco-pill-box">
-            <span class="eco-pill-icon">🔒</span>
-            <div>
-              <strong>%100 Yerel Veri Mahremiyeti &amp; Sıfır Makro</strong>
-              <small>Cironuz ve müşteri veriniz asla buluta çıkmaz; saf .xlsx formatında virüssüz ve engelsiz çalışır.</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Slayt 3 15 Numaralı Matris -->
     <div class="section-divider-title">
@@ -203,154 +171,6 @@ const financePillars = `
       </div>
     </div>
 
-    <!-- PDF Slayt 18 & 21 Stili: Neden Excel Arşiv? Ortada Görsel ve 6 Simetrik Karar Standardı -->
-    <div class="pdf-reasons-center-stage" aria-label="Neden Excel Arşiv Karar Standartları">
-      <div class="reasons-stage-head">
-        <span class="decision-eyebrow">NEDEN EXCEL ARŞİV?</span>
-        <h3>Finansal Yönetimde 6 Katı Karar Standardı</h3>
-        <p>Yazılımcı mantığıyla değil, reel sektör şirketlerinin mali tahlilini yönetmiş bankacı refleksiyle kurgulandı.</p>
-      </div>
-
-      <div class="reasons-three-col-layout">
-        <!-- Sol 3 Madde (1, 2, 3) -->
-        <div class="reasons-col">
-          <div class="reason-pill-box">
-            <span class="r-circle-num">1</span>
-            <div>
-              <strong>17 Yıllık Saha ve Bankacılık Disiplini</strong>
-              <p>Kredi komitelerinin ve tecrübeli CFO'ların baktığı rasyolarla modellenmiş hazır finansal refleks.</p>
-            </div>
-          </div>
-          <div class="reason-pill-box">
-            <span class="r-circle-num">2</span>
-            <div>
-              <strong>Aynı Gün İndirme &amp; Anında Kullanım</strong>
-              <p>Sipariş sonrası 10 saniyede indirin. Aylar süren eğitim veya kurulum beklemeden doğrudan kullanmaya başlayın.</p>
-            </div>
-          </div>
-          <div class="reason-pill-box">
-            <span class="r-circle-num">3</span>
-            <div>
-              <strong>%100 Açık Formül &amp; Sıfır Makro</strong>
-              <p>Kilitli sayfa veya gizli hücre yok. Şirketinizin değişen ihtiyaçlarına göre istediğiniz gibi genişletin.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Orta Görsel Sahnesi -->
-        <div class="reasons-center-visual">
-          <div class="center-img-wrapper">
-            <img src="/images/kapak/kobi-finans-yonetim-paketi.webp" alt="Excel Arşiv KOBİ Finans Karar Sistemi" loading="lazy" class="center-kobi-img" />
-            <div class="center-floating-tag">
-              <span class="tag-icon">⭐</span>
-              <div>
-                <strong>Ticari &amp; KOBİ'lerin 1 Numaralı Tercihi</strong>
-                <small>24 Sektörde 1.000+ Aktif İşletme</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sağ 3 Madde (4, 5, 6) -->
-        <div class="reasons-col">
-          <div class="reason-pill-box">
-            <span class="r-circle-num">4</span>
-            <div>
-              <strong>Yazılımcıya Finans Anlatma Derdi Yok</strong>
-              <p>İş kuralları gerçek şirket bilançoları, çek-senet döngüsü ve banka limit-risk gerçekleriyle hazır kodlandı.</p>
-            </div>
-          </div>
-          <div class="reason-pill-box">
-            <span class="r-circle-num">5</span>
-            <div>
-              <strong>Logo, SAP, Mikro ve Ekstrelerle Uyumlu</strong>
-              <p>Verilerinizi tek bir standart veri tablosuna bağlayarak mutabakat süresini günlerden dakikalara indirin.</p>
-            </div>
-          </div>
-          <div class="reason-pill-box">
-            <span class="r-circle-num">6</span>
-            <div>
-              <strong>Tek Seferlik Ödeme (Sıfır Lisans Yükü)</strong>
-              <p>Aylık veya yıllık abonelik dayatması yok. Teklifinizi alın, ömür boyu sınırsız şirket içi kullanın.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 15 Dakikalık WhatsApp Ön Teşhis ve Çözüm Diyaloğu -->
-    <div class="pdf-chat-dialog-card" aria-label="WhatsApp Ön Teşhis ve Çözüm Diyaloğu">
-      <div class="pdf-chat-header">
-        <span class="pdf-chat-kicker">15 DAKİKADA HIZLI TEŞHİS VE ÇÖZÜM</span>
-        <h4>İşletmeler Nasıl Sorun Yaşıyor, Excel Arşiv Nasıl Çözüyor?</h4>
-      </div>
-      <div class="pdf-chat-bubbles">
-        <div class="chat-bubble chat-bubble--client">
-          <div class="bubble-meta"><span class="avatar">🏢</span><strong>İşletme Sahibi / Finans Yöneticisi</strong><small>10:42</small><span class="b-tag b-tag--alert">DARBOĞAZ</span></div>
-          <p>“4 depomuz ve 3 pazaryerimiz var. Cari hesaplar ve banka hareketleri farklı tablolarda tutuluyor. Kasa bir türlü tutmuyor, vadeli alacakları göremiyoruz. Ağır bir ERP için 400.000 TL ve 6 ay kurulum süresi istediler. Çalışma düzenimizi bozmadan bunu çözebilir miyiz?”</p>
-        </div>
-        <div class="chat-divider">
-          <span class="divider-line"></span>
-          <span class="divider-badge">3 GÜNDE ANALİZ &amp; TESLİMAT</span>
-          <span class="divider-line"></span>
-        </div>
-        <div class="chat-bubble chat-bubble--advisor">
-          <div class="bubble-meta"><span class="avatar">⚡</span><strong>Barış Bağırlar · Finansal Sistem Mimarı</strong><small>11:05</small><span class="b-tag b-tag--success">NET ÇÖZÜM</span></div>
-          <p>“6 ay beklemenize gerek yok. Mevcut Logo ve banka ekstrelerinizi tek bir standart veri tablosuna bağlayalım. 13 haftalık dinamik nakit akışı ve otomatik cari yaşlandırma kokpitinizi 3 gün içinde teslim ederiz. Sıfır makro, %100 açık formül; ekibiniz anında kullanmaya başlar.”</p>
-        </div>
-      </div>
-      <div class="chat-outcome-bar">
-        <div class="outcome-stat"><strong>4 Günden 15 Dk'ya</strong><span>Aylık mutabakat süresi</span></div>
-        <div class="outcome-stat"><strong>2 Hafta Önceden</strong><span>Nakit açığı erken uyarısı</span></div>
-        <div class="outcome-stat"><strong>%0 Veri Sızıntısı</strong><span>Tamamen yerel cihazda çalışma</span></div>
-      </div>
-    </div>
-
-    <!-- PDF Slayt 24 Stili: Bankacılık Gücüyle Dijital Karar Çözümleri Tek Çatı Altında -->
-    <div class="pdf-umbrella-vision-section" aria-label="Finansal Karar Ekosistemi">
-      <div class="umbrella-copy">
-        <span class="decision-eyebrow">BÜTÜNCÜL KARAR EKOSİSTEMİ</span>
-        <h3>Piyasa Değişir, Şirketinizin Karar Gücü Baki Kalır</h3>
-        <p>17 yıllık ticari bankacılık disiplini, güçlü finansal rasyolar ve pratik Excel sistemleriyle işletmenizi geleceğe taşıyın. Şirketinizin finansal sağlığını korumak bir söylem değil, karar sistemlerimizin temelidir.</p>
-        <div class="umbrella-cta-row">
-          <a href="/sablonlar" class="umbrella-primary-btn">51 Karar Sistemini Keşfedin →</a>
-          <a href="/ozel-excel-sistemleri" class="umbrella-secondary-btn">Özel Mimari Talep Edin</a>
-        </div>
-      </div>
-
-      <div class="umbrella-cluster-visual">
-        <div class="cluster-bubble bubble-main">
-          <span class="bubble-icon">🏛️</span>
-          <strong>Excel Arşiv</strong>
-          <small>Karar Mimarisi</small>
-        </div>
-        <div class="cluster-bubble bubble-1">
-          <span class="bubble-icon">💸</span>
-          <strong>Nakit Akışı</strong>
-          <small>13 Hafta</small>
-        </div>
-        <div class="cluster-bubble bubble-2">
-          <span class="bubble-icon">🏦</span>
-          <strong>Banka &amp; Kredi</strong>
-          <small>Limit Risk</small>
-        </div>
-        <div class="cluster-bubble bubble-3">
-          <span class="bubble-icon">📈</span>
-          <strong>Birim Maliyet</strong>
-          <small>Fiyatlama</small>
-        </div>
-        <div class="cluster-bubble bubble-4">
-          <span class="bubble-icon">📊</span>
-          <strong>Senaryolu Bütçe</strong>
-          <small>Projeksiyon</small>
-        </div>
-        <div class="cluster-bubble bubble-5">
-          <span class="bubble-icon">⚡</span>
-          <strong>Özel Sistemler</strong>
-          <small>Kurumsal</small>
-        </div>
-      </div>
-    </div>
 
 
   </div>
@@ -505,46 +325,7 @@ const css = `<style id="dual-funnel-home-v17-css">
 
 /* PDF Slayt 2 & 24: Kurumsal Güven ve Finans Mimarisi */
 .pdf-ecosystem-hero-card{padding:38px 36px;border-radius:28px;background:linear-gradient(140deg,#f8fafc 0%,#eff6ff 60%,#ecfdf5 100%);border:1px solid #dbeafe;box-shadow:0 12px 34px rgba(15,23,42,.04);margin-bottom:44px}
-.eco-hero-title{margin:8px 0 12px;color:#0f172a;font-size:clamp(22px,2.4vw,32px);line-height:1.15;letter-spacing:-.03em}
-.eco-hero-desc{margin:0 0 24px;color:#475569;font-size:15px;line-height:1.6;max-width:860px}
-.eco-pill-stack{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:16px}
-.eco-pill-box{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;border-radius:16px;background:#ffffff;border:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(15,23,42,.025)}
-.eco-pill-icon{font-size:24px;line-height:1;flex-shrink:0}
-.eco-pill-box strong{display:block;color:#0f172a;font-size:14px;font-weight:800;margin-bottom:3px}
-.eco-pill-box small{display:block;color:#64748b;font-size:12px;line-height:1.45}
 
-
-/* PDF Slayt 18 & 21: Neden Excel Arşiv? (Ortada Görsel + 6 Simetrik Standart) */
-.pdf-reasons-center-stage{margin:40px 0;padding:38px 34px;border-radius:28px;background:#ffffff;border:1px solid #dfe5e0;box-shadow:0 12px 36px rgba(15,23,42,.04)}
-.reasons-stage-head{margin-bottom:28px}
-.reasons-stage-head h3{margin:8px 0 6px;color:#0f172a;font-size:clamp(22px,2.4vw,32px);letter-spacing:-.03em}
-.reasons-stage-head p{margin:0;color:#64748b;font-size:15px}
-.reasons-three-col-layout{display:grid;grid-template-columns:1fr 1.05fr 1fr;gap:24px;align-items:center}
-.reasons-col{display:grid;gap:14px}
-.reason-pill-box{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border-radius:18px;background:#f8fafc;border:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(15,23,42,.02)}
-.r-circle-num{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#059669;color:#fff;font:850 14px/1 ui-monospace,monospace;flex-shrink:0;box-shadow:0 4px 10px rgba(5,150,105,.25)}
-.reason-pill-box strong{display:block;color:#0f172a;font-size:14px;font-weight:800;margin-bottom:3px}
-.reason-pill-box p{margin:0;color:#526176;font-size:12.5px;line-height:1.5}
-.center-img-wrapper{position:relative;border-radius:20px;overflow:hidden;border:2px solid #e2e8f0;box-shadow:0 18px 44px rgba(15,23,42,.12)}
-.center-kobi-img{width:100%;height:auto;display:block}
-.center-floating-tag{position:absolute;bottom:12px;left:12px;right:12px;background:rgba(15,23,42,.92);backdrop-filter:blur(8px);padding:10px 14px;border-radius:12px;display:flex;align-items:center;gap:10px;color:#fff;border:1px solid rgba(255,255,255,.2)}
-.center-floating-tag .tag-icon{font-size:20px}
-.center-floating-tag strong{display:block;font-size:12.5px;font-weight:850;color:#fff}
-.center-floating-tag small{display:block;font-size:10.5px;color:#93c5fd}
-
-/* PDF Slayt 24: Ekosistem Küreleri */
-.pdf-umbrella-vision-section{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;margin:40px 0;padding:42px 38px;border-radius:28px;background:linear-gradient(135deg,#0a192f 0%,#0f172a 60%,#1e3a8a 100%);color:#fff;border:1px solid #1e3a5f;box-shadow:0 24px 60px rgba(10,25,47,.25)}
-.pdf-umbrella-vision-section h3{margin:8px 0 12px;color:#fff;font-size:clamp(22px,2.4vw,34px);line-height:1.12;letter-spacing:-.03em}
-.pdf-umbrella-vision-section p{margin:0;color:#cbd5e1;font-size:15px;line-height:1.65}
-.umbrella-cta-row{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap}
-.umbrella-primary-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:12px;background:#059669;color:#fff;font-size:13.5px;font-weight:850;text-decoration:none;box-shadow:0 8px 20px rgba(5,150,105,.3)}
-.umbrella-secondary-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:12px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);font-size:13.5px;font-weight:750;text-decoration:none}
-.umbrella-cluster-visual{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;padding:10px}
-.cluster-bubble{padding:14px 18px;border-radius:20px;background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);text-align:center;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.25);display:flex;flex-direction:column;align-items:center;gap:3px;transition:all .15s ease}
-.cluster-bubble .bubble-icon{font-size:22px;line-height:1}
-.cluster-bubble strong{font-size:13px;font-weight:850;color:#fff}
-.cluster-bubble small{font-size:10.5px;color:#93c5fd}
-.cluster-bubble.bubble-main{background:linear-gradient(135deg,#059669,#10b981);border-color:#34d399;transform:scale(1.08);box-shadow:0 12px 28px rgba(5,150,105,.35)}
 @media(max-width:980px){
   .decision-quick-steps{grid-template-columns:1fr}
   .pain-decision-grid{grid-template-columns:1fr}
@@ -552,9 +333,6 @@ const css = `<style id="dual-funnel-home-v17-css">
   .finance-needs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .chat-outcome-bar{grid-template-columns:1fr}
   .high-ticket-bridge__inner{grid-template-columns:1fr;gap:28px}
-
-  .reasons-three-col-layout{grid-template-columns:1fr;gap:24px}
-  .pdf-umbrella-vision-section{grid-template-columns:1fr;gap:28px}
 }
 @media(max-width:768px){
   .finance-pillars{padding:36px 0;overflow-x:clip}
@@ -569,12 +347,6 @@ const css = `<style id="dual-funnel-home-v17-css">
   .pain-point,.solution-point{padding:10px 12px;margin-bottom:10px}
   .pain-point p,.solution-point p{font-size:12.5px}
 
-  /* PDF Yeni Blok Mobil Kuralları */
-  .pdf-ecosystem-hero-card{padding:20px 16px;border-radius:20px;margin-bottom:30px}
-  .pdf-reasons-center-stage{padding:20px 16px;border-radius:20px;margin:28px 0}
-  .pdf-umbrella-vision-section{padding:24px 18px;border-radius:20px;margin:28px 0}
-  .umbrella-cta-row a{width:100%;box-sizing:border-box;text-align:center}
-
   /* Problem Mağazası Mobil Standardı */
   .problem-store-section{margin:24px 0 32px;padding:20px 14px;border-radius:20px}
   .problem-store-grid{grid-template-columns:1fr;gap:12px;margin-top:16px}
@@ -588,22 +360,6 @@ const css = `<style id="dual-funnel-home-v17-css">
   .finance-needs-grid{grid-template-columns:1fr;gap:8px;margin-bottom:32px}
   .finance-need-item{padding:11px 14px;font-size:13px;min-height:44px;border-radius:12px}
   .need-name{white-space:normal;line-height:1.3}
-
-
-  /* Chat Teşhis */
-  .pdf-chat-dialog-card{margin:0 0 32px;padding:18px 14px;border-radius:20px}
-  .pdf-chat-header h4{font-size:17px;line-height:1.3}
-  .pdf-chat-bubbles{gap:12px;margin-bottom:14px}
-  .chat-bubble{padding:14px 14px;border-radius:14px}
-  .bubble-meta{flex-wrap:wrap;gap:6px}
-  .bubble-meta strong{font-size:12.5px}
-  .bubble-meta small{font-size:10px}
-  .chat-bubble p{font-size:12.5px;line-height:1.55}
-  .chat-divider{margin:0}
-  .divider-badge{font-size:9.5px;padding:3px 10px}
-  .chat-outcome-bar{grid-template-columns:1fr;gap:10px;padding:14px 16px;border-radius:14px}
-  .outcome-stat strong{font-size:15px}
-  .outcome-stat span{font-size:11.5px}
   /* Alt Dönüşüm Köprüleri */
   .high-ticket-bridge{padding:36px 0;overflow-x:clip}
   .high-ticket-bridge__inner{padding:26px 18px;border-radius:20px;gap:22px}

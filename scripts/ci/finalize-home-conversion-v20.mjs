@@ -9,18 +9,27 @@ if (!fs.existsSync(cssFile)) throw new Error('HOME CONVERSION V20: CSS missing')
 let html = fs.readFileSync(file, 'utf8');
 const css = fs.readFileSync(cssFile, 'utf8').trim();
 const heroRestoreCss = `@media(min-width:1021px){
-body[data-desktop-premium-v19] .hero-section{position:relative!important;z-index:60!important;margin:28px 0 46px!important;padding:20px 0 0!important;background:transparent!important}
-body[data-desktop-premium-v19] .hero-shell{position:relative!important;z-index:60!important;width:min(1680px,calc(100% - 64px))!important;margin-inline:auto!important;padding-bottom:156px!important}
-body[data-desktop-premium-v19] .hero-mobile-copy{position:absolute!important;z-index:66!important;left:4.4%!important;top:14%!important;width:min(46%,700px)!important;height:auto!important;padding:0!important;margin:0!important;overflow:visible!important;clip:auto!important;white-space:normal!important;border:0!important}
+body[data-desktop-premium-v19] .hero-section{position:relative!important;z-index:60!important;margin:24px 0 36px!important;padding:12px 0 0!important;background:transparent!important}
+body[data-desktop-premium-v19] .hero-shell{position:relative!important;z-index:60!important;width:min(1240px,calc(100% - 48px))!important;margin-inline:auto!important;padding-bottom:72px!important}
+body[data-desktop-premium-v19] .hero-mobile-copy{position:absolute!important;z-index:66!important;left:4%!important;top:12%!important;width:min(48%,580px)!important;height:auto!important;padding:0!important;margin:0!important;overflow:visible!important;clip:auto!important;white-space:normal!important;border:0!important}
 body[data-desktop-premium-v19] .hero-mobile-copy__eyebrow{margin:0!important;font:850 11px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;letter-spacing:.09em!important;color:#107c41!important}
-body[data-desktop-premium-v19] .hero-title{max-width:700px!important;margin:13px 0 0!important;font:820 clamp(40px,3.65vw,64px)/.99 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:-.05em!important;color:#122019!important;text-wrap:balance!important}
-body[data-desktop-premium-v19] .hero-mobile-copy__summary{max-width:610px!important;margin:18px 0 0!important;font:500 clamp(15px,1.05vw,18px)/1.55 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;color:#4f5e55!important}
-body[data-desktop-premium-v19] .hero-artwork{position:relative!important;display:block!important;overflow:hidden!important;width:100%!important;margin:0 auto!important;aspect-ratio:3 / 1!important;min-height:0!important;border:1px solid rgba(16,124,65,.12)!important;border-radius:24px!important;background:#eef3f6!important;box-shadow:0 24px 60px rgba(24,55,38,.13)!important}
+body[data-desktop-premium-v19] .hero-title{max-width:560px!important;margin:10px 0 0!important;font:800 clamp(32px,2.6vw,42px)/1.08 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:-.035em!important;color:#122019!important;text-wrap:balance!important}
+body[data-desktop-premium-v19] .hero-mobile-copy__summary{max-width:520px!important;margin:12px 0 0!important;font:500 14.5px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;color:#4f5e55!important}
+body[data-desktop-premium-v19] .hero-artwork{position:relative!important;display:block!important;overflow:hidden!important;width:100%!important;margin:0 auto!important;aspect-ratio:2.8 / 1!important;min-height:0!important;border:1px solid rgba(16,124,65,.12)!important;border-radius:20px!important;background:#eef3f6!important;box-shadow:0 16px 40px rgba(24,55,38,.09)!important}
 body[data-desktop-premium-v19] .hero-artwork::before{content:none!important;background:none!important}
 body[data-desktop-premium-v19] .hero-panel::after{content:none!important;background:none!important}
 body[data-desktop-premium-v19] .hero-artwork::after{content:""!important;position:absolute!important;inset:0!important;pointer-events:none!important;background:linear-gradient(90deg,#f7faf8 0%,#f7faf8 48%,rgba(247,250,248,.96) 54%,rgba(247,250,248,.72) 60%,rgba(247,250,248,0) 68%)!important}
 body[data-desktop-premium-v19] .hero-artwork img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important}
-body[data-desktop-premium-v19] .hero-search-rail{position:absolute!important;left:4.4%!important;bottom:0!important;z-index:70!important;width:min(700px,calc(50% - 30px))!important;margin:0!important;transform:none!important;scroll-margin-top:90px!important}
+body[data-desktop-premium-v19] .hero-search-rail{position:absolute!important;left:4%!important;bottom:0!important;z-index:70!important;width:min(580px,calc(50% - 20px))!important;margin:0!important;transform:none!important;scroll-margin-top:90px!important}
+body[data-desktop-premium-v19] .home-shell{width:min(1240px,calc(100% - 48px))!important}
+body[data-desktop-premium-v19] .soho-reviews-bar{background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:14px!important;padding:12px 20px!important;margin-top:0!important;margin-bottom:32px!important}
+body[data-desktop-premium-v19] .soho-category-headband{margin-top:32px!important;border-bottom:2px solid #eeeeee!important;padding-bottom:1px!important}
+body[data-desktop-premium-v19] .soho-category-title{font-size:19.5px!important;font-weight:750!important;border-bottom:2px solid #087a46!important;padding-bottom:3px!important}
+body[data-desktop-premium-v19] .soho-product-grid{gap:16px!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;margin-bottom:28px!important}
+body[data-desktop-premium-v19] .someka-product-custom-card{border:1px solid #d6dce4!important;border-radius:8px!important;box-shadow:0 2px 8px rgba(15,23,42,.035)!important;transition:box-shadow .2s ease,transform .18s ease!important}
+body[data-desktop-premium-v19] .someka-product-custom-card:hover{box-shadow:0 10px 24px rgba(15,23,42,.08)!important;transform:translateY(-3px)!important;border-color:#cbd5e1!important}
+body[data-desktop-premium-v19] .single-post-title{font-size:15px!important;font-weight:700!important;line-height:1.3!important;min-height:40px!important}
+body[data-desktop-premium-v19] .vcex-post-excerpt{font-size:12.5px!important;line-height:1.5!important;color:#64748b!important;min-height:54px!important}
 }`;
 
 for (const marker of ['data-dual-funnel-home-v17','data-mobile-premium-v18','data-desktop-premium-v19']) {
