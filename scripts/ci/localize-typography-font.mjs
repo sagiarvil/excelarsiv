@@ -5,7 +5,7 @@ import { join } from 'node:path';
 const distDir = 'dist';
 const externalFontPattern = /<link\b[^>]*href=["']https:\/\/fonts\.googleapis\.com\/css2\?family=Inter[^"']*["'][^>]*>/gi;
 const interToken = '--ea-font-sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;';
-const localToken = '--ea-font-sans:"Manrope",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;';
+const localToken = '--ea-font-sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;';
 const specialLightPath = join(distDir, 'ozel-excel-sistemleri', 'index.html');
 const specialLightSourcePath = join('src', 'pages', 'ozel-excel-sistemleri.astro');
 

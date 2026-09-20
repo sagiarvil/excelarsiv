@@ -9,27 +9,41 @@ const typographyStyles = `
 <style ${MANDATE}>
   :root{
     --ea-font-sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-    --ea-type-body:16px;
-    --ea-type-nav:16px;
-    --ea-type-small:14px;
-    --ea-type-h1:clamp(42px,5vw,64px);
-    --ea-type-h2:clamp(32px,3.8vw,48px);
-    --ea-type-h3:clamp(22px,2.2vw,29px);
-    --ea-leading-body:1.65;
+    --ea-type-body:15px;
+    --ea-type-nav:14.5px;
+    --ea-type-small:13px;
+    --ea-type-h1:clamp(26px,3.5vw,32px);
+    --ea-type-h2:clamp(20px,2.4vw,24px);
+    --ea-type-h3:clamp(17px,1.8vw,19px);
+    --ea-type-h4:15px;
+    --ea-leading-body:1.5;
+    --ea-color-body:#545454;
+    --ea-color-heading:#333333;
+    --ea-color-muted:#777777;
   }
-  html{font-size:16px!important}
+  html{font-size:15px!important}
   body,button,input,select,textarea{font-family:var(--ea-font-sans)!important}
-  body{font-size:16px!important;line-height:var(--ea-leading-body)!important;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
-  header nav a,header [role="navigation"] a,nav[aria-label] a{font-size:16px!important;line-height:1.35!important}
-  main p,main li,main td,main th,main details,main summary{font-family:var(--ea-font-sans)!important;font-size:16px!important;line-height:1.65!important}
-  main button,main a[class*="btn"],main a[class*="button"]{font-size:16px!important}
-  main input,main select,main textarea{font-size:16px!important;line-height:1.45!important}
-  main small{font-size:14px!important;line-height:1.5!important}
-  footer,footer a{font-family:var(--ea-font-sans)!important;font-size:14px!important;line-height:1.55!important}
+  body{font-size:15px!important;line-height:var(--ea-leading-body)!important;color:#545454!important;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  header nav a,header [role="navigation"] a,nav[aria-label] a{font-size:14.5px!important;font-weight:600!important;line-height:1.4!important}
+  h1,h2,h3,h4,h5,h6{color:#333333!important;font-weight:700!important;line-height:1.3!important}
+  h1{font-size:clamp(26px,3.5vw,32px)!important}
+  h2{font-size:clamp(20px,2.4vw,24px)!important}
+  h3{font-size:clamp(17px,1.8vw,19px)!important}
+  h4{font-size:15px!important}
+  main p,main li,main td,main th,main details,main summary{font-family:var(--ea-font-sans)!important;font-size:15px!important;line-height:1.5!important;color:#545454!important}
+  main p{margin-bottom:1.15em}
+  main button,main a[class*="btn"],main a[class*="button"]{font-size:14.5px!important;font-weight:600!important}
+  main input,main select,main textarea{font-size:14.5px!important;line-height:1.45!important;color:#333333!important}
+  main small,.text-muted,.meta{font-size:13px!important;line-height:1.45!important;color:#777777!important}
+  footer,footer a{font-family:var(--ea-font-sans)!important;font-size:13px!important;line-height:1.5!important;color:#777777!important}
+  footer strong,footer h3,footer h4{color:#333333!important}
   @media(max-width:760px){
-    :root{--ea-type-body:16px;--ea-type-nav:16px;--ea-type-small:14px}
-    body{font-size:16px!important}
-    main p,main li,main td,main th,main details,main summary{font-size:16px!important}
+    :root{--ea-type-body:15px;--ea-type-nav:14px;--ea-type-small:13px}
+    body{font-size:15px!important}
+    h1{font-size:24px!important}
+    h2{font-size:19px!important}
+    h3{font-size:16.5px!important}
+    main p,main li,main td,main th,main details,main summary{font-size:15px!important}
   }
 </style>`;
 
