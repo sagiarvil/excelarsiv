@@ -40,26 +40,33 @@ body[data-desktop-premium-v19] .someka-card-thumb-wrap:hover .someka-thumb-img{t
 body[data-desktop-premium-v19] .someka-category-tag{display:none!important}
 body[data-desktop-premium-v19] .someka-card-details{padding:12px 10px 14px!important;text-align:center!important;display:flex!important;flex-direction:column!important;flex:1!important}
 body[data-desktop-premium-v19] .single-post-title{margin:2px 0 4px!important;min-height:38px!important;line-height:1.35!important;text-align:center!important}
-body[data-desktop-premium-v19] .single-post-title a{color:#4a97c2!important;font-size:14.5px!important;font-weight:600!important;text-decoration:none!important;transition:color .15s ease!important}
+body[data-desktop-premium-v19] .single-post-title a{color:#4a97c2!important;font-size:15px!important;font-weight:700!important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif!important;text-decoration:none!important;transition:color .15s ease!important}
 body[data-desktop-premium-v19] .single-post-title a:hover{color:#222222!important}
 body[data-desktop-premium-v19] .vcex-star-rating{display:none!important}
 body[data-desktop-premium-v19] .vcex-post-excerpt{display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;font-size:12px!important;line-height:1.45!important;color:#777777!important;margin:4px 0 0!important;min-height:35px!important;text-align:center!important}
 body[data-desktop-premium-v19] .someka-card-bottom{display:none!important}
 }
-/* TÜM CİHAZLARDA VE TÜM SAYFALARDA SOMEKA MAVİSİ ÜRÜN BAŞLIKLARI */
-.single-post-title a,
+/* SOMEKA BOLD TİPOGRAFİ STANDARDI — TÜM SİTE VE TÜM SAYFALAR */
 .single-post-title,
-.card__title a,
+.single-post-title a,
 .card__title,
-.tcard__title a,
+.card__title a,
 .tcard__title,
+.tcard__title a,
 .mce-quick-card__title,
 .mce-template-card__title,
+[data-template-card] .card__title,
 [data-template-card] .card__title a,
+.soho-product-grid .single-post-title,
 .soho-product-grid .single-post-title a {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
   color: #4a97c2 !important;
   text-decoration: none !important;
   transition: color .15s ease !important;
+  letter-spacing: -0.01em !important;
 }
 .single-post-title a:hover,
 .card__title a:hover,
