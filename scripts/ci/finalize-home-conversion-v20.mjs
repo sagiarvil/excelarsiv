@@ -177,5 +177,50 @@ if (!html.includes('home_ready_systems') || !html.includes('home_custom_system')
 if (html.includes('class="hero-panel"') || html.includes('class="hero-copy"')) throw new Error('HOME CONVERSION V20: redesigned split hero leaked back into homepage');
 if (/stokta son|geri sayım|sadece bugün/iu.test(html)) throw new Error('HOME CONVERSION V20: deceptive urgency language detected');
 
+// Soho Kategori Sekmeleri Aktifleştirme (Alpine.js olmadan hatasız vanilya JS)
+html = html.replace(
+  '<button type="button" class="soho-tab-btn" :class="{ \'is-active\': tab === \'nakit\' }"',
+  '<button type="button" class="soho-tab-btn is-active" :class="{ \'is-active\': tab === \'nakit\' }"'
+);
+
+const tabsScript = `
+<script>
+(function() {
+  function setupSohoTabs() {
+    var nav = document.querySelector('.soho-tabs-nav');
+    var section = document.querySelector('.soho-filter-section');
+    if (!nav || !section) return;
+    var btns = Array.prototype.slice.call(nav.querySelectorAll('.soho-tab-btn'));
+    var panels = Array.prototype.slice.call(section.querySelectorAll('.soho-tab-panel'));
+    if (!btns.length || !panels.length) return;
+
+    btns.forEach(function(btn, index) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        btns.forEach(function(b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        panels.forEach(function(panel, pIdx) {
+          if (pIdx === index) {
+            panel.style.display = 'block';
+          } else {
+            panel.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupSohoTabs);
+  } else {
+    setupSohoTabs();
+  }
+})();
+</script>
+`;
+
+if (!html.includes('setupSohoTabs')) {
+  html = html.replace('<!-- 3. YENİ ÇIKAN', `${tabsScript}\n<!-- 3. YENİ ÇIKAN`);
+}
+
 fs.writeFileSync(file, html, 'utf8');
 console.log('HOME CONVERSION V20 PASS — original image-first hero preserved; dual CTA routes exposed without restoring the split hero.');
