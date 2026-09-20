@@ -352,31 +352,6 @@ const financePillars = `
       </div>
     </div>
 
-    <!-- PDF Slayt 23 Stili: Referanslarımız (Kurumsal 4-5 Sütunlu Beyaz Kart Gridi) -->
-    <div class="pdf-sector-ecosystem-card" aria-label="Sektörel Referanslar">
-      <div class="sector-eco-head">
-        <div>
-          <span class="pdf-card-badge">24 SEKTÖRDE 1.000+ İŞLETME REFERANSI</span>
-          <h4>Referanslarımız · Türkiye Çapında Onaylanmış Karar Sistemleri</h4>
-        </div>
-        <a href="/referans" class="sector-all-link">Tüm 24 Sektör Referansını İncele →</a>
-      </div>
-      
-      <div class="pdf-ref-brand-grid" aria-label="Referans Sektör ve İşletmeler">
-        <div class="ref-brand-box"><span class="ref-cat">TEKSTİL &amp; MODA</span><strong>Armine · Sarar · Mısırlı</strong><small>Fason Kârlılık &amp; Kumaş Fire Takibi</small></div>
-        <div class="ref-brand-box"><span class="ref-cat">PERAKENDE &amp; ZİNCİR</span><strong>Rossmann · Civil · Toys"R"Us</strong><small>M² Verimliliği &amp; Kasa Mutabakatı</small></div>
-        <div class="ref-brand-box"><span class="ref-cat">ENERJİ &amp; ALTYAPI</span><strong>Aksa · Yedaş Enerji</strong><small>Birim Maliyet &amp; GES Amortisman</small></div>
-        <div class="ref-brand-box"><span class="ref-cat">SAĞLIK &amp; OPTİK</span><strong>Dünyagöz · Atasun Optik</strong><small>Hekim Hakediş &amp; Sarf Maliyet</small></div>
-        <div class="ref-brand-box"><span class="ref-cat">DAYANIKLI TÜKETİM</span><strong>Tekzen · Evkur Ev Aletleri</strong><small>Taksitli Satış &amp; Cari Yaşlandırma</small></div>
-        <div class="ref-brand-box"><span class="ref-cat">ENDÜSTRİYEL MUTFAK</span><strong>Öztiryakiler Mutfak</strong><small>Proje Bazlı Kârlılık &amp; İmalat</small></div>
-        <div class="ref-brand-box"><span class="ref-cat">GAYRİMENKUL &amp; PROJE</span><strong>Sinpaş Yapı · Birevim</strong><small>Hakediş Kesinti &amp; DCF Değerleme</small></div>
-        <div class="ref-brand-box"><span class="ref-cat">GIDA &amp; RESTORAN</span><strong>Komagene · Pasaport Pizza</strong><small>Porsiyon Reçete &amp; Zayi Kontrolü</small></div>
-        <div class="ref-brand-box"><span class="ref-cat">İÇECEK &amp; DAĞITIM</span><strong>Pınar Su · Sarıkız Maden Suyu</strong><small>Depo Teslim Birim Nakliye Maliyeti</small></div>
-        <div class="ref-brand-box"><span class="ref-cat">ZİNCİR MARKET</span><strong>Happy Center · Kim Market</strong><small>POS Komisyon &amp; Net Tahsilat</small></div>
-        <div class="ref-brand-box"><span class="ref-cat">OTOMOTİV &amp; FİLO</span><strong>Otonet · OtoSOR · Yiğit Akü</strong><small>Filo Marjı &amp; İkinci El Ekspertiz Kârı</small></div>
-        <div class="ref-brand-box"><span class="ref-cat">E-TİCARET &amp; YAYIN</span><strong>BKM Kitap · E-Ticaret Devleri</strong><small>Pazaryeri Komisyon &amp; Reklam Kârı</small></div>
-      </div>
-    </div>
 
   </div>
 </section>`;
@@ -525,14 +500,6 @@ const css = `<style id="dual-funnel-home-v17-css">
 .outcome-stat strong{display:block;color:#059669;font-size:16px;font-weight:850}
 .outcome-stat span{color:#64748b;font-size:12px}
 
-/* Slayt 23 Sektör Bulutu */
-.pdf-sector-ecosystem-card{margin:0 0 44px;padding:24px 28px;border-radius:24px;background:#fff;border:1px solid #e2e8f0;box-shadow:0 8px 24px rgba(15,23,42,.03)}
-.sector-eco-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.sector-eco-head h4{margin:6px 0 0;color:#0f172a;font-size:18px;letter-spacing:-.03em}
-.pdf-card-badge{display:inline-block;padding:5px 11px;border-radius:8px;background:#e2e8f0;color:#0f172a;font:800 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;width:fit-content}
-.sector-all-link{color:#059669;font-size:13px;font-weight:800;text-decoration:none}
-.pdf-sectors-pill-cloud{display:flex;flex-wrap:wrap;gap:8px}
-.sector-pill{padding:8px 14px;border-radius:11px;background:#f8fafc;color:#1e293b;font-size:12.5px;font-weight:750;border:1px solid #e2e8f0;box-shadow:0 2px 5px rgba(15,23,42,.02)}
 
 .high-ticket-bridge{padding:64px 0;background:#fff;color:#0f172a}.high-ticket-bridge__inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:68px;align-items:center;padding:48px 44px;border:1px solid #dfe5e0;border-radius:24px;background:#fff;box-shadow:0 14px 36px rgba(18,42,26,.05)}.high-ticket-kicker{margin:0;color:#059669;font:850 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.high-ticket-bridge h2{max-width:760px;margin:12px 0 0;color:#0f172a;font-size:clamp(32px,4vw,50px);line-height:1.02;letter-spacing:-.045em}.high-ticket-bridge__copy>p:last-child{max-width:760px;margin:20px 0 0;color:#526176;font-size:16px;line-height:1.7}.high-ticket-bridge__proof{padding:26px;border:1px solid #dfe5e0;border-radius:18px;background:#f8faf9;box-shadow:0 8px 24px rgba(18,42,26,.04)}.high-ticket-bridge__proof ul{display:grid;gap:12px;margin:0 0 22px;padding:0;list-style:none;color:#334155;font-size:14px;line-height:1.45}.high-ticket-bridge__proof li{position:relative;padding-left:22px}.high-ticket-bridge__proof li::before{content:"✓";position:absolute;left:0;color:#059669;font-weight:900}.high-ticket-bridge__proof>a{min-height:48px;display:flex;align-items:center;justify-content:center;padding:0 18px;border-radius:12px;background:#059669;color:#fff;font-size:13px;font-weight:850;text-decoration:none;box-shadow:0 8px 20px rgba(5,150,105,.2)}.home-finance-close{padding:52px 0;border-bottom:1px solid #dfe5e0;background:linear-gradient(90deg,#f0fdf4,#eff6ff)}.home-finance-close__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center}.home-finance-close h2{margin:9px 0 0;color:#0f172a;font-size:clamp(28px,3.2vw,42px);line-height:1.05;letter-spacing:-.04em}.home-finance-close p:not(.decision-eyebrow){max-width:760px;margin:12px 0 0;color:#526176;font-size:15px;line-height:1.65}.home-finance-close__cta{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:0 22px;border-radius:12px;background:#059669;color:#fff;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 12px 28px rgba(5,150,105,.2)}
 
@@ -578,15 +545,6 @@ const css = `<style id="dual-funnel-home-v17-css">
 .cluster-bubble strong{font-size:13px;font-weight:850;color:#fff}
 .cluster-bubble small{font-size:10.5px;color:#93c5fd}
 .cluster-bubble.bubble-main{background:linear-gradient(135deg,#059669,#10b981);border-color:#34d399;transform:scale(1.08);box-shadow:0 12px 28px rgba(5,150,105,.35)}
-
-/* PDF Slayt 23: Referanslar 4 Sütunlu Beyaz Kart Gridi */
-.pdf-ref-brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
-.ref-brand-box{padding:16px 14px;border-radius:14px;background:#ffffff;border:1px solid #e2e8f0;box-shadow:0 3px 10px rgba(15,23,42,.025);display:grid;gap:4px;text-align:center;transition:all .15s ease}
-.ref-brand-box:hover{border-color:#059669;box-shadow:0 8px 20px rgba(5,150,105,.1);transform:translateY(-2px)}
-.ref-cat{font:800 10px/1 ui-monospace,monospace;letter-spacing:.08em;color:#059669;text-transform:uppercase}
-.ref-brand-box strong{font-size:13.5px;font-weight:850;color:#0f172a;line-height:1.2}
-.ref-brand-box small{font-size:11px;color:#64748b;line-height:1.3}
-
 @media(max-width:980px){
   .decision-quick-steps{grid-template-columns:1fr}
   .pain-decision-grid{grid-template-columns:1fr}
@@ -597,7 +555,6 @@ const css = `<style id="dual-funnel-home-v17-css">
 
   .reasons-three-col-layout{grid-template-columns:1fr;gap:24px}
   .pdf-umbrella-vision-section{grid-template-columns:1fr;gap:28px}
-  .pdf-ref-brand-grid{grid-template-columns:repeat(2,1fr);gap:10px}
 }
 @media(max-width:768px){
   .finance-pillars{padding:36px 0;overflow-x:clip}
@@ -647,15 +604,6 @@ const css = `<style id="dual-funnel-home-v17-css">
   .chat-outcome-bar{grid-template-columns:1fr;gap:10px;padding:14px 16px;border-radius:14px}
   .outcome-stat strong{font-size:15px}
   .outcome-stat span{font-size:11.5px}
-
-  /* Sektör Bulutu */
-  .pdf-sector-ecosystem-card{margin:0 0 32px;padding:18px 14px;border-radius:20px}
-  .sector-eco-head{flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:14px}
-  .sector-eco-head h4{font-size:17px}
-  .sector-all-link{font-size:12.5px}
-  .pdf-sectors-pill-cloud{gap:6px}
-  .sector-pill{padding:6px 10px;font-size:11.5px;border-radius:8px}
-
   /* Alt Dönüşüm Köprüleri */
   .high-ticket-bridge{padding:36px 0;overflow-x:clip}
   .high-ticket-bridge__inner{padding:26px 18px;border-radius:20px;gap:22px}
@@ -678,7 +626,6 @@ const css = `<style id="dual-funnel-home-v17-css">
   .r-content strong{font-size:13.5px}
   .bento-item h4{font-size:15px}
   .eco-logos-grid{grid-template-columns:1fr}
-  .pdf-ref-brand-grid{grid-template-columns:1fr}
 }
 </style>`;
 html = html.replace('</head>', `${css}\n</head>`);
