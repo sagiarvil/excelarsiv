@@ -35,7 +35,8 @@ body[data-desktop-premium-v19] .soho-product-grid{gap:16px!important;grid-templa
 body[data-desktop-premium-v19] .someka-product-custom-card{border:1px solid #d6dce4!important;border-radius:4px!important;background:#ffffff!important;box-shadow:0 1px 3px rgba(0,0,0,0.05)!important;transition:box-shadow .2s ease,transform .18s ease!important;overflow:hidden!important}
 body[data-desktop-premium-v19] .someka-product-custom-card:hover{box-shadow:0 8px 24px rgba(15,23,42,.09)!important;transform:translateY(-2px)!important;border-color:#cbd5e1!important}
 body[data-desktop-premium-v19] .someka-card-thumb-wrap{position:relative!important;display:block!important;aspect-ratio:16 / 10!important;background:#f8fafc!important;border-bottom:1px solid #eee!important;overflow:hidden!important}
-body[data-desktop-premium-v19] .someka-thumb-img{width:100%!important;height:116%!important;object-fit:cover!important;object-position:center bottom!important;margin-top:-8%!important;display:block!important}
+body[data-desktop-premium-v19] .someka-thumb-img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:top center!important;margin-top:0!important;display:block!important;transition:transform .2s ease!important}
+body[data-desktop-premium-v19] .someka-card-thumb-wrap:hover .someka-thumb-img{transform:scale(1.03)!important}
 body[data-desktop-premium-v19] .someka-category-tag{display:none!important}
 body[data-desktop-premium-v19] .someka-card-details{padding:12px 10px 14px!important;text-align:center!important;display:flex!important;flex-direction:column!important;flex:1!important}
 body[data-desktop-premium-v19] .single-post-title{margin:2px 0 4px!important;min-height:38px!important;line-height:1.35!important;text-align:center!important}
