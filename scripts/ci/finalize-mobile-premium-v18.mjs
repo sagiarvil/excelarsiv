@@ -69,6 +69,26 @@ const mobileCss = `<style id="mobile-premium-v18-css">
   body[data-mobile-premium-v18] .home-finance-close__cta{min-height:52px!important;border-radius:14px!important;font-size:14px!important;touch-action:manipulation;transition:transform .12s ease}
   body[data-mobile-premium-v18] .home-finance-close__cta:active{transform:scale(0.97)}
 
+  /* HOME — premium mobile someka cards & clean tabs */
+  body[data-mobile-premium-v18] .soho-product-grid{grid-template-columns:1fr!important;gap:14px!important;margin-bottom:18px!important}
+  body[data-mobile-premium-v18] .someka-product-custom-card{border-radius:10px!important;box-shadow:0 3px 12px rgba(15,23,42,0.06)!important}
+  body[data-mobile-premium-v18] .someka-card-details{padding:12px 14px 14px!important}
+  body[data-mobile-premium-v18] .single-post-title{font-size:16px!important;min-height:auto!important;margin:3px 0 5px!important;line-height:1.32!important}
+  body[data-mobile-premium-v18] .vcex-star-rating{margin-bottom:5px!important;font-size:13px!important}
+  body[data-mobile-premium-v18] .vcex-post-excerpt{font-size:12.5px!important;line-height:1.45!important;min-height:auto!important;margin:0 0 10px!important}
+  body[data-mobile-premium-v18] .someka-card-bottom{display:grid!important;grid-template-columns:1.3fr 1fr!important;gap:8px!important;padding-top:10px!important}
+  body[data-mobile-premium-v18] .btn-someka-teklif{min-height:44px!important;font-size:13px!important;font-weight:750!important;border-radius:8px!important}
+  body[data-mobile-premium-v18] .btn-someka-view{min-height:44px!important;font-size:12.5px!important;font-weight:600!important;border-radius:8px!important}
+  body[data-mobile-premium-v18] .soho-reviews-bar{margin-top:0!important;margin-bottom:20px!important;padding:12px 0!important}
+  body[data-mobile-premium-v18] .soho-reviews-inner{flex-direction:column!important;align-items:stretch!important;gap:10px!important}
+  body[data-mobile-premium-v18] .soho-trustpilot-box{justify-content:center!important}
+  body[data-mobile-premium-v18] .soho-companies-strip{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;gap:6px!important;padding-bottom:2px!important;-webkit-overflow-scrolling:touch!important;scrollbar-width:none!important}
+  body[data-mobile-premium-v18] .soho-companies-strip::-webkit-scrollbar{display:none!important}
+  body[data-mobile-premium-v18] .soho-company-badge{flex:0 0 auto!important;font-size:11px!important;padding:4px 8px!important}
+  body[data-mobile-premium-v18] .soho-tabs-nav{gap:4px!important;margin-bottom:14px!important;padding:3px!important;border-radius:8px!important;-webkit-overflow-scrolling:touch!important;scrollbar-width:none!important}
+  body[data-mobile-premium-v18] .soho-tabs-nav::-webkit-scrollbar{display:none!important}
+  body[data-mobile-premium-v18] .soho-tab-btn{flex:0 0 auto!important;padding:7px 12px!important;font-size:12px!important;border-radius:6px!important}
+
   /* SPECIAL — compact premium mobile system architecture */
   body[data-special-mobile-premium-v18]{padding-bottom:calc(86px + env(safe-area-inset-bottom))!important;overflow-x:clip!important;background:#fff!important}
   body[data-special-mobile-premium-v18] .site-nav{min-height:60px!important;background:rgba(255,255,255,.97)!important;box-shadow:0 5px 18px rgba(15,23,42,.035)!important}
