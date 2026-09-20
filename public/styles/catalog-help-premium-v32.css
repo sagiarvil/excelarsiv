@@ -91,10 +91,15 @@ body.ea-catalog-color-v3 .catalog-help__item>span{
   border:0!important;
   border-radius:15px!important;
   background:var(--assurance-accent)!important;
-  color:#fff!important;
-  font:900 15px/1 var(--font-mono)!important;
+  color:#ffffff!important;
+  font:900 16px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif!important;
   letter-spacing:.04em!important;
   box-shadow:0 10px 22px color-mix(in srgb,var(--assurance-accent) 27%,transparent)!important;
+}
+body.ea-catalog-color-v3 .catalog-help__item:nth-child(1)>span,
+body.ea-catalog-color-v3 .catalog-help__item:nth-child(2)>span,
+body.ea-catalog-color-v3 .catalog-help__item:nth-child(3)>span{
+  color:#ffffff!important;
 }
 body.ea-catalog-color-v3 .catalog-help__item>div{
   position:relative!important;
