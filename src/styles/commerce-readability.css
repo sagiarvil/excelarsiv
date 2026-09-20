@@ -353,7 +353,16 @@ main > section p,
 .product-page .tcard__title {
   font-size: 20px !important;
   font-weight: 800 !important;
-  color: #0f172a !important;
+  color: #4a97c2 !important;
+}
+.tcard__title a,
+.product-page .tcard__title a {
+  color: #4a97c2 !important;
+  text-decoration: none !important;
+}
+.tcard__title a:hover,
+.product-page .tcard__title a:hover {
+  color: #222222 !important;
 }
 
 .tcard__summary,

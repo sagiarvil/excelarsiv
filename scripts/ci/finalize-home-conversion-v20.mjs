@@ -45,6 +45,28 @@ body[data-desktop-premium-v19] .single-post-title a:hover{color:#222222!importan
 body[data-desktop-premium-v19] .vcex-star-rating{display:none!important}
 body[data-desktop-premium-v19] .vcex-post-excerpt{display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;font-size:12px!important;line-height:1.45!important;color:#777777!important;margin:4px 0 0!important;min-height:35px!important;text-align:center!important}
 body[data-desktop-premium-v19] .someka-card-bottom{display:none!important}
+}
+/* TÜM CİHAZLARDA VE TÜM SAYFALARDA SOMEKA MAVİSİ ÜRÜN BAŞLIKLARI */
+.single-post-title a,
+.single-post-title,
+.card__title a,
+.card__title,
+.tcard__title a,
+.tcard__title,
+.mce-quick-card__title,
+.mce-template-card__title,
+[data-template-card] .card__title a,
+.soho-product-grid .single-post-title a {
+  color: #4a97c2 !important;
+  text-decoration: none !important;
+  transition: color .15s ease !important;
+}
+.single-post-title a:hover,
+.card__title a:hover,
+.tcard__title a:hover,
+[data-template-card] .card__title a:hover,
+.soho-product-grid .single-post-title a:hover {
+  color: #222222 !important;
 }`;
 
 for (const marker of ['data-dual-funnel-home-v17','data-mobile-premium-v18','data-desktop-premium-v19']) {
