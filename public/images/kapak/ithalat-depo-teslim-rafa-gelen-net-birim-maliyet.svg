@@ -1,19 +1,41 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
-  <rect width="100%" height="100%" fill="#fffbeb" />
+  <!-- Canvas Background -->
+  <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="265.3495844686404" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="200" width="199.49869780801237" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="300" width="277.95172731392086" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="400" width="186.3940154435113" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="500" width="249.11583669018" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="600" width="224.16289992630482" height="30" rx="15" fill="#fef3c7"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 479.57949333358556 L 880 357.0989821339026 L 1020 477.0182170905173 L 1160 224.31966534350067 L 1300 351.6451335977763" fill="none" stroke="#d97706" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 305.2670981036499 L 1860 429.87376279197633 L 2000 319.7306171292439 L 2140 449.29851926863194 L 2280 425.5246633430943" fill="none" stroke="#d97706" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1136.8531332118437" width="60" height="163.14686678815633" rx="10" fill="#f59e0b"/><rect x="720" y="1072.4735495634377" width="60" height="227.5264504365623" rx="10" fill="#f59e0b"/><rect x="840" y="1137.331912619993" width="60" height="162.6680873800069" rx="10" fill="#f59e0b"/><rect x="960" y="1053.5475439857692" width="60" height="246.45245601423085" rx="10" fill="#f59e0b"/><rect x="1080" y="1015.9917668206617" width="60" height="284.0082331793383" rx="10" fill="#f59e0b"/><rect x="1200" y="933.9355036849156" width="60" height="366.0644963150844" rx="10" fill="#f59e0b"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="1137.2626055963337" width="60" height="162.73739440366626" rx="10" fill="#f59e0b"/><rect x="1700" y="913.6063932208344" width="60" height="386.39360677916557" rx="10" fill="#f59e0b"/><rect x="1820" y="908.4946925053373" width="60" height="391.5053074946627" rx="10" fill="#f59e0b"/><rect x="1940" y="1055.5475274799392" width="60" height="244.45247252006084" rx="10" fill="#f59e0b"/><rect x="2060" y="1137.507882504724" width="60" height="162.49211749527603" rx="10" fill="#f59e0b"/><rect x="2180" y="952.2280170349404" width="60" height="347.7719829650596" rx="10" fill="#f59e0b"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#451a03" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: ITHALAT-DEPO-TESLIM-RAFA-GELEN-NET-BIRIM-MALIYET</text>
-      <text x="100" y="1570" fill="#451a03" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">ÜRETİM &amp; STOK</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Ithalat Depo Teslim Rafa Gelen Net Birim Maliyet</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g>
+      <circle cx="620" cy="260" r="140" fill="none" stroke="#f1f5f9" stroke-width="22" />
+      <circle cx="620" cy="260" r="190" fill="none" stroke="#f1f5f9" stroke-width="26" />
+      <circle cx="620" cy="260" r="140" fill="none" stroke="#10b981" stroke-width="22" stroke-dasharray="879.645943005142" stroke-dashoffset="228.70794518133695" stroke-linecap="round" transform="rotate(-90 620 260)" />
+      <circle cx="620" cy="260" r="190" fill="none" stroke="#047857" stroke-width="26" stroke-dasharray="1193.8052083641214" stroke-dashoffset="238.76104167282423" stroke-linecap="round" transform="rotate(-90 620 260)" />
+      <text x="620" y="278" fill="#0f172a" font-family="sans-serif" font-size="64" font-weight="900" text-anchor="middle">%74</text>
+      <text x="620" y="314" fill="#64748b" font-family="sans-serif" font-size="16" font-weight="700" text-anchor="middle">GERÇEKLEŞME ORANI</text>
+    </g>
+  </g>
 </svg>

@@ -1,19 +1,34 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
+  <!-- Canvas Background -->
   <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="253.85357150342315" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="193.09026914648712" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="167.64997693244368" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="263.98191100452095" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="113.98142650257796" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="210.1351416995749" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 258.4818118484691 L 880 295.5021970439702 L 1020 294.91727529093623 L 1160 465.624984446913 L 1300 418.477266584523" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 324.28644218016416 L 1860 482.01602157205343 L 2000 462.42543577682227 L 2140 222.99787944648415 L 2280 422.1468296367675" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 1187.2237091884017 L 880 951.9364512059838 L 1020 1165.8569438382983 L 1160 1103.6957419244573 L 1300 1184.7767479950562" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="908.285292936489" width="60" height="391.714707063511" rx="10" fill="#8b5cf6"/><rect x="1700" y="1180.7723492849618" width="60" height="119.22765071503818" rx="10" fill="#8b5cf6"/><rect x="1820" y="1135.0052004447207" width="60" height="164.99479955527931" rx="10" fill="#8b5cf6"/><rect x="1940" y="1095.467660925351" width="60" height="204.53233907464892" rx="10" fill="#8b5cf6"/><rect x="2060" y="1159.8040855955333" width="60" height="140.19591440446675" rx="10" fill="#8b5cf6"/><rect x="2180" y="1052.531672269106" width="60" height="247.4683277308941" rx="10" fill="#8b5cf6"/><rect x="500" y="1500" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1661.7021201876923" width="60" height="338.29787981230766" rx="10" fill="#8b5cf6"/><rect x="720" y="1711.6044257767498" width="60" height="288.39557422325015" rx="10" fill="#8b5cf6"/><rect x="840" y="1875.0529018463567" width="60" height="124.94709815364331" rx="10" fill="#8b5cf6"/><rect x="960" y="1697.8000048547983" width="60" height="302.1999951452017" rx="10" fill="#8b5cf6"/><rect x="1080" y="1749.8179899761453" width="60" height="250.18201002385467" rx="10" fill="#8b5cf6"/><rect x="1200" y="1621.2350039975718" width="60" height="378.76499600242823" rx="10" fill="#8b5cf6"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: IHALEYE-KAC-TL-TEKLIF-VERMELIYIM</text>
-      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">FİNANSAL YÖNETİM</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Ihaleye Kac Tl Teklif Vermeliyim</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g transform="translate(360, 80)"><line x1="0" y1="0" x2="520" y2="0" stroke="#e2e8f0" stroke-width="2"/><line x1="0" y1="0" x2="0" y2="340" stroke="#e2e8f0" stroke-width="2"/><line x1="0" y1="85" x2="520" y2="85" stroke="#e2e8f0" stroke-width="2"/><line x1="130" y1="0" x2="130" y2="340" stroke="#e2e8f0" stroke-width="2"/><line x1="0" y1="170" x2="520" y2="170" stroke="#e2e8f0" stroke-width="2"/><line x1="260" y1="0" x2="260" y2="340" stroke="#e2e8f0" stroke-width="2"/><line x1="0" y1="255" x2="520" y2="255" stroke="#e2e8f0" stroke-width="2"/><line x1="390" y1="0" x2="390" y2="340" stroke="#e2e8f0" stroke-width="2"/><line x1="0" y1="340" x2="520" y2="340" stroke="#e2e8f0" stroke-width="2"/><line x1="520" y1="0" x2="520" y2="340" stroke="#e2e8f0" stroke-width="2"/><circle cx="80" cy="280" r="16" fill="#10b981" opacity="0.85" stroke="#ffffff" stroke-width="3" /><circle cx="140" cy="210" r="24" fill="#059669" opacity="0.85" stroke="#ffffff" stroke-width="3" /><circle cx="220" cy="160" r="18" fill="#3b82f6" opacity="0.85" stroke="#ffffff" stroke-width="3" /><circle cx="310" cy="110" r="32" fill="#047857" opacity="0.85" stroke="#ffffff" stroke-width="3" /><circle cx="420" cy="70" r="22" fill="#f59e0b" opacity="0.85" stroke="#ffffff" stroke-width="3" /><circle cx="480" cy="50" r="28" fill="#10b981" opacity="0.85" stroke="#ffffff" stroke-width="3" /></g>
+  </g>
 </svg>

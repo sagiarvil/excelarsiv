@@ -1,19 +1,34 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f1f5f9" />
+  <!-- Canvas Background -->
+  <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="233.7295972229913" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="200" width="181.57872908283025" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="300" width="222.50140932388604" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="400" width="194.27554359659553" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="500" width="223.7698501488194" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="600" width="236.73185906838626" height="30" rx="15" fill="#cbd5e1"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 380.062059010379 L 880 447.11822643876076 L 1020 348.26496965251863 L 1160 293.35593627765775 L 1300 351.2663545552641" fill="none" stroke="#2563eb" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 448.73211439698935 L 1860 406.122069247067 L 2000 290.837117517367 L 2140 203.054953715764 L 2280 489.7198279388249" fill="none" stroke="#2563eb" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1107.6549475081265" width="60" height="192.3450524918735" rx="10" fill="#3b82f6"/><rect x="720" y="1136.2790014129132" width="60" height="163.7209985870868" rx="10" fill="#3b82f6"/><rect x="840" y="1096.4682237245142" width="60" height="203.53177627548575" rx="10" fill="#3b82f6"/><rect x="960" y="1171.1669019190595" width="60" height="128.83309808094054" rx="10" fill="#3b82f6"/><rect x="1080" y="962.9162800032645" width="60" height="337.08371999673545" rx="10" fill="#3b82f6"/><rect x="1200" y="1064.136534347199" width="60" height="235.8634656528011" rx="10" fill="#3b82f6"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="910.7041448587552" width="60" height="389.29585514124483" rx="10" fill="#3b82f6"/><rect x="1700" y="991.9648552313447" width="60" height="308.0351447686553" rx="10" fill="#3b82f6"/><rect x="1820" y="1109.9263656651601" width="60" height="190.07363433483988" rx="10" fill="#3b82f6"/><rect x="1940" y="903.5065244883299" width="60" height="396.4934755116701" rx="10" fill="#3b82f6"/><rect x="2060" y="962.275979295373" width="60" height="337.72402070462704" rx="10" fill="#3b82f6"/><rect x="2180" y="1004.1982350870967" width="60" height="295.8017649129033" rx="10" fill="#3b82f6"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#1e293b" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: KACIRILAN-SGK-TESVIKLERI-VE-GERCEK-ISCILIK-MALIYETI-ANALIZI</text>
-      <text x="100" y="1570" fill="#1e293b" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">VERGİ &amp; MEVZUAT</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Kacirilan SGK Tesvikleri &amp; Gercek Iscilik Maliyeti Analizi</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g transform="translate(430, 60)"><circle cx="0" cy="0" r="14" fill="#047857" /><circle cx="38" cy="0" r="14" fill="#047857" /><circle cx="76" cy="0" r="14" fill="#047857" /><circle cx="114" cy="0" r="14" fill="#047857" /><circle cx="152" cy="0" r="14" fill="#047857" /><circle cx="190" cy="0" r="14" fill="#047857" /><circle cx="228" cy="0" r="14" fill="#047857" /><circle cx="266" cy="0" r="14" fill="#047857" /><circle cx="304" cy="0" r="14" fill="#047857" /><circle cx="342" cy="0" r="14" fill="#047857" /><circle cx="0" cy="38" r="14" fill="#047857" /><circle cx="38" cy="38" r="14" fill="#047857" /><circle cx="76" cy="38" r="14" fill="#047857" /><circle cx="114" cy="38" r="14" fill="#047857" /><circle cx="152" cy="38" r="14" fill="#047857" /><circle cx="190" cy="38" r="14" fill="#047857" /><circle cx="228" cy="38" r="14" fill="#047857" /><circle cx="266" cy="38" r="14" fill="#047857" /><circle cx="304" cy="38" r="14" fill="#047857" /><circle cx="342" cy="38" r="14" fill="#047857" /><circle cx="0" cy="76" r="14" fill="#047857" /><circle cx="38" cy="76" r="14" fill="#047857" /><circle cx="76" cy="76" r="14" fill="#047857" /><circle cx="114" cy="76" r="14" fill="#047857" /><circle cx="152" cy="76" r="14" fill="#047857" /><circle cx="190" cy="76" r="14" fill="#047857" /><circle cx="228" cy="76" r="14" fill="#047857" /><circle cx="266" cy="76" r="14" fill="#047857" /><circle cx="304" cy="76" r="14" fill="#047857" /><circle cx="342" cy="76" r="14" fill="#047857" /><circle cx="0" cy="114" r="14" fill="#10b981" /><circle cx="38" cy="114" r="14" fill="#10b981" /><circle cx="76" cy="114" r="14" fill="#10b981" /><circle cx="114" cy="114" r="14" fill="#10b981" /><circle cx="152" cy="114" r="14" fill="#10b981" /><circle cx="190" cy="114" r="14" fill="#10b981" /><circle cx="228" cy="114" r="14" fill="#e2e8f0" /><circle cx="266" cy="114" r="14" fill="#e2e8f0" /><circle cx="304" cy="114" r="14" fill="#e2e8f0" /><circle cx="342" cy="114" r="14" fill="#e2e8f0" /><circle cx="0" cy="152" r="14" fill="#e2e8f0" /><circle cx="38" cy="152" r="14" fill="#e2e8f0" /><circle cx="76" cy="152" r="14" fill="#e2e8f0" /><circle cx="114" cy="152" r="14" fill="#e2e8f0" /><circle cx="152" cy="152" r="14" fill="#e2e8f0" /><circle cx="190" cy="152" r="14" fill="#e2e8f0" /><circle cx="228" cy="152" r="14" fill="#e2e8f0" /><circle cx="266" cy="152" r="14" fill="#e2e8f0" /><circle cx="304" cy="152" r="14" fill="#e2e8f0" /><circle cx="342" cy="152" r="14" fill="#e2e8f0" /><circle cx="0" cy="190" r="14" fill="#e2e8f0" /><circle cx="38" cy="190" r="14" fill="#e2e8f0" /><circle cx="76" cy="190" r="14" fill="#e2e8f0" /><circle cx="114" cy="190" r="14" fill="#e2e8f0" /><circle cx="152" cy="190" r="14" fill="#e2e8f0" /><circle cx="190" cy="190" r="14" fill="#e2e8f0" /><circle cx="228" cy="190" r="14" fill="#e2e8f0" /><circle cx="266" cy="190" r="14" fill="#e2e8f0" /><circle cx="304" cy="190" r="14" fill="#e2e8f0" /><circle cx="342" cy="190" r="14" fill="#e2e8f0" /><circle cx="0" cy="228" r="14" fill="#e2e8f0" /><circle cx="38" cy="228" r="14" fill="#e2e8f0" /><circle cx="76" cy="228" r="14" fill="#e2e8f0" /><circle cx="114" cy="228" r="14" fill="#e2e8f0" /><circle cx="152" cy="228" r="14" fill="#e2e8f0" /><circle cx="190" cy="228" r="14" fill="#e2e8f0" /><circle cx="228" cy="228" r="14" fill="#e2e8f0" /><circle cx="266" cy="228" r="14" fill="#e2e8f0" /><circle cx="304" cy="228" r="14" fill="#e2e8f0" /><circle cx="342" cy="228" r="14" fill="#e2e8f0" /><circle cx="0" cy="266" r="14" fill="#e2e8f0" /><circle cx="38" cy="266" r="14" fill="#e2e8f0" /><circle cx="76" cy="266" r="14" fill="#e2e8f0" /><circle cx="114" cy="266" r="14" fill="#e2e8f0" /><circle cx="152" cy="266" r="14" fill="#e2e8f0" /><circle cx="190" cy="266" r="14" fill="#e2e8f0" /><circle cx="228" cy="266" r="14" fill="#e2e8f0" /><circle cx="266" cy="266" r="14" fill="#e2e8f0" /><circle cx="304" cy="266" r="14" fill="#e2e8f0" /><circle cx="342" cy="266" r="14" fill="#e2e8f0" /><text x="170" y="350" fill="#0f172a" font-family="sans-serif" font-size="28" font-weight="900" text-anchor="middle">%45 KAPASİTE TAHSİSİ</text></g>
+  </g>
 </svg>

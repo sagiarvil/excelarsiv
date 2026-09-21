@@ -1,19 +1,41 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
+  <!-- Canvas Background -->
   <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="109.37038264703006" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="141.89327592030168" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="171.58041418995708" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="198.41429545544088" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="246.69061741326004" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="259.39411045983434" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="305.4966590134427" width="60" height="294.5033409865573" rx="10" fill="#8b5cf6"/><rect x="720" y="476.88944046385586" width="60" height="123.11055953614414" rx="10" fill="#8b5cf6"/><rect x="840" y="329.9795934231952" width="60" height="270.0204065768048" rx="10" fill="#8b5cf6"/><rect x="960" y="364.9737752042711" width="60" height="235.02622479572892" rx="10" fill="#8b5cf6"/><rect x="1080" y="326.826106174849" width="60" height="273.173893825151" rx="10" fill="#8b5cf6"/><rect x="1200" y="228.2646703766659" width="60" height="371.7353296233341" rx="10" fill="#8b5cf6"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="253.53394569829106" width="60" height="346.46605430170894" rx="10" fill="#8b5cf6"/><rect x="1700" y="206.35796901769936" width="60" height="393.64203098230064" rx="10" fill="#8b5cf6"/><rect x="1820" y="245.80469264183193" width="60" height="354.19530735816807" rx="10" fill="#8b5cf6"/><rect x="1940" y="359.2010844498873" width="60" height="240.79891555011272" rx="10" fill="#8b5cf6"/><rect x="2060" y="336.2415360054001" width="60" height="263.7584639945999" rx="10" fill="#8b5cf6"/><rect x="2180" y="326.489694789052" width="60" height="273.510305210948" rx="10" fill="#8b5cf6"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 952.0800927886739 L 880 943.820396438241 L 1020 1042.1485958620906 L 1160 1115.0541469221935 L 1300 1041.0470691276714" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="1064.912935369648" width="60" height="235.08706463035196" rx="10" fill="#8b5cf6"/><rect x="1700" y="1072.0542376628146" width="60" height="227.94576233718544" rx="10" fill="#8b5cf6"/><rect x="1820" y="1089.559819176793" width="60" height="210.4401808232069" rx="10" fill="#8b5cf6"/><rect x="1940" y="1018.6995835276321" width="60" height="281.30041647236794" rx="10" fill="#8b5cf6"/><rect x="2060" y="905.9450415428728" width="60" height="394.0549584571272" rx="10" fill="#8b5cf6"/><rect x="2180" y="945.3474883222952" width="60" height="354.65251167770475" rx="10" fill="#8b5cf6"/><rect x="500" y="1500" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1797.5987679092214" width="60" height="202.40123209077865" rx="10" fill="#8b5cf6"/><rect x="720" y="1802.9980992898345" width="60" height="197.0019007101655" rx="10" fill="#8b5cf6"/><rect x="840" y="1740.9984264988452" width="60" height="259.0015735011548" rx="10" fill="#8b5cf6"/><rect x="960" y="1739.873547363095" width="60" height="260.126452636905" rx="10" fill="#8b5cf6"/><rect x="1080" y="1738.485280959867" width="60" height="261.51471904013306" rx="10" fill="#8b5cf6"/><rect x="1200" y="1746.363084181212" width="60" height="253.6369158187881" rx="10" fill="#8b5cf6"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: MIZAN-ANOMALI-DENETIM-ONCESI-KONTROL</text>
-      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">FİNANSAL YÖNETİM</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Mizan Anomali Denetim Oncesi Kontrol</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g>
+      <circle cx="620" cy="260" r="140" fill="none" stroke="#f1f5f9" stroke-width="22" />
+      <circle cx="620" cy="260" r="190" fill="none" stroke="#f1f5f9" stroke-width="26" />
+      <circle cx="620" cy="260" r="140" fill="none" stroke="#10b981" stroke-width="22" stroke-dasharray="879.645943005142" stroke-dashoffset="96.7610537305656" stroke-linecap="round" transform="rotate(-90 620 260)" />
+      <circle cx="620" cy="260" r="190" fill="none" stroke="#047857" stroke-width="26" stroke-dasharray="1193.8052083641214" stroke-dashoffset="441.70792709472494" stroke-linecap="round" transform="rotate(-90 620 260)" />
+      <text x="620" y="278" fill="#0f172a" font-family="sans-serif" font-size="64" font-weight="900" text-anchor="middle">%89</text>
+      <text x="620" y="314" fill="#64748b" font-family="sans-serif" font-size="16" font-weight="700" text-anchor="middle">GERÇEKLEŞME ORANI</text>
+    </g>
+  </g>
 </svg>

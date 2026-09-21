@@ -1,19 +1,37 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
+  <!-- Canvas Background -->
   <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#8b5cf6"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#e2e8f0" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#e2e8f0" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#e2e8f0" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#e2e8f0" stroke-width="4"/><path d="M 200 1100 C 320 700.1481594983488, 320 640.9521861001849, 440 640.9521861001849 C 560 640.9521861001849, 560 765.24732359685, 680 765.24732359685 C 800 765.24732359685, 800 655.7489517144859, 920 655.7489517144859 C 1040 655.7489517144859, 1040 996.277888212353, 1160 996.277888212353 C 1280 996.277888212353, 1280 493.2678512763232, 1400 493.2678512763232 C 1520 493.2678512763232, 1520 604.95157209225, 1640 604.95157209225 C 1760 604.95157209225, 1760 618.1813009548932, 1880 618.1813009548932 C 2000 618.1813009548932, 2000 865.3831887058914, 2120 865.3831887058914 C 2240 865.3831887058914, 2240 530.9495870023966, 2360 530.9495870023966 L 2360 1360 L 200 1360 Z" fill="#a78bfa" opacity="0.2"/><path d="M 200 1100 C 320 700.1481594983488, 320 640.9521861001849, 440 640.9521861001849 C 560 640.9521861001849, 560 765.24732359685, 680 765.24732359685 C 800 765.24732359685, 800 655.7489517144859, 920 655.7489517144859 C 1040 655.7489517144859, 1040 996.277888212353, 1160 996.277888212353 C 1280 996.277888212353, 1280 493.2678512763232, 1400 493.2678512763232 C 1520 493.2678512763232, 1520 604.95157209225, 1640 604.95157209225 C 1760 604.95157209225, 1760 618.1813009548932, 1880 618.1813009548932 C 2000 618.1813009548932, 2000 865.3831887058914, 2120 865.3831887058914 C 2240 865.3831887058914, 2240 530.9495870023966, 2360 530.9495870023966" fill="none" stroke="#8b5cf6" stroke-width="24" stroke-linecap="round"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: TARIMSAL-DESTEK-UYGUNLUK</text>
-      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">FİNANSAL YÖNETİM</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Tarimsal Destek Uygunluk</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g>
+      <path d="M 620 210 L 654.6410161513776 230 L 654.6410161513776 270 L 620 290 L 585.3589838486224 270 L 585.3589838486224 230  Z" fill="none" stroke="#e2e8f0" stroke-width="2" /><path d="M 620 170 L 689.282032302755 210 L 689.282032302755 290 L 620 330 L 550.717967697245 290 L 550.717967697245 210  Z" fill="none" stroke="#e2e8f0" stroke-width="2" /><path d="M 620 130 L 723.9230484541326 190 L 723.9230484541326 310 L 620 370 L 516.0769515458674 310.00000000000006 L 516.0769515458674 190  Z" fill="none" stroke="#e2e8f0" stroke-width="2" /><path d="M 620 90 L 758.5640646055101 170 L 758.5640646055102 330 L 620 410 L 481.43593539448983 330.00000000000006 L 481.43593539448983 170  Z" fill="none" stroke="#e2e8f0" stroke-width="2" />
+      <path d="M 620 114 L 710.0666419935816 198 L 751.6358613752348 326 L 620 362 L 509.1487483155919 314.00000000000006 L 495.29234185504083 178  Z" fill="#10b981" fill-opacity="0.3" stroke="#047857" stroke-width="4" />
+    </g>
+  </g>
 </svg>

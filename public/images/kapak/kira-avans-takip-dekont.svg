@@ -1,19 +1,51 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
+  <!-- Canvas Background -->
   <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#8b5cf6"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#e2e8f0" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#e2e8f0" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#e2e8f0" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#e2e8f0" stroke-width="4"/><path d="M 200 1100 C 320 986.2323462963104, 320 734.4328055623919, 440 734.4328055623919 C 560 734.4328055623919, 560 780.017148097977, 680 780.017148097977 C 800 780.017148097977, 800 458.7877520825714, 920 458.7877520825714 C 1040 458.7877520825714, 1040 929.1228486225009, 1160 929.1228486225009 C 1280 929.1228486225009, 1280 982.7877478674054, 1400 982.7877478674054 C 1520 982.7877478674054, 1520 446.33938493207097, 1640 446.33938493207097 C 1760 446.33938493207097, 1760 775.0111177563667, 1880 775.0111177563667 C 2000 775.0111177563667, 2000 736.36634494178, 2120 736.36634494178 C 2240 736.36634494178, 2240 432.91845018975437, 2360 432.91845018975437 L 2360 1360 L 200 1360 Z" fill="#a78bfa" opacity="0.2"/><path d="M 200 1100 C 320 986.2323462963104, 320 734.4328055623919, 440 734.4328055623919 C 560 734.4328055623919, 560 780.017148097977, 680 780.017148097977 C 800 780.017148097977, 800 458.7877520825714, 920 458.7877520825714 C 1040 458.7877520825714, 1040 929.1228486225009, 1160 929.1228486225009 C 1280 929.1228486225009, 1280 982.7877478674054, 1400 982.7877478674054 C 1520 982.7877478674054, 1520 446.33938493207097, 1640 446.33938493207097 C 1760 446.33938493207097, 1760 775.0111177563667, 1880 775.0111177563667 C 2000 775.0111177563667, 2000 736.36634494178, 2120 736.36634494178 C 2240 736.36634494178, 2240 432.91845018975437, 2360 432.91845018975437" fill="none" stroke="#8b5cf6" stroke-width="24" stroke-linecap="round"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: KIRA-AVANS-TAKIP-DEKONT</text>
-      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">FİNANSAL YÖNETİM</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Kira Avans Takip Dekont</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g transform="translate(320, 80)">
+      <line x1="0" y1="360" x2="600" y2="360" stroke="#cbd5e1" stroke-width="2"/>
+      <!-- Start Bar -->
+      <rect x="30" y="100" width="70" height="260" rx="6" fill="#2563eb" />
+      <text x="65" y="90" fill="#2563eb" font-family="sans-serif" font-size="14" font-weight="800" text-anchor="middle">GELİR</text>
+      <!-- Minus Bar 1 -->
+      <rect x="150" y="100" width="70" height="110" rx="6" fill="#ef4444" />
+      <text x="185" y="90" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="800" text-anchor="middle">-MALİYET</text>
+      <!-- Minus Bar 2 -->
+      <rect x="270" y="210" width="70" height="70" rx="6" fill="#ef4444" />
+      <text x="305" y="200" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="800" text-anchor="middle">-FAİZ</text>
+      <!-- Plus Bar -->
+      <rect x="390" y="240" width="70" height="40" rx="6" fill="#10b981" />
+      <text x="425" y="230" fill="#10b981" font-family="sans-serif" font-size="14" font-weight="800" text-anchor="middle">+DİĞER</text>
+      <!-- Net Total -->
+      <rect x="500" y="240" width="70" height="120" rx="6" fill="#047857" />
+      <text x="535" y="230" fill="#047857" font-family="sans-serif" font-size="14" font-weight="800" text-anchor="middle">NET KÂR</text>
+    </g>
+  </g>
 </svg>

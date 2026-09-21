@@ -1,19 +1,34 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f0fdfa" />
+  <!-- Canvas Background -->
+  <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="178.9168579597026" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="200" width="267.27356417570263" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="300" width="251.20364966336638" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="400" width="169.13796829991043" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="500" width="182.18934092205018" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="600" width="141.62562440149486" height="30" rx="15" fill="#ccfbf1"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="378.20125059224665" width="60" height="221.79874940775335" rx="10" fill="#14b8a6"/><rect x="720" y="315.30311035458" width="60" height="284.69688964542" rx="10" fill="#14b8a6"/><rect x="840" y="406.2004154548049" width="60" height="193.7995845451951" rx="10" fill="#14b8a6"/><rect x="960" y="290.34561277367175" width="60" height="309.65438722632825" rx="10" fill="#14b8a6"/><rect x="1080" y="397.56166520528495" width="60" height="202.43833479471505" rx="10" fill="#14b8a6"/><rect x="1200" y="493.4470218140632" width="60" height="106.55297818593681" rx="10" fill="#14b8a6"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 237.19120279420167 L 1860 240.94698748085648 L 2000 255.39421495050192 L 2140 380.7234011590481 L 2280 289.1754539683461" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="938.0403025774285" width="60" height="361.9596974225715" rx="10" fill="#14b8a6"/><rect x="720" y="1174.7564108809456" width="60" height="125.24358911905438" rx="10" fill="#14b8a6"/><rect x="840" y="946.6770506696776" width="60" height="353.32294933032244" rx="10" fill="#14b8a6"/><rect x="960" y="966.4379741298035" width="60" height="333.5620258701965" rx="10" fill="#14b8a6"/><rect x="1080" y="902.7129559312016" width="60" height="397.2870440687984" rx="10" fill="#14b8a6"/><rect x="1200" y="1103.7758646067232" width="60" height="196.2241353932768" rx="10" fill="#14b8a6"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="1063.883319706656" width="60" height="236.11668029334396" rx="10" fill="#14b8a6"/><rect x="1700" y="1062.2062472859398" width="60" height="237.79375271406025" rx="10" fill="#14b8a6"/><rect x="1820" y="1025.0195040134713" width="60" height="274.9804959865287" rx="10" fill="#14b8a6"/><rect x="1940" y="1157.735483092256" width="60" height="142.2645169077441" rx="10" fill="#14b8a6"/><rect x="2060" y="997.7795136161149" width="60" height="302.22048638388515" rx="10" fill="#14b8a6"/><rect x="2180" y="1058.0509772524238" width="60" height="241.94902274757624" rx="10" fill="#14b8a6"/><rect x="500" y="1500" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1900 L 740 1893.998543987982 L 880 1692.442125407979 L 1020 1858.4342323476449 L 1160 1673.9309766096994 L 1300 1667.7163645392284" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#0f172a" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: STOK-SATIS-VE-NAKIT-BAGLANMA-SISTEMI</text>
-      <text x="100" y="1570" fill="#0f172a" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">NAKİT AKIŞI</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Stok Satis &amp; Nakit Baglanma Sistemi</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g><path d="M 620,250 L 640.7408541340787,284.47816188377334 L 631.0788734034383,317.7349176939807 L 595.0924680803224,335.73228719663945 L 589.4427190999916,344.04564036679574 L 585.9566674908788,384.13022744553973 L 558.5921302761353,405.35633829237076 L 518.8999284295485,398.7642377421202 L 509.44271909999156,402.1690426072246 L 483.06131497583203,432.54910504186387 L 448.44654440660634,433.636918030802 L 420.2096180536233,404.973305780581 L 410.55728090000844,402.1690426072246 L 371.3573239652844,411.2404291280709 L 342.71398588624106,391.7744366707452 L 336.7178811558737,351.9878383597904 L 330.55728090000844,344.04564036679574 L 293.5118223462524,328.3433896479734 L 281.7806983523319,295.75893923833337 L 300.3157234514765,260.0464831246901 L 300,250.00000000000003 L 279.25914586592125,215.52183811622663 L 288.92112659656175,182.26508230601934 L 324.9075319196776,164.26771280336052 L 330.55728090000844,155.95435963320432 L 334.0433325091212,115.86977255446033 L 361.40786972386456,94.64366170762926 L 401.1000715704515,101.23576225787977 L 410.5572809000084,97.83095739277545 L 436.93868502416797,67.4508949581361 L 471.55345559339355,66.36308196919802 L 499.7903819463768,95.02669421941903 L 509.44271909999156,97.83095739277542 L 548.6426760347157,88.75957087192913 L 577.2860141137588,108.22556332925473 L 583.2821188441263,148.01216164020965 L 589.4427190999916,155.95435963320426 L 626.4881776537476,171.65661035202672 L 638.2193016476681,204.24106076166663 L 619.6842765485235,239.95351687530987 Z" fill="#f59e0b" stroke="#d97706" stroke-width="4" opacity="0.9" /><circle cx="460" cy="250" r="90" fill="#ffffff" /><g transform="translate(680, 80)"><rect x="0" y="240" width="48" height="100" rx="8" fill="#10b981" /><rect x="65" y="180" width="48" height="160" rx="8" fill="#3b82f6" /><rect x="130" y="110" width="48" height="230" rx="8" fill="#8b5cf6" /><rect x="195" y="30" width="48" height="310" rx="8" fill="#ec4899" /><line x1="0" y1="340" x2="270" y2="340" stroke="#94a3b8" stroke-width="2"/></g></g>
+  </g>
 </svg>

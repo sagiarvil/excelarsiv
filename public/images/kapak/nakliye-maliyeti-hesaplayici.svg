@@ -1,19 +1,41 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f1f5f9" />
+  <!-- Canvas Background -->
+  <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#3b82f6"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#cbd5e1"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#cbd5e1"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#cbd5e1"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#cbd5e1"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#cbd5e1" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#cbd5e1" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#cbd5e1" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#cbd5e1" stroke-width="4"/><path d="M 200 1100 C 320 418.42505540698767, 320 475.27835140936077, 440 475.27835140936077 C 560 475.27835140936077, 560 826.8477333709598, 680 826.8477333709598 C 800 826.8477333709598, 800 927.3947368375957, 920 927.3947368375957 C 1040 927.3947368375957, 1040 404.9985053483397, 1160 404.9985053483397 C 1280 404.9985053483397, 1280 566.9463848695159, 1400 566.9463848695159 C 1520 566.9463848695159, 1520 753.4429964609444, 1640 753.4429964609444 C 1760 753.4429964609444, 1760 401.52062084525824, 1880 401.52062084525824 C 2000 401.52062084525824, 2000 597.8323270566761, 2120 597.8323270566761 C 2240 597.8323270566761, 2240 716.2003584671766, 2360 716.2003584671766 L 2360 1360 L 200 1360 Z" fill="#60a5fa" opacity="0.2"/><path d="M 200 1100 C 320 418.42505540698767, 320 475.27835140936077, 440 475.27835140936077 C 560 475.27835140936077, 560 826.8477333709598, 680 826.8477333709598 C 800 826.8477333709598, 800 927.3947368375957, 920 927.3947368375957 C 1040 927.3947368375957, 1040 404.9985053483397, 1160 404.9985053483397 C 1280 404.9985053483397, 1280 566.9463848695159, 1400 566.9463848695159 C 1520 566.9463848695159, 1520 753.4429964609444, 1640 753.4429964609444 C 1760 753.4429964609444, 1760 401.52062084525824, 1880 401.52062084525824 C 2000 401.52062084525824, 2000 597.8323270566761, 2120 597.8323270566761 C 2240 597.8323270566761, 2240 716.2003584671766, 2360 716.2003584671766" fill="none" stroke="#3b82f6" stroke-width="24" stroke-linecap="round"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#1e293b" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: NAKLIYE-MALIYETI-HESAPLAYICI</text>
-      <text x="100" y="1570" fill="#1e293b" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">FİNANSAL YÖNETİM</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Nakliye Maliyeti Hesaplayici</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g>
+      <circle cx="620" cy="260" r="140" fill="none" stroke="#f1f5f9" stroke-width="22" />
+      <circle cx="620" cy="260" r="190" fill="none" stroke="#f1f5f9" stroke-width="26" />
+      <circle cx="620" cy="260" r="140" fill="none" stroke="#10b981" stroke-width="22" stroke-dasharray="879.645943005142" stroke-dashoffset="448.61943093262244" stroke-linecap="round" transform="rotate(-90 620 260)" />
+      <circle cx="620" cy="260" r="190" fill="none" stroke="#047857" stroke-width="26" stroke-dasharray="1193.8052083641214" stroke-dashoffset="238.76104167282423" stroke-linecap="round" transform="rotate(-90 620 260)" />
+      <text x="620" y="278" fill="#0f172a" font-family="sans-serif" font-size="64" font-weight="900" text-anchor="middle">%49</text>
+      <text x="620" y="314" fill="#64748b" font-family="sans-serif" font-size="16" font-weight="700" text-anchor="middle">GERÇEKLEŞME ORANI</text>
+    </g>
+  </g>
 </svg>

@@ -1,19 +1,34 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
+  <!-- Canvas Background -->
   <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="220.22387641482055" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="155.65074199344963" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="122.35336346551776" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="131.1197617603466" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="129.22485682182014" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="242.15200468432158" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 281.30662923213094 L 880 341.22971477918327 L 1020 292.80791892670095 L 1160 459.04722020495683 L 1300 395.7146386615932" fill="none" stroke="#059669" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 270.97130466718227 L 1860 470.54804435465485 L 2000 302.2415598388761 L 2140 407.69110654946417 L 2280 313.5591745842248" fill="none" stroke="#059669" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1183.8257139315829" width="60" height="116.17428606841713" rx="10" fill="#10b981"/><rect x="720" y="1027.447715587914" width="60" height="272.552284412086" rx="10" fill="#10b981"/><rect x="840" y="1090.852898452431" width="60" height="209.14710154756904" rx="10" fill="#10b981"/><rect x="960" y="1022.7157686604187" width="60" height="277.2842313395813" rx="10" fill="#10b981"/><rect x="1080" y="1164.302663714625" width="60" height="135.69733628537506" rx="10" fill="#10b981"/><rect x="1200" y="946.8848189804703" width="60" height="353.1151810195297" rx="10" fill="#10b981"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: ELEKTRIK-FATURASI-DOGRULAMA</text>
-      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">FİNANSAL YÖNETİM</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Elektrik Faturasi Dogrulama</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g transform="translate(340, 80)"><line x1="0" y1="0" x2="560" y2="0" stroke="#e2e8f0" stroke-width="2"/><line x1="0" y1="90" x2="560" y2="90" stroke="#e2e8f0" stroke-width="2"/><line x1="0" y1="180" x2="560" y2="180" stroke="#e2e8f0" stroke-width="2"/><line x1="0" y1="270" x2="560" y2="270" stroke="#e2e8f0" stroke-width="2"/><line x1="0" y1="360" x2="560" y2="360" stroke="#e2e8f0" stroke-width="2"/><line x1="0" y1="360" x2="560" y2="360" stroke="#94a3b8" stroke-width="2"/><rect x="30" y="262" width="70" height="98" rx="8" fill="#f87171" /><rect x="135" y="237" width="70" height="123" rx="8" fill="#fb923c" /><rect x="240" y="148" width="70" height="212" rx="8" fill="#fbbf24" /><rect x="345" y="75" width="70" height="285" rx="8" fill="#38bdf8" /><rect x="450" y="15" width="70" height="345" rx="8" fill="#10b981" /><path d="M 40 280 Q 240 250 490 40" fill="none" stroke="#ef4444" stroke-width="12" stroke-linecap="round"/><polygon points="490,20 508,55 470,50" fill="#ef4444" /></g>
+  </g>
 </svg>

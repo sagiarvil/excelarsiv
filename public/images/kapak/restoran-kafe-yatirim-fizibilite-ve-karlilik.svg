@@ -1,19 +1,34 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
+  <!-- Canvas Background -->
   <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#10b981"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#e2e8f0" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#e2e8f0" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#e2e8f0" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#e2e8f0" stroke-width="4"/><path d="M 200 1100 C 320 733.044889383018, 320 602.9411414638162, 440 602.9411414638162 C 560 602.9411414638162, 560 952.2617732174695, 680 952.2617732174695 C 800 952.2617732174695, 800 686.4973477087915, 920 686.4973477087915 C 1040 686.4973477087915, 1040 725.4273108672351, 1160 725.4273108672351 C 1280 725.4273108672351, 1280 802.0412359852344, 1400 802.0412359852344 C 1520 802.0412359852344, 1520 713.9081064611673, 1640 713.9081064611673 C 1760 713.9081064611673, 1760 869.7944284416735, 1880 869.7944284416735 C 2000 869.7944284416735, 2000 959.9817006383091, 2120 959.9817006383091 C 2240 959.9817006383091, 2240 481.06484548188746, 2360 481.06484548188746 L 2360 1360 L 200 1360 Z" fill="#34d399" opacity="0.2"/><path d="M 200 1100 C 320 733.044889383018, 320 602.9411414638162, 440 602.9411414638162 C 560 602.9411414638162, 560 952.2617732174695, 680 952.2617732174695 C 800 952.2617732174695, 800 686.4973477087915, 920 686.4973477087915 C 1040 686.4973477087915, 1040 725.4273108672351, 1160 725.4273108672351 C 1280 725.4273108672351, 1280 802.0412359852344, 1400 802.0412359852344 C 1520 802.0412359852344, 1520 713.9081064611673, 1640 713.9081064611673 C 1760 713.9081064611673, 1760 869.7944284416735, 1880 869.7944284416735 C 2000 869.7944284416735, 2000 959.9817006383091, 2120 959.9817006383091 C 2240 959.9817006383091, 2240 481.06484548188746, 2360 481.06484548188746" fill="none" stroke="#10b981" stroke-width="24" stroke-linecap="round"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: RESTORAN-KAFE-YATIRIM-FIZIBILITE-VE-KARLILIK</text>
-      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">YATIRIM &amp; FİZİBİLİTE</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Restoran Kafe Yatirim Fizibilite &amp; Karlilik</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g transform="translate(300, 80)"><text x="-20" y="26" fill="#334155" font-family="sans-serif" font-size="16" font-weight="700" text-anchor="end">Brüt Satış</text><rect x="0" y="0" width="600" height="40" rx="8" fill="#f1f5f9" /><rect x="0" y="6" width="480" height="28" rx="6" fill="#10b981" /><line x1="440" y1="-4" x2="440" y2="44" stroke="#ef4444" stroke-width="4" stroke-linecap="round" /><text x="-20" y="116" fill="#334155" font-family="sans-serif" font-size="16" font-weight="700" text-anchor="end">Net Tahsilat</text><rect x="0" y="90" width="600" height="40" rx="8" fill="#f1f5f9" /><rect x="0" y="96" width="360" height="28" rx="6" fill="#10b981" /><line x1="400" y1="86" x2="400" y2="134" stroke="#ef4444" stroke-width="4" stroke-linecap="round" /><text x="-20" y="206" fill="#334155" font-family="sans-serif" font-size="16" font-weight="700" text-anchor="end">Kira & Genel Gider</text><rect x="0" y="180" width="600" height="40" rx="8" fill="#f1f5f9" /><rect x="0" y="186" width="210" height="28" rx="6" fill="#10b981" /><line x1="260" y1="176" x2="260" y2="224" stroke="#ef4444" stroke-width="4" stroke-linecap="round" /><text x="-20" y="296" fill="#334155" font-family="sans-serif" font-size="16" font-weight="700" text-anchor="end">EBITDA</text><rect x="0" y="270" width="600" height="40" rx="8" fill="#f1f5f9" /><rect x="0" y="276" width="390" height="28" rx="6" fill="#10b981" /><line x1="350" y1="266" x2="350" y2="314" stroke="#ef4444" stroke-width="4" stroke-linecap="round" /></g>
+  </g>
 </svg>

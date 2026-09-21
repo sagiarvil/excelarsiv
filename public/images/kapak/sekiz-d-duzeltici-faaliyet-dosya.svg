@@ -1,19 +1,47 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
+  <!-- Canvas Background -->
   <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="223.7428770167753" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="279.6894455840811" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="140.94694974832237" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="165.95299663953483" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="103.11585574410856" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="120.34231217112392" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="393.17232521716505" width="60" height="206.82767478283495" rx="10" fill="#8b5cf6"/><rect x="720" y="280.13255272526294" width="60" height="319.86744727473706" rx="10" fill="#8b5cf6"/><rect x="840" y="494.66308117844164" width="60" height="105.33691882155836" rx="10" fill="#8b5cf6"/><rect x="960" y="470.43799876701087" width="60" height="129.56200123298913" rx="10" fill="#8b5cf6"/><rect x="1080" y="349.961462453939" width="60" height="250.03853754606098" rx="10" fill="#8b5cf6"/><rect x="1200" y="364.0336015028879" width="60" height="235.9663984971121" rx="10" fill="#8b5cf6"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 314.5488762529567 L 1860 480.2297205897048 L 2000 467.7085228031501 L 2140 349.30004256311804 L 2280 495.44100093189627" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1177.6703682728112" width="60" height="122.32963172718883" rx="10" fill="#8b5cf6"/><rect x="720" y="1105.319249164313" width="60" height="194.68075083568692" rx="10" fill="#8b5cf6"/><rect x="840" y="1117.5552121829242" width="60" height="182.44478781707585" rx="10" fill="#8b5cf6"/><rect x="960" y="1052.0545831415802" width="60" height="247.94541685841978" rx="10" fill="#8b5cf6"/><rect x="1080" y="1187.770602456294" width="60" height="112.229397543706" rx="10" fill="#8b5cf6"/><rect x="1200" y="1013.1311715580523" width="60" height="286.8688284419477" rx="10" fill="#8b5cf6"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: SEKIZ-D-DUZELTICI-FAALIYET-DOSYA</text>
-      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">FİNANSAL YÖNETİM</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Sekiz D Duzeltici Faaliyet Dosya</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g transform="translate(420, 80)">
+      <line x1="200" y1="60" x2="200" y2="340" stroke="#334155" stroke-width="12" stroke-linecap="round"/>
+      <polygon points="120,340 280,340 200,310" fill="#334155" />
+      <!-- Beam -->
+      <line x1="40" y1="120" x2="360" y2="100" stroke="#047857" stroke-width="10" stroke-linecap="round"/>
+      <!-- Pan Left -->
+      <line x1="70" y1="118" x2="70" y2="240" stroke="#94a3b8" stroke-width="3"/>
+      <ellipse cx="70" cy="240" rx="60" ry="18" fill="#10b981" />
+      <text x="70" y="280" fill="#065f46" font-family="sans-serif" font-size="16" font-weight="900" text-anchor="middle">AKTİFLER</text>
+      <!-- Pan Right -->
+      <line x1="330" y1="102" x2="330" y2="220" stroke="#94a3b8" stroke-width="3"/>
+      <ellipse cx="330" cy="220" rx="60" ry="18" fill="#0284c7" />
+      <text x="330" y="260" fill="#0369a1" font-family="sans-serif" font-size="16" font-weight="900" text-anchor="middle">PASİFLER</text>
+    </g>
+  </g>
 </svg>

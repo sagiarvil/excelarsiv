@@ -1,19 +1,34 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
+  <!-- Canvas Background -->
   <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="260.48313178587705" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="225.12280717026442" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="122.80374055728316" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="101.59038109239191" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="171.34291204158217" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="253.54906752239913" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 407.432913267985 L 880 332.06995534710586 L 1020 250.43397033587098 L 1160 218.4725564904511 L 1300 451.54970462899655" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="365.2706148568541" width="60" height="234.72938514314592" rx="10" fill="#8b5cf6"/><rect x="1700" y="419.356428203173" width="60" height="180.64357179682702" rx="10" fill="#8b5cf6"/><rect x="1820" y="429.0914794895798" width="60" height="170.9085205104202" rx="10" fill="#8b5cf6"/><rect x="1940" y="204.22396350186318" width="60" height="395.7760364981368" rx="10" fill="#8b5cf6"/><rect x="2060" y="224.72540526650846" width="60" height="375.27459473349154" rx="10" fill="#8b5cf6"/><rect x="2180" y="463.5661569889635" width="60" height="136.43384301103652" rx="10" fill="#8b5cf6"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="921.7667849035934" width="60" height="378.23321509640664" rx="10" fill="#8b5cf6"/><rect x="720" y="916.556492401287" width="60" height="383.44350759871304" rx="10" fill="#8b5cf6"/><rect x="840" y="941.1982062505558" width="60" height="358.8017937494442" rx="10" fill="#8b5cf6"/><rect x="960" y="1046.506434911862" width="60" height="253.49356508813798" rx="10" fill="#8b5cf6"/><rect x="1080" y="932.4434303445742" width="60" height="367.55656965542585" rx="10" fill="#8b5cf6"/><rect x="1200" y="1141.7402768041939" width="60" height="158.25972319580615" rx="10" fill="#8b5cf6"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="1023.9899306790903" width="60" height="276.0100693209097" rx="10" fill="#8b5cf6"/><rect x="1700" y="986.421922291629" width="60" height="313.578077708371" rx="10" fill="#8b5cf6"/><rect x="1820" y="913.7105149682611" width="60" height="386.2894850317389" rx="10" fill="#8b5cf6"/><rect x="1940" y="1036.8502347031608" width="60" height="263.1497652968392" rx="10" fill="#8b5cf6"/><rect x="2060" y="952.5163135724142" width="60" height="347.4836864275858" rx="10" fill="#8b5cf6"/><rect x="2180" y="965.5270068207756" width="60" height="334.47299317922443" rx="10" fill="#8b5cf6"/><rect x="500" y="1500" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1629.975252598524" width="60" height="370.0247474014759" rx="10" fill="#8b5cf6"/><rect x="720" y="1825.9638126939535" width="60" height="174.0361873060465" rx="10" fill="#8b5cf6"/><rect x="840" y="1609.0345637639984" width="60" height="390.96543623600155" rx="10" fill="#8b5cf6"/><rect x="960" y="1858.875328116119" width="60" height="141.1246718838811" rx="10" fill="#8b5cf6"/><rect x="1080" y="1674.3507622275501" width="60" height="325.64923777244985" rx="10" fill="#8b5cf6"/><rect x="1200" y="1757.940970780328" width="60" height="242.05902921967208" rx="10" fill="#8b5cf6"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: WACC-HESAPLAMA-VE-SERMAYE-MALIYETI</text>
-      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">FİNANSAL YÖNETİM</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">WACC Hesaplama &amp; Sermaye Maliyeti</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g transform="translate(300, 80)"><line x1="0" y1="0" x2="0" y2="340" stroke="#f1f5f9" stroke-width="2"/><text x="0" y="365" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">Hafta 1</text><line x1="150" y1="0" x2="150" y2="340" stroke="#f1f5f9" stroke-width="2"/><text x="150" y="365" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">Hafta 4</text><line x1="300" y1="0" x2="300" y2="340" stroke="#f1f5f9" stroke-width="2"/><text x="300" y="365" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">Hafta 7</text><line x1="450" y1="0" x2="450" y2="340" stroke="#f1f5f9" stroke-width="2"/><text x="450" y="365" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">Hafta 10</text><line x1="600" y1="0" x2="600" y2="340" stroke="#f1f5f9" stroke-width="2"/><text x="600" y="365" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">Hafta 13</text><rect x="40" y="20" width="220" height="42" rx="10" fill="#059669" /><text x="56" y="46" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="800">Nakit Planlama</text><rect x="160" y="100" width="260" height="42" rx="10" fill="#10b981" /><text x="176" y="126" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="800">Kredi Mutabakatı</text><rect x="260" y="180" width="180" height="42" rx="10" fill="#34d399" /><text x="276" y="206" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="800">Stok Envanteri</text><rect x="380" y="260" width="180" height="42" rx="10" fill="#0284c7" /><text x="396" y="286" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="800">Yönetim Onayı</text></g>
+  </g>
 </svg>

@@ -1,19 +1,47 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
+  <!-- Canvas Background -->
   <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="214.83786702156067" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="136.9447951670736" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="147.6589221181348" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="253.18104937672615" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="161.91048637963831" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="117.85078009590507" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="481.8270845338702" width="60" height="118.17291546612978" rx="10" fill="#8b5cf6"/><rect x="720" y="465.2377214515582" width="60" height="134.76227854844183" rx="10" fill="#8b5cf6"/><rect x="840" y="460.7253417605534" width="60" height="139.27465823944658" rx="10" fill="#8b5cf6"/><rect x="960" y="312.174701760523" width="60" height="287.825298239477" rx="10" fill="#8b5cf6"/><rect x="1080" y="393.9483346650377" width="60" height="206.0516653349623" rx="10" fill="#8b5cf6"/><rect x="1200" y="443.26855381950736" width="60" height="156.73144618049264" rx="10" fill="#8b5cf6"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="317.73219511378556" width="60" height="282.26780488621444" rx="10" fill="#8b5cf6"/><rect x="1700" y="291.4763698587194" width="60" height="308.5236301412806" rx="10" fill="#8b5cf6"/><rect x="1820" y="366.3718281779438" width="60" height="233.62817182205617" rx="10" fill="#8b5cf6"/><rect x="1940" y="421.7397177359089" width="60" height="178.26028226409107" rx="10" fill="#8b5cf6"/><rect x="2060" y="412.5526745803654" width="60" height="187.44732541963458" rx="10" fill="#8b5cf6"/><rect x="2180" y="366.76565734669566" width="60" height="233.23434265330434" rx="10" fill="#8b5cf6"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1131.4094678498805" width="60" height="168.59053215011954" rx="10" fill="#8b5cf6"/><rect x="720" y="1048.1240137014538" width="60" height="251.8759862985462" rx="10" fill="#8b5cf6"/><rect x="840" y="922.8757435223088" width="60" height="377.12425647769123" rx="10" fill="#8b5cf6"/><rect x="960" y="950.1022919313982" width="60" height="349.8977080686018" rx="10" fill="#8b5cf6"/><rect x="1080" y="1071.1113317403942" width="60" height="228.88866825960577" rx="10" fill="#8b5cf6"/><rect x="1200" y="1039.6339752478525" width="60" height="260.3660247521475" rx="10" fill="#8b5cf6"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="1155.963602475822" width="60" height="144.03639752417803" rx="10" fill="#8b5cf6"/><rect x="1700" y="994.8339795693755" width="60" height="305.1660204306245" rx="10" fill="#8b5cf6"/><rect x="1820" y="1061.3177869236097" width="60" height="238.68221307639033" rx="10" fill="#8b5cf6"/><rect x="1940" y="998.74698871281" width="60" height="301.25301128719" rx="10" fill="#8b5cf6"/><rect x="2060" y="926.0769115760922" width="60" height="373.92308842390776" rx="10" fill="#8b5cf6"/><rect x="2180" y="978.5954140825197" width="60" height="321.4045859174803" rx="10" fill="#8b5cf6"/><rect x="500" y="1500" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1900 L 740 1698.1993997469544 L 880 1622.1915484638885 L 1020 1715.2096557663754 L 1160 1663.741733529605 L 1300 1778.230425203219" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: MAKINE-BAKIM-KALIBRASYON-DURUS-MALIYETI</text>
-      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">FİNANSAL YÖNETİM</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Makine Bakim Kalibrasyon Durus Maliyeti</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g transform="translate(420, 80)">
+      <line x1="200" y1="60" x2="200" y2="340" stroke="#334155" stroke-width="12" stroke-linecap="round"/>
+      <polygon points="120,340 280,340 200,310" fill="#334155" />
+      <!-- Beam -->
+      <line x1="40" y1="120" x2="360" y2="100" stroke="#047857" stroke-width="10" stroke-linecap="round"/>
+      <!-- Pan Left -->
+      <line x1="70" y1="118" x2="70" y2="240" stroke="#94a3b8" stroke-width="3"/>
+      <ellipse cx="70" cy="240" rx="60" ry="18" fill="#10b981" />
+      <text x="70" y="280" fill="#065f46" font-family="sans-serif" font-size="16" font-weight="900" text-anchor="middle">AKTİFLER</text>
+      <!-- Pan Right -->
+      <line x1="330" y1="102" x2="330" y2="220" stroke="#94a3b8" stroke-width="3"/>
+      <ellipse cx="330" cy="220" rx="60" ry="18" fill="#0284c7" />
+      <text x="330" y="260" fill="#0369a1" font-family="sans-serif" font-size="16" font-weight="900" text-anchor="middle">PASİFLER</text>
+    </g>
+  </g>
 </svg>

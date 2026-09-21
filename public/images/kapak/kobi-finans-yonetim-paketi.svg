@@ -1,19 +1,34 @@
-<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
-    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
-    </filter>
-    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
     </filter>
   </defs>
   
+  <!-- Canvas Background -->
   <rect width="100%" height="100%" fill="#f8fafc" />
   
-  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="162.27107702754438" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="190.44112460222095" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="116.45016277674586" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="279.5088828355074" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="129.35335085261613" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="195.01615875400603" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="310.48167285043746" width="60" height="289.51832714956254" rx="10" fill="#10b981"/><rect x="720" y="425.04866952076554" width="60" height="174.95133047923446" rx="10" fill="#10b981"/><rect x="840" y="202.42888142820448" width="60" height="397.5711185717955" rx="10" fill="#10b981"/><rect x="960" y="213.3358339080587" width="60" height="386.6641660919413" rx="10" fill="#10b981"/><rect x="1080" y="445.0298544485122" width="60" height="154.9701455514878" rx="10" fill="#10b981"/><rect x="1200" y="234.04367403127253" width="60" height="365.95632596872747" rx="10" fill="#10b981"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="269.27842816803604" width="60" height="330.72157183196396" rx="10" fill="#10b981"/><rect x="1700" y="312.1357265394181" width="60" height="287.8642734605819" rx="10" fill="#10b981"/><rect x="1820" y="367.1536962268874" width="60" height="232.8463037731126" rx="10" fill="#10b981"/><rect x="1940" y="382.05208955332637" width="60" height="217.94791044667363" rx="10" fill="#10b981"/><rect x="2060" y="349.2498171515763" width="60" height="250.75018284842372" rx="10" fill="#10b981"/><rect x="2180" y="497.70943289622664" width="60" height="102.29056710377336" rx="10" fill="#10b981"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1009.6644659992307" width="60" height="290.33553400076926" rx="10" fill="#10b981"/><rect x="720" y="1016.5302942506969" width="60" height="283.4697057493031" rx="10" fill="#10b981"/><rect x="840" y="1147.037555789575" width="60" height="152.96244421042502" rx="10" fill="#10b981"/><rect x="960" y="1156.4553421223536" width="60" height="143.5446578776464" rx="10" fill="#10b981"/><rect x="1080" y="1187.4376735417172" width="60" height="112.56232645828277" rx="10" fill="#10b981"/><rect x="1200" y="952.1561239147559" width="60" height="347.8438760852441" rx="10" fill="#10b981"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 1030.5434687063098 L 1860 1060.7879713643342 L 2000 957.4754709145054 L 2140 968.6706132022664 L 2280 958.0521479481831" fill="none" stroke="#059669" stroke-width="16" stroke-linejoin="round"/>
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="200" x2="1600" y2="200" />
+    <line x1="0" y1="400" x2="1600" y2="400" />
+    <line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="800" x2="1600" y2="800" />
+  </g>
   
-      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
-      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: KOBI-FINANS-YONETIM-PAKETI</text>
-      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
-    
+  <!-- Main Presentation Card -->
+  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
+  
+  <!-- Card Header -->
+  <g transform="translate(240, 170)">
+    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">FİNANSAL YÖNETİM</text>
+    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Kobi Finans Yonetim Paketi</text>
+  </g>
+  
+  <!-- Chart Area (Centered) -->
+  <g transform="translate(180, 230)">
+    <g transform="translate(620, 80)"><rect x="-230" y="0" width="460" height="56" rx="12" fill="#2563eb" /><text x="0" y="36" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="800" text-anchor="middle">Toplam Talep: 1.250</text><rect x="-170" y="80" width="340" height="56" rx="12" fill="#3b82f6" /><text x="0" y="116" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="800" text-anchor="middle">Teklif Aşaması: 640</text><rect x="-120" y="160" width="240" height="56" rx="12" fill="#10b981" /><text x="0" y="196" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="800" text-anchor="middle">Sözleşme: 280</text><rect x="-70" y="240" width="140" height="56" rx="12" fill="#047857" /><text x="0" y="276" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="800" text-anchor="middle">Tahsilat: 190</text></g>
+  </g>
 </svg>
