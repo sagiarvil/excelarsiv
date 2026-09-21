@@ -1,22 +1,39 @@
 <svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    
+      <pattern id="gridPattern" width="100" height="100" patternUnits="userSpaceOnUse">
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#0f172a" stroke-width="2"/>
+      </pattern>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="40" stdDeviation="50" flood-opacity="0.15" />
+    </filter>
+    <filter id="hugeBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="150" />
+    </filter>
+    <radialGradient id="radarSweep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f4f6f9" />
+  <rect width="100%" height="100%" fill="#020617" /><rect width="100%" height="100%" fill="url(#gridPattern)" opacity="0.5"/>
+  <circle cx="901.8346432130784" cy="575.826809508726" r="1093.5446158982813" fill="#06b6d4" opacity="0.15" filter="url(#hugeBlur)"/><circle cx="2941.9467027764767" cy="1130.1270660478622" r="955.6860571727157" fill="#3b82f6" opacity="0.15" filter="url(#hugeBlur)"/><g transform="translate(1212.4214094059992, 1307.1005251223041)"><rect width="1010.5629904195666" height="689.9900553748012" rx="40" fill="#020617" fill-opacity="0.6" stroke="#0ea5e9" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#06b6d4"/><circle cx="110" cy="60" r="15" fill="#3b82f6"/><text x="160" y="70" fill="#94a3b8" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 3</text><path d="M 100 344.9950276874006 L 100 429.1421261681902 L 150 444.744526347806 L 200 435.92477036996877 L 250 404.8422420977962 L 300 359.1070284933873 L 350 309.9167049184386 L 400 269.31477815660776 L 450 247.24201592089088 L 500 249.10260022108673 L 550 274.4409951303614 L 600 317.053477867508 L 650 366.5070264961821 L 700 410.6936875592795 L 750 438.7950253648745 L 800 443.93085234973876 L 850 424.8437389497496 L 900 386.20687621157623" fill="none" stroke="#0ea5e9" stroke-width="12" stroke-linecap="round"/></g><g transform="translate(1721.8632581442273, 478.5217094007917)"><rect width="1201.7741091549397" height="444.65907560661435" rx="40" fill="#020617" fill-opacity="0.6" stroke="#0ea5e9" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#06b6d4"/><circle cx="110" cy="60" r="15" fill="#3b82f6"/><text x="160" y="70" fill="#94a3b8" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 2</text><path d="M 100 222.32953780330718 L 100 313.25928048587537 L 150 282.1767522137028 L 200 236.4415386092939 L 250 187.2512150343452 L 300 146.64928827251435 L 350 124.57652603679747 L 400 126.43711033699333 L 450 151.77550524626798 L 500 194.38798798341458 L 550 243.84153661208873 L 600 288.0281976751861 L 650 316.1295354807811 L 700 321.26536246564535 L 750 302.1782490656562 L 800 263.5413863274828 L 850 214.81442575712626 L 900 167.9274267143702 L 950 134.35996180614018 L 1000 122.33051714823682 L 1050 134.78432033446433 L 1100 168.6722460032637" fill="none" stroke="#0ea5e9" stroke-width="12" stroke-linecap="round"/></g><g transform="translate(2207.7710975699683, 1185.4254436308274)"><rect width="1061.524485051632" height="620.2546152286232" rx="40" fill="#020617" fill-opacity="0.6" stroke="#0ea5e9" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#06b6d4"/><circle cx="110" cy="60" r="15" fill="#3b82f6"/><text x="160" y="70" fill="#94a3b8" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 6</text><rect x="100" y="214.30598898082076" width="40" height="305.9486262478024" rx="20" fill="#3b82f6"/><rect x="180" y="170.34348404359594" width="40" height="349.9111311850272" rx="20" fill="#3b82f6"/><rect x="260" y="286.3272486839637" width="40" height="233.9273665446594" rx="20" fill="#3b82f6"/><rect x="340" y="422.27539367662564" width="40" height="97.97922155199754" rx="20" fill="#3b82f6"/><rect x="420" y="119.71368503473394" width="40" height="400.5409301938892" rx="20" fill="#3b82f6"/><rect x="500" y="347.0212147615233" width="40" height="173.23340046709984" rx="20" fill="#3b82f6"/><rect x="580" y="101.33866519419996" width="40" height="418.9159500344232" rx="20" fill="#3b82f6"/><rect x="660" y="344.12582869237804" width="40" height="176.12878653624512" rx="20" fill="#3b82f6"/><rect x="740" y="469.4761622914468" width="40" height="50.77845293717634" rx="20" fill="#3b82f6"/><rect x="820" y="311.10353646561975" width="40" height="209.1510787630034" rx="20" fill="#3b82f6"/><rect x="900" y="274.10080509407686" width="40" height="246.1538101345463" rx="20" fill="#3b82f6"/></g><g transform="translate(1189.2704010374378, 980.5079316963411)"><rect width="1226.828521862626" height="785.751795489341" rx="40" fill="#020617" fill-opacity="0.6" stroke="#0ea5e9" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#06b6d4"/><circle cx="110" cy="60" r="15" fill="#3b82f6"/><text x="160" y="70" fill="#94a3b8" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 8</text><rect x="100" y="466.7382492730835" width="40" height="219.01354621625748" rx="20" fill="#3b82f6"/><rect x="180" y="465.99193073640134" width="40" height="219.75986475293968" rx="20" fill="#3b82f6"/><rect x="260" y="580.9409139876617" width="40" height="104.81088150167929" rx="20" fill="#3b82f6"/><rect x="340" y="542.556657381873" width="40" height="143.19513810746793" rx="20" fill="#3b82f6"/><rect x="420" y="523.6701131906204" width="40" height="162.08168229872064" rx="20" fill="#3b82f6"/><rect x="500" y="252.17691514546863" width="40" height="433.5748803438724" rx="20" fill="#3b82f6"/><rect x="580" y="615.4204592825592" width="40" height="70.33133620678178" rx="20" fill="#3b82f6"/><rect x="660" y="242.32279687958624" width="40" height="443.4289986097548" rx="20" fill="#3b82f6"/><rect x="740" y="593.5469123054822" width="40" height="92.20488318385883" rx="20" fill="#3b82f6"/><rect x="820" y="176.44727872904508" width="40" height="509.30451676029594" rx="20" fill="#3b82f6"/><rect x="900" y="220.58829844800334" width="40" height="465.1634970413377" rx="20" fill="#3b82f6"/><rect x="980" y="467.4154495638809" width="40" height="218.33634592546017" rx="20" fill="#3b82f6"/><rect x="1060" y="321.5890236890944" width="40" height="364.1627718002466" rx="20" fill="#3b82f6"/></g>
   
-  <g transform="translate(400, 400)" filter="url(#shadow)">
-    <!-- White Card Background -->
-    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+      <text x="100" y="100" fill="#94a3b8" font-family="monospace" font-size="32" font-weight="bold">SYSTEM IDENT: ORTAKLAR-CARI-VE-KAS...</text>
+      <text x="100" y="150" fill="#94a3b8" font-family="monospace" font-size="24">ENGINE_3 | SEC_LEVEL_ALPHA | K1AA69JW</text>
+      
+      <g transform="translate(3500, 100)">
+        <rect width="200" height="40" fill="#06b6d4" opacity="0.2"/>
+        <rect width="152.44933439651504" height="40" fill="#06b6d4"/>
+        <text x="10" y="30" fill="#020617" font-family="monospace" font-size="20" font-weight="bold">PROCESSING</text>
+      </g>
     
-    <!-- Chart Content -->
-    
-        <line x1="200" y1="400" x2="2840" y2="400" stroke="#f1f5f9" stroke-width="8" />
-        <line x1="200" y1="700" x2="2840" y2="700" stroke="#f1f5f9" stroke-width="8" />
-        <line x1="200" y1="1000" x2="2840" y2="1000" stroke="#f1f5f9" stroke-width="8" />
-        <line x1="200" y1="1300" x2="2840" y2="1300" stroke="#f1f5f9" stroke-width="8" />
-        <rect x="280" y="592.517403094098" width="80" height="707.482596905902" rx="20" fill="#f59e0b" fill-opacity="0.8" /><rect x="622.8571428571429" y="819.7769707068801" width="80" height="480.2230292931199" rx="20" fill="#f59e0b" fill-opacity="0.8" /><rect x="965.7142857142857" y="402.2379905451089" width="80" height="897.7620094548911" rx="20" fill="#f59e0b" fill-opacity="0.8" /><rect x="1308.5714285714284" y="888.8510576682165" width="80" height="411.1489423317835" rx="20" fill="#f59e0b" fill-opacity="0.8" /><rect x="1651.4285714285713" y="458.54809263255447" width="80" height="841.4519073674455" rx="20" fill="#f59e0b" fill-opacity="0.8" /><rect x="1994.2857142857142" y="573.4476544894278" width="80" height="726.5523455105722" rx="20" fill="#f59e0b" fill-opacity="0.8" /><rect x="2337.142857142857" y="1021.8466176884249" width="80" height="278.1533823115751" rx="20" fill="#f59e0b" fill-opacity="0.8" /><rect x="2680" y="596.6318963794038" width="80" height="703.3681036205962" rx="20" fill="#f59e0b" fill-opacity="0.8" /><path d="M 320 541.100785927847 L 662.8571428571429 345.4960857052356 L 1005.7142857142857 793.5446158982813 L 1348.5714285714284 865.168021665886 L 1691.4285714285713 378.0762396287173 L 2034.2857142857142 655.6860571727157 L 2377.142857142857 588.571387482807 L 2720 607.922242814675" fill="none" stroke="#3b82f6" stroke-width="20" stroke-linejoin="round" /><circle cx="320" cy="541.100785927847" r="28" fill="#3b82f6" stroke="#fff" stroke-width="8" /><circle cx="662.8571428571429" cy="345.4960857052356" r="28" fill="#3b82f6" stroke="#fff" stroke-width="8" /><circle cx="1005.7142857142857" cy="793.5446158982813" r="28" fill="#3b82f6" stroke="#fff" stroke-width="8" /><circle cx="1348.5714285714284" cy="865.168021665886" r="28" fill="#3b82f6" stroke="#fff" stroke-width="8" /><circle cx="1691.4285714285713" cy="378.0762396287173" r="28" fill="#3b82f6" stroke="#fff" stroke-width="8" /><circle cx="2034.2857142857142" cy="655.6860571727157" r="28" fill="#3b82f6" stroke="#fff" stroke-width="8" /><circle cx="2377.142857142857" cy="588.571387482807" r="28" fill="#3b82f6" stroke="#fff" stroke-width="8" /><circle cx="2720" cy="607.922242814675" r="28" fill="#3b82f6" stroke="#fff" stroke-width="8" /><line x1="200" y1="1300" x2="2840" y2="1300" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round" />
-  </g>
+  
+  <!-- Outer Frame -->
+  <rect width="3840" height="2400" fill="none" stroke="#94a3b8" stroke-width="40" opacity="0.1"/>
 </svg>

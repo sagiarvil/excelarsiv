@@ -1,22 +1,39 @@
 <svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    
+      <pattern id="gridPattern" width="100" height="100" patternUnits="userSpaceOnUse">
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#171717" stroke-width="2"/>
+      </pattern>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="40" stdDeviation="50" flood-opacity="0.15" />
+    </filter>
+    <filter id="hugeBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="150" />
+    </filter>
+    <radialGradient id="radarSweep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f4f6f9" />
+  <rect width="100%" height="100%" fill="#0a0a0a" /><rect width="100%" height="100%" fill="url(#gridPattern)" opacity="0.5"/>
+  <circle cx="1025.9014645125717" cy="694.6219233796" r="852.0302741322666" fill="#f59e0b" opacity="0.15" filter="url(#hugeBlur)"/><circle cx="2719.955498352647" cy="1330.195200163871" r="1037.017190689221" fill="#ef4444" opacity="0.15" filter="url(#hugeBlur)"/><g transform="translate(1882.7247508722487, 842.232148308367)"><rect width="784.5752976834774" height="450.9029279462993" rx="40" fill="#0a0a0a" fill-opacity="0.6" stroke="#f97316" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#f59e0b"/><circle cx="110" cy="60" r="15" fill="#ef4444"/><text x="160" y="70" fill="#d4d4d8" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 8</text><path d="M 100 225.45146397314966 L 100 309.5985624539393 L 150 325.2009626335551 L 200 316.38120665571785 L 250 285.2986783835453 L 300 239.56346477913638 L 350 190.37314120418768 L 400 149.77121444235684 L 450 127.69845220663996 L 500 129.5590365068358 L 550 154.89743141611046 L 600 197.50991415325706 L 650 246.9634627819312" fill="none" stroke="#f97316" stroke-width="12" stroke-linecap="round"/></g><g transform="translate(476.73613332620107, 1077.2832343832138)"><rect width="1195.1079197227955" height="769.3804334849119" rx="40" fill="#0a0a0a" fill-opacity="0.6" stroke="#f97316" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#f59e0b"/><circle cx="110" cy="60" r="15" fill="#ef4444"/><text x="160" y="70" fill="#d4d4d8" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 2</text><path d="M 100 384.69021674245596 L 100 475.61995942502415 L 150 444.5374311528516 L 200 398.8022175484427 L 250 349.611893973494 L 300 309.00996721166314 L 350 286.93720497594626 L 400 288.7977892761421 L 450 314.13618418541677 L 500 356.74866692256336 L 550 406.2022155512375 L 600 450.3888766143349 L 650 478.4902144199299 L 700 483.62604140479414 L 750 464.538928004805 L 800 425.9020652666316 L 850 377.175104696275 L 900 330.288105653519 L 950 296.72064074528896 L 1000 284.6911960873856 L 1050 297.1449992736131" fill="none" stroke="#f97316" stroke-width="12" stroke-linecap="round"/></g><g transform="translate(1948.0893499823105, 851.6762301546498)"><rect width="1344.1331153735518" height="631.535835750401" rx="40" fill="#0a0a0a" fill-opacity="0.6" stroke="#f97316" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#f59e0b"/><circle cx="110" cy="60" r="15" fill="#ef4444"/><text x="160" y="70" fill="#d4d4d8" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 1</text><path d="M 100 315.7679178752005 L 100 329.87991868118723 L 150 280.6895951062385 L 200 240.0876683444077 L 250 218.0149061086908 L 300 219.87549040888666 L 350 245.21388531816132 L 400 287.8263680553079 L 450 337.27991668398204 L 500 381.46657774707944 L 550 409.56791555267444 L 600 414.7037425375387 L 650 395.6166291375495 L 700 356.97976639937616 L 750 308.25280582901956 L 800 261.36580678626353 L 850 227.7983418780335 L 900 215.76889722013016 L 950 228.22270040635766 L 1000 262.11062607515703 L 1050 309.13572814008046 L 1100 357.7846215578646 L 1150 396.1463605303626 L 1200 414.8286534446876" fill="none" stroke="#f97316" stroke-width="12" stroke-linecap="round"/></g><g transform="translate(1558.918231182437, 1054.9775294152678)"><rect width="1314.2819261178374" height="464.9787461385131" rx="40" fill="#0a0a0a" fill-opacity="0.6" stroke="#f97316" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#f59e0b"/><circle cx="110" cy="60" r="15" fill="#ef4444"/><text x="160" y="70" fill="#d4d4d8" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 2</text><path d="M 100 232.48937306925654 L 100 156.80912353846372 L 150 134.73636130274684 L 200 136.5969456029427 L 250 161.93534051221735 L 300 204.54782324936394 L 350 254.0013718780381 L 400 298.1880329411355 L 450 326.28937074673047 L 500 331.4251977315947 L 550 312.33808433160556 L 600 273.7012215934322 L 650 224.97426102307563 L 700 178.08726198031957 L 750 144.51979707208955 L 800 132.4903524141862 L 850 144.9441556004137 L 900 178.83208126921306 L 950 225.85718333413647 L 1000 274.50607675192066 L 1050 312.8678157244186 L 1100 331.5501086387436 L 1150 325.97887862172485 L 1200 297.5181570849682" fill="none" stroke="#f97316" stroke-width="12" stroke-linecap="round"/></g>
   
-  <g transform="translate(400, 400)" filter="url(#shadow)">
-    <!-- White Card Background -->
-    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+      <text x="100" y="100" fill="#d4d4d8" font-family="monospace" font-size="32" font-weight="bold">SYSTEM IDENT: KONKORDATO-NAKIT-AKI...</text>
+      <text x="100" y="150" fill="#d4d4d8" font-family="monospace" font-size="24">ENGINE_3 | SEC_LEVEL_ALPHA | UNL34VES</text>
+      
+      <g transform="translate(3500, 100)">
+        <rect width="200" height="40" fill="#f59e0b" opacity="0.2"/>
+        <rect width="59.715284190606326" height="40" fill="#f59e0b"/>
+        <text x="10" y="30" fill="#0a0a0a" font-family="monospace" font-size="20" font-weight="bold">PROCESSING</text>
+      </g>
     
-    <!-- Chart Content -->
-    
-        <line x1="200" y1="400" x2="2840" y2="400" stroke="#f1f5f9" stroke-width="8" />
-        <line x1="200" y1="700" x2="2840" y2="700" stroke="#f1f5f9" stroke-width="8" />
-        <line x1="200" y1="1000" x2="2840" y2="1000" stroke="#f1f5f9" stroke-width="8" />
-        <line x1="200" y1="1300" x2="2840" y2="1300" stroke="#f1f5f9" stroke-width="8" />
-        <path d="M 320 455.69753870368004 C 491.42857142857144 455.69753870368004, 491.42857142857144 636.0403655096889, 662.8571428571429 636.0403655096889 C 834.2857142857142 636.0403655096889, 834.2857142857142 875.9643986821175, 1005.7142857142857 875.9643986821175 C 1177.142857142857 875.9643986821175, 1177.142857142857 564.1561601310968, 1348.5714285714284 564.1561601310968 C 1520 564.1561601310968, 1520 882.689587585628, 1691.4285714285713 882.689587585628 C 1862.8571428571427 882.689587585628, 1862.8571428571427 530.4470604285598, 2034.2857142857142 530.4470604285598 C 2205.7142857142853 530.4470604285598, 2205.7142857142853 484.5752976834774, 2377.142857142857 484.5752976834774 C 2548.5714285714284 484.5752976834774, 2548.5714285714284 401.80585589259863, 2720 401.80585589259863 L 2720 1300 L 320 1300 Z" fill="#6366f1" fill-opacity="0.2" /><path d="M 320 455.69753870368004 C 491.42857142857144 455.69753870368004, 491.42857142857144 636.0403655096889, 662.8571428571429 636.0403655096889 C 834.2857142857142 636.0403655096889, 834.2857142857142 875.9643986821175, 1005.7142857142857 875.9643986821175 C 1177.142857142857 875.9643986821175, 1177.142857142857 564.1561601310968, 1348.5714285714284 564.1561601310968 C 1520 564.1561601310968, 1520 882.689587585628, 1691.4285714285713 882.689587585628 C 1862.8571428571427 882.689587585628, 1862.8571428571427 530.4470604285598, 2034.2857142857142 530.4470604285598 C 2205.7142857142853 530.4470604285598, 2205.7142857142853 484.5752976834774, 2377.142857142857 484.5752976834774 C 2548.5714285714284 484.5752976834774, 2548.5714285714284 401.80585589259863, 2720 401.80585589259863" fill="none" stroke="#6366f1" stroke-width="24" stroke-linecap="round" /><circle cx="320" cy="455.69753870368004" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="662.8571428571429" cy="636.0403655096889" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="1005.7142857142857" cy="875.9643986821175" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="1348.5714285714284" cy="564.1561601310968" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="1691.4285714285713" cy="882.689587585628" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="2034.2857142857142" cy="530.4470604285598" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="2377.142857142857" cy="484.5752976834774" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="2720" cy="401.80585589259863" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><line x1="200" y1="1300" x2="2840" y2="1300" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round" />
-  </g>
+  
+  <!-- Outer Frame -->
+  <rect width="3840" height="2400" fill="none" stroke="#d4d4d8" stroke-width="40" opacity="0.1"/>
 </svg>

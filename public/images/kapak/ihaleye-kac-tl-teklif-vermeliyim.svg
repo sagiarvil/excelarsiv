@@ -1,17 +1,39 @@
 <svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    
+      <pattern id="gridPattern" width="100" height="100" patternUnits="userSpaceOnUse">
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#171717" stroke-width="2"/>
+      </pattern>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="40" stdDeviation="50" flood-opacity="0.15" />
+    </filter>
+    <filter id="hugeBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="150" />
+    </filter>
+    <radialGradient id="radarSweep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f4f6f9" />
+  <rect width="100%" height="100%" fill="#0a0a0a" /><rect width="100%" height="100%" fill="url(#gridPattern)" opacity="0.5"/>
+  <circle cx="1920" cy="1200" r="613.7345295399427" fill="none" stroke="#f97316" stroke-width="1" opacity="0.3"/><circle cx="1859.2916331501215" cy="589.2753755218024" r="15.402495770948008" fill="#0a0a0a" stroke="#f97316" stroke-width="4" filter="url(#glow)"/><line x1="1859.2916331501215" y1="589.2753755218024" x2="1959.2916331501215" y2="489.2753755218024" stroke="#f97316" stroke-width="2"/><text x="1969.2916331501215" y="489.2753755218024" fill="#d4d4d8" font-family="monospace" font-size="32">Q3-823</text><circle cx="1920" cy="1200" r="745.3274745494127" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.3"/><circle cx="1920" cy="1200" r="668.5694875195622" fill="none" stroke="#f59e0b" stroke-width="3.3188250847160816" stroke-dasharray="59.30700789671391 87.34055229229853" opacity="0.2255525816231966" transform="rotate(297.6762585528195 1920 1200)"/><circle cx="1920" cy="1200" r="456.811354868114" fill="none" stroke="#f97316" stroke-width="3.116371813695878" stroke-dasharray="22.17751211952418 51.1633730516769" opacity="0.40906467814929787" transform="rotate(48.2350972853601 1920 1200)"/><circle cx="1920" cy="1200" r="832.6361076906323" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.3"/><circle cx="1087.3699419915426" cy="1196.825991329697" r="29.212766779353842" fill="#0a0a0a" stroke="#ef4444" stroke-width="4" filter="url(#glow)"/><line x1="1087.3699419915426" y1="1196.825991329697" x2="1187.3699419915426" y2="1096.825991329697" stroke="#ef4444" stroke-width="2"/><text x="1197.3699419915426" y="1096.825991329697" fill="#d4d4d8" font-family="monospace" font-size="32">Q8-544</text><circle cx="1920" cy="1200" r="944.2567655816674" fill="none" stroke="#f97316" stroke-width="1" opacity="0.3"/><circle cx="1920" cy="1200" r="330.8186272159219" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.3"/><circle cx="1920" cy="1200" r="259.52426958829165" fill="none" stroke="#f97316" stroke-width="15.951132400427014" stroke-dasharray="80.720578818582 29.010254212189466" opacity="0.3674774327781052" transform="rotate(286.8876106571406 1920 1200)"/><circle cx="2041.9835404162964" cy="1429.0695579356675" r="23.92669860064052" fill="#0a0a0a" stroke="#f97316" stroke-width="4" filter="url(#glow)"/><line x1="2041.9835404162964" y1="1429.0695579356675" x2="2141.9835404162964" y2="1329.0695579356675" stroke="#f97316" stroke-width="2"/><text x="2151.9835404162964" y="1329.0695579356675" fill="#d4d4d8" font-family="monospace" font-size="32">Q2-702</text><circle cx="1920" cy="1200" r="523.935304582119" fill="none" stroke="#f97316" stroke-width="23.723820279818028" stroke-dasharray="45.29590922174975 10.292295482940972" opacity="0.475773637322709" transform="rotate(20.182283828034997 1920 1200)"/><circle cx="1752.9333607559297" cy="703.4147188656822" r="35.58573041972704" fill="#0a0a0a" stroke="#f97316" stroke-width="4" filter="url(#glow)"/><line x1="1752.9333607559297" y1="703.4147188656822" x2="1852.9333607559297" y2="603.4147188656822" stroke="#f97316" stroke-width="2"/><text x="1862.9333607559297" y="603.4147188656822" fill="#d4d4d8" font-family="monospace" font-size="32">Q7-654</text><circle cx="1920" cy="1200" r="782.6387038454413" fill="none" stroke="#f59e0b" stroke-width="12.135104187298566" stroke-dasharray="164.23792574554682 119.73942589014769" opacity="0.39867379693314436" transform="rotate(197.99925939179957 1920 1200)"/><circle cx="1144.0786020961896" cy="1302.3197196627764" r="18.20265628094785" fill="#0a0a0a" stroke="#f59e0b" stroke-width="4" filter="url(#glow)"/><line x1="1144.0786020961896" y1="1302.3197196627764" x2="1244.0786020961896" y2="1202.3197196627764" stroke="#f59e0b" stroke-width="2"/><text x="1254.0786020961896" y="1202.3197196627764" fill="#d4d4d8" font-family="monospace" font-size="32">Q7-738</text><path d="M 1920 1200 L 1920 200 A 1000 1000 0 0 1 2627 493 Z" fill="url(#radarSweep)" opacity="0.1"/>
   
-  <g transform="translate(400, 400)" filter="url(#shadow)">
-    <!-- White Card Background -->
-    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+      <text x="100" y="100" fill="#d4d4d8" font-family="monospace" font-size="32" font-weight="bold">SYSTEM IDENT: IHALEYE-KAC-TL-TEKLI...</text>
+      <text x="100" y="150" fill="#d4d4d8" font-family="monospace" font-size="24">ENGINE_1 | SEC_LEVEL_ALPHA | P85RGHZN</text>
+      
+      <g transform="translate(3500, 100)">
+        <rect width="200" height="40" fill="#f59e0b" opacity="0.2"/>
+        <rect width="75.37357677007094" height="40" fill="#f59e0b"/>
+        <text x="10" y="30" fill="#0a0a0a" font-family="monospace" font-size="20" font-weight="bold">PROCESSING</text>
+      </g>
     
-    <!-- Chart Content -->
-    <path d="M 1997.2131615794028 414.39204912570347 A 600 600 0 0 0 1526.5368110573042 186.49925553159733 L 1526.5368110573042 786.4992555315973 Z" fill="#6366f1" stroke="#fff" stroke-width="12" /><path d="M 2132.9903596495524 835.5488667745561 A 600 600 0 0 0 2005.0013843039574 423.44381538011123 L 1534.3250337818588 795.5510217860051 Z" fill="#a855f7" stroke="#fff" stroke-width="12" /><path d="M 1614.2860447746077 1404.4040528417736 A 600 600 0 0 0 2129.6497396752497 850.212670161033 L 1530.9844138075562 810.2148251724819 Z" fill="#ec4899" stroke="#fff" stroke-width="12" /><path d="M 1373.1408589663429 1396.9292989969308 A 600 600 0 0 0 1602.5023752289867 1409.167918875975 L 1519.2007442619351 814.9786912066833 Z" fill="#f43f5e" stroke="#fff" stroke-width="12" /><path d="M 938.6696371393496 994.9857802278991 A 600 600 0 0 0 1363.6884083019486 1392.9006085134336 L 1509.7482935975406 810.950000723186 Z" fill="#f97316" stroke="#fff" stroke-width="12" /><path d="M 1107.3982697048777 347.16893491547836 A 600 600 0 0 0 934.4518252108696 980.0819156640362 L 1505.5304816690607 796.0461361593229 Z" fill="#6366f1" stroke="#fff" stroke-width="12" /><path d="M 1514.676887680428 185.97628882095682 A 600 600 0 0 0 1116.5446757162451 337.09908757711224 L 1514.676887680428 785.9762888209568 Z" fill="#a855f7" stroke="#fff" stroke-width="12" /><circle cx="1520" cy="800" r="300" fill="#ffffff" />
-  </g>
+  
+  <!-- Outer Frame -->
+  <rect width="3840" height="2400" fill="none" stroke="#d4d4d8" stroke-width="40" opacity="0.1"/>
 </svg>

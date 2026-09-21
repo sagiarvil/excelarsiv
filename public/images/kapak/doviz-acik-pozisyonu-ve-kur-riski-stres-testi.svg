@@ -1,17 +1,39 @@
 <svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    
+      <pattern id="gridPattern" width="100" height="100" patternUnits="userSpaceOnUse">
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#f1f5f9" stroke-width="2"/>
+      </pattern>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="40" stdDeviation="50" flood-opacity="0.15" />
+    </filter>
+    <filter id="hugeBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="150" />
+    </filter>
+    <radialGradient id="radarSweep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f4f6f9" />
+  <rect width="100%" height="100%" fill="#ffffff" />
+  <circle cx="1920" cy="1200" r="865.4830636456609" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.3"/><circle cx="1920" cy="1200" r="991.7138954624534" fill="none" stroke="#6366f1" stroke-width="10.870371106546372" stroke-dasharray="91.74768375931308 89.25041449721903" opacity="0.487453413149342" transform="rotate(238.66075856611133 1920 1200)"/><circle cx="1920" cy="1200" r="901.7250629141927" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3"/><circle cx="1942.0209666792593" cy="2101.4561365447107" r="15.582008002325892" fill="#ffffff" stroke="#3b82f6" stroke-width="4" filter="url(#glow)"/><line x1="1942.0209666792593" y1="2101.4561365447107" x2="2042.0209666792593" y2="2001.4561365447107" stroke="#3b82f6" stroke-width="2"/><text x="2052.0209666792593" y="2001.4561365447107" fill="#64748b" font-family="monospace" font-size="32">Q7-726</text><circle cx="1920" cy="1200" r="990.2868881821632" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.3"/><circle cx="1920" cy="1200" r="413.9192333444953" fill="none" stroke="#6366f1" stroke-width="23.189741862006485" stroke-dasharray="45.04920793697238 185.16415662597865" opacity="0.7390878097154201" transform="rotate(304.6175219491124 1920 1200)"/><circle cx="1542.963547457354" cy="1370.8000151831136" r="34.78461279300973" fill="#ffffff" stroke="#6366f1" stroke-width="4" filter="url(#glow)"/><line x1="1542.963547457354" y1="1370.8000151831136" x2="1642.963547457354" y2="1270.8000151831136" stroke="#6366f1" stroke-width="2"/><text x="1652.963547457354" y="1270.8000151831136" fill="#64748b" font-family="monospace" font-size="32">Q7-649</text><path d="M 1920 1200 L 1920 200 A 1000 1000 0 0 1 2627 493 Z" fill="url(#radarSweep)" opacity="0.1"/>
   
-  <g transform="translate(400, 400)" filter="url(#shadow)">
-    <!-- White Card Background -->
-    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+      <text x="100" y="100" fill="#64748b" font-family="monospace" font-size="32" font-weight="bold">SYSTEM IDENT: DOVIZ-ACIK-POZISYONU...</text>
+      <text x="100" y="150" fill="#64748b" font-family="monospace" font-size="24">ENGINE_1 | SEC_LEVEL_ALPHA | P1SQ4RSM</text>
+      
+      <g transform="translate(3500, 100)">
+        <rect width="200" height="40" fill="#6366f1" opacity="0.2"/>
+        <rect width="105.4431499983184" height="40" fill="#6366f1"/>
+        <text x="10" y="30" fill="#ffffff" font-family="monospace" font-size="20" font-weight="bold">PROCESSING</text>
+      </g>
     
-    <!-- Chart Content -->
-    <path d="M 1539.2046090941399 1399.932707805106 A 600 600 0 0 0 1534.9999079177953 199.94744091264522 L 1534.9999079177953 799.9474409126452 Z" fill="#059669" stroke="#fff" stroke-width="12" /><path d="M 977.101111378763 1084.2388580614602 A 600 600 0 0 0 1516.4005208135718 1412.7952149354983 L 1512.1958196372273 812.8099480430373 Z" fill="#10b981" stroke="#fff" stroke-width="12" /><path d="M 994.4132647701759 484.2743692292033 A 600 600 0 0 0 969.9183554607363 1070.8030179228838 L 1505.0130637192005 799.374107904461 Z" fill="#34d399" stroke="#fff" stroke-width="12" /><path d="M 1512.6911834748444 186.90109924453157 A 600 600 0 0 0 1002.0913845258198 471.80136056927387 L 1512.6911834748444 786.9010992445316 Z" fill="#3b82f6" stroke="#fff" stroke-width="12" />
-  </g>
+  
+  <!-- Outer Frame -->
+  <rect width="3840" height="2400" fill="none" stroke="#64748b" stroke-width="40" opacity="0.1"/>
 </svg>

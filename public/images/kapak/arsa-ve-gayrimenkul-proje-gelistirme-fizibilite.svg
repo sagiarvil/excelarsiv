@@ -1,17 +1,39 @@
 <svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    
+      <pattern id="gridPattern" width="100" height="100" patternUnits="userSpaceOnUse">
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#f1f5f9" stroke-width="2"/>
+      </pattern>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="40" stdDeviation="50" flood-opacity="0.15" />
+    </filter>
+    <filter id="hugeBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="150" />
+    </filter>
+    <radialGradient id="radarSweep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f4f6f9" />
+  <rect width="100%" height="100%" fill="#ffffff" />
+  <circle cx="1920" cy="1200" r="510.43854989111423" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.3"/><circle cx="1920" cy="1200" r="710.3907994925976" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.3"/><circle cx="2280.8264758995965" cy="588.0691687015518" r="5.1438659420236945" fill="#ffffff" stroke="#a855f7" stroke-width="4" filter="url(#glow)"/><line x1="2280.8264758995965" y1="588.0691687015518" x2="2380.8264758995965" y2="488.0691687015518" stroke="#a855f7" stroke-width="2"/><text x="2390.8264758995965" y="488.0691687015518" fill="#64748b" font-family="monospace" font-size="32">Q1-971</text><circle cx="1920" cy="1200" r="803.0214421451092" fill="none" stroke="#3b82f6" stroke-width="4.826859969645739" stroke-dasharray="161.21678781230003 194.3869808432646" opacity="0.6865188019815833" transform="rotate(272.40224682725966 1920 1200)"/><circle cx="1920" cy="1200" r="972.594441100955" fill="none" stroke="#3b82f6" stroke-width="7.8053526491858065" stroke-dasharray="119.76662370143458 152.99437425332144" opacity="0.5539287573657931" transform="rotate(16.620113532990217 1920 1200)"/><circle cx="2602.5674041459497" cy="507.1495935932935" r="11.70802897377871" fill="#ffffff" stroke="#3b82f6" stroke-width="4" filter="url(#glow)"/><line x1="2602.5674041459497" y1="507.1495935932935" x2="2702.5674041459497" y2="407.1495935932935" stroke="#3b82f6" stroke-width="2"/><text x="2712.5674041459497" y="407.1495935932935" fill="#64748b" font-family="monospace" font-size="32">Q5-160</text><circle cx="1920" cy="1200" r="319.5213543251157" fill="none" stroke="#3b82f6" stroke-width="11.384972389321774" stroke-dasharray="35.849077191669494 36.26852624351159" opacity="0.6489472662098706" transform="rotate(198.98198707960546 1920 1200)"/><circle cx="1602.1089658750693" cy="1232.2364125289741" r="17.07745858398266" fill="#ffffff" stroke="#3b82f6" stroke-width="4" filter="url(#glow)"/><line x1="1602.1089658750693" y1="1232.2364125289741" x2="1702.1089658750693" y2="1132.2364125289741" stroke="#3b82f6" stroke-width="2"/><text x="1712.1089658750693" y="1132.2364125289741" fill="#64748b" font-family="monospace" font-size="32">Q2-419</text><circle cx="1920" cy="1200" r="228.76686230301857" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3"/><circle cx="1834.550193575979" cy="987.7911220752874" r="22.345211976673454" fill="#ffffff" stroke="#3b82f6" stroke-width="4" filter="url(#glow)"/><line x1="1834.550193575979" y1="987.7911220752874" x2="1934.550193575979" y2="887.7911220752874" stroke="#3b82f6" stroke-width="2"/><text x="1944.550193575979" y="887.7911220752874" fill="#64748b" font-family="monospace" font-size="32">Q5-456</text><circle cx="1920" cy="1200" r="406.8653665482998" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.3"/><circle cx="1513.804851596819" cy="1176.6563089850795" r="12.945490529062226" fill="#ffffff" stroke="#6366f1" stroke-width="4" filter="url(#glow)"/><line x1="1513.804851596819" y1="1176.6563089850795" x2="1613.804851596819" y2="1076.6563089850795" stroke="#6366f1" stroke-width="2"/><text x="1623.804851596819" y="1076.6563089850795" fill="#64748b" font-family="monospace" font-size="32">Q1-293</text><circle cx="1920" cy="1200" r="508.66995491087437" fill="none" stroke="#6366f1" stroke-width="19.434488299768418" stroke-dasharray="139.64806604431942 168.31145484000444" opacity="0.20460558799095452" transform="rotate(177.62285688892007 1920 1200)"/><circle cx="1920" cy="1200" r="809.5708163455129" fill="none" stroke="#3b82f6" stroke-width="21.627369575202465" stroke-dasharray="36.38017162447795 141.05474018491805" opacity="0.505764374230057" transform="rotate(91.22544656507671 1920 1200)"/><circle cx="2432.3597499673497" cy="1826.8112900161696" r="32.4410543628037" fill="#ffffff" stroke="#3b82f6" stroke-width="4" filter="url(#glow)"/><line x1="2432.3597499673497" y1="1826.8112900161696" x2="2532.3597499673497" y2="1726.8112900161696" stroke="#3b82f6" stroke-width="2"/><text x="2542.3597499673497" y="1726.8112900161696" fill="#64748b" font-family="monospace" font-size="32">Q1-910</text><circle cx="1920" cy="1200" r="422.77676835656166" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.3"/><circle cx="2270.629981654786" cy="1436.217721237807" r="15.642762440722436" fill="#ffffff" stroke="#a855f7" stroke-width="4" filter="url(#glow)"/><line x1="2270.629981654786" y1="1436.217721237807" x2="2370.629981654786" y2="1336.217721237807" stroke="#a855f7" stroke-width="2"/><text x="2380.629981654786" y="1336.217721237807" fill="#64748b" font-family="monospace" font-size="32">Q1-671</text><circle cx="1920" cy="1200" r="493.6173474416137" fill="none" stroke="#a855f7" stroke-width="14.208281726576388" stroke-dasharray="21.241830906365067 69.91313961567357" opacity="0.7027042958419771" transform="rotate(299.0136993303895 1920 1200)"/><path d="M 1920 1200 L 1920 200 A 1000 1000 0 0 1 2627 493 Z" fill="url(#radarSweep)" opacity="0.1"/>
   
-  <g transform="translate(400, 400)" filter="url(#shadow)">
-    <!-- White Card Background -->
-    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+      <text x="100" y="100" fill="#64748b" font-family="monospace" font-size="32" font-weight="bold">SYSTEM IDENT: ARSA-VE-GAYRIMENKUL-...</text>
+      <text x="100" y="150" fill="#64748b" font-family="monospace" font-size="24">ENGINE_1 | SEC_LEVEL_ALPHA | 53M2E21X</text>
+      
+      <g transform="translate(3500, 100)">
+        <rect width="200" height="40" fill="#6366f1" opacity="0.2"/>
+        <rect width="132.0755107048899" height="40" fill="#6366f1"/>
+        <text x="10" y="30" fill="#ffffff" font-family="monospace" font-size="20" font-weight="bold">PROCESSING</text>
+      </g>
     
-    <!-- Chart Content -->
-    <path d="M 2048.364039212039 489.15201828697394 A 600 600 0 0 0 1527.5265410341908 187.0249786103975 L 1527.5265410341908 787.0249786103975 Z" fill="#2563eb" stroke="#fff" stroke-width="12" /><path d="M 1802.9698198322185 1340.8549072441115 A 600 600 0 0 0 2055.1958158850084 506.4673982585667 L 1534.35831770716 804.3403585819902 Z" fill="#4f46e5" stroke="#fff" stroke-width="12" /><path d="M 1542.8044723520907 1414.2361948630623 A 600 600 0 0 0 1792.2938593533424 1351.0555336783884 L 1523.682357228284 814.5409850162671 Z" fill="#7c3aed" stroke="#fff" stroke-width="12" /><path d="M 1171.734327357408 1305.9796513375077 A 600 600 0 0 0 1534.8424313996884 1414.0717291481255 L 1515.7203162758817 814.3765193013301 Z" fill="#9333ea" stroke="#fff" stroke-width="12" /><path d="M 958.4208429316558 1049.3591004461491 A 600 600 0 0 0 1164.4049361827856 1301.1020467107828 L 1508.3909251012594 809.4989146746053 Z" fill="#c026d3" stroke="#fff" stroke-width="12" /><path d="M 1208.178433216765 274.27496613664164 A 600 600 0 0 0 955.7927497659645 1035.1375757405208 L 1505.762831935568 795.2773899689771 Z" fill="#2563eb" stroke="#fff" stroke-width="12" /><path d="M 1516.1513579626787 185.5021396589509 A 600 600 0 0 0 1218.5669592438758 264.49971582661544 L 1516.1513579626787 785.5021396589509 Z" fill="#4f46e5" stroke="#fff" stroke-width="12" />
-  </g>
+  
+  <!-- Outer Frame -->
+  <rect width="3840" height="2400" fill="none" stroke="#64748b" stroke-width="40" opacity="0.1"/>
 </svg>

@@ -1,17 +1,39 @@
 <svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    
+      <pattern id="gridPattern" width="100" height="100" patternUnits="userSpaceOnUse">
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#002b4d" stroke-width="2"/>
+      </pattern>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="40" stdDeviation="50" flood-opacity="0.15" />
+    </filter>
+    <filter id="hugeBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="150" />
+    </filter>
+    <radialGradient id="radarSweep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#001e36" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f4f6f9" />
+  <rect width="100%" height="100%" fill="#001e36" /><rect width="100%" height="100%" fill="url(#gridPattern)" opacity="0.5"/>
+  <circle cx="1920" cy="1200" r="770.1372975483537" fill="none" stroke="#38bdf8" stroke-width="3.517517331056297" stroke-dasharray="156.39603544957936 154.30857019964606" opacity="0.45602413015440113" transform="rotate(333.107609404251 1920 1200)"/><circle cx="1186.192659879007" cy="1433.7482506022982" r="5.276275996584445" fill="#001e36" stroke="#38bdf8" stroke-width="4" filter="url(#glow)"/><line x1="1186.192659879007" y1="1433.7482506022982" x2="1286.192659879007" y2="1333.7482506022982" stroke="#38bdf8" stroke-width="2"/><text x="1296.192659879007" y="1333.7482506022982" fill="#94a3b8" font-family="monospace" font-size="32">Q7-871</text><circle cx="1920" cy="1200" r="481.19183145463467" fill="none" stroke="#38bdf8" stroke-width="9.259862314909697" stroke-dasharray="72.75995562318712 15.253368536941707" opacity="0.5812375850509852" transform="rotate(257.99344749189913 1920 1200)"/><circle cx="1920" cy="1200" r="390.4093200340867" fill="none" stroke="#fbbf24" stroke-width="1" opacity="0.3"/><circle cx="1920" cy="1200" r="511.6441745311022" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.3"/><circle cx="1920" cy="1200" r="221.4948982000351" fill="none" stroke="#2dd4bf" stroke-width="3.8903302745893598" stroke-dasharray="31.241895921994 173.28332294011489" opacity="0.4192501801066101" transform="rotate(198.93883402459323 1920 1200)"/><circle cx="2140.664248807196" cy="1219.1645304403658" r="5.83549541188404" fill="#001e36" stroke="#2dd4bf" stroke-width="4" filter="url(#glow)"/><line x1="2140.664248807196" y1="1219.1645304403658" x2="2240.664248807196" y2="1119.1645304403658" stroke="#2dd4bf" stroke-width="2"/><text x="2250.664248807196" y="1119.1645304403658" fill="#94a3b8" font-family="monospace" font-size="32">Q2-266</text><circle cx="1920" cy="1200" r="676.2421132996678" fill="none" stroke="#38bdf8" stroke-width="5.147945222910494" stroke-dasharray="59.65906757162884 102.21784292254597" opacity="0.3229860842693597" transform="rotate(240.44892302714288 1920 1200)"/><circle cx="1920" cy="1200" r="896.1728028953075" fill="none" stroke="#2dd4bf" stroke-width="1" opacity="0.3"/><circle cx="1741.8669127576302" cy="321.7094467781553" r="24.773412263486534" fill="#001e36" stroke="#2dd4bf" stroke-width="4" filter="url(#glow)"/><line x1="1741.8669127576302" y1="321.7094467781553" x2="1841.8669127576302" y2="221.70944677815532" stroke="#2dd4bf" stroke-width="2"/><text x="1851.8669127576302" y="221.70944677815532" fill="#94a3b8" font-family="monospace" font-size="32">Q1-966</text><circle cx="1920" cy="1200" r="416.04714784771204" fill="none" stroke="#2dd4bf" stroke-width="19.402205074671656" stroke-dasharray="21.390755942557007 12.828522031195462" opacity="0.6284792845137418" transform="rotate(5.793364690616727 1920 1200)"/><circle cx="2313.665473639504" cy="1065.3793325807624" r="29.103307612007484" fill="#001e36" stroke="#2dd4bf" stroke-width="4" filter="url(#glow)"/><line x1="2313.665473639504" y1="1065.3793325807624" x2="2413.665473639504" y2="965.3793325807624" stroke="#2dd4bf" stroke-width="2"/><text x="2423.665473639504" y="965.3793325807624" fill="#94a3b8" font-family="monospace" font-size="32">Q1-468</text><circle cx="1920" cy="1200" r="509.67983547598124" fill="none" stroke="#38bdf8" stroke-width="11.716823192778975" stroke-dasharray="33.23888345621526 139.53363806009293" opacity="0.24604063672013582" transform="rotate(180.04677562974393 1920 1200)"/><path d="M 1920 1200 L 1920 200 A 1000 1000 0 0 1 2627 493 Z" fill="url(#radarSweep)" opacity="0.1"/>
   
-  <g transform="translate(400, 400)" filter="url(#shadow)">
-    <!-- White Card Background -->
-    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+      <text x="100" y="100" fill="#94a3b8" font-family="monospace" font-size="32" font-weight="bold">SYSTEM IDENT: KONKORDATO-TTK376-KR...</text>
+      <text x="100" y="150" fill="#94a3b8" font-family="monospace" font-size="24">ENGINE_1 | SEC_LEVEL_ALPHA | DPSOQTP0</text>
+      
+      <g transform="translate(3500, 100)">
+        <rect width="200" height="40" fill="#fbbf24" opacity="0.2"/>
+        <rect width="158.10564011568204" height="40" fill="#fbbf24"/>
+        <text x="10" y="30" fill="#001e36" font-family="monospace" font-size="20" font-weight="bold">PROCESSING</text>
+      </g>
     
-    <!-- Chart Content -->
-    <path d="M 2076.0466694004876 542.8267832620609 A 600 600 0 0 0 1528.163304916986 187.41586503440487 L 1528.163304916986 787.4158650344049 Z" fill="#2563eb" stroke="#fff" stroke-width="12" /><path d="M 2134.1625460530117 773.4832289958058 A 600 600 0 0 0 2082.49108886455 552.002929318147 L 1534.607724381048 796.592011090491 Z" fill="#4f46e5" stroke="#fff" stroke-width="12" /><path d="M 1763.9855860641135 1361.6788808276233 A 600 600 0 0 0 2132.197702752725 784.9632410704038 L 1532.642881080761 808.072023165089 Z" fill="#7c3aed" stroke="#fff" stroke-width="12" /><path d="M 1124.4284135405078 1268.0216726068343 A 600 600 0 0 0 1748.9619883395185 1368.4167255978596 L 1517.619283356166 814.8098679353252 Z" fill="#9333ea" stroke="#fff" stroke-width="12" /><path d="M 944.7361333008467 590.1194905245118 A 600 600 0 0 0 1112.2613065283256 1256.867051157515 L 1505.4521763439839 803.655246486006 Z" fill="#c026d3" stroke="#fff" stroke-width="12" /><path d="M 1511.4875358586823 187.64937433800299 A 600 600 0 0 0 950.7714928155452 574.1136183765087 L 1511.4875358586823 787.649374338003 Z" fill="#2563eb" stroke="#fff" stroke-width="12" />
-  </g>
+  
+  <!-- Outer Frame -->
+  <rect width="3840" height="2400" fill="none" stroke="#94a3b8" stroke-width="40" opacity="0.1"/>
 </svg>

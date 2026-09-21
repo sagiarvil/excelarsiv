@@ -1,17 +1,39 @@
 <svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    
+      <pattern id="gridPattern" width="100" height="100" patternUnits="userSpaceOnUse">
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#171717" stroke-width="2"/>
+      </pattern>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="40" stdDeviation="50" flood-opacity="0.15" />
+    </filter>
+    <filter id="hugeBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="150" />
+    </filter>
+    <radialGradient id="radarSweep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f4f6f9" />
+  <rect width="100%" height="100%" fill="#0a0a0a" /><rect width="100%" height="100%" fill="url(#gridPattern)" opacity="0.5"/>
+  <circle cx="1920" cy="1200" r="364.19908963143826" fill="none" stroke="#f97316" stroke-width="7.824979369994253" stroke-dasharray="28.842490101233125 171.01962212473154" opacity="0.664071988593787" transform="rotate(21.807498559355736 1920 1200)"/><circle cx="1920" cy="1200" r="304.73242197185755" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.3"/><circle cx="1682.2486184882891" cy="1009.3796191638808" r="23.660782806342468" fill="#0a0a0a" stroke="#ef4444" stroke-width="4" filter="url(#glow)"/><line x1="1682.2486184882891" y1="1009.3796191638808" x2="1782.2486184882891" y2="909.3796191638808" stroke="#ef4444" stroke-width="2"/><text x="1792.2486184882891" y="909.3796191638808" fill="#d4d4d8" font-family="monospace" font-size="32">Q6-500</text><circle cx="1920" cy="1200" r="408.6940860375762" fill="none" stroke="#ef4444" stroke-width="8.412803864106536" stroke-dasharray="53.44067036174238 106.18812465574592" opacity="0.7542485129553826" transform="rotate(299.87724968232214 1920 1200)"/><circle cx="1920" cy="1200" r="627.6427326723933" fill="none" stroke="#f59e0b" stroke-width="22.403017054777592" stroke-dasharray="97.83206828171387 137.460240481887" opacity="0.7478461768478155" transform="rotate(265.68550310097635 1920 1200)"/><circle cx="1920" cy="1200" r="738.1349340081215" fill="none" stroke="#ef4444" stroke-width="22.372619779314846" stroke-dasharray="87.12073070462793 197.70350369624794" opacity="0.5948516215197743" transform="rotate(17.60005859658122 1920 1200)"/><circle cx="1920" cy="1200" r="479.5485148206353" fill="none" stroke="#f97316" stroke-width="4.528060681186616" stroke-dasharray="37.41548968479037 194.00376641657203" opacity="0.38631601803936066" transform="rotate(345.6391764152795 1920 1200)"/><circle cx="1920" cy="1200" r="625.5010267719626" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.3"/><circle cx="1920" cy="1200" r="537.4071655794978" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.3"/><circle cx="1920" cy="1200" r="817.6741233095527" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.3"/><path d="M 1920 1200 L 1920 200 A 1000 1000 0 0 1 2627 493 Z" fill="url(#radarSweep)" opacity="0.1"/>
   
-  <g transform="translate(400, 400)" filter="url(#shadow)">
-    <!-- White Card Background -->
-    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+      <text x="100" y="100" fill="#d4d4d8" font-family="monospace" font-size="32" font-weight="bold">SYSTEM IDENT: MAKINE-BAKIM-KALIBRA...</text>
+      <text x="100" y="150" fill="#d4d4d8" font-family="monospace" font-size="24">ENGINE_1 | SEC_LEVEL_ALPHA | DW0VUFMI</text>
+      
+      <g transform="translate(3500, 100)">
+        <rect width="200" height="40" fill="#f59e0b" opacity="0.2"/>
+        <rect width="163.2872609165497" height="40" fill="#f59e0b"/>
+        <text x="10" y="30" fill="#0a0a0a" font-family="monospace" font-size="20" font-weight="bold">PROCESSING</text>
+      </g>
     
-    <!-- Chart Content -->
-    <path d="M 1909.6625322062362 325.33161089152276 A 600 600 0 0 0 1525.1130944289828 185.89835947982272 L 1525.1130944289828 785.8983594798227 Z" fill="#059669" stroke="#fff" stroke-width="12" /><path d="M 2130.9468245703315 740.0459228095557 A 600 600 0 0 0 1917.842009230167 332.4828885313041 L 1533.2925714529135 793.0496371196041 Z" fill="#10b981" stroke="#fff" stroke-width="12" /><path d="M 1516.9943653106723 1410.093013846188 A 600 600 0 0 0 2128.6009274441153 757.2515439112361 L 1530.9466743266973 810.2552582212845 Z" fill="#34d399" stroke="#fff" stroke-width="12" /><path d="M 1031.8179857638445 1171.5929632897985 A 600 600 0 0 0 1499.1599169149376 1413.1628660699953 L 1513.1122259309627 813.3251104450919 Z" fill="#3b82f6" stroke="#fff" stroke-width="12" /><path d="M 909.4193494458505 869.1335693382047 A 600 600 0 0 0 1024.7377521661415 1163.73546309251 L 1506.0319923332597 805.4676102478032 Z" fill="#60a5fa" stroke="#fff" stroke-width="12" /><path d="M 1508.8448501879423 189.9719078249874 A 600 600 0 0 0 912.232207300533 853.6378669153888 L 1508.8448501879423 789.9719078249874 Z" fill="#059669" stroke="#fff" stroke-width="12" /><circle cx="1520" cy="800" r="300" fill="#ffffff" />
-  </g>
+  
+  <!-- Outer Frame -->
+  <rect width="3840" height="2400" fill="none" stroke="#d4d4d8" stroke-width="40" opacity="0.1"/>
 </svg>

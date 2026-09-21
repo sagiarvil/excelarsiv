@@ -1,17 +1,39 @@
 <svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    
+      <pattern id="gridPattern" width="100" height="100" patternUnits="userSpaceOnUse">
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#002b4d" stroke-width="2"/>
+      </pattern>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="40" stdDeviation="50" flood-opacity="0.15" />
+    </filter>
+    <filter id="hugeBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="150" />
+    </filter>
+    <radialGradient id="radarSweep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#001e36" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f4f6f9" />
+  <rect width="100%" height="100%" fill="#001e36" /><rect width="100%" height="100%" fill="url(#gridPattern)" opacity="0.5"/>
+  <circle cx="1920" cy="1200" r="830.2415527403355" fill="none" stroke="#38bdf8" stroke-width="22.0088516860269" stroke-dasharray="26.739535199012607 168.63380974624306" opacity="0.7776922018732877" transform="rotate(50.766212940216064 1920 1200)"/><circle cx="1475.7758261708213" cy="1901.4028224083982" r="33.01327752904035" fill="#001e36" stroke="#38bdf8" stroke-width="4" filter="url(#glow)"/><line x1="1475.7758261708213" y1="1901.4028224083982" x2="1575.7758261708213" y2="1801.4028224083982" stroke="#38bdf8" stroke-width="2"/><text x="1585.7758261708213" y="1801.4028224083982" fill="#94a3b8" font-family="monospace" font-size="32">Q7-691</text><circle cx="1920" cy="1200" r="723.2514502480626" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.3"/><circle cx="1773.2491329141162" cy="491.7932199594054" r="15.511395178735256" fill="#001e36" stroke="#38bdf8" stroke-width="4" filter="url(#glow)"/><line x1="1773.2491329141162" y1="491.7932199594054" x2="1873.2491329141162" y2="391.7932199594054" stroke="#38bdf8" stroke-width="2"/><text x="1883.2491329141162" y="391.7932199594054" fill="#94a3b8" font-family="monospace" font-size="32">Q3-790</text><circle cx="1920" cy="1200" r="210.8173644170165" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.3"/><circle cx="1920" cy="1200" r="580.790501087904" fill="none" stroke="#fbbf24" stroke-width="1" opacity="0.3"/><circle cx="2375.476500538195" cy="1560.359214689202" r="16.01169355586171" fill="#001e36" stroke="#fbbf24" stroke-width="4" filter="url(#glow)"/><line x1="2375.476500538195" y1="1560.359214689202" x2="2475.476500538195" y2="1460.359214689202" stroke="#fbbf24" stroke-width="2"/><text x="2485.476500538195" y="1460.359214689202" fill="#94a3b8" font-family="monospace" font-size="32">Q3-991</text><circle cx="1920" cy="1200" r="548.424912057817" fill="none" stroke="#2dd4bf" stroke-width="10.167534602805972" stroke-dasharray="183.9080852852203 75.51971827633679" opacity="0.24491630499251188" transform="rotate(325.9952754713595 1920 1200)"/><path d="M 1920 1200 L 1920 200 A 1000 1000 0 0 1 2627 493 Z" fill="url(#radarSweep)" opacity="0.1"/>
   
-  <g transform="translate(400, 400)" filter="url(#shadow)">
-    <!-- White Card Background -->
-    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+      <text x="100" y="100" fill="#94a3b8" font-family="monospace" font-size="32" font-weight="bold">SYSTEM IDENT: AMORTISMAN-2026-YENI...</text>
+      <text x="100" y="150" fill="#94a3b8" font-family="monospace" font-size="24">ENGINE_1 | SEC_LEVEL_ALPHA | 8Z0WDUHN</text>
+      
+      <g transform="translate(3500, 100)">
+        <rect width="200" height="40" fill="#fbbf24" opacity="0.2"/>
+        <rect width="137.22845537588" height="40" fill="#fbbf24"/>
+        <text x="10" y="30" fill="#001e36" font-family="monospace" font-size="20" font-weight="bold">PROCESSING</text>
+      </g>
     
-    <!-- Chart Content -->
-    <path d="M 2127.8002414762004 736.124054275881 A 600 600 0 0 0 1530.1290511579914 188.93644168276808 L 1530.1290511579914 788.9364416827681 Z" fill="#dc2626" stroke="#fff" stroke-width="12" /><path d="M 1532.5244253261994 1410.113938955235 A 600 600 0 0 0 2128.746968434038 757.3033003665134 L 1531.075778115829 810.1156877734005 Z" fill="#ea580c" stroke="#fff" stroke-width="12" /><path d="M 914.1110795818971 729.6204621385807 A 600 600 0 0 0 1510.1667840159791 1409.8835717564564 L 1508.7181368056088 809.8853205746218 Z" fill="#d97706" stroke="#fff" stroke-width="12" /><path d="M 1510.1283061715196 188.70621139932405 A 600 600 0 0 0 915.5212489478087 708.441352963283 L 1510.1283061715203 788.706211399324 Z" fill="#ca8a04" stroke="#fff" stroke-width="12" />
-  </g>
+  
+  <!-- Outer Frame -->
+  <rect width="3840" height="2400" fill="none" stroke="#94a3b8" stroke-width="40" opacity="0.1"/>
 </svg>

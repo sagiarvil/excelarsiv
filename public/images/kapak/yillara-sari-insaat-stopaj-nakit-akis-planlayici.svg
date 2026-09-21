@@ -1,22 +1,39 @@
 <svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    
+      <pattern id="gridPattern" width="100" height="100" patternUnits="userSpaceOnUse">
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#18181b" stroke-width="2"/>
+      </pattern>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="40" stdDeviation="50" flood-opacity="0.15" />
+    </filter>
+    <filter id="hugeBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="150" />
+    </filter>
+    <radialGradient id="radarSweep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f4f6f9" />
+  <rect width="100%" height="100%" fill="#09090b" /><rect width="100%" height="100%" fill="url(#gridPattern)" opacity="0.5"/>
+  <circle cx="1429.7906891442835" cy="1201.8035233486444" r="783.3922485820949" fill="#8b5cf6" opacity="0.15" filter="url(#hugeBlur)"/><circle cx="2803.086104337126" cy="1747.3732905928046" r="1072.8282476775348" fill="#ec4899" opacity="0.15" filter="url(#hugeBlur)"/><g transform="translate(1050.409650498466, 1179.5268600810664)"><rect width="1396.3830210268497" height="562.397894449532" rx="40" fill="#09090b" fill-opacity="0.6" stroke="#10b981" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#8b5cf6"/><circle cx="110" cy="60" r="15" fill="#ec4899"/><text x="160" y="70" fill="#a1a1aa" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 5</text><path d="M 100 281.198947224766 L 100 365.34604570555564 L 150 380.94844588517145 L 200 372.1286899073342 L 250 341.04616163516164 L 300 295.31094803075274 L 350 246.12062445580403 L 400 205.5186976939732 L 450 183.44593545825632 L 500 185.30651975845217 L 550 210.64491466772682 L 600 253.25739740487342 L 650 302.71094603354754 L 700 346.89760709664495 L 750 374.99894490223994 L 800 380.1347718871042 L 850 361.04765848711503 L 900 322.41079574894167 L 950 273.68383517858507 L 1000 226.79683613582904 L 1050 193.22937122759902 L 1100 181.19992656969566 L 1150 193.65372975592317 L 1200 227.54165542472253 L 1250 274.56675748964597" fill="none" stroke="#10b981" stroke-width="12" stroke-linecap="round"/></g><g transform="translate(2074.8821365930035, 1000.2435314638295)"><rect width="771.1656548082829" height="713.7887174263597" rx="40" fill="#09090b" fill-opacity="0.6" stroke="#10b981" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#8b5cf6"/><circle cx="110" cy="60" r="15" fill="#ec4899"/><text x="160" y="70" fill="#a1a1aa" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 7</text><rect x="100" y="359.87364528575574" width="40" height="253.9150721406039" rx="20" fill="#ec4899"/><rect x="180" y="115.20619427377005" width="40" height="498.5825231525896" rx="20" fill="#ec4899"/><rect x="260" y="425.16211102644786" width="40" height="188.62660639991176" rx="20" fill="#ec4899"/><rect x="340" y="240.07640790401467" width="40" height="373.712309522345" rx="20" fill="#ec4899"/><rect x="420" y="105.5953882742329" width="40" height="508.19332915212675" rx="20" fill="#ec4899"/><rect x="500" y="492.44702109332263" width="40" height="121.34169633303705" rx="20" fill="#ec4899"/><rect x="580" y="108.62727876180213" width="40" height="505.1614386645575" rx="20" fill="#ec4899"/><rect x="660" y="139.14530590159154" width="40" height="474.6434115247681" rx="20" fill="#ec4899"/></g><g transform="translate(2573.6807249601434, 834.9307886775366)"><rect width="798.0475731194019" height="482.42797665297985" rx="40" fill="#09090b" fill-opacity="0.6" stroke="#10b981" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#8b5cf6"/><circle cx="110" cy="60" r="15" fill="#ec4899"/><text x="160" y="70" fill="#a1a1aa" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 8</text><rect x="100" y="150.49426640298847" width="40" height="231.93371024999138" rx="20" fill="#ec4899"/><rect x="180" y="137.38734622071053" width="40" height="245.04063043226932" rx="20" fill="#ec4899"/><rect x="260" y="170.70848744672134" width="40" height="211.71948920625852" rx="20" fill="#ec4899"/><rect x="340" y="239.95836697108993" width="40" height="142.46960968188992" rx="20" fill="#ec4899"/><rect x="420" y="202.8584706495126" width="40" height="179.56950600346724" rx="20" fill="#ec4899"/><rect x="500" y="289.94563293401063" width="40" height="92.48234371896919" rx="20" fill="#ec4899"/><rect x="580" y="131.80169450634938" width="40" height="250.62628214663047" rx="20" fill="#ec4899"/><rect x="660" y="309.19673973480826" width="40" height="73.23123691817159" rx="20" fill="#ec4899"/></g>
   
-  <g transform="translate(400, 400)" filter="url(#shadow)">
-    <!-- White Card Background -->
-    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+      <text x="100" y="100" fill="#a1a1aa" font-family="monospace" font-size="32" font-weight="bold">SYSTEM IDENT: YILLARA-SARI-INSAAT-...</text>
+      <text x="100" y="150" fill="#a1a1aa" font-family="monospace" font-size="24">ENGINE_3 | SEC_LEVEL_ALPHA | VIMGBKWJ</text>
+      
+      <g transform="translate(3500, 100)">
+        <rect width="200" height="40" fill="#8b5cf6" opacity="0.2"/>
+        <rect width="87.01346937799826" height="40" fill="#8b5cf6"/>
+        <text x="10" y="30" fill="#09090b" font-family="monospace" font-size="20" font-weight="bold">PROCESSING</text>
+      </g>
     
-    <!-- Chart Content -->
-    
-        <line x1="200" y1="400" x2="2840" y2="400" stroke="#f1f5f9" stroke-width="8" />
-        <line x1="200" y1="700" x2="2840" y2="700" stroke="#f1f5f9" stroke-width="8" />
-        <line x1="200" y1="1000" x2="2840" y2="1000" stroke="#f1f5f9" stroke-width="8" />
-        <line x1="200" y1="1300" x2="2840" y2="1300" stroke="#f1f5f9" stroke-width="8" />
-        <path d="M 320 861.4428186789155 C 470 861.4428186789155, 470 544.5229981094599, 620 544.5229981094599 C 770 544.5229981094599, 770 942.4688834697008, 920 942.4688834697008 C 1070 942.4688834697008, 1070 897.8986324742436, 1220 897.8986324742436 C 1370 897.8986324742436, 1370 930.4376635700464, 1520 930.4376635700464 C 1670 930.4376635700464, 1670 467.96060986816883, 1820 467.96060986816883 C 1970 467.96060986816883, 1970 1096.3830210268497, 2120 1096.3830210268497 C 2270 1096.3830210268497, 2270 624.7957888990641, 2420 624.7957888990641 C 2570 624.7957888990641, 2570 616.5748024359345, 2720 616.5748024359345 L 2720 1300 L 320 1300 Z" fill="#0ea5e9" fill-opacity="0.2" /><path d="M 320 861.4428186789155 C 470 861.4428186789155, 470 544.5229981094599, 620 544.5229981094599 C 770 544.5229981094599, 770 942.4688834697008, 920 942.4688834697008 C 1070 942.4688834697008, 1070 897.8986324742436, 1220 897.8986324742436 C 1370 897.8986324742436, 1370 930.4376635700464, 1520 930.4376635700464 C 1670 930.4376635700464, 1670 467.96060986816883, 1820 467.96060986816883 C 1970 467.96060986816883, 1970 1096.3830210268497, 2120 1096.3830210268497 C 2270 1096.3830210268497, 2270 624.7957888990641, 2420 624.7957888990641 C 2570 624.7957888990641, 2570 616.5748024359345, 2720 616.5748024359345" fill="none" stroke="#0ea5e9" stroke-width="24" stroke-linecap="round" /><circle cx="320" cy="861.4428186789155" r="32" fill="#fff" stroke="#0ea5e9" stroke-width="12" /><circle cx="620" cy="544.5229981094599" r="32" fill="#fff" stroke="#0ea5e9" stroke-width="12" /><circle cx="920" cy="942.4688834697008" r="32" fill="#fff" stroke="#0ea5e9" stroke-width="12" /><circle cx="1220" cy="897.8986324742436" r="32" fill="#fff" stroke="#0ea5e9" stroke-width="12" /><circle cx="1520" cy="930.4376635700464" r="32" fill="#fff" stroke="#0ea5e9" stroke-width="12" /><circle cx="1820" cy="467.96060986816883" r="32" fill="#fff" stroke="#0ea5e9" stroke-width="12" /><circle cx="2120" cy="1096.3830210268497" r="32" fill="#fff" stroke="#0ea5e9" stroke-width="12" /><circle cx="2420" cy="624.7957888990641" r="32" fill="#fff" stroke="#0ea5e9" stroke-width="12" /><circle cx="2720" cy="616.5748024359345" r="32" fill="#fff" stroke="#0ea5e9" stroke-width="12" /><line x1="200" y1="1300" x2="2840" y2="1300" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round" />
-  </g>
+  
+  <!-- Outer Frame -->
+  <rect width="3840" height="2400" fill="none" stroke="#a1a1aa" stroke-width="40" opacity="0.1"/>
 </svg>

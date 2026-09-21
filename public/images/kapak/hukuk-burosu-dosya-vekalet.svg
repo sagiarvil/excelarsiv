@@ -1,22 +1,39 @@
 <svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    
+      <pattern id="gridPattern" width="100" height="100" patternUnits="userSpaceOnUse">
+        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#18181b" stroke-width="2"/>
+      </pattern>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="40" stdDeviation="50" flood-opacity="0.15" />
+    </filter>
+    <filter id="hugeBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="150" />
+    </filter>
+    <radialGradient id="radarSweep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   
-  <rect width="100%" height="100%" fill="#f4f6f9" />
+  <rect width="100%" height="100%" fill="#09090b" /><rect width="100%" height="100%" fill="url(#gridPattern)" opacity="0.5"/>
+  <circle cx="788.7240978889167" cy="1089.4841409754008" r="885.3867191355675" fill="#8b5cf6" opacity="0.15" filter="url(#hugeBlur)"/><circle cx="2562.2314396314323" cy="1513.5167718399316" r="1006.5428373869509" fill="#ec4899" opacity="0.15" filter="url(#hugeBlur)"/><g transform="translate(2057.219096080858, 805.6475434098464)"><rect width="915.527312271297" height="706.0869644396007" rx="40" fill="#09090b" fill-opacity="0.6" stroke="#10b981" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#8b5cf6"/><circle cx="110" cy="60" r="15" fill="#ec4899"/><text x="160" y="70" fill="#a1a1aa" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 8</text><rect x="100" y="536.398647727058" width="40" height="69.68831671254269" rx="20" fill="#ec4899"/><rect x="180" y="313.53603185965005" width="40" height="292.55093257995065" rx="20" fill="#ec4899"/><rect x="260" y="493.7610242750151" width="40" height="112.3259401645856" rx="20" fill="#ec4899"/><rect x="340" y="506.69806287331573" width="40" height="99.38890156628494" rx="20" fill="#ec4899"/><rect x="420" y="391.96269240075804" width="40" height="214.12427203884266" rx="20" fill="#ec4899"/><rect x="500" y="464.1246401766648" width="40" height="141.9623242629359" rx="20" fill="#ec4899"/><rect x="580" y="534.7775825293833" width="40" height="71.30938191021741" rx="20" fill="#ec4899"/><rect x="660" y="416.6269466519334" width="40" height="189.46001778766734" rx="20" fill="#ec4899"/><rect x="740" y="371.96493027298993" width="40" height="234.1220341666108" rx="20" fill="#ec4899"/></g><g transform="translate(2340.7810156791434, 674.7952309160468)"><rect width="769.5255666971207" height="540.5662670731544" rx="40" fill="#09090b" fill-opacity="0.6" stroke="#10b981" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#8b5cf6"/><circle cx="110" cy="60" r="15" fill="#ec4899"/><text x="160" y="70" fill="#a1a1aa" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 8</text><path d="M 100 270.2831335365772 L 100 361.2128762191454 L 150 330.13034794697285 L 200 284.39513434256395 L 250 235.20481076761524 L 300 194.6028840057844 L 350 172.53012177006752 L 400 174.39070607026338 L 450 199.72910097953803 L 500 242.34158371668462 L 550 291.79513234535875 L 600 335.98179340845616 L 650 364.08313121405115" fill="none" stroke="#10b981" stroke-width="12" stroke-linecap="round"/></g><g transform="translate(522.89334865198, 456.5715607484899)"><rect width="1389.3660793080926" height="582.2051159106195" rx="40" fill="#09090b" fill-opacity="0.6" stroke="#10b981" stroke-opacity="0.2" stroke-width="4" filter="url(#shadow)"/><circle cx="60" cy="60" r="15" fill="#8b5cf6"/><circle cx="110" cy="60" r="15" fill="#ec4899"/><text x="160" y="70" fill="#a1a1aa" font-family="sans-serif" font-weight="bold" font-size="32">ANALYTICS // MODULE 8</text><path d="M 100 291.10255795530975 L 100 305.2145587612965 L 150 256.02423518634777 L 200 215.42230842451693 L 250 193.34954618880005 L 300 195.2101304889959 L 350 220.54852539827056 L 400 263.16100813541715 L 450 312.6145567640913 L 500 356.8012178271887 L 550 384.9025556327837 L 600 390.0383826176479 L 650 370.95126921765876 L 700 332.3144064794854 L 750 283.5874459091288 L 800 236.70044686637277 L 850 203.13298195814275 L 900 191.1035373002394 L 950 203.5573404864669 L 1000 237.44526615526627 L 1050 284.4703682201897 L 1100 333.11926163797386 L 1150 371.4810006104718 L 1200 390.1632935247968 L 1250 384.59206350777805" fill="none" stroke="#10b981" stroke-width="12" stroke-linecap="round"/></g>
   
-  <g transform="translate(400, 400)" filter="url(#shadow)">
-    <!-- White Card Background -->
-    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+      <text x="100" y="100" fill="#a1a1aa" font-family="monospace" font-size="32" font-weight="bold">SYSTEM IDENT: HUKUK-BUROSU-DOSYA-V...</text>
+      <text x="100" y="150" fill="#a1a1aa" font-family="monospace" font-size="24">ENGINE_3 | SEC_LEVEL_ALPHA | J3B0ZMLM</text>
+      
+      <g transform="translate(3500, 100)">
+        <rect width="200" height="40" fill="#8b5cf6" opacity="0.2"/>
+        <rect width="69.49977464275435" height="40" fill="#8b5cf6"/>
+        <text x="10" y="30" fill="#09090b" font-family="monospace" font-size="20" font-weight="bold">PROCESSING</text>
+      </g>
     
-    <!-- Chart Content -->
-    
-        <line x1="200" y1="400" x2="2840" y2="400" stroke="#f1f5f9" stroke-width="8" />
-        <line x1="200" y1="700" x2="2840" y2="700" stroke="#f1f5f9" stroke-width="8" />
-        <line x1="200" y1="1000" x2="2840" y2="1000" stroke="#f1f5f9" stroke-width="8" />
-        <line x1="200" y1="1300" x2="2840" y2="1300" stroke="#f1f5f9" stroke-width="8" />
-        <path d="M 320 771.5873127803206 C 520 771.5873127803206, 520 680.5156255140901, 720 680.5156255140901 C 920 680.5156255140901, 920 749.7851517051458, 1120 749.7851517051458 C 1320 749.7851517051458, 1320 710.8134174719453, 1520 710.8134174719453 C 1720 710.8134174719453, 1720 842.0571165159345, 1920 842.0571165159345 C 2120 842.0571165159345, 2120 418.56915298849344, 2320 418.56915298849344 C 2520 418.56915298849344, 2520 615.527312271297, 2720 615.527312271297 L 2720 1300 L 320 1300 Z" fill="#6366f1" fill-opacity="0.2" /><path d="M 320 771.5873127803206 C 520 771.5873127803206, 520 680.5156255140901, 720 680.5156255140901 C 920 680.5156255140901, 920 749.7851517051458, 1120 749.7851517051458 C 1320 749.7851517051458, 1320 710.8134174719453, 1520 710.8134174719453 C 1720 710.8134174719453, 1720 842.0571165159345, 1920 842.0571165159345 C 2120 842.0571165159345, 2120 418.56915298849344, 2320 418.56915298849344 C 2520 418.56915298849344, 2520 615.527312271297, 2720 615.527312271297" fill="none" stroke="#6366f1" stroke-width="24" stroke-linecap="round" /><circle cx="320" cy="771.5873127803206" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="720" cy="680.5156255140901" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="1120" cy="749.7851517051458" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="1520" cy="710.8134174719453" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="1920" cy="842.0571165159345" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="2320" cy="418.56915298849344" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><circle cx="2720" cy="615.527312271297" r="32" fill="#fff" stroke="#6366f1" stroke-width="12" /><line x1="200" y1="1300" x2="2840" y2="1300" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round" />
-  </g>
+  
+  <!-- Outer Frame -->
+  <rect width="3840" height="2400" fill="none" stroke="#a1a1aa" stroke-width="40" opacity="0.1"/>
 </svg>
