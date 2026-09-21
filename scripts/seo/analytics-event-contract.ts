@@ -20,7 +20,7 @@ const EVENT_CONTRACT = Object.freeze({
   downloadComplete: Object.freeze({
     name: analytics.events.downloadComplete,
     payload: Object.freeze(['templateId', 'fileType']),
-    emitFiles: Object.freeze(['src/components/DemoDownloadBox.astro', 'src/components/CheckoutPanel.astro', 'src/pages/teslimat.astro']),
+    emitFiles: Object.freeze(['src/components/DemoDownloadBox.astro', 'src/pages/teslimat.astro']),
   }),
   signup: Object.freeze({
     name: analytics.events.signup,
