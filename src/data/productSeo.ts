@@ -79,6 +79,82 @@ export const productSeo: Record<string, ProductSeoEntry> = {
   'restoran-kafe-yatirim-fizibilite-ve-karlilik': { title:'Restoran Kafe Yatırım Excel | Food Cost ve Başabaş', description:'Restoran ve kafe açılışlarında masa devir hızı, adisyon büyüklüğü, food cost reçete maliyeti ve başabaş ciro noktasını Excel ile hesaplayın.', primaryQuery:'restoran kafe yatırım excel' },
 };
 
+const qaApprovedCatalogSlugs = [
+  "asgari-kurumlar-vergisi-simulasyon-motoru",
+  "banka-kredi-covenant-erken-uyari",
+  "dava-masraf-harc-hesaplama",
+  "depo-doluluk-lokasyon",
+  "dernek-kooperatif-mali-yonetim",
+  "e-belge-zorunluluk-radari",
+  "e-ticaret-gercek-karlilik-fiyatlama",
+  "elektrik-faturasi-dogrulama",
+  "emlak-pipeline-komisyon",
+  "fason-uretim-takip-sistemi",
+  "fesih-maliyeti-simulatoru",
+  "filo-arac-maliyet-komutasi",
+  "ges-uretim-performans",
+  "ges-yatirim-fizibilite",
+  "gida-lot-maliyet-izlenebilirlik",
+  "hizmet-ihracati-100-indirim-transfer-takip",
+  "hukuk-burosu-dosya-vekalet",
+  "ihale-fiyat-farki-eskalasyon-pro",
+  "ihracat-siparis-karlilik-kur",
+  "insaat-hakedis-yonetim-sistemi",
+  "isg-risk-degerlendirme-pro-6331",
+  "ithalat-landed-cost-motoru",
+  "kargo-desi-maliyet-optimizasyonu",
+  "kat-karsiligi-hasilat-paylasimi-simulator",
+  "kdv-iadesi-tutar-surec-simulasyonu",
+  "kik-asiri-dusuk-savunma-sinir-deger",
+  "kira-portfoyu-getiri-komutasi",
+  "konkordato-ttk376-kriz-paketi",
+  "kvkk-veri-envanteri-verbis-uyum",
+  "makine-bakim-kalibrasyon-durus-maliyeti",
+  "mini-mrp-bom-malzeme-kapasite",
+  "mizan-anomali-denetim-oncesi-kontrol",
+  "oee-durus-kok-neden-komutasi",
+  "on-uc-haftalik-nakit-odeme-onceligi",
+  "ortulu-sermaye-emsal-faiz-tf-paketi",
+  "pazaryeri-hakedis-mutabakat-motoru",
+  "proje-finansmani-dscr-llcr-paketi",
+  "puantaj-vardiya-fazla-mesai-kanit-sistemi",
+  "recete-maliyeti-menu-muhendisligi",
+  "sarj-istasyonu-yatirim",
+  "sekiz-d-duzeltici-faaliyet-dosya",
+  "sera-kurulum-fizibilite",
+  "sevkiyat-fiyatlama-navlun",
+  "sgk-prim-tesvikleri-optimizasyon-motoru",
+  "site-apartman-yonetim-sistemi",
+  "spc-proses-yetenek-analizi",
+  "stok-optimizasyon-abc-olu-stok-nakit",
+  "sut-surusu-yonetim",
+  "tahsilat-riski-vade-komuta-paneli",
+  "tarimsal-destek-uygunluk",
+  "uretim-kari-125-kv-optimizasyonu",
+  "yem-rasyonu-maliyet",
+  "yeniden-degerleme-komuta-merkezi",
+  "yurt-disi-yapilanma-vergi-simulatoru"
+] as const;
+
+function seoLabelFromSlug(slug: string): string {
+  const small = new Set(['ve','ile','100','125','6331']);
+  return slug.split('-').map((part, index) => {
+    if (small.has(part)) return part === 've' || part === 'ile' ? part : part;
+    const first = part.charAt(0).toLocaleUpperCase('tr-TR');
+    return first + part.slice(1);
+  }).join(' ');
+}
+
+for (const slug of qaApprovedCatalogSlugs) {
+  if (productSeo[slug]) continue;
+  const label = seoLabelFromSlug(slug);
+  productSeo[slug] = {
+    title: `${label} Excel | ExcelArşiv`,
+    description: `${label} için kalite kapılarından geçmiş Excel karar, kontrol ve raporlama sistemini inceleyin; gerçek ürün ekranları ve doğrulama kanıtlarıyla değerlendirin.`,
+    primaryQuery: `${label.toLocaleLowerCase('tr-TR')} excel`,
+  };
+}
+
 export function getProductSeoByPath(pathname: string): ProductSeoEntry | null {
   const match = pathname.match(/^\/sablon\/([^/]+)\/?$/);
   return match?.[1] ? productSeo[match[1]] ?? null : null;
