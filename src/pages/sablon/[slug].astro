@@ -88,23 +88,27 @@ const jsonLd = {
       creator: { '@id': personId },
       author: { '@id': personId },
       mainEntityOfPage: { '@id': webpageId },
-      offers: {
-        '@type': 'Offer',
-        '@id': offerId,
-        price: t.priceTL,
-        priceCurrency: 'TRY',
-        priceValidUntil,
-        itemCondition: 'https://schema.org/NewCondition',
-        availability: 'https://schema.org/InStock',
-        url: productUrl,
-        seller: { '@id': organizationId },
-        hasMerchantReturnPolicy: {
-          '@type': 'MerchantReturnPolicy',
-          applicableCountry: 'TR',
-          returnPolicyCategory: IADE_POLITIKASI.schemaCategory,
-          merchantReturnLink: returnPolicyUrl,
-        },
-      },
+      ...(commerceProduct?.satista === true
+        ? {
+            offers: {
+              '@type': 'Offer',
+              '@id': offerId,
+              price: t.priceTL,
+              priceCurrency: 'TRY',
+              priceValidUntil,
+              itemCondition: 'https://schema.org/NewCondition',
+              availability: 'https://schema.org/InStock',
+              url: productUrl,
+              seller: { '@id': organizationId },
+              hasMerchantReturnPolicy: {
+                '@type': 'MerchantReturnPolicy',
+                applicableCountry: 'TR',
+                returnPolicyCategory: IADE_POLITIKASI.schemaCategory,
+                merchantReturnLink: returnPolicyUrl,
+              },
+            },
+          }
+        : {}),
     },
     {
       '@type': 'Brand',
@@ -235,7 +239,7 @@ const jsonLd = {
     )}
   </main>
 
-  <PurchaseBar name={t.name} satista={commerceProduct?.satista !== false} />
+  <PurchaseBar name={t.name} satista={commerceProduct?.satista === true} />
   <div class="h-20 sm:hidden" aria-hidden="true" />
 </CommerceLayout>
 
