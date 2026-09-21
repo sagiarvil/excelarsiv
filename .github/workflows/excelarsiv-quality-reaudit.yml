@@ -1,0 +1,45 @@
+name: ExcelArsiv Quality Re-Audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/excelarsiv_quality_factory.py'
+      - '.github/workflows/excelarsiv-quality-reaudit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Run corrected fail-closed audit and safe calibration
+        run: |
+          python3 tools/excelarsiv_quality_factory.py             --root "$GITHUB_WORKSPACE/EXCELARSIV_PRODUCTS"             --apply
+
+      - name: Remove generated calibrated binaries from worktree
+        run: |
+          rm -rf EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED
+
+      - name: Persist QA evidence only
+        run: |
+          git config user.name "excelarsiv-quality-bot"
+          git config user.email "quality-bot@users.noreply.github.com"
+          git add EXCELARSIV_PRODUCTS/*/QA                   EXCELARSIV_PRODUCTS/_SYSTEM/MANIFEST                   EXCELARSIV_PRODUCTS/_SYSTEM/REPORTS || true
+          if git diff --cached --quiet; then
+            echo "No QA evidence changes."
+          else
+            git commit -m "chore(qa): refresh Excel product quality evidence [skip ci]"
+            git push
+          fi
+
+      - name: Quality summary
+        run: cat EXCELARSIV_PRODUCTS/_SYSTEM/REPORTS/quality_summary.json
