@@ -19,16 +19,16 @@ const menu = [
 const isActive = (href: string) =>
   href === '/sablonlar' ? pathname.startsWith('/sablon') : pathname === href;
 
-const mobileBrandMark = "/images/brand/excelarsiv-header-logo.png";
+const mobileBrandMark = "/favicon.svg";
 ---
 
 <header class="site-header" data-mobile-premium-header>
   <div class="site-container site-header__inner">
     <a href="/" class="site-header__brand" aria-label="Excel Arşiv ana sayfa">
       <picture class="site-header__logo-wrap">
-        <source media="(min-width: 761px)" srcset="/images/brand/excelarsiv-header-logo.png" />
+        <source media="(min-width: 761px)" srcset="/favicon.svg" />
         <img
-          src="/images/brand/excelarsiv-header-logo.png"
+          src="/favicon.svg"
           alt="Excel Arşiv"
           width="40"
           height="40"
