@@ -25,7 +25,6 @@ const headerMarkup = `<header class="site-nav">
     <nav class="nav-links" aria-label="Ana menü">
       <a href="/">Ana Sayfa</a>
       <a href="/sablonlar">Şablonlar</a>
-      <a href="/ozel-excel-sistemleri" aria-current="page">Özel Excel Sistemleri</a>
       <a href="/rehber">Rehber</a>
       <a href="/hakkinda">Hakkımızda</a>
       <a href="/iletisim">İletişim</a>
@@ -35,7 +34,7 @@ const headerMarkup = `<header class="site-nav">
       <details class="mobile-menu">
         <summary aria-label="Menüyü aç"><span class="burger"></span></summary>
         <nav class="mobile-panel" aria-label="Mobil menü">
-          <a href="/">Ana Sayfa</a><a href="/sablonlar">Şablonlar</a><a href="/ozel-excel-sistemleri" aria-current="page">Özel Excel Sistemleri</a><a href="/rehber">Rehber</a><a href="/hakkinda">Hakkımızda</a><a href="/iletisim">İletişim</a>
+          <a href="/">Ana Sayfa</a><a href="/sablonlar">Şablonlar</a><a href="/rehber">Rehber</a><a href="/hakkinda">Hakkımızda</a><a href="/iletisim">İletişim</a>
         </nav>
       </details>
     </div>
