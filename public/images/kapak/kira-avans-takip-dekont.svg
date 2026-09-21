@@ -1,0 +1,17 @@
+<svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f4f6f9" />
+  
+  <g transform="translate(400, 400)" filter="url(#shadow)">
+    <!-- White Card Background -->
+    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+    
+    <!-- Chart Content -->
+    <path d="M 2130.1103184002673 769.5880465163751 A 600 600 0 0 0 1530.4316236703055 189.22126038902866 L 1530.4316236703055 789.2212603890287 Z" fill="#6366f1" stroke="#fff" stroke-width="12" /><path d="M 1671.1445800956417 1392.7255111058078 A 600 600 0 0 0 2131.6022312931136 789.4678451771042 L 1531.923536563152 809.1010590497577 Z" fill="#a855f7" stroke="#fff" stroke-width="12" /><path d="M 1069.365582596705 397.098724819873 A 600 600 0 0 0 1646.2474459982616 1391.1534471430368 L 1507.026402465772 807.5289950869869 Z" fill="#ec4899" stroke="#fff" stroke-width="12" /><path d="M 1514.0380939017025 186.23571012819468 A 600 600 0 0 0 1076.3772740326356 375.80543986108074 L 1514.0380939017025 786.2357101281947 Z" fill="#f43f5e" stroke="#fff" stroke-width="12" />
+  </g>
+</svg>

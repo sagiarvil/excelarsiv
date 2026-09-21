@@ -1,0 +1,22 @@
+<svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f4f6f9" />
+  
+  <g transform="translate(400, 400)" filter="url(#shadow)">
+    <!-- White Card Background -->
+    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+    
+    <!-- Chart Content -->
+    
+        <line x1="200" y1="400" x2="2840" y2="400" stroke="#f1f5f9" stroke-width="8" />
+        <line x1="200" y1="700" x2="2840" y2="700" stroke="#f1f5f9" stroke-width="8" />
+        <line x1="200" y1="1000" x2="2840" y2="1000" stroke="#f1f5f9" stroke-width="8" />
+        <line x1="200" y1="1300" x2="2840" y2="1300" stroke="#f1f5f9" stroke-width="8" />
+        <path d="M 320 357.6726645231247 C 560 357.6726645231247, 560 985.7820620760322, 800 985.7820620760322 C 1040 985.7820620760322, 1040 796.9860216602683, 1280 796.9860216602683 C 1520 796.9860216602683, 1520 430.8598030358553, 1760 430.8598030358553 C 2000 430.8598030358553, 2000 981.5358689054847, 2240 981.5358689054847 C 2480 981.5358689054847, 2480 436.7393132299185, 2720 436.7393132299185 L 2720 1300 L 320 1300 Z" fill="#3b82f6" fill-opacity="0.2" /><path d="M 320 357.6726645231247 C 560 357.6726645231247, 560 985.7820620760322, 800 985.7820620760322 C 1040 985.7820620760322, 1040 796.9860216602683, 1280 796.9860216602683 C 1520 796.9860216602683, 1520 430.8598030358553, 1760 430.8598030358553 C 2000 430.8598030358553, 2000 981.5358689054847, 2240 981.5358689054847 C 2480 981.5358689054847, 2480 436.7393132299185, 2720 436.7393132299185" fill="none" stroke="#3b82f6" stroke-width="24" stroke-linecap="round" /><circle cx="320" cy="357.6726645231247" r="32" fill="#fff" stroke="#3b82f6" stroke-width="12" /><circle cx="800" cy="985.7820620760322" r="32" fill="#fff" stroke="#3b82f6" stroke-width="12" /><circle cx="1280" cy="796.9860216602683" r="32" fill="#fff" stroke="#3b82f6" stroke-width="12" /><circle cx="1760" cy="430.8598030358553" r="32" fill="#fff" stroke="#3b82f6" stroke-width="12" /><circle cx="2240" cy="981.5358689054847" r="32" fill="#fff" stroke="#3b82f6" stroke-width="12" /><circle cx="2720" cy="436.7393132299185" r="32" fill="#fff" stroke="#3b82f6" stroke-width="12" /><line x1="200" y1="1300" x2="2840" y2="1300" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round" />
+  </g>
+</svg>

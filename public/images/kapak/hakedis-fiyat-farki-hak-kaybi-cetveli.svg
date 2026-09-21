@@ -1,0 +1,22 @@
+<svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f4f6f9" />
+  
+  <g transform="translate(400, 400)" filter="url(#shadow)">
+    <!-- White Card Background -->
+    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+    
+    <!-- Chart Content -->
+    
+        <line x1="200" y1="400" x2="2840" y2="400" stroke="#f1f5f9" stroke-width="8" />
+        <line x1="200" y1="700" x2="2840" y2="700" stroke="#f1f5f9" stroke-width="8" />
+        <line x1="200" y1="1000" x2="2840" y2="1000" stroke="#f1f5f9" stroke-width="8" />
+        <line x1="200" y1="1300" x2="2840" y2="1300" stroke="#f1f5f9" stroke-width="8" />
+        <rect x="619.9999999999999" y="233.91780611127615" width="154.28571428571428" height="1066.0821938887239" rx="51.42857142857142" fill="#3b82f6" /><rect x="877.1428571428571" y="952.5876377243549" width="154.28571428571428" height="347.41236227564514" rx="51.42857142857142" fill="#10b981" /><rect x="1134.2857142857142" y="500.6523000774905" width="154.28571428571428" height="799.3476999225095" rx="51.42857142857142" fill="#f59e0b" /><rect x="1391.4285714285716" y="805.6522412458435" width="154.28571428571428" height="494.34775875415653" rx="51.42857142857142" fill="#ef4444" /><rect x="1648.5714285714284" y="329.3140016961843" width="154.28571428571428" height="970.6859983038157" rx="51.42857142857142" fill="#8b5cf6" /><rect x="1905.7142857142858" y="116.35932209901512" width="154.28571428571428" height="1183.6406779009849" rx="51.42857142857142" fill="#3b82f6" /><rect x="2162.857142857143" y="152.67191724851727" width="154.28571428571428" height="1147.3280827514827" rx="51.42857142857142" fill="#10b981" /><line x1="200" y1="1300" x2="2840" y2="1300" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round" />
+  </g>
+</svg>

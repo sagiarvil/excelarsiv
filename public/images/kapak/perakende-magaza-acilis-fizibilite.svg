@@ -1,0 +1,22 @@
+<svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f4f6f9" />
+  
+  <g transform="translate(400, 400)" filter="url(#shadow)">
+    <!-- White Card Background -->
+    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+    
+    <!-- Chart Content -->
+    
+        <line x1="200" y1="400" x2="2840" y2="400" stroke="#f1f5f9" stroke-width="8" />
+        <line x1="200" y1="700" x2="2840" y2="700" stroke="#f1f5f9" stroke-width="8" />
+        <line x1="200" y1="1000" x2="2840" y2="1000" stroke="#f1f5f9" stroke-width="8" />
+        <line x1="200" y1="1300" x2="2840" y2="1300" stroke="#f1f5f9" stroke-width="8" />
+        <rect x="620" y="980.5408548098058" width="135" height="319.45914519019425" rx="45" fill="#059669" /><rect x="845" y="184.66873185243458" width="135" height="1115.3312681475654" rx="45" fill="#10b981" /><rect x="1070" y="303.3397573977709" width="135" height="996.6602426022291" rx="45" fill="#34d399" /><rect x="1295" y="327.8810941847041" width="135" height="972.1189058152959" rx="45" fill="#3b82f6" /><rect x="1520" y="487.2603630181402" width="135" height="812.7396369818598" rx="45" fill="#60a5fa" /><rect x="1745" y="486.6565763950348" width="135" height="813.3434236049652" rx="45" fill="#059669" /><rect x="1970" y="603.6011302145198" width="135" height="696.3988697854802" rx="45" fill="#10b981" /><rect x="2195" y="930.4825595580041" width="135" height="369.51744044199586" rx="45" fill="#34d399" /><line x1="200" y1="1300" x2="2840" y2="1300" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round" />
+  </g>
+</svg>

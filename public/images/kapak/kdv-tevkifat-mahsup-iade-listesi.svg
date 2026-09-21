@@ -1,0 +1,17 @@
+<svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f4f6f9" />
+  
+  <g transform="translate(400, 400)" filter="url(#shadow)">
+    <!-- White Card Background -->
+    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+    
+    <!-- Chart Content -->
+    <path d="M 2130.1134272555423 769.6633126879082 A 600 600 0 0 0 1530.432294240273 189.2219094045205 L 1530.432294240273 789.2219094045205 Z" fill="#dc2626" stroke="#fff" stroke-width="12" /><path d="M 1823.9116545058926 1332.1849900099587 A 600 600 0 0 0 2132.727807242016 787.8430444271576 L 1533.0466742267465 807.4016411437699 Z" fill="#ea580c" stroke="#fff" stroke-width="12" /><path d="M 1165.5522743638817 1299.7645384843486 A 600 600 0 0 0 1809.9358779109218 1339.7545468406115 L 1519.0708976317758 814.9711979744228 Z" fill="#d97706" stroke="#fff" stroke-width="12" /><path d="M 920.3256884090795 931.9879287790004 A 600 600 0 0 0 1153.8878808395632 1292.9421969453103 L 1507.4065041074573 808.1488564353846 Z" fill="#ca8a04" stroke="#fff" stroke-width="12" /><path d="M 984.427584452774 499.652114790603 A 600 600 0 0 0 918.1012134400787 921.5093213812917 L 1505.1820291384565 797.6702490376758 Z" fill="#65a30d" stroke="#fff" stroke-width="12" /><path d="M 1512.4752674579972 187.02392970998824 A 600 600 0 0 0 991.7208227723147 489.0057954629154 L 1512.4752674579972 787.0239297099882 Z" fill="#dc2626" stroke="#fff" stroke-width="12" /><circle cx="1520" cy="800" r="300" fill="#ffffff" />
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg width="3840" height="2400" viewBox="0 0 3840 2400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="30" stdDeviation="40" flood-opacity="0.08" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f4f6f9" />
+  
+  <g transform="translate(400, 400)" filter="url(#shadow)">
+    <!-- White Card Background -->
+    <rect width="3040" height="1600" rx="80" fill="#ffffff" />
+    
+    <!-- Chart Content -->
+    
+        <line x1="200" y1="400" x2="2840" y2="400" stroke="#f1f5f9" stroke-width="8" />
+        <line x1="200" y1="700" x2="2840" y2="700" stroke="#f1f5f9" stroke-width="8" />
+        <line x1="200" y1="1000" x2="2840" y2="1000" stroke="#f1f5f9" stroke-width="8" />
+        <line x1="200" y1="1300" x2="2840" y2="1300" stroke="#f1f5f9" stroke-width="8" />
+        <rect x="280" y="746.3753453455865" width="80" height="553.6246546544135" rx="20" fill="#34d399" fill-opacity="0.8" /><rect x="622.8571428571429" y="449.3593914201483" width="80" height="850.6406085798517" rx="20" fill="#34d399" fill-opacity="0.8" /><rect x="965.7142857142857" y="1067.0685884077102" width="80" height="232.9314115922898" rx="20" fill="#34d399" fill-opacity="0.8" /><rect x="1308.5714285714284" y="1091.1211147904396" width="80" height="208.8788852095604" rx="20" fill="#34d399" fill-opacity="0.8" /><rect x="1651.4285714285713" y="1037.5914033968002" width="80" height="262.40859660319984" rx="20" fill="#34d399" fill-opacity="0.8" /><rect x="1994.2857142857142" y="484.3674600124359" width="80" height="815.6325399875641" rx="20" fill="#34d399" fill-opacity="0.8" /><rect x="2337.142857142857" y="941.8991935905069" width="80" height="358.1008064094931" rx="20" fill="#34d399" fill-opacity="0.8" /><rect x="2680" y="894.79203321971" width="80" height="405.20796678029" rx="20" fill="#34d399" fill-opacity="0.8" /><path d="M 320 575.6316857412457 L 662.8571428571429 572.7301949635148 L 1005.7142857142857 468.30245023593307 L 1348.5714285714284 499.1446035448462 L 1691.4285714285713 786.7499203886837 L 2034.2857142857142 894.9862183537334 L 2377.142857142857 840.8481211401522 L 2720 723.0418799445033" fill="none" stroke="#059669" stroke-width="20" stroke-linejoin="round" /><circle cx="320" cy="575.6316857412457" r="28" fill="#059669" stroke="#fff" stroke-width="8" /><circle cx="662.8571428571429" cy="572.7301949635148" r="28" fill="#059669" stroke="#fff" stroke-width="8" /><circle cx="1005.7142857142857" cy="468.30245023593307" r="28" fill="#059669" stroke="#fff" stroke-width="8" /><circle cx="1348.5714285714284" cy="499.1446035448462" r="28" fill="#059669" stroke="#fff" stroke-width="8" /><circle cx="1691.4285714285713" cy="786.7499203886837" r="28" fill="#059669" stroke="#fff" stroke-width="8" /><circle cx="2034.2857142857142" cy="894.9862183537334" r="28" fill="#059669" stroke="#fff" stroke-width="8" /><circle cx="2377.142857142857" cy="840.8481211401522" r="28" fill="#059669" stroke="#fff" stroke-width="8" /><circle cx="2720" cy="723.0418799445033" r="28" fill="#059669" stroke="#fff" stroke-width="8" /><line x1="200" y1="1300" x2="2840" y2="1300" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round" />
+  </g>
+</svg>
