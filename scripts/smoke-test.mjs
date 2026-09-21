@@ -106,33 +106,36 @@ for (const page of pages) {
         failures.push(`${page}: data-story-slug ${storySlugs}/${storyCards}`);
       }
     } else {
-      const somekaViews = [...html.matchAll(/class="btn-someka-view"[^>]*href="([^"]+)"/g)];
-      if (somekaViews.length > 0) {
-        for (const match of somekaViews) {
-          if (!match[1].startsWith('/sablon/')) {
-            failures.push(`${page}: Detay slug'a gitmiyor -> ${match[1]}`);
-          }
+      // Kart sözleşmesi görsel sınıf adına değil gerçek kullanıcı aksiyonuna bağlıdır.
+      // Her ürün kartında:
+      // 1) ürün detayına giden /sablon/... bağlantısı,
+      // 2) Shopier satın alma veya fail-closed /iletisim teklif aksiyonu,
+      // 3) gerçek ürün görseli bulunmalıdır.
+      const articleBlocks = [...html.matchAll(/<article\b[^>]*\bdata-template-card\b[^>]*>[\s\S]*?<\/article>/g)]
+        .map((match) => match[0]);
+
+      if (articleBlocks.length !== articleCards) {
+        failures.push(`${page}: ürün kartı blok ayrıştırması ${articleBlocks.length}/${articleCards}`);
+      }
+
+      for (const [index, block] of articleBlocks.entries()) {
+        const hrefs = [...block.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
+        const detailLinks = hrefs.filter((href) => href.startsWith('/sablon/'));
+        const actionLinks = hrefs.filter((href) =>
+          /^https:\/\/www\.shopier\.com\/\d+$/.test(href) || href === '/iletisim' || href.startsWith('/iletisim?')
+        );
+
+        if (detailLinks.length < 1) {
+          failures.push(`${page}: kart ${index + 1} ürün detay bağlantısı taşımıyor`);
         }
-      } else {
-        const orders = [...html.matchAll(/class="card__cta card__cta--primary"[^>]*href="([^"]+)"/g)];
-        if (orders.length !== articleCards) {
-          failures.push(`${page}: Satın Al CTA sayısı ${orders.length}, kart ${articleCards}`);
+        if (actionLinks.length < 1) {
+          failures.push(`${page}: kart ${index + 1} satın alma/teklif aksiyonu taşımıyor`);
         }
-        for (const match of orders) {
-          const href = match[1];
-          if (!/^https:\/\/www\.shopier\.com\/\d+$/.test(href)) {
-            failures.push(`${page}: Satın Al Shopier ürün linkine gitmiyor -> ${href}`);
-          }
-        }
-        const details = [...html.matchAll(/class="card__cta card__cta--ghost"[^>]*href="([^"]+)"/g)];
-        for (const match of details) {
-          if (!match[1].startsWith('/sablon/')) {
-            failures.push(`${page}: Detay slug'a gitmiyor -> ${match[1]}`);
-          }
-        }
-        const focuses = html.match(/data-focus="result"/g)?.length ?? 0;
-        if (focuses !== articleCards) {
-          failures.push(`${page}: screenshotFocus=result ${focuses}/${articleCards}`);
+
+        const hasRealImage =
+          /<img\b[^>]*(?:class="[^"]*premium-card__shot[^"]*"|src="\/screenshots\/|src="\/images\/kapak\/)[^>]*>/i.test(block);
+        if (!hasRealImage) {
+          failures.push(`${page}: kart ${index + 1} gerçek ürün görseli taşımıyor`);
         }
       }
     }

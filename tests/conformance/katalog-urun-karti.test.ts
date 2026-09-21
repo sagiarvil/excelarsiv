@@ -71,7 +71,7 @@ test('listeleme ve sızıntı yüzeyleri tek kart bileşenine bağlı', () => {
   assert.match(grid, /data-template-grid-wrap/);
   assert.match(grid, /KatalogUrunKarti/);
   assert.equal(/wa\.me/.test(grid), false);
-  assert.match(card, /orderUrl=\{template\.shopierUrl\}/);
+  assert.match(card, /href=\{template\.shopierUrl\}/);
   assert.equal(/wa\.me/.test(card), false);
   assert.equal(/wa\.me/.test(visual), false);
   assert.match(product, /KatalogUrunKarti/);

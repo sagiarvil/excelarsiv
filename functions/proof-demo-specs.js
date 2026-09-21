@@ -4979,8 +4979,45 @@ const SPECS = Object.freeze({
   }
 });
 
-function getProofDemoSpec(slug) {
-  return SPECS[slug] ?? null;
+function qualifyLegacyInputFormula(formula) {
+  if (typeof formula !== 'string' || !formula.startsWith('=')) return formula;
+  if (formula.includes('DEMO_GIRIS!')) return formula;
+  return formula.replace(
+    /(^|[^A-Z0-9_!])((?:\$?[A-Z]{1,3}\$?\d+)(?::(?:\$?[A-Z]{1,3}\$?\d+))?)/g,
+    (_match, prefix, ref) => `${prefix}DEMO_GIRIS!${ref}`,
+  );
 }
 
-module.exports = { SPECS, getProofDemoSpec };
+function normalizeLegacySpec(spec) {
+  if (!spec || Array.isArray(spec.metrikler)) return spec;
+  if (!Array.isArray(spec.ozet) || spec.ozet.length < 3) return spec;
+
+  const numeric = spec.ozet.slice(0, -1).map(([label, formula, type]) => [
+    label,
+    qualifyLegacyInputFormula(formula),
+    type,
+  ]);
+  const decision = spec.ozet[spec.ozet.length - 1];
+
+  while (numeric.length < 4) {
+    if (numeric.length === 2) {
+      numeric.push(['Dolu kayıt', '=COUNTA(DEMO_GIRIS!A6:A25)', 'sayi']);
+    } else {
+      numeric.push(['Veri doluluk oranı', '=COUNTA(DEMO_GIRIS!A6:E25)/(20*5)', 'oran']);
+    }
+  }
+
+  return {
+    ...spec,
+    metrikler: [
+      ...numeric.slice(0, 4),
+      [decision[0], qualifyLegacyInputFormula(decision[1]), decision[2]],
+    ],
+  };
+}
+
+function getProofDemoSpec(slug) {
+  return normalizeLegacySpec(SPECS[slug] ?? null);
+}
+
+module.exports = { SPECS, getProofDemoSpec, normalizeLegacySpec };

@@ -39,6 +39,19 @@ const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message
   </div>
 </section>
 
+<script>
+  import { analytics, trackAnalyticsEvent } from '../lib/analytics';
+
+  document.querySelectorAll<HTMLElement>('.checkout-card[data-product-slug]').forEach((root) => {
+    const link = root.querySelector<HTMLAnchorElement>('.wa-button');
+    const packId = root.dataset.productSlug ?? '';
+    if (!link || !packId) return;
+    link.addEventListener('click', () => {
+      trackAnalyticsEvent(analytics.events.checkoutIntent, { packId });
+    });
+  });
+</script>
+
 <style>
   .checkout-card{height:100%;padding:24px 26px;border:1px solid #c5d4cb;border-radius:20px;background:linear-gradient(180deg,#fff 0%,#f0fdf4 100%);box-shadow:0 12px 30px rgba(21,70,44,.06);display:flex;flex-direction:column;justify-content:center}
   .checkout-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
