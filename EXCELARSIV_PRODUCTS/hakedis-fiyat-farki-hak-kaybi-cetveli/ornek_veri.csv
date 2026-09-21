@@ -1,0 +1,21 @@
+ORNEK VERI — HAKEDİŞ FİYAT FARKI VE HAK KAYBI CETVELİ
+Bu dosya otomasyon ve içe aktarma için yapıdır; hakediş kalemlerinizi, endeks kayıtlarınızı ve dönem verilerinizi CSV/Excel'den kopyalayabilirsiniz.
+SOZLESME_KARTI (manuel giriş)
+Sözleşme Adı,İşveren,Yüklenici,Sözleşme Tarihi,Sözleşme Bedeli (₺),a (Sabit Ağırlık),b (İşçilik Ağırlığı),c (Malzeme Ağırlığı),d (Makine Ağırlığı),Fiyat Farkı Maddesi
+Okul İnşaatı,İl Milli Eğitim Müdürlüğü,Yapı A A.Ş.,15.01.2026,8500000,0.20,0.35,0.35,0.10,Evet
+HAKEDIS_KALEMLERI (tblKalem)
+Kalem Adı,Birim,Hakediş Miktarı,Sözleşme Birim Fiyatı (₺),Piyasa Birim Fiyatı (₺)
+Beton,m³,1200,1450,1510
+Demir,ton,85,27500,28400
+Kalıp,m²,4500,320,330
+Duvar,m²,3800,480,495
+ENDEKS_KAYITLARI (tblEndeks)
+Endeks Adı,Ağırlık,Temel Endeks,Dönem Endeksi
+İşçilik,0.35,420,448
+Malzeme,0.35,380,415
+Makine,0.10,300,312
+HAKEDIS_DONEMLERI (tblDonem)
+Dönem Numarası,Dönem Adı,Hakediş Tutarı (₺),Ödeme Tarihi
+1,1. Hakediş,2500000,10.04.2026
+2,2. Hakediş,2800000,05.07.2026
+3,3. Hakediş,2700000,12.10.2026

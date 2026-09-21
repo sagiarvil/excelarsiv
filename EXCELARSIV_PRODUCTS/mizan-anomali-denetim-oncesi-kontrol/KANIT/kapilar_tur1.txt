@@ -1,0 +1,102 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/mizan-anomali-denetim-oncesi-kontrol/MizanAnomaliDenetimOncesiKontrol.xlsx
+SHA-256 : cca0543d923b6a0352682f0d95541cce6b2d6d117fb0b7bc97536cec8587f50d
+ARKETİP : A2
+TARİH   : 11.08.2026 14:10
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (15 sayfa)
+  GEÇTİ  G02   15 sayfa şifreli korumada
+  GEÇTİ  G03   563 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   34579 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+! KALDI  G07   500 formülde gömülü sihirli sayı — parametre AYARLAR'da olmalı: [('MOTOR', 'H6', '25,0'), ('MOTOR', 'H7', '25,0'), ('MOTOR', 'H8', '25,0'), ('MOTOR', 'H9', '25,0'), ('MOTOR', 'H10', '25,0'), ('MOTOR', 'H11', '25,0')]
+  GEÇTİ  G08   8 tablo, hesaplanan kolonlar tanımlı
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   49 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   82 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+! KALDI  G15   41 hücrede metin taşması: ['VERI_B!H6 (20 krkt / genişlik 14)', 'VERI_B!H7 (20 krkt / genişlik 14)', 'VERI_B!H8 (20 krkt / genişlik 14)', 'VERI_B!H9 (20 krkt / genişlik 14)', 'VERI_B!H10 (20 krkt / genişlik 14)', 'VERI_B!H11 (20 krkt / genişlik 14)']
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+  GEÇTİ  G17   8 grafik
+  GEÇTİ  G18   50 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  GEÇTİ  G24   Tablo kapasiteleri: [('VERI_A', 'tblVeriA', 501), ('VERI_B', 'tblVeriB', 501), ('ANAHTAR', 'tblAnahtarA', 501), ('ANAHTAR', 'tblAnahtarB', 501), ('MOTOR', 'tblMotor', 501), ('ESLESTIRME', 'tblEslesme', 501), ('KOK_NEDEN', 'tblKok', 511), ('AKSIYON', 'tblAksiyon', 501)]
+
+======================================================================
+SONUÇ: 2 KALDI | rapor: KANIT/RAPOR_DENETIM.md
+SEVK EDİLEMEZ
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+! KALDI  Ö2    Uç durumda kırılma: ['tumu_sifir: 201 hata hücresi (VERI_B!G6=#VALUE!)', 'tumu_bos: 201 hata hücresi (VERI_B!G6=#VALUE!)', 'negatif_deger: 201 hata hücresi (VERI_B!G6=#VALUE!)', 'gelecek_tarih: 201 hata hücresi (VERI_B!G6=#VALUE!)', 'yinelenen_kayit: 201 hata hücresi (VERI_B!G6=#VALUE!)', 'tek_satir: 201 hata hücresi (VERI_B!G6=#VALUE!)', 'azami_deger: 201 hata hücresi (VERI_B!G6=#VALUE!)']
+
+==========================================================================
+SONUÇ: 1 KALDI | rapor: KANIT/RAPOR_OLCEK.md
+SEVK EDİLEMEZ
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    34579 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   50 ad tanımının hedefi dolu
+  GEÇTİ  D06    Sabitten türeyen sahte KPI yok
+  GEÇTİ  D13    Motor 10000 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 31 farklı canlı KPI
+  GEÇTİ  D09    8 grafik + tahmin katmanı mevcut
+  GEÇTİ  D09b   Grafik serilerinde veri var
+  GEÇTİ  D10    Tüm parametrelerde kaynak ve yürürlük tarihi dolu
+  GEÇTİ  D12    Çapraz tutarlılık sağlandı
+  GEÇTİ  D03    Derinlik puanı 160
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 30,000 TL ≥ eşik 29,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: cca0543d923b6a0352682f0d95541cce6b2d6d117fb0b7bc97536cec8587f50d
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_DEGER.md
+SEVK EDİLEBİLİR
+
+[E] Eşleştirme     → eslestirme_kapilari.py  (arketip A2)
+------------------------------------------------------------------------------
+  GEÇTİ  E01   ANAHTAR normalize kolon/formül izi var
+  GEÇTİ  E01b  SPEC anahtar_stratejisi mevcut
+  GEÇTİ  E02   dört kova etiket izleri mevcut
+  GEÇTİ  E03   eşleşme oranı formülle veriden türüyor
+  GEÇTİ  E04   TANIMSIZ/elle incele kovası görünür
+  GEÇTİ  E05   duplike tespit izi var
+  GEÇTİ  E06   SPEC olcek_hedefi=50000 (A2 50k sözleşmesi)
+
+ÖZET E: 0 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        KALDI      (2 KALDI / 24 GEÇTİ)  [her ürün] 1.7sn
+  Ö  Dayanıklılık   KALDI      (1 KALDI / 0 GEÇTİ)  [her ürün] 41.1sn
+  D  Değer          TEMİZ      (0 KALDI / 16 GEÇTİ)  [her ürün] 12.5sn
+  M  Mevzuat        ATLANDI      [arketip gerektirmiyor] 0.0sn
+  E  Eşleştirme     TEMİZ      (0 KALDI / 7 GEÇTİ)  [arketip A2] 0.7sn
+  A  İş Akışı       ATLANDI      [arketip gerektirmiyor] 0.0sn
+  F  Fizibilite     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  S  Saha           ATLANDI      [arketip gerektirmiyor] 0.0sn
+  R  Reçete         ATLANDI      [arketip gerektirmiyor] 0.0sn
+
+==============================================================================
+SONUÇ: 3 KALDI · SEVK EDİLEMEZ
+Kanıt: KANIT/ · SHA-256: cca0543d923b6a0352682f0d95541cce6b2d6d117fb0b7bc97536cec8587f50d
+Birleşik karar raporu: KANIT/SEVK_KARARI.md

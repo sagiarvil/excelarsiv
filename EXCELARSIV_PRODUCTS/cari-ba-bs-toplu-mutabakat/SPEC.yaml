@@ -1,0 +1,111 @@
+# =============================================================================
+# SPEC — Hat C C-07 · Cari ve Ba-Bs Toplu Mutabakat Motoru
+# Ayırt edici: Form Ba/Bs eşleştirme kovası (cari risk paneli değil)
+# =============================================================================
+
+urun:
+  kod: CBB-PRO
+  ad: "Cari ve Ba-Bs Toplu Mutabakat Motoru"
+  surum: "1.0.0"
+  slug: cari-ba-bs-toplu-mutabakat
+  dosya: CariBaBsTopluMutabakat.xlsx
+  prefix: cbb_
+  satis_fiyati_tl: 990
+  hedef_kullanici: "Muhasebe, SMMM"
+
+arketip: A2
+fiyat: 990
+olcek_hedefi: 50000
+
+deger:
+  satis_fiyati_tl: 990
+  Y1_danisman_ikamesi_tl: 2500
+  Y2_kurulum_ikamesi_tl: 1200
+  Y3_onlenen_hata_tl: 10000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Ba-Bs mutabakat danışmanlığı"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - {rol: "Muhasebe", is_bitince: "Cari ↔ Ba/Bs satırlarını eşleştirir"}
+  - {rol: "SMMM", is_bitince: "Fark listesini düzeltir ve beyanı kapatır"}
+  - {rol: "Vergi dairesi", is_bitince: "Kanıt mutabakatını görür"}
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "Form Ba/Bs süresi −15 gün"
+  tarih_penceresi: "ba_bs_oncesi_15_gun"
+
+rakip_ayrim:
+  - {sinif: R1_jenerik, ayrim: "VKN+unvan normalize anahtar", karsilik: "cbb_normAnahtar"}
+  - {sinif: R1_jenerik, ayrim: "Dört kova Ba-Bs mutabakat", karsilik: "cbb_kovaButunluk"}
+  - {sinif: R2_bedava, ayrim: "TANIMSIZ kök-neden", karsilik: "cbb_tanimsizKova"}
+  - {sinif: R1_jenerik, ayrim: "Eşleşme oranı veriden türer", karsilik: "cbb_eslesmeOrani"}
+  - {sinif: R4, ayrim: "VERİ YOK/UYGUN/İNCELE/DURDUR", karsilik: "cbb_kararKapi"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["Elle VLOOKUP", "GİB Ba-Bs ekranı", "Ön muhasebe"]
+  ayrimlar:
+    - {madde: "Normalize VKN anahtar", karsilik: "cbb_normAnahtar"}
+    - {madde: "Dört kova bütünlük", karsilik: "cbb_kovaButunluk"}
+    - {madde: "TANIMSIZ kova", karsilik: "cbb_tanimsizKova"}
+    - {madde: "Eşleşme oranı canlı", karsilik: "cbb_eslesmeOrani"}
+    - {madde: "Boş dosyada VERİ YOK", karsilik: "cbb_kararKapi"}
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(vkn,\" \",\"\")))"
+  ikincil: "unvan_norm veya tutar+donem"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+analitik_moduller:
+  - {kod: T1, ad: "Eşleşme oranı", ad_tanimi: "cbb_modulT1", yorum_hucresi: "cbb_modulT1Yorum"}
+  - {kod: T2, ad: "Ort. fark", ad_tanimi: "cbb_modulT2", yorum_hucresi: "cbb_modulT2Yorum"}
+  - {kod: O1, ad: "Anomali", ad_tanimi: "cbb_modulO1", yorum_hucresi: "cbb_modulO1Yorum"}
+  - {kod: O2, ad: "Tornado", ad_tanimi: "cbb_modulO2", yorum_hucresi: "cbb_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "cbb_modulO3", yorum_hucresi: "cbb_modulO3Yorum"}
+  - {kod: O6, ad: "VKN yoğunlaşması", ad_tanimi: "cbb_modulO6", yorum_hucresi: "cbb_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "cbb_modulO8", yorum_hucresi: "cbb_modulO8Yorum"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "cbb_modulI1", yorum_hucresi: "cbb_modulI1Yorum"}
+  - {kod: I2, ad: "P90", ad_tanimi: "cbb_modulI2", yorum_hucresi: "cbb_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: eslesme_dusuk, karar: "DURDUR"}
+  - {kosul: fark_var, karar: "İNCELE"}
+  - {kosul: temiz, karar: "UYGUN"}
+
+sayfa_akisi: [KAPAK, VERI_A, VERI_B, ANAHTAR, MOTOR, ESLESTIRME, KOK_NEDEN, PANO, AKSIYON, KANIT_RAPORU, KONTROLLER, ORNEK_VERI, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+testler:
+  olcek:
+    satir: 5000
+    azami_hesap_saniye: 30
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "Hat C C-07 — kullanıcı tam yetki"}

@@ -1,0 +1,111 @@
+# Hat A #9 — KİK Aşırı Düşük Savunma + Sınır Değer Paketi
+# FAZ 2 · A1 · ONAYLANDI
+
+urun:
+  kod: KIK-PRO
+  ad: "KİK Aşırı Düşük Savunma + Sınır Değer Paketi"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "Müteahhit, teklif hazırlayan, ihale danışmanı"
+
+arketip: A1
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 25000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 40000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "KİK aşırı düşük açıklama danışmanlığı"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "Teklif hazırlayan"
+    is_bitince: "Sınır değer ve sapmayı görür"
+  - rol: "Müteahhit"
+    is_bitince: "SAVUNULABİLİR / İNCELE / RİSKLİ kararını alır"
+  - rol: "Danışman"
+    is_bitince: "Kanıt raporunu dosyalar"
+
+lansman_tetigi:
+  sinif: Mevzuat_yayimi
+  aciklama: "KİK sınır değer katsayısı / tebliğ güncellemesi veya ihale açıklama süresi"
+  tarih_penceresi: "ihale_aciklama_suresi"
+
+rakip_ayrim:
+  - sinif: R2_bedava
+    ayrim: "Senaryo + N katsayısı değişimi"
+    karsilik: "kik_senaryoKarsilastirma"
+  - sinif: R2_bedava
+    ayrim: "Kanıt raporu + madde atfı"
+    karsilik: "kik_kanitRaporu"
+  - sinif: R1_jenerik
+    ayrim: "Yıl yan yana parametre"
+    karsilik: "kik_kuralYilMatris"
+  - sinif: R1_jenerik
+    ayrim: "Tebliğ/vaka tutarlılık"
+    karsilik: "kik_vakaDurum"
+  - sinif: R4
+    ayrim: "Karar motoru; kayıt değil"
+    karsilik: "kik_kararMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["KİK cetveli", "Elle Excel", "İhale danışmanı"]
+  ayrimlar:
+    - madde: "M-SEN N katsayısı değişimi"
+      karsilik: "kik_kuralDegisimSenaryo"
+    - madde: "Duyarlılık"
+      karsilik: "kik_duyarlilikSira"
+    - madde: "Vaka FARK"
+      karsilik: "kik_vakaFark"
+    - madde: "Gerekçeli karar"
+      karsilik: "kik_kararGerekce"
+    - madde: "Parmak izi"
+      karsilik: "kik_parmakIzi"
+
+mevzuat:
+  kurallar: [KIK-001, KIK-002, KIK-003, KIK-004, KIK-005]
+  vakalar: sinir_deger_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [sinir_deger_hesap_yontemi]
+
+analitik_moduller:
+  - {kod: T1, ad: "Teklif / sınır oranı", ad_tanimi: "kik_modulT1", yorum_hucresi: "kik_modulT1Yorum"}
+  - {kod: T2, ad: "Maliyet / teklif oranı", ad_tanimi: "kik_modulT2", yorum_hucresi: "kik_modulT2Yorum"}
+  - {kod: O1, ad: "Sapma göstergesi", ad_tanimi: "kik_modulO1", yorum_hucresi: "kik_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık", ad_tanimi: "kik_duyarlilikSira", yorum_hucresi: "kik_yorumDuyarlilik"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "kik_senaryoKarsilastirma", yorum_hucresi: "kik_yorumSenaryo"}
+  - {kod: O6, ad: "Dayanak payı", ad_tanimi: "kik_modulO6", yorum_hucresi: "kik_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "kik_modulO8", yorum_hucresi: "kik_modulO8Yorum"}
+  - {kod: M_SEN, ad: "N katsayısı değişimi", ad_tanimi: "kik_kuralDegisimSenaryo", yorum_hucresi: "kik_yorumKuralDegisim"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "kik_tahminAralik", yorum_hucresi: "kik_yorumTahmin"}
+  - {kod: I2, ad: "Sapma P90", ad_tanimi: "kik_modulI2", yorum_hucresi: "kik_modulI2Yorum"}
+
+sayfa_akisi: [PANO, GIRDI, KURALLAR, MOTOR, SENARYO, VAKALAR, KANIT_RAPORU, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "FAZ 2 hat 2 ürün #9"}

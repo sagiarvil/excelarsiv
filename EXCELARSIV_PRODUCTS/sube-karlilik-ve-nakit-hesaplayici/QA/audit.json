@@ -1,0 +1,127 @@
+{
+  "product": "sube-karlilik-ve-nakit-hesaplayici",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/sube-karlilik-ve-nakit-hesaplayici/SubeKarlilikVeNakitHesaplayici.xlsx",
+  "sha256": "800cfca8457417b460b2cf5701290d1f76f3ff795a48fba4b02cc6cab7a9a6c0",
+  "size_bytes": 534934,
+  "modified_at": "2026-08-12T14:24:56",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "SUBE_LISTESI",
+    "GELIR_GIDER",
+    "NAKIT_AKISI",
+    "HESAP",
+    "KONTROLLER",
+    "KARAR",
+    "PANO",
+    "SENARYO_DUYARLILIK",
+    "RAPOR",
+    "ORNEK_VERI",
+    "GUNLUK_GIRIS",
+    "ALARMLAR",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": null,
+    "HIZLI_BASLANGIC": null,
+    "SUBE_LISTESI": null,
+    "GELIR_GIDER": null,
+    "NAKIT_AKISI": null,
+    "HESAP": null,
+    "KONTROLLER": null,
+    "KARAR": null,
+    "PANO": null,
+    "SENARYO_DUYARLILIK": null,
+    "RAPOR": null,
+    "ORNEK_VERI": null,
+    "GUNLUK_GIRIS": null,
+    "ALARMLAR": null,
+    "DEGISIKLIK_KAYDI": null,
+    "LISTELER": null,
+    "AYARLAR": null,
+    "KILAVUZ": null
+  },
+  "formula_count": 729,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 52,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 6,
+  "conditional_format_count": 27,
+  "data_validation_count": 26,
+  "gridlines_on_count": 18,
+  "freeze_panes_count": 4,
+  "merged_ranges": 58,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > SUBE_LISTESI > GELIR_GIDER > NAKIT_AKISI > HESAP > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > GUNLUK_GIRIS > ALARMLAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > NAKIT_AKISI > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > SUBE_LISTESI > GELIR_GIDER > HESAP > PANO > RAPOR > ORNEK_VERI > GUNLUK_GIRIS > ALARMLAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=52"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": false,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=18"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": false,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=18"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > SUBE_LISTESI > GELIR_GIDER > NAKIT_AKISI > HESAP > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > GUNLUK_GIRIS > ALARMLAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > NAKIT_AKISI > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > SUBE_LISTESI > GELIR_GIDER > HESAP > PANO > RAPOR > ORNEK_VERI > GUNLUK_GIRIS > ALARMLAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=729"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

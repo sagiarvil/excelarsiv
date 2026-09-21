@@ -1,0 +1,153 @@
+# =============================================================================
+# SPEC — Hat B Y-11 · Depo Doluluk & Lokasyon Optimizasyonu
+# Durum: ONAYLANDI — Hat B lojistik dikey
+# Manda: v6 (A5 Saha Operasyon Komuta Merkezi — S01–S05 zorunlu)
+# Domain: depo doluluk %, lokasyon/koridor verim, alarm — filo kopyası değil
+# =============================================================================
+
+urun:
+  kod: DDL-PRO
+  ad: "Depo Doluluk & Lokasyon Optimizasyonu"
+  surum: "1.0.0"
+  slug: depo-doluluk-lokasyon
+  dosya: DepoDolulukLokasyon.xlsx
+  prefix: ddl_
+  satis_fiyati_tl: 4900
+  hedef_kullanici: "Depo müdürü, WMS operasyon, lojistik planlama, CFO"
+
+arketip: A5
+fiyat: 4900
+olcek_hedefi: 10000
+
+deger:
+  satis_fiyati_tl: 4900
+  Y1_danisman_ikamesi_tl: 11000
+  Y2_kurulum_ikamesi_tl: 5000
+  Y3_onlenen_hata_tl: 28000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Depo yerleşim danışmanlığı + doluluk/lokasyon komuta dosyası"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Saha / depo operatörü"
+    is_bitince: "Günlük doluluk-palet-pick satırını ≤6 alanda kilitler"
+  - rol: "Depo müdürü"
+    is_bitince: "Doluluk %, koridor verim ve UYGUN/DİKKAT/KRİTİK/VERİ YOK kararını görür"
+  - rol: "CFO / denetçi"
+    is_bitince: "RAPOR ile dönemsel depo doluluk kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Donemsel_operasyon
+  aciklama: "Aylık depo doluluk kapanışı ve lokasyon/koridor kapasite revizyonu"
+  tarih_penceresi: "aylik_depo_kapanisi"
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "Doluluk % + koridor verim tek formülde canlı"
+    karsilik: "ddl_ortDoluluk"
+  - sinif: R1_jenerik
+    ayrim: "Lokasyon sağlık skoru sahadan formülle türer (sabit skor yok)"
+    karsilik: "ddl_saglikSkor"
+  - sinif: R1_jenerik
+    ayrim: "Alarm eşikleri AYARLAR'da; listelenmiş alarm kuyruğu"
+    karsilik: "ddl_alarmListesi"
+  - sinif: R2_bedava
+    ayrim: "12 aylık sezonsal doluluk zinciri"
+    karsilik: "ddl_sezonsalTrend"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz, çevrimdışı; WMS/API bağı yok"
+    karsilik: "ddl_kararKapi"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Raf sayımı + Excel'de yüzde elle bölmek"
+    - "WMS ekranından ekran görüntüsü almak"
+    - "Depo yazılımı aboneliği"
+  ayrimlar:
+    - madde: "Doluluk % ve koridor verim tek satırda canlı formül"
+      karsilik: "ddl_ortDoluluk"
+    - madde: "Lokasyon sağlık skoru COUNTIF/SUMIF ile veriden türer"
+      karsilik: "ddl_saglikSkor"
+    - madde: "Alarm eşiği AYARLAR + varlık/eşik/süre listesi"
+      karsilik: "ddl_alarmListesi"
+    - madde: "12 ay sezonsal doluluk karşılaştırması"
+      karsilik: "ddl_sezonsalTrend"
+    - madde: "Boş dosyada VERİ YOK; UYGUN/DİKKAT/KRİTİK kapısı"
+      karsilik: "ddl_kararKapi"
+
+saha:
+  gunluk_giris_alan: 6
+  birim_disiplini: true
+  sezonsallik_ay: 12
+  saglik_skor_formul: true
+  alarm_esik_ayarlar: true
+
+analitik_moduller:
+  - {kod: T1, ad: "Günlük doluluk ortalaması", ad_tanimi: "ddl_gunlukDolulukOrt", yorum_hucresi: "ddl_yorumGunluk"}
+  - {kod: T2, ad: "Aylık doluluk trend", ad_tanimi: "ddl_aylikDolulukTrend", yorum_hucresi: "ddl_yorumAylik"}
+  - {kod: O1, ad: "Doluluk sapma", ad_tanimi: "ddl_dolulukSapma", yorum_hucresi: "ddl_yorumSapma"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "ddl_tornadoZirve", yorum_hucresi: "ddl_yorumTornado"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "ddl_senaryoKarsilastirma", yorum_hucresi: "ddl_yorumSenaryo"}
+  - {kod: O6, ad: "Yoğunlaşma HHI", ad_tanimi: "ddl_hhi", yorum_hucresi: "ddl_yorumHhi"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "ddl_kaliteSkor", yorum_hucresi: "ddl_yorumKalite"}
+  - {kod: M_SEN, ad: "Senaryo motoru", ad_tanimi: "ddl_senaryoMotor", yorum_hucresi: "ddl_yorumSenMotor"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "ddl_tahminAralik", yorum_hucresi: "ddl_yorumTahmin"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "ddl_yuzdelikP90", yorum_hucresi: "ddl_yorumP90"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "kritik_alarm_veya_saglik_dusuk"
+    karar: "KRİTİK"
+  - kosul: "doluluk_veya_verim_esik_asim"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - VARLIKLAR
+  - GUNLUK_GIRIS
+  - DONEM_ANALIZ
+  - HESAP
+  - PANO
+  - ALARMLAR
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 250
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+testler:
+  asgari_tablo_kapasitesi: 250
+  olcek:
+    satir: 500
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-11 — A5 depo doluluk & lokasyon sevk hedefi"

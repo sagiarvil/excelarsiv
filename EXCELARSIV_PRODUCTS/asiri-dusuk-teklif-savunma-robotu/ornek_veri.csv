@@ -1,0 +1,32 @@
+ORNEK VERI — AŞIRI DÜŞÜK TEKLİF SAVUNMA ROBOTU
+Bu dosya otomasyon ve içe aktarma için yapıdır; rakip ve bileşen satırlarını CSV/Excel'den kopyalayabilirsiniz.
+IHALE_KARTI (manuel giriş)
+İhale Adı,İdare,İhale Tarihi,Yaklaşık Maliyet (₺),Sınır Değer Yöntemi,Sınır Değer Katsayısı (N),Kendi Teklif (₺),Fiyat Farkı Maddesi
+Örnek Yapım İşi,Örnek İdare,01.09.2026,14000000,Kamu İhale Genel Tebliği,1,11250000,Evet
+RAKIP_TEKLIFLER (tblRakipler)
+Rakip Adı,Teklif Tutarı (₺),Geçerli mi?
+Yapı A A.Ş.,11900000,EVET
+İnşaat B Ltd.,12300000,EVET
+C Yapım,10600000,EVET
+D İnşaat,12800000,HAYIR
+E Yapı,13200000,EVET
+F Ltd.,12600000,EVET
+TEKLIF_BILESENLERI (tblBilesenler)
+Kalem Adı,Birim,Miktar,Birim Fiyat (₺),Rayiç Birim Fiyat (₺),Dayanak Türü
+Beton C30,m³,1000,3150,2925,Proforma Fatura
+Demir Donatı,ton,60,112100,108167,Bayi Fiyat Listesi
+Kalıp İşçiliği,m²,4500,135,128.8,İdare Analizi
+FIYAT_FARKI_ENDEX (tblProjeksiyon)
+Dönem,Endeks Değeri,Not
+2026/01,124.5,Örnek dönem
+2026/02,126.8,Örnek dönem
+2026/03,129.1,Örnek dönem
+2026/04,131.4,Örnek dönem
+2026/05,133.7,Örnek dönem
+2026/06,136.2,Örnek dönem
+2026/07,138.9,Örnek dönem
+2026/08,141.1,Örnek dönem
+2026/09,143.6,Örnek dönem
+2026/10,146.2,Örnek dönem
+2026/11,148.7,Örnek dönem
+2026/12,151.3,Örnek dönem

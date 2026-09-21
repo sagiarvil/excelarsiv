@@ -1,0 +1,88 @@
+arketip: A1
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi
+  ad: "Vergi/SGK Borcunu Tecil Etmeli Miyim? (Kredi mi Tecil mi?)"
+  karar: "Borç aslı ve gecikme zammını tek tabloda toplar; tecil (6183/48), banka kredisi ve peşin ödeme seçeneklerinin toplam maliyetini ve bugünkü değerini (NBD) hesaplar; kredi onayı varsa en düşük maliyetli yolu gerekçesiyle önerir, krediye erişim yoksa tecil ile peşin arasında karar verir"
+  moduller:
+    - zaman_serisi_projeksiyon
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - yogunlasma_analizi
+    - anomali_tespiti
+    - kalite_skoru
+    - karar_kapisi
+    - aksiyon_uretici
+    - deger_olcer
+    - esik_kirilim
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1500
+    azami_hesap_saniye: 30.0
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1ZamOrani
+    yorum_hucresi: modulT1ZamOraniYorum
+  - kod: T2
+    ad_tanimi: modulT2OrtalamaBorc
+    yorum_hucresi: modulT2OrtalamaBorcYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2EnYuksekBorc
+    yorum_hucresi: modulO2EnYuksekBorcYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1BorcTahmin
+    yorum_hucresi: modulI1BorcTahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+  - kod: I3
+    ad_tanimi: modulI3NbdFarki
+    yorum_hucresi: modulI3NbdFarkiYorum
+deger:
+  satis_fiyati_tl: 990
+  Y1_danisman_ikamesi_tl: 4000
+  Y2_kurulum_ikamesi_tl: 1000
+serbest_alternatif:
+  alternatifler:
+    - "Tecil taksitini ve toplam maliyeti hesap makinesiyle taksit formülüyle elle hesaplamak"
+    - "Tecil, kredi ve peşin seçeneklerini NBD'ye indirgemeden sezgisel olarak karşılaştırmak"
+    - "Mali müşavirden her seçenek için ayrı ayrı teklif ve projeksiyon istemek (dönemlik ücret)"
+    - "Faiz, komisyon ve terkin oranı değişimlerinin toplam maliyete etkisini hiç ölçmeden işlem yapmak"
+    - "Borçların tür dağılımını ve gecikme yapısını izlemeden tek bir seçeneğe karar vermek"
+  ayrimlar:
+    - madde: "Borç aslı, gecikme zammı ve vade yapısını tek tabloda toplar; geciken ay ve aylık zam yükünü formülle üretir; alternatifte hesap elle ve dağınık kalemlerde yapılır."
+      karsilik: TecilToplamBorc
+    - madde: "Tecil, kredi ve peşin seçeneklerinin toplam maliyetini taksit formülüyle tek motor üzerinde hesaplar; alternatifte taksit ve maliyet elle hesap makinesiyle çıkarılır."
+      karsilik: TecilToplamMaliyet
+    - madde: "Seçenekleri iskonto oranıyla bugünkü değere (NBD) indirger ve en düşük maliyetli yolu gerekçesiyle seçer; alternatifte NBD hesabı yoktur."
+      karsilik: NbdFarki
+    - madde: "Faiz ve oran değişimlerinin maliyete etkisini senaryo bant aralığı ve tornado analiziyle gösterir; alternatifte duyarlılık analizi yoktur."
+      karsilik: modulO3Senaryo
+    - madde: "Borç türü yoğunlaşmasını (HHI), anomali sapmasını ve veri kalite skorunu ölçerek karar kapısına güven katmanı ekler; alternatifte bu analizler yoktur."
+      karsilik: modulO8KaliteSkor

@@ -1,0 +1,119 @@
+{
+  "product": "kdv-tevkifat-mahsup-iade-listesi",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/kdv-tevkifat-mahsup-iade-listesi/KdvTevkifatMahsupIadeListesi.xlsx",
+  "sha256": "3a782563e9e8c3d1d63fc349f1866627a8087a6029bbda6dbd4c6ad722225590",
+  "size_bytes": 92985,
+  "modified_at": "2026-08-14T22:23:02",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "PANO",
+    "GIRDI",
+    "KURALLAR",
+    "MOTOR",
+    "MAHSUP_LISTE",
+    "IADE_LISTE",
+    "SENARYO",
+    "VAKALAR",
+    "KANIT_RAPORU",
+    "KONTROLLER",
+    "ORNEK_VERI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "PANO": "000F2742",
+    "GIRDI": "00B08948",
+    "KURALLAR": "001F7A4D",
+    "MOTOR": "008064A2",
+    "MAHSUP_LISTE": "001F4E79",
+    "IADE_LISTE": "00C45911",
+    "SENARYO": "00ED7D31",
+    "VAKALAR": "002E75B6",
+    "KANIT_RAPORU": "000F2742",
+    "KONTROLLER": "00C00000",
+    "ORNEK_VERI": "0070AD47",
+    "LISTELER": "00595959",
+    "AYARLAR": "000F2742",
+    "KILAVUZ": "001F4E79"
+  },
+  "formula_count": 457,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 26,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 11,
+  "table_count": 4,
+  "conditional_format_count": 43,
+  "data_validation_count": 33,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 6,
+  "merged_ranges": 41,
+  "order_mismatches": [
+    "Mevcut: PANO > GIRDI > KURALLAR > MOTOR > MAHSUP_LISTE > IADE_LISTE > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > KURALLAR > MOTOR > MAHSUP_LISTE > IADE_LISTE > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=26"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: PANO > GIRDI > KURALLAR > MOTOR > MAHSUP_LISTE > IADE_LISTE > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > KURALLAR > MOTOR > MAHSUP_LISTE > IADE_LISTE > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=457"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

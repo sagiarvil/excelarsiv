@@ -1,0 +1,13 @@
+taraf,siparis_no,tarih,brut,komisyon,kargo,iade,reklam,net_hakedis,tutar_b,pazaryeri,not
+A,TY100001,2026-07-07,537,64.44,39.9,0,0,432.66,,Trendyol,eslesir
+B,TY100001,2026-07-07,,,,,,432.66,Trendyol,eslesir
+A,TY100002,2026-07-08,574,68.88,29.9,0,0,475.22,,Hepsiburada,eslesir
+B,TY100002,2026-07-08,,,,,,475.22,Hepsiburada,eslesir
+A,TY100003,2026-07-09,611,73.32,39.9,0,18.33,479.45,,Amazon,kisa_no_A
+B,TY100003,2026-07-09,,,,,,479.45,Amazon,uzun_no_B
+A,TY100008,2026-07-14,796,95.52,29.9,0,0,670.58,,N11,tutar_farki
+B,TY100008,2026-07-14,,,,,,655.08,N11,komisyon_sapmasi
+A,TY100011,2026-07-17,907,108.84,39.9,0,27.21,731.05,,Trendyol,tolerans
+B,TY100011,2026-07-17,,,,,,731.08,Trendyol,tolerans_0_03
+A,TY100015X,2026-07-21,1055,126.6,39.9,0,0,888.5,,Diğer,eslesmedi_A
+B,TY100015,2026-07-21,,,,,,888.5,Diğer,eslesmedi_B

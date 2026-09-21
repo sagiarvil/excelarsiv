@@ -1,0 +1,178 @@
+# =============================================================================
+# SPEC — Hat B Y-18 · Dava Masraf & Harç Hesaplama Motoru
+# Durum: ONAYLANDI — Hat B hukuk dikeyi
+# Manda: v6 · arketip A1 · M01–M05 zorunlu
+# Domain: harç + masraf + AAÜT — rename YASAK (terimler korunur)
+# =============================================================================
+
+urun:
+  kod: DMH-PRO
+  slug: dava-masraf-harc-hesaplama
+  ad: "Dava Masraf & Harç Hesaplama Motoru"
+  surum: "1.0.0"
+  dosya: DavaMasrafHarcHesaplama.xlsx
+  prefix: dmh_
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "Hukuk bürosu sahibi, serbest avukat, kurum içi hukuk müşaviri"
+
+arketip: A1
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 15000
+  Y3_onlenen_hata_tl: 25000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Yanlış harç/ıslah yeniden işlem + asistan/danışman tarife kurulum ikamesi (D0 S6)"
+
+deger_vektoru: ["P", "R", "K"]
+uc_rol:
+  - rol: "Avukat / dosya giren"
+    is_bitince: "Dava değeri, ıslah, tebligat ve masraf girdilerini sarı hücrelere kilitler"
+  - rol: "Büro sahibi / karar veren"
+    is_bitince: "Toplam harç+masraf+AAÜT ve bütçe kararını müvekkile sunar"
+  - rol: "Müvekkil / kanıt isteyen"
+    is_bitince: "KANIT_RAPORU ile kural_id ve madde atıflı masraf/harç ön hesabını dosyalar"
+
+lansman_tetigi:
+  sinif: Mevzuat_yayimi
+  aciklama: "Harçlar Kanunu mahkeme harç tarifesi veya TBB AAÜT yıllık yayımı değiştiğinde ürün sayfası canlıya alınır"
+  tarih_penceresi: "tarife_degisimi_15_gun"
+
+mevzuat:
+  kurallar: [DMH-001, DMH-002, DMH-003, DMH-004, DMH-005, DMH-006, DMH-007, DMH-008, DMH-009, DMH-010]
+  vakalar: harc_aaut_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [nispi_harc_taban_yorumu]
+
+rakip_ayrim:
+  - sinif: R1_jenerik_sablon
+    ayrim: "Çok yıllı harç/AAÜT kural tablosu + kural_id zinciri; sabit oran yok"
+    karsilik: "dmh_kuralYilMatris"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Harç + masraf + AAÜT ayrıştırmalı karar gerekçesi"
+    karsilik: "dmh_kararMetni"
+  - sinif: R2_bedava
+    ayrim: "Tarife vakaları TUTARLI + M-SEN oran değişimi"
+    karsilik: "dmh_vakaDurum"
+  - sinif: R2_bedava
+    ayrim: "Senaryo/duyarlılık + ıslah etkisi"
+    karsilik: "dmh_senaryoKarsilastirma"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz; dış API yok; müvekkile AAÜT satırlı kanıt raporu"
+    karsilik: "dmh_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Harç tarifesi PDF + hesap makinesi"
+    - "Büro asistanının dağınık Excel'i"
+    - "Baro AAÜT cetvelini elle okumak"
+  ayrimlar:
+    - madde: "Yıllı harç/AAÜT eşikleri INDEX/MATCH ile çekilir; sabit oran kaçışı yok"
+      karsilik: "dmh_kuralYilMatris"
+    - madde: "M-SEN oran+ senaryosu karar etkisini gösterir"
+      karsilik: "dmh_kuralDegisimSenaryo"
+    - madde: "Vaka FARK kontrolü TUTARLI/KIRIK"
+      karsilik: "dmh_vakaFark"
+    - madde: "Makine gerekçeli UYGUN/DİKKAT/UYGUN DEĞİL"
+      karsilik: "dmh_kararGerekce"
+    - madde: "SHA-256 kanıt parmak izi"
+      karsilik: "dmh_parmakIzi"
+
+analitik_moduller:
+  - kod: T1
+    ad: "Toplam yük / dava değeri"
+    ad_tanimi: "dmh_modulT1"
+    yorum_hucresi: "dmh_modulT1Yorum"
+  - kod: T2
+    ad: "Harç payı"
+    ad_tanimi: "dmh_modulT2"
+    yorum_hucresi: "dmh_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo tutar sapması"
+    ad_tanimi: "dmh_modulO1"
+    yorum_hucresi: "dmh_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "dmh_duyarlilikSira"
+    yorum_hucresi: "dmh_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo bant"
+    ad_tanimi: "dmh_senaryoKarsilastirma"
+    yorum_hucresi: "dmh_yorumSenaryo"
+  - kod: O6
+    ad: "Kalem tamamlanma oranı"
+    ad_tanimi: "dmh_modulO6"
+    yorum_hucresi: "dmh_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "dmh_modulO8"
+    yorum_hucresi: "dmh_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Harç oran değişimi"
+    ad_tanimi: "dmh_kuralDegisimSenaryo"
+    yorum_hucresi: "dmh_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin aralık"
+    ad_tanimi: "dmh_tahminAralik"
+    yorum_hucresi: "dmh_yorumTahmin"
+  - kod: I2
+    ad: "Senaryo tutar P90"
+    ad_tanimi: "dmh_modulI2"
+    yorum_hucresi: "dmh_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "butce_icinde_ve_tam"
+    karar: "UYGUN"
+  - kosul: "islah_veya_sinirda"
+    karar: "DİKKAT"
+  - kosul: "butce_asimi_veya_eksik"
+    karar: "UYGUN DEĞİL"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - KURALLAR
+  - MOTOR
+  - SENARYO
+  - PANO
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-18 — hukuk dikey; D0 7/7; A1 M01–M05; tarife değişimi tetik"

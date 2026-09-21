@@ -1,0 +1,115 @@
+{
+  "product": "isg-risk-degerlendirme-pro-6331",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/isg-risk-degerlendirme-pro-6331/IsgRiskDegerlendirmePro6331.xlsx",
+  "sha256": "016791107578dc5a9660724adff9facb5b9381c508bd0529c772bdfb8081cdc5",
+  "size_bytes": 134598,
+  "modified_at": "2026-08-11T00:26:53",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "PANO",
+    "ENVANTER",
+    "DEGERLENDIRME",
+    "EYLEM_PLANI",
+    "AKIS",
+    "KANIT_RAPORU",
+    "KONTROLLER",
+    "ORNEK_VERI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": "001F4E79",
+    "PANO": "001F4E79",
+    "ENVANTER": "001F4E79",
+    "DEGERLENDIRME": "001F4E79",
+    "EYLEM_PLANI": "001F4E79",
+    "AKIS": "001F4E79",
+    "KANIT_RAPORU": "001F4E79",
+    "KONTROLLER": "00C00000",
+    "ORNEK_VERI": "0070AD47",
+    "LISTELER": "001F4E79",
+    "AYARLAR": "001F4E79",
+    "KILAVUZ": "001F4E79"
+  },
+  "formula_count": 1976,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 270,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 3,
+  "conditional_format_count": 102,
+  "data_validation_count": 74,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 3,
+  "merged_ranges": 50,
+  "order_mismatches": [
+    "Mevcut: KAPAK > PANO > ENVANTER > DEGERLENDIRME > EYLEM_PLANI > AKIS > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: KONTROLLER > KILAVUZ > DEGERLENDIRME > KAPAK > PANO > ENVANTER > EYLEM_PLANI > AKIS > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=270"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > PANO > ENVANTER > DEGERLENDIRME > EYLEM_PLANI > AKIS > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > DEGERLENDIRME > KAPAK > PANO > ENVANTER > EYLEM_PLANI > AKIS > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=1976"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

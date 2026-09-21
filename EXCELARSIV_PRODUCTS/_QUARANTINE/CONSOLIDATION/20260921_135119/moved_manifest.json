@@ -1,0 +1,38 @@
+[
+  {
+    "source": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/kira-portfoyu-getiri-komutasi/KiraPortfoyuGetiriKomutasi.xlsx",
+    "quarantine": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_QUARANTINE/CONSOLIDATION/20260921_135119/kira-portfoyu-getiri-komutasi/KiraPortfoyuGetiriKomutasi.xlsx",
+    "keep": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/kira-portfoyu-getiri-komutasi/KiraPortfoyuGetiriKomutasi 2.xlsx",
+    "confidence": "EXACT_DUPLICATE"
+  },
+  {
+    "source": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/oee-durus-kok-neden-komutasi/OeeDurusKokNedenKomutasi.xlsx",
+    "quarantine": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_QUARANTINE/CONSOLIDATION/20260921_135119/oee-durus-kok-neden-komutasi/OeeDurusKokNedenKomutasi.xlsx",
+    "keep": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/oee-durus-kok-neden-komutasi/OeeDurusKokNedenKomutasi 2.xlsx",
+    "confidence": "EXACT_DUPLICATE"
+  },
+  {
+    "source": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/recete-maliyeti-menu-muhendisligi/ReceteMaliyetiMenuMuhendisligi.xlsx",
+    "quarantine": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_QUARANTINE/CONSOLIDATION/20260921_135119/recete-maliyeti-menu-muhendisligi/ReceteMaliyetiMenuMuhendisligi.xlsx",
+    "keep": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/recete-maliyeti-menu-muhendisligi/ReceteMaliyetiMenuMuhendisligi 2.xlsx",
+    "confidence": "EXACT_DUPLICATE"
+  },
+  {
+    "source": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/sekiz-d-duzeltici-faaliyet-dosya/SekizDDuzelticiFaaliyetDosya.xlsx",
+    "quarantine": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_QUARANTINE/CONSOLIDATION/20260921_135119/sekiz-d-duzeltici-faaliyet-dosya/SekizDDuzelticiFaaliyetDosya.xlsx",
+    "keep": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/sekiz-d-duzeltici-faaliyet-dosya/SekizDDuzelticiFaaliyetDosya 2.xlsx",
+    "confidence": "EXACT_DUPLICATE"
+  },
+  {
+    "source": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/sera-kurulum-fizibilite/SeraKurulumFizibilite.xlsx",
+    "quarantine": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_QUARANTINE/CONSOLIDATION/20260921_135119/sera-kurulum-fizibilite/SeraKurulumFizibilite.xlsx",
+    "keep": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/sera-kurulum-fizibilite/SeraKurulumFizibilite 2.xlsx",
+    "confidence": "EXACT_DUPLICATE"
+  },
+  {
+    "source": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/spc-proses-yetenek-analizi/SpcProsesYetenekAnalizi.xlsx",
+    "quarantine": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_QUARANTINE/CONSOLIDATION/20260921_135119/spc-proses-yetenek-analizi/SpcProsesYetenekAnalizi.xlsx",
+    "keep": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/spc-proses-yetenek-analizi/SpcProsesYetenekAnalizi 2.xlsx",
+    "confidence": "EXACT_DUPLICATE"
+  }
+]

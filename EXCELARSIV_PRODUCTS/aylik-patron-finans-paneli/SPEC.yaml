@@ -1,0 +1,130 @@
+olcek_hedefi: 50000
+arketip: A2
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  karar_sayfasi: "KARAR"
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  motor_sayfasi: "FINANS_MOTORU"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+testler:
+  olcek:
+    satir: 1000
+    azami_hesap_saniye: 5.0
+
+urun:
+  slug: aylik-patron-finans-paneli
+  ad: "Aylık Patron Finans Paneli"
+  karar: "İşletmenin finansal durumunu kâr, borçluluk ve kasa yeterliliğine göre UYGUN/İNCELE/DURDUR kararıyla özetler; kayıt yetersizse VERİ YOK der"
+  hedef_kullanici: "KOBİ sahipleri, patronlar, genel müdürler, finans yöneticileri, mali müşavirler"
+  mevzuat:
+    - "VUK (213 s.) md.182-198: defter tutma ve kayıt düzeni; gelir-gider kayıtlarının dayanağı"
+  giris:
+    aylik_gelir_gider:
+      tablo: tblAylikGelirGider
+      kolonlar: ["Dönem", "Kalem", "Tür", "Tutar (₺)", "Nakit mi?", "Not"]
+    borc_ve_alacak:
+      tablo: tblBorcAlacak
+      kolonlar: ["Tür", "Kurum/Müşteri", "Açıklama", "Güncel Bakiye (₺)", "Kalan Taksit", "Vade Tarihi", "Not"]
+    aylik_ozet:
+      tablo: tblAylikOzet
+      kolonlar: ["Dönem", "Gelir TL", "Gider TL", "Net TL", "Nakit Akışı TL", "Nakit Oranı %"]
+  esikler:
+    asgari_veri_sayisi: 6
+    borc_gelir_esik: 0.75
+    kasa_gider_esik: 1
+    asgari_ay_sonu_kasa: 250000
+  rapor: "A4, PDF'e hazır; genel karar, KPI özeti, varsayımlar ve önerilen aksiyonlar"
+
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1YasliBorc
+    yorum_hucresi: modulT1YasliBorcYorum
+  - kod: T2
+    ad_tanimi: modulT2GelirOrtalama
+    yorum_hucresi: modulT2GelirOrtalamaYorum
+  - kod: T3
+    ad_tanimi: modulT3GiderPareto
+    yorum_hucresi: modulT3GiderParetoYorum
+  - kod: T4
+    ad_tanimi: modulT4DonemFark
+    yorum_hucresi: modulT4DonemFarkYorum
+  - kod: T5
+    ad_tanimi: modulT5TahakkukNakitFark
+    yorum_hucresi: modulT5TahakkukNakitFarkYorum
+  - kod: T6
+    ad_tanimi: modulT6EsikKirilim
+    yorum_hucresi: modulT6EsikKirilimYorum
+  - kod: O1
+    ad_tanimi: modulO1GelirAnomalisi
+    yorum_hucresi: modulO1GelirAnomalisiYorum
+  - kod: O2
+    ad_tanimi: modulO2GelirEtki
+    yorum_hucresi: modulO2GelirEtkiYorum
+  - kod: O3
+    ad_tanimi: modulO3SenaryoFark
+    yorum_hucresi: modulO3SenaryoFarkYorum
+  - kod: O4
+    ad_tanimi: modulO4NakitDonusum
+    yorum_hucresi: modulO4NakitDonusumYorum
+  - kod: O5
+    ad_tanimi: modulO5GecikmeMaliyeti
+    yorum_hucresi: modulO5GecikmeMaliyetiYorum
+  - kod: O6
+    ad_tanimi: modulO6AlacakHhi
+    yorum_hucresi: modulO6AlacakHhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1TahminUst
+    yorum_hucresi: modulI1TahminUstYorum
+  - kod: I2
+    ad_tanimi: modulI2GelirP90
+    yorum_hucresi: modulI2GelirP90Yorum
+  - kod: I6
+    ad_tanimi: modulI6KopruFark
+    yorum_hucresi: modulI6KopruFarkYorum
+  - kod: I7
+    ad_tanimi: modulI7NakitAcigi
+    yorum_hucresi: modulI7NakitAcigiYorum
+
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 6000
+  Y2_kurulum_ikamesi_tl: 2500
+
+serbest_alternatif:
+  alternatifler:
+    - "Gelir-gideri ayrı ayrı el ile tutulan dağınık hesap tablosu"
+    - "Mali müşavirden aylık finansal durum özeti"
+    - "Ücretsiz genel amaçlı gelir-gider şablonları (borçluluk ve nakit yeterliliği ölçmez)"
+    - "Kârı nakit akışıyla karıştırıp dönem sonunu sürprizle karşılamak"
+    - "Her ay farklı kişiden alınan elle hazırlanmış rapor"
+  ayrimlar:
+    - madde: "Tahakkuk kârı ile nakit akışını ayrıştırıp dönem nakit farkını ölçer"
+      karsilik: modulT5TahakkukNakitFark
+    - madde: "Kâr, borçluluk ve kasa yeterliliğine göre gerekçeli UYGUN/İNCELE/DURDUR kararı üretir; veri azsa VERİ YOK der"
+      karsilik: KararBildirimi
+    - madde: "Vadesi geçen borçları rapor tarihine göre otomatik yaşlandırır"
+      karsilik: modulT1YasliBorc
+    - madde: "İyimser/kötümser senaryo ve tornado duyarlılıkla sonucu en çok etkileyen değişkeni sıralar"
+      karsilik: modulO2GelirEtki
+    - madde: "Aylık nakit açığı ve kasa eşiğiyle dönem sonunu önceden görür"
+      karsilik: modulI7NakitAcigi
+    - madde: "Kalite skoruyla eksik veri girişini ölçer, rapor güvenilirliğini gösterir"
+      karsilik: modulO8KaliteSkor
+
+anahtar_stratejisi:
+  kisa_uzun_senaryo: true
+  norm: UPPER_SUBSTITUTE

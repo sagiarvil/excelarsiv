@@ -1,0 +1,15 @@
+ÇALIŞANLAR,İşe Giriş Tarihi,Aylık Brüt Ücret (₺),Haftalık Çalışma Saati,Aylık Fazla Mesai Saati
+Ahmet Yılmaz,01.03.2020,45000,45,20
+Ayşe Kaya,01.06.2015,55000,48,35
+Mehmet Demir,15.01.2022,32000,44,10
+Zeynep Çelik,01.04.2018,40000,46,28
+Mustafa Şahin,01.09.2019,38000,45,15
+Fatma Öztürk,01.01.2021,28000,42,8
+
+KAYITLAR,Dönem,Bildirilen Mesai Saati,Belgelenen Mesai Saati
+Ahmet Yılmaz,2026.01,20,15
+Ayşe Kaya,2026.01,35,22
+Mehmet Demir,2026.01,10,10
+Zeynep Çelik,2026.01,28,25
+Mustafa Şahin,2026.01,15,12
+Fatma Öztürk,2026.01,8,8

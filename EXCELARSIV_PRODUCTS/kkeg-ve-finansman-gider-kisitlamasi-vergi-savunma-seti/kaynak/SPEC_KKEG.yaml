@@ -1,0 +1,86 @@
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti
+  ad: "KKEG ve Finansman Gider Kısıtlaması Vergi Savunma Seti"
+  karar: "Yabancı-öz kaynak farkı ve finansman giderlerinin kısıtlama kapsamını hesaplar; KKEG tutarı, kurumlar vergisi etkisi ve savunma aksiyonu için UYGUN/İNCELE/DURDUR kararı üretir"
+  moduller:
+    - anomali_tespiti
+    - kalite_skoru
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - esik_kirilim
+    - zaman_serisi_projeksiyon
+    - karar_kapisi
+    - yoğunlaşma_analizi
+    - aksiyon_uretici
+    - deger_olcer
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 2000
+    azami_hesap_saniye: 25.0
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1YabanciPay
+    yorum_hucresi: modulT1YabanciPayYorum
+  - kod: T4
+    ad_tanimi: modulT4OzKaynakFark
+    yorum_hucresi: modulT4OzKaynakFarkYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2Tornado
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1GiderTahmin
+    yorum_hucresi: modulI1GiderTahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 6000
+serbest_alternatif:
+  alternatifler:
+    - "KKEG kapsamındaki gideri mali müşavire her dönem ücret ödeyerek hesaplatmak"
+    - "Yabancı kaynak/öz kaynak ortalamasını ve aşan kısma isabet eden gideri ayrı dosyalarda elle kurmak"
+    - "Kredi listesini ve kapsam dışı işaretlerini defter kayıtlarında hiç izlememek"
+    - "Kısıtlama oranı değişiminin vergi yüküne etkisini tahmin etmeden dönem sonunu beklemek"
+    - "Finansman gider ayrıştırmasını inceleme gelene kadar hiç belgelememek"
+  ayrimlar:
+    - madde: "Dönem bazlı öz kaynak, yabancı kaynak ve finansman giderini tek tabloda toplar; ortalamaları formülle canlı üretir."
+      karsilik: OrtalamaOzKaynak
+    - madde: "Kredi bazlı gider listesi ile kapsam dışı işaretlerini ayrı tabloda tutar; kapsamdaki gideri kredi kırılımında gösterir."
+      karsilik: ToplamKapsamGider
+    - madde: "Aşan kısma isabet eden gideri ve KKEG tutarını mevzuat oranlarıyla hesaplar; alternatifte hesap elle yapılır."
+      karsilik: KkegTutari
+    - madde: "Kısıtlama oranı ve yabancı kaynak değişiminin KKEG'e etkisini tornado ile önceliklendirir; alternatifte bu analiz yoktur."
+      karsilik: modulO2Tornado
+    - madde: "İyimser/baz/kötümser senaryolarda KKEG bandını ve gelecek dönem gider tahminini sunar; alternatifte tahmin yoktur."
+      karsilik: modulI1GiderTahmin
+    - madde: "Karar kapısı, kapsamdaki gider ve KKEG eşiklerini aşan durumda İNCELE/DURDUR üretir ve savunma aksiyonu önerir."
+      karsilik: modulO8KaliteSkor

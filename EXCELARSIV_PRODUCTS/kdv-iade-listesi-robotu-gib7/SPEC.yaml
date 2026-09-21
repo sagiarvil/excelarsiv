@@ -1,0 +1,106 @@
+# =============================================================================
+# SPEC — Hat D D-01 · KDV İade Listesi Robotu (GİB 7 Liste)
+# Ayırt edici: GİB'in istediği 7 liste (İndirilecek/Yüklenilen/GÇB+); tevkifat mahsup değil
+# =============================================================================
+
+urun:
+  kod: KIL-PRO
+  ad: "KDV İade Listesi Robotu (GİB 7 Liste)"
+  surum: "1.0.0"
+  slug: kdv-iade-listesi-robotu-gib7
+  dosya: KdvIadeListesiRobotuGib7.xlsx
+  prefix: kil_
+  satis_fiyati_tl: 1490
+  hedef_kullanici: "SMMM, YMM, mali işler, ihracatçı"
+
+arketip: A1
+fiyat: 1490
+olcek_hedefi: 10000
+
+deger:
+  satis_fiyati_tl: 1490
+  Y1_danisman_ikamesi_tl: 4000
+  Y2_kurulum_ikamesi_tl: 1500
+  Y3_onlenen_hata_tl: 20000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "GİB KDV iade 7 liste dosya hazırlama danışmanlığı"
+
+deger_vektoru: ["P", "R", "K"]
+uc_rol:
+  - {rol: "SMMM", is_bitince: "7 listeyi GİB formatına hizalar"}
+  - {rol: "Mükellef", is_bitince: "İADE / EKSİK BELGE / BEKLE kararını alır"}
+  - {rol: "Vergi dairesi", is_bitince: "Kanıt listelerini inceler"}
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "KDV iade dosya hazırlığı −30 gün"
+  tarih_penceresi: "kdv_iade_oncesi_30_gun"
+
+rakip_ayrim:
+  - {sinif: R1_jenerik, ayrim: "GİB 7 liste tek motorda", karsilik: "kil_yediListe"}
+  - {sinif: R1_jenerik, ayrim: "İndirilecek / Yüklenilen / GÇB ayrı sayfa", karsilik: "kil_listeSayfalari"}
+  - {sinif: R2_bedava, ayrim: "Kanıt raporu + madde atfı", karsilik: "kil_kanitRaporu"}
+  - {sinif: R1_jenerik, ayrim: "Kural_id yıl matrisi", karsilik: "kil_kuralYilMatris"}
+  - {sinif: R4, ayrim: "İADE/EKSİK/BEKLE karar kapısı", karsilik: "kil_kararKapi"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["GİB e-beyanname ekranı", "Elle Excel listeleri", "Danışman dosyası"]
+  ayrimlar:
+    - {madde: "7 liste otomatik üretilir", karsilik: "kil_yediListe"}
+    - {madde: "Liste sayfaları ayrık", karsilik: "kil_listeSayfalari"}
+    - {madde: "M-SEN kural değişimi", karsilik: "kil_kuralDegisimSenaryo"}
+    - {madde: "Vaka FARK", karsilik: "kil_vakaFark"}
+    - {madde: "Boş dosyada VERİ YOK", karsilik: "kil_kararKapi"}
+
+mevzuat:
+  kurallar: [KIL-001, KIL-002, KIL-003, KIL-004, KIL-005]
+  vakalar: kdv_iade_liste_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [liste_sirasi]
+
+analitik_moduller:
+  - {kod: T1, ad: "İndirilecek toplam", ad_tanimi: "kil_modulT1", yorum_hucresi: "kil_modulT1Yorum"}
+  - {kod: T2, ad: "Yüklenilen toplam", ad_tanimi: "kil_modulT2", yorum_hucresi: "kil_modulT2Yorum"}
+  - {kod: O1, ad: "Sapma", ad_tanimi: "kil_modulO1", yorum_hucresi: "kil_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık", ad_tanimi: "kil_duyarlilikSira", yorum_hucresi: "kil_yorumDuyarlilik"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "kil_senaryoKarsilastirma", yorum_hucresi: "kil_yorumSenaryo"}
+  - {kod: O6, ad: "Liste dağılımı", ad_tanimi: "kil_modulO6", yorum_hucresi: "kil_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "kil_modulO8", yorum_hucresi: "kil_modulO8Yorum"}
+  - {kod: M_SEN, ad: "Kural değişimi", ad_tanimi: "kil_kuralDegisimSenaryo", yorum_hucresi: "kil_yorumKuralDegisim"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "kil_tahminAralik", yorum_hucresi: "kil_yorumTahmin"}
+  - {kod: I2, ad: "P90", ad_tanimi: "kil_modulI2", yorum_hucresi: "kil_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: eksik_belge, karar: "EKSİK BELGE"}
+  - {kosul: bekle, karar: "BEKLE"}
+  - {kosul: iade_uygun, karar: "İADE"}
+
+sayfa_akisi: [PANO, GIRDI, KURALLAR, MOTOR, LISTE_1, LISTE_2, LISTE_3, LISTE_4, LISTE_5, LISTE_6, LISTE_7, SENARYO, VAKALAR, KANIT_RAPORU, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+  azami_hesap_saniye: 60.0
+  olcek_satir: 10000
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "Hat D D-01"}

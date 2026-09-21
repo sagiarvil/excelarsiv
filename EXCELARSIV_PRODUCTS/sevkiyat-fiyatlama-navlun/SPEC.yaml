@@ -1,0 +1,191 @@
+# =============================================================================
+# SPEC — Hat B Y-10 · Sevkiyat Fiyatlama & Navlun Maliyet Motoru
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 · arketip A7+A6
+# =============================================================================
+
+urun:
+  kod: SFN-PRO
+  slug: sevkiyat-fiyatlama-navlun
+  ad: "Sevkiyat Fiyatlama & Navlun Maliyet Motoru"
+  surum: "1.0.0"
+  dosya: SevkiyatFiyatlamaNavlun.xlsx
+  prefix: sfn_
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "Lojistik müdürü, sevkiyat fiyatlandırma, filo planlama, CFO"
+
+arketip: A7+A6
+fiyat: 7900
+olcek_hedefi: 10000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 16000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 30000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Navlun fiyatlandırma + dönüş yükü optimizasyon danışmanlığı"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Sevkiyat fiyatlandırma"
+    is_bitince: "Km × araç tipi × dönüş yükü teklif satırını kilitler"
+  - rol: "Lojistik müdürü"
+    is_bitince: "KARLI / İNCELE / ZARARLI ve YATIRIM YAPILIR / YATIRIM YAPMA kararını görür"
+  - rol: "CFO"
+    is_bitince: "Tornado ve öz kaynak/kredi senaryo çıktısını bütçeye yazar"
+
+lansman_tetigi:
+  sinif: Yakit_zammi
+  aciklama: "Yakıt zammı veya yeni hat açılışı −30 gün"
+  tarih_penceresi: "yakit_zam_sonrasi_30_gun"
+
+fizibilite:
+  finansman_senaryolari: ["OZ_KAYNAK", "KREDI"]
+  kotumser_karar: "YATIRIM YAPMA"
+  capex_opex: true
+  npv_irr_tornado: true
+
+recete:
+  versiyonlama: true
+  bilesim_yuzde_100: true
+  fire_kolonu: true
+  birim_donusum: true
+  maliyet_kirilim: ["hammadde", "iscilik", "ambalaj", "genel_gider"]
+
+rakip_ayrim:
+  - sinif: R1_jenerik_sablon
+    ayrim: "Km × araç tipi maliyet bileşim reçetesi (%100 + fire)"
+    karsilik: "sfn_birimMaliyet"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Dönüş yükü katkısı net navlun maliyetine indirgenir"
+    karsilik: "sfn_donusYukuKatki"
+  - sinif: R2_bedava
+    ayrim: "Öz kaynak / kredi finansman + NPV/IRR tornado"
+    karsilik: "sfn_finansmanKarsilastirma"
+  - sinif: R2_bedava
+    ayrim: "Kötümser YATIRIM YAPMA karar yolu"
+    karsilik: "sfn_kararMetni"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz; reçete versiyon varyans köprüsü"
+    karsilik: "sfn_varyansKopru"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Km × yakıtı hesap makinesiyle çarpıp teklife yazmak"
+    - "Nakliye firmasının tek satırlık Excel'i"
+    - "Filo yazılımı aboneliği (telematik + fiyat motoru)"
+  ayrimlar:
+    - madde: "Km × araç tipi × dönüş yükü tek zincirde net navlun maliyeti"
+      karsilik: "sfn_netNavlun"
+    - madde: "Bileşim %100 alarmı + fire kolonu (boş km)"
+      karsilik: "sfn_bilesimAlarm"
+    - madde: "Birim dönüşüm tablosu AYARLAR'dan (gömülü katsayı yok)"
+      karsilik: "sfn_donusumTablo"
+    - madde: "Öz kaynak vs kredi + NPV/IRR tornado"
+      karsilik: "sfn_finansmanKarsilastirma"
+    - madde: "Kötümser YATIRIM YAPMA + boş dosyada VERİ YOK"
+      karsilik: "sfn_kararMetni"
+
+analitik_moduller:
+  - kod: T1
+    ad: "Navlun birim maliyet"
+    ad_tanimi: "sfn_modulT1"
+    yorum_hucresi: "sfn_modulT1Yorum"
+  - kod: T2
+    ad: "Dönüş yükü katkısı"
+    ad_tanimi: "sfn_modulT2"
+    yorum_hucresi: "sfn_modulT2Yorum"
+  - kod: O1
+    ad: "Marj sapması"
+    ad_tanimi: "sfn_modulO1"
+    yorum_hucresi: "sfn_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "sfn_duyarlilikSira"
+    yorum_hucresi: "sfn_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru"
+    ad_tanimi: "sfn_senaryoKarsilastirma"
+    yorum_hucresi: "sfn_yorumSenaryo"
+  - kod: O6
+    ad: "Maliyet yoğunlaşması"
+    ad_tanimi: "sfn_modulO6"
+    yorum_hucresi: "sfn_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "sfn_modulO8"
+    yorum_hucresi: "sfn_modulO8Yorum"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "sfn_tahminAralik"
+    yorum_hucresi: "sfn_yorumTahmin"
+  - kod: I2
+    ad: "Navlun yüzdelik P90"
+    ad_tanimi: "sfn_modulI2"
+    yorum_hucresi: "sfn_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "npv_pozitif_ve_marj_hedef_ustu"
+    karar: "YATIRIM YAPILIR"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "kotumser_npv_negatif"
+    karar: "YATIRIM YAPMA"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - HAMMADDE
+  - RECETE
+  - MOTOR
+  - FIYATLAMA
+  - VARYANS
+  - VARSAYIMLAR
+  - FINANSMAN
+  - SENARYO
+  - PANO
+  - KARAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "KARAR"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1000
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-10 — A7+A6 sevkiyat fiyatlama & navlun maliyet; D0 lojistik 7/7"

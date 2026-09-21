@@ -1,0 +1,89 @@
+arketip: A1
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+
+urun:
+  slug: kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi
+  ad: "Kaçırılan SGK Teşvikleri & Gerçek İşçilik Maliyeti Analizi"
+  karar: "Brüt ücret üzerinden işveren SGK payı, işsizlik payı, kıdem karşılığı ve yan faydalarla gerçek işçilik maliyetini hesaplamak; işletmenin yararlanmadığı SGK teşviklerini parayla ölçüp teşvik kullanım oranını ve kararı (UYGUN/İNCELE/DURDUR) üretmek"
+  hedef_kullanici: "İşverenler, İK ve maliyet yöneticileri, muhasebe ve SGK işlemlerini yürüten profesyoneller"
+  mevzuat:
+    - "5510 sayılı Kanun md.81: 5 puanlık prim indirimi (işveren payı)"
+    - "4447 sayılı Kanun geçici 10. madde: kadın, genç ve mesleki belgeli istihdam teşviki"
+    - "İlave istihdam teşviki ve engelli çalıştırma teşviki uygulamaları"
+  giris:
+    calisan_karti:
+      alanlar: [FirmaUnvani, SgkSicilNo, ToplamPrimGunu, OrtalamaCalisan]
+      tablo: tblCalisan
+      kolonlar: [Çalışan Adı, Brüt Ücret, Prim Günü, Yaş, Cinsiyet]
+    gercek_maliyet:
+      tablo: tblMaliyet
+      kolonlar: [Çalışan Adı, Brüt Ücret, SGK İşveren Payı]
+    tesvik_simulator:
+      tablo: tblTesvik
+      kolonlar: [Çalışan Adı, Teşvik Türü, Kaçırılan]
+  esikler:
+    kacirilan_tesvik_esik: 50000   # kaçırılan teşvik uyarı eşiği (₺/yıl)
+    maliyet_esik: 40000            # çalışan başı aylık maliyet eşiği (₺)
+    kullanim_oran_esik: 0.15       # teşvik kullanım oranı alt eşiği
+    yuk_oran_alt: 0.1              # işveren yükü makul alt sınırı
+    yuk_oran_ust: 0.5              # işveren yükü makul üst sınırı
+    yuk_tutarlilik_tolerans: 0.02  # maliyet/brüt tutarlılık toleransı
+    yuk_oran_karar: 0.3            # işveren yükü karar eşiği
+    veri_kalite_iyi: 90
+    veri_kalite_orta: 70
+  rapor: "A4, PDF'e hazır; yönetici özeti, gerçek işçilik maliyeti, kaçırılan teşvik tutarı, teşvik kullanım oranı, kalite skoru ve aksiyon önerileri"
+
+analitik_moduller:
+  - kod: T6
+    ad_tanimi: modulT6Kirilim
+    yorum_hucresi: modulT6KirilimYorum
+  - kod: O1
+    ad_tanimi: modulO1AnomaliSayisi
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2TornadoZirve
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3SenaryoBaz
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkoru
+    yorum_hucresi: modulO8KaliteYorum
+  - kod: I1
+    ad_tanimi: modulI1TahminOrta
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2P90
+    yorum_hucresi: modulI2Yorum
+  - kod: I7
+    ad_tanimi: modulI7GeriKazanimAylik
+    yorum_hucresi: modulI7Yorum
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 9000
+
+serbest_alternatif:
+  alternatifler:
+    - "SGK e-Sigorta portalı teşvik ekranları"
+    - "Mali müşavirin aylık ücretli danışmanlığı"
+    - "Ücretsiz Excel şablonları"
+    - "Genel amaçlı yapay zekâ ile elle kurulum"
+  ayrimlar:
+    - madde: "Kaçırılan teşvik tutarını yıllık TL olarak ölçer; e-Sigorta ekranı bunu göstermez"
+      karsilik: KacirilanTesvik
+    - madde: "Tüm teşvik türlerini tek ekranda simüle edip yıllık tutarlarla karşılaştırır"
+      karsilik: ToplamYillikTesvik
+    - madde: "İşveren yükünü SGK+işsizlik+kıdem+yan fayda ile gerçek maliyete çevirir"
+      karsilik: AylikGercekMaliyet
+    - madde: "Veriye dayalı UYGUN/İNCELE/DURDUR kararı ve makine gerekçesi üretir"
+      karsilik: KararSonuc
+    - madde: "Tornado duyarlılıkla hangi parametrenin maliyeti en çok etkilediğini sıralar"
+      karsilik: modulO2TornadoZirve
+    - madde: "Sonraki ay için maliyet tahmini ve güven aralığı verir"
+      karsilik: modulI1TahminOrta

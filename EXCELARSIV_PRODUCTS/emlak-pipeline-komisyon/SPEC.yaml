@@ -1,0 +1,152 @@
+# =============================================================================
+# SPEC — Hat B Y-16 · Emlak Ofisi Satış Pipeline & Komisyon Takibi
+# Durum: ONAYLANDI — Hat B gayrimenkul dikey
+# Manda: v6 · arketip A3 (iş akışı / yarı-ERP)
+# Domain: ilan→görüşme→teklif→sözleşme→tapu pipeline + komisyon + dönüşüm
+# =============================================================================
+
+urun:
+  kod: EPK-PRO
+  ad: "Emlak Ofisi Satış Pipeline & Komisyon Takibi"
+  surum: "1.0.0"
+  slug: emlak-pipeline-komisyon
+  dosya: EmlakPipelineKomisyon.xlsx
+  prefix: epk_
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "Emlak ofisi sahibi, satış müdürü, danışman ekip lideri, SMMM"
+
+arketip: A3
+fiyat: 7900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 35000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Emlak ofisi pipeline + komisyon tahsilat danışmanlığı"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Danışman / ofis operasyon"
+    is_bitince: "İlan satırını durum makinesinde kilitler; komisyon oranını girer"
+  - rol: "Ofis sahibi / satış müdürü"
+    is_bitince: "Dönüşüm %, beklenen komisyon ve UYGUN/DİKKAT/KRİTİK/VERİ YOK kararını görür"
+  - rol: "SMMM / mali müşavir"
+    is_bitince: "RAPOR ile dönem komisyon tahsilat kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Gunluk_operasyon
+  aciklama: "Her gün ilan/görüşme/teklif akışı; ay sonu komisyon kapanışı"
+  tarih_penceresi: "gunluk_pipeline_aylik_komisyon"
+
+rakip_ayrim:
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; pipeline durum + komisyon + dönüşüm kararı üretir"
+    karsilik: "epk_kuyrukOzeti"
+  - sinif: R1_jenerik
+    ayrim: "Makrosuz durum: İlan→Görüşme→Teklif→Sözleşme→Tapu→Kapalı/İptal"
+    karsilik: "epk_durumHaritasi"
+  - sinif: R1_jenerik
+    ayrim: "Liste/teklif/satış tutar zinciri ZİNCİR KIRIK bayrağı"
+    karsilik: "epk_zincirKirik"
+  - sinif: R1_jenerik
+    ayrim: "Yetim danışman kaydı + geçersiz geçiş uyarısı"
+    karsilik: "epk_yetimKayit"
+  - sinif: R2_bedava
+    ayrim: "Dönemsel komisyon kanıt raporu + senaryo"
+    karsilik: "epk_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "WhatsApp + Excel ilan listesi + elle komisyon hesabı"
+    - "CRM aboneliği (pipeline var, komisyon zinciri yok)"
+    - "Muhasebecinin dağınık komisyon cetveli"
+  ayrimlar:
+    - madde: "Durum haritası AYARLAR'da; izinli geçiş görünür"
+      karsilik: "epk_durumHaritasi"
+    - madde: "Geçersiz geçiş görünür uyarı"
+      karsilik: "epk_gecersizGecis"
+    - madde: "Komisyon = satış × oran; zincir sapması bayraklanır"
+      karsilik: "epk_zincirKirik"
+    - madde: "Dönüşüm oranı COUNTIF ile veriden türer"
+      karsilik: "epk_donusumOrani"
+    - madde: "Boş dosyada VERİ YOK; kapalı kuyruktan düşer"
+      karsilik: "epk_kararKapi"
+
+akis:
+  durum_haritasi:
+    - {durum_id: ILAN, durum_adi: İlan, sira: 1, izinli_sonraki_durumlar: "GORUSME|IPTAL", kategori: acik}
+    - {durum_id: GORUSME, durum_adi: Görüşme, sira: 2, izinli_sonraki_durumlar: "TEKLIF|IPTAL|ILAN", kategori: acik}
+    - {durum_id: TEKLIF, durum_adi: Teklif, sira: 3, izinli_sonraki_durumlar: "SOZLESME|IPTAL|GORUSME", kategori: acik}
+    - {durum_id: SOZLESME, durum_adi: Sözleşme, sira: 4, izinli_sonraki_durumlar: "TAPU|IPTAL", kategori: acik}
+    - {durum_id: TAPU, durum_adi: Tapu, sira: 5, izinli_sonraki_durumlar: "KAPALI", kategori: acik}
+    - {durum_id: KAPALI, durum_adi: Kapalı, sira: 6, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: IPTAL, durum_adi: İptal, sira: 7, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [liste_fiyati, teklif_fiyati, satis_fiyati, komisyon]
+  kuyruk_tanimlari: [İlan, Görüşme, Teklif, Sözleşme, Tapu, Geciken]
+
+analitik_moduller:
+  - {kod: T1, ad: "Pipeline kuyruk", ad_tanimi: "epk_modulT1", yorum_hucresi: "epk_modulT1Yorum"}
+  - {kod: T2, ad: "Komisyon trend", ad_tanimi: "epk_modulT2", yorum_hucresi: "epk_modulT2Yorum"}
+  - {kod: O1, ad: "Dönüşüm sapma", ad_tanimi: "epk_modulO1", yorum_hucresi: "epk_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "epk_modulO2", yorum_hucresi: "epk_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo motoru", ad_tanimi: "epk_modulO3", yorum_hucresi: "epk_modulO3Yorum"}
+  - {kod: O6, ad: "Danışman yoğunlaşma", ad_tanimi: "epk_modulO6", yorum_hucresi: "epk_modulO6Yorum"}
+  - {kod: O8, ad: "Veri kalite skoru", ad_tanimi: "epk_modulO8", yorum_hucresi: "epk_modulO8Yorum"}
+  - {kod: M_SEN, ad: "Komisyon senaryo", ad_tanimi: "epk_modulM", yorum_hucresi: "epk_modulMYorum"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "epk_modulI1", yorum_hucresi: "epk_modulI1Yorum"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "epk_modulI2", yorum_hucresi: "epk_modulI2Yorum"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "yetim_veya_zincir_veya_donusum_alti"
+    karar: "KRİTİK"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - PANO
+  - KARTLAR
+  - AKIS
+  - KUYRUKLAR
+  - HESAP
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-16 — A3 emlak pipeline & komisyon; D0 gayrimenkul 7/7; Y-14 SEVK sonrası"

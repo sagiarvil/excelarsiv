@@ -1,0 +1,127 @@
+{
+  "product": "ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici/OrtaklarCariVeKasaAdatFaizFaturasiHesaplayici.xlsx",
+  "sha256": "c1ccbde9824f14879314d375ec1e004fd0b926d43c5468f5f33ef1e6f0621ff0",
+  "size_bytes": 356692,
+  "modified_at": "2026-08-12T03:12:05",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "ORTAK_CARI",
+    "KASA_ADAT",
+    "HESAP",
+    "ANALITIK_MOTOR",
+    "KONTROLLER",
+    "KARAR",
+    "PANO",
+    "SENARYO_DUYARLILIK",
+    "RAPOR",
+    "ORNEK_VERI",
+    "KURALLAR",
+    "VAKALAR",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": null,
+    "HIZLI_BASLANGIC": null,
+    "ORTAK_CARI": null,
+    "KASA_ADAT": null,
+    "HESAP": null,
+    "ANALITIK_MOTOR": null,
+    "KONTROLLER": null,
+    "KARAR": null,
+    "PANO": null,
+    "SENARYO_DUYARLILIK": null,
+    "RAPOR": null,
+    "ORNEK_VERI": null,
+    "KURALLAR": null,
+    "VAKALAR": null,
+    "DEGISIKLIK_KAYDI": null,
+    "LISTELER": null,
+    "AYARLAR": null,
+    "KILAVUZ": null
+  },
+  "formula_count": 7223,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 3072,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 2,
+  "conditional_format_count": 26,
+  "data_validation_count": 20,
+  "gridlines_on_count": 18,
+  "freeze_panes_count": 2,
+  "merged_ranges": 59,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > ORTAK_CARI > KASA_ADAT > HESAP > ANALITIK_MOTOR > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > ORTAK_CARI > KASA_ADAT > HESAP > ANALITIK_MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=3072"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": false,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=18"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": false,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=18"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > ORTAK_CARI > KASA_ADAT > HESAP > ANALITIK_MOTOR > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > ORTAK_CARI > KASA_ADAT > HESAP > ANALITIK_MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=7223"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

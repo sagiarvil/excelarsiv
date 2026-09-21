@@ -1,0 +1,185 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #20 · Banka Kredi + Covenant Erken Uyarı
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (A1+A3 melez)
+# =============================================================================
+
+urun:
+  kod: BKE-PRO
+  ad: "Banka Kredi + Covenant Erken Uyarı"
+  surum: "1.0.0"
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "CFO, hazine, SMMM, kredi ilişkileri yöneticisi"
+
+arketip: A1+A3
+fiyat: 7900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 45000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Covenant izleme + erken uyarı + banka ilişkileri danışmanlığı"
+
+deger_vektoru: ["P", "R", "K"]
+uc_rol:
+  - rol: "Hazine / finans"
+    is_bitince: "DSCR, borç/FAVÖK ve cari sapmayı girer; erken uyarı skorunu üretir"
+  - rol: "CFO"
+    is_bitince: "UYGUN / UYARI / İHLAL kararını kredi komitesine yazar"
+  - rol: "Banka / denetçi"
+    is_bitince: "KANIT_RAPORU ile covenant durumunu ve madde atfını görür"
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "Çeyreklik covenant raporlama / kredi gözden geçirme −21 gün"
+  tarih_penceresi: "covenant_rapor_oncesi_21_gun"
+
+rakip_ayrim:
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Covenant sapma + erken uyarı skoru + durum makinesi tek motorda"
+    karsilik: "bke_senaryoKarsilastirma"
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Altın vakalar TUTARLI raporlanabilir"
+    karsilik: "bke_vakaDurum"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Her MOTOR adımında kural_id + madde atfı"
+    karsilik: "bke_maddeAtifMetni"
+  - sinif: R1_jenerik_sablon
+    ayrim: "KANIT_RAPORU A4 imza + İZLEME→UYARI→İHLAL zinciri"
+    karsilik: "bke_kanitRaporu"
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; UYGUN/UYARI/İHLAL karar üretir"
+    karsilik: "bke_kararMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Banka covenant PDF + el hesabı"
+    - "CFO'nun tek satırlık Excel'i"
+    - "ERP finansal oran ekranı"
+  ayrimlar:
+    - madde: "Çok-yıllı kural tablosu yan yana"
+      karsilik: "bke_kuralYilMatris"
+    - madde: "M-SEN kural değişimi senaryosu"
+      karsilik: "bke_kuralDegisimSenaryo"
+    - madde: "Tebliğ vakası FARK kontrolü"
+      karsilik: "bke_vakaFark"
+    - madde: "Makine üretilmiş gerekçeli karar cümlesi"
+      karsilik: "bke_kararGerekce"
+    - madde: "SHA-256 kanıt paketi + durum zinciri"
+      karsilik: "bke_parmakIzi"
+
+mevzuat:
+  kurallar: [BKE-001, BKE-002, BKE-003, BKE-004, BKE-005]
+  vakalar: covenant_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - covenant_esik_yorumu
+
+akis:
+  durum_haritasi:
+    - {durum_id: IZLEME, durum_adi: İzleme, sira: 1, izinli_sonraki_durumlar: "UYARI|KAPALI", kategori: acik}
+    - {durum_id: UYARI, durum_adi: Uyarı, sira: 2, izinli_sonraki_durumlar: "IHLAL|IYILESTIRME|IZLEME", kategori: acik}
+    - {durum_id: IHLAL, durum_adi: İhlal, sira: 3, izinli_sonraki_durumlar: "IYILESTIRME|KAPALI", kategori: acik}
+    - {durum_id: IYILESTIRME, durum_adi: İyileştirme, sira: 4, izinli_sonraki_durumlar: "IZLEME|UYARI|KAPALI", kategori: acik}
+    - {durum_id: KAPALI, durum_adi: Kapalı, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+
+analitik_moduller:
+  - kod: T1
+    ad: "DSCR / eşik oranı"
+    ad_tanimi: "bke_modulT1"
+    yorum_hucresi: "bke_modulT1Yorum"
+  - kod: T2
+    ad: "Borç/FAVÖK / eşik oranı"
+    ad_tanimi: "bke_modulT2"
+    yorum_hucresi: "bke_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo skor sapması"
+    ad_tanimi: "bke_modulO1"
+    yorum_hucresi: "bke_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "bke_duyarlilikSira"
+    yorum_hucresi: "bke_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "bke_senaryoKarsilastirma"
+    yorum_hucresi: "bke_yorumSenaryo"
+  - kod: O6
+    ad: "Faiz yükü / FAVÖK yoğunlaşması"
+    ad_tanimi: "bke_modulO6"
+    yorum_hucresi: "bke_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "bke_modulO8"
+    yorum_hucresi: "bke_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Kural değişimi senaryosu"
+    ad_tanimi: "bke_kuralDegisimSenaryo"
+    yorum_hucresi: "bke_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "bke_tahminAralik"
+    yorum_hucresi: "bke_yorumTahmin"
+  - kod: I2
+    ad: "Erken uyarı P90"
+    ad_tanimi: "bke_modulI2"
+    yorum_hucresi: "bke_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "tum_covenant_uygun"
+    karar: "UYGUN"
+  - kosul: "erken_uyari_bandinda"
+    karar: "UYARI"
+  - kosul: "esik_asimi"
+    karar: "İHLAL"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - PANO
+  - GIRDI
+  - KURALLAR
+  - MOTOR
+  - KARTLAR
+  - AKIS
+  - KUYRUKLAR
+  - SENARYO
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat A FAZ 3 #20 — A1+A3 sevk hedefi; eski banka-kredi-ve-taksit-takip-sistemi ayrı paket"

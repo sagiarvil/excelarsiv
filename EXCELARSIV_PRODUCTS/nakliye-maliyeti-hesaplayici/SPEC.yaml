@@ -1,0 +1,88 @@
+arketip: A5
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: nakliye-maliyeti-hesaplayici
+  ad: "Nakliye Maliyeti Hesaplayıcı"
+  karar: "Araç filosu ve sefer kayıtları üzerinden yakıt, bakım, sürücü ve amortisman maliyetlerini sefer bazında hesaplayarak toplam nakliye maliyetini, km ve ton-km başına birim maliyeti ve net kârı bulur; kâr marjını eşiklerle karşılaştırarak KARLI/İNCELE/ZARARLI kararını gerekçesi ve önerilen aksiyonlarla üretir; hasılat yoğunlaşması, anomali, senaryo ve tornado analiziyle gelecek dönem maliyet tahminini üretir"
+  moduller:
+    - zaman_serisi_projeksiyon
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - yogunlasma_analizi
+    - anomali_tespiti
+    - kalite_skoru
+    - karar_kapisi
+    - aksiyon_uretici
+    - yuzdelik_dilim
+    - esik_kirilim
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1500
+    azami_hesap_saniye: 30.0
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1OrtMaliyet
+    yorum_hucresi: modulT1OrtMaliyetYorum
+  - kod: T2
+    ad_tanimi: modulT2OrtMarj
+    yorum_hucresi: modulT2OrtMarjYorum
+  - kod: O1
+    ad_tanimi: modulO1MaliyetSapmasi
+    yorum_hucresi: modulO1MaliyetSapmasiYorum
+  - kod: O2
+    ad_tanimi: modulO2EnYuksekMaliyet
+    yorum_hucresi: modulO2EnYuksekMaliyetYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1Tahmin
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2P90
+    yorum_hucresi: modulI2P90Yorum
+deger:
+  satis_fiyati_tl: 990
+  Y1_danisman_ikamesi_tl: 6000
+  Y2_kurulum_ikamesi_tl: 1500
+serbest_alternatif:
+  alternatifler:
+    - "Sefer maliyetini yakıt fişleri, bakım faturaları ve sürücü ücretlerini toplayarak hesap makinesiyle kalem kalem çıkarmak"
+    - "Araç özelliklerini (tüketim, bakım, amortisman) ayrı Excel sayfalarında tutup sefer bazında manuel birleştirmek"
+    - "Birim maliyeti (TL/km, ton-km) hiç hesaplamadan taşıma fiyatını sezgisel belirlemek"
+    - "Her sefer için hasılat-maliyet farkını aylarca elle toplayıp yönetici raporu hazırlamak"
+    - "Kârsız seferleri belirleyip iyileştirme aksiyonunu el yazısı notlarla yönetmek"
+  ayrimlar:
+    - madde: "Sefer mesafesi ve araç özelliklerinden yakıt, bakım, sürücü ve amortisman maliyetini tek tabloda canlı formülle üretir; alternatifte her kalem elle çarpılır."
+      karsilik: NakliyeToplamMaliyet
+    - madde: "Toplam maliyeti mesafe ve ton-km bazında birim maliyete dönüştürüp hasılatla karşılaştırarak net kâr ve kâr marjını otomatik hesaplar; alternatifte mutabakat elle yürütülür."
+      karsilik: NakliyeBirimMaliyet
+    - madde: "Kâr marjını eşiklerle karşılaştırarak KARLI/İNCELE/ZARARLI kararını gerekçesi ve önerilen aksiyonlarla üretir; alternatifte karar belgesi elle yazılır."
+      karsilik: NakliyeKarar
+    - madde: "Yakıt fiyatı senaryo bant aralığı ve maliyet bileşeni duyarlılık (tornado) analizi ile net kârın belirsizlik aralığını ve en etkili değişkeni gösterir; alternatifte duyarlılık analizi yoktur."
+      karsilik: modulO3Senaryo
+    - madde: "Hasılat yoğunlaşmasını (HHI), maliyet sapmasını ve veri kalite skorunu ölçerek karar kapısına güven katmanı ekler; alternatifte bu analizler yoktur."
+      karsilik: modulO8KaliteSkor
+
+saha:
+  gunluk_giris_alan: 5

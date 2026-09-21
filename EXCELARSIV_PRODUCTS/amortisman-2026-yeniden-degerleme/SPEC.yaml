@@ -1,0 +1,106 @@
+# =============================================================================
+# SPEC — Hat C C-08 · Amortisman + 2026 Yeniden Değerleme
+# Ayırt edici: amortisman cetveli + 298/Ç / Geç.32 tek karar ekranı
+# =============================================================================
+
+urun:
+  kod: AYD-PRO
+  ad: "Amortisman + 2026 Yeniden Değerleme"
+  surum: "1.0.0"
+  slug: amortisman-2026-yeniden-degerleme
+  dosya: Amortisman2026YenidenDegerleme.xlsx
+  prefix: ayd_
+  satis_fiyati_tl: 990
+  hedef_kullanici: "SMMM, mali işler"
+
+arketip: A1
+fiyat: 990
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 990
+  Y1_danisman_ikamesi_tl: 2500
+  Y2_kurulum_ikamesi_tl: 1200
+  Y3_onlenen_hata_tl: 8000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Amortisman + yeniden değerleme danışmanlığı"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - {rol: "SMMM", is_bitince: "298/Ç vs Geç.32 + amortisman kararını sunar"}
+  - {rol: "CFO", is_bitince: "Vergi/özkaynak etkisini bütçeler"}
+  - {rol: "Ortak", is_bitince: "Yap/yapma kararını alır"}
+
+lansman_tetigi:
+  sinif: Mevzuat_yayimi
+  aciklama: "Yıl sonu kapanış −30 gün / yeniden değerleme oranı"
+  tarih_penceresi: "yil_sonu_30_gun"
+
+rakip_ayrim:
+  - {sinif: R1_jenerik, ayrim: "Amortisman cetveli + YD aynı dosyada", karsilik: "ayd_amortismanCetvel"}
+  - {sinif: R2_bedava, ayrim: "298/Ç ve Geç.32 yan yana", karsilik: "ayd_kararMetni"}
+  - {sinif: R1_jenerik, ayrim: "Kural_id + madde atfı", karsilik: "ayd_maddeAtifMetni"}
+  - {sinif: R1_jenerik, ayrim: "Tebliğ vakası TUTARLI", karsilik: "ayd_vakaDurum"}
+  - {sinif: R4, ayrim: "YAP / YAPMA / BEKLE karar", karsilik: "ayd_kararKapi"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["TÜRMOB cetveli", "Elle Excel", "Danışman notu"]
+  ayrimlar:
+    - {madde: "Amortisman + YD tek ekran", karsilik: "ayd_amortismanCetvel"}
+    - {madde: "Yıl matrisi", karsilik: "ayd_kuralYilMatris"}
+    - {madde: "M-SEN kural değişimi", karsilik: "ayd_kuralDegisimSenaryo"}
+    - {madde: "Vaka FARK", karsilik: "ayd_vakaFark"}
+    - {madde: "Boş dosyada VERİ YOK", karsilik: "ayd_kararKapi"}
+
+mevzuat:
+  kurallar: [AYD-001, AYD-002, AYD-003, AYD-004, AYD-005]
+  vakalar: yd_amortisman_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [gec32_vs_298c_oncelik]
+
+analitik_moduller:
+  - {kod: T1, ad: "Amortisman toplam", ad_tanimi: "ayd_modulT1", yorum_hucresi: "ayd_modulT1Yorum"}
+  - {kod: T2, ad: "YD fark", ad_tanimi: "ayd_modulT2", yorum_hucresi: "ayd_modulT2Yorum"}
+  - {kod: O1, ad: "Sapma", ad_tanimi: "ayd_modulO1", yorum_hucresi: "ayd_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık", ad_tanimi: "ayd_duyarlilikSira", yorum_hucresi: "ayd_yorumDuyarlilik"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "ayd_senaryoKarsilastirma", yorum_hucresi: "ayd_yorumSenaryo"}
+  - {kod: O6, ad: "298 vs Geç.32", ad_tanimi: "ayd_modulO6", yorum_hucresi: "ayd_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "ayd_modulO8", yorum_hucresi: "ayd_modulO8Yorum"}
+  - {kod: M_SEN, ad: "Kural değişimi", ad_tanimi: "ayd_kuralDegisimSenaryo", yorum_hucresi: "ayd_yorumKuralDegisim"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "ayd_tahminAralik", yorum_hucresi: "ayd_yorumTahmin"}
+  - {kod: I2, ad: "P90", ad_tanimi: "ayd_modulI2", yorum_hucresi: "ayd_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: yap, karar: "YAP"}
+  - {kosul: yapma, karar: "YAPMA"}
+  - {kosul: bekle, karar: "BEKLE"}
+
+sayfa_akisi: [PANO, GIRDI, AMORTISMAN, KURALLAR, MOTOR, SENARYO, VAKALAR, KANIT_RAPORU, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+  azami_hesap_saniye: 30.0
+  olcek_satir: 5000
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "Hat C C-08 — kullanıcı tam yetki"}

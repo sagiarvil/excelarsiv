@@ -1,0 +1,112 @@
+# =============================================================================
+# SPEC — Hat D D-03 · YMM Tasdik Kontrol Robotu
+# Ayırt edici: YMM tasdik kontrol listesi + eksik belge kuyruğu + kanıt paketi
+# =============================================================================
+
+urun:
+  kod: YTK-PRO
+  ad: "YMM Tasdik Kontrol Robotu"
+  surum: "1.0.0"
+  slug: ymm-tasdik-kontrol-robotu
+  dosya: YmmTasdikKontrolRobotu.xlsx
+  prefix: ytk_
+  satis_fiyati_tl: 2490
+  hedef_kullanici: "YMM, SMMM, tasdik dosya sorumlusu"
+
+arketip: A4
+fiyat: 2490
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 7000
+  Y2_kurulum_ikamesi_tl: 2000
+  Y3_onlenen_hata_tl: 25000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "YMM tasdik kontrol listesi + eksik belge danışmanlığı"
+
+deger_vektoru: ["P", "R", "K"]
+uc_rol:
+  - {rol: "Dosya sorumlusu", is_bitince: "Kontrol listesini ve belge kuyruğunu günceller"}
+  - {rol: "YMM", is_bitince: "TASDIK / EKSİK / DURDUR kararını verir"}
+  - {rol: "Mükellef / denetçi", is_bitince: "Kanıt paketini alır"}
+
+lansman_tetigi:
+  sinif: Donemsel_operasyon
+  aciklama: "Tasdik dönemi / denetim öncesi"
+  tarih_penceresi: "tasdik_donemi"
+
+rakip_ayrim:
+  - {sinif: R1_jenerik, ayrim: "YMM kontrol listesi durum makinesi", karsilik: "ytk_durumHaritasi"}
+  - {sinif: R1_jenerik, ayrim: "Eksik belge kuyruğu yaşlandırma", karsilik: "ytk_eksikKuyruk"}
+  - {sinif: R2_bedava, ayrim: "Kanıt paketi baskı alanı", karsilik: "ytk_kanitRaporu"}
+  - {sinif: R1_jenerik, ayrim: "Yetim/geçersiz geçiş uyarısı", karsilik: "ytk_gecersizGecis"}
+  - {sinif: R4, ayrim: "VERİ YOK/TASDIK/EKSİK/DURDUR", karsilik: "ytk_kararKapi"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["Elle kontrol listesi", "Word checklist", "Genel denetim Excel"]
+  ayrimlar:
+    - {madde: "Durum haritası AYARLAR'da", karsilik: "ytk_durumHaritasi"}
+    - {madde: "Eksik belge kuyruğu", karsilik: "ytk_eksikKuyruk"}
+    - {madde: "Yaşlandırma kovaları", karsilik: "ytk_yasKova"}
+    - {madde: "Kanıt raporu", karsilik: "ytk_kanitRaporu"}
+    - {madde: "Boş dosyada VERİ YOK", karsilik: "ytk_kararKapi"}
+
+akis:
+  durum_haritasi:
+    - {durum_id: TASLAK, durum_adi: Taslak, sira: 1, izinli_sonraki_durumlar: "INCELEME", kategori: acik}
+    - {durum_id: INCELEME, durum_adi: İnceleme, sira: 2, izinli_sonraki_durumlar: "EKSIK|TASDIK|DURDUR", kategori: acik}
+    - {durum_id: EKSIK, durum_adi: Eksik belge, sira: 3, izinli_sonraki_durumlar: "INCELEME|DURDUR", kategori: acik}
+    - {durum_id: TASDIK, durum_adi: Tasdik, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: DURDUR, durum_adi: Durdur, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [basvuru, belge, kontrol, tasdik, arsiv]
+  kuyruk_tanimlari: [İnceleme, Eksik belge, Geciken]
+
+analitik_moduller:
+  - {kod: T1, ad: "Yaşlandırma", ad_tanimi: "ytk_yasKova", yorum_hucresi: "ytk_yorumYas"}
+  - {kod: O5, ad: "Gecikme", ad_tanimi: "ytk_gecikmeMaliyeti", yorum_hucresi: "ytk_yorumGecikme"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "ytk_tahminAralik", yorum_hucresi: "ytk_yorumTahmin"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "ytk_senaryoKarsilastirma", yorum_hucresi: "ytk_yorumSenaryo"}
+  - {kod: O2, ad: "Tornado", ad_tanimi: "ytk_tornadoZirve", yorum_hucresi: "ytk_yorumTornado"}
+  - {kod: I7, ad: "Öncelik", ad_tanimi: "ytk_odemeOncelik", yorum_hucresi: "ytk_yorumOncelik"}
+  - {kod: T3, ad: "Pareto", ad_tanimi: "ytk_paretoGecikme", yorum_hucresi: "ytk_yorumPareto"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "ytk_modulO8", yorum_hucresi: "ytk_modulO8Yorum"}
+  - {kod: I2, ad: "P90", ad_tanimi: "ytk_modulI2", yorum_hucresi: "ytk_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: kritik_eksik, karar: "DURDUR"}
+  - {kosul: eksik, karar: "EKSİK"}
+  - {kosul: uygun, karar: "TASDIK"}
+
+sayfa_akisi: [PANO, KARTLAR, AKIS, KUYRUKLAR, KONTROL_LISTE, HESAP, RAPOR, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+testler:
+  olcek:
+    satir: 5000
+    azami_hesap_saniye: 20
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "Hat D D-03"}

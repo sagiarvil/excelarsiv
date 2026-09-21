@@ -1,0 +1,13 @@
+CALISANLAR,İşe Giriş Tarihi,Zam Öncesi Brüt Ücret (₺),Ücret Türü,Zam Oranı (%)
+Ahmet Yılmaz,01.03.2020,20000,Asgari,0
+Ayşe Kaya,01.06.2015,35000,Ust Oran,0.15
+Mehmet Demir,15.01.2022,12000,Asgari,0
+Zeynep Çelik,01.04.2018,25000,Ust Oran,0.10
+Mustafa Şahin,01.09.2019,15000,Asgari,0
+Fatma Öztürk,01.01.2021,18000,Ust Oran,0.12
+
+URUNLER,Birim Satış Fiyatı (₺),Birim Başına İşçilik (₺),Aylık Adet
+Beton İşçiliği,1200,300,50
+Kalıp İşçiliği,900,250,60
+Demir İşçiliği,1500,400,30
+İskele Kurulumu,700,180,40

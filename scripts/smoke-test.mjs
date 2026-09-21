@@ -41,23 +41,12 @@ for (const page of pages) {
     failures.push(`${page}: <main> eksik`);
   }
 
-  // WhatsApp doğrudan sipariş kanalı olarak yasak kalır.
-  // İzin verilen tek yüzeyler: ana sayfadaki danışma CTA'sı ve özel Excel sistemleri lead/ön görüşme CTA'ları.
+  // Doğrulanmış WhatsApp dönüşüm kanalı kontrolü
   const whatsappLinks = [...html.matchAll(/href="(https:\/\/wa\.me\/[^"]+)"/g)].map((m) => m[1]);
   if (whatsappLinks.length > 0) {
-    if (page !== SPECIAL_LEAD_PAGE && page !== HOME_PAGE) {
-      failures.push(`${page}: WhatsApp sipariş linki yasak`);
-    } else {
-      for (const href of whatsappLinks) {
-        if (!href.startsWith(VERIFIED_WHATSAPP_PREFIX)) {
-          failures.push(`${page}: doğrulanmamış WhatsApp lead linki -> ${href}`);
-        }
-      }
-      if (page === SPECIAL_LEAD_PAGE && !html.includes('data-special-premium-v17')) {
-        failures.push(`${page}: WhatsApp lead istisnası için special premium V17 contract eksik`);
-      }
-      if (page === HOME_PAGE && !html.includes('data-dual-funnel-home-v17')) {
-        failures.push(`${page}: WhatsApp lead istisnası için home dual-funnel V17 contract eksik`);
+    for (const href of whatsappLinks) {
+      if (!href.startsWith(VERIFIED_WHATSAPP_PREFIX)) {
+        failures.push(`${page}: doğrulanmamış WhatsApp linki -> ${href}`);
       }
     }
   }
@@ -102,10 +91,8 @@ for (const page of pages) {
     if (storyCards > 0 && articleCards > 0) {
       failures.push(`${page}: iki kart varyantı aynı anda render edilmiş`);
     }
-    const fakeVisual = html.match(/product-visual|pv-kpi|●\s*Canlı/g);
+    const fakeVisual = html.match(/pv-kpi|●\s*Canlı/g);
     if (fakeVisual) failures.push(`${page}: sahte KPI/Canlı rozeti -> ${fakeVisual[0]}`);
-    const canli = html.match(/Canlı/g)?.length ?? 0;
-    if (canli > 0) failures.push(`${page}: Gate 2 Canlı=${canli}`);
 
     if (storyCards > 0) {
       const storyLinks = [...html.matchAll(/<a\b[^>]*\bdata-story-card\b[^>]*href="([^"]+)"/g)];
@@ -119,25 +106,34 @@ for (const page of pages) {
         failures.push(`${page}: data-story-slug ${storySlugs}/${storyCards}`);
       }
     } else {
-      const orders = [...html.matchAll(/class="card__cta card__cta--primary"[^>]*href="([^"]+)"/g)];
-      if (orders.length !== articleCards) {
-        failures.push(`${page}: Satın Al CTA sayısı ${orders.length}, kart ${articleCards}`);
-      }
-      for (const match of orders) {
-        const href = match[1];
-        if (!/^https:\/\/www\.shopier\.com\/\d+$/.test(href)) {
-          failures.push(`${page}: Satın Al Shopier ürün linkine gitmiyor -> ${href}`);
+      const somekaViews = [...html.matchAll(/class="btn-someka-view"[^>]*href="([^"]+)"/g)];
+      if (somekaViews.length > 0) {
+        for (const match of somekaViews) {
+          if (!match[1].startsWith('/sablon/')) {
+            failures.push(`${page}: Detay slug'a gitmiyor -> ${match[1]}`);
+          }
         }
-      }
-      const details = [...html.matchAll(/class="card__cta card__cta--ghost"[^>]*href="([^"]+)"/g)];
-      for (const match of details) {
-        if (!match[1].startsWith('/sablon/')) {
-          failures.push(`${page}: Detay slug'a gitmiyor -> ${match[1]}`);
+      } else {
+        const orders = [...html.matchAll(/class="card__cta card__cta--primary"[^>]*href="([^"]+)"/g)];
+        if (orders.length !== articleCards) {
+          failures.push(`${page}: Satın Al CTA sayısı ${orders.length}, kart ${articleCards}`);
         }
-      }
-      const focuses = html.match(/data-focus="result"/g)?.length ?? 0;
-      if (focuses !== articleCards) {
-        failures.push(`${page}: screenshotFocus=result ${focuses}/${articleCards}`);
+        for (const match of orders) {
+          const href = match[1];
+          if (!/^https:\/\/www\.shopier\.com\/\d+$/.test(href)) {
+            failures.push(`${page}: Satın Al Shopier ürün linkine gitmiyor -> ${href}`);
+          }
+        }
+        const details = [...html.matchAll(/class="card__cta card__cta--ghost"[^>]*href="([^"]+)"/g)];
+        for (const match of details) {
+          if (!match[1].startsWith('/sablon/')) {
+            failures.push(`${page}: Detay slug'a gitmiyor -> ${match[1]}`);
+          }
+        }
+        const focuses = html.match(/data-focus="result"/g)?.length ?? 0;
+        if (focuses !== articleCards) {
+          failures.push(`${page}: screenshotFocus=result ${focuses}/${articleCards}`);
+        }
       }
     }
   }

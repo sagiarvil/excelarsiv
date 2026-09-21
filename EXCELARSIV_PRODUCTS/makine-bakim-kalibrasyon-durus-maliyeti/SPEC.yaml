@@ -1,0 +1,154 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #26 · Makine Bakım & Kalibrasyon + Duruş Maliyeti
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (A3+A4 melez — durum makinesi + kanıt zinciri)
+# =============================================================================
+
+urun:
+  kod: MBK-PRO
+  ad: "Makine Bakım & Kalibrasyon + Duruş Maliyeti"
+  surum: "1.0.0"
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "Bakım müdürü, kalibrasyon sorumlusu, üretim müdürü, SMMM, denetçi"
+
+arketip: A3+A4
+fiyat: 7900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 16000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 48000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Bakım planlama / kalibrasyon danışmanlığı + duruş maliyeti kanıt dosyası"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Bakım / kalibrasyon"
+    is_bitince: "Bakım satırını ve kalibrasyon periyodunu kilitler"
+  - rol: "Üretim müdürü"
+    is_bitince: "PLANLI / GECİKMİŞ / KRİTİK kararını görür"
+  - rol: "Denetçi / SMMM"
+    is_bitince: "KANIT_RAPORU ile imza zincirini dosyalar"
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "Aylık bakım kapanışı / kalibrasyon vadesi öncesi duruş maliyeti kapanışı"
+  tarih_penceresi: "aylik_bakim_oncesi"
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "Durum haritası PLAN→YAPILDI→GECİKME→KRİTİK tek motorda"
+    karsilik: "mbk_durumHaritasi"
+  - sinif: R1_jenerik
+    ayrim: "Plan tarih ↔ gerçekleşen ↔ duruş maliyeti zincir bayrağı"
+    karsilik: "mbk_zincirKirik"
+  - sinif: R1_jenerik
+    ayrim: "Geçersiz durum geçişi görünür uyarı"
+    karsilik: "mbk_gecersizGecis"
+  - sinif: R2_bedava
+    ayrim: "MBK-001..005 kural tablosu 2025-2027 yan yana"
+    karsilik: "mbk_kuralYilMatris"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz, çevrimdışı, CMMS bağı yok; kapalı kayıt kuyruktan düşer"
+    karsilik: "mbk_kapaliDusum"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Elle Excel bakım listesi"
+    - "Takvim + manuel duruş saati"
+    - "CMMS yazılımı bakım ekranı"
+  ayrimlar:
+    - madde: "Durum haritası AYARLAR'da"
+      karsilik: "mbk_durumHaritasi"
+    - madde: "Geçersiz geçiş görünür uyarı"
+      karsilik: "mbk_gecersizGecis"
+    - madde: "Plan ↔ gerçekleşen ↔ duruş zincir bayrağı"
+      karsilik: "mbk_zincirKirik"
+    - madde: "Kapalı kayıt kuyruktan düşer"
+      karsilik: "mbk_kapaliDusum"
+    - madde: "Kimlik disiplini otomatik öneri"
+      karsilik: "mbk_sonrakiKimlik"
+
+mevzuat:
+  kurallar: [MBK-001, MBK-002, MBK-003, MBK-004, MBK-005]
+  vakalar: makine_bakim_kalibrasyon_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - oee_kaba_vs_tam_oee
+    - kalibrasyon_periyot_isyeri_politikasi
+
+akis:
+  durum_haritasi:
+    - {durum_id: PLAN, durum_adi: Plan, sira: 1, izinli_sonraki_durumlar: "YAPILDI|GECIKME", kategori: acik}
+    - {durum_id: YAPILDI, durum_adi: Yapıldı, sira: 2, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: GECIKME, durum_adi: Gecikme, sira: 3, izinli_sonraki_durumlar: "YAPILDI|KRITIK", kategori: acik}
+    - {durum_id: KRITIK, durum_adi: Kritik, sira: 4, izinli_sonraki_durumlar: "YAPILDI", kategori: acik}
+  zincir_halkalari: [plan_tarih, gerceklesen, durus_saat, kalibrasyon]
+  kuyruk_tanimlari: [Plan, Gecikme, Kritik]
+
+analitik_moduller:
+  - {kod: T1, ad: "Günlük duruş ortalaması", ad_tanimi: "mbk_gunlukDurusOrt", yorum_hucresi: "mbk_yorumGunluk"}
+  - {kod: T2, ad: "Haftalık duruş toplam", ad_tanimi: "mbk_haftalikDurus", yorum_hucresi: "mbk_yorumHaftalik"}
+  - {kod: O1, ad: "Duruş sapma", ad_tanimi: "mbk_durusSapma", yorum_hucresi: "mbk_yorumSapma"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "mbk_tornadoZirve", yorum_hucresi: "mbk_yorumTornado"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "mbk_senaryoKarsilastirma", yorum_hucresi: "mbk_yorumSenaryo"}
+  - {kod: O6, ad: "Yoğunlaşma HHI", ad_tanimi: "mbk_hhi", yorum_hucresi: "mbk_yorumHhi"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "mbk_kaliteSkor", yorum_hucresi: "mbk_yorumKalite"}
+  - {kod: M_SEN, ad: "Senaryo motoru", ad_tanimi: "mbk_senaryoMotor", yorum_hucresi: "mbk_yorumSenMotor"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "mbk_tahminAralik", yorum_hucresi: "mbk_yorumTahmin"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "mbk_yuzdelikP90", yorum_hucresi: "mbk_yorumP90"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "kritik_veya_kalibrasyon_asim"
+    karar: "KRİTİK"
+  - kosul: "gecikme_veya_durus_esik"
+    karar: "GECİKMİŞ"
+  - kosul: "plan_dahilinde"
+    karar: "PLANLI"
+
+sayfa_akisi:
+  - KAPAK
+  - MAKINELER
+  - AKIS
+  - KUYRUKLAR
+  - HESAP
+  - PANO
+  - KURALLAR
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat A FAZ 3 #26 — A3+A4 sevk hedefi"

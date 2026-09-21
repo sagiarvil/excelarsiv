@@ -1,0 +1,19 @@
+CARI_KARTLARI,Cari Kodu,Unvan,Yetkili,Telefon,Şehir,Segment,Skor,Karşılıksız,Kredi Limiti,Not
+C001,Delta Tekstil A.Ş.,A. Yılmaz,0212 111 22 33,İstanbul,MÜŞTERİ,82,YOK,500000,Ana müşteri; ödemeler düzenli
+C002,Mega İnşaat Ltd.,B. Koç,0216 222 33 44,İstanbul,MÜŞTERİ,45,YOK,250000,Tahsilat skoru düşük; izleniyor
+C003,Polar Gıda San.,C. Demir,0232 333 44 55,İzmir,MÜŞTERİ,65,YOK,300000,
+C004,Vega Elektronik,D. Şahin,0312 444 55 66,Ankara,MÜŞTERİ,35,VAR,,Karşılıksız geçmişi var; kredi limiti tanımlanmadı
+C005,Orion Mobilya,E. Aydın,0262 555 66 77,Kocaeli,MÜŞTERİ,72,YOK,400000,
+C006,Atlas Lojistik,F. Kaya,0212 666 77 88,İstanbul,ALT YÜKLENİCİ,78,YOK,200000,
+C007,Yıldız Metal San.,G. Aslan,0262 777 88 99,Kocaeli,TEDARİKÇİ,70,YOK,350000,Verilen belgelerin alacaklısı
+CEK_SENET_KAYIT,Belge Türü,Belge Numarası,Yön,Düzenleyen,Lehtar,Cari Kodu,Keşide Tarihi,Vade Tarihi,Tutar,Banka,Şube,Hesap,Portföy Durumu,Son Durum,Risk Sınıfı,Karşılıksız
+ÇEK,4581101,Alınan,Delta Tekstil A.Ş.,Kendi Firmamız,C001,2026-07-12,2026-08-20,150000,İŞ,MECİDİYEKÖY,0001-20458971,TEMİNATTA,CİRO EDİLDİ,DÜŞÜK,YOK
+SENET,310045,Alınan,Polar Gıda San.,Kendi Firmamız,C003,2026-06-15,2026-09-15,85000,İŞ,MECİDİYEKÖY,0001-20458971,PORTFÖYDE,PORTFÖYDE,ORTA,YOK
+ÇEK,4581290,Alınan,Mega İnşaat Ltd.,Kendi Firmamız,C002,2026-07-20,2026-08-30,120000,GARANTİ,GAYRETTEPE,6294-88110352,TAHSİLE VERİLDİ,CİRO EDİLDİ,YÜKSEK,YOK
+ÇEK,7700133,Verilen,Kendi Firmamız,Yıldız Metal San.,C007,2026-08-01,2026-09-05,200000,AKBANK,MASLAK,1045-00112233,PORTFÖYDE,PORTFÖYDE,DÜŞÜK,YOK
+SENET,880091,Verilen,Kendi Firmamız,Yıldız Metal San.,C007,2026-08-10,2026-10-10,175000,AKBANK,MASLAK,1045-00112233,PORTFÖYDE,PORTFÖYDE,ORTA,YOK
+ÇEK,4581422,Alınan,Vega Elektronik,Kendi Firmamız,C004,2026-07-05,2026-08-05,95000,İŞ,MECİDİYEKÖY,0001-20458971,İPTAL,KARŞILIKSIZ,KARŞILIKSIZ,VAR
+ÇEK,2200188,Alınan,Orion Mobilya,Kendi Firmamız,C005,2026-07-25,2026-09-25,60000,YAPI KREDİ,LEVENT,7006-55883344,TAHSİLE VERİLDİ,TAHSİLE VERİLDİ,DÜŞÜK,YOK
+SENET,330077,Alınan,Delta Tekstil A.Ş.,Kendi Firmamız,C001,2026-08-01,2026-11-01,130000,İŞ,MECİDİYEKÖY,0001-20458971,PORTFÖYDE,PORTFÖYDE,DÜŞÜK,YOK
+ÇEK,7710055,Verilen,Kendi Firmamız,Yıldız Metal San.,C007,2026-07-15,2026-09-15,220000,AKBANK,MASLAK,1045-00112233,PORTFÖYDE,PORTFÖYDE,ORTA,YOK
+ÇEK,4581310,Alınan,Polar Gıda San.,Kendi Firmamız,C003,2026-07-18,2026-08-18,45000,GARANTİ,GAYRETTEPE,6294-88110352,TAHSİL EDİLDİ,TAHSİL EDİLDİ,ORTA,YOK

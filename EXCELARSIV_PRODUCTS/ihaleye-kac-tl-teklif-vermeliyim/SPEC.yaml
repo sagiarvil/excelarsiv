@@ -1,0 +1,95 @@
+arketip: A1
+urun:
+  slug: ihaleye-kac-tl-teklif-vermeliyim
+  ad: "İhaleye Kaç TL Teklif Vermeliyim? (Sınır Değer Hesaplayıcı)"
+  karar: "Teklif öncesinde sınır değeri hesaplamak; güvenli teklif bölgesini, beklenen kâr marjını ve riski ortaya koymak; UYGUN / İNCELE / DURDUR kararı üretmek"
+  hedef_kullanici: "Yapım işi ve mal alımı ihalelerine teklif hazırlayan müteahhit, yüklenici ve firmalar"
+  mevzuat:
+    - "4734 sayılı Kamu İhale Kanunu: teklif değerlendirme ve sınır değer uygulaması"
+    - "Yapım İşleri İhaleleri Uygulama Yönetmeliği md.61-62: sınır değer hesabı ve sınır değer katsayısı (N)"
+  giris:
+    ihale_karti:
+      alanlar: [ihaleAdi, idare, ihaleTarihi, yaklasikMaliyet, nKatsayisi, hedefKarMarji, toplamMaliyet, isKalemSayisi, fiyatFarkiMaddeVarMi]
+    rakip_teklifler:
+      tablo: tblRakipler
+      kolonlar: [rakipAdi, teklifTutari, gecerliMi]
+    onceki_ihaleler:
+      tablo: tblGecmis
+      kolonlar: [ihaleAdi, tarih, yaklasikMaliyet, sinirDeger, bizimTeklif, kazananTeklif]
+    maliyet_kalemleri:
+      tablo: tblMaliyet
+      kolonlar: [kalemAdi, birim, miktar, birimMaliyet]
+  esikler:
+    guvenlik_payi: 0.03           # sınır değerin üzerine eklenen güvenlik payı
+    sd_asiri_dusuk_esik: 1.00     # teklif/SD oranı < 1,00 → aşırı düşük riski
+    anomali_z_esigi: 2.00         # rakip tekliflerde |Z| eşiği
+    mutabakat_tolerans: 10000     # maliyet mutabakatı kabul toleransı (₺)
+    veri_kalite_iyi: 90
+    veri_kalite_orta: 70
+  rapor: "A4, PDF'e hazır; yönetici özeti, sınır değer karşılaştırması, maliyet mutabakatı ve risk çekinceleri"
+
+analitik_moduller:
+  - kod: T2
+    ad_tanimi: modulT2EndeksEgim
+    yorum_hucresi: modulT2EndeksYorum
+  - kod: T3
+    ad_tanimi: modulT3ParetoPayi
+    yorum_hucresi: modulT3ParetoYorum
+  - kod: T6
+    ad_tanimi: modulT6KirilimOrani
+    yorum_hucresi: modulT6KirilimYorum
+  - kod: O1
+    ad_tanimi: modulO1AnomaliSayisi
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2TornadoZirve
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3SenaryoBaz
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkoru
+    yorum_hucresi: modulO8KaliteYorum
+  - kod: I1
+    ad_tanimi: modulI1TahminOrta
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2P90
+    yorum_hucresi: modulI2Yorum
+
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 8500
+  Y2_kurulum_ikamesi_tl: 3000
+
+serbest_alternatif:
+  alternatifler:
+    - "İdarelerin açık yayımladığı sınır değer hesaplama cetvelleri ve hesap tabloları"
+    - "İhale mevzuat danışmanının teklif başı danışmanlık ücreti"
+    - "Ücretsiz Excel şablonları"
+    - "Genel amaçlı yapay zekâ ile elle kurulum"
+  ayrimlar:
+    - madde: "Sınır değeri N katsayısı ve hesap yöntemi seçimiyle otomatik hesaplar; yöntem değişiminde cetveli elle yeniden kurmayı gerektirmez"
+      karsilik: SinirDeger
+    - madde: "Öneri teklifi hedef kâr marjına göre TL ve sınır değer oranı bazında üretir; risk bölgesine düşüp düşmediğini otomatik işaretler"
+      karsilik: OneriTeklif
+    - madde: "Rakip teklif anomalilerini Z skoruyla tespit eder; geçersiz teklifleri ortalama ve sınır değer hesabından ayırır"
+      karsilik: modulO1AnomaliSayisi
+    - madde: "Maliyet kalemleri ile toplam maliyet mutabakatını tolerans içinde denetler; sapmayı TL ve oran bazında gösterir"
+      karsilik: MutabakatFark
+    - madde: "Geçmiş ihalelerden kazanma oranı ve sınır değer iskontosunu tahmin eder; tahmin alt/üst bandı üretir"
+      karsilik: modulI1TahminOrta
+    - madde: "Tornado duyarlılıkla hangi değişkenin sınır değeri ve öneriyi en çok etkilediğini sıralar"
+      karsilik: modulO2TornadoZirve
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 6
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25

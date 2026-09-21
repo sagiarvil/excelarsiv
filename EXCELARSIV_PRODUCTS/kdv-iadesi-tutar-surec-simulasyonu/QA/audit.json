@@ -1,0 +1,125 @@
+{
+  "product": "kdv-iadesi-tutar-surec-simulasyonu",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/kdv-iadesi-tutar-surec-simulasyonu/KdvIadesiTutarSurecSimulasyonu.xlsx",
+  "sha256": "ef76c12b91ac7aaf0a1316bc96a92f6e0dab5f357ae4c7f9d36c10a39b219812",
+  "size_bytes": 412388,
+  "modified_at": "2026-08-11T16:20:19",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "PANO",
+    "GIRDI",
+    "KURALLAR",
+    "MOTOR",
+    "KARTLAR",
+    "AKIS",
+    "KUYRUKLAR",
+    "SENARYO",
+    "VAKALAR",
+    "KANIT_RAPORU",
+    "KONTROLLER",
+    "ORNEK_VERI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": "000F2742",
+    "HIZLI_BASLANGIC": "001F4E79",
+    "PANO": "000F2742",
+    "GIRDI": "00B08948",
+    "KURALLAR": "001F7A4D",
+    "MOTOR": "008064A2",
+    "KARTLAR": "002E75B6",
+    "AKIS": "00C65911",
+    "KUYRUKLAR": "001F4E79",
+    "SENARYO": "00ED7D31",
+    "VAKALAR": "002E75B6",
+    "KANIT_RAPORU": "000F2742",
+    "KONTROLLER": "00C00000",
+    "ORNEK_VERI": "00548235",
+    "LISTELER": "007030A0",
+    "AYARLAR": "000F2742",
+    "KILAVUZ": "001F4E79"
+  },
+  "formula_count": 9257,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 3043,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 7,
+  "conditional_format_count": 37,
+  "data_validation_count": 31,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 5,
+  "merged_ranges": 52,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > PANO > GIRDI > KURALLAR > MOTOR > KARTLAR > AKIS > KUYRUKLAR > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > GIRDI > SENARYO > KONTROLLER > KILAVUZ > KAPAK > PANO > KURALLAR > MOTOR > KARTLAR > AKIS > KUYRUKLAR > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=3043"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > PANO > GIRDI > KURALLAR > MOTOR > KARTLAR > AKIS > KUYRUKLAR > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > GIRDI > SENARYO > KONTROLLER > KILAVUZ > KAPAK > PANO > KURALLAR > MOTOR > KARTLAR > AKIS > KUYRUKLAR > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=9257"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

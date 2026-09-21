@@ -1,0 +1,174 @@
+# =============================================================================
+# SPEC — Hat A #19 · Proje Finansmanı Paketi (DSCR/LLCR)
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (v5 A1 arketipi miras)
+# =============================================================================
+
+urun:
+  kod: PFD-PRO
+  ad: "Proje Finansmanı Paketi (DSCR/LLCR)"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "CFO, hazine, proje finansmanı, kredi risk, SMMM"
+
+arketip: A1
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 22000
+  Y2_kurulum_ikamesi_tl: 10000
+  Y3_onlenen_hata_tl: 35000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Proje finansmanı DSCR/LLCR covenant model + kredi karar dosyası"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "Hazine / proje finansmanı"
+    is_bitince: "DSCR ve LLCR kararını kredi komitesine sunar"
+  - rol: "CFO"
+    is_bitince: "UYGUN / DİKKAT / İHLAL kararını bütçe ve borç planına yazar"
+  - rol: "Kredi risk / denetçi"
+    is_bitince: "KANIT_RAPORU ile eşik atfını ve NPV varsayımlarını görür"
+
+lansman_tetigi:
+  sinif: Kredi_yenileme_veya_covenant
+  aciklama: "Kredi yenileme, covenant testi veya proje finansmanı kapanış −30 gün"
+  tarih_penceresi: "kredi_kapanis_oncesi_30_gun"
+
+rakip_ayrim:
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Senaryo motoru (≥3) + yıl karşılaştırması (2025/2026/2027)"
+    karsilik: "pfd_senaryoKarsilastirma"
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Altın vakalar TUTARLI raporlanabilir"
+    karsilik: "pfd_vakaDurum"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Her MOTOR adımında kural_id + madde atfı"
+    karsilik: "pfd_maddeAtifMetni"
+  - sinif: R1_jenerik_sablon
+    ayrim: "KANIT_RAPORU A4 imza alanı — komiteye çıktı"
+    karsilik: "pfd_kanitRaporu"
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; DSCR/LLCR karar + gerekçe üretir"
+    karsilik: "pfd_kararMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Bankanın tek satırlık DSCR Excel'i"
+    - "Danışmanın PowerPoint NPV özeti"
+    - "ERP nakit akışı raporu"
+  ayrimlar:
+    - madde: "Çok-yıllı kural tablosu yan yana"
+      karsilik: "pfd_kuralYilMatris"
+    - madde: "M-SEN eşik değişimi senaryosu"
+      karsilik: "pfd_kuralDegisimSenaryo"
+    - madde: "Vaka FARK kontrolü"
+      karsilik: "pfd_vakaFark"
+    - madde: "Makine üretilmiş gerekçeli karar cümlesi"
+      karsilik: "pfd_kararGerekce"
+    - madde: "SHA-256 kanıt paketi"
+      karsilik: "pfd_parmakIzi"
+
+mevzuat:
+  kurallar: [PFD-001, PFD-002, PFD-003, PFD-004, PFD-005]
+  vakalar: dscr_llcr_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - cfads_yorumu
+
+analitik_moduller:
+  - kod: T1
+    ad: "CFADS / borç servisi (DSCR)"
+    ad_tanimi: "pfd_modulT1"
+    yorum_hucresi: "pfd_modulT1Yorum"
+  - kod: T2
+    ad: "NPV(CFADS) / borç (LLCR)"
+    ad_tanimi: "pfd_modulT2"
+    yorum_hucresi: "pfd_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo DSCR sapması"
+    ad_tanimi: "pfd_modulO1"
+    yorum_hucresi: "pfd_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "pfd_duyarlilikSira"
+    yorum_hucresi: "pfd_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "pfd_senaryoKarsilastirma"
+    yorum_hucresi: "pfd_yorumSenaryo"
+  - kod: O6
+    ad: "Faiz / borç servisi yoğunlaşması"
+    ad_tanimi: "pfd_modulO6"
+    yorum_hucresi: "pfd_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "pfd_modulO8"
+    yorum_hucresi: "pfd_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Eşik değişimi senaryosu"
+    ad_tanimi: "pfd_kuralDegisimSenaryo"
+    yorum_hucresi: "pfd_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "pfd_tahminAralik"
+    yorum_hucresi: "pfd_yorumTahmin"
+  - kod: I2
+    ad: "DSCR yüzdelik P90"
+    ad_tanimi: "pfd_modulI2"
+    yorum_hucresi: "pfd_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "dscr_ve_llcr_asgari_ustu"
+    karar: "UYGUN"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "dikkat_esik_alti"
+    karar: "İHLAL"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - PANO
+  - GIRDI
+  - KURALLAR
+  - MOTOR
+  - SENARYO
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "FAZ 3 hat A ürün #19 — üretim başlatıldı"

@@ -1,0 +1,5 @@
+MUSTERILER,Müşteri Kodu,Unvan,Vergi Numarası,Sektör,Bölge,Satış Sorumlusu,İlk Çalışma Tarihi,Varsayılan Vade,Onaylı Risk Limiti,Geçici Ek Limit,Limit Bitiş Tarihi,Teminat Türü,Teminat Değeri,Teminat Geçerlilik Tarihi,Grup Şirketi,Kritik Müşteri mi?,Durum
+M001,Atlas Yapı A.Ş.,1111111111,İnşaat,Marmara,Ayşe Yılmaz,2022-01-15,60,1250000,250000,2026-12-31,Banka Teminat Mektubu,900000,2026-12-31,Anadolu Grubu,Hayır,Aktif
+M002,Bora Perakende Ltd.,2222222222,Perakende,Ege,Mehmet Kaya,2023-03-10,45,800000,0,2026-12-31,İpotek,550000,2026-06-30,Bağımsız,Hayır,Aktif
+M003,Cemre Gıda A.Ş.,3333333333,Gıda,İç Anadolu,Selin Demir,2021-06-20,30,650000,100000,2026-12-31,Çek ve Senet,300000,2026-08-01,Bağımsız,Hayır,İzlemede
+M004,Delta Tekstil Ltd.,4444444444,Tekstil,Ege,Can Arslan,2020-02-05,90,2000000,0,2026-12-31,Teminatsız,0,2026-12-31,Bağımsız,Evet,Askıda

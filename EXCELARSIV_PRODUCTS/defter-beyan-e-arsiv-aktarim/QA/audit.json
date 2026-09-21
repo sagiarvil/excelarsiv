@@ -1,0 +1,123 @@
+{
+  "product": "defter-beyan-e-arsiv-aktarim",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/defter-beyan-e-arsiv-aktarim/DefterBeyanEArsivAktarim.xlsx",
+  "sha256": "c22bf3e4d621d0d9c6cc8f039866bd065d87de4a4732de9722fcb75988f8b6df",
+  "size_bytes": 764199,
+  "modified_at": "2026-08-14T22:04:33",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "VERI_A",
+    "VERI_B",
+    "ANAHTAR",
+    "MOTOR",
+    "ESLESTIRME",
+    "HATA_LISTE",
+    "KOK_NEDEN",
+    "PANO",
+    "AKSIYON",
+    "KANIT_RAPORU",
+    "KONTROLLER",
+    "ORNEK_VERI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": "000F2942",
+    "VERI_A": "000F2942",
+    "VERI_B": "000F2942",
+    "ANAHTAR": "000F2942",
+    "MOTOR": "008064A2",
+    "ESLESTIRME": "000F2942",
+    "HATA_LISTE": "00B3261E",
+    "KOK_NEDEN": "000F2942",
+    "PANO": "000F2942",
+    "AKSIYON": "000F2942",
+    "KANIT_RAPORU": "000F2942",
+    "KONTROLLER": "00C00000",
+    "ORNEK_VERI": "0070AD47",
+    "LISTELER": "000F2942",
+    "AYARLAR": "000F2942",
+    "KILAVUZ": "000F2942"
+  },
+  "formula_count": 54125,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 17064,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 9,
+  "conditional_format_count": 42,
+  "data_validation_count": 57,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 7,
+  "merged_ranges": 55,
+  "order_mismatches": [
+    "Mevcut: KAPAK > VERI_A > VERI_B > ANAHTAR > MOTOR > ESLESTIRME > HATA_LISTE > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > VERI_A > VERI_B > ANAHTAR > MOTOR > ESLESTIRME > HATA_LISTE > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=17064"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > VERI_A > VERI_B > ANAHTAR > MOTOR > ESLESTIRME > HATA_LISTE > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > VERI_A > VERI_B > ANAHTAR > MOTOR > ESLESTIRME > HATA_LISTE > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=54125"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

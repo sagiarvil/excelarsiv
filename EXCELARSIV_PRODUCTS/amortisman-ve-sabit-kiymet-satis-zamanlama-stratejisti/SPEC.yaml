@@ -1,0 +1,88 @@
+arketip: A1
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti
+  ad: "Amortisman & Sabit Kıymet Satış Zamanlama Stratejisti"
+  karar: "Sabit kıymetlerin amortismanını normal ve azalan bakiyeli yöntemlerle hesaplar; yıl içinde dört çeyrek satış senaryosunda kıst amortisman, satış kârı/zararı, kurumlar vergisi etkisi ve net nakit üretir; net nakitleri bugünkü değere indirgeyerek satış için en uygun dönemi gerekçesiyle önerir"
+  moduller:
+    - zaman_serisi_projeksiyon
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - yogunlasma_analizi
+    - anomali_tespiti
+    - kalite_skoru
+    - karar_kapisi
+    - aksiyon_uretici
+    - deger_olcer
+    - esik_kirilim
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1500
+    azami_hesap_saniye: 30.0
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1ZamOrani
+    yorum_hucresi: modulT1ZamOraniYorum
+  - kod: T2
+    ad_tanimi: modulT2OrtalamaNdd
+    yorum_hucresi: modulT2OrtalamaNddYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2EnYuksekKar
+    yorum_hucresi: modulO2EnYuksekKarYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1AmortismanTahmin
+    yorum_hucresi: modulI1AmortismanTahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+  - kod: I3
+    ad_tanimi: modulI3NbdFarki
+    yorum_hucresi: modulI3NbdFarkiYorum
+deger:
+  satis_fiyati_tl: 1490
+  Y1_danisman_ikamesi_tl: 6000
+  Y2_kurulum_ikamesi_tl: 2500
+serbest_alternatif:
+  alternatifler:
+    - "Her kıymetin amortismanını ve net defter değerini muhasebe programının raporundan elle almak"
+    - "Çeyrek bazında kıst amortisman, kâr/zarar ve vergi etkisini hesap makinesiyle tek tek hesaplamak"
+    - "Satış dönemini bugünkü değere indirgemeden sezgisel olarak (ör. yıl sonu) seçmek"
+    - "Mali müşavirden her satış senaryosu için ayrı ayrı projeksiyon istemek (dönemlik ücret)"
+    - "Satış bedeli ve amortisman oranı değişimlerinin net nakite etkisini hiç ölçmeden işlem yapmak"
+  ayrimlar:
+    - madde: "Kıymet bazında normal ve azalan bakiyeli amortisman, birikmiş amortisman ve net defter değerini tek tabloda canlı formülle üretir; alternatifte bu değerler muhasebe raporundan elle alınır."
+      karsilik: AmortismanToplamNdd
+    - madde: "Yıl içi dört çeyrek satış senaryosunu kıst amortisman, kâr/zarar, vergi etkisi ve net nakit olarak tek motor üzerinde hesaplar; alternatifte her senaryo elle hesap makinesiyle çıkarılır."
+      karsilik: AmortismanNetNakitEnIyi
+    - madde: "Çeyrek nakit akışlarını iskonto oranıyla bugünkü değere indirger ve en uygun satış dönemini gerekçesiyle seçer; alternatifte NBD hesabı yoktur."
+      karsilik: AmortismanNbdEnIyi
+    - madde: "Satış bedeli çarpanı senaryolarını bant aralığı ve tornado analiziyle gösterir; alternatifte duyarlılık analizi yoktur."
+      karsilik: modulO3Senaryo
+    - madde: "Kıymet türü yoğunlaşmasını (HHI), NDD sapmasını ve veri kalite skorunu ölçerek karar kapısına güven katmanı ekler; alternatifte bu analizler yoktur."
+      karsilik: modulO8KaliteSkor

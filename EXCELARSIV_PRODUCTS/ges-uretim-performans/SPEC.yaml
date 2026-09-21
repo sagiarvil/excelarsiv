@@ -1,0 +1,153 @@
+# =============================================================================
+# SPEC — Hat B Y-04 · GES Üretim & Performans Takibi
+# Durum: ONAYLANDI — Hat B enerji dikey
+# Manda: v6 (A5 Saha Operasyon Komuta Merkezi — S01–S05 zorunlu)
+# Domain: PR oranı, üretim/kayıp analizi — depo/filo/GES fizibilite KOPYASI DEĞİL
+# =============================================================================
+
+urun:
+  kod: GUP-PRO
+  ad: "GES Üretim & Performans Takibi"
+  surum: "1.0.0"
+  slug: ges-uretim-performans
+  dosya: GesUretimPerformans.xlsx
+  prefix: gup_
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "GES işletme müdürü, saha enerji operatörü, CFO / varlık yöneticisi"
+
+arketip: A5
+fiyat: 7900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18500
+  Y2_kurulum_ikamesi_tl: 7500
+  Y3_onlenen_hata_tl: 42000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "GES performans izleme danışmanlığı + PR/kayıp analizi komuta dosyası"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Saha enerji operatörü"
+    is_bitince: "Günlük üretim-ışınım-kayıp satırını ≤6 alanda kilitler"
+  - rol: "GES işletme müdürü"
+    is_bitince: "PR oranı, kayıp kırılımı ve UYGUN/DİKKAT/KRİTİK/VERİ YOK kararını görür"
+  - rol: "CFO / varlık yöneticisi"
+    is_bitince: "RAPOR ile dönemsel üretim-performans kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Sezon
+  aciklama: "Yaz üretim sezonu ve kış düşük PR denetimi — sezonsal performans kapanışı"
+  tarih_penceresi: "sezon_basi_eksi_45_gun"
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "PR oranı = üretim / (ışınım × kapasite) tek formül; sabit skor yok"
+    karsilik: "gup_prOrani"
+  - sinif: R1_jenerik
+    ayrim: "Kayıp kırılımı (kirlenme/gölge/inverter/arıza) alarm kuyruğu"
+    karsilik: "gup_kayipKirilim"
+  - sinif: R1_jenerik
+    ayrim: "Varlık sağlık skoru PR ve alarmdan formülle türer"
+    karsilik: "gup_saglikSkor"
+  - sinif: R2_bedava
+    ayrim: "12 aylık sezonsal üretim-PR zinciri"
+    karsilik: "gup_sezonsalTrend"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz, çevrimdışı; SCADA API bağı yok"
+    karsilik: "gup_kararKapi"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "İnverter CSV + ışınım ölçer verisini ayrı Excel'de birleştirmek"
+    - "PR oranını hesap makinesiyle elle bölmek"
+    - "SCADA / EMS aboneliği"
+  ayrimlar:
+    - madde: "PR + kayıp kırılımı tek satırda canlı formül"
+      karsilik: "gup_prOrani"
+    - madde: "Varlık sağlık skoru COUNTIF/SUMIF ile veriden türer"
+      karsilik: "gup_saglikSkor"
+    - madde: "Alarm eşiği AYARLAR + varlık/eşik/süre listesi"
+      karsilik: "gup_alarmListesi"
+    - madde: "12 ay sezonsal üretim-PR karşılaştırması"
+      karsilik: "gup_sezonsalTrend"
+    - madde: "Boş dosyada VERİ YOK; UYGUN/DİKKAT/KRİTİK kapısı"
+      karsilik: "gup_kararKapi"
+
+saha:
+  gunluk_giris_alan: 6
+  birim_disiplini: true
+  sezonsallik_ay: 12
+  saglik_skor_formul: true
+  alarm_esik_ayarlar: true
+
+analitik_moduller:
+  - {kod: T1, ad: "Günlük PR ortalaması", ad_tanimi: "gup_gunlukPrOrt", yorum_hucresi: "gup_yorumGunluk"}
+  - {kod: T2, ad: "Aylık üretim trend", ad_tanimi: "gup_aylikUretimTrend", yorum_hucresi: "gup_yorumAylik"}
+  - {kod: O1, ad: "PR sapma", ad_tanimi: "gup_prSapma", yorum_hucresi: "gup_yorumSapma"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "gup_tornadoZirve", yorum_hucresi: "gup_yorumTornado"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "gup_senaryoKarsilastirma", yorum_hucresi: "gup_yorumSenaryo"}
+  - {kod: O6, ad: "Yoğunlaşma HHI", ad_tanimi: "gup_hhi", yorum_hucresi: "gup_yorumHhi"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "gup_kaliteSkor", yorum_hucresi: "gup_yorumKalite"}
+  - {kod: M_SEN, ad: "Senaryo motoru", ad_tanimi: "gup_senaryoMotor", yorum_hucresi: "gup_yorumSenMotor"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "gup_tahminAralik", yorum_hucresi: "gup_yorumTahmin"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "gup_yuzdelikP90", yorum_hucresi: "gup_yorumP90"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "kritik_alarm_veya_saglik_dusuk"
+    karar: "KRİTİK"
+  - kosul: "pr_esik_asim"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - VARLIKLAR
+  - GUNLUK_GIRIS
+  - DONEM_ANALIZ
+  - HESAP
+  - PANO
+  - ALARMLAR
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 250
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+testler:
+  asgari_tablo_kapasitesi: 250
+  olcek:
+    satir: 500
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-04 — A5 GES üretim & performans sevk hedefi"

@@ -1,0 +1,108 @@
+arketip: A3
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  karar_sayfasi: "KARAR_MOTORU"
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  motor_sayfasi: "KARAR_MOTORU"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+testler:
+  olcek:
+    satir: 200
+    azami_hesap_saniye: 25.0
+
+urun:
+  slug: cek-senet-vade-risk-sistemi
+  ad: "Çek Senet Vade ve Karşılık Risk Sistemi"
+  karar: "Alınan/verilen çek ve senetlerin vade takvimini, risk ağırlıklı tahsil değerini ve günlük karşılık açığını hesaplar; karşılık oranı ve vade yoğunluğuna göre KRİTİK/RİSKLİ/NORMAL kararı üretir; veri yetersizse VERİ YOK der"
+  hedef_kullanici: "Finans ve nakit yönetimi uzmanları, muhasebe yöneticileri, kobi sahipleri, kredi risk uzmanları"
+  mevzuat:
+    - "Türk Ticaret Kanunu (6102 s.) md.772-778: kambiyo senetlerinde ibraz ve ödeme süreleri"
+    - "Çek Kanunu (5941 s.): karşılıksız çek ve ibraz süreleri (10 gün)"
+    - "MASAK ve bankacılık uygulamalarında çek hesabı bilgilerinin doğrulanması"
+  giris:
+    cari_kartlari:
+      tablo: tblCari
+      kolonlar: ["Cari Kodu", "Unvan", "Yetkili", "Telefon", "Şehir", "Tür", "Skor", "Durum", "Risk Sınıfı", "Kredi Limiti", "Not"]
+    belgeler:
+      tablo: tblCekSenet
+      kolonlar: ["Belge ID", "Belge Türü", "Belge Numarası", "Yön", "Düzenleyen", "Lehtar", "Cari Kodu", "Keşide Tarihi", "Vade Tarihi", "Tutar", "Para Birimi", "Kur", "TL Tutar", "Banka", "Şube", "Hesap", "Teminat Durumu", "Ciro Edildi", "Ciro Edilen Cari", "Portföy Durumu", "Tahsil Bankası", "Tahsile Veriliş Tarihi", "Son Durum", "Son Durum Tarihi", "Risk Sınıfı", "Karşılıksız Bilgisi", "Hukuki Takip", "Sorumlu", "Not", "Mükerrer Kontrol", "Risk Ağırlığı", "Risk Ağırlıklı TL", "Cari Risk Sınıfı"]
+    ciro_zinciri:
+      tablo: tblCiro
+      kolonlar: ["Ciro Kayıt No", "Belge Numarası", "Ciro Tarihi", "Ciro Edilen Cari", "Sorumluluğu Devam Ediyor", "Not"]
+    banka_tahsilati:
+      tablo: tblBankaTahsil
+      kolonlar: ["Tahsil No", "Tarih", "Banka", "Belge Numarası", "Durum", "Tahsil Tutarı", "Karşılık Açığı", "Not"]
+    durum_hareketleri:
+      tablo: tblDurumHareket
+      kolonlar: ["Hareket No", "Belge Numarası", "Tarih", "Önceki Durum", "Yeni Durum", "Açıklama", "Sorumlu"]
+  esikler:
+    asgari_veri_sayisi: 6
+    esik_izle: 49
+    esik_kritik: 70
+  rapor: "A4, PDF'e hazır; genel karar, KPI özeti, varsayımlar ve önerilen aksiyonlar"
+
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1Yaslandirma
+    yorum_hucresi: modulT1YaslandirmaYorum
+  - kod: T3
+    ad_tanimi: modulT3Yogunlasma
+    yorum_hucresi: modulT3YogunlasmaYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O5
+    ad_tanimi: modulO5GecikmeMaliyeti
+    yorum_hucresi: modulO5GecikmeMaliyetiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1TahminAralik
+    yorum_hucresi: modulI1TahminAralikYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 6000
+  Y2_kurulum_ikamesi_tl: 2500
+
+serbest_alternatif:
+  alternatifler:
+    - "Vadeleri tek tek elle tutulan çek/senet defteri ve Excel listeleri"
+    - "Sadece bakiye doğrulayan banka mutabakat çıktısı (vade yoğunluğu görünmez)"
+    - "Karşılıksız riski için hiçbir skorlamanın yapılmadığı sezgisel takip"
+    - "Alınan belgelerin nominal toplamının 'tahsil olacak' sanıldığı basit toplam"
+    - "Haftalık vade yoğunluğu izlenmeden ödemelerin son dakikaya bırakılması"
+  ayrimlar:
+    - madde: "Risk ağırlıklı alınan toplamıyla tahsil belirsizliğini fiyatlar (karşılıksız geçmişi ve ciro riskini iskonto eder)"
+      karsilik: RiskAglikliAlinan
+    - madde: "Günlük vade takvimiyle yükümlülük ve karşılık açığını otomatik hesaplar"
+      karsilik: MaxAcik
+    - madde: "Müşteri bazında yoğunlaşma payını hesaplayarak tek müşteri riskini gösterir"
+      karsilik: modulT3Yogunlasma
+    - madde: "Vadesi geçen alacakların finansman maliyetini TL olarak hesaplar"
+      karsilik: modulO5GecikmeMaliyeti
+    - madde: "Veri yetersizse karar üretmez, VERİ YOK der; boş dosyada 'UYGUN' demez"
+      karsilik: KayitSayisi
+
+durum_haritasi:
+  durumlar: [ACIK, ISLEMDE, KAPALI]
+  kapali: [KAPALI]
+
+akis:
+  yetim_kontrol: true
+  zincir_kontrol: true

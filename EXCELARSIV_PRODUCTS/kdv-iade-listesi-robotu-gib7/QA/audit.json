@@ -1,0 +1,129 @@
+{
+  "product": "kdv-iade-listesi-robotu-gib7",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/kdv-iade-listesi-robotu-gib7/KdvIadeListesiRobotuGib7.xlsx",
+  "sha256": "e42099034cd5601e321037ebd9ce40c8008b60cb06524f130ea9b5de98420716",
+  "size_bytes": 107542,
+  "modified_at": "2026-08-14T22:28:45",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "PANO",
+    "GIRDI",
+    "KURALLAR",
+    "MOTOR",
+    "LISTE_1",
+    "LISTE_2",
+    "LISTE_3",
+    "LISTE_4",
+    "LISTE_5",
+    "LISTE_6",
+    "LISTE_7",
+    "SENARYO",
+    "VAKALAR",
+    "KANIT_RAPORU",
+    "KONTROLLER",
+    "ORNEK_VERI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "PANO": "000F2742",
+    "GIRDI": "00B08948",
+    "KURALLAR": "001F7A4D",
+    "MOTOR": "008064A2",
+    "LISTE_1": "001F4E79",
+    "LISTE_2": "002E75B6",
+    "LISTE_3": "00548235",
+    "LISTE_4": "00C45911",
+    "LISTE_5": "007030A0",
+    "LISTE_6": "00B08948",
+    "LISTE_7": "00C00000",
+    "SENARYO": "00ED7D31",
+    "VAKALAR": "002E75B6",
+    "KANIT_RAPORU": "000F2742",
+    "KONTROLLER": "00C00000",
+    "ORNEK_VERI": "0070AD47",
+    "LISTELER": "00595959",
+    "AYARLAR": "000F2742",
+    "KILAVUZ": "001F4E79"
+  },
+  "formula_count": 389,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 17,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 11,
+  "table_count": 4,
+  "conditional_format_count": 53,
+  "data_validation_count": 22,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 11,
+  "merged_ranges": 66,
+  "order_mismatches": [
+    "Mevcut: PANO > GIRDI > KURALLAR > MOTOR > LISTE_1 > LISTE_2 > LISTE_3 > LISTE_4 > LISTE_5 > LISTE_6 > LISTE_7 > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > KURALLAR > MOTOR > LISTE_1 > LISTE_2 > LISTE_3 > LISTE_4 > LISTE_5 > LISTE_6 > LISTE_7 > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=17"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: PANO > GIRDI > KURALLAR > MOTOR > LISTE_1 > LISTE_2 > LISTE_3 > LISTE_4 > LISTE_5 > LISTE_6 > LISTE_7 > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > KURALLAR > MOTOR > LISTE_1 > LISTE_2 > LISTE_3 > LISTE_4 > LISTE_5 > LISTE_6 > LISTE_7 > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=389"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

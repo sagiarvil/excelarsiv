@@ -1,0 +1,84 @@
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi
+  ad: "Yeniden Değerleme Yapmalı Mıyım? (Vergi Tasarruf Analizi)"
+  karar: "Kıymet bazında yeniden değerleme katsayısı, değer artışı ve %2 fon vergisi ile ek amortismanın kalan ömür boyunca sağladığı vergi tasarrufunu karşılaştırır; net fayda pozitifse UYGUN, değerlendirilmeli ise İNCELE, yapılmamalı ise DURDUR"
+  moduller:
+    - anomali_tespiti
+    - kalite_skoru
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - esik_kirilim
+    - zaman_serisi_projeksiyon
+    - karar_kapisi
+    - yogunlasma_analizi
+    - aksiyon_uretici
+    - deger_olcer
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1500
+    azami_hesap_saniye: 30.0
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1ArtisOrani
+    yorum_hucresi: modulT1ArtisOraniYorum
+  - kod: T2
+    ad_tanimi: modulT2OrtalamaKatsayi
+    yorum_hucresi: modulT2OrtalamaKatsayiYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2EnYuksekFayda
+    yorum_hucresi: modulO2EnYuksekFaydaYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1FaydaTahmin
+    yorum_hucresi: modulI1FaydaTahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 15000
+  Y2_kurulum_ikamesi_tl: 6000
+serbest_alternatif:
+  alternatifler:
+    - "Kıymet bazında değer artışını, fon vergisini ve ek amortismanı elle hesap makinesiyle hesaplamak"
+    - "Yeniden değerlemenin vergi tasarrufunu bugünkü değerine indirgemeden sezgisel karar vermek"
+    - "Mali müşavirden her kıymet için ayrı ayrı yeniden değerleme projeksiyonu istemek (dönemlik ücret)"
+    - "Fon oranı ve iskonto oranı değişiminin net faydaya etkisini hiç ölçmeden işlem yapmak"
+    - "Yeniden değerlemeyi hiç değerlendirmeden dönem sonu beyanını beklemek"
+  ayrimlar:
+    - madde: "Kıymet bazında değer artışı, %2 fon vergisi ve ek amortisman hesabını tek tabloda formülle üretir; alternatifte hesap elle ve ayrı kalemlerde yapılır."
+      karsilik: YenidegerDegerArtisiToplam
+    - madde: "Ek amortismanın kalan ömür boyunca sağladığı vergi tasarrufunu iskonto ederek bugünkü değerini hesaplar; alternatifte NBD hesabı yoktur."
+      karsilik: YenidegerTasarrufBdToplam
+    - madde: "İskonto ve fon oranı duyarlılığını senaryo bant aralığı ve tornado ile gösterir; alternatifte duyarlılık analizi yoktur."
+      karsilik: modulO3Senaryo
+    - madde: "Kıymet türü bazında değer artışı yoğunlaşmasını (HHI) ve net fayda anomali sapmasını ölçer; alternatifte bu analiz yoktur."
+      karsilik: modulO6Hhi
+    - madde: "Karar kapısı net fayda eşiğine göre UYGUN/İNCELE/DURDUR üretir ve yeniden değerleme aksiyonu önerir; alternatifte karar rehberi yoktur."
+      karsilik: modulO8KaliteSkor

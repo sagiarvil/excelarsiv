@@ -1,0 +1,110 @@
+# =============================================================================
+# SPEC — Hat C C-06 · Restoran Reçete Maliyet + Fire Hesaplama
+# Ayırt edici: tek restoran; fire kolonlu porsiyon; menü mühendisliği matrisi YOK
+# =============================================================================
+
+urun:
+  kod: RRF-PRO
+  ad: "Restoran Reçete Maliyet + Fire Hesaplama"
+  surum: "1.0.0"
+  slug: restoran-recete-maliyet-fire
+  dosya: RestoranReceteMaliyetFire.xlsx
+  prefix: rrf_
+  satis_fiyati_tl: 990
+  hedef_kullanici: "Restoran sahibi, şef, maliyet kontrolörü"
+
+arketip: A7
+fiyat: 990
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 990
+  Y1_danisman_ikamesi_tl: 2500
+  Y2_kurulum_ikamesi_tl: 1200
+  Y3_onlenen_hata_tl: 8000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Restoran reçete + fire maliyet danışmanlığı"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - {rol: "Şef", is_bitince: "Reçete bileşimini ve fire'yi kilitler"}
+  - {rol: "Restoran sahibi", is_bitince: "Porsiyon maliyeti ve fiyat önerisini görür"}
+  - {rol: "Mali işler", is_bitince: "Fire maliyet kanıtını dosyalar"}
+
+lansman_tetigi:
+  sinif: Parametre_degisimi
+  aciklama: "Gıda enflasyonu sonrası menü/reçete revizyonu"
+  tarih_penceresi: "gida_enflasyonu_sonrasi_30_gun"
+
+recete:
+  versiyonlama: true
+  bilesim_yuzde_100: true
+  fire_kolonu: true
+  birim_donusum: true
+  maliyet_kirilim: ["hammadde", "iscilik", "ambalaj", "genel_gider"]
+
+rakip_ayrim:
+  - {sinif: R1_jenerik, ayrim: "Fire kolonlu porsiyon maliyeti", karsilik: "rrf_fireDahilMaliyet"}
+  - {sinif: R1_jenerik, ayrim: "Bileşim %100 alarmı", karsilik: "rrf_bilesimAlarm"}
+  - {sinif: R2_bedava, ayrim: "Birim dönüşüm AYARLAR tablosu", karsilik: "rrf_donusumTablo"}
+  - {sinif: R2_bedava, ayrim: "Reçete versiyon varyans köprüsü", karsilik: "rrf_varyansKopru"}
+  - {sinif: R4, ayrim: "Makrosuz; VERİ YOK kapısı", karsilik: "rrf_kararKapi"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["Defter + hesap makinesi", "Şef Excel'i", "Restoran yazılımı"]
+  ayrimlar:
+    - {madde: "Fire kolonlu maliyet", karsilik: "rrf_fireDahilMaliyet"}
+    - {madde: "%100 bileşim alarmı", karsilik: "rrf_bilesimAlarm"}
+    - {madde: "Birim dönüşüm tablosu", karsilik: "rrf_donusumTablo"}
+    - {madde: "Kırılım toplamı = birim maliyet", karsilik: "rrf_kirilimKontrol"}
+    - {madde: "Boş dosyada VERİ YOK", karsilik: "rrf_kararKapi"}
+
+analitik_moduller:
+  - {kod: T1, ad: "Porsiyon maliyeti", ad_tanimi: "rrf_modulT1", yorum_hucresi: "rrf_modulT1Yorum"}
+  - {kod: T2, ad: "Fire tutarı", ad_tanimi: "rrf_modulT2", yorum_hucresi: "rrf_modulT2Yorum"}
+  - {kod: O1, ad: "Maliyet sapması", ad_tanimi: "rrf_modulO1", yorum_hucresi: "rrf_modulO1Yorum"}
+  - {kod: O2, ad: "Tornado", ad_tanimi: "rrf_modulO2", yorum_hucresi: "rrf_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "rrf_modulO3", yorum_hucresi: "rrf_modulO3Yorum"}
+  - {kod: O6, ad: "Hammadde yoğunlaşması", ad_tanimi: "rrf_modulO6", yorum_hucresi: "rrf_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "rrf_modulO8", yorum_hucresi: "rrf_modulO8Yorum"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "rrf_modulI1", yorum_hucresi: "rrf_modulI1Yorum"}
+  - {kod: I2, ad: "P90", ad_tanimi: "rrf_modulI2", yorum_hucresi: "rrf_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: bilesim_veya_fire_kritik, karar: "KRİTİK"}
+  - {kosul: dikkat, karar: "DİKKAT"}
+  - {kosul: uygun, karar: "UYGUN"}
+
+sayfa_akisi: [KAPAK, GIRDI, HAMMADDE, RECETE, MALIYET, FIYATLAMA, VARYANS, PANO, KARAR, RAPOR, KONTROLLER, ORNEK_VERI, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "KARAR"
+  motor_sayfasi: "MALIYET"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+testler:
+  olcek:
+    satir: 1000
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "Hat C C-06 — kullanıcı tam yetki"}

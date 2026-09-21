@@ -1,0 +1,153 @@
+# =============================================================================
+# SPEC — Hat B Y-05 · Süt Sürüsü Yönetim Komutası
+# Durum: ONAYLANDI — Hat B tarım dikey pilotu
+# Manda: v6 (A5 Saha Operasyon Komuta Merkezi — S01–S05 zorunlu)
+# Domain: sağım, gebelik, buzağılama, kızgınlık takvimi — depo/filo KOPYASI DEĞİL
+# =============================================================================
+
+urun:
+  kod: SSY-PRO
+  ad: "Süt Sürüsü Yönetim Komutası"
+  surum: "1.0.0"
+  slug: sut-surusu-yonetim
+  dosya: SutSurusuYonetim.xlsx
+  prefix: ssy_
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "Süt çiftliği sahibi, sürü yöneticisi, ziraat mühendisi, CFO"
+
+arketip: A5
+fiyat: 9900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 22000
+  Y2_kurulum_ikamesi_tl: 9000
+  Y3_onlenen_hata_tl: 55000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Sürü yönetim danışmanlığı + günlük sağım-kızgınlık-gebelik komuta dosyası"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Saha / sağım personeli"
+    is_bitince: "Günlük sağım-yem-kızgınlık-gebelik satırını ≤6 alanda kilitler"
+  - rol: "Sürü yöneticisi"
+    is_bitince: "Süt verimi, kızgınlık gecikmesi ve UYGUN/DİKKAT/KRİTİK/VERİ YOK kararını görür"
+  - rol: "Çiftlik sahibi / banka / kooperatif"
+    is_bitince: "RAPOR ile dönemsel sürü-sağım kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Donemsel_operasyon
+  aciklama: "Her gün sağım kaydı; kızgınlık/gebelik/buzağılama takvimi"
+  tarih_penceresi: "her_gun_sagim"
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "Sağım lt + hedef sapması + kızgınlık/gebelik tek formül; sabit skor yok"
+    karsilik: "ssy_sagimSapma"
+  - sinif: R1_jenerik
+    ayrim: "Varlık sağlık skoru sağım/kızgınlık/alarmdan formülle türer"
+    karsilik: "ssy_saglikSkor"
+  - sinif: R1_jenerik
+    ayrim: "Alarm eşikleri AYARLAR'da; varlık+eşik+süre listesi"
+    karsilik: "ssy_alarmListesi"
+  - sinif: R2_bedava
+    ayrim: "12 aylık sezonsal süt verim zinciri"
+    karsilik: "ssy_sezonsalTrend"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz, çevrimdışı; sürü yazılımı API bağı yok"
+    karsilik: "ssy_kararKapi"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Sağım defteri + kızgınlık takvimini ayrı Excel'de birleştirmek"
+    - "Gebelik gününü elle saymak"
+    - "Sürü yönetim yazılımı aboneliği"
+  ayrimlar:
+    - madde: "Sağım + kızgınlık + gebelik + buzağılama tek satırda canlı formül"
+      karsilik: "ssy_sagimToplam"
+    - madde: "Varlık sağlık skoru COUNTIF/SUMIF ile veriden türer"
+      karsilik: "ssy_saglikSkor"
+    - madde: "Alarm eşiği AYARLAR + varlık/eşik/süre listesi"
+      karsilik: "ssy_alarmListesi"
+    - madde: "12 ay sezonsal süt karşılaştırması"
+      karsilik: "ssy_sezonsalTrend"
+    - madde: "Boş dosyada VERİ YOK; UYGUN/DİKKAT/KRİTİK kapısı"
+      karsilik: "ssy_kararKapi"
+
+saha:
+  gunluk_giris_alan: 6
+  birim_disiplini: true
+  sezonsallik_ay: 12
+  saglik_skor_formul: true
+  alarm_esik_ayarlar: true
+
+analitik_moduller:
+  - {kod: T1, ad: "Günlük sağım ortalaması", ad_tanimi: "ssy_gunlukSagimOrt", yorum_hucresi: "ssy_yorumGunluk"}
+  - {kod: T2, ad: "Aylık süt trend", ad_tanimi: "ssy_aylikSutTrend", yorum_hucresi: "ssy_yorumAylik"}
+  - {kod: O1, ad: "Sağım sapma", ad_tanimi: "ssy_sagimSapma", yorum_hucresi: "ssy_yorumSapma"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "ssy_tornadoZirve", yorum_hucresi: "ssy_yorumTornado"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "ssy_senaryoKarsilastirma", yorum_hucresi: "ssy_yorumSenaryo"}
+  - {kod: O6, ad: "Yoğunlaşma HHI", ad_tanimi: "ssy_hhi", yorum_hucresi: "ssy_yorumHhi"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "ssy_kaliteSkor", yorum_hucresi: "ssy_yorumKalite"}
+  - {kod: M_SEN, ad: "Senaryo motoru", ad_tanimi: "ssy_senaryoMotor", yorum_hucresi: "ssy_yorumSenMotor"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "ssy_tahminAralik", yorum_hucresi: "ssy_yorumTahmin"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "ssy_yuzdelikP90", yorum_hucresi: "ssy_yorumP90"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "kritik_alarm_veya_saglik_dusuk"
+    karar: "KRİTİK"
+  - kosul: "sagim_esik_asim"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - VARLIKLAR
+  - GUNLUK_GIRIS
+  - DONEM_ANALIZ
+  - HESAP
+  - PANO
+  - ALARMLAR
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 250
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+testler:
+  asgari_tablo_kapasitesi: 250
+  olcek:
+    satir: 500
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-05 — A5 süt sürüsü yönetim komutası sevk hedefi"

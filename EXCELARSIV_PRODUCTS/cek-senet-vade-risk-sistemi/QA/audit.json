@@ -1,0 +1,129 @@
+{
+  "product": "cek-senet-vade-risk-sistemi",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/cek-senet-vade-risk-sistemi/CekSenetVadeRiskSistemi.xlsx",
+  "sha256": "bda714517068eb7d82aafe79cb43e3dd41a64695e3c18720def559d6649c61fd",
+  "size_bytes": 614484,
+  "modified_at": "2026-09-21T13:45:45",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KARAR_MOTORU",
+    "KONTROLLER",
+    "KILAVUZ",
+    "CARI_KARTLARI",
+    "CEK_SENET_KAYIT",
+    "CIRO_ZINCIRI",
+    "BANKA_TAHSIL",
+    "DURUM_HAREKETLERI",
+    "VADE_TAKVIMI",
+    "KARSILIK_ANALIZI",
+    "PANO",
+    "RAPOR",
+    "ORNEK_VERI",
+    "TESTLER",
+    "AKIS",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR"
+  ],
+  "hidden_sheets": [
+    "ORNEK_VERI",
+    "TESTLER"
+  ],
+  "tab_colors": {
+    "KARAR_MOTORU": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "CARI_KARTLARI": "FF6B7280",
+    "CEK_SENET_KAYIT": "FF6B7280",
+    "CIRO_ZINCIRI": "FF6B7280",
+    "BANKA_TAHSIL": "FF6B7280",
+    "DURUM_HAREKETLERI": "FF6B7280",
+    "VADE_TAKVIMI": "FF6B7280",
+    "KARSILIK_ANALIZI": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "TESTLER": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
+  },
+  "formula_count": 8701,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 9,
+  "table_count": 6,
+  "conditional_format_count": 24,
+  "data_validation_count": 51,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 7,
+  "merged_ranges": 85,
+  "order_mismatches": [],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": true,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=0"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": true,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": ""
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=8701"
+    }
+  ],
+  "status": "CALIBRATION_REQUIRED",
+  "notes": [
+    "Kalibre kopya: /Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/cek-senet-vade-risk-sistemi/CekSenetVadeRiskSistemi.xlsx"
+  ]
+}

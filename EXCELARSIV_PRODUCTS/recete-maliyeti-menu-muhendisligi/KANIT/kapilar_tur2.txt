@@ -1,0 +1,100 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/recete-maliyeti-menu-muhendisligi/ReceteMaliyetiMenuMuhendisligi.xlsx
+SHA-256 : 473ff952b586571e1456e0b17ee49330e03325306e780b2b4271c29685fe54de
+ARKETİP : A7
+TARİH   : 11.08.2026 21:15
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (17 sayfa)
+  GEÇTİ  G02   17 sayfa şifreli korumada
+  GEÇTİ  G03   273 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   669 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+  UYARI  G07   6 gömülü sabit: [('PANO', 'B30', '5,0'), ('PANO', 'B31', '6,0'), ('PANO', 'B33', '8,0'), ('PANO', 'B34', '9,0'), ('PANO', 'B35', '10,0'), ('PANO', 'B36', '11,0')]
+  GEÇTİ  G08   4 tablo, hesaplanan kolonlar tanımlı
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   9 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   48 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  UYARI  G15   1 olası taşma: ['FIYATLAMA!A3 (62 krkt / genişlik 28)']
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+  GEÇTİ  G17   9 grafik
+  GEÇTİ  G18   83 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  GEÇTİ  G24   Tablo kapasiteleri: [('GIRDI', 'tblGirdi', 1001), ('HAMMADDE', 'tblHammadde', 1001), ('RECETE', 'tblRecete', 1001), ('AYARLAR', 'tblDonusum', 1052)]
+
+======================================================================
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_DENETIM.md
+SEVK EDİLEBİLİR
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  Ö2    7 uç durum temiz: ['tumu_sifir→KRİTİK', 'tumu_bos→VERİ YOK', 'negatif_deger→KRİTİK', 'gelecek_tarih→KRİTİK', 'yinelenen_kayit→KRİTİK', 'tek_satir→KRİTİK', 'azami_deger→KRİTİK']
+
+==========================================================================
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_OLCEK.md
+SEVK EDİLEBİLİR
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    669 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   83 ad tanımının hedefi dolu
+  GEÇTİ  D06    Sabitten türeyen sahte KPI yok
+  GEÇTİ  D13    Motor 60 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 44 farklı canlı KPI
+  GEÇTİ  D09    9 grafik + tahmin katmanı mevcut
+  GEÇTİ  D09b   Grafik serilerinde veri var
+  GEÇTİ  D10    Tüm parametrelerde kaynak ve yürürlük tarihi dolu
+  GEÇTİ  D12    Çapraz tutarlılık sağlandı
+  GEÇTİ  D03    Derinlik puanı 145
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 36,000 TL ≥ eşik 29,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: 473ff952b586571e1456e0b17ee49330e03325306e780b2b4271c29685fe54de
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_DEGER.md
+SEVK EDİLEBİLİR
+
+[R] Reçete         → recete_kapilari.py  (arketip A7)
+------------------------------------------------------------------------------
+  GEÇTİ  R01   bileşim %100 ±tolerans alarm izi mevcut
+  GEÇTİ  R02   AYARLAR birim dönüşüm tablosu izi var
+  GEÇTİ  R03   fire/bertaraf kolonu izi var
+  GEÇTİ  R04   reçete versiyon / varyans köprüsü izi var
+  GEÇTİ  R05   maliyet kırılımı (4/4) + tutarlılık formül izi
+
+ÖZET R: 0 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        TEMİZ      (0 KALDI / 24 GEÇTİ)  [her ürün] 0.8sn
+  Ö  Dayanıklılık   TEMİZ      (0 KALDI / 1 GEÇTİ)  [her ürün] 142.2sn
+  D  Değer          TEMİZ      (0 KALDI / 16 GEÇTİ)  [her ürün] 25.8sn
+  M  Mevzuat        ATLANDI      [arketip gerektirmiyor] 0.0sn
+  E  Eşleştirme     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  A  İş Akışı       ATLANDI      [arketip gerektirmiyor] 0.0sn
+  F  Fizibilite     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  S  Saha           ATLANDI      [arketip gerektirmiyor] 0.0sn
+  R  Reçete         TEMİZ      (0 KALDI / 5 GEÇTİ)  [arketip A7] 1.0sn
+
+==============================================================================
+SONUÇ: 0 KALDI · SEVK EDİLEBİLİR
+Kanıt: KANIT/ · SHA-256: 473ff952b586571e1456e0b17ee49330e03325306e780b2b4271c29685fe54de
+Birleşik karar raporu: KANIT/SEVK_KARARI.md

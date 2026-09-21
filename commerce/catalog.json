@@ -380,6 +380,158 @@
       "fileFormat": "xlsx",
       "storageKey": "paid-products/logo-sql-cari-yaslandirma-tahsilat-karar-motoru/current.xlsx",
       "satista": true
+    },
+    "gayrimenkul-yatirim-fizibilite-ve-karlilik": {
+      "name": "Gayrimenkul Yatırım Fizibilite ve Karlılık Exceli",
+      "tier": "EXCLUSIVE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/gayrimenkul-yatirim-fizibilite-ve-karlilik/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "ges-yatirim-fizibilite-ve-proje-finansmani": {
+      "name": "GES Yatırım Fizibilite ve Proje Finansmanı Exceli",
+      "tier": "EXCLUSIVE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/ges-yatirim-fizibilite-ve-proje-finansmani/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "otel-fizibilite-ve-karlilik": {
+      "name": "Otel Fizibilite ve Karlılık Exceli",
+      "tier": "EXCLUSIVE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/otel-fizibilite-ve-karlilik/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "uretim-kapasite-yatirim-ve-karlilik": {
+      "name": "Üretim Kapasite, Yatırım ve Karlılık Exceli",
+      "tier": "ENTERPRISE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/uretim-kapasite-yatirim-ve-karlilik/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "arsa-ve-gayrimenkul-proje-gelistirme-fizibilite": {
+      "name": "Arsa ve Gayrimenkul Proje Geliştirme Fizibilite Exceli",
+      "tier": "EXCLUSIVE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/arsa-ve-gayrimenkul-proje-gelistirme-fizibilite/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "sirket-satin-alma-ve-ortaklik-devir-analizi": {
+      "name": "Şirket Satın Alma ve Ortaklık Devir Analizi Exceli",
+      "tier": "EXCLUSIVE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/sirket-satin-alma-ve-ortaklik-devir-analizi/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "saas-finansal-planlama-runway-ve-yatirim": {
+      "name": "SaaS Finansal Planlama, Runway ve Yatırım Exceli",
+      "tier": "ENTERPRISE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/saas-finansal-planlama-runway-ve-yatirim/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "gayrimenkul-tut-sat-karar": {
+      "name": "Gayrimenkul Tut / Sat Karar Exceli",
+      "tier": "PREMIUM",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/gayrimenkul-tut-sat-karar/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "ortakli-gayrimenkul-yatirimi-kar-dagitim": {
+      "name": "Ortaklı Gayrimenkul Yatırımı Kâr Dağıtım Exceli",
+      "tier": "ENTERPRISE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/ortakli-gayrimenkul-yatirimi-kar-dagitim/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "borcla-sirket-satin-alma-ve-yatirim-getirisi": {
+      "name": "Borçla Şirket Satın Alma ve Yatırım Getirisi Exceli",
+      "tier": "EXCLUSIVE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/borcla-sirket-satin-alma-ve-yatirim-getirisi/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "startup-yatirim-alma-ve-nakit-runway": {
+      "name": "Startup Yatırım Alma ve Nakit Runway Exceli",
+      "tier": "ENTERPRISE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/startup-yatirim-alma-ve-nakit-runway/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "emsal-sirket-carpanlariyla-degerleme": {
+      "name": "Emsal Şirket Çarpanlarıyla Değerleme Exceli",
+      "tier": "ENTERPRISE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/emsal-sirket-carpanlariyla-degerleme/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "wacc-hesaplama-ve-sermaye-maliyeti": {
+      "name": "WACC Hesaplama ve Sermaye Maliyeti Exceli",
+      "tier": "PREMIUM",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/wacc-hesaplama-ve-sermaye-maliyeti/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "profesyonel-hizmet-sirketi-karlilik-ve-kapasite": {
+      "name": "Profesyonel Hizmet Şirketi Karlılık ve Kapasite Exceli",
+      "tier": "ENTERPRISE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/profesyonel-hizmet-sirketi-karlilik-ve-kapasite/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "perakende-magaza-acilis-fizibilite": {
+      "name": "Perakende / Mağaza Açılış Fizibilite Exceli",
+      "tier": "ENTERPRISE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/perakende-magaza-acilis-fizibilite/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "filo-yatirim-ve-arac-yenileme-fizibilite": {
+      "name": "Filo Yatırım ve Araç Yenileme Fizibilite Exceli",
+      "tier": "ENTERPRISE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/filo-yatirim-ve-arac-yenileme-fizibilite/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "franchise-yatirim-fizibilite": {
+      "name": "Franchise Yatırım Fizibilite Exceli",
+      "tier": "ENTERPRISE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/franchise-yatirim-fizibilite/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "klinik-saglik-merkezi-fizibilite-ve-karlilik": {
+      "name": "Klinik / Sağlık Merkezi Fizibilite ve Karlılık Exceli",
+      "tier": "EXCLUSIVE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/klinik-saglik-merkezi-fizibilite-ve-karlilik/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
+    },
+    "restoran-kafe-yatirim-fizibilite-ve-karlilik": {
+      "name": "Restoran / Kafe Yatırım Fizibilite ve Karlılık Exceli",
+      "tier": "ENTERPRISE",
+      "fileFormat": "xlsx",
+      "storageKey": "paid-products/restoran-kafe-yatirim-fizibilite-ve-karlilik/current.xlsx",
+      "satista": true,
+      "sizeMB": 0.12
     }
   }
 }

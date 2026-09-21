@@ -1,0 +1,137 @@
+{
+  "product": "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi/CariHesapTahsilatVeMusteriRiskTakipSistemi.xlsx",
+  "sha256": "9f5b1d4f333cb4334039ea8bf1cf40f0c383eeb53dc94a3a7eab5e4536c9486a",
+  "size_bytes": 341672,
+  "modified_at": "2026-08-12T13:42:32",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "MUSTERI_KARTLARI",
+    "FATURALAR",
+    "TAHSILATLAR",
+    "TEMINATLAR",
+    "ILETISIM_TAKIP",
+    "YASLANDIRMA",
+    "ANALITIK_MOTOR",
+    "MUSTERI_RISK_SKORU",
+    "TAHSILAT_AKSIYON",
+    "KARAR_MOTORU",
+    "KONTROLLER",
+    "PANO",
+    "SENARYO_DUYARLILIK",
+    "RAPOR",
+    "ORNEK_VERI",
+    "TESTLER",
+    "AKIS",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": null,
+    "HIZLI_BASLANGIC": null,
+    "MUSTERI_KARTLARI": null,
+    "FATURALAR": null,
+    "TAHSILATLAR": null,
+    "TEMINATLAR": null,
+    "ILETISIM_TAKIP": null,
+    "YASLANDIRMA": null,
+    "ANALITIK_MOTOR": null,
+    "MUSTERI_RISK_SKORU": null,
+    "TAHSILAT_AKSIYON": null,
+    "KARAR_MOTORU": null,
+    "KONTROLLER": null,
+    "PANO": null,
+    "SENARYO_DUYARLILIK": null,
+    "RAPOR": null,
+    "ORNEK_VERI": null,
+    "TESTLER": null,
+    "AKIS": null,
+    "DEGISIKLIK_KAYDI": null,
+    "LISTELER": null,
+    "AYARLAR": null,
+    "KILAVUZ": null
+  },
+  "formula_count": 2818,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 476,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 9,
+  "conditional_format_count": 43,
+  "data_validation_count": 15,
+  "gridlines_on_count": 23,
+  "freeze_panes_count": 9,
+  "merged_ranges": 65,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > MUSTERI_KARTLARI > FATURALAR > TAHSILATLAR > TEMINATLAR > ILETISIM_TAKIP > YASLANDIRMA > ANALITIK_MOTOR > MUSTERI_RISK_SKORU > TAHSILAT_AKSIYON > KARAR_MOTORU > KONTROLLER > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > MUSTERI_KARTLARI > FATURALAR > TAHSILATLAR > TEMINATLAR > ILETISIM_TAKIP > YASLANDIRMA > ANALITIK_MOTOR > MUSTERI_RISK_SKORU > TAHSILAT_AKSIYON > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=476"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": false,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=23"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": false,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=23"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > MUSTERI_KARTLARI > FATURALAR > TAHSILATLAR > TEMINATLAR > ILETISIM_TAKIP > YASLANDIRMA > ANALITIK_MOTOR > MUSTERI_RISK_SKORU > TAHSILAT_AKSIYON > KARAR_MOTORU > KONTROLLER > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > MUSTERI_KARTLARI > FATURALAR > TAHSILATLAR > TEMINATLAR > ILETISIM_TAKIP > YASLANDIRMA > ANALITIK_MOTOR > MUSTERI_RISK_SKORU > TAHSILAT_AKSIYON > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=2818"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

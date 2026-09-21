@@ -1,0 +1,175 @@
+# =============================================================================
+# SPEC — Hat B Y-19 · Hukuk Bürosu Dosya & Vekalet Komutası
+# Durum: ONAYLANDI — Hat B hukuk dikeyi
+# Manda: v6 · arketip A3+A8 (iş akışı + kurum/tahsilat)
+# Domain: dosya / vekalet / tahsilat — rename YASAK
+# =============================================================================
+
+urun:
+  kod: HBD-PRO
+  ad: "Hukuk Bürosu Dosya & Vekalet Komutası"
+  surum: "1.0.0"
+  slug: hukuk-burosu-dosya-vekalet
+  dosya: HukukBurosuDosyaVekalet.xlsx
+  prefix: hbd_
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "Hukuk bürosu sahibi, serbest avukat, dosya asistanı, kurum içi hukuk müşaviri"
+
+arketip: A3+A8
+fiyat: 9900
+olcek_hedefi: 50000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 22000
+  Y2_kurulum_ikamesi_tl: 12000
+  Y3_onlenen_hata_tl: 35000
+  Y4_saas_yillik_ikamesi_tl: 15000
+  kaynak: "Büro dosya/vekalet/tahsilat kaosunu azaltma + süre kaçırma kaybı + CRM abonelik ikamesi (D0 Hukuk)"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Avukat / dosya asistanı (giren)"
+    is_bitince: "Dosya durumunu, vekalet borç satırını ve tahsilatı sarı hücrelere kilitler"
+  - rol: "Büro sahibi / yönetici ortak (karar veren)"
+    is_bitince: "Tahsilat oranı, süre kuyruğu ve UYGUN/DİKKAT/KRİTİK/VERİ YOK kararını panoda görür"
+  - rol: "Müvekkil / SMMM (kanıt isteyen)"
+    is_bitince: "RAPOR ile dönem dosya-vekalet-tahsilat kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Gunluk_operasyon
+  aciklama: "Her gün dosya/tebligat/süre alarmı; ay sonu vekalet tahsilat kapanışı"
+  tarih_penceresi: "gunluk_dosya_aylik_tahsilat"
+
+rakip_ayrim:
+  - sinif: R4_yazilim
+    ayrim: "Tek seferlik alım; büro CRM aboneliği yok"
+    karsilik: "hbd_fiyatModeli"
+  - sinif: R1_jenerik
+    ayrim: "Dosya durum makinesi Açık→Vekalet→Davada→Duruşma→Sonuç→Kapalı"
+    karsilik: "hbd_durumHaritasi"
+  - sinif: R1_jenerik
+    ayrim: "Vekalet↔tahsilat dört kova mutabakatı + TANIMSIZ kök neden"
+    karsilik: "hbd_kovaButunluk"
+  - sinif: R1_jenerik
+    ayrim: "Süre alarmı + yetim/geçersiz geçiş/ZİNCİR KIRIK görünür"
+    karsilik: "hbd_sureKuyruk"
+  - sinif: R2_bedava
+    ayrim: "Müvekkile dönem kanıt raporu + makrosuz çevrimdışı"
+    karsilik: "hbd_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "WhatsApp + Excel dosya listesi + elle vekalet hesabı"
+    - "Büro yazılımı aylık abonelik"
+    - "Asistanın dağınık tahsilat defteri"
+  ayrimlar:
+    - madde: "Dosya durum haritası AYARLAR'da; izinli geçiş görünür"
+      karsilik: "hbd_durumHaritasi"
+    - madde: "Vekalet↔tahsilat normalize anahtar + kısa/uzun no"
+      karsilik: "hbd_normAnahtar"
+    - madde: "Dört kova bütünlüğü + TANIMSIZ kova"
+      karsilik: "hbd_tanimsizKova"
+    - madde: "Süre alarmı ve kuyruk COUNTIF ile veriden türer"
+      karsilik: "hbd_sureKuyruk"
+    - madde: "Boş dosyada VERİ YOK; kapalı durum kuyruktan düşer"
+      karsilik: "hbd_kararKapi"
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(muvekkil_id&donem,\" \",\"\")))"
+  ikincil: "LEFT(norm,12) veya muvekkil_no+donem"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+akis:
+  durum_haritasi:
+    - {durum_id: ACIK, durum_adi: Açık, sira: 1, izinli_sonraki_durumlar: "VEKALET|IPTAL", kategori: acik}
+    - {durum_id: VEKALET, durum_adi: Vekalet, sira: 2, izinli_sonraki_durumlar: "DAVADA|IPTAL|ACIK", kategori: acik}
+    - {durum_id: DAVADA, durum_adi: Davada, sira: 3, izinli_sonraki_durumlar: "DURUSMA|IPTAL", kategori: acik}
+    - {durum_id: DURUSMA, durum_adi: Duruşma, sira: 4, izinli_sonraki_durumlar: "SONUC|DAVADA", kategori: acik}
+    - {durum_id: SONUC, durum_adi: Sonuç, sira: 5, izinli_sonraki_durumlar: "KAPALI|IPTAL", kategori: acik}
+    - {durum_id: KAPALI, durum_adi: Kapalı, sira: 6, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: IPTAL, durum_adi: İptal, sira: 7, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [vekalet_tutari, tahsilat_tutari]
+  kuyruk_tanimlari: [Açık, Vekalet, Davada, Duruşma, Sonuç, Geciken]
+
+analitik_moduller:
+  - {kod: T1, ad: "Tahsilat oranı", ad_tanimi: "hbd_modulT1", yorum_hucresi: "hbd_modulT1Yorum"}
+  - {kod: T2, ad: "Vekalet trend", ad_tanimi: "hbd_modulT2", yorum_hucresi: "hbd_modulT2Yorum"}
+  - {kod: O1, ad: "Süre/gecikme anomali", ad_tanimi: "hbd_modulO1", yorum_hucresi: "hbd_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "hbd_modulO2", yorum_hucresi: "hbd_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo motoru", ad_tanimi: "hbd_modulO3", yorum_hucresi: "hbd_modulO3Yorum"}
+  - {kod: O6, ad: "Gider yoğunlaşması", ad_tanimi: "hbd_modulO6", yorum_hucresi: "hbd_modulO6Yorum"}
+  - {kod: O8, ad: "Veri kalite skoru", ad_tanimi: "hbd_modulO8", yorum_hucresi: "hbd_modulO8Yorum"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "hbd_modulI1", yorum_hucresi: "hbd_modulI1Yorum"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "hbd_modulI2", yorum_hucresi: "hbd_modulI2Yorum"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "tahsilat_oran_alti_veya_zincir_kirik"
+    karar: "KRİTİK"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - PAYDASLAR
+  - DOSYA
+  - VEKALET
+  - TAHSILAT
+  - ANAHTAR
+  - ESLESTIRME
+  - KOK_NEDEN
+  - AKIS
+  - GIDER
+  - KARARLAR
+  - PANO
+  - KARAR
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "KARAR"
+  motor_sayfasi: "ESLESTIRME"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1000
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-19 — A3+A8 hukuk dosya & vekalet; D0 hukuk 7/7; tetik günlük operasyon"

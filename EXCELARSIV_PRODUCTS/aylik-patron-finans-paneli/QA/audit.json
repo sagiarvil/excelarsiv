@@ -1,0 +1,127 @@
+{
+  "product": "aylik-patron-finans-paneli",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/aylik-patron-finans-paneli/AylikPatronFinansPaneli.xlsx",
+  "sha256": "2d784c3d6916c239a8d60dafa3803ad755d8e41deaaf96e7f4ee93e449f5d229",
+  "size_bytes": 146266,
+  "modified_at": "2026-08-12T13:26:23",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "AYLIK_GELIR_GIDER",
+    "BORC_VE_ALACAK",
+    "FINANS_MOTORU",
+    "KONTROLLER",
+    "KARAR",
+    "PANO",
+    "SENARYO_DUYARLILIK",
+    "RAPOR",
+    "ORNEK_VERI",
+    "ANAHTAR",
+    "ESLESTIRME",
+    "KOK_NEDEN",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": null,
+    "HIZLI_BASLANGIC": null,
+    "AYLIK_GELIR_GIDER": null,
+    "BORC_VE_ALACAK": null,
+    "FINANS_MOTORU": null,
+    "KONTROLLER": null,
+    "KARAR": null,
+    "PANO": null,
+    "SENARYO_DUYARLILIK": null,
+    "RAPOR": null,
+    "ORNEK_VERI": null,
+    "ANAHTAR": null,
+    "ESLESTIRME": null,
+    "KOK_NEDEN": null,
+    "DEGISIKLIK_KAYDI": null,
+    "LISTELER": null,
+    "AYARLAR": null,
+    "KILAVUZ": null
+  },
+  "formula_count": 367,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 50,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 3,
+  "conditional_format_count": 21,
+  "data_validation_count": 8,
+  "gridlines_on_count": 18,
+  "freeze_panes_count": 2,
+  "merged_ranges": 73,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > AYLIK_GELIR_GIDER > BORC_VE_ALACAK > FINANS_MOTORU > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > ANAHTAR > ESLESTIRME > KOK_NEDEN > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > BORC_VE_ALACAK > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > AYLIK_GELIR_GIDER > FINANS_MOTORU > PANO > RAPOR > ORNEK_VERI > ANAHTAR > ESLESTIRME > KOK_NEDEN > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=50"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": false,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=18"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": false,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=18"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > AYLIK_GELIR_GIDER > BORC_VE_ALACAK > FINANS_MOTORU > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > ANAHTAR > ESLESTIRME > KOK_NEDEN > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > BORC_VE_ALACAK > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > AYLIK_GELIR_GIDER > FINANS_MOTORU > PANO > RAPOR > ORNEK_VERI > ANAHTAR > ESLESTIRME > KOK_NEDEN > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=367"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

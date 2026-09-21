@@ -1,0 +1,110 @@
+olcek_hedefi: 50000
+arketip: A2
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 6
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  karar_sayfasi: "KARAR"
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  ikame_carpani: 3
+  capraz_tutarlilik_tolerans: 0.2
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+testler:
+  olcek:
+    satir: 200
+    azami_hesap_saniye: 25.0
+
+urun:
+  slug: pos-komisyon-ve-net-tahsilat-kontrol-sistemi
+  ad: "POS, Komisyon ve Net Tahsilat Kontrol Sistemi"
+  karar: "POS kanallarının brüt satışını, komisyon ve iade düşüldükten sonraki net tahsilatını karşılaştırıp kanal maliyetini yönetmek"
+  hedef_kullanici: "Çoklu POS kullanan perakendeciler, online satış yapan işletmeler ve kanal maliyetini karşılaştırmak isteyenler"
+  mevzuat:
+    - "Türk Ticaret Kanunu (6102 s.): düzenli ve gerçeğe uygun kayıt ilkeleri"
+    - "Vergi Usul Kanunu (213 s.): belge ve kayıt nizamı"
+  moduller:
+    - anomali_tespiti
+    - kalite_skoru
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - esik_kirilim
+    - zaman_serisi_projeksiyon
+    - karar_kapisi
+    - mutabakat_kok_neden
+    - aksiyon_uretici
+    - deger_olcer
+  giris:
+    pos_hareketler:
+      tablo: tblPos
+      kolonlar: ["Kanal", "İşlem Tarihi", "Brüt Satış (₺)", "İade Tutarı (₺)", "Komisyon Oranı", "Not"]
+  esikler:
+    asgari_veri_sayisi: 3
+  rapor: "A4, PDF'e hazır; genel karar, KPI özeti, varsayımlar ve önerilen aksiyonlar"
+
+analitik_moduller:
+  - kod: T2
+    ad_tanimi: modulT2TrendOrt
+    yorum_hucresi: modulT2TrendOrtYorum
+  - kod: T4
+    ad_tanimi: modulT4DonemFark
+    yorum_hucresi: modulT4DonemFarkYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2Tornado
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1Tahmin
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 6000
+  Y2_kurulum_ikamesi_tl: 2500
+
+serbest_alternatif:
+  alternatifler:
+    - "Kanal bazlı net tahsilatın elle Excel'de toplanması; komisyon ve iade ayrımı yapılmadan tek toplam takibi"
+    - "Bankanın POS ekstrelerini PDF olarak arşivleyip aylık komisyon kontrolünü manuel yapmak"
+    - "Tüm kanallara aynı komisyon eşiği uygulamak; en pahalı kanalın fark edilmemesi"
+    - "Komisyon oranlarını sözleşme metinlerinde aramak, güncel oranları tek yerden izleyememek"
+    - "İade riskini görmeden iade oranı yüksek kanala aynı kotayı vermeye devam etmek"
+  ayrimlar:
+    - madde: "Kanal bazlı brüt satış, iade ve komisyonu ayrıştırıp net tahsilatı otomatik hesaplar"
+      karsilik: PosNetTahsilatToplam
+    - madde: "En pahalı kanalı otomatik belirler; komisyon eşiği aşımında karar DURDUR olur"
+      karsilik: PosEnPahaliKanal
+    - madde: "İyimser/baz/kötümser senaryoda net tahsilat bandını ve tornado etkisini gösterir"
+      karsilik: PosKomisyonOrani
+    - madde: "İade ve komisyon risk eşiklerini AYARLAR'dan tek yerden yönetir; aşımda uyarı üretir"
+      karsilik: PosIadeOrani
+    - madde: "FORECAST ile gelecek ay net tahsilat tahmini ve güven bandı üretir; boş veride karar VERİ YOK kalır"
+      karsilik: modulI1Tahmin
+
+anahtar_stratejisi:
+  kisa_uzun_senaryo: true
+  norm: UPPER_SUBSTITUTE

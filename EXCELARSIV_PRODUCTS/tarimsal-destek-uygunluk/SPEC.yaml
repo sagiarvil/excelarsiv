@@ -1,0 +1,178 @@
+# =============================================================================
+# SPEC — Hat B Y-08 · Tarımsal Destek/Teşvik Uygunluk Testi
+# Durum: ONAYLANDI — Hat B tarım dikey
+# Manda: v6 · arketip A1 · M01–M05 zorunlu
+# Domain: hibe/teşvik başvuru uygunluk — SGK/e-belge KOPYASI DEĞİL
+# =============================================================================
+
+urun:
+  kod: TDU-PRO
+  slug: tarimsal-destek-uygunluk
+  ad: "Tarımsal Destek/Teşvik Uygunluk Testi"
+  surum: "1.0.0"
+  dosya: TarimsalDestekUygunluk.xlsx
+  prefix: tdu_
+  satis_fiyati_tl: 4900
+  hedef_kullanici: "Çiftçi, ziraat mühendisi, tarım danışmanı, kooperatif yöneticisi"
+
+arketip: A1
+fiyat: 4900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 4900
+  Y1_danisman_ikamesi_tl: 12000
+  Y2_kurulum_ikamesi_tl: 4500
+  Y3_onlenen_hata_tl: 85000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Hibe/teşvik uygunluk danışmanlığı + başvuru öncesi kural matrisi kurulum ikamesi"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "Çiftçi / işletme giren"
+    is_bitince: "ÇKS, alan, çağrı programı ve borç girdilerini sarı hücrelere kilitler"
+  - rol: "Kooperatif / danışman karar veren"
+    is_bitince: "UYGUN / ŞARTLI / UYGUN DEĞİL kararını başvuru öncesi verir"
+  - rol: "Bakanlık / hibe / kanıt isteyen"
+    is_bitince: "KANIT_RAPORU ile kural_id ve madde atıflı uygunluk özetini dosyalar"
+
+lansman_tetigi:
+  sinif: Olay_tesvik_acilisi
+  aciklama: "Tarım ve Orman Bakanlığı destek/teşvik başvuru çağrısı açıldığında ürün sayfası canlıya alınır"
+  tarih_penceresi: "basvuru_cagrisi_15_gun"
+
+mevzuat:
+  kurallar: [TDU-001, TDU-002, TDU-003, TDU-004, TDU-005, TDU-006, TDU-007, TDU-008, TDU-009]
+  vakalar: destek_teblig_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [cks_guncelleme_penceresi]
+
+rakip_ayrim:
+  - sinif: R1_jenerik_sablon
+    ayrim: "Çok yıllı kural tablosu + kural_id zinciri; sabit eşik yok"
+    karsilik: "tdu_kuralYilMatris"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Çağrı programına göre uygunluk skoru ve karar gerekçesi"
+    karsilik: "tdu_kararMetni"
+  - sinif: R2_bedava
+    ayrim: "Tebliğ vakaları TUTARLI + M-SEN eşik değişimi"
+    karsilik: "tdu_vakaDurum"
+  - sinif: R2_bedava
+    ayrim: "Senaryo/duyarlılık + tahmini destek tutarı"
+    karsilik: "tdu_senaryoKarsilastirma"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz; dış API yok; başvuru çağrısına özel kanıt raporu"
+    karsilik: "tdu_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Bakanlık duyuru PDF'lerini elle okumak"
+    - "Danışmanın dağınık kontrol listesi"
+    - "Kooperatifin tek satırlık Excel'i"
+  ayrimlar:
+    - madde: "Yıllı eşikler INDEX/MATCH ile çekilir; sabit oran kaçışı yok"
+      karsilik: "tdu_kuralYilMatris"
+    - madde: "M-SEN eşik +1 senaryosu karar etkisini gösterir"
+      karsilik: "tdu_kuralDegisimSenaryo"
+    - madde: "Vaka FARK kontrolü TUTARLI/KIRIK"
+      karsilik: "tdu_vakaFark"
+    - madde: "Makine gerekçeli UYGUN/ŞARTLI/UYGUN DEĞİL"
+      karsilik: "tdu_kararGerekce"
+    - madde: "SHA-256 kanıt parmak izi"
+      karsilik: "tdu_parmakIzi"
+
+analitik_moduller:
+  - kod: T1
+    ad: "Uygunluk puanı"
+    ad_tanimi: "tdu_modulT1"
+    yorum_hucresi: "tdu_modulT1Yorum"
+  - kod: T2
+    ad: "Tahmini destek / alan"
+    ad_tanimi: "tdu_modulT2"
+    yorum_hucresi: "tdu_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo puan sapması"
+    ad_tanimi: "tdu_modulO1"
+    yorum_hucresi: "tdu_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "tdu_duyarlilikSira"
+    yorum_hucresi: "tdu_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo bant"
+    ad_tanimi: "tdu_senaryoKarsilastirma"
+    yorum_hucresi: "tdu_yorumSenaryo"
+  - kod: O6
+    ad: "Zorunlu şart oranı"
+    ad_tanimi: "tdu_modulO6"
+    yorum_hucresi: "tdu_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "tdu_modulO8"
+    yorum_hucresi: "tdu_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Kural eşik değişimi"
+    ad_tanimi: "tdu_kuralDegisimSenaryo"
+    yorum_hucresi: "tdu_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin aralık"
+    ad_tanimi: "tdu_tahminAralik"
+    yorum_hucresi: "tdu_yorumTahmin"
+  - kod: I2
+    ad: "Senaryo puan P90"
+    ad_tanimi: "tdu_modulI2"
+    yorum_hucresi: "tdu_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "skor_esik_ustu_ve_zorunlular"
+    karar: "UYGUN"
+  - kosul: "eksik_belge_veya_sinirda"
+    karar: "ŞARTLI"
+  - kosul: "borc_veya_cks_yok_veya_esik_alti"
+    karar: "UYGUN DEĞİL"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - KURALLAR
+  - MOTOR
+  - SENARYO
+  - PANO
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-08 — tarım dikey; D0 7/7; A1 M01–M05; başvuru çağrısı tetik"

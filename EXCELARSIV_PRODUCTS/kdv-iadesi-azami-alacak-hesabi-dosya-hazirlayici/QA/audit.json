@@ -1,0 +1,125 @@
+{
+  "product": "kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici/KdvIadesiAzamiAlacakHesabi.xlsx",
+  "sha256": "e7bb5b2b58483185fbb92d1eb3dff7bf536182035d486c76059b2e8352a4d347",
+  "size_bytes": 233414,
+  "modified_at": "2026-08-12T02:54:16",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "KDV_BELGELERI",
+    "HESAP",
+    "ANALITIK_MOTOR",
+    "KONTROLLER",
+    "KARAR",
+    "PANO",
+    "SENARYO_DUYARLILIK",
+    "RAPOR",
+    "ORNEK_VERI",
+    "KURALLAR",
+    "VAKALAR",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": null,
+    "HIZLI_BASLANGIC": null,
+    "KDV_BELGELERI": null,
+    "HESAP": null,
+    "ANALITIK_MOTOR": null,
+    "KONTROLLER": null,
+    "KARAR": null,
+    "PANO": null,
+    "SENARYO_DUYARLILIK": null,
+    "RAPOR": null,
+    "ORNEK_VERI": null,
+    "KURALLAR": null,
+    "VAKALAR": null,
+    "DEGISIKLIK_KAYDI": null,
+    "LISTELER": null,
+    "AYARLAR": null,
+    "KILAVUZ": null
+  },
+  "formula_count": 4153,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 47,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 2,
+  "conditional_format_count": 32,
+  "data_validation_count": 17,
+  "gridlines_on_count": 17,
+  "freeze_panes_count": 1,
+  "merged_ranges": 56,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > KDV_BELGELERI > HESAP > ANALITIK_MOTOR > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > KDV_BELGELERI > HESAP > ANALITIK_MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=47"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": false,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=17"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": false,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=17"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > KDV_BELGELERI > HESAP > ANALITIK_MOTOR > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > KDV_BELGELERI > HESAP > ANALITIK_MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=4153"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

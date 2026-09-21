@@ -1,0 +1,95 @@
+# Hat A #16 — 13 Haftalık Nakit + Ödeme Önceliği (A3)
+# FAZ 2 · ONAYLANDI
+
+urun:
+  kod: ONH-PRO
+  ad: "13 Haftalık Nakit + Ödeme Önceliği"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "CFO, mali işler, işletme sahibi"
+
+arketip: A3
+fiyat: 9900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 20000
+  Y2_kurulum_ikamesi_tl: 10000
+  Y3_onlenen_hata_tl: 40000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "13 haftalık nakit planlama danışmanlığı"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "CFO"
+    is_bitince: "Haftalık ödeme önceliğini kilitler"
+  - rol: "Muhasebe"
+    is_bitince: "Kuyruğu günceller"
+  - rol: "Ortak"
+    is_bitince: "Nakit açığını görür"
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "Her pazartesi nakit kapanışı / ay başı ödeme turu"
+  tarih_penceresi: "haftalik_pazartesi"
+
+rakip_ayrim:
+  - {sinif: R4, ayrim: "Makrosuz kuyruk + yaşlandırma", karsilik: "onh_kuyrukOzeti"}
+  - {sinif: R4, ayrim: "Ödeme öncelik skoru veriden", karsilik: "onh_oncelikSkoru"}
+  - {sinif: R1, ayrim: "ZİNCİR KIRIK bayrağı", karsilik: "onh_zincirKirik"}
+  - {sinif: R1, ayrim: "Yetim kayıt", karsilik: "onh_yetimKayit"}
+  - {sinif: R2, ayrim: "Kanıt + senaryo", karsilik: "onh_kanitRaporu"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["Elle Excel", "ERP nakit", "Banka Excel"]
+  ayrimlar:
+    - {madde: "Durum haritası", karsilik: "onh_durumHaritasi"}
+    - {madde: "Yaşlandırma", karsilik: "onh_yasKova"}
+    - {madde: "Geçersiz geçiş", karsilik: "onh_gecersizGecis"}
+    - {madde: "Tahmin aralık", karsilik: "onh_tahminAralik"}
+    - {madde: "Senaryo", karsilik: "onh_senaryoKarsilastirma"}
+
+akis:
+  durum_haritasi:
+    - {durum_id: PLAN, durum_adi: Planlandı, sira: 1, izinli_sonraki_durumlar: "ONAY|IPTAL", kategori: acik}
+    - {durum_id: ONAY, durum_adi: Onaylandı, sira: 2, izinli_sonraki_durumlar: "ODEME|ERTELE|IPTAL", kategori: acik}
+    - {durum_id: ERTELE, durum_adi: Ertelendi, sira: 3, izinli_sonraki_durumlar: "ONAY|IPTAL", kategori: acik}
+    - {durum_id: ODEME, durum_adi: Ödendi, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: IPTAL, durum_adi: İptal, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+
+analitik_moduller:
+  - {kod: T1, ad: "Yaşlandırma", ad_tanimi: "onh_yasKova", yorum_hucresi: "onh_yorumYas"}
+  - {kod: O5, ad: "Gecikme maliyeti", ad_tanimi: "onh_gecikmeMaliyeti", yorum_hucresi: "onh_yorumGecikme"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "onh_tahminAralik", yorum_hucresi: "onh_yorumTahmin"}
+  - {kod: I7, ad: "Öncelik", ad_tanimi: "onh_oncelikSkoru", yorum_hucresi: "onh_yorumOncelik"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "onh_senaryoKarsilastirma", yorum_hucresi: "onh_yorumSenaryo"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "onh_tornadoZirve", yorum_hucresi: "onh_yorumTornado"}
+  - {kod: T3, ad: "Pareto gecikme", ad_tanimi: "onh_paretoGecikme", yorum_hucresi: "onh_yorumPareto"}
+
+sayfa_akisi: [PANO, KARTLAR, AKIS, KUYRUKLAR, HESAP, RAPOR, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "FAZ 2 — YDK çıkınca 2. hat"}

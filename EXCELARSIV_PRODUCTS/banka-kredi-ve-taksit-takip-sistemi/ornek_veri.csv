@@ -1,0 +1,43 @@
+ORNEK VERI — BANKA, KREDI VE TAKSIT TAKIP SISTEMI
+Bu dosya otomasyon ve içe aktarma için yapıdır; banka, limit, kredi ve taksit satırlarını CSV/Excel'den kopyalayabilirsiniz.
+BANKALAR (tblBankalar)
+Banka Kodu,Banka Adi,Sube Adi,Hesap No,IBAN,Durum,Yetkili,Telefon
+BNK-001,Türkiye İş Bankası,Maslak Ticari,1002345,TR110006400000123456789001,Aktif,Ayşe Yılmaz,0212 000 00 01
+BNK-002,Akbank,Levent Ticari,2001456,TR220004600000234567890002,Aktif,Mehmet Kaya,0212 000 00 02
+BNK-003,Garanti BBVA,İkitelli Ticari,3001789,TR330006200000345678901003,Aktif,Selin Demir,0212 000 00 03
+BNK-004,Yapı Kredi,Kozyatağı Ticari,4001678,TR440006700000456789012004,İzle,Can Arslan,0212 000 00 04
+LIMITLER (tblLimitler)
+Limit Kodu,Banka,Kredi Türü,Para Birimi,Limit Tutari (₺),Kullanilan (₺)
+LMT-001,Türkiye İş Bankası,Taksitli Ticari Kredi,TRY,15000000,10500000
+LMT-002,Akbank,Leasing,TRY,8000000,6200000
+LMT-003,Garanti BBVA,Rotatif Kredi,USD,250000,180000
+LMT-004,Yapı Kredi,Spot Kredi,TRY,5000000,0
+KREDILER (tblKrediler)
+Kredi ID,Banka,Sube,Tür,Para Birimi,Başlangıç,Anapara (₺),Güncel Bakiye (₺),Yillik Faiz,Vade (Ay),Açıklama
+KRD-001,Türkiye İş Bankası,Maslak Ticari,Taksitli Ticari Kredi,TRY,01.11.2024,12000000,8400000,0.32,24,Yatırım kredisi
+KRD-002,Akbank,Levent Ticari,Leasing,TRY,01.03.2025,7500000,6100000,0.34,36,Makine leasing
+KRD-003,Garanti BBVA,İkitelli Ticari,Rotatif Kredi,USD,01.06.2025,200000,180000,0.085,12,İhracat rotatifi
+KRD-004,Türkiye İş Bankası,Maslak Ticari,Spot Kredi,TRY,01.01.2026,2200000,2200000,0.36,12,İşletme sermayesi
+TAKSIT_PLANI (tblTaksitPlani)
+Plan ID,Kredi ID,Taksit No,Ödeme Tarihi,Toplam Ödeme (₺),Anapara (₺),Faiz (₺),Gecikme (₺),Durum
+PLN-001,KRD-001,1,10.08.2026,326000,280000,14000,0,Bekliyor
+PLN-002,KRD-001,2,10.09.2026,337000,269000,14000,0,Bekliyor
+PLN-003,KRD-002,1,15.08.2026,117000,183000,10000,0,Bekliyor
+PLN-004,KRD-002,2,15.09.2026,121000,179000,10000,0,Bekliyor
+PLN-005,KRD-003,1,20.08.2026,0,4275,214,375,Bekliyor
+PLN-006,KRD-004,1,31.12.2026,2200000,1034000,51700,0,Bekliyor
+MASRAF_KOMISYON (tblMasraflar)
+Masraf ID,Kredi ID,Banka,Tür,Tarih,Belge No,Tutar (₺),Para Birimi
+MSF-001,KRD-001,Türkiye İş Bankası,Tahsis Ücreti,01.11.2024,FTR-1001,60000,TRY
+MSF-002,KRD-002,Akbank,Sigorta,01.03.2025,POL-2001,70000,TRY
+MSF-003,KRD-003,Garanti BBVA,Komisyon,01.06.2025,FTR-3001,1500,USD
+TEMINATLAR (tblTeminatlar)
+Teminat ID,Kredi ID,Banka,Tür,Açıklama,Tutar (₺),Para Birimi,Başlangıç,Bitiş
+TMN-001,KRD-001,Türkiye İş Bankası,Gayrimenkul İpoteği,İstanbul fabrika binası,15000000,TRY,01.12.2025,01.12.2028
+TMN-002,KRD-002,Akbank,Taşıt Rehni,Üretim makineleri,8500000,TRY,01.12.2025,01.12.2027
+TMN-003,KRD-003,Garanti BBVA,Alacak Temliki,İhracat alacak havuzu,3500000,TRY,01.01.2026,01.01.2027
+YENI_TEKLIFLER (tblYeniTeklifler)
+Teklif ID,Kredi ID,Banka,Tutar (₺),Para Birimi,Vade (Ay),Faiz Orani,Aylik Taksit (₺)
+TKL-001,KRD-001,QNB Finansbank,8600000,TRY,30,0.36,180000
+TKL-002,KRD-002,Vakıfbank,6200000,TRY,42,0.34,160000
+TKL-003,KRD-003,Halkbank,190000,USD,24,0.085,6000

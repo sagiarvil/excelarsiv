@@ -1,0 +1,184 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #15 · Kargo/Desi Maliyet Optimizasyonu
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (A2 arketipi)
+# =============================================================================
+
+urun:
+  kod: KDO-PRO
+  ad: "Kargo/Desi Maliyet Optimizasyonu"
+  surum: "1.0.0"
+  satis_fiyati_tl: 4900
+  hedef_kullanici: "E-ticaret operasyon, lojistik, mali işler"
+
+arketip: A2
+fiyat: 4900
+olcek_hedefi: 50000
+
+deger:
+  satis_fiyati_tl: 4900
+  Y1_danisman_ikamesi_tl: 10000
+  Y2_kurulum_ikamesi_tl: 5000
+  Y3_onlenen_hata_tl: 16000
+  Y4_saas_yillik_ikamesi_tl: 6000
+  kaynak: "Kargo desi danışmanlığı + taşıyıcı tarife eşleştirme kurulumu"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Operasyon / lojistik"
+    is_bitince: "DESİ DÜŞÜR / TAŞIYICI DEĞİŞTİR / UYGUN kararını uygular"
+  - rol: "Mali işler"
+    is_bitince: "Faturalanan desi/kg ve taşıyıcı farkını deftere işler"
+  - rol: "SMMM / danışman"
+    is_bitince: "Kargo maliyet kanıt raporunu dosyalar"
+
+lansman_tetigi:
+  sinif: Sezon
+  aciklama: "Kargo tarife zammı veya kampanya hacmi artışı öncesi −7 gün"
+  tarih_penceresi: "tarife_zammi_oncesi_7_gun"
+
+rakip_ayrim:
+  - sinif: R3_saas
+    ayrim: "Tek seferlik alım, aylık abonelik yok"
+    karsilik: "kdo_fiyatModeli"
+  - sinif: R3_saas
+    ayrim: "Veri cihazdan çıkmaz"
+    karsilik: "kdo_kvkkBeyani"
+  - sinif: R1_jenerik
+    ayrim: "Hacimsel desi + faturalanan birim tek motorda"
+    karsilik: "kdo_faturalananBirim"
+  - sinif: R1_jenerik
+    ayrim: "Sipariş↔tarife eşleştirme ile gerçek kargo maliyeti"
+    karsilik: "kdo_eslesmeOrani"
+  - sinif: R1_jenerik
+    ayrim: "KDO kök neden + TANIMSIZ kova"
+    karsilik: "kdo_tanimsizKova"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Elle desi hesap makinesi + tarife PDF"
+    - "Taşıyıcı panosu + hesap makinesi"
+    - "Muhasebecinin dönem kargo özeti"
+  ayrimlar:
+    - madde: "Sipariş no normalize + duplike denetimli eşleştirme"
+      karsilik: "kdo_normAnahtar"
+    - madde: "Dört kova bütünlüğü (hedef↔faturalanan maliyet)"
+      karsilik: "kdo_kovaButunluk"
+    - madde: "TANIMSIZ kök-neden kovası görünür"
+      karsilik: "kdo_tanimsizKova"
+    - madde: "Eşleşme oranı veriden türer"
+      karsilik: "kdo_eslesmeOrani"
+    - madde: "50.000 satır ölçek sözleşmesi"
+      karsilik: "kdo_olcekHedef"
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(siparis_no,\" \",\"\")))"
+  ikincil: "LEFT(norm,12) veya bolge+tasiyici"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+kurallar:
+  - KDO-001
+  - KDO-002
+  - KDO-003
+  - KDO-004
+  - KDO-005
+
+analitik_moduller:
+  - kod: T1
+    ad: "Ortalama birim kargo"
+    ad_tanimi: "kdo_modulT1"
+    yorum_hucresi: "kdo_modulT1Yorum"
+  - kod: T2
+    ad: "Ortalama desi/kg oranı"
+    ad_tanimi: "kdo_modulT2"
+    yorum_hucresi: "kdo_modulT2Yorum"
+  - kod: O1
+    ad: "Maliyet sapması"
+    ad_tanimi: "kdo_modulO1"
+    yorum_hucresi: "kdo_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık tornado"
+    ad_tanimi: "kdo_modulO2"
+    yorum_hucresi: "kdo_modulO2Yorum"
+  - kod: O3
+    ad: "Senaryo motoru"
+    ad_tanimi: "kdo_modulO3"
+    yorum_hucresi: "kdo_modulO3Yorum"
+  - kod: O6
+    ad: "Taşıyıcı yoğunlaşması"
+    ad_tanimi: "kdo_modulO6"
+    yorum_hucresi: "kdo_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "kdo_modulO8"
+    yorum_hucresi: "kdo_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Tarife senaryosu"
+    ad_tanimi: "kdo_modulMSen"
+    yorum_hucresi: "kdo_modulMSenYorum"
+  - kod: I1
+    ad: "Maliyet tahmin aralık"
+    ad_tanimi: "kdo_modulI1"
+    yorum_hucresi: "kdo_modulI1Yorum"
+  - kod: I2
+    ad: "Maliyet P90"
+    ad_tanimi: "kdo_modulI2"
+    yorum_hucresi: "kdo_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "desi_israf"
+    karar: "DESİ DÜŞÜR"
+  - kosul: "alternatif_ucuz"
+    karar: "TAŞIYICI DEĞİŞTİR"
+  - kosul: "esik_icinde"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - VERI_A
+  - VERI_B
+  - ANAHTAR
+  - MOTOR
+  - ESLESTIRME
+  - KOK_NEDEN
+  - PANO
+  - AKSIYON
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 15}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "FAZ 3 #15 — kullanıcı devam talimatı"

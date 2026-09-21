@@ -1,0 +1,86 @@
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli
+  ad: "Şirket Öz Kaynağı Eridi Mi? (TTK 376 Sermaye Tamamlama Cetveli)"
+  karar: "Aylık bilanço bileşenlerinden öz kaynağı ve sermaye kaybını hesaplar; TTK 376'daki 1/3 ve 2/3 eşiklerini ve borca batıklığı izler; UYGUN/İNCELE/DURDUR kararı üretir"
+  moduller:
+    - anomali_tespiti
+    - kalite_skoru
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - esik_kirilim
+    - zaman_serisi_projeksiyon
+    - karar_kapisi
+    - yoğunlaşma_analizi
+    - aksiyon_uretici
+    - deger_olcer
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 2000
+    azami_hesap_saniye: 25.0
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1OzKaynakTrend
+    yorum_hucresi: modulT1OzKaynakTrendYorum
+  - kod: T4
+    ad_tanimi: modulT4OzKaynakFark
+    yorum_hucresi: modulT4OzKaynakFarkYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2Tornado
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1OzKaynakTahmin
+    yorum_hucresi: modulI1OzKaynakTahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 6000
+serbest_alternatif:
+  alternatifler:
+    - "Aylık bilanço bileşenlerinden öz kaynağı, sermaye kaybını ve 1/3-2/3 eşiklerini elle hesaplamak"
+    - "Borca batıklığı ve yönetim kurulu bildirim yükümlülüğünü genel kurula kadar hiç izlememek"
+    - "Sermaye artırımı/azaltımı/infisah senaryolarını ayrı dosyalarda tahmini değerlerle kurmak"
+    - "Borç yoğunlaşmasını ve kayıp oranı trendini hiç analiz etmeden dönem sonunu beklemek"
+    - "Gelecek dönem öz kaynak tahminini yapmadan mali tablo sunumu hazırlamak"
+  ayrimlar:
+    - madde: "Aylık bilanço bileşenlerini tek tabloda toplar; öz kaynak, kayıp tutarı ve kayıp oranını formülle canlı üretir."
+      karsilik: TtkKayipOrani
+    - madde: "TTK 376 1/3 ve 2/3 eşiklerini ve borca batıklığı mevzuat oranlarıyla otomatik kontrol eder; alternatifte hesap elle yapılır."
+      karsilik: TtkBorcaBatik
+    - madde: "Borç türü kırılımında yoğunlaşma (HHI) ve anomali analizlerini üretir; alternatifte bu analiz yoktur."
+      karsilik: modulO6Hhi
+    - madde: "İyimser/baz/kötümser senaryolarda kayıp oranı bandını ve gelecek dönem öz kaynak tahminini sunar; alternatifte tahmin yoktur."
+      karsilik: modulI1OzKaynakTahmin
+    - madde: "Karar kapısı 1/3-2/3 eşiklerini aşan veya borca batık durumda İNCELE/DURDUR üretir ve genel kurul aksiyonu önerir."
+      karsilik: modulO8KaliteSkor
+    - madde: "Güven skoru eksik/negatif girişleri yakalayarak veri kalitesini puanlar; alternatifte hatalı giriş fark edilmez."
+      karsilik: modulO8KaliteSkorYorum

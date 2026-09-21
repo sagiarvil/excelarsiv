@@ -1,0 +1,119 @@
+{
+  "product": "tesvikli-bordro-optimizasyon",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/tesvikli-bordro-optimizasyon/TesvikliBordroOptimizasyon.xlsx",
+  "sha256": "1b912c0712b4ab07857fed75b89a94fb804373e96a6ad66445b180d587b9e1aa",
+  "size_bytes": 402117,
+  "modified_at": "2026-08-14T22:59:45",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "PANO",
+    "GIRDI",
+    "BORDRO",
+    "MATRIS",
+    "KURALLAR",
+    "MOTOR",
+    "SENARYO",
+    "VAKALAR",
+    "KANIT_RAPORU",
+    "KONTROLLER",
+    "ORNEK_VERI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "PANO": "000F2742",
+    "GIRDI": "00B08948",
+    "BORDRO": "00C8A96A",
+    "MATRIS": "008B5A2B",
+    "KURALLAR": "001F7A4D",
+    "MOTOR": "008064A2",
+    "SENARYO": "00ED7D31",
+    "VAKALAR": "002E75B6",
+    "KANIT_RAPORU": "000F2742",
+    "KONTROLLER": "00C00000",
+    "ORNEK_VERI": "0070AD47",
+    "LISTELER": "00595959",
+    "AYARLAR": "000F2742",
+    "KILAVUZ": "001F4E79"
+  },
+  "formula_count": 14254,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 1053,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 11,
+  "table_count": 6,
+  "conditional_format_count": 36,
+  "data_validation_count": 40,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 6,
+  "merged_ranges": 45,
+  "order_mismatches": [
+    "Mevcut: PANO > GIRDI > BORDRO > MATRIS > KURALLAR > MOTOR > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > BORDRO > MATRIS > KURALLAR > MOTOR > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=1053"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: PANO > GIRDI > BORDRO > MATRIS > KURALLAR > MOTOR > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > BORDRO > MATRIS > KURALLAR > MOTOR > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=14254"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

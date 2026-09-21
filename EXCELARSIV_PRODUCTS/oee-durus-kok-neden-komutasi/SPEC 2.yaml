@@ -1,0 +1,153 @@
+# =============================================================================
+# SPEC — Hat B Y-21 · OEE & Duruş Kök-Neden Komutası
+# Durum: ONAYLANDI — Hat B kalite dikey
+# Manda: v6 (A5 Saha Operasyon Komuta Merkezi — S01–S05 zorunlu)
+# Domain: OEE / duruş / kök neden — SPC/filo/GES kopyası DEĞİL; rename YASAK
+# =============================================================================
+
+urun:
+  kod: ODK-PRO
+  ad: "OEE & Duruş Kök-Neden Komutası"
+  surum: "1.0.0"
+  slug: oee-durus-kok-neden-komutasi
+  dosya: OeeDurusKokNedenKomutasi.xlsx
+  prefix: odk_
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "Üretim müdürü / OEE sahibi, kalite müdürü, süreç mühendisi, fabrika yöneticisi"
+
+arketip: A5
+fiyat: 9900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 22000
+  Y2_kurulum_ikamesi_tl: 9500
+  Y3_onlenen_hata_tl: 48000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "OEE / duruş kök-neden danışmanlığı + saha komuta dosyası (MES ikamesi değil)"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Vardiya / hat operatörü (giren)"
+    is_bitince: "Günlük plan süre, duruş, üretim, fire ve kök neden satırını ≤6 alanda kilitler"
+  - rol: "Üretim müdürü / OEE sahibi (karar veren)"
+    is_bitince: "OEE, kullanılabilirlik/performans/kalite kırılımı ve UYGUN/DİKKAT/KRİTİK/VERİ YOK kararını görür"
+  - rol: "Kalite müdürü / fabrika yöneticisi (kanıt isteyen)"
+    is_bitince: "RAPOR ile dönemsel OEE-duruş kök-neden kanıtını yönetim toplantısına sunar"
+
+lansman_tetigi:
+  sinif: Donemsel_operasyon
+  aciklama: "Her gün OEE kapanışı; IATF/müşteri denetimi öncesi 30–60 gün duruş kök-neden paketi"
+  tarih_penceresi: "gunluk_oee_ve_denetim_oncesi"
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "OEE = kullanılabilirlik × performans × kalite tek formül; sabit skor yok"
+    karsilik: "odk_oeeOrani"
+  - sinif: R1_jenerik
+    ayrim: "Duruş kök-neden Pareto kırılımı (ARIZA/AYAR/MALZEME/OPERATÖR/KALIP/BEKLEME)"
+    karsilik: "odk_kokNedenKirilim"
+  - sinif: R1_jenerik
+    ayrim: "Varlık sağlık skoru OEE ve alarmdan formülle türer"
+    karsilik: "odk_saglikSkor"
+  - sinif: R2_bedava
+    ayrim: "12 aylık sezonsal OEE-duruş zinciri"
+    karsilik: "odk_sezonsalTrend"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz, çevrimdışı; MES / SCADA API bağı yok"
+    karsilik: "odk_kararKapi"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Vardiya defteri + ayrı Excel'de OEE elle hesap"
+    - "MES ekranından kopyala-yapıştır Pareto"
+    - "Danışman OEE atölyesi (günlük değil)"
+  ayrimlar:
+    - madde: "OEE + A/P/Q kırılımı tek satırda canlı formül"
+      karsilik: "odk_oeeOrani"
+    - madde: "Varlık sağlık skoru COUNTIF/SUMIF ile veriden türer"
+      karsilik: "odk_saglikSkor"
+    - madde: "Alarm eşiği AYARLAR + varlık/eşik/süre listesi"
+      karsilik: "odk_alarmListesi"
+    - madde: "12 ay sezonsal OEE-duruş karşılaştırması"
+      karsilik: "odk_sezonsalTrend"
+    - madde: "Boş dosyada VERİ YOK; UYGUN/DİKKAT/KRİTİK kapısı"
+      karsilik: "odk_kararKapi"
+
+saha:
+  gunluk_giris_alan: 6
+  birim_disiplini: true
+  sezonsallik_ay: 12
+  saglik_skor_formul: true
+  alarm_esik_ayarlar: true
+
+analitik_moduller:
+  - {kod: T1, ad: "Günlük OEE ortalaması", ad_tanimi: "odk_gunlukOeeOrt", yorum_hucresi: "odk_yorumGunluk"}
+  - {kod: T2, ad: "Aylık duruş trend", ad_tanimi: "odk_aylikDurusTrend", yorum_hucresi: "odk_yorumAylik"}
+  - {kod: O1, ad: "OEE sapma", ad_tanimi: "odk_oeeSapma", yorum_hucresi: "odk_yorumSapma"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "odk_tornadoZirve", yorum_hucresi: "odk_yorumTornado"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "odk_senaryoKarsilastirma", yorum_hucresi: "odk_yorumSenaryo"}
+  - {kod: O6, ad: "Yoğunlaşma HHI", ad_tanimi: "odk_hhi", yorum_hucresi: "odk_yorumHhi"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "odk_kaliteSkor", yorum_hucresi: "odk_yorumKalite"}
+  - {kod: M_SEN, ad: "Senaryo motoru", ad_tanimi: "odk_senaryoMotor", yorum_hucresi: "odk_yorumSenMotor"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "odk_tahminAralik", yorum_hucresi: "odk_yorumTahmin"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "odk_yuzdelikP90", yorum_hucresi: "odk_yorumP90"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "kritik_alarm_veya_saglik_dusuk"
+    karar: "KRİTİK"
+  - kosul: "oee_esik_asim"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - VARLIKLAR
+  - GUNLUK_GIRIS
+  - DONEM_ANALIZ
+  - HESAP
+  - PANO
+  - ALARMLAR
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 250
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+testler:
+  asgari_tablo_kapasitesi: 250
+  olcek:
+    satir: 500
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-21 — A5 OEE & duruş kök-neden komutası sevk hedefi"

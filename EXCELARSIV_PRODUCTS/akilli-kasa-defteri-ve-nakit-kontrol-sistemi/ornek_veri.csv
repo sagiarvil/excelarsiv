@@ -1,0 +1,25 @@
+ORNEK VERI — AKILLI KASA DEFTERİ VE NAKİT KONTROL SİSTEMİ
+Bu dosya otomasyon ve içe aktarma için yapıdır; hesap ve hareket satırlarını CSV/Excel'den kopyalayabilirsiniz.
+KASA_HESAPLARI (tblKasaHesap)
+Hesap Kodu,Hesap Adı,Hesap Türü,Bakiye (₺),Bloke Tutar (₺),Minimum Kasa Eşiği (₺),Hesap Durumu
+K001,Perakende Kasa,KASA,250000,0,50000,AKTİF
+K002,Günlük İşletme, BANKA,500000,100000,100000,AKTİF
+K003,Ödeme Havuzu,KASA,300000,0,50000,AKTİF
+KASA_HAREKETLERI (tblKasaHareket)
+Tarih,Fiş Numarası,Hesap,İşlem Türü,Kategori,Alt Kategori,Karşı Taraf,Ödeme Yöntemi,Belge Numarası,Tutar (₺),Açıklama
+05.08.2026,20260805001,K001,GİRİŞ,Satış,Nakit Satış,Müşteri A,Nakit,BSM-001,85000,Günlük nakit tahsilatı
+06.08.2026,20260806001,K002,ÇIKIŞ,Personel,Maaş Ödemesi,Personel,havale,MAAS-002,180000,Personel maaş ödemesi
+07.08.2026,20260807001,K001,ÇIKIŞ,Operasyon,Tedarikçi Ödemesi,Tedarikçi B,havale,FAT-003,45000,Hammadde ödemesi
+08.08.2026,20260808001,K003,GİRİŞ,Tahsilat,Cari Tahsilat,Müşteri C,Eft,EFT-004,120000,Bekleyen tahsilatın girişi
+09.08.2026,20260809001,K002,ÇIKIŞ,Kira,İşyeri Kira Ödemesi,Kiraya Veren,havale,KIRA-005,60000,Aylık kira ödemesi
+ODEME_TAHSILAT_TAKVIMI (tblTakvim)
+Vade Tarihi,Tür,Karşı Taraf,Öncelik,Tutar (₺),Durum
+15.08.2026,ÖDEME,Tedarikçi B,YÜKSEK,80000,BEKLEMEDE
+20.08.2026,ÖDEME,Personel,KRİTİK,160000,BEKLEMEDE
+25.08.2026,TAHSİLAT,Müşteri A,ORTA,130000,BEKLEMEDE
+30.08.2026,ÖDEME,Kiraya Veren,ORTA,60000,BEKLEMEDE
+05.09.2026,TAHSİLAT,Müşteri C,DÜŞÜK,95000,BEKLEMEDE
+FIZIKI_KASA_MUTABAKAT (tblMutabakat)
+Defter Bakiyesi (₺),Sayım Tutarı (₺),Fark (₺),Sayım Tarihi,Sayımı Yapan,Sonuç
+250000,249850,-150,09.08.2026,Muhasebe Sorumlusu,FARK VAR
+Örnek veri giriş sayfalarını beslemez; yapıyı gösterir.

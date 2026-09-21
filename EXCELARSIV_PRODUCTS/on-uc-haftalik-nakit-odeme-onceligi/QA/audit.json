@@ -1,0 +1,115 @@
+{
+  "product": "on-uc-haftalik-nakit-odeme-onceligi",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/on-uc-haftalik-nakit-odeme-onceligi/OnUcHaftalikNakitOdemeOnceligi.xlsx",
+  "sha256": "ff4e8a597eef6da0926879a7ca3c130e29ce6e74c8f6998f0d18a31442a792b4",
+  "size_bytes": 147576,
+  "modified_at": "2026-08-11T01:44:50",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "PANO",
+    "KARTLAR",
+    "AKIS",
+    "KUYRUKLAR",
+    "HESAP",
+    "RAPOR",
+    "KONTROLLER",
+    "ORNEK_VERI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": "000B3D2E",
+    "PANO": "000B3D2E",
+    "KARTLAR": "000B3D2E",
+    "AKIS": "000B3D2E",
+    "KUYRUKLAR": "000B3D2E",
+    "HESAP": "000B3D2E",
+    "RAPOR": "000B3D2E",
+    "KONTROLLER": "00C00000",
+    "ORNEK_VERI": "0070AD47",
+    "LISTELER": "000B3D2E",
+    "AYARLAR": "000B3D2E",
+    "KILAVUZ": "000B3D2E"
+  },
+  "formula_count": 2154,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 817,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 3,
+  "conditional_format_count": 107,
+  "data_validation_count": 64,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 3,
+  "merged_ranges": 45,
+  "order_mismatches": [
+    "Mevcut: KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=817"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=2154"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

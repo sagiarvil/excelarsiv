@@ -1,0 +1,127 @@
+{
+  "product": "ithalat-depo-teslim-rafa-gelen-net-birim-maliyet",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/ithalat-depo-teslim-rafa-gelen-net-birim-maliyet/IthalatDepoTeslimNetBirimMaliyet.xlsx",
+  "sha256": "84553d3560b2fed83f49023c1be3fcf7e57b15f2cee868565870025345c7dd53",
+  "size_bytes": 152465,
+  "modified_at": "2026-08-12T13:28:25",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "URUNLER",
+    "MASRAFLAR",
+    "MOTOR",
+    "KONTROL",
+    "KARAR",
+    "PANO",
+    "SENARYO_DUYARLILIK",
+    "RAPOR",
+    "ORNEK_VERI",
+    "ANAHTAR",
+    "ESLESTIRME",
+    "KOK_NEDEN",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": null,
+    "HIZLI_BASLANGIC": null,
+    "URUNLER": null,
+    "MASRAFLAR": null,
+    "MOTOR": null,
+    "KONTROL": null,
+    "KARAR": null,
+    "PANO": null,
+    "SENARYO_DUYARLILIK": null,
+    "RAPOR": null,
+    "ORNEK_VERI": null,
+    "ANAHTAR": null,
+    "ESLESTIRME": null,
+    "KOK_NEDEN": null,
+    "DEGISIKLIK_KAYDI": null,
+    "LISTELER": null,
+    "AYARLAR": null,
+    "KILAVUZ": null
+  },
+  "formula_count": 300,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 40,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 6,
+  "table_count": 2,
+  "conditional_format_count": 27,
+  "data_validation_count": 5,
+  "gridlines_on_count": 18,
+  "freeze_panes_count": 2,
+  "merged_ranges": 94,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > URUNLER > MASRAFLAR > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > ANAHTAR > ESLESTIRME > KOK_NEDEN > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > URUNLER > MASRAFLAR > MOTOR > PANO > RAPOR > ORNEK_VERI > ANAHTAR > ESLESTIRME > KOK_NEDEN > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=40"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": false,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=18"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": false,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=18"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > URUNLER > MASRAFLAR > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > ANAHTAR > ESLESTIRME > KOK_NEDEN > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > URUNLER > MASRAFLAR > MOTOR > PANO > RAPOR > ORNEK_VERI > ANAHTAR > ESLESTIRME > KOK_NEDEN > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=300"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

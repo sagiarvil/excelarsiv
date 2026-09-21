@@ -1,0 +1,157 @@
+# =============================================================================
+# SPEC — Hat B Y-06 · Yem Rasyonu & Maliyet Motoru
+# Durum: ONAYLANDI — Hat B tarım dikey
+# Manda: v6 (A7 Reçete / Formülasyon & Maliyet — R01–R05 zorunlu)
+# Domain: verim grubuna göre rasyon, birim süt maliyeti — sevkiyat reçete KOPYASI DEĞİL
+# =============================================================================
+
+urun:
+  kod: YRM-PRO
+  ad: "Yem Rasyonu & Maliyet Motoru"
+  surum: "1.0.0"
+  slug: yem-rasyonu-maliyet
+  dosya: YemRasyonuMaliyet.xlsx
+  prefix: yrm_
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "Süt çiftliği sahibi, zooteknist, yem danışmanı, CFO"
+
+arketip: A7
+fiyat: 9900
+olcek_hedefi: 10000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 22000
+  Y2_kurulum_ikamesi_tl: 10000
+  Y3_onlenen_hata_tl: 48000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Yem rasyonu danışmanlığı + birim süt maliyeti komuta dosyası"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Zooteknist / yem sorumlusu"
+    is_bitince: "Verim grubuna göre rasyon bileşimini ve fire'li hammaddeleri kilitler"
+  - rol: "Çiftlik sahibi"
+    is_bitince: "Birim süt maliyeti ve UYGUN/DİKKAT/KRİTİK/VERİ YOK kararını görür"
+  - rol: "CFO / denetçi"
+    is_bitince: "RAPOR ile rasyon maliyet kırılımı ve varyans kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Parametre_degisimi
+  aciklama: "Yem fiyat değişimi (kesif yem / silaj / küspe zammı) sonrası rasyon maliyet revizyonu"
+  tarih_penceresi: "yem_fiyat_degisimi_sonrasi_30_gun"
+
+recete:
+  versiyonlama: true
+  bilesim_yuzde_100: true
+  fire_kolonu: true
+  birim_donusum: true
+  maliyet_kirilim: ["hammadde", "iscilik", "ambalaj", "genel_gider"]
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "Verim grubuna göre rasyon bileşim %100 + birim süt maliyeti tek zincir"
+    karsilik: "yrm_birimSutMaliyeti"
+  - sinif: R1_jenerik
+    ayrim: "Fire kolonlu hammadde maliyeti; fire'siz hesap yasak"
+    karsilik: "yrm_fireDahilMaliyet"
+  - sinif: R2_bedava
+    ayrim: "Rasyon versiyon varyans köprüsü (fiyat/miktar/karışım)"
+    karsilik: "yrm_varyansKopru"
+  - sinif: R2_bedava
+    ayrim: "Birim dönüşüm AYARLAR tablosundan; gömülü katsayı yok"
+    karsilik: "yrm_donusumTablo"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz; boş dosyada VERİ YOK karar kapısı"
+    karsilik: "yrm_kararKapi"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Yem fiyatlarını deftere yazıp rasyonu hesap makinesiyle oranlamak"
+    - "Danışmanın tek seferlik Excel'ini elle güncellemek"
+    - "Yem yazılımı aboneliği"
+  ayrimlar:
+    - madde: "Verim grubu × rasyon bileşiminden birim süt maliyeti canlı formül"
+      karsilik: "yrm_birimSutMaliyeti"
+    - madde: "Bileşim %100 alarmı PANO'da; sessiz sapma yok"
+      karsilik: "yrm_bilesimAlarm"
+    - madde: "Fire kolonu + AYARLAR birim dönüşüm tablosu"
+      karsilik: "yrm_donusumTablo"
+    - madde: "Hammadde/işçilik/ambalaj/genel gider kırılımı = birim maliyet"
+      karsilik: "yrm_kirilimKontrol"
+    - madde: "Boş dosyada VERİ YOK; UYGUN/DİKKAT/KRİTİK kapısı"
+      karsilik: "yrm_kararKapi"
+
+analitik_moduller:
+  - {kod: T1, ad: "Birim süt maliyeti", ad_tanimi: "yrm_modulT1", yorum_hucresi: "yrm_modulT1Yorum"}
+  - {kod: T2, ad: "Rasyon toplam kg", ad_tanimi: "yrm_modulT2", yorum_hucresi: "yrm_modulT2Yorum"}
+  - {kod: O1, ad: "Maliyet sapması", ad_tanimi: "yrm_modulO1", yorum_hucresi: "yrm_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "yrm_modulO2", yorum_hucresi: "yrm_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo motoru", ad_tanimi: "yrm_modulO3", yorum_hucresi: "yrm_modulO3Yorum"}
+  - {kod: O6, ad: "Hammadde yoğunlaşması", ad_tanimi: "yrm_modulO6", yorum_hucresi: "yrm_modulO6Yorum"}
+  - {kod: O8, ad: "Veri kalite skoru", ad_tanimi: "yrm_modulO8", yorum_hucresi: "yrm_modulO8Yorum"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "yrm_modulI1", yorum_hucresi: "yrm_modulI1Yorum"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "yrm_modulI2", yorum_hucresi: "yrm_modulI2Yorum"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "bilesim_alarm_veya_maliyet_sut_ustu"
+    karar: "KRİTİK"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - HAMMADDE
+  - RASYON
+  - MALIYET
+  - FIYATLAMA
+  - VARYANS
+  - SENARYO
+  - PANO
+  - KARAR
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "KARAR"
+  motor_sayfasi: "MALIYET"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1000
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-06 — A7 yem rasyonu & birim süt maliyeti; D0 tarım 7/7"

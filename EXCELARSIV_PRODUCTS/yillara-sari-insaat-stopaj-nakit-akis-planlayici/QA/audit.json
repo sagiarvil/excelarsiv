@@ -1,0 +1,131 @@
+{
+  "product": "yillara-sari-insaat-stopaj-nakit-akis-planlayici",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/yillara-sari-insaat-stopaj-nakit-akis-planlayici/YillaraSariInsaatStopajVeNakitAkisPlanlayici.xlsx",
+  "sha256": "a27ae5ec55439934ac13c0b9627773008f56483b3225093db4585a579b347561",
+  "size_bytes": 245876,
+  "modified_at": "2026-08-12T03:05:03",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "PROJE_KARTI",
+    "YILLIK_PLAN",
+    "HAKEDISLER",
+    "NAKIT_AKISI",
+    "VERGI_PLANI",
+    "MOTOR",
+    "KONTROL",
+    "KARAR",
+    "PANO",
+    "SENARYO_DUYARLILIK",
+    "RAPOR",
+    "ORNEK_VERI",
+    "KURALLAR",
+    "VAKALAR",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": null,
+    "HIZLI_BASLANGIC": null,
+    "PROJE_KARTI": null,
+    "YILLIK_PLAN": null,
+    "HAKEDISLER": null,
+    "NAKIT_AKISI": null,
+    "VERGI_PLANI": null,
+    "MOTOR": null,
+    "KONTROL": null,
+    "KARAR": null,
+    "PANO": null,
+    "SENARYO_DUYARLILIK": null,
+    "RAPOR": null,
+    "ORNEK_VERI": null,
+    "KURALLAR": null,
+    "VAKALAR": null,
+    "DEGISIKLIK_KAYDI": null,
+    "LISTELER": null,
+    "AYARLAR": null,
+    "KILAVUZ": null
+  },
+  "formula_count": 282,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 37,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 6,
+  "table_count": 4,
+  "conditional_format_count": 6018,
+  "data_validation_count": 16,
+  "gridlines_on_count": 20,
+  "freeze_panes_count": 4,
+  "merged_ranges": 111,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > PROJE_KARTI > YILLIK_PLAN > HAKEDISLER > NAKIT_AKISI > VERGI_PLANI > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > NAKIT_AKISI > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > PROJE_KARTI > YILLIK_PLAN > HAKEDISLER > VERGI_PLANI > MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=37"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": false,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=20"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": false,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=20"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > PROJE_KARTI > YILLIK_PLAN > HAKEDISLER > NAKIT_AKISI > VERGI_PLANI > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > NAKIT_AKISI > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > PROJE_KARTI > YILLIK_PLAN > HAKEDISLER > VERGI_PLANI > MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=282"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

@@ -1,0 +1,7 @@
+slug: e-fatura-toplu-donusturucu
+name: "e-Fatura Toplu Dönüştürücü"
+price_tl: 1490
+tier: PREMIUM
+shopier_kademe_id: "49652403"
+summary: "Toplu e-Fatura export satırlarını yapıştırıp Excel defter ve PDF kanıt üretir. Makro/XML API yok."
+sha256: b1d6aaf064783724e25fb436c1f85cb033eefa6ebe00f20f2ce20ad0e3de5fa8

@@ -1,0 +1,157 @@
+# =============================================================================
+# SPEC — Hat B Y-12 · Reçete Maliyeti & Menü Mühendisliği
+# Durum: ONAYLANDI — Hat B gıda dikey
+# Manda: v6 (A7 Reçete / Formülasyon & Maliyet — R01–R05 zorunlu)
+# Domain: maliyet × popülerlik matrisi, fiyat önerisi — yem rasyonu KOPYASI DEĞİL
+# =============================================================================
+
+urun:
+  kod: RMM-PRO
+  ad: "Reçete Maliyeti & Menü Mühendisliği"
+  surum: "1.0.0"
+  slug: recete-maliyeti-menu-muhendisligi
+  dosya: ReceteMaliyetiMenuMuhendisligi.xlsx
+  prefix: rmm_
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "Restoran sahibi, mutfak şefi, maliyet kontrolörü, CFO"
+
+arketip: A7
+fiyat: 9900
+olcek_hedefi: 10000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 24000
+  Y2_kurulum_ikamesi_tl: 12000
+  Y3_onlenen_hata_tl: 52000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Menü mühendisliği danışmanlığı + reçete maliyet komuta dosyası"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Mutfak şefi / reçete sorumlusu"
+    is_bitince: "Menü kalemi bileşimini ve fire'li hammaddeleri kilitler"
+  - rol: "Restoran sahibi"
+    is_bitince: "Maliyet × popülerlik matrisi ve fiyat önerisini görür"
+  - rol: "CFO / denetçi"
+    is_bitince: "RAPOR ile reçete maliyet kırılımı ve varyans kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Parametre_degisimi
+  aciklama: "Gıda enflasyonu sonrası menü fiyat ve reçete maliyet revizyonu"
+  tarih_penceresi: "gida_enflasyonu_sonrasi_30_gun"
+
+recete:
+  versiyonlama: true
+  bilesim_yuzde_100: true
+  fire_kolonu: true
+  birim_donusum: true
+  maliyet_kirilim: ["hammadde", "iscilik", "ambalaj", "genel_gider"]
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "Maliyet × popülerlik matrisi + menü sınıfı (Yıldız/Yük/Bulmaca/Köpek)"
+    karsilik: "rmm_menuSinif"
+  - sinif: R1_jenerik
+    ayrim: "Fire kolonlu reçete maliyeti; fire'siz hesap yasak"
+    karsilik: "rmm_fireDahilMaliyet"
+  - sinif: R2_bedava
+    ayrim: "Reçete versiyon varyans köprüsü (fiyat/miktar/karışım)"
+    karsilik: "rmm_varyansKopru"
+  - sinif: R2_bedava
+    ayrim: "Birim dönüşüm AYARLAR tablosundan; gömülü katsayı yok"
+    karsilik: "rmm_donusumTablo"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz; boş dosyada VERİ YOK karar kapısı"
+    karsilik: "rmm_kararKapi"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Malzeme fiyatlarını deftere yazıp porsiyonu hesap makinesiyle oranlamak"
+    - "Şefin tek seferlik Excel'ini elle güncellemek"
+    - "Restoran yazılımı aboneliği"
+  ayrimlar:
+    - madde: "Reçete bileşiminden porsiyon maliyeti ve fiyat önerisi canlı formül"
+      karsilik: "rmm_porsiyonMaliyeti"
+    - madde: "Bileşim %100 alarmı PANO'da; sessiz sapma yok"
+      karsilik: "rmm_bilesimAlarm"
+    - madde: "Fire kolonu + AYARLAR birim dönüşüm tablosu"
+      karsilik: "rmm_donusumTablo"
+    - madde: "Hammadde/işçilik/ambalaj/genel gider kırılımı = birim maliyet"
+      karsilik: "rmm_kirilimKontrol"
+    - madde: "Boş dosyada VERİ YOK; UYGUN/DİKKAT/KRİTİK kapısı"
+      karsilik: "rmm_kararKapi"
+
+analitik_moduller:
+  - {kod: T1, ad: "Porsiyon maliyeti", ad_tanimi: "rmm_modulT1", yorum_hucresi: "rmm_modulT1Yorum"}
+  - {kod: T2, ad: "Reçete toplam gram", ad_tanimi: "rmm_modulT2", yorum_hucresi: "rmm_modulT2Yorum"}
+  - {kod: O1, ad: "Maliyet sapması", ad_tanimi: "rmm_modulO1", yorum_hucresi: "rmm_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "rmm_modulO2", yorum_hucresi: "rmm_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo motoru", ad_tanimi: "rmm_modulO3", yorum_hucresi: "rmm_modulO3Yorum"}
+  - {kod: O6, ad: "Hammadde yoğunlaşması", ad_tanimi: "rmm_modulO6", yorum_hucresi: "rmm_modulO6Yorum"}
+  - {kod: O8, ad: "Veri kalite skoru", ad_tanimi: "rmm_modulO8", yorum_hucresi: "rmm_modulO8Yorum"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "rmm_modulI1", yorum_hucresi: "rmm_modulI1Yorum"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "rmm_modulI2", yorum_hucresi: "rmm_modulI2Yorum"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "bilesim_alarm_veya_food_cost_ustu"
+    karar: "KRİTİK"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - HAMMADDE
+  - RECETE
+  - MALIYET
+  - FIYATLAMA
+  - VARYANS
+  - SENARYO
+  - PANO
+  - KARAR
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "KARAR"
+  motor_sayfasi: "MALIYET"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1000
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-12 — A7 reçete maliyeti & menü mühendisliği; D0 gıda 7/7"

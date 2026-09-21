@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-09-21T13:45:48",
+  "root": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS",
+  "mode": "CALIBRATE_COPY",
+  "products": 104,
+  "statuses": {
+    "BLOCKED": 102,
+    "CALIBRATION_REQUIRED": 2
+  },
+  "duplicate_hash_groups": 6,
+  "quality_target": "500_USD_CLASS_PRODUCT_QUALITY",
+  "auto_release": false,
+  "human_checker_required": true
+}

@@ -1,0 +1,167 @@
+# =============================================================================
+# SPEC — Hat B Y-02 · Elektrik Faturası Doğrulama Motoru
+# Durum: ONAYLANDI — Hat B enerji dikeyi
+# Manda: v6 (A2 arketipi · eşleştirme katmanı E zorunlu)
+# =============================================================================
+
+urun:
+  kod: EFD-PRO
+  ad: "Elektrik Faturası Doğrulama Motoru"
+  surum: "1.0.0"
+  satis_fiyati_tl: 4900
+  hedef_kullanici: "Tesis müdürü, mali işler, enerji yöneticisi, SMMM"
+
+arketip: A2
+fiyat: 4900
+olcek_hedefi: 50000
+
+deger:
+  satis_fiyati_tl: 4900
+  Y1_danisman_ikamesi_tl: 12000
+  Y2_kurulum_ikamesi_tl: 5000
+  Y3_onlenen_hata_tl: 18000
+  Y4_saas_yillik_ikamesi_tl: 6000
+  kaynak: "Aylık fatura tarife/dağıtım denetimi danışmanlığı + kurulum"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "Enerji / tesis"
+    is_bitince: "Fatura itiraz listesini dağıtım şirketine iletir"
+  - rol: "Mali işler"
+    is_bitince: "Onaylı tutarı ödeme planına alır"
+  - rol: "SMMM / denetçi"
+    is_bitince: "Dönem fatura mutabakat kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "Her ay elektrik faturası geldiğinde −3 gün"
+  tarih_penceresi: "aylik_fatura"
+
+rakip_ayrim:
+  - sinif: R3_saas
+    ayrim: "Tek seferlik alım, abonelik yok"
+    karsilik: "efd_fiyatModeli"
+  - sinif: R3_saas
+    ayrim: "Fatura verisi cihazdan çıkmaz"
+    karsilik: "efd_kvkkBeyani"
+  - sinif: R1_jenerik
+    ayrim: "Tarife + dağıtım + KDV kalem ayrıştırması tek motorda"
+    karsilik: "efd_kalemAyristirma"
+  - sinif: R1_jenerik
+    ayrim: "Fatura↔sayaç dört kova mutabakatı"
+    karsilik: "efd_kovaButunluk"
+  - sinif: R1_jenerik
+    ayrim: "Kök neden + TANIMSIZ kova ile itiraz metni"
+    karsilik: "efd_itirazMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Elle fatura Excel + hesap makinesi"
+    - "Dağıtım şirketi portalı + kWh karşılaştırma"
+    - "Muhasebecinin aylık fatura kontrolü"
+  ayrimlar:
+    - madde: "Normalize fatura anahtarı + kısa/uzun no"
+      karsilik: "efd_normAnahtar"
+    - madde: "Dört kova bütünlüğü (fatura↔sayaç)"
+      karsilik: "efd_kovaButunluk"
+    - madde: "TANIMSIZ kök-neden kovası görünür"
+      karsilik: "efd_tanimsizKova"
+    - madde: "Eşleşme oranı veriden türer"
+      karsilik: "efd_eslesmeOrani"
+    - madde: "50.000 satır ölçek sözleşmesi"
+      karsilik: "efd_olcekHedef"
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(fatura_no,\" \",\"\")))"
+  ikincil: "LEFT(norm,12) veya donem+sayac"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+kurallar:
+  - EFD-001
+  - EFD-002
+  - EFD-003
+  - EFD-004
+  - EFD-005
+
+analitik_moduller:
+  - kod: T5
+    ad: "Mutabakat farkı"
+    ad_tanimi: "efd_mutabakatFarki"
+    yorum_hucresi: "efd_yorumFark"
+  - kod: I8
+    ad: "Kök-neden ayrıştırma"
+    ad_tanimi: "efd_kokNedenDagilim"
+    yorum_hucresi: "efd_yorumKokNeden"
+  - kod: T3
+    ad: "Pareto"
+    ad_tanimi: "efd_paretoFark"
+    yorum_hucresi: "efd_yorumPareto"
+  - kod: O1
+    ad: "Anomali"
+    ad_tanimi: "efd_anomaliSayisi"
+    yorum_hucresi: "efd_yorumAnomali"
+  - kod: O2
+    ad: "Duyarlılık tornado"
+    ad_tanimi: "efd_tornadoZirve"
+    yorum_hucresi: "efd_yorumTornado"
+  - kod: I1
+    ad: "Tahmin aralık"
+    ad_tanimi: "efd_tahminAralik"
+    yorum_hucresi: "efd_yorumTahmin"
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "esik_alti_eslesme"
+    karar: "İNCELE"
+  - kosul: "fark_esik_ustu"
+    karar: "İNCELE"
+  - kosul: "esik_icinde"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - VERI_A
+  - VERI_B
+  - ANAHTAR
+  - ESLESTIRME
+  - KOK_NEDEN
+  - PANO
+  - AKSIYON
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "ESLESTIRME"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-02 — kullanıcı SEVK talimatı"

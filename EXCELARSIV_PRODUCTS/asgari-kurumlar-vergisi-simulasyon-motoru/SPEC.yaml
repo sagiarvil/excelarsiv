@@ -1,0 +1,172 @@
+# =============================================================================
+# SPEC — Hat A #1 · Asgari Kurumlar Vergisi Simülasyon Motoru
+# Durum: ONAYLANDI — FAZ 1 üretim
+# Manda: v6 (v5 A1 arketipi miras)
+# =============================================================================
+
+urun:
+  kod: AKV-PRO
+  ad: "Asgari Kurumlar Vergisi Simülasyon Motoru"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "SMMM, YMM, vergi müdürü, CFO"
+
+arketip: A1
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 25000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 15000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Saha fiyat araştırması — senaryolu SMMM hizmeti + model kurulum"
+
+deger_vektoru: ["P", "R", "Z"]   # para + risk + zaman (v6 ≥3 eksen)
+uc_rol:
+  - rol: "SMMM"
+    is_bitince: "Müşteriye imzalı KANIT_RAPORU verir"
+  - rol: "CFO"
+    is_bitince: "Asgari KV farkını bütçeye yazar"
+  - rol: "Ortak"
+    is_bitince: "Ek vergi riskini görür"
+
+lansman_tetigi:
+  sinif: Mevzuat_yayimi
+  aciklama: "Asgari KV tebliğ/oran güncellemesi veya beyanname dönemi −30 gün"
+  tarih_penceresi: "beyanname_oncesi_30_gun"
+
+rakip_ayrim:
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Senaryo motoru (≥3) + yıl karşılaştırması (2025/2026/2027)"
+    karsilik: "akv_senaryoKarsilastirma"
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Tebliğ altın vakaları TUTARLI raporlanabilir"
+    karsilik: "akv_vakaDurum"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Her MOTOR adımında kural_id + madde atfı"
+    karsilik: "akv_maddeAtifMetni"
+  - sinif: R1_jenerik_sablon
+    ayrim: "KANIT_RAPORU A4 imza alanı — müşteriye çıktı"
+    karsilik: "akv_kanitRaporu"
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; karar + tutar + gerekçe üretir"
+    karsilik: "akv_kararMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "TÜRMOB / GİB örnek tablo"
+    - "SMMM'nin tek satırlık Excel'i"
+    - "Muhasebe programı KV alanı"
+  ayrimlar:
+    - madde: "Çok-yıllı kural tablosu yan yana"
+      karsilik: "akv_kuralYilMatris"
+    - madde: "M-SEN kural değişimi senaryosu"
+      karsilik: "akv_kuralDegisimSenaryo"
+    - madde: "Tebliğ vakası FARK kontrolü"
+      karsilik: "akv_vakaFark"
+    - madde: "Makine üretilmiş gerekçeli karar cümlesi"
+      karsilik: "akv_kararGerekce"
+    - madde: "SHA-256 kanıt paketi"
+      karsilik: "akv_parmakIzi"
+
+mevzuat:
+  kurallar: [AKV-001, AKV-002, AKV-003, AKV-004, AKV-005]
+  vakalar: teblig_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - istisna_kirilim_sirasi
+
+analitik_moduller:
+  - kod: T1
+    ad: "Matrah bileşen payı"
+    ad_tanimi: "akv_modulT1"
+    yorum_hucresi: "akv_modulT1Yorum"
+  - kod: T2
+    ad: "Ödenen KV / asgari KV oranı"
+    ad_tanimi: "akv_modulT2"
+    yorum_hucresi: "akv_modulT2Yorum"
+  - kod: O1
+    ad: "Sapma göstergesi"
+    ad_tanimi: "akv_modulO1"
+    yorum_hucresi: "akv_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "akv_duyarlilikSira"
+    yorum_hucresi: "akv_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "akv_senaryoKarsilastirma"
+    yorum_hucresi: "akv_yorumSenaryo"
+  - kod: O6
+    ad: "İstisna yoğunlaşması"
+    ad_tanimi: "akv_modulO6"
+    yorum_hucresi: "akv_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "akv_modulO8"
+    yorum_hucresi: "akv_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Kural değişimi senaryosu"
+    ad_tanimi: "akv_kuralDegisimSenaryo"
+    yorum_hucresi: "akv_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "akv_tahminAralik"
+    yorum_hucresi: "akv_yorumTahmin"
+  - kod: I2
+    ad: "Fark yüzdelik P90"
+    ad_tanimi: "akv_modulI2"
+    yorum_hucresi: "akv_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "matrah_asgari_altinda"
+    karar: "EK VERGİ YOK"
+  - kosul: "matrah_asgari_ustunde_ve_odenen_asgari_alti"
+    karar: "FARK HESAPLA"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - PANO
+  - GIRDI
+  - KURALLAR
+  - MOTOR
+  - SENARYO
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Kullanıcı 'sonuna kadar devam et' — FAZ 1 üretim serbest"

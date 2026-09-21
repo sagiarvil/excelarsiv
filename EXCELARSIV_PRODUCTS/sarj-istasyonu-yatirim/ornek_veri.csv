@@ -1,0 +1,20 @@
+alan,deger,birim,aciklama
+sirket_adi,Ornek Sarj Yatirim A.S.,metin,Proje sahibi
+donem,2026-Q3,metin,Rapor donemi
+hesapYili,2026,yil,Aktif hesap yili
+soket_adet,4,adet,DC hizli sarj soket sayisi
+guc_kw,150,kW,Soket basina guc
+gunluk_seans,28,adet,Gunluk ortalama seans
+kwh_seans,35,kWh,Seans basina enerji
+kullanim_oran,0.85,oran,Kullanim / doluluk carpan
+perakende_tl_kwh,12.00,TL/kWh,EV kullanici tarifesi
+toptan_tl_kwh,4.50,TL/kWh,Toptan elektrik maliyeti
+ag_ucreti_tl_kwh,0.80,TL/kWh,Ag kullanim ucreti
+capex_birim,1200000,TL,Soket basina CAPEX
+tesvik_oran,0.15,oran,Tesvik / destek orani
+opex_bakim,180000,TL/yil,Yillik bakim OPEX
+opex_kira,240000,TL/yil,Yillik kira OPEX
+wacc,0.18,oran,Iskonto orani
+npv_donem,15,yil,NPV donemi
+kredi_orani,0.32,oran,Kredi faiz orani
+oz_kaynak_oran,0.40,oran,Oz kaynak payi

@@ -1,0 +1,100 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/sut-surusu-yonetim/SutSurusuYonetim.xlsx
+SHA-256 : 6a8497d8fff1ebc6a83df076abb328b12132e1934c43097c16af9b414d14bf60
+ARKETİP : A5
+TARİH   : 11.08.2026 20:45
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (13 sayfa)
+  GEÇTİ  G02   13 sayfa şifreli korumada
+  GEÇTİ  G03   378 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   3181 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+  UYARI  G07   2 gömülü sabit: [('HESAP', 'C47', '1,3'), ('HESAP', 'C47', '2,1')]
+  GEÇTİ  G08   2 tablo, hesaplanan kolonlar tanımlı
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   109 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   180 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  GEÇTİ  G15   Metin taşması saptanmadı
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+  GEÇTİ  G17   10 grafik
+  GEÇTİ  G18   61 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  GEÇTİ  G24   Tablo kapasiteleri: [('VARLIKLAR', 'tblVarliklar', 251), ('GUNLUK_GIRIS', 'tblGunluk', 251)]
+
+======================================================================
+SONUÇ: 0 KALDI | rapor: urunler/sut-surusu-yonetim/KANIT/RAPOR_DENETIM.md
+SEVK EDİLEBİLİR
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  Ö2    7 uç durum temiz: ['tumu_sifir→KRİTİK', 'tumu_bos→VERİ YOK', 'negatif_deger→KRİTİK', 'gelecek_tarih→KRİTİK', 'yinelenen_kayit→UYGUN', 'tek_satir→UYGUN', 'azami_deger→KRİTİK']
+
+==========================================================================
+SONUÇ: 0 KALDI | rapor: urunler/sut-surusu-yonetim/KANIT/RAPOR_OLCEK.md
+SEVK EDİLEBİLİR
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    3181 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   61 ad tanımının hedefi dolu
+  GEÇTİ  D06    Sabitten türeyen sahte KPI yok
+  GEÇTİ  D13    Motor 47 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 19 farklı canlı KPI
+  GEÇTİ  D09    10 grafik + tahmin katmanı mevcut
+  GEÇTİ  D09b   Grafik serilerinde veri var
+  GEÇTİ  D10    Tüm parametrelerde kaynak ve yürürlük tarihi dolu
+  GEÇTİ  D12    Çapraz tutarlılık sağlandı
+  GEÇTİ  D03    Derinlik puanı 145
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 31,000 TL ≥ eşik 29,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: 6a8497d8fff1ebc6a83df076abb328b12132e1934c43097c16af9b414d14bf60
+SONUÇ: 0 KALDI | rapor: urunler/sut-surusu-yonetim/KANIT/RAPOR_DEGER.md
+SEVK EDİLEBİLİR
+
+[S] Saha           → saha_kapilari.py  (arketip A5)
+------------------------------------------------------------------------------
+  GEÇTİ  S01   birimli kolon izi: 7/13
+  GEÇTİ  S02   GUNLUK_GIRIS alan sayısı=5 (≤6)
+  GEÇTİ  S03   ≥12 aylık sezonsallık / dönem zinciri izi var
+  GEÇTİ  S04   varlık sağlık skoru formülle veriden türüyor
+  GEÇTİ  S05   AYARLAR eşik + listelenmiş alarm izi var
+
+ÖZET S: 0 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        TEMİZ      (0 KALDI / 25 GEÇTİ)  [her ürün] 0.4sn
+  Ö  Dayanıklılık   TEMİZ      (0 KALDI / 1 GEÇTİ)  [her ürün] 23.1sn
+  D  Değer          TEMİZ      (0 KALDI / 16 GEÇTİ)  [her ürün] 4.2sn
+  M  Mevzuat        ATLANDI      [arketip gerektirmiyor] 0.0sn
+  E  Eşleştirme     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  A  İş Akışı       ATLANDI      [arketip gerektirmiyor] 0.0sn
+  F  Fizibilite     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  S  Saha           TEMİZ      (0 KALDI / 5 GEÇTİ)  [arketip A5] 0.3sn
+  R  Reçete         ATLANDI      [arketip gerektirmiyor] 0.0sn
+
+==============================================================================
+SONUÇ: 0 KALDI · SEVK EDİLEBİLİR
+Kanıt: urunler/sut-surusu-yonetim/KANIT/ · SHA-256: 6a8497d8fff1ebc6a83df076abb328b12132e1934c43097c16af9b414d14bf60
+Birleşik karar raporu: urunler/sut-surusu-yonetim/KANIT/SEVK_KARARI.md

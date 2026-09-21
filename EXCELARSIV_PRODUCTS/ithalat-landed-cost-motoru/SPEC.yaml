@@ -1,0 +1,185 @@
+# =============================================================================
+# SPEC — Hat B Y-23 · İthalat Landed Cost Motoru
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 · arketip A6+A1
+# =============================================================================
+
+urun:
+  kod: ILC-PRO
+  slug: ithalat-landed-cost-motoru
+  ad: "İthalat Landed Cost Motoru"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "İthalatçı CFO, satın alma, gümrük müşaviri, SMMM"
+
+arketip: A6+A1
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 24000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 45000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Landed cost danışmanlık + gümrük/KDV/KKDF model kurulum ikamesi"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "Satın alma / ithalat operasyon"
+    is_bitince: "Navlun+sigorta+gümrük+KDV+KKDF ile gerçek birim maliyeti girer"
+  - rol: "CFO / finans"
+    is_bitince: "YATIRIM YAPILIR / YATIRIM YAPMA kararını NPV-IRR ile verir"
+  - rol: "Gümrük müşaviri / denetçi"
+    is_bitince: "KANIT_RAPORU ile kural_id ve kur tablosu atfını dosyalar"
+
+lansman_tetigi:
+  sinif: Kur_veya_mevzuat_degisimi
+  aciklama: "Kur/mevzuat değişimi veya sevkiyat öncesi 15 gün — landed cost yeniden hesap"
+  tarih_penceresi: "sevkiyat_oncesi_15_gun"
+
+fizibilite:
+  finansman_senaryolari: ["OZ_KAYNAK", "KREDI"]
+  kotumser_karar: "YATIRIM YAPMA"
+  capex_opex: true
+  npv_irr_tornado: true
+
+rakip_ayrim:
+  - sinif: R1_jenerik_sablon
+    ayrim: "Kur tablosu (tarihli/kaynaklı) + dönemsel kur farkı"
+    karsilik: "ilc_kurTablosu"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Her MOTOR adımında kural_id + madde atfı"
+    karsilik: "ilc_maddeAtifMetni"
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Öz kaynak / kredi finansman + NPV/IRR tornado"
+    karsilik: "ilc_finansmanKarsilastirma"
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Kötümser YATIRIM YAPMA karar yolu"
+    karsilik: "ilc_kararMetni"
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; landed cost karar + kanıt üretir"
+    karsilik: "ilc_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Forwarder teklifini elle TL'ye çevirmek"
+    - "Gümrük müşavirinin tek satırlık Excel'i"
+    - "ERP stok maliyetinin navlunsuz birimi"
+  ayrimlar:
+    - madde: "Navlun+sigorta+gümrük+KDV+KKDF tek zincirde birim maliyete iner"
+      karsilik: "ilc_birimLanded"
+    - madde: "Kur tablosu tarihli/kaynaklı; sabit kur gömülmez"
+      karsilik: "ilc_kurTablosu"
+    - madde: "Öz kaynak vs kredi finansman senaryosu"
+      karsilik: "ilc_finansmanKarsilastirma"
+    - madde: "NPV/IRR + tornado + kötümser YATIRIM YAPMA"
+      karsilik: "ilc_kararMetni"
+    - madde: "Altın vakalar + SHA-256 kanıt paketi"
+      karsilik: "ilc_vakaDurum"
+
+mevzuat:
+  kurallar: [ILC-001, ILC-002, ILC-003, ILC-004, ILC-005]
+  vakalar: landed_cost_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - kkdf_matrah_yorumu
+
+analitik_moduller:
+  - kod: T1
+    ad: "CIF / gümrük matrahı"
+    ad_tanimi: "ilc_modulT1"
+    yorum_hucresi: "ilc_modulT1Yorum"
+  - kod: T2
+    ad: "Birim landed cost"
+    ad_tanimi: "ilc_modulT2"
+    yorum_hucresi: "ilc_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo landed sapması"
+    ad_tanimi: "ilc_modulO1"
+    yorum_hucresi: "ilc_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "ilc_duyarlilikSira"
+    yorum_hucresi: "ilc_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "ilc_senaryoKarsilastirma"
+    yorum_hucresi: "ilc_yorumSenaryo"
+  - kod: O6
+    ad: "Vergi yükü yoğunlaşması"
+    ad_tanimi: "ilc_modulO6"
+    yorum_hucresi: "ilc_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "ilc_modulO8"
+    yorum_hucresi: "ilc_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Oran değişimi senaryosu"
+    ad_tanimi: "ilc_kuralDegisimSenaryo"
+    yorum_hucresi: "ilc_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "ilc_tahminAralik"
+    yorum_hucresi: "ilc_yorumTahmin"
+  - kod: I2
+    ad: "Landed yüzdelik P90"
+    ad_tanimi: "ilc_modulI2"
+    yorum_hucresi: "ilc_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "npv_pozitif_ve_marj_hedef_ustu"
+    karar: "YATIRIM YAPILIR"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "kotumser_npv_negatif"
+    karar: "YATIRIM YAPMA"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - VARSAYIMLAR
+  - KURALLAR
+  - MOTOR
+  - FINANSMAN
+  - SENARYO
+  - PANO
+  - KARAR
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "KARAR"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-23 — dış ticaret dikey pilotu; D0 7/7"

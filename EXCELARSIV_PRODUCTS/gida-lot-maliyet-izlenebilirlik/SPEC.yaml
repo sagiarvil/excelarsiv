@@ -1,0 +1,172 @@
+# =============================================================================
+# SPEC — Hat B Y-13 · Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik
+# Durum: ONAYLANDI — Hat B gıda dikey
+# Manda: v6 (A7+A4 — reçete maliyet + kanıt/akış zinciri — R01–R05 + A01–A06)
+# Domain: lot birim maliyeti + tedarikçi→üretim→mamul→müşteri izlenebilirlik
+#          — menü reçete / yem rasyonu KOPYASI DEĞİL
+# =============================================================================
+
+urun:
+  kod: GLM-PRO
+  ad: "Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik"
+  surum: "1.0.0"
+  slug: gida-lot-maliyet-izlenebilirlik
+  dosya: GidaLotMaliyetIzlenebilirlik.xlsx
+  prefix: glm_
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "Gıda üreticisi, kalite müdürü, maliyet kontrolörü, denetçi"
+
+arketip: A7+A4
+fiyat: 7900
+olcek_hedefi: 10000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 16000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 42000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Lot maliyet + izlenebilirlik denetim dosyası danışmanlığı"
+
+deger_vektoru: ["P", "R", "K"]
+uc_rol:
+  - rol: "Üretim / reçete sorumlusu"
+    is_bitince: "Lot bileşimini, fire'li hammaddeleri ve aktif versiyonu kilitler"
+  - rol: "Kalite / üretim müdürü"
+    is_bitince: "Lot birim maliyeti ve UYGUN/DİKKAT/KRİTİK/VERİ YOK kararını görür"
+  - rol: "Denetçi / Gıda güvenliği"
+    is_bitince: "KANIT_RAPORU ile tedarikçi→lot→müşteri zincirini dosyalar"
+
+lansman_tetigi:
+  sinif: Denetim
+  aciklama: "Gıda denetimi / müşteri denetimi öncesi lot izlenebilirlik ve maliyet kanıtı"
+  tarih_penceresi: "denetim_oncesi_30_gun"
+
+recete:
+  versiyonlama: true
+  bilesim_yuzde_100: true
+  fire_kolonu: true
+  birim_donusum: true
+  maliyet_kirilim: ["hammadde", "iscilik", "ambalaj", "genel_gider"]
+
+akis:
+  durum_haritasi:
+    - {durum_id: TASLAK, durum_adi: Taslak, sira: 1, izinli_sonraki_durumlar: "URETIM|RED", kategori: acik}
+    - {durum_id: URETIM, durum_adi: Uretim, sira: 2, izinli_sonraki_durumlar: "KALITE|TASLAK|RED", kategori: acik}
+    - {durum_id: KALITE, durum_adi: Kalite, sira: 3, izinli_sonraki_durumlar: "SERBEST|URETIM|RED", kategori: acik}
+    - {durum_id: SERBEST, durum_adi: Serbest, sira: 4, izinli_sonraki_durumlar: "SEVK|KALITE", kategori: acik}
+    - {durum_id: SEVK, durum_adi: Sevk, sira: 5, izinli_sonraki_durumlar: "KAPALI", kategori: acik}
+    - {durum_id: KAPALI, durum_adi: Kapali, sira: 6, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: RED, durum_adi: Red, sira: 7, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [tedarikci_lot, hammadde, uretim_lot, mamul, musteri]
+  kuyruk_tanimlari: [Taslak, Uretim, Kalite, Serbest, Sevk]
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "Lot bileşim %100 + fire'li birim maliyet tek zincir"
+    karsilik: "glm_birimLotMaliyeti"
+  - sinif: R1_jenerik
+    ayrim: "Tedarikçi lot → üretim lot → müşteri ZİNCİR KIRIK bayrağı"
+    karsilik: "glm_zincirKirik"
+  - sinif: R2_bedava
+    ayrim: "Reçete versiyon varyans köprüsü (V1 silinmez)"
+    karsilik: "glm_varyansKopru"
+  - sinif: R2_bedava
+    ayrim: "Durum haritası + geçersiz geçiş + kapalı kuyruk düşümü"
+    karsilik: "glm_durumHaritasi"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz; boş dosyada VERİ YOK; KANIT_RAPORU imza alanı"
+    karsilik: "glm_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Lot kartını deftere yazıp maliyetı hesap makinesiyle toplamak"
+    - "ERP izlenebilirlik ekranını Excel'e elle aktarmak"
+    - "Gıda izlenebilirlik yazılımı aboneliği"
+  ayrimlar:
+    - madde: "Lot bileşiminden birim maliyet canlı formül"
+      karsilik: "glm_birimLotMaliyeti"
+    - madde: "Bileşim %100 alarmı PANO'da; sessiz sapma yok"
+      karsilik: "glm_bilesimAlarm"
+    - madde: "Fire kolonu + AYARLAR birim dönüşüm tablosu"
+      karsilik: "glm_donusumTablo"
+    - madde: "Hammadde/işçilik/ambalaj/genel gider kırılımı = birim maliyet"
+      karsilik: "glm_kirilimKontrol"
+    - madde: "Boş dosyada VERİ YOK; denetim KANIT_RAPORU"
+      karsilik: "glm_kararKapi"
+
+analitik_moduller:
+  - {kod: T1, ad: "Birim lot maliyeti", ad_tanimi: "glm_modulT1", yorum_hucresi: "glm_modulT1Yorum"}
+  - {kod: T2, ad: "Lot toplam kg", ad_tanimi: "glm_modulT2", yorum_hucresi: "glm_modulT2Yorum"}
+  - {kod: O1, ad: "Maliyet sapması", ad_tanimi: "glm_modulO1", yorum_hucresi: "glm_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "glm_modulO2", yorum_hucresi: "glm_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo motoru", ad_tanimi: "glm_modulO3", yorum_hucresi: "glm_modulO3Yorum"}
+  - {kod: O6, ad: "Hammadde yoğunlaşması", ad_tanimi: "glm_modulO6", yorum_hucresi: "glm_modulO6Yorum"}
+  - {kod: O8, ad: "Veri kalite skoru", ad_tanimi: "glm_modulO8", yorum_hucresi: "glm_modulO8Yorum"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "glm_modulI1", yorum_hucresi: "glm_modulI1Yorum"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "glm_modulI2", yorum_hucresi: "glm_modulI2Yorum"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "bilesim_alarm_veya_zincir_kirik_veya_maliyet_ustu"
+    karar: "KRİTİK"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - HAMMADDE
+  - RECETE
+  - LOTLAR
+  - HAREKET
+  - MALIYET
+  - VARYANS
+  - SENARYO
+  - PANO
+  - KARAR
+  - KANIT_RAPORU
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "KARAR"
+  motor_sayfasi: "MALIYET"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1000
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-13 — A7+A4 lot maliyet & izlenebilirlik; D0 gıda 7/7; menü reçete kopyası değil"

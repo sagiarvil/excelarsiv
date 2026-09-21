@@ -1,0 +1,175 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #23 · Fesih Maliyeti Simülatörü (kıdem+ihbar+işe iade)
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (v5 A1 arketipi miras)
+# NOT: kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici ayrı pakettir.
+# =============================================================================
+
+urun:
+  kod: FMS-PRO
+  ad: "Fesih Maliyeti Simülatörü (kıdem+ihbar+işe iade)"
+  surum: "1.0.0"
+  satis_fiyati_tl: 4900
+  hedef_kullanici: "İK müdürü, mali işler, SMMM, işveren vekili"
+
+arketip: A1
+fiyat: 4900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 4900
+  Y1_danisman_ikamesi_tl: 10000
+  Y2_kurulum_ikamesi_tl: 5000
+  Y3_onlenen_hata_tl: 35000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Fesih kıdem+ihbar+işe iade maliyet simülasyonu + İK karar dosyası"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "İK / özlük"
+    is_bitince: "Kıdem, ihbar ve işe iade beklenen maliyeti tek dosyada üretir"
+  - rol: "Mali işler / CFO"
+    is_bitince: "FESİH UYGUN / PAHALI / RİSKLİ kararını bütçeye yazar"
+  - rol: "SMMM / denetçi"
+    is_bitince: "KANIT_RAPORU ile kural atfını ve tutarı görür"
+
+lansman_tetigi:
+  sinif: Personel_cikis_karari
+  aciklama: "Toplu/bireysel fesih kararı veya işe iade riski değerlendirmesi −14 gün"
+  tarih_penceresi: "fesih_oncesi_14_gun"
+
+rakip_ayrim:
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Senaryo motoru (≥3) + yıl karşılaştırması (2025/2026/2027)"
+    karsilik: "fms_senaryoKarsilastirma"
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Altın vakalar TUTARLI raporlanabilir"
+    karsilik: "fms_vakaDurum"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Her MOTOR adımında kural_id + madde atfı"
+    karsilik: "fms_maddeAtifMetni"
+  - sinif: R1_jenerik_sablon
+    ayrim: "KANIT_RAPORU A4 imza alanı — İK/mali işler çıktısı"
+    karsilik: "fms_kanitRaporu"
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; FESİH UYGUN/PAHALI/RİSKLİ karar üretir"
+    karsilik: "fms_kararMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "TÜRMOB / İŞKUR örnek kıdem cetveli"
+    - "İK'nın tek satırlık Excel'i"
+    - "Bordro programı kıdem alanı"
+  ayrimlar:
+    - madde: "Çok-yıllı kural tablosu yan yana"
+      karsilik: "fms_kuralYilMatris"
+    - madde: "M-SEN eşik değişimi senaryosu"
+      karsilik: "fms_kuralDegisimSenaryo"
+    - madde: "Vaka FARK kontrolü"
+      karsilik: "fms_vakaFark"
+    - madde: "Makine üretilmiş gerekçeli karar cümlesi"
+      karsilik: "fms_kararGerekce"
+    - madde: "SHA-256 kanıt paketi"
+      karsilik: "fms_parmakIzi"
+
+mevzuat:
+  kurallar: [FMS-001, FMS-002, FMS-003, FMS-004, FMS-005]
+  vakalar: fesih_maliyeti_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - ise_iade_yorumu
+
+analitik_moduller:
+  - kod: T1
+    ad: "Kıdem / brüt ücret oranı"
+    ad_tanimi: "fms_modulT1"
+    yorum_hucresi: "fms_modulT1Yorum"
+  - kod: T2
+    ad: "İhbar / brüt ücret oranı"
+    ad_tanimi: "fms_modulT2"
+    yorum_hucresi: "fms_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo maliyet sapması"
+    ad_tanimi: "fms_modulO1"
+    yorum_hucresi: "fms_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "fms_duyarlilikSira"
+    yorum_hucresi: "fms_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "fms_senaryoKarsilastirma"
+    yorum_hucresi: "fms_yorumSenaryo"
+  - kod: O6
+    ad: "İşe iade / toplam maliyet yoğunlaşması"
+    ad_tanimi: "fms_modulO6"
+    yorum_hucresi: "fms_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "fms_modulO8"
+    yorum_hucresi: "fms_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Eşik değişimi senaryosu"
+    ad_tanimi: "fms_kuralDegisimSenaryo"
+    yorum_hucresi: "fms_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "fms_tahminAralik"
+    yorum_hucresi: "fms_yorumTahmin"
+  - kod: I2
+    ad: "Beklenen maliyet P90"
+    ad_tanimi: "fms_modulI2"
+    yorum_hucresi: "fms_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "dogrudan_ve_risk_esik_alti"
+    karar: "FESİH UYGUN"
+  - kosul: "dogrudan_pahali_ustu"
+    karar: "PAHALI"
+  - kosul: "ise_iade_risk_ustu"
+    karar: "RİSKLİ"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - PANO
+  - GIRDI
+  - KURALLAR
+  - MOTOR
+  - SENARYO
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat A FAZ 3 #23 — A1 sevk hedefi; eski kidem-ihbar paketi ayrı tutulur"

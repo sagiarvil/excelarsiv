@@ -1,0 +1,10 @@
+ORNEK VERI — KOBİ FİNANS YÖNETİM PAKETİ
+Bu dosya otomasyon ve içe aktarma için yapıdır; aylık nakit kayıtlarınızı CSV/Excel'den kopyalayabilirsiniz.
+AYLIK_VERI (tblKobi)
+Dönem,Kasa Tahsilat (₺),Banka Tahsilat (₺),Cari Tahsilat (₺),POS Tahsilat (₺),Stok Alışı (₺),Operasyon Gideri (₺),Maaş (₺),Kredi Taksidi (₺),Not
+Ocak 2026,320000,410000,180000,95000,260000,140000,160000,45000,Örnek 1
+Şubat 2026,340000,430000,200000,105000,270000,150000,160000,45000,Örnek 2
+Mart 2026,310000,400000,175000,90000,250000,145000,165000,45000,Örnek 3
+Nisan 2026,360000,460000,210000,115000,280000,155000,165000,45000,Örnek 4
+Mayıs 2026,350000,445000,195000,110000,275000,150000,170000,45000,Örnek 5
+Haziran 2026,380000,480000,225000,120000,290000,160000,170000,45000,Örnek 6

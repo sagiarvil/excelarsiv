@@ -1,0 +1,14 @@
+KayitId,Kategori,VeriKonusu,HukukiSebep,KuralAtif,Hassasiyet,AktarimRisk,SaklamaAy,YurtDisi,Guvenlik,MevcutOnlem,Aktif
+VER-00001,Kimlik,Çalışan kimlik bilgisi,Sözleşme,KVV-001,4,3,120,HAYIR,3,Erişim logu,EVET
+VER-00002,İletişim,Müşteri e-posta / telefon,Açık rıza,KVV-004,3,4,36,EVET,2,Şifreleme kısmi,EVET
+VER-00008,İletişim,Pazarlama iletişim listesi,Açık rıza,KVV-004,2,4,24,EVET,1,Rıza kaydı eksik,EVET
+VER-00011,Kimlik,Aday özgeçmiş dosyası,Açık rıza,KVV-004,3,2,6,HAYIR,2,Silme takvimi,EVET
+VER-00012,Finans,Kredi kartı token,Sözleşme,KVV-003,5,5,36,EVET,3,PCI maskeleme,EVET
+VER-00017,Dijital,Bulut yedek kişisel veri,Sözleşme,KVV-003,4,5,36,EVET,2,SCC taslak,EVET
+VER-00023,Sağlık,Meslek hastalığı dosyası,Yasal yükümlülük,KVV-001,5,1,180,HAYIR,5,Özel kategori,EVET
+AkisId,KaynakKayitId,Tarih,Termin,OncekiDurum,Durum,Sorumlu,Aciklama,IlkRisk,HedefRisk,Tutar
+AKI-00001,VER-00001,11.07.2026,06.08.2026,,ENVANTAR,Uyum 1,Uyum kontrol adımı 1,12,10,3000
+AKI-00002,VER-00002,15.07.2026,09.08.2026,ENVANTAR,KONTROL,Uyum 2,Uyum kontrol adımı 2,12,10,3000
+AKI-00012,VER-00012,11.06.2026,21.07.2026,KONTROL,DUZELTME,Uyum 6,Zincir sapmalı örnek,25,65,6250
+AKI-00018,VER-00006,02.07.2026,16.08.2026,ENVANTAR,UYUMLU,Uyum 4,Geçersiz geçiş örneği,6,4,1500
+AKI-00022,,06.06.2026,02.08.2026,ENVANTAR,KONTROL,Uyum 2,Yetim kayıt örneği,12,8,3000

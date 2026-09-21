@@ -1,0 +1,127 @@
+{
+  "product": "on-uc-haftalik-nakit-akisi-ve-odeme-planlama-sistemi",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/on-uc-haftalik-nakit-akisi-ve-odeme-planlama-sistemi/OnUcHaftalikNakitAkisiVeOdemePlanlamaSistemi.xlsx",
+  "sha256": "052a0ec2387f929a71161168338be809e521976e935432337f462dfb6aad715b",
+  "size_bytes": 114773,
+  "modified_at": "2026-08-12T13:39:46",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "NAKIT_GIRISLERI",
+    "NAKIT_CIKISLARI",
+    "HAFTALIK_PLAN",
+    "MOTOR",
+    "KONTROLLER",
+    "KARAR_MOTORU",
+    "PANO",
+    "SENARYO_DUYARLILIK",
+    "RAPOR",
+    "ORNEK_VERI",
+    "TESTLER",
+    "AKIS",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": null,
+    "HIZLI_BASLANGIC": null,
+    "NAKIT_GIRISLERI": null,
+    "NAKIT_CIKISLARI": null,
+    "HAFTALIK_PLAN": null,
+    "MOTOR": null,
+    "KONTROLLER": null,
+    "KARAR_MOTORU": null,
+    "PANO": null,
+    "SENARYO_DUYARLILIK": null,
+    "RAPOR": null,
+    "ORNEK_VERI": null,
+    "TESTLER": null,
+    "AKIS": null,
+    "DEGISIKLIK_KAYDI": null,
+    "LISTELER": null,
+    "AYARLAR": null,
+    "KILAVUZ": null
+  },
+  "formula_count": 534,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 25,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 10,
+  "table_count": 3,
+  "conditional_format_count": 27,
+  "data_validation_count": 10,
+  "gridlines_on_count": 18,
+  "freeze_panes_count": 3,
+  "merged_ranges": 44,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > NAKIT_GIRISLERI > NAKIT_CIKISLARI > HAFTALIK_PLAN > MOTOR > KONTROLLER > KARAR_MOTORU > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > NAKIT_GIRISLERI > NAKIT_CIKISLARI > HAFTALIK_PLAN > MOTOR > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=25"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": false,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=18"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": false,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=18"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > NAKIT_GIRISLERI > NAKIT_CIKISLARI > HAFTALIK_PLAN > MOTOR > KONTROLLER > KARAR_MOTORU > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > NAKIT_GIRISLERI > NAKIT_CIKISLARI > HAFTALIK_PLAN > MOTOR > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=534"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

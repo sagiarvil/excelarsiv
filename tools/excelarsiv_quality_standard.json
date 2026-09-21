@@ -1,0 +1,51 @@
+{
+  "standard_id": "EXCELARSIV_QUALITY_FACTORY_V1",
+  "quality_target": "500_USD_CLASS_PRODUCT_QUALITY",
+  "principle": "premium kalite = mühendislik + doğrulama + kullanılabilirlik + kurumsal vitrin",
+  "pricing_note": "500 USD bir kalite hedefidir; gerçek müşteri ödeme isteği pazar/satış verisiyle doğrulanır.",
+  "release": {
+    "fail_closed": true,
+    "automatic_release": false,
+    "human_checker_required": true,
+    "statuses": [
+      "BLOCKED",
+      "CALIBRATION_REQUIRED",
+      "READY_FOR_REVIEW",
+      "RELEASED"
+    ]
+  },
+  "mandatory_ui": [
+    "native sheet tabları kurumsal kategori rengi taşır",
+    "sheetler kullanıcı iş akışına göre fiziksel olarak sıralanır",
+    "buton görünümü verilen alan gerçek tıklanabilir hyperlink/action taşır",
+    "sahte/dekoratif buton yasaktır",
+    "çok sayfalı workbook'ta gerçek navigasyon bulunur",
+    "kullanıcı sayfalarında gridline kapalıdır",
+    "kurumsal palet rastgele/gökkuşağı renklerden kaçınır",
+    "premium vitrin altyapı kadar zorunludur"
+  ],
+  "hard_gates": [
+    "OOXML bütünlüğü",
+    "Excel hata hücresi yok",
+    "kontrolsüz harici link yok",
+    "kritik kontrol kanıtı yoksa PASS yok"
+  ],
+  "workflow_order": [
+    "Başlangıç",
+    "Yönetici Özeti",
+    "Varsayımlar",
+    "Tarihsel Giriş",
+    "THP / Eşleme",
+    "Hesap Motorları",
+    "Gelir Tablosu",
+    "Bilanço",
+    "Nakit Akışı",
+    "Senaryo / Stres",
+    "Karar Motoru",
+    "Kontroller / Release",
+    "Kılavuz",
+    "Meta",
+    "Oracle / Doğrulama",
+    "Değer Kanıtı"
+  ]
+}

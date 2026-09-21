@@ -1,0 +1,15 @@
+arketip: A3
+urun:
+  slug: stok-satis-ve-nakit-baglanma-sistemi
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 9000
+  Y2_kurulum_ikamesi_tl: 3000
+
+durum_haritasi:
+  durumlar: [ACIK, ISLEMDE, KAPALI]
+  kapali: [KAPALI]
+
+akis:
+  yetim_kontrol: true
+  zincir_kontrol: true

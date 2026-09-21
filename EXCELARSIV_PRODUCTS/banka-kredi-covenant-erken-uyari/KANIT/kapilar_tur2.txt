@@ -1,0 +1,113 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/banka-kredi-covenant-erken-uyari/BankaKrediCovenantErkenUyari.xlsx
+SHA-256 : 776f957421065bff0eea9b9a68c5526ae07157266f58d5db7fecfa674c8aa0c8
+ARKETİP : A1+A3
+TARİH   : 11.08.2026 14:35
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (17 sayfa)
+  GEÇTİ  G02   17 sayfa şifreli korumada
+  GEÇTİ  G03   282 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   9269 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+  UYARI  G07   9 gömülü sabit: [('MOTOR', 'C47', '15,'), ('MOTOR', 'G47', '15,'), ('MOTOR', 'C50', '0.01'), ('MOTOR', 'G50', '0.01'), ('MOTOR', 'C51', '0.01'), ('MOTOR', 'G51', '0.01')]
+  GEÇTİ  G08   7 tablo, hesaplanan kolonlar tanımlı
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   31 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   65 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  UYARI  G15   5 olası taşma: ['PANO!A3 (51 krkt / genişlik 28)', 'ORNEK_VERI!A3 (23 krkt / genişlik 14)', 'AYARLAR!A3 (42 krkt / genişlik 28)', 'KILAVUZ!A10 (27 krkt / genişlik 18)', 'KILAVUZ!A19 (63 krkt / genişlik 18)']
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+  GEÇTİ  G17   8 grafik
+  GEÇTİ  G18   74 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  UYARI  G24   Tablo kapasitesi düşük (ön-doldurulmuş satır <200): [('KURALLAR', 'tblKurallar', 7), ('VAKALAR', 'tblVakalar', 5), ('ORNEK_VERI', 'tblOrnek', 16), ('AYARLAR', 'tblDurumHaritasi', 8)]
+
+======================================================================
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_DENETIM.md
+SEVK EDİLEBİLİR
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  Ö2    7 uç durum temiz: ['tumu_sifir→İHLAL', 'tumu_bos→VERİ YOK', 'negatif_deger→İHLAL', 'gelecek_tarih→İHLAL', 'yinelenen_kayit→İHLAL', 'tek_satir→İHLAL', 'azami_deger→İHLAL']
+
+==========================================================================
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_OLCEK.md
+SEVK EDİLEBİLİR
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    9269 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   74 ad tanımının hedefi dolu
+  GEÇTİ  D06    Sabitten türeyen sahte KPI yok
+  GEÇTİ  D13    Motor 100 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 34 farklı canlı KPI
+  GEÇTİ  D09    8 grafik + tahmin katmanı mevcut
+  GEÇTİ  D09b   Grafik serilerinde veri var
+  GEÇTİ  D10    Tüm parametrelerde kaynak ve yürürlük tarihi dolu
+  GEÇTİ  D12    Çapraz tutarlılık sağlandı
+  GEÇTİ  D03    Derinlik puanı 170
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 26,000 TL ≥ eşik 23,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: 776f957421065bff0eea9b9a68c5526ae07157266f58d5db7fecfa674c8aa0c8
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_DEGER.md
+SEVK EDİLEBİLİR
+
+[M] Mevzuat        → mevzuat_kapilari.py  (arketip A1)
+------------------------------------------------------------------------------
+  GEÇTİ  M01   6 vaka satırı mevcut; durum formülü/TUTARLI
+  GEÇTİ  M02   50 MOTOR adımının tamamında kural_id var
+  GEÇTİ  M03   KURALLAR yıl kolonları mevcut (sabit oran kaçışı M03 taraması)
+  GEÇTİ  M03b  MOTOR formüllerinde bariz sabit oran yok
+  GEÇTİ  M04   çok-yıllı / senaryo yapısı mevcut
+  GEÇTİ  M05   KILAVUZ'da belirsizlik beyanı görünür
+
+ÖZET M: 0 KALDI
+
+[A] İş Akışı       → akis_kapilari.py  (arketip A3)
+------------------------------------------------------------------------------
+  GEÇTİ  A01   AYARLAR'da durum haritası izi var
+  GEÇTİ  A02   yetim/kaynak_kart_id izi var
+  GEÇTİ  A03   izinli geçiş kontrol yapısı var
+  GEÇTİ  A04   ZİNCİR KIRIK bayrağı mevcut
+  GEÇTİ  A05   kuyruk COUNTIFS/SUMIFS izi var
+  GEÇTİ  A06   durum kategori (açık/kapalı) izi var
+  GEÇTİ  A06b  kart/envanter sayfası: KARTLAR
+
+ÖZET A: 0 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        TEMİZ      (0 KALDI / 23 GEÇTİ)  [her ürün] 3.6sn
+  Ö  Dayanıklılık   TEMİZ      (0 KALDI / 1 GEÇTİ)  [her ürün] 254.0sn
+  D  Değer          TEMİZ      (0 KALDI / 16 GEÇTİ)  [her ürün] 86.3sn
+  M  Mevzuat        TEMİZ      (0 KALDI / 6 GEÇTİ)  [arketip A1] 3.9sn
+  E  Eşleştirme     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  A  İş Akışı       TEMİZ      (0 KALDI / 7 GEÇTİ)  [arketip A3] 3.6sn
+  F  Fizibilite     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  S  Saha           ATLANDI      [arketip gerektirmiyor] 0.0sn
+  R  Reçete         ATLANDI      [arketip gerektirmiyor] 0.0sn
+
+==============================================================================
+SONUÇ: 0 KALDI · SEVK EDİLEBİLİR
+Kanıt: KANIT/ · SHA-256: 776f957421065bff0eea9b9a68c5526ae07157266f58d5db7fecfa674c8aa0c8
+Birleşik karar raporu: KANIT/SEVK_KARARI.md

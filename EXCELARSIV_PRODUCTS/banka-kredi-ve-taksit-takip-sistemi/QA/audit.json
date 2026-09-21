@@ -1,0 +1,139 @@
+{
+  "product": "banka-kredi-ve-taksit-takip-sistemi",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/banka-kredi-ve-taksit-takip-sistemi/BankaKrediVeTaksitTakipSistemi.xlsx",
+  "sha256": "8bdd404ab0dcd97d05c80101807346da18ae720492ab37f5533b7b82b6f638f9",
+  "size_bytes": 163634,
+  "modified_at": "2026-08-12T14:07:57",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "BANKALAR",
+    "LIMITLER",
+    "KREDILER",
+    "TAKSIT_PLANI",
+    "MASRAF_KOMISYON",
+    "TEMINATLAR",
+    "YENI_TEKLIFLER",
+    "ODEME_TAKVIMI",
+    "REFINANSMAN",
+    "KONTROLLER",
+    "MOTOR",
+    "KARAR_MOTORU",
+    "PANO",
+    "SENARYO_DUYARLILIK",
+    "RAPOR",
+    "ORNEK_VERI",
+    "TESTLER",
+    "AKIS",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": null,
+    "HIZLI_BASLANGIC": null,
+    "BANKALAR": null,
+    "LIMITLER": null,
+    "KREDILER": null,
+    "TAKSIT_PLANI": null,
+    "MASRAF_KOMISYON": null,
+    "TEMINATLAR": null,
+    "YENI_TEKLIFLER": null,
+    "ODEME_TAKVIMI": null,
+    "REFINANSMAN": null,
+    "KONTROLLER": null,
+    "MOTOR": null,
+    "KARAR_MOTORU": null,
+    "PANO": null,
+    "SENARYO_DUYARLILIK": null,
+    "RAPOR": null,
+    "ORNEK_VERI": null,
+    "TESTLER": null,
+    "AKIS": null,
+    "DEGISIKLIK_KAYDI": null,
+    "LISTELER": null,
+    "AYARLAR": null,
+    "KILAVUZ": null
+  },
+  "formula_count": 1119,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 29,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 9,
+  "conditional_format_count": 43,
+  "data_validation_count": 13,
+  "gridlines_on_count": 24,
+  "freeze_panes_count": 9,
+  "merged_ranges": 39,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > BANKALAR > LIMITLER > KREDILER > TAKSIT_PLANI > MASRAF_KOMISYON > TEMINATLAR > YENI_TEKLIFLER > ODEME_TAKVIMI > REFINANSMAN > KONTROLLER > MOTOR > KARAR_MOTORU > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > REFINANSMAN > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > BANKALAR > LIMITLER > KREDILER > TAKSIT_PLANI > MASRAF_KOMISYON > TEMINATLAR > YENI_TEKLIFLER > ODEME_TAKVIMI > MOTOR > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=29"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": false,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=24"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": false,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=24"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > BANKALAR > LIMITLER > KREDILER > TAKSIT_PLANI > MASRAF_KOMISYON > TEMINATLAR > YENI_TEKLIFLER > ODEME_TAKVIMI > REFINANSMAN > KONTROLLER > MOTOR > KARAR_MOTORU > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > REFINANSMAN > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > BANKALAR > LIMITLER > KREDILER > TAKSIT_PLANI > MASRAF_KOMISYON > TEMINATLAR > YENI_TEKLIFLER > ODEME_TAKVIMI > MOTOR > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=1119"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

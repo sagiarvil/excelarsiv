@@ -1,0 +1,174 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #6 · Yurt Dışı Yapılanma Vergi Simülatörü
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (v5 A1 arketipi miras)
+# =============================================================================
+
+urun:
+  kod: YDV-PRO
+  ad: "Yurt Dışı Yapılanma Vergi Simülatörü"
+  surum: "1.0.0"
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "SMMM, YMM, CFO, uluslararası vergi danışmanı"
+
+arketip: A1
+fiyat: 7900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 20000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 12000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Saha — yurt dışı yapılanma danışmanlığı + model kurulum"
+
+deger_vektoru: ["P", "R", "K"]
+uc_rol:
+  - rol: "SMMM"
+    is_bitince: "Yapı önerisini KANIT_RAPORU ile müşteriye sunar"
+  - rol: "CFO"
+    is_bitince: "Efektif vergi ve çift vergi yükünü bütçeye yazar"
+  - rol: "Ortak"
+    is_bitince: "Şube / iştirak / ofis kararını risk skoruyla görür"
+
+lansman_tetigi:
+  sinif: Mevzuat_yayimi
+  aciklama: "Yurt dışı iştirak istisnası / çift vergi anlaşması güncellemesi veya yatırım kararı −60 gün"
+  tarih_penceresi: "yatirim_oncesi_60_gun"
+
+rakip_ayrim:
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Şube / iştirak / limited / ofis senaryoları yan yana"
+    karsilik: "ydv_senaryoKarsilastirma"
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Altın vakalar TUTARLI raporlanabilir"
+    karsilik: "ydv_vakaDurum"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Her MOTOR adımında kural_id + madde atfı"
+    karsilik: "ydv_maddeAtifMetni"
+  - sinif: R1_jenerik_sablon
+    ayrim: "KANIT_RAPORU A4 imza alanı"
+    karsilik: "ydv_kanitRaporu"
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; efektif vergi + yapı kararı üretir"
+    karsilik: "ydv_kararMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "ÇVÖ anlaşması tablosu + el hesabı"
+    - "SMMM'nin tek satırlık Excel'i"
+    - "Uluslararası vergi sunumu (PowerPoint)"
+  ayrimlar:
+    - madde: "Çok-yıllı kural tablosu yan yana"
+      karsilik: "ydv_kuralYilMatris"
+    - madde: "M-SEN kural değişimi senaryosu"
+      karsilik: "ydv_kuralDegisimSenaryo"
+    - madde: "Tebliğ vakası FARK kontrolü"
+      karsilik: "ydv_vakaFark"
+    - madde: "Makine üretilmiş gerekçeli karar cümlesi"
+      karsilik: "ydv_kararGerekce"
+    - madde: "SHA-256 kanıt paketi"
+      karsilik: "ydv_parmakIzi"
+
+mevzuat:
+  kurallar: [YDV-001, YDV-002, YDV-003, YDV-004, YDV-005]
+  vakalar: teblig_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - pe_atif_yorumu
+
+analitik_moduller:
+  - kod: T1
+    ad: "Yerel vergi / YD kâr TL payı"
+    ad_tanimi: "ydv_modulT1"
+    yorum_hucresi: "ydv_modulT1Yorum"
+  - kod: T2
+    ad: "TR net / toplam vergi oranı"
+    ad_tanimi: "ydv_modulT2"
+    yorum_hucresi: "ydv_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo efektif sapması"
+    ad_tanimi: "ydv_modulO1"
+    yorum_hucresi: "ydv_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "ydv_duyarlilikSira"
+    yorum_hucresi: "ydv_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "ydv_senaryoKarsilastirma"
+    yorum_hucresi: "ydv_yorumSenaryo"
+  - kod: O6
+    ad: "İstisna / mahsup yoğunlaşması"
+    ad_tanimi: "ydv_modulO6"
+    yorum_hucresi: "ydv_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "ydv_modulO8"
+    yorum_hucresi: "ydv_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Kural değişimi senaryosu"
+    ad_tanimi: "ydv_kuralDegisimSenaryo"
+    yorum_hucresi: "ydv_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "ydv_tahminAralik"
+    yorum_hucresi: "ydv_yorumTahmin"
+  - kod: I2
+    ad: "Efektif P90"
+    ad_tanimi: "ydv_modulI2"
+    yorum_hucresi: "ydv_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "tf_ve_cift_vergi_dusuk"
+    karar: "UYGUN"
+  - kosul: "orta_risk"
+    karar: "DİKKAT"
+  - kosul: "tf_esik_veya_cift_vergi_yuksek"
+    karar: "RİSKLİ"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - PANO
+  - GIRDI
+  - KURALLAR
+  - MOTOR
+  - SENARYO
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat A FAZ 3 #6 — sevk hedefi"

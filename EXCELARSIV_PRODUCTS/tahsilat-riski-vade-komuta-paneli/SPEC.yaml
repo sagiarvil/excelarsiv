@@ -1,0 +1,131 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #17 · Tahsilat Riski & Vade Komuta Paneli
+# Durum: ONAYLANDI — FAZ 3 üretim
+# =============================================================================
+
+urun:
+  kod: TRV-PRO
+  ad: "Tahsilat Riski & Vade Komuta Paneli"
+  surum: "1.0.0"
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "Tahsilat müdürü, CFO, mali işler, SMMM"
+
+arketip: A3
+fiyat: 7900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 16000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 35000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Tahsilat risk danışmanlığı + vade komuta kurulumu"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Tahsilat müdürü"
+    is_bitince: "Günün kuyruğunu ve icra hazırlığını kilitler"
+  - rol: "CFO"
+    is_bitince: "Beklenen kayıp ve yaşlandırmayı görür"
+  - rol: "SMMM"
+    is_bitince: "Tahsilat kanıt raporunu dosyalar"
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "Ay sonu yaşlandırma / haftalık tahsilat turu"
+  tarih_penceresi: "aylik_yaslandirma"
+
+rakip_ayrim:
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; yaşlandırma + tahsilat olasılığı + karar verir"
+    karsilik: "trv_kuyrukOzeti"
+  - sinif: R4_on_muhasebe
+    ayrim: "Makrosuz durum makinesi AÇIK→HATIRLATMA→İHTAR→TAHSİL/KAPALI"
+    karsilik: "trv_durumHaritasi"
+  - sinif: R1_jenerik
+    ayrim: "Fatura↔ödeme tutar zinciri ZİNCİR KIRIK bayrağı"
+    karsilik: "trv_zincirKirik"
+  - sinif: R1_jenerik
+    ayrim: "Yetim müşteri kaydı tespiti"
+    karsilik: "trv_yetimKayit"
+  - sinif: R2_bedava
+    ayrim: "Dönemsel tahsilat kanıt raporu + senaryo"
+    karsilik: "trv_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Elle Excel tahsilat listesi"
+    - "ERP cari yaşlandırma"
+    - "Banka vade defteri"
+  ayrimlar:
+    - madde: "Durum haritası AYARLAR'da"
+      karsilik: "trv_durumHaritasi"
+    - madde: "Geçersiz geçiş görünür uyarı"
+      karsilik: "trv_gecersizGecis"
+    - madde: "Yaşlandırma kovaları 0-30/31-60/61-90/90+"
+      karsilik: "trv_yasKova"
+    - madde: "Kapalı kayıt kuyruktan düşer"
+      karsilik: "trv_kapaliDusum"
+    - madde: "Kimlik disiplini otomatik öneri"
+      karsilik: "trv_sonrakiKimlik"
+
+akis:
+  durum_haritasi:
+    - {durum_id: ACIK, durum_adi: Açık, sira: 1, izinli_sonraki_durumlar: "HATIRLATMA", kategori: acik}
+    - {durum_id: HATIRLATMA, durum_adi: Hatırlatma, sira: 2, izinli_sonraki_durumlar: "IHTAR|ACIK", kategori: acik}
+    - {durum_id: IHTAR, durum_adi: İhtar, sira: 3, izinli_sonraki_durumlar: "TAHSIL|KAPALI", kategori: acik}
+    - {durum_id: TAHSIL, durum_adi: Tahsil, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: KAPALI, durum_adi: Kapalı, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [fatura, vade, odeme]
+  kuyruk_tanimlari: [Açık, Hatırlatma, İhtar, Geciken]
+
+analitik_moduller:
+  - {kod: T1, ad: "Yaşlandırma", ad_tanimi: "trv_yasKova", yorum_hucresi: "trv_yorumYas"}
+  - {kod: T2, ad: "Tahsilat ortalama", ad_tanimi: "trv_tahsilatOrt", yorum_hucresi: "trv_yorumTahsilatOrt"}
+  - {kod: O1, ad: "Tahsilat sapma", ad_tanimi: "trv_tahsilatSapma", yorum_hucresi: "trv_yorumSapma"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "trv_tornadoZirve", yorum_hucresi: "trv_yorumTornado"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "trv_senaryoKarsilastirma", yorum_hucresi: "trv_yorumSenaryo"}
+  - {kod: O6, ad: "Yoğunlaşma HHI", ad_tanimi: "trv_hhi", yorum_hucresi: "trv_yorumHhi"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "trv_kaliteSkor", yorum_hucresi: "trv_yorumKalite"}
+  - {kod: M_SEN, ad: "Senaryo motoru", ad_tanimi: "trv_senaryoMotor", yorum_hucresi: "trv_yorumSenMotor"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "trv_tahminAralik", yorum_hucresi: "trv_yorumTahmin"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "trv_yuzdelikP90", yorum_hucresi: "trv_yorumP90"}
+
+sayfa_akisi:
+  - PANO
+  - KARTLAR
+  - AKIS
+  - KUYRUKLAR
+  - HESAP
+  - RAPOR
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat A FAZ 3 #17 — A3 sevk hedefi"

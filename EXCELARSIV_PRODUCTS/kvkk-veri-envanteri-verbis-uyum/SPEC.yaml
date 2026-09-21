@@ -1,0 +1,172 @@
+# =============================================================================
+# SPEC — Hat A #28 · KVKK Veri Envanteri + VERBİS Uyum Sistemi
+# Durum: ONAYLANDI — FAZ 3 üretim
+# =============================================================================
+
+urun:
+  kod: KVV-PRO
+  ad: "KVKK Veri Envanteri + VERBİS Uyum Sistemi"
+  surum: "1.0.0"
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "KVKK sorumlusu, uyum yöneticisi, denetim hazırlığı"
+
+arketip: A4
+fiyat: 7900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 6000
+  Y3_onlenen_hata_tl: 25000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "KVKK veri envanteri danışmanlığı + VERBİS uyum dosyası kurulumu"
+
+deger_vektoru: ["R", "Z", "P"]
+uc_rol:
+  - rol: "KVKK sorumlusu"
+    is_bitince: "Veri envanterini ve hukuki sebepleri skorlar"
+  - rol: "Uyum yöneticisi"
+    is_bitince: "Eksik kayıt ve aktarım riskini kapatır"
+  - rol: "Denetçi"
+    is_bitince: "KANIT_RAPORU ile VERBİS uyum dosyasını inceler"
+
+lansman_tetigi:
+  sinif: Olay
+  aciklama: "VERBİS bildirim yenileme / KVKK denetim hazırlığı"
+  tarih_penceresi: "yillik_yenileme"
+
+rakip_ayrim:
+  - sinif: R2_bedava
+    ayrim: "Durum makinesi ENVANTAR→KONTROL→DUZELTME→UYUMLU"
+    karsilik: "kvv_durumMakinesi"
+  - sinif: R2_bedava
+    ayrim: "Denetime sunulabilir kanıt + imza"
+    karsilik: "kvv_kanitRaporu"
+  - sinif: R1_jenerik
+    ayrim: "KVV-001..005 kural atıflı uyum skoru"
+    karsilik: "kvv_kuralAtif"
+  - sinif: R1_jenerik
+    ayrim: "Geçersiz durum geçişi uyarısı"
+    karsilik: "kvv_gecersizGecis"
+  - sinif: R2_bedava
+    ayrim: "Yurt dışı aktarım riski ve eksik kayıt listesi"
+    karsilik: "kvv_aktarimRiski"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "KVKK Kurumu örnek bildirim formları"
+    - "Word/Excel serbest envanter listesi"
+    - "Danışman PDF uyum raporu"
+  ayrimlar:
+    - madde: "Makrosuz durum makinesi + izinli geçiş"
+      karsilik: "kvv_durumMakinesi"
+    - madde: "Uyum skoru veriden"
+      karsilik: "kvv_uyumSkoru"
+    - madde: "Eksik kayıt ve aktarım riski"
+      karsilik: "kvv_eksikKayit"
+    - madde: "Yenileme takvimi"
+      karsilik: "kvv_yenilemeTakvim"
+    - madde: "Revizyon geçmişi bloğu"
+      karsilik: "kvv_revizyonGecmisi"
+
+mevzuat:
+  kurallar: [KVV-001, KVV-002, KVV-003, KVV-004, KVV-005]
+  vakalar: ornek_kvkk_senaryolari
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - acik_riza_vs_hukuki_sebep_ayrimi
+    - yurt_disi_aktarim_guvence_seviyesi
+
+akis:
+  durum_haritasi:
+    - {durum_id: ENVANTAR, durum_adi: Envanter, sira: 1, izinli_sonraki_durumlar: "KONTROL|IPTAL", kategori: acik}
+    - {durum_id: KONTROL, durum_adi: Kontrol, sira: 2, izinli_sonraki_durumlar: "DUZELTME|UYUMLU|IPTAL", kategori: acik}
+    - {durum_id: DUZELTME, durum_adi: Düzeltme, sira: 3, izinli_sonraki_durumlar: "KONTROL|UYUMLU|IPTAL", kategori: acik}
+    - {durum_id: UYUMLU, durum_adi: Uyumlu, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: IPTAL, durum_adi: İptal, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [ilk_risk, hedef_risk]
+  kuyruk_tanimlari: [Envanter, Kontrol, Düzeltme, Geciken]
+
+analitik_moduller:
+  - kod: T1
+    ad: "Yaşlandırma"
+    ad_tanimi: "kvv_islemYas"
+    yorum_hucresi: "kvv_yorumIslemYas"
+  - kod: T2
+    ad: "Saklama süresi aşımı"
+    ad_tanimi: "kvv_saklamaAsim"
+    yorum_hucresi: "kvv_yorumSaklama"
+  - kod: O1
+    ad: "Anomali skor"
+    ad_tanimi: "kvv_anomaliSayisi"
+    yorum_hucresi: "kvv_yorumAnomali"
+  - kod: O2
+    ad: "Duyarlılık tornado"
+    ad_tanimi: "kvv_tornadoZirve"
+    yorum_hucresi: "kvv_yorumTornado"
+  - kod: O3
+    ad: "Senaryo"
+    ad_tanimi: "kvv_senaryoKarsilastirma"
+    yorum_hucresi: "kvv_yorumSenaryo"
+  - kod: O6
+    ad: "Aktarım riski"
+    ad_tanimi: "kvv_aktarimRiski"
+    yorum_hucresi: "kvv_yorumAktarim"
+  - kod: O8
+    ad: "Eksik kayıt"
+    ad_tanimi: "kvv_eksikKayit"
+    yorum_hucresi: "kvv_yorumEksik"
+  - kod: M_SEN
+    ad: "Senaryo motoru"
+    ad_tanimi: "kvv_senaryoMotor"
+    yorum_hucresi: "kvv_yorumSenaryoMotor"
+  - kod: I1
+    ad: "Tahmin aralık"
+    ad_tanimi: "kvv_tahminAralik"
+    yorum_hucresi: "kvv_yorumTahmin"
+  - kod: I2
+    ad: "Uyum öncelik"
+    ad_tanimi: "kvv_uyumOncelik"
+    yorum_hucresi: "kvv_yorumOncelik"
+
+sayfa_akisi:
+  - KAPAK
+  - ENVANTER
+  - UYUM_AKIS
+  - MOTOR
+  - PANO
+  - AKIS
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 10}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat A FAZ 3 #28 — A4 sevk hedefi"

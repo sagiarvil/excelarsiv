@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<title>ExcelArsiv QA — defter-beyan-e-arsiv-aktarim</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f6f9;color:#172033;margin:32px}
+.card{background:white;padding:22px;border-radius:14px;margin-bottom:18px}
+h1{color:#0F2942} .status{font-size:22px;font-weight:700}
+table{border-collapse:collapse;width:100%}
+th,td{border-bottom:1px solid #d6dce4;padding:9px;text-align:left;vertical-align:top}
+th{background:#0F2942;color:white}
+.pass{color:#1f6b3b;font-weight:700} .fail{color:#9b2c2c;font-weight:700}
+</style></head><body>
+<div class="card">
+<h1>defter-beyan-e-arsiv-aktarim</h1>
+<div class="status">Durum: BLOCKED</div>
+<p>Dosya: /Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/defter-beyan-e-arsiv-aktarim/DefterBeyanEArsivAktarim.xlsx</p>
+<p>Sheet: 16 | Formül: 54125 | Grafik: 8 |
+Gerçek hyperlink: 0</p>
+<p>SHA-256: c22bf3e4d621d0d9c6cc8f039866bd065d87de4a4732de9722fcb75988f8b6df</p>
+</div>
+<div class="card"><table>
+<thead><tr><th>Kod</th><th>Önem</th><th>Sonuç</th><th>Kontrol</th><th>Kanıt</th></tr></thead>
+<tbody><tr><td>T001</td><td>P1</td><td class='pass'>PASS</td><td>OOXML paket bütünlüğü</td><td>zip test</td></tr><tr><td>T010</td><td>P1</td><td class='pass'>PASS</td><td>Workbook içinde Excel hata hücresi olmamalı</td><td></td></tr><tr><td>T020</td><td>P1</td><td class='fail'>FAIL</td><td>Kontrolsüz harici link bağımlılığı olmamalı</td><td>parts=0; formulas=17064</td></tr><tr><td>U010</td><td>P2</td><td class='pass'>PASS</td><td>Tüm görünür sheet tabları kurumsal renkte olmalı</td><td>renksiz=0</td></tr><tr><td>U020</td><td>P2</td><td class='pass'>PASS</td><td>Kullanıcı sheetlerinde gridline kapalı olmalı</td><td>gridlines_on=0</td></tr><tr><td>U030</td><td>P2</td><td class='fail'>FAIL</td><td>Sheet sırası kullanıcı iş akışına uygun olmalı</td><td>Mevcut: KAPAK &gt; VERI_A &gt; VERI_B &gt; ANAHTAR &gt; MOTOR &gt; ESLESTIRME &gt; HATA_LISTE &gt; KOK_NEDEN &gt; PANO &gt; AKSIYON &gt; KANIT_RAPORU &gt; KONTROLLER &gt; ORNEK_VERI &gt; LISTELER &gt; AYARLAR &gt; KILAVUZ | Beklenen: KONTROLLER &gt; KILAVUZ &gt; KAPAK &gt; VERI_A &gt; VERI_B &gt; ANAHTAR &gt; MOTOR &gt; ESLESTIRME &gt; HATA_LISTE &gt; KOK_NEDEN &gt; PANO &gt; AKSIYON &gt; KANIT_RAPORU &gt; ORNEK_VERI &gt; LISTELER &gt; AYARLAR</td></tr><tr><td>U040</td><td>P2</td><td class='fail'>FAIL</td><td>Çok sayfalı workbook&#x27;ta gerçek tıklanabilir navigasyon olmalı</td><td>real_hyperlinks=0</td></tr><tr><td>M010</td><td>P2</td><td class='pass'>PASS</td><td>Ürün yalnız statik tablo olmamalı</td><td>formula_count=54125</td></tr></tbody>
+</table></div></body></html>

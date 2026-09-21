@@ -1,0 +1,185 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #8 · KDV İadesi Tutar ve Süreç Simülasyonu
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (A1+A3 melez)
+# =============================================================================
+
+urun:
+  kod: KIS-PRO
+  ad: "KDV İadesi Tutar ve Süreç Simülasyonu"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "SMMM, YMM, CFO, ihracatçı mali işler"
+
+arketip: A1+A3
+fiyat: 9900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 22000
+  Y2_kurulum_ikamesi_tl: 9000
+  Y3_onlenen_hata_tl: 35000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "KDV iadesi tutar + süreç/nakit danışmanlığı"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "SMMM"
+    is_bitince: "Azami iade, teminat ve süreç kararını KANIT_RAPORU ile sunar"
+  - rol: "CFO"
+    is_bitince: "BAŞVUR / BEKLE / TEMİNATLI BAŞVUR kararını nakit planına yazar"
+  - rol: "Ortak / denetçi"
+    is_bitince: "Başvuru→inceleme→ödeme zincirini ve net nakit etkisini görür"
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "KDV iade dönemi / ihraç teslim kapanışı −30 gün"
+  tarih_penceresi: "iade_donemi_oncesi_30_gun"
+
+rakip_ayrim:
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Tutar + süreç ayı + finansman maliyeti tek motorda"
+    karsilik: "kis_senaryoKarsilastirma"
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Altın vakalar TUTARLI raporlanabilir"
+    karsilik: "kis_vakaDurum"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Her MOTOR adımında kural_id + madde atfı"
+    karsilik: "kis_maddeAtifMetni"
+  - sinif: R1_jenerik_sablon
+    ayrim: "KANIT_RAPORU A4 imza + durum haritası"
+    karsilik: "kis_kanitRaporu"
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; BAŞVUR/BEKLE/TEMİNATLI karar üretir"
+    karsilik: "kis_kararMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "GİB iade kılavuzu + el hesabı"
+    - "SMMM'nin tek satırlık Excel'i"
+    - "Muhasebe programı iade ekranı"
+  ayrimlar:
+    - madde: "Çok-yıllı kural tablosu yan yana"
+      karsilik: "kis_kuralYilMatris"
+    - madde: "M-SEN kural değişimi senaryosu"
+      karsilik: "kis_kuralDegisimSenaryo"
+    - madde: "Tebliğ vakası FARK kontrolü"
+      karsilik: "kis_vakaFark"
+    - madde: "Makine üretilmiş gerekçeli karar cümlesi"
+      karsilik: "kis_kararGerekce"
+    - madde: "SHA-256 kanıt paketi + süreç zinciri"
+      karsilik: "kis_parmakIzi"
+
+mevzuat:
+  kurallar: [KIS-001, KIS-002, KIS-003, KIS-004, KIS-005]
+  vakalar: kdv_iade_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - inceleme_sure_yorumu
+
+akis:
+  durum_haritasi:
+    - {durum_id: BASVURU, durum_adi: Başvuru, sira: 1, izinli_sonraki_durumlar: "INCELME|IPTAL", kategori: acik}
+    - {durum_id: INCELME, durum_adi: İnceleme, sira: 2, izinli_sonraki_durumlar: "EK_BELGE|ODEME|IPTAL", kategori: acik}
+    - {durum_id: EK_BELGE, durum_adi: Ek Belge, sira: 3, izinli_sonraki_durumlar: "INCELME|IPTAL", kategori: acik}
+    - {durum_id: ODEME, durum_adi: Ödeme, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: IPTAL, durum_adi: İptal, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+
+analitik_moduller:
+  - kod: T1
+    ad: "Azami iade / ihraç KDV oranı"
+    ad_tanimi: "kis_modulT1"
+    yorum_hucresi: "kis_modulT1Yorum"
+  - kod: T2
+    ad: "Finansman / azami iade oranı"
+    ad_tanimi: "kis_modulT2"
+    yorum_hucresi: "kis_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo nakit sapması"
+    ad_tanimi: "kis_modulO1"
+    yorum_hucresi: "kis_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "kis_duyarlilikSira"
+    yorum_hucresi: "kis_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "kis_senaryoKarsilastirma"
+    yorum_hucresi: "kis_yorumSenaryo"
+  - kod: O6
+    ad: "Teminat / azami iade yoğunlaşması"
+    ad_tanimi: "kis_modulO6"
+    yorum_hucresi: "kis_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "kis_modulO8"
+    yorum_hucresi: "kis_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Kural değişimi senaryosu"
+    ad_tanimi: "kis_kuralDegisimSenaryo"
+    yorum_hucresi: "kis_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "kis_tahminAralik"
+    yorum_hucresi: "kis_yorumTahmin"
+  - kod: I2
+    ad: "Net nakit P90"
+    ad_tanimi: "kis_modulI2"
+    yorum_hucresi: "kis_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "net_nakit_ve_finansman_uygun"
+    karar: "BAŞVUR"
+  - kosul: "finansman_teminattan_yuksek"
+    karar: "TEMİNATLI BAŞVUR"
+  - kosul: "dusuk_tutar_veya_yuksek_maliyet"
+    karar: "BEKLE"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - PANO
+  - GIRDI
+  - KURALLAR
+  - MOTOR
+  - KARTLAR
+  - AKIS
+  - KUYRUKLAR
+  - SENARYO
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat A FAZ 3 #8 — A1+A3 sevk hedefi"

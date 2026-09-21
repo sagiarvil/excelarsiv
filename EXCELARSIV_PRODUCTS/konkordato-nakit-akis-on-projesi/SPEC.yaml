@@ -1,0 +1,113 @@
+# =============================================================================
+# SPEC — Hat D D-05 · Konkordato Nakit Akış Ön Projesi
+# Ayırt edici: 3 yıllık bilanço+nakit akış mahkeme ön projesi
+# =============================================================================
+
+urun:
+  kod: KNA-PRO
+  ad: "Konkordato Nakit Akış Ön Projesi"
+  surum: "1.0.0"
+  slug: konkordato-nakit-akis-on-projesi
+  dosya: KonkordatoNakitAkisOnProjesi.xlsx
+  prefix: kna_
+  satis_fiyati_tl: 1490
+  hedef_kullanici: "SMMM, YMM, avukat, CFO"
+
+arketip: A3
+fiyat: 1490
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 1490
+  Y1_danisman_ikamesi_tl: 4000
+  Y2_kurulum_ikamesi_tl: 1500
+  Y3_onlenen_hata_tl: 50000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Konkordato 3 yıllık nakit akış ön proje danışmanlığı"
+
+deger_vektoru: ["P", "R", "K"]
+uc_rol:
+  - {rol: "Mali işler", is_bitince: "3 yıllık nakit akış satırlarını girer"}
+  - {rol: "CFO / ortak", is_bitince: "BAŞVUR / BEKLE / UYGUN DEĞİL kararını alır"}
+  - {rol: "Mahkeme / kayyım", is_bitince: "Kanıt nakit akış raporunu inceler"}
+
+lansman_tetigi:
+  sinif: Olay
+  aciklama: "Konkordato başvuru / nakit kilit dönemi"
+  tarih_penceresi: "konkordato_basvuru"
+
+rakip_ayrim:
+  - {sinif: R1_jenerik, ayrim: "3 yıllık bilanço+nakit akış zinciri", karsilik: "kna_ucYilAkis"}
+  - {sinif: R1_jenerik, ayrim: "Mahkeme ön proje baskı sayfası", karsilik: "kna_kanitRaporu"}
+  - {sinif: R2_bedava, ayrim: "Durum makinesi makrosuz", karsilik: "kna_durumHaritasi"}
+  - {sinif: R1_jenerik, ayrim: "Nakit açık yaşlandırma", karsilik: "kna_yasKova"}
+  - {sinif: R4, ayrim: "VERİ YOK/BAŞVUR/BEKLE/UYGUN DEĞİL", karsilik: "kna_kararKapi"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["Elle 3 yıllık Excel", "Danışman dosyası", "Genel nakit şablonu"]
+  ayrimlar:
+    - {madde: "3 yıl akış tek motorda", karsilik: "kna_ucYilAkis"}
+    - {madde: "Durum haritası", karsilik: "kna_durumHaritasi"}
+    - {madde: "Yaşlandırma", karsilik: "kna_yasKova"}
+    - {madde: "Kanıt raporu", karsilik: "kna_kanitRaporu"}
+    - {madde: "Boş dosyada VERİ YOK", karsilik: "kna_kararKapi"}
+
+akis:
+  durum_haritasi:
+    - {durum_id: TASLAK, durum_adi: Taslak, sira: 1, izinli_sonraki_durumlar: "HAZIRLIK", kategori: acik}
+    - {durum_id: HAZIRLIK, durum_adi: Hazırlık, sira: 2, izinli_sonraki_durumlar: "BASVURU|IPTAL", kategori: acik}
+    - {durum_id: BASVURU, durum_adi: Başvuru, sira: 3, izinli_sonraki_durumlar: "KABUL|RET", kategori: acik}
+    - {durum_id: KABUL, durum_adi: Kabul, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: RET, durum_adi: Ret, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: IPTAL, durum_adi: İptal, sira: 6, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [bilanco, nakit, projeksiyon, basvuru, karar]
+  kuyruk_tanimlari: [Hazırlık, Başvuru, Geciken]
+
+analitik_moduller:
+  - {kod: T1, ad: "Yaşlandırma", ad_tanimi: "kna_yasKova", yorum_hucresi: "kna_yorumYas"}
+  - {kod: O5, ad: "Nakit açık maliyeti", ad_tanimi: "kna_gecikmeMaliyeti", yorum_hucresi: "kna_yorumGecikme"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "kna_tahminAralik", yorum_hucresi: "kna_yorumTahmin"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "kna_senaryoKarsilastirma", yorum_hucresi: "kna_yorumSenaryo"}
+  - {kod: O2, ad: "Tornado", ad_tanimi: "kna_tornadoZirve", yorum_hucresi: "kna_yorumTornado"}
+  - {kod: I7, ad: "Ödeme önceliği", ad_tanimi: "kna_odemeOncelik", yorum_hucresi: "kna_yorumOncelik"}
+  - {kod: T3, ad: "Pareto", ad_tanimi: "kna_paretoGecikme", yorum_hucresi: "kna_yorumPareto"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "kna_modulO8", yorum_hucresi: "kna_modulO8Yorum"}
+  - {kod: I2, ad: "P90", ad_tanimi: "kna_modulI2", yorum_hucresi: "kna_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: nakit_kilit, karar: "UYGUN DEĞİL"}
+  - {kosul: belirsiz, karar: "BEKLE"}
+  - {kosul: uygun, karar: "BAŞVUR"}
+
+sayfa_akisi: [PANO, GIRDI, BILANCO, NAKIT_AKIS, AKIS, KUYRUKLAR, HESAP, RAPOR, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+testler:
+  olcek:
+    satir: 5000
+    azami_hesap_saniye: 20
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "Hat D D-05"}

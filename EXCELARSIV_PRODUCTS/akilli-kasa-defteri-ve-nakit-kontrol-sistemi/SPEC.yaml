@@ -1,0 +1,125 @@
+arketip: A3
+denetim:
+  karar_sayfasi: "KARAR_MOTORU"
+  bos_dosya_beklenen_karar: "VERİ YETERSİZ"
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+testler:
+  olcek:
+    satir: 15
+
+urun:
+  slug: akilli-kasa-defteri-ve-nakit-kontrol-sistemi
+  ad: "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi"
+  karar: "Kasa ve banka hesaplarının kullanılabilir parasını bloke ve minimum eşikleri ayırarak hesaplar; bekleyen ödeme/tahsilat dengesinden nakit açığını üretir ve ödeme önerisi verir"
+  hedef_kullanici: "KOBİ sahipleri, muhasebe sorumluları, finans yöneticileri, işletme nakit kontrolü yapan profesyoneller"
+  mevzuat:
+    - "VUK (213 s.) md.185-198: kasa defteri tutma ve kayıt düzeni; fiziki sayım uygulaması"
+    - "TTK (6102 s.) md.64: defter tutma ve envanter esasları; banka mutabakatı"
+    - "Vergi Usul Kanunu defter tasdik ve muhafaza yükümlülükleri"
+  giris:
+    kasa_hesaplari:
+      tablo: tblKasaHesap
+      kolonlar: [Hesap Kodu, Hesap Adı, Tür, Bakiye, Bloke Tutar, Minimum Kasa Eşiği, Durum]
+    kasa_hareketleri:
+      tablo: tblKasaHareket
+      kolonlar: [Tarih, Fiş No, Hesap, Tür, Kategori, Tutar]
+    odeme_tahsilat:
+      tablo: tblOdemeTahsilat
+      kolonlar: [Vade, Tür, Karşı Taraf, Öncelik, Tutar, Durum]
+  esikler:
+    asgari_nakit_tamponu: 100000
+    kritik_ufuk_gun: 30
+    kritik_risk_esik: 50000
+    anomali_katsayisi: 2.0
+    mutabakat_toleransi: 100
+  rapor: "A4, PDF'e hazır; yönetici özeti, kullanılabilir para, nakit açığı, ödeme önerisi ve aksiyonlar"
+
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1VadeGecmis
+    yorum_hucresi: modulT1VadeGecmisYorum
+  - kod: T2
+    ad_tanimi: modulT2NetEgim
+    yorum_hucresi: modulT2NetEgimYorum
+  - kod: T3
+    ad_tanimi: modulT3ParetoPay
+    yorum_hucresi: modulT3ParetoPayYorum
+  - kod: T4
+    ad_tanimi: modulT4NetFark
+    yorum_hucresi: modulT4NetFarkYorum
+  - kod: T5
+    ad_tanimi: modulT5MutabakatFark
+    yorum_hucresi: modulT5MutabakatFarkYorum
+  - kod: T6
+    ad_tanimi: modulT6KapsamaOran
+    yorum_hucresi: modulT6KapsamaOranYorum
+  - kod: O1
+    ad_tanimi: modulO1AnomaliOran
+    yorum_hucresi: modulO1AnomaliOranYorum
+  - kod: O2
+    ad_tanimi: modulO2TornadoZirve
+    yorum_hucresi: modulO2TornadoZirveYorum
+  - kod: O3
+    ad_tanimi: modulO3SenaryoFark
+    yorum_hucresi: modulO3SenaryoFarkYorum
+  - kod: O6
+    ad_tanimi: modulO6HesapHhi
+    yorum_hucresi: modulO6HesapHhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1KasaTahmini
+    yorum_hucresi: modulI1KasaTahminiYorum
+  - kod: I2
+    ad_tanimi: modulI2KasaP90
+    yorum_hucresi: modulI2KasaP90Yorum
+  - kod: I7
+    ad_tanimi: modulI7AcikKopru
+    yorum_hucresi: modulI7AcikKopruYorum
+
+deger:
+  satis_fiyati_tl: 990
+  Y1_danisman_ikamesi_tl: 2500
+  Y2_kurulum_ikamesi_tl: 1200
+
+serbest_alternatif:
+  alternatifler:
+    - "Kasa ve banka bakiyelerini elle takip eden düzensiz hesap tablosu"
+    - "Muhasebeci veya mali müşavir danışmanlığında nakit durumu ve ödeme planı talep etmek"
+    - "Ücretsiz genel amaçlı takip şablonları (bakiyelerin kullanılabilirliğini ve açığı hesaplamaz)"
+    - "Banka ekstreleri üzerinden elle kullanılabilir para ve bekleyen ödeme hesabı"
+    - "Nakit açığını önceden görmemek ve ödemeleri son anda ertelemek"
+  ayrimlar:
+    - madde: "Bloke ve minimum eşiği ayırarak gerçek kullanılabilir parayı formülle üretir; bakiye ile karıştırmaz"
+      karsilik: KullanilabilirNakit
+    - madde: "Bekleyen ödeme/tahsilat dengesinden nakit açığını ve ödeme önerisini üretir"
+      karsilik: NakitAcik
+    - madde: "Vade yaşlandırmasıyla vadesi geçen ödemeleri ve günlük net nakit eğimini üretir"
+      karsilik: modulT1VadeGecmis
+    - madde: "İyimser/kötümser senaryo ve tornado duyarlılıkla nakit etkisini tek ekranda sıralar"
+      karsilik: modulO3SenaryoFark
+    - madde: "Fiziki kasa mutabakat farkını ve kök neden göstergesini üretir"
+      karsilik: modulT5MutabakatFark
+    - madde: "Haftalık nakit projeksiyonu ve P90 aralığıyla kasa tahminini üretir; sonuç ad tanımlıdır"
+      karsilik: modulI2KasaP90
+    - madde: "Hesap bazında yoğunlaşma (HHI) ile nakit riskini ölçer"
+      karsilik: modulO6HesapHhi
+
+durum_haritasi:
+  durumlar: [ACIK, ISLEMDE, KAPALI]
+  kapali: [KAPALI]
+
+akis:
+  yetim_kontrol: true
+  zincir_kontrol: true

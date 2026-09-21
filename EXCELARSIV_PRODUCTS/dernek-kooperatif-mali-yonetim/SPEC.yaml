@@ -1,0 +1,170 @@
+# =============================================================================
+# SPEC — Hat B Y-17 · Dernek/Kooperatif/Kulüp Mali Yönetim Sistemi
+# Durum: ONAYLANDI — Hat B gayrimenkul/kurum dikey
+# Manda: v6 (A8 Kurum/Topluluk — E eşleştirme + A iş akışı zorunlu)
+# Domain: üye aidat borçlandırma, tahsilat eşleştirme, icap, bütçe, genel kurul kanıtı
+# =============================================================================
+
+urun:
+  kod: DKM-PRO
+  ad: "Dernek/Kooperatif Mali Yönetim Sistemi"
+  surum: "1.0.0"
+  slug: dernek-kooperatif-mali-yonetim
+  dosya: DernekKooperatifMaliYonetim.xlsx
+  prefix: dkm_
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "Dernek muhasibi, kooperatif yönetim kurulu, kulüp saymanı, SMMM"
+
+arketip: A8
+fiyat: 7900
+olcek_hedefi: 50000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 7000
+  Y3_onlenen_hata_tl: 35000
+  Y4_saas_yillik_ikamesi_tl: 9000
+  kaynak: "Dernek/kooperatif mali danışmanlık + genel kurul aidat-bütçe kanıt dosyası (5253 / 1163)"
+
+deger_vektoru: ["P", "R", "K", "İ"]
+uc_rol:
+  - rol: "Dernek muhasibi / kooperatif saymanı"
+    is_bitince: "Üye aidat borçlandırma, tahsilat eşleştirme ve gecikme kuyruğunu kilitler"
+  - rol: "Yönetim kurulu / genel kurul başkanı"
+    is_bitince: "Kasa, tahsilat oranı ve bütçe sapmasını tek panoda görür"
+  - rol: "Denetim kurulu / genel kurul"
+    is_bitince: "KANIT_RAPORU ile dönem aidat-gider-karar kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "Genel kurul öncesi 30–60 gün mali hazırlık penceresi"
+  tarih_penceresi: "genel_kurul_hazirlik"
+
+rakip_ayrim:
+  - sinif: R4_yazilim
+    ayrim: "Tek seferlik alım; dernek yazılımı aboneliği yok"
+    karsilik: "dkm_fiyatModeli"
+  - sinif: R1_jenerik
+    ayrim: "Aidat borç↔tahsilat dört kova mutabakatı + TANIMSIZ kök neden"
+    karsilik: "dkm_kovaButunluk"
+  - sinif: R1_jenerik
+    ayrim: "5253/1163 gecikme zammı AYARLAR'dan; icap durum makinesi"
+    karsilik: "dkm_gecikmeZammi"
+  - sinif: R2_bedava
+    ayrim: "Genel kurul kanıt raporu + kararlar defteri imza alanlı"
+    karsilik: "dkm_kanitRaporu"
+  - sinif: R2_bedava
+    ayrim: "Boş dosyada VERİ YOK; ZİNCİR KIRIK / yetim / geçersiz geçiş görünür"
+    karsilik: "dkm_kararKapi"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "WhatsApp + defter + banka ekstresi elle eşleştirme"
+    - "Dernek yazılımı aylık abonelik"
+    - "Muhasibin dağınık Excel üye listesi"
+  ayrimlar:
+    - madde: "Normalize üye+dönem anahtarı + kısa/uzun no"
+      karsilik: "dkm_normAnahtar"
+    - madde: "Dört kova bütünlüğü (borç↔tahsilat)"
+      karsilik: "dkm_kovaButunluk"
+    - madde: "TANIMSIZ kök-neden kovası görünür"
+      karsilik: "dkm_tanimsizKova"
+    - madde: "İcap durum haritası + geçersiz geçiş uyarısı"
+      karsilik: "dkm_durumHaritasi"
+    - madde: "50.000 satır ölçek sözleşmesi + genel kurul kanıtı"
+      karsilik: "dkm_olcekHedef"
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(uye_id&donem,\" \",\"\")))"
+  ikincil: "LEFT(norm,12) veya uyelik_no+donem"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+akis:
+  durum_haritasi:
+    - {durum_id: ACIK, durum_adi: Açık, sira: 1, izinli_sonraki_durumlar: "HATIRLATMA", kategori: acik}
+    - {durum_id: HATIRLATMA, durum_adi: Hatırlatma, sira: 2, izinli_sonraki_durumlar: "ICAP|ACIK", kategori: acik}
+    - {durum_id: ICAP, durum_adi: İcap, sira: 3, izinli_sonraki_durumlar: "TAHSIL|KAPALI", kategori: acik}
+    - {durum_id: TAHSIL, durum_adi: Tahsil, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: KAPALI, durum_adi: Kapalı, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+
+analitik_moduller:
+  - {kod: T1, ad: "Tahsilat oranı", ad_tanimi: "dkm_modulT1", yorum_hucresi: "dkm_modulT1Yorum"}
+  - {kod: T2, ad: "Aidat trend", ad_tanimi: "dkm_modulT2", yorum_hucresi: "dkm_modulT2Yorum"}
+  - {kod: O1, ad: "Geciken anomali", ad_tanimi: "dkm_modulO1", yorum_hucresi: "dkm_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "dkm_modulO2", yorum_hucresi: "dkm_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo motoru", ad_tanimi: "dkm_modulO3", yorum_hucresi: "dkm_modulO3Yorum"}
+  - {kod: O6, ad: "Gider yoğunlaşması", ad_tanimi: "dkm_modulO6", yorum_hucresi: "dkm_modulO6Yorum"}
+  - {kod: O8, ad: "Veri kalite skoru", ad_tanimi: "dkm_modulO8", yorum_hucresi: "dkm_modulO8Yorum"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "dkm_modulI1", yorum_hucresi: "dkm_modulI1Yorum"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "dkm_modulI2", yorum_hucresi: "dkm_modulI2Yorum"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "tahsilat_oran_alti_veya_zincir_kirik"
+    karar: "KRİTİK"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - PAYDASLAR
+  - DONEMLER
+  - TAHSILAT
+  - ANAHTAR
+  - ESLESTIRME
+  - KOK_NEDEN
+  - AKIS
+  - GIDER
+  - KARARLAR
+  - PANO
+  - KARAR
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "KARAR"
+  motor_sayfasi: "ESLESTIRME"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1000
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-17 — A8 dernek/kooperatif mali yönetim; D0 gayrimenkul 7/7; tetik genel kurul"

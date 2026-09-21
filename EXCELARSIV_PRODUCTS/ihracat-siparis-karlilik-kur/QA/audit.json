@@ -1,0 +1,131 @@
+{
+  "product": "ihracat-siparis-karlilik-kur",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/ihracat-siparis-karlilik-kur/IhracatSiparisKarlilikKur.xlsx",
+  "sha256": "719cde12e29215eff7cf93dd6b02ec394b8f4e04487af0346dba426b6e41ed0a",
+  "size_bytes": 380981,
+  "modified_at": "2026-08-11T23:29:04",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "GIRDI",
+    "KARTLAR",
+    "AKIS",
+    "KUYRUKLAR",
+    "VARSAYIMLAR",
+    "KURALLAR",
+    "MOTOR",
+    "FINANSMAN",
+    "SENARYO",
+    "PANO",
+    "KARAR",
+    "VAKALAR",
+    "KANIT_RAPORU",
+    "KONTROLLER",
+    "ORNEK_VERI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": "000F2742",
+    "HIZLI_BASLANGIC": "001F4E79",
+    "GIRDI": "00B08948",
+    "KARTLAR": "002E75B6",
+    "AKIS": "00548235",
+    "KUYRUKLAR": "00C65911",
+    "VARSAYIMLAR": "007030A0",
+    "KURALLAR": "001F4E79",
+    "MOTOR": "008064A2",
+    "FINANSMAN": "00C65911",
+    "SENARYO": "00ED7D31",
+    "PANO": "000F2742",
+    "KARAR": "00B3261E",
+    "VAKALAR": "002E75B6",
+    "KANIT_RAPORU": "000F2742",
+    "KONTROLLER": "00C00000",
+    "ORNEK_VERI": "00548235",
+    "LISTELER": "007030A0",
+    "AYARLAR": "00833C0C",
+    "KILAVUZ": "00595959"
+  },
+  "formula_count": 7292,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 1040,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 10,
+  "table_count": 9,
+  "conditional_format_count": 138,
+  "data_validation_count": 16,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 4,
+  "merged_ranges": 56,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > GIRDI > KARTLAR > AKIS > KUYRUKLAR > VARSAYIMLAR > KURALLAR > MOTOR > FINANSMAN > SENARYO > PANO > KARAR > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > GIRDI > VARSAYIMLAR > FINANSMAN > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > KARTLAR > AKIS > KUYRUKLAR > KURALLAR > MOTOR > PANO > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=1040"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > GIRDI > KARTLAR > AKIS > KUYRUKLAR > VARSAYIMLAR > KURALLAR > MOTOR > FINANSMAN > SENARYO > PANO > KARAR > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > GIRDI > VARSAYIMLAR > FINANSMAN > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > KARTLAR > AKIS > KUYRUKLAR > KURALLAR > MOTOR > PANO > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=7292"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

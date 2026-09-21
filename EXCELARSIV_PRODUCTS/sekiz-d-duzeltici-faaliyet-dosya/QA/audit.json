@@ -1,0 +1,124 @@
+{
+  "product": "sekiz-d-duzeltici-faaliyet-dosya",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/sekiz-d-duzeltici-faaliyet-dosya/SekizDDuzelticiFaaliyetDosya.xlsx",
+  "sha256": "6d54b72147103599620b1cde0708dc591a2578e51540123cc6a668311d55df9a",
+  "size_bytes": 167673,
+  "modified_at": "2026-08-11T23:29:04",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "PANO",
+    "EKIP",
+    "AKIS",
+    "KUYRUKLAR",
+    "HESAP",
+    "KANIT_RAPORU",
+    "RAPOR",
+    "KONTROLLER",
+    "ORNEK_VERI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": "000B3D2E",
+    "PANO": "000B3D2E",
+    "EKIP": "000B3D2E",
+    "AKIS": "000B3D2E",
+    "KUYRUKLAR": "000B3D2E",
+    "HESAP": "000B3D2E",
+    "KANIT_RAPORU": "000B3D2E",
+    "RAPOR": "000B3D2E",
+    "KONTROLLER": "00C00000",
+    "ORNEK_VERI": "0070AD47",
+    "LISTELER": "000B3D2E",
+    "AYARLAR": "000B3D2E",
+    "KILAVUZ": "000B3D2E"
+  },
+  "formula_count": 2697,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 826,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 3,
+  "conditional_format_count": 119,
+  "data_validation_count": 19,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 3,
+  "merged_ranges": 51,
+  "order_mismatches": [
+    "Mevcut: KAPAK > PANO > EKIP > AKIS > KUYRUKLAR > HESAP > KANIT_RAPORU > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > PANO > EKIP > AKIS > KUYRUKLAR > HESAP > KANIT_RAPORU > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=826"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > PANO > EKIP > AKIS > KUYRUKLAR > HESAP > KANIT_RAPORU > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > PANO > EKIP > AKIS > KUYRUKLAR > HESAP > KANIT_RAPORU > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=2697"
+    },
+    {
+      "code": "R010",
+      "severity": "P2",
+      "passed": false,
+      "message": "Tek kanonik workbook ilkesi",
+      "evidence": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/sekiz-d-duzeltici-faaliyet-dosya/SekizDDuzelticiFaaliyetDosya 2.xlsx"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

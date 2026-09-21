@@ -1,0 +1,111 @@
+# Hat A #2 — Yeniden Değerleme Komuta Merkezi (298/Ç + Geç.32)
+# FAZ 2 · A1 · ONAYLANDI
+
+urun:
+  kod: YDK-PRO
+  ad: "Yeniden Değerleme Komuta Merkezi (298/Ç + Geç.32)"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "SMMM, YMM, mali işler"
+
+arketip: A1
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 24000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 20000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Yeniden değerleme danışmanlığı + model"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "SMMM"
+    is_bitince: "298/Ç vs Geç.32 kararını müşteriye sunar"
+  - rol: "CFO"
+    is_bitince: "Vergi/özkaynak etkisini bütçeler"
+  - rol: "Ortak"
+    is_bitince: "Yap/yapma kararını alır"
+
+lansman_tetigi:
+  sinif: Mevzuat_yayimi
+  aciklama: "Yeniden değerleme tebliğ/oran güncellemesi veya yıl sonu"
+  tarih_penceresi: "yil_sonu_30_gun"
+
+rakip_ayrim:
+  - sinif: R2_TURMOB
+    ayrim: "Senaryo + yıl karşılaştırması + kanıt raporu"
+    karsilik: "ydk_senaryoKarsilastirma"
+  - sinif: R2_TURMOB
+    ayrim: "298/Ç ve Geç.32 yan yana karar motoru"
+    karsilik: "ydk_kararMetni"
+  - sinif: R1_jenerik
+    ayrim: "Her adımda kural_id + madde atfı"
+    karsilik: "ydk_maddeAtifMetni"
+  - sinif: R1_jenerik
+    ayrim: "Tebliğ vakaları TUTARLI"
+    karsilik: "ydk_vakaDurum"
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; karar + tutar verir"
+    karsilik: "ydk_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["TÜRMOB cetveli", "Elle Excel", "Danışman notu"]
+  ayrimlar:
+    - madde: "Çok yıllı endeks matrisi"
+      karsilik: "ydk_kuralYilMatris"
+    - madde: "M-SEN kural değişimi"
+      karsilik: "ydk_kuralDegisimSenaryo"
+    - madde: "Vaka FARK kontrolü"
+      karsilik: "ydk_vakaFark"
+    - madde: "Makine gerekçeli karar"
+      karsilik: "ydk_kararGerekce"
+    - madde: "SHA kanıt"
+      karsilik: "ydk_parmakIzi"
+
+mevzuat:
+  kurallar: [YDK-001, YDK-002, YDK-003, YDK-004, YDK-005]
+  vakalar: teblig_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [gec32_vs_298c_oncelik]
+
+analitik_moduller:
+  - {kod: T1, ad: "Fark/maliyet", ad_tanimi: "ydk_modulT1", yorum_hucresi: "ydk_modulT1Yorum"}
+  - {kod: T2, ad: "Fon/fark", ad_tanimi: "ydk_modulT2", yorum_hucresi: "ydk_modulT2Yorum"}
+  - {kod: O1, ad: "Senaryo sapma", ad_tanimi: "ydk_modulO1", yorum_hucresi: "ydk_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık", ad_tanimi: "ydk_duyarlilikSira", yorum_hucresi: "ydk_yorumDuyarlilik"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "ydk_senaryoKarsilastirma", yorum_hucresi: "ydk_yorumSenaryo"}
+  - {kod: O6, ad: "298 vs Geç.32", ad_tanimi: "ydk_modulO6", yorum_hucresi: "ydk_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "ydk_modulO8", yorum_hucresi: "ydk_modulO8Yorum"}
+  - {kod: M_SEN, ad: "Kural değişimi", ad_tanimi: "ydk_kuralDegisimSenaryo", yorum_hucresi: "ydk_yorumKuralDegisim"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "ydk_tahminAralik", yorum_hucresi: "ydk_yorumTahmin"}
+  - {kod: I2, ad: "Fark P90", ad_tanimi: "ydk_modulI2", yorum_hucresi: "ydk_modulI2Yorum"}
+
+sayfa_akisi: [PANO, GIRDI, KURALLAR, MOTOR, SENARYO, VAKALAR, KANIT_RAPORU, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "FAZ 2 hat 1"}

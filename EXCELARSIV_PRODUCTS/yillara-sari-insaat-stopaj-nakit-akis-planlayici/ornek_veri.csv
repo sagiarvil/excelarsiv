@@ -1,0 +1,39 @@
+ORNEK VERI — YILLARA SARİ İNŞAAT STOPAJ & NAKİT AKIŞ PLANLAYICI
+Bu dosya otomasyon ve içe aktarma için yapıdır; yıllık plan, hakediş, nakit akışı ve vergi planı verilerinizi CSV/Excel'den kopyalayabilirsiniz.
+PROJE_KARTI (manuel giriş)
+Proje Adı,İşveren,Yüklenici Firma,Sözleşme Tarihi,Sözleşme Bedeli (₺),İş Başlangıç Tarihi,İş Bitiş Tarihi,İş Türü,KDV Tevkifatı Var mı?
+Hastane Ek Binası İnşaatı,İl Sağlık Müdürlüğü,Yapı A A.Ş.,01.03.2025,12000000,01.03.2025,30.06.2027,Yapım,Evet
+YILLIK_PLAN (tblYil)
+Yıl,Planlanan Hakediş (₺),İşçilik (₺),Malzeme (₺),Alt Taşeron (₺),Genel Gider (₺)
+2025,3500000,1100000,1050000,500000,200000
+2026,5500000,1700000,1650000,800000,250000
+2027,3000000,900000,900000,450000,150000
+HAKEDISLER (tblHakedis)
+Dönem,Hakediş Tarihi,Brüt Hakediş (₺)
+1. Hakediş,15.04.2025,1200000
+2. Hakediş,15.07.2025,1300000
+3. Hakediş,15.10.2025,1000000
+4. Hakediş,15.01.2026,1400000
+5. Hakediş,15.04.2026,1800000
+6. Hakediş,15.07.2026,1400000
+7. Hakediş,15.10.2026,900000
+8. Hakediş,15.01.2027,1200000
+9. Hakediş,15.04.2027,1000000
+10. Hakediş,30.06.2027,800000
+NAKIT_AKISI (tblNakit)
+Dönem,Net Hakediş Tahsilatı (₺),Diğer Gelir (₺),İşçilik Ödemesi (₺),Malzeme Ödemesi (₺),Alt Taşeron Ödemesi (₺),Genel Gider (₺),Kredi Anapara (₺),Kredi Faiz (₺)
+2025-Q1,1330000,0,330000,310000,150000,55000,0,0
+2025-Q2,1440000,0,350000,330000,160000,58000,0,0
+2025-Q3,1110000,0,270000,260000,120000,45000,0,0
+2025-Q4,1550000,0,370000,350000,170000,62000,0,0
+2026-Q1,1990000,0,470000,450000,220000,75000,0,0
+2026-Q2,1550000,0,380000,350000,170000,62000,0,0
+2026-Q3,1000000,0,250000,240000,110000,42000,0,0
+2026-Q4,1330000,0,330000,310000,150000,55000,0,0
+2027-Q1,1110000,0,270000,260000,120000,45000,0,0
+2027-Q2,890000,0,230000,220000,95000,38000,0,0
+VERGI_PLANI (tblVergi)
+Yıl
+2025
+2026
+2027

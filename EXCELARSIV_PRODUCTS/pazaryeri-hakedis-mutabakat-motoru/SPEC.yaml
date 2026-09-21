@@ -1,0 +1,147 @@
+# =============================================================================
+# SPEC — Hat A #13 · Pazaryeri Hakediş Mutabakat Motoru
+# Durum: ONAYLANDI — FAZ 1 üretim (2. hat)
+# Manda: v6 (v5 A2 arketipi miras)
+# =============================================================================
+
+urun:
+  kod: PZM-PRO
+  ad: "Pazaryeri Hakediş Mutabakat Motoru"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "E-ticaret operasyon, mali işler, SMMM"
+
+arketip: A2
+fiyat: 9900
+olcek_hedefi: 50000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 22000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 25000
+  Y4_saas_yillik_ikamesi_tl: 9000
+  kaynak: "SaaS yıllık ~750×12 + danışman mutabakat + kurulum"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Operasyon"
+    is_bitince: "İtiraz listesini pazaryerine gönderir"
+  - rol: "Mali işler"
+    is_bitince: "Net tahsilatı deftere işler"
+  - rol: "SMMM"
+    is_bitince: "Dönem mutabakat kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "Ay sonu hakediş dökümü geldiğinde −3 gün"
+  tarih_penceresi: "ay_sonu_hakedis"
+
+rakip_ayrim:
+  - sinif: R3_saas
+    ayrim: "Tek seferlik alım, aylık ücret yok"
+    karsilik: "pzm_fiyatModeli"
+  - sinif: R3_saas
+    ayrim: "Veri cihazdan çıkmaz — KVKK"
+    karsilik: "pzm_kvkkBeyani"
+  - sinif: R3_saas
+    ayrim: "Kurulum/entegrasyon beklemez; yapıştır-çalıştır"
+    karsilik: "pzm_yapistirCalistir"
+  - sinif: R1_jenerik
+    ayrim: "Türk pazaryeri kesinti kalemleri kanonik"
+    karsilik: "pzm_kokNedenKurali"
+  - sinif: R1_jenerik
+    ayrim: "İtiraz metni üretir; yalnız tablo göstermez"
+    karsilik: "pzm_itirazMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Elle VLOOKUP Excel"
+    - "SaaS deneme hesabı"
+    - "Muhasebecinin aylık mutabakatı"
+  ayrimlar:
+    - madde: "Dört kova bütünlüğü denetimli"
+      karsilik: "pzm_kovaButunluk"
+    - madde: "Normalize anahtar + kısa/uzun no"
+      karsilik: "pzm_normAnahtar"
+    - madde: "TANIMSIZ kök-neden kovası görünür"
+      karsilik: "pzm_tanimsizKova"
+    - madde: "Eşleşme oranı veriden türer"
+      karsilik: "pzm_eslesmeOrani"
+    - madde: "50.000 satır ölçek sözleşmesi"
+      karsilik: "pzm_olcekHedef"
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(siparis_no,\" \",\"\")))"
+  ikincil: "LEFT(norm,12) veya tutar+tarih"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+analitik_moduller:
+  - kod: T5
+    ad: "Mutabakat farkı"
+    ad_tanimi: "pzm_mutabakatFarki"
+    yorum_hucresi: "pzm_yorumFark"
+  - kod: I8
+    ad: "Kök-neden ayrıştırma"
+    ad_tanimi: "pzm_kokNedenDagilim"
+    yorum_hucresi: "pzm_yorumKokNeden"
+  - kod: T3
+    ad: "Pareto"
+    ad_tanimi: "pzm_paretoFark"
+    yorum_hucresi: "pzm_yorumPareto"
+  - kod: O1
+    ad: "Anomali"
+    ad_tanimi: "pzm_anomaliSayisi"
+    yorum_hucresi: "pzm_yorumAnomali"
+  - kod: O2
+    ad: "Duyarlılık tornado"
+    ad_tanimi: "pzm_tornadoZirve"
+    yorum_hucresi: "pzm_yorumTornado"
+  - kod: I1
+    ad: "Tahmin aralık"
+    ad_tanimi: "pzm_tahminAralik"
+    yorum_hucresi: "pzm_yorumTahmin"
+
+sayfa_akisi:
+  - PANO
+  - VERI_A
+  - VERI_B
+  - ANAHTAR
+  - ESLESTIRME
+  - KOK_NEDEN
+  - AKSIYON
+  - KANIT_RAPORU
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "ESLESTIRME"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "FAZ 1 ikinci hat — kullanıcı devam talimatı"

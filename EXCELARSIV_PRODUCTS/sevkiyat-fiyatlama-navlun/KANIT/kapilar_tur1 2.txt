@@ -1,0 +1,110 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/sevkiyat-fiyatlama-navlun/SevkiyatFiyatlamaNavlun.xlsx
+SHA-256 : 035ba75b1b136f2d202331103e7e73e5cd94b2f997ce15169a0a5fb8fe0e3764
+ARKETİP : A6+A7
+TARİH   : 11.08.2026 16:56
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (19 sayfa)
+  GEÇTİ  G02   19 sayfa şifreli korumada
+  GEÇTİ  G03   307 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   2350 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+  GEÇTİ  G07   Formüllerde gömülü sihirli sayı yok
+! KALDI  G08   Yeni satır formül devralmıyor: ['HAMMADDE.tblHammadde (9 kolon, 0 hesaplanan kolon)', 'ORNEK_VERI.tblOrnek (8 kolon, 0 hesaplanan kolon)', 'AYARLAR.tblDonusum (6 kolon, 0 hesaplanan kolon)']
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   37 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   117 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  UYARI  G15   10 olası taşma: ['HAMMADDE!A14 (23 krkt / genişlik 10)', 'HAMMADDE!A15 (22 krkt / genişlik 10)', 'HAMMADDE!A19 (19 krkt / genişlik 10)', 'RECETE!A12 (19 krkt / genişlik 10)', 'VARYANS!A3 (41 krkt / genişlik 22)', 'VARSAYIMLAR!A3 (41 krkt / genişlik 12)']
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+! KALDI  G17   Grafik sayısı 7 (asgari 8)
+  GEÇTİ  G18   63 ad tanımı sağlam
+! KALDI  G19   1 yerde Türkçe dışı terim: ["ORNEK_VERI!A5: 'no'"]
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  UYARI  G24   Tablo kapasitesi düşük (ön-doldurulmuş satır <200): [('VARSAYIMLAR', 'tblVarsayim', 100)]
+
+======================================================================
+SONUÇ: 3 KALDI | rapor: urunler/sevkiyat-fiyatlama-navlun/KANIT/RAPOR_DENETIM.md
+SEVK EDİLEMEZ
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  Ö2    7 uç durum temiz: ['tumu_sifir→YATIRIM YAPMA', 'tumu_bos→VERİ YOK', 'negatif_deger→YATIRIM YAPMA', 'gelecek_tarih→YATIRIM YAPMA', 'yinelenen_kayit→YATIRIM YAPMA', 'tek_satir→YATIRIM YAPMA', 'azami_deger→YATIRIM YAPMA']
+
+==========================================================================
+SONUÇ: 0 KALDI | rapor: urunler/sevkiyat-fiyatlama-navlun/KANIT/RAPOR_OLCEK.md
+SEVK EDİLEBİLİR
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    2350 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   63 ad tanımının hedefi dolu
+  GEÇTİ  D06    Sabitten türeyen sahte KPI yok
+  GEÇTİ  D13    Motor 120 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 30 farklı canlı KPI
+! KALDI  D09    Grafik 7 (asgari 8)
+  GEÇTİ  D09b   Grafik serilerinde veri var
+! KALDI  D10    2 parametrede kaynak/yürürlük boş: ['satır 40 / kaynak', 'satır 40 / yururluk_tarihi']
+! KALDI  D12    ÇAPRAZ TUTARSIZLIK — aynı etiket farklı değer: ["'genel gider' → [('VARYANS', 2250), ('PANO', 0.22)]"]
+  GEÇTİ  D03    Derinlik puanı 145
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 24,000 TL ≥ eşik 23,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: 035ba75b1b136f2d202331103e7e73e5cd94b2f997ce15169a0a5fb8fe0e3764
+SONUÇ: 3 KALDI | rapor: urunler/sevkiyat-fiyatlama-navlun/KANIT/RAPOR_DEGER.md
+SEVK EDİLEMEZ
+
+[F] Fizibilite     → fizibilite_kapilari.py  (arketip A6)
+------------------------------------------------------------------------------
+  GEÇTİ  F01   öz kaynak + kredi finansman senaryosu izi var
+! KALDI  F02   VARSAYIMLAR'da 182 boş kaynak/güven hücresi
+  GEÇTİ  F03   CAPEX/OPEX (yatırım/işletme) ayrım izi var
+  GEÇTİ  F04   NPV/IRR aralık + tornado izi mevcut
+  GEÇTİ  F05   kötümser senaryoda YATIRIM YAPMA karar yolu mevcut
+
+ÖZET F: 1 KALDI
+
+[R] Reçete         → recete_kapilari.py  (arketip A7)
+------------------------------------------------------------------------------
+  GEÇTİ  R01   bileşim %100 ±tolerans alarm izi mevcut
+  GEÇTİ  R02   AYARLAR birim dönüşüm tablosu izi var
+  GEÇTİ  R03   fire/bertaraf kolonu izi var
+  GEÇTİ  R04   reçete versiyon / varyans köprüsü izi var
+! KALDI  R05   kırılım etiketleri var; toplam=birim maliyet çapraz kontrolü yok
+
+ÖZET R: 1 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        KALDI      (3 KALDI / 21 GEÇTİ)  [her ürün] 0.4sn
+  Ö  Dayanıklılık   TEMİZ      (0 KALDI / 1 GEÇTİ)  [her ürün] 34.2sn
+  D  Değer          KALDI      (3 KALDI / 13 GEÇTİ)  [her ürün] 3.8sn
+  M  Mevzuat        ATLANDI      [arketip gerektirmiyor] 0.0sn
+  E  Eşleştirme     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  A  İş Akışı       ATLANDI      [arketip gerektirmiyor] 0.0sn
+  F  Fizibilite     KALDI      (1 KALDI / 4 GEÇTİ)  [arketip A6] 0.4sn
+  S  Saha           ATLANDI      [arketip gerektirmiyor] 0.0sn
+  R  Reçete         KALDI      (1 KALDI / 4 GEÇTİ)  [arketip A7] 0.3sn
+
+==============================================================================
+SONUÇ: 8 KALDI · SEVK EDİLEMEZ
+Kanıt: urunler/sevkiyat-fiyatlama-navlun/KANIT/ · SHA-256: 035ba75b1b136f2d202331103e7e73e5cd94b2f997ce15169a0a5fb8fe0e3764
+Birleşik karar raporu: urunler/sevkiyat-fiyatlama-navlun/KANIT/SEVK_KARARI.md

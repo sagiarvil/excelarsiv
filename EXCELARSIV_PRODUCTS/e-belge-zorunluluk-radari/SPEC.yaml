@@ -1,0 +1,103 @@
+# Hat A #5 — e-Belge Zorunluluk Radarı (A1+A4)
+# FAZ 2 · ONAYLANDI
+
+urun:
+  kod: EBR-PRO
+  ad: "e-Belge Zorunluluk Radarı"
+  surum: "1.0.0"
+  satis_fiyati_tl: 4900
+  hedef_kullanici: "SMMM, mali işler, işletme sahibi"
+
+arketip: A1+A4
+fiyat: 4900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 4900
+  Y1_danisman_ikamesi_tl: 12000
+  Y2_kurulum_ikamesi_tl: 4000
+  Y3_onlenen_hata_tl: 15000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "e-belge eşik tarama danışmanlığı"
+
+deger_vektoru: ["R", "Z", "P"]
+uc_rol:
+  - rol: "SMMM"
+    is_bitince: "Zorunluluk tarihini müşteriye bildirir"
+  - rol: "İşletme"
+    is_bitince: "Geçiş planını yapar"
+  - rol: "Denetçi"
+    is_bitince: "Kanıt raporunu inceler"
+
+lansman_tetigi:
+  sinif: Mevzuat_yayimi
+  aciklama: "e-belge eşik tebliği / brüt satış ciro eşiği güncellemesi"
+  tarih_penceresi: "esik_degisim_15_gun"
+
+rakip_ayrim:
+  - {sinif: R2, ayrim: "Senaryo + yıl geçişi", karsilik: "ebr_senaryoKarsilastirma"}
+  - {sinif: R2, ayrim: "Kanıt + madde atfı", karsilik: "ebr_kanitRaporu"}
+  - {sinif: R1, ayrim: "Kural_id zinciri", karsilik: "ebr_maddeAtifMetni"}
+  - {sinif: R1, ayrim: "Envanter + eylem yaşlandırma", karsilik: "ebr_eylemYas"}
+  - {sinif: R4, ayrim: "Karar radarı; kayıt değil", karsilik: "ebr_kararMetni"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["GİB duyuru", "Elle takip", "Muhasebe programı uyarısı"]
+  ayrimlar:
+    - {madde: "M-SEN eşik değişimi", karsilik: "ebr_kuralDegisimSenaryo"}
+    - {madde: "Duyarlılık", karsilik: "ebr_duyarlilikSira"}
+    - {madde: "Vaka", karsilik: "ebr_vakaDurum"}
+    - {madde: "Gerekçe", karsilik: "ebr_kararGerekce"}
+    - {madde: "Parmak izi", karsilik: "ebr_parmakIzi"}
+
+mevzuat:
+  kurallar: [EBR-001, EBR-002, EBR-003, EBR-004]
+  vakalar: esik_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [ciro_hesap_donemi]
+
+akis:
+  durum_haritasi:
+    - {durum_id: PLANLANDI, durum_adi: Planlandı, sira: 1, izinli_sonraki_durumlar: "DEVAM|IPTAL", kategori: acik}
+    - {durum_id: DEVAM, durum_adi: Devam, sira: 2, izinli_sonraki_durumlar: "BEKLIYOR|TAMAMLANDI|IPTAL", kategori: acik}
+    - {durum_id: BEKLIYOR, durum_adi: Bekliyor, sira: 3, izinli_sonraki_durumlar: "DEVAM|TAMAMLANDI|IPTAL", kategori: acik}
+    - {durum_id: TAMAMLANDI, durum_adi: Tamamlandı, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: IPTAL, durum_adi: İptal, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [ilk_skor, hedef_skor]
+  kuyruk_tanimlari: [Planlandı, Devam, Bekliyor, Geciken]
+
+analitik_moduller:
+  - {kod: T1, ad: "Eylem yaşlandırma", ad_tanimi: "ebr_eylemYas", yorum_hucresi: "ebr_yorumEylemYas"}
+  - {kod: T2, ad: "Zorunlu belge payı", ad_tanimi: "ebr_modulT2", yorum_hucresi: "ebr_modulT2Yorum"}
+  - {kod: O2, ad: "Duyarlılık", ad_tanimi: "ebr_duyarlilikSira", yorum_hucresi: "ebr_yorumDuyarlilik"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "ebr_senaryoKarsilastirma", yorum_hucresi: "ebr_yorumSenaryo"}
+  - {kod: M_SEN, ad: "Kural değişimi", ad_tanimi: "ebr_kuralDegisimSenaryo", yorum_hucresi: "ebr_yorumKuralDegisim"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "ebr_tahminAralik", yorum_hucresi: "ebr_yorumTahmin"}
+  - {kod: I2, ad: "Ciro P90", ad_tanimi: "ebr_modulI2", yorum_hucresi: "ebr_modulI2Yorum"}
+
+sayfa_akisi: [PANO, GIRDI, KURALLAR, MOTOR, ENVANTER, EYLEM_PLANI, SENARYO, VAKALAR, KANIT_RAPORU, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "FAZ 2 — SGK çıkınca 2. hat"}

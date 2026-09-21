@@ -1,0 +1,151 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #25 · Fason Üretim Takip Sistemi
+# Durum: ONAYLANDI — FAZ 3 üretim
+# =============================================================================
+
+urun:
+  kod: FUT-PRO
+  ad: "Fason Üretim Takip Sistemi"
+  surum: "1.0.0"
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "Üretim planlama, fason takip, fabrika müdürü, SMMM"
+
+arketip: A3
+fiyat: 7900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 16000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 32000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Fason takip danışmanlığı + iş emri kuyruk kurulumu"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Üretim planlama / fason takip"
+    is_bitince: "Açık bakiyeyi ve fire kuyruğunu kilitler"
+  - rol: "Fabrika müdürü"
+    is_bitince: "DEVAM / UYAR / DURDUR kararını görür"
+  - rol: "SMMM / mali işler"
+    is_bitince: "Fason kanıt raporunu dosyalar"
+
+lansman_tetigi:
+  sinif: Sezon
+  aciklama: "Haftalık fason teslim / fire mutabakat turu"
+  tarih_penceresi: "haftalik_fason_teslim"
+
+rakip_ayrim:
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; açık bakiye + fire% + gecikme + karar verir"
+    karsilik: "fut_kararMetni"
+  - sinif: R4_on_muhasebe
+    ayrim: "Makrosuz durum makinesi VERİLDİ→ÜRETİMDE→İADE/TESLİM→KAPALI"
+    karsilik: "fut_durumHaritasi"
+  - sinif: R1_jenerik
+    ayrim: "Verilen↔dönen+fire zinciri ZİNCİR KIRIK bayrağı"
+    karsilik: "fut_zincirKirik"
+  - sinif: R1_jenerik
+    ayrim: "Yetim fasoncu kaydı tespiti"
+    karsilik: "fut_yetimKayit"
+  - sinif: R1_jenerik
+    ayrim: "Dönemsel fason kanıt raporu + senaryo"
+    karsilik: "fut_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Elle Excel fason defteri"
+    - "ERP iş emri ekranı (lisanslı)"
+    - "WhatsApp teslim listesi"
+  ayrimlar:
+    - madde: "Durum haritası AYARLAR'da"
+      karsilik: "fut_durumHaritasi"
+    - madde: "Geçersiz geçiş görünür uyarı"
+      karsilik: "fut_gecersizGecis"
+    - madde: "Açık bakiye ve fire% motoru"
+      karsilik: "fut_acikBakiye"
+    - madde: "Kapalı kayıt kuyruktan düşer"
+      karsilik: "fut_kapaliDusum"
+    - madde: "Kimlik disiplini otomatik öneri"
+      karsilik: "fut_sonrakiKimlik"
+
+mevzuat:
+  kurallar: [FUT-001, FUT-002, FUT-003, FUT-004, FUT-005]
+  vakalar: fason_uretim_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - fire_olcum_yorumu
+
+akis:
+  durum_haritasi:
+    - {durum_id: VERILDI, durum_adi: Verildi, sira: 1, izinli_sonraki_durumlar: "URETIMDE", kategori: acik}
+    - {durum_id: URETIMDE, durum_adi: Üretimde, sira: 2, izinli_sonraki_durumlar: "TESLIM|IADE", kategori: acik}
+    - {durum_id: TESLIM, durum_adi: Teslim, sira: 3, izinli_sonraki_durumlar: "KAPALI", kategori: acik}
+    - {durum_id: IADE, durum_adi: İade, sira: 4, izinli_sonraki_durumlar: "KAPALI|URETIMDE", kategori: acik}
+    - {durum_id: KAPALI, durum_adi: Kapalı, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [verilen, donen, fire]
+  kuyruk_tanimlari: [Verildi, Üretimde, Teslim, İade, Geciken]
+
+analitik_moduller:
+  - {kod: T1, ad: "Açık bakiye toplam", ad_tanimi: "fut_acikBakiye", yorum_hucresi: "fut_yorumBakiye"}
+  - {kod: T2, ad: "Fire oranı ort", ad_tanimi: "fut_fireOran", yorum_hucresi: "fut_yorumFire"}
+  - {kod: O1, ad: "Fire sapma", ad_tanimi: "fut_fireSapma", yorum_hucresi: "fut_yorumSapma"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "fut_tornadoZirve", yorum_hucresi: "fut_yorumTornado"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "fut_senaryoKarsilastirma", yorum_hucresi: "fut_yorumSenaryo"}
+  - {kod: O6, ad: "Yoğunlaşma HHI", ad_tanimi: "fut_hhi", yorum_hucresi: "fut_yorumHhi"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "fut_kaliteSkor", yorum_hucresi: "fut_yorumKalite"}
+  - {kod: M_SEN, ad: "Senaryo motoru", ad_tanimi: "fut_senaryoMotor", yorum_hucresi: "fut_yorumSenMotor"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "fut_tahminAralik", yorum_hucresi: "fut_yorumTahmin"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "fut_yuzdelikP90", yorum_hucresi: "fut_yorumP90"}
+
+karar_kurallari:
+  - kosul: "fire_veya_gecikme_kritik"
+    karar: "DURDUR"
+  - kosul: "uyari_esigi"
+    karar: "UYAR"
+  - kosul: "normal"
+    karar: "DEVAM"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - PANO
+  - KARTLAR
+  - AKIS
+  - KUYRUKLAR
+  - HESAP
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat A FAZ 3 #25 — A3 sevk hedefi"

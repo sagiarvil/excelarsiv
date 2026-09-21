@@ -1,0 +1,137 @@
+arketip: A3
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  karar_sayfasi: "KARAR_MOTORU"
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+testler:
+  olcek:
+    satir: 200
+    azami_hesap_saniye: 25.0
+
+urun:
+  slug: cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi
+  ad: "Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi"
+  karar: "Hangi müşteriye vadeli satışın durdurulacağını, kimin limitinin azaltılacağını ve hangi tahsilat aksiyonunun öncelikli olduğunu makine üretimi risk skoruyla belirler; veri yetersizse VERİ YOK der"
+  hedef_kullanici: "Finans ve kredi yöneticileri, tahsilat ekipleri, muhasebe uzmanları, satış yöneticileri"
+  mevzuat:
+    - "VUK (213 s.) md.182-198: defter tutma ve kayıt düzeni; cari hesap kayıtlarının dayanağı"
+  giris:
+    musteri_kartlari:
+      tablo: tblMusteriler
+      kolonlar: ["Müşteri Kodu", "Unvan", "Vergi Numarası", "Sektör", "Bölge", "Satış Sorumlusu", "İlk Çalışma Tarihi", "Varsayılan Vade", "Onaylı Risk Limiti", "Geçici Ek Limit", "Limit Bitiş Tarihi", "Teminat Türü", "Teminat Değeri", "Teminat Geçerlilik Tarihi", "Grup Şirketi", "Kritik Müşteri mi?", "Durum"]
+    faturalar:
+      tablo: tblFaturalar
+      kolonlar: ["Fatura Kayıt Numarası", "Fatura Numarası", "Müşteri Kodu", "Fatura Tarihi", "Vade Tarihi", "Fatura Tutarı", "Para Birimi", "Kur", "İade/İskonto", "İtirazlı Tutar", "Teminat Kapsamı", "Proje/Sipariş", "Satış Sorumlusu", "Belge Durumu"]
+    tahsilatlar:
+      tablo: tblTahsilatlar
+      kolonlar: ["Tahsilat Kayıt Numarası", "Tarih", "Müşteri Kodu", "Fatura Numarası", "Tahsilat Tutarı", "Ödeme Türü", "Banka/Kasa", "Çek/Senet Numarası", "Valör Tarihi", "Açıklama"]
+    teminatlar:
+      tablo: tblTeminatlar
+      kolonlar: ["Teminat Kayıt Numarası", "Müşteri Kodu", "Teminat Türü", "Belge Numarası", "Başlangıç Tarihi", "Geçerlilik Tarihi", "Nominal Değer", "Değerleme İndirimi", "Para Birimi"]
+    iletisim:
+      tablo: tblIletisim
+      kolonlar: ["Takip Kayıt Numarası", "Tarih", "Müşteri Kodu", "Yetkili Kişi", "Kanal", "Görüşme Sonucu", "Söz Verilen Tarih", "Söz Verilen Tutar", "Sonraki Aksiyon", "Sorumlu"]
+  esikler:
+    asgari_veri_sayisi: 6
+    esik_izle: 49
+    esik_limit_azalt: 69
+    esik_pesin: 84
+    esik_kritik: 85
+  rapor: "A4, PDF'e hazır; genel karar, KPI özeti, varsayımlar ve önerilen aksiyonlar"
+
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1Yaslandirma
+    yorum_hucresi: modulT1YaslandirmaYorum
+  - kod: T2
+    ad_tanimi: modulT2TahsilatOrt
+    yorum_hucresi: modulT2TahsilatOrtYorum
+  - kod: T3
+    ad_tanimi: modulT3Yogunlasma
+    yorum_hucresi: modulT3YogunlasmaYorum
+  - kod: T4
+    ad_tanimi: modulT4DonemFark
+    yorum_hucresi: modulT4DonemFarkYorum
+  - kod: T5
+    ad_tanimi: modulT5MutabakatFark
+    yorum_hucresi: modulT5MutabakatFarkYorum
+  - kod: T6
+    ad_tanimi: modulT6KirilimOran
+    yorum_hucresi: modulT6KirilimOranYorum
+  - kod: O1
+    ad_tanimi: modulO1TahsilatSapma
+    yorum_hucresi: modulO1TahsilatSapmaYorum
+  - kod: O2
+    ad_tanimi: modulO2RiskliMusteri
+    yorum_hucresi: modulO2RiskliMusteriYorum
+  - kod: O3
+    ad_tanimi: modulO3KotumsrSenaryo
+    yorum_hucresi: modulO3KotumsrSenaryoYorum
+  - kod: O4
+    ad_tanimi: modulO4NakitDonusum
+    yorum_hucresi: modulO4NakitDonusumYorum
+  - kod: O5
+    ad_tanimi: modulO5GecikmeMaliyeti
+    yorum_hucresi: modulO5GecikmeMaliyetiYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1TrendTahmini
+    yorum_hucresi: modulI1TrendTahminiYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+  - kod: I7
+    ad_tanimi: modulI7NakitAcigi
+    yorum_hucresi: modulI7NakitAcigiYorum
+
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 6000
+  Y2_kurulum_ikamesi_tl: 2500
+
+serbest_alternatif:
+  alternatifler:
+    - "Müşteri bakiyelerini ayrı ayrı el ile tutulan cari hesap tablosu"
+    - "Her ay mali müşavirden alınan açık alacak özeti"
+    - "Vadesi geçen faturaları sadece listeleyen ücretsiz yaşlandırma şablonları (karar üretmez)"
+    - "Risk skoru olmadan sezgisel 'kötü müşteri' hissiyle vadeli satış"
+    - "Tahsilat aksiyonlarını önceliksiz, son tarihsiz elle planlamak"
+  ayrimlar:
+    - madde: "Gecikme, vade, limit, teminat ve itiraz bileşenlerinden 0-100 risk skoru üretir"
+      karsilik: RiskSkoru
+    - madde: "Gerekçeli karar kapısı üretir; veri yoksa VERİ YOK der, sessiz 'her şey yolunda' demez"
+      karsilik: KararBildirimi
+    - madde: "Vadesi geçen alacakları rapor tarihine göre otomatik yaşlandırır"
+      karsilik: modulT1Yaslandirma
+    - madde: "İyimser/kötümser senaryo ve duyarlılıkla açık bakiye eğilimini ölçer"
+      karsilik: modulO3KotumsrSenaryo
+    - madde: "Gecikme maliyetini finansman oranıyla hesaplayarak kaybı TL olarak gösterir"
+      karsilik: modulO5GecikmeMaliyeti
+    - madde: "Müşteri yoğunlaşma riskini HHI endeksiyle ölçer"
+      karsilik: modulO6Hhi
+
+durum_haritasi:
+  durumlar: [ACIK, ISLEMDE, KAPALI]
+  kapali: [KAPALI]
+
+akis:
+  yetim_kontrol: true
+  zincir_kontrol: true

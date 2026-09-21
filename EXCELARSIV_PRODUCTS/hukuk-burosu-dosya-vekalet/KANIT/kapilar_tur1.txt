@@ -1,0 +1,113 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/hukuk-burosu-dosya-vekalet/HukukBurosuDosyaVekalet.xlsx
+SHA-256 : 95b0371cacf1e0aa70d5f8fed2207c0443ef636e1bc41284fa6dcab62a69e607
+ARKETİP : A3+A8
+TARİH   : 11.08.2026 22:27
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (21 sayfa)
+  GEÇTİ  G02   21 sayfa şifreli korumada
+  GEÇTİ  G03   557 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   5109 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+  UYARI  G07   4 gömülü sabit: [('AYARLAR', 'N25', '0,1'), ('AYARLAR', 'N37', '100000'), ('AYARLAR', 'N39', '10'), ('AYARLAR', 'N43', '0.9')]
+  GEÇTİ  G08   11 tablo, hesaplanan kolonlar tanımlı
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   21 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   47 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  UYARI  G15   5 olası taşma: ['RAPOR!A24 (65 krkt / genişlik 48)', 'ORNEK_VERI!A3 (40 krkt / genişlik 22)', 'AYARLAR!A3 (50 krkt / genişlik 22)', 'AYARLAR!F6 (20 krkt / genişlik 8)', 'AYARLAR!F9 (20 krkt / genişlik 8)']
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+  GEÇTİ  G17   8 grafik
+  GEÇTİ  G18   69 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  GEÇTİ  G24   Tablo kapasiteleri: [('PAYDASLAR', 'tblPaydas', 1001), ('DOSYA', 'tblDosya', 1001), ('VEKALET', 'tblVekalet', 1001), ('TAHSILAT', 'tblTahsilat', 1001), ('ANAHTAR', 'tblAnahtarA', 1001), ('ANAHTAR', 'tblAnahtarB', 1001), ('ESLESTIRME', 'tblEslesme', 1001), ('KOK_NEDEN', 'tblKok', 1001), ('AKIS', 'tblAkis', 1001), ('GIDER', 'tblGider', 1001), ('KARARLAR', 'tblKararlar', 1001)]
+
+======================================================================
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_DENETIM.md
+SEVK EDİLEBİLİR
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  Ö2    7 uç durum temiz: ['tumu_sifir→KRİTİK', 'tumu_bos→VERİ YOK', 'negatif_deger→DİKKAT', 'gelecek_tarih→DİKKAT', 'yinelenen_kayit→DİKKAT', 'tek_satir→DİKKAT', 'azami_deger→DİKKAT']
+
+==========================================================================
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_OLCEK.md
+SEVK EDİLEBİLİR
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    5109 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   69 ad tanımının hedefi dolu
+  GEÇTİ  D06    Sabitten türeyen sahte KPI yok
+  GEÇTİ  D13    Motor 1297 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 37 farklı canlı KPI
+  GEÇTİ  D09    8 grafik + tahmin katmanı mevcut
+! KALDI  D09b   1 grafik serisi düz sıfır — alıcı ilk ekranda boş görür: ["PANO: 'PANO'!$E$23:$E$26 tamamı sıfır/boş"]
+  GEÇTİ  D10    Tüm parametrelerde kaynak ve yürürlük tarihi dolu
+  GEÇTİ  D12    Çapraz tutarlılık sağlandı
+  GEÇTİ  D03    Derinlik puanı 145
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 34,000 TL ≥ eşik 29,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: 95b0371cacf1e0aa70d5f8fed2207c0443ef636e1bc41284fa6dcab62a69e607
+SONUÇ: 1 KALDI | rapor: KANIT/RAPOR_DEGER.md
+SEVK EDİLEMEZ
+
+[E] Eşleştirme     → eslestirme_kapilari.py  (arketip A8)
+------------------------------------------------------------------------------
+  GEÇTİ  E01   ANAHTAR normalize kolon/formül izi var
+  GEÇTİ  E01b  SPEC anahtar_stratejisi mevcut
+  GEÇTİ  E02   dört kova etiket izleri mevcut
+  GEÇTİ  E03   eşleşme oranı formülle veriden türüyor
+  GEÇTİ  E04   TANIMSIZ/elle incele kovası görünür
+  GEÇTİ  E05   duplike tespit izi var
+  GEÇTİ  E06   SPEC olcek_hedefi=50000 (A2 50k sözleşmesi)
+
+ÖZET E: 0 KALDI
+
+[A] İş Akışı       → akis_kapilari.py  (arketip A3+A8)
+------------------------------------------------------------------------------
+  GEÇTİ  A01   AYARLAR'da durum haritası izi var
+  GEÇTİ  A02   yetim/kaynak_kart_id izi var
+  GEÇTİ  A03   geçersiz geçiş uyarısı mevcut
+  GEÇTİ  A04   ZİNCİR KIRIK bayrağı mevcut
+  GEÇTİ  A05   kuyruk COUNTIFS/SUMIFS izi var
+  GEÇTİ  A06   durum kategori (açık/kapalı) izi var
+
+ÖZET A: 0 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        TEMİZ      (0 KALDI / 24 GEÇTİ)  [her ürün] 0.3sn
+  Ö  Dayanıklılık   TEMİZ      (0 KALDI / 1 GEÇTİ)  [her ürün] 17.6sn
+  D  Değer          KALDI      (1 KALDI / 15 GEÇTİ)  [her ürün] 3.0sn
+  M  Mevzuat        ATLANDI      [arketip gerektirmiyor] 0.0sn
+  E  Eşleştirme     TEMİZ      (0 KALDI / 7 GEÇTİ)  [arketip A8] 0.2sn
+  A  İş Akışı       TEMİZ      (0 KALDI / 6 GEÇTİ)  [arketip A3+A8] 0.2sn
+  F  Fizibilite     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  S  Saha           ATLANDI      [arketip gerektirmiyor] 0.0sn
+  R  Reçete         ATLANDI      [arketip gerektirmiyor] 0.0sn
+
+==============================================================================
+SONUÇ: 1 KALDI · SEVK EDİLEMEZ
+Kanıt: KANIT/ · SHA-256: 95b0371cacf1e0aa70d5f8fed2207c0443ef636e1bc41284fa6dcab62a69e607
+Birleşik karar raporu: KANIT/SEVK_KARARI.md

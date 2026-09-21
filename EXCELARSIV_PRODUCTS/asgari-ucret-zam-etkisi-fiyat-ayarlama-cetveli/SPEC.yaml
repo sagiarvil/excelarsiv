@@ -1,0 +1,133 @@
+arketip: A4
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 6
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+testler:
+  olcek:
+    satir: 1200
+
+urun:
+  slug: asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli
+  ad: "Asgari Ücret Zam Etkisi & Fiyat Ayarlama Cetveli"
+  karar: "Asgari ücret zammının işçilik maliyetine etkisini çalışan bazında hesaplar; maliyet artışını ürün/hizmet fiyatlarına yansıtmak için fiyat ayarlama cetveli üretir ve UYGUN / İNCELE / DURDUR kararı verir"
+  hedef_kullanici: "KOBİ sahipleri, işletme yöneticileri, mali müşavirler, fiyatlandırma ve İK bütçesi yapan profesyoneller"
+  mevzuat:
+    - "4857 s. İş Kanunu: işçi ücreti asgari ücretin altında olamaz; ücret defteri ve bordro yükümlülüğü"
+    - "5510 s. Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu md.80: sigorta prim oranları (işveren ve işçi payı)"
+    - "Asgari Ücret Yönetmeliği: asgari ücret tespiti ve yürürlük; zam duyurusu sonrası ücret uyarlaması"
+    - "Kıdem tazminatı tavanı (1475 s. md.14) asgari ücret zammından etkilenir; maliyet hesabında gözetilir"
+  giris:
+    calisanlar:
+      tablo: tblCalisan
+      kolonlar: [Çalışan Adı, İşe Giriş Tarihi, Zam Öncesi Brüt Ücret, Ücret Türü, Yeni Ücrete Bağlılık]
+    urunler:
+      tablo: tblUrun
+      kolonlar: [Ürün/Hizmet Adı, Birim Satış Fiyatı, Birim Başına İşçilik, Aylık Adet]
+  esikler:
+    sgk_isveren_oran: 0.205
+    issizlik_isveren_oran: 0.02
+    sgk_isci_oran: 0.14
+    issizlik_isci_oran: 0.01
+    maliyet_artis_esik: 0.10
+    fiyat_yansitma_esik: 0.15
+    anomali_z_esik: 2.00
+    veri_kalite_iyi: 90
+    veri_kalite_orta: 70
+  rapor: "A4, PDF'e hazır; yönetici özeti, maliyet artışı, fiyat ayarlama önerisi ve aksiyonlar"
+
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1KidemOrt
+    yorum_hucresi: modulT1KidemYorum
+  - kod: T2
+    ad_tanimi: modulT2UcretEgim
+    yorum_hucresi: modulT2UcretEgimYorum
+  - kod: T3
+    ad_tanimi: modulT3MaliyetParetoPay
+    yorum_hucresi: modulT3MaliyetParetoYorum
+  - kod: T4
+    ad_tanimi: modulT4DonemFark
+    yorum_hucresi: modulT4DonemFarkYorum
+  - kod: T5
+    ad_tanimi: modulT5MutabakatFark
+    yorum_hucresi: modulT5MutabakatYorum
+  - kod: T6
+    ad_tanimi: modulT6BasabasUcretYuku
+    yorum_hucresi: modulT6BasabasYorum
+  - kod: O1
+    ad_tanimi: modulO1AnomaliOran
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2TornadoZirve
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3SenaryoBazFark
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O4
+    ad_tanimi: modulO4NakitEtkiOran
+    yorum_hucresi: modulO4NakitEtkiYorum
+  - kod: O6
+    ad_tanimi: modulO6MaliyetHhi
+    yorum_hucresi: modulO6MaliyetHhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkoru
+    yorum_hucresi: modulO8KaliteYorum
+  - kod: I1
+    ad_tanimi: modulI1MaliyetTahminOrta
+    yorum_hucresi: modulI1MaliyetTahminYorum
+  - kod: I2
+    ad_tanimi: modulI2MaliyetP90
+    yorum_hucresi: modulI2MaliyetP90Yorum
+  - kod: I3
+    ad_tanimi: modulI3MaliyetNpv
+    yorum_hucresi: modulI3MaliyetNpvYorum
+  - kod: I7
+    ad_tanimi: modulI7AcikKopru
+    yorum_hucresi: modulI7AcikYorum
+
+deger:
+  satis_fiyati_tl: 1490
+  Y1_danisman_ikamesi_tl: 4500
+  Y2_kurulum_ikamesi_tl: 2500
+
+serbest_alternatif:
+  alternatifler:
+    - "Asgari ücret zammı sonrası işçilik maliyetini ve fiyat artışını elle hesaplayan hesap tablosu"
+    - "Mali müşavirin zam sonrası maliyet ve fiyat danışmanlığı için talep ettiği bedel"
+    - "Ücretsiz Excel şablonları ve genel amaçlı takip araçları"
+    - "Genel amaçlı yapay zekâ ile elle kurulum ve doğrulama"
+    - "Zam sonrası fiyatları güncellememek ve marj kaybını sessizce kabul etmek"
+  ayrimlar:
+    - madde: "Asgari ücret zammını çalışan bazında işveren maliyetine dönüştürür; SGK ve işsizlik işveren paylarını otomatik ekler"
+      karsilik: ToplamMaliyetArtis
+    - madde: "Zam öncesi ve sonrası işçilik maliyetini dönem karşılaştırmasıyla üretir"
+      karsilik: modulT4DonemFark
+    - madde: "İşçilik maliyeti artışını ürün/hizmet fiyatına yansıtma oranını cetvel olarak üretir"
+      karsilik: FiyatYansitmaOrani
+    - madde: "Kötümser/baz/iyimser zam yansıtma senaryolarında fiyat ve marjı tek ekranda üretir"
+      karsilik: modulO3SenaryoBazFark
+    - madde: "Tornado duyarlılıkla maliyet artışını en çok etkileyen değişkeni sıralar"
+      karsilik: modulO2TornadoZirve
+    - madde: "Kayıtlı ile hesaplanan işçilik maliyeti farkını mutabakat denetimiyle üretir"
+      karsilik: modulT5MutabakatFark
+    - madde: "Maliyet artışı tahminini ve P90 aralığını üretir; sonuç ad tanımlı ve raporlanabilir"
+      karsilik: modulI1MaliyetTahminOrta
+    - madde: "Maliyet artışının net bugünkü değerini ve nakit açığı köprüsünü üretir; sonuç ad tanımlıdır"
+      karsilik: modulI3MaliyetNpv
+
+durum_haritasi:
+  durumlar: [ACIK, ISLEMDE, KAPALI]
+  kapali: [KAPALI]
+
+akis:
+  yetim_kontrol: true
+  zincir_kontrol: true

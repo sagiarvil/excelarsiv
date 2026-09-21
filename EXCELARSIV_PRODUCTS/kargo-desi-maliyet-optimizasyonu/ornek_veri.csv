@@ -1,0 +1,7 @@
+taraf,siparis_no,en_cm,boy_cm,yukseklik_cm,agirlik_kg,desi_carpani,adet,bolge,tasiyici,tarif_tl_desi,alternatif_tarif,iade_oran,yorum_ab,not
+A,SIP20001,25,19,13,0.75,3000,1,IcAnadolu,,,,,A,eslesir
+B,SIP20001,,,,,,IcAnadolu,Yurtici,8.5,8.93,0.02,,eslesir
+A,SIP20002,30,23,16,1.10,3000,2,Marmara,,,,,A,eslesir
+B,SIP20002,,,,,,Marmara,Aras,9.7,10.19,0.03,,eslesir
+A,SIP20003,35,27,19,1.45,3000,1,Ege,,,,,B,kisa_uzun
+B,SIP20003,,,,,,Ege,MNG,10.9,9.27,0.04,,kisa_uzun

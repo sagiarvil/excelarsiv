@@ -1,0 +1,108 @@
+# =============================================================================
+# SPEC — Hat C C-09 · Defter Beyan e-Arşiv Aktarım Düzenleyici
+# Ayırt edici: e-Arşiv satır → DBS kolon haritası + hata listesi; API yok
+# =============================================================================
+
+urun:
+  kod: DBE-PRO
+  ad: "Defter Beyan e-Arşiv Aktarım Düzenleyici"
+  surum: "1.0.0"
+  slug: defter-beyan-e-arsiv-aktarim
+  dosya: DefterBeyanEArsivAktarim.xlsx
+  prefix: dbe_
+  satis_fiyati_tl: 990
+  hedef_kullanici: "SMMM, Defter Beyan mükellefi"
+
+arketip: A2
+fiyat: 990
+olcek_hedefi: 50000
+
+deger:
+  satis_fiyati_tl: 990
+  Y1_danisman_ikamesi_tl: 2500
+  Y2_kurulum_ikamesi_tl: 1200
+  Y3_onlenen_hata_tl: 5000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "DBS e-arşiv aktarım düzenleme danışmanlığı"
+
+deger_vektoru: ["Z", "R", "K"]
+uc_rol:
+  - {rol: "Muhasebe", is_bitince: "e-Arşiv satırlarını DBS kolonlarına map eder"}
+  - {rol: "SMMM", is_bitince: "Hata listesini temizleyip aktarımı kapatır"}
+  - {rol: "GİB / denetçi", is_bitince: "Kanıt aktarım raporunu görür"}
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "Defter Beyan dönem kapanışı −10 gün"
+  tarih_penceresi: "dbs_kapanis_oncesi_10_gun"
+
+rakip_ayrim:
+  - {sinif: R1_jenerik, ayrim: "DBS kolon haritası AYARLAR'da", karsilik: "dbe_kolonHarita"}
+  - {sinif: R1_jenerik, ayrim: "Hata listesi (zorunlu alan/format)", karsilik: "dbe_hataListesi"}
+  - {sinif: R2_bedava, ayrim: "Makrosuz; API yok", karsilik: "dbe_kvkkBeyani"}
+  - {sinif: R1_jenerik, ayrim: "Dört kova kaynak↔hedef eşleşme", karsilik: "dbe_kovaButunluk"}
+  - {sinif: R4, ayrim: "VERİ YOK/UYGUN/İNCELE/DURDUR", karsilik: "dbe_kararKapi"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["Elle kolon kopyala", "DBS manuel giriş", "Ön muhasebe export"]
+  ayrimlar:
+    - {madde: "Kolon haritası tek tabloda", karsilik: "dbe_kolonHarita"}
+    - {madde: "Hata listesi otomatik", karsilik: "dbe_hataListesi"}
+    - {madde: "Normalize fatura no", karsilik: "dbe_normAnahtar"}
+    - {madde: "Eşleşme oranı canlı", karsilik: "dbe_eslesmeOrani"}
+    - {madde: "Boş dosyada VERİ YOK", karsilik: "dbe_kararKapi"}
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(fatura_no,\" \",\"\")))"
+  ikincil: "tarih+tutar"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+analitik_moduller:
+  - {kod: T1, ad: "Eşleşme oranı", ad_tanimi: "dbe_modulT1", yorum_hucresi: "dbe_modulT1Yorum"}
+  - {kod: T2, ad: "Hata sayısı", ad_tanimi: "dbe_modulT2", yorum_hucresi: "dbe_modulT2Yorum"}
+  - {kod: O1, ad: "Anomali", ad_tanimi: "dbe_modulO1", yorum_hucresi: "dbe_modulO1Yorum"}
+  - {kod: O2, ad: "Tornado", ad_tanimi: "dbe_modulO2", yorum_hucresi: "dbe_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "dbe_modulO3", yorum_hucresi: "dbe_modulO3Yorum"}
+  - {kod: O6, ad: "Yoğunlaşma", ad_tanimi: "dbe_modulO6", yorum_hucresi: "dbe_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "dbe_modulO8", yorum_hucresi: "dbe_modulO8Yorum"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "dbe_modulI1", yorum_hucresi: "dbe_modulI1Yorum"}
+  - {kod: I2, ad: "P90", ad_tanimi: "dbe_modulI2", yorum_hucresi: "dbe_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: hata_cok, karar: "DURDUR"}
+  - {kosul: hata_var, karar: "İNCELE"}
+  - {kosul: temiz, karar: "UYGUN"}
+
+sayfa_akisi: [KAPAK, VERI_A, VERI_B, ANAHTAR, MOTOR, ESLESTIRME, HATA_LISTE, KOK_NEDEN, PANO, AKSIYON, KANIT_RAPORU, KONTROLLER, ORNEK_VERI, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+  azami_hesap_saniye: 60.0
+  olcek_satir: 5000
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "Hat C C-09 — API/XML yasak; kullanıcı tam yetki"}

@@ -1,0 +1,177 @@
+# =============================================================================
+# SPEC — Hat B Y-01 · GES Yatırım Fizibilite Simülatörü
+# Durum: ONAYLANDI — Enerji dikey pilotu (D0 7/7)
+# Manda: v6 · arketip A6
+# =============================================================================
+
+urun:
+  kod: GYF-PRO
+  slug: ges-yatirim-fizibilite
+  ad: "GES Yatırım Fizibilite Simülatörü"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "GES yatırımcısı, tesis müdürü, CFO, enerji danışmanı"
+
+arketip: A6
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 30000
+  Y2_kurulum_ikamesi_tl: 10000
+  Y3_onlenen_hata_tl: 250000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "GES fizibilite danışmanlığı + nakit akışı model kurulum ikamesi"
+
+deger_vektoru: ["P", "R", "İ"]
+uc_rol:
+  - rol: "Tesis sahibi / elektrik mühendisi"
+    is_bitince: "Çatı/saha kapasite, tüketim eşleştirme ve CAPEX/OPEX girdilerini girer"
+  - rol: "Yatırımcı / CFO"
+    is_bitince: "NPV/IRR aralığı ve YATIRIM YAPILIR / YATIRIM YAPMA kararını verir"
+  - rol: "Banka kredi komitesi"
+    is_bitince: "KANIT_RAPORU ile varsayım kaynaklı fizibilite özetini dosyalar"
+
+lansman_tetigi:
+  sinif: Tarife_veya_tesvik_degisimi
+  aciklama: "YEKDEM/tarife değişimi veya çatı GES teşvik açılışı — fizibilite yeniden hesap"
+  tarih_penceresi: "tarife_teblig_sonrasi_30_gun"
+
+fizibilite:
+  finansman_senaryolari: ["OZ_KAYNAK", "KREDI"]
+  kotumser_karar: "YATIRIM YAPMA"
+  capex_opex: true
+  npv_irr_tornado: true
+
+rakip_ayrim:
+  - sinif: R1_jenerik_sablon
+    ayrim: "Tüketim eşleştirmeli çatı/saha GES fizibilite (öz tüketim + şebeke satış)"
+    karsilik: "gyf_tuketimEslesme"
+  - sinif: R1_jenerik_sablon
+    ayrim: "CAPEX/OPEX ayrık nakit akışı + degradasyon"
+    karsilik: "gyf_capexOpex"
+  - sinif: R2_danisman_excel
+    ayrim: "Öz kaynak / kredi finansman + NPV/IRR tornado"
+    karsilik: "gyf_finansmanKarsilastirma"
+  - sinif: R2_danisman_excel
+    ayrim: "Kötümser YATIRIM YAPMA karar yolu"
+    karsilik: "gyf_kararMetni"
+  - sinif: R4_broşur
+    ayrim: "Varsayım satırında kaynak+güven; bankaya sunulabilir KANIT_RAPORU"
+    karsilik: "gyf_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Tedarikçi teklifindeki tek satırlık geri ödeme hesabı"
+    - "Danışmanın sabit tarifeli Excel'i"
+    - "Basit amortisman / geri ödeme cetveli"
+  ayrimlar:
+    - madde: "Öz tüketim + şebeke satış eşleştirmeli gelir modeli"
+      karsilik: "gyf_tuketimEslesme"
+    - madde: "CAPEX/OPEX ayrımı + degradasyonlu 25 yıllık akış"
+      karsilik: "gyf_capexOpex"
+    - madde: "Öz kaynak vs kredi finansman senaryosu"
+      karsilik: "gyf_finansmanKarsilastirma"
+    - madde: "NPV/IRR aralık + tornado + kötümser YATIRIM YAPMA"
+      karsilik: "gyf_kararMetni"
+    - madde: "Altın vakalar + SHA-256 kanıt paketi"
+      karsilik: "gyf_vakaDurum"
+
+mevzuat:
+  kurallar: [GYF-001, GYF-002, GYF-003, GYF-004, GYF-005]
+  vakalar: ges_fizibilite_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - yekdem_tarife_yenileme
+
+analitik_moduller:
+  - kod: T1
+    ad: "Yıllık üretim / degradasyon"
+    ad_tanimi: "gyf_modulT1"
+    yorum_hucresi: "gyf_modulT1Yorum"
+  - kod: T2
+    ad: "Tüketim eşleştirme geliri"
+    ad_tanimi: "gyf_modulT2"
+    yorum_hucresi: "gyf_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo NPV sapması"
+    ad_tanimi: "gyf_modulO1"
+    yorum_hucresi: "gyf_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "gyf_duyarlilikSira"
+    yorum_hucresi: "gyf_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "gyf_senaryoKarsilastirma"
+    yorum_hucresi: "gyf_yorumSenaryo"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "gyf_modulO8"
+    yorum_hucresi: "gyf_modulO8Yorum"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "gyf_tahminAralik"
+    yorum_hucresi: "gyf_yorumTahmin"
+  - kod: I2
+    ad: "NPV yüzdelik P90"
+    ad_tanimi: "gyf_modulI2"
+    yorum_hucresi: "gyf_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "npv_pozitif_ve_geri_odeme_esik_alti"
+    karar: "YATIRIM YAPILIR"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "kotumser_npv_negatif"
+    karar: "YATIRIM YAPMA"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - VARSAYIMLAR
+  - KURALLAR
+  - MOTOR
+  - FINANSMAN
+  - SENARYO
+  - PANO
+  - KARAR
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "KARAR"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-01 — enerji dikey pilotu; D0 7/7; alan uzmanı onayı canlıya alma direktifi"

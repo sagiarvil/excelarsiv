@@ -1,0 +1,85 @@
+arketip: A1
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+
+urun:
+  slug: asiri-dusuk-teklif-savunma-robotu
+  ad: "İhale Elinden Gidiyor Mu? (Aşırı Düşük Teklif Savunma Robotu)"
+  karar: "Teklifin aşırı düşük kapsamına girip girmediğini tespit etmek; giriyorsa kabul edilebilir açıklama setini ve güçlendirme aksiyonlarını üretmek"
+  hedef_kullanici: "Yapım işi ve mal alımı ihalelerine giren müteahhit, yüklenici ve teklif hazırlayan firmalar"
+  mevzuat:
+    - "4734 sayılı Kamu İhale Kanunu md.38: sınır değer altı teklifler aşırı düşük sayılır, açıklama istenir"
+    - "Yapım İşleri İhaleleri Uygulama Yönetmeliği md.61-62: sınır değer hesabı ve sınır değer katsayısı (N)"
+    - "Kamu İhale Genel Tebliği ve KİK İşçilik Analizleri Tebliği: açıklama bileşenleri ve dayanak esasları"
+  giris:
+    ihale_karti:
+      alanlar: [ihaleAdi, idare, ihaleTarihi, yaklasikMaliyet, sinirDegerYontem, sinirDegerKatsayisi, kendiTeklifTutari, fiyatFarkiMaddeVarMi]
+    rakip_teklifler:
+      tablo: tblRakipler
+      kolonlar: [rakipAdi, teklifTutari, gecerliMi]
+    teklif_bilesenleri:
+      tablo: tblBilesenler
+      kolonlar: [kalemAdi, birim, miktar, birimFiyat, rayicBirimFiyat, dayanakTuru]
+  esikler:
+    asiri_dusuk_esik: 1.00        # teklif/sınır değer oranı < 1,00 → AÇIKLAMA GEREKİR
+    dikkat_esik: 1.05             # güvenlik payı %5'in altı → DİKKAT bölgesi
+    anomali_z_esigi: 2.00         # bileşen birim fiyatı rayiçten |Z|>2 saparsa bayrak
+    dayanak_esik: 0.80            # açıklanan bileşenlerin toplam ağırlığı < %80 ise savunma zayıf
+  rapor: "A4, PDF'e hazır; yönetici özeti, sınır değer karşılaştırması, açıklama dayanak listesi ve risk çekinceleri"
+
+analitik_moduller:
+  - kod: T2
+    ad_tanimi: modulT2EndeksEgim
+    yorum_hucresi: modulT2EndeksYorum
+  - kod: T3
+    ad_tanimi: modulT3ParetoPayi
+    yorum_hucresi: modulT3ParetoYorum
+  - kod: T6
+    ad_tanimi: modulT6KirilimOrani
+    yorum_hucresi: modulT6KirilimYorum
+  - kod: O1
+    ad_tanimi: modulO1AnomaliSayisi
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2TornadoZirve
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3SenaryoBaz
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkoru
+    yorum_hucresi: modulO8KaliteYorum
+  - kod: I1
+    ad_tanimi: modulI1TahminOrta
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2P90
+    yorum_hucresi: modulI2Yorum
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 22000
+  Y2_kurulum_ikamesi_tl: 6000
+
+serbest_alternatif:
+  alternatifler:
+    - "İdarelerin açık yayımladığı sınır değer hesaplama cetvelleri"
+    - "İhale mevzuat danışmanının saatlik/teklif başı danışmanlık ücreti"
+    - "Ücretsiz Excel şablonları"
+    - "Genel amaçlı yapay zekâ ile elle kurulum"
+  ayrimlar:
+    - madde: "Sınır değeri N katsayısı ve yöntem seçimiyle otomatik hesaplar; yöntem değişiminde tüm cetveli elle güncelleme gerektirmez"
+      karsilik: SdSinirDeger
+    - madde: "Teklifi bölgeye (AŞIRI DÜŞÜK/SINIRDA/GÜVENLİ) otomatik yerleştirir ve güvenlik payını TL/ora bazında gösterir"
+      karsilik: SdKontrol
+    - madde: "Bileşen birim fiyatlarının rayiçten sapmasını kalem kalem ölçer; risk bayrağı ve ağırlık üretir"
+      karsilik: modulT6KirilimOrani
+    - madde: "Savunma dayanak ağırlığını denetleyip ZAYIF/YETERLİ kararı üretir; dayanaksız kalemleri listeler"
+      karsilik: SdSavunmaGucu
+    - madde: "Tornado duyarlılıkla hangi değişkenin sınır değeri en çok etkilediğini sıralar"
+      karsilik: modulO2TornadoZirve
+    - madde: "Rakip teklif anomalilerini Z skoruyla tespit eder; değerlendirme dışı teklifleri ortalamadan ayırır"
+      karsilik: modulO1AnomaliSayisi

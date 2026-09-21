@@ -1,0 +1,7 @@
+taraf,hesap_kodu,hesap_adi,borc,alacak,donem,hesap_sinifi,beklenen_bakiye,beklenen_oran,sektor_esik,yorum_ab,not
+A,HK1001,Hesap 1,5085,4870,2026-Q2,DonenVarlik,,,,,A,eslesir
+B,HK1001,,,,,,198.0,0.05,0.08,,eslesir
+A,HK1002,Hesap 2,6370,6040,2026-Q3,DuranVarlik,,,,,A,eslesir
+B,HK1002,,,,,,320.0,0.06,0.10,,eslesir
+A,HK1003,Hesap 3,7655,7210,2026-Q4,KisaBorc,,,,,B,kisa_uzun
+B,HK1003,,,,,,410.0,0.07,0.12,,kisa_uzun

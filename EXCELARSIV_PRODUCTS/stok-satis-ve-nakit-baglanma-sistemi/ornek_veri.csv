@@ -1,0 +1,7 @@
+Tarih;Ürün;Hareket Türü;Adet;Birim Alış Fiyatı (₺);Depo;Tutar (₺)
+05.01.2026;Ürün A;Giriş;100;850;Ana Depo;85000
+12.01.2026;Ürün B;Giriş;60;1250;Ana Depo;75000
+03.02.2026;Ürün A;Çıkış;40;850;Ana Depo;34000
+18.02.2026;Ürün C;Giriş;90;420;Yedek Depo;37800
+07.03.2026;Ürün B;Çıkış;25;1250;Ana Depo;31250
+21.03.2026;Ürün A;Giriş;80;900;Ana Depo;72000

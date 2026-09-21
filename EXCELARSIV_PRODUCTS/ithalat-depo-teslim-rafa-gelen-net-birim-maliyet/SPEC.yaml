@@ -1,0 +1,127 @@
+olcek_hedefi: 50000
+arketip: A2
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 6
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+testler:
+  olcek:
+    satir: 1200
+
+urun:
+  slug: ithalat-depo-teslim-rafa-gelen-net-birim-maliyet
+  ad: "İthalat Depo Teslim (Rafa Gelen) Net Birim Maliyet"
+  karar: "İthal edilen ürünün depo teslim (rafa gelen) net birim maliyetini FOB kıymet, navlun/sigorta, gümrük vergisi, ÖTV ve KDV matrah zinciriyle hesaplar; yurt içi operasyon masraflarını ürünlere dağıtır ve UYGUN / İNCELE / DURDUR kararı verir"
+  hedef_kullanici: "İthalatçı firmalar, dış ticaret sorumluları, mali müşavirler, depo ve satın alma yöneticileri, stok maliyeti doğrulayan KOBİ sahipleri"
+  mevzuat:
+    - "4458 s. Gümrük Kanunu: gümrük kıymeti (FOB/CIF), beyan, gümrük vergisi tahakkuku"
+    - "3065 s. KDV Kanunu md.21: ithalatta KDV matrahı = CIF + gümrük vergisi + ÖTV + İGV + KKDF"
+    - "4760 s. ÖTV Kanunu: ithalatta ÖTV matrahı = CIF + gümrük vergisi (özel tüketim vergisi listesi)"
+    - "İthalat Rejimi Kararı: gümrük vergisi oranları; sigorta götürü bedeli uygulaması"
+  giris:
+    urunler:
+      tablo: tblUrun
+      kolonlar: [Ürün Adı, Birim, Adet, FOB Birim Fiyat, Döviz Cinsi, Kur, Navlun/Sigorta Oranı, Gümrük Vergisi Oranı, ÖTV Oranı, KDV Oranı]
+    masraflar:
+      tablo: tblMasraf
+      kolonlar: [Masraf Kalemi, Tutar, Döviz Cinsi]
+  esikler:
+    vergi_yuk_esik: 0.25
+    anomali_z_esik: 2.00
+    veri_kalite_iyi: 90
+    veri_kalite_orta: 70
+    mutabakat_esik_oran: 0.05
+    senaryo_etki_esik: 0.15
+  rapor: "A4, PDF'e hazır; yönetici özeti, depo teslim birim maliyet, vergi yükü ve aksiyonlar"
+
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1BirimMaliyetOrt
+    yorum_hucresi: modulT1BirimMaliyetYorum
+  - kod: T2
+    ad_tanimi: modulT2MaliyetEgim
+    yorum_hucresi: modulT2MaliyetEgimYorum
+  - kod: T3
+    ad_tanimi: modulT3ParetoPay
+    yorum_hucresi: modulT3ParetoYorum
+  - kod: T4
+    ad_tanimi: modulT4DonemFark
+    yorum_hucresi: modulT4DonemFarkYorum
+  - kod: T5
+    ad_tanimi: modulT5MutabakatFark
+    yorum_hucresi: modulT5MutabakatYorum
+  - kod: T6
+    ad_tanimi: modulT6VergiYukOran
+    yorum_hucresi: modulT6VergiYukYorum
+  - kod: O1
+    ad_tanimi: modulO1AnomaliOran
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2TornadoZirve
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3SenaryoFark
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O4
+    ad_tanimi: modulO4NakitEtkiOran
+    yorum_hucresi: modulO4NakitEtkiYorum
+  - kod: O6
+    ad_tanimi: modulO6MaliyetHhi
+    yorum_hucresi: modulO6MaliyetHhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkoru
+    yorum_hucresi: modulO8KaliteYorum
+  - kod: I1
+    ad_tanimi: modulI1MaliyetTahmin
+    yorum_hucresi: modulI1MaliyetTahminYorum
+  - kod: I2
+    ad_tanimi: modulI2MaliyetP90
+    yorum_hucresi: modulI2MaliyetP90Yorum
+  - kod: I3
+    ad_tanimi: modulI3MaliyetNpv
+    yorum_hucresi: modulI3MaliyetNpvYorum
+  - kod: I7
+    ad_tanimi: modulI7NakitAcik
+    yorum_hucresi: modulI7NakitAcikYorum
+
+deger:
+  satis_fiyati_tl: 1490
+  Y1_danisman_ikamesi_tl: 4000
+  Y2_kurulum_ikamesi_tl: 2500
+
+serbest_alternatif:
+  alternatifler:
+    - "Depo teslim birim maliyeti elle FOB/kur/vergi matrahı zinciriyle hesap tablosunda hesaplamak"
+    - "Dış ticaret danışmanının her sevkiyat için ithalat maliyeti raporlama bedeli"
+    - "Ücretsiz Excel şablonları ve genel amaçlı takip araçları"
+    - "Gümrük müşavirinin her ürün için ayrı hesap üretmesi"
+    - "Maliyeti yuvarlayıp (FOB×kur×1.3 gibi) kaba paylarla stok maliyetine işlemek"
+  ayrimlar:
+    - madde: "FOB kıymetten depo teslim maliyete giden adım zincirini (FOB→navlun→CIF→GV→ÖTV→KDV→masraf) ürün satırında tek formülle üretir"
+      karsilik: ToplamDepoTeslimMaliyeti
+    - madde: "Yurt içi operasyon masraflarını ürünlerin FOB payıyla orantılı dağıtır; masraf tablosu ayrıdır"
+      karsilik: ToplamYurtIciMasraf
+    - madde: "Bileşik vergi yükünü (GV+ÖTV+KDV matrah zinciri) ürün bazında raporlar"
+      karsilik: modulT6VergiYukOran
+    - madde: "Kötümser/baz/iyimser kur ve oran senaryolarında depo teslim maliyeti ve karar değişimini üretir"
+      karsilik: modulO3SenaryoFark
+    - madde: "Tornado duyarlılıkla depo teslim maliyeti en çok etkileyen değişkeni sıralar"
+      karsilik: modulO2TornadoZirve
+    - madde: "Hesaplanan toplam maliyet ile beyan/giriş toplamları arasındaki mutabakat farkını denetler"
+      karsilik: modulT5MutabakatFark
+    - madde: "Birim maliyet tahmini, P90 aralığı ve NPV değerini üretir; sonuç ad tanımlı ve raporlanabilir"
+      karsilik: modulI1MaliyetTahmin
+    - madde: "Peşin ödenen ithal vergilerinin nakit açığı köprüsünü üretir; sonuç ad tanımlıdır"
+      karsilik: modulI7NakitAcik
+
+anahtar_stratejisi:
+  kisa_uzun_senaryo: true
+  norm: UPPER_SUBSTITUTE

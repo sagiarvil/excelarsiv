@@ -1,0 +1,88 @@
+arketip: A7
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: uretim-recetesi-ve-zam-yansitma-hesaplayici
+  ad: "Üretim Reçetesi & Zam Yansıtma Hesaplayıcı"
+  karar: "Reçetedeki hammadde kalemlerinin miktar, birim fiyat, fire ve zam oranlarıyla eski ve yeni reçete maliyetini üretir; hammadde zamlarının ürün bazında maliyet artışına dönüşümünü ve hedef kâr marjını koruyan önerilen satış fiyatını hesaplar; genel maliyet artışını eşiklerle karşılaştırarak ZAM YANSIT/KISMİ YANSIT/FİYATI KORU kararını gerekçesiyle üretir ve önerilen aksiyonları gösterir"
+  moduller:
+    - zaman_serisi_projeksiyon
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - yogunlasma_analizi
+    - anomali_tespiti
+    - kalite_skoru
+    - karar_kapisi
+    - aksiyon_uretici
+    - yuzdelik_dilim
+    - esik_kirilim
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1500
+    azami_hesap_saniye: 30.0
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1OrtMarj
+    yorum_hucresi: modulT1OrtMarjYorum
+  - kod: T2
+    ad_tanimi: modulT2OrtZam
+    yorum_hucresi: modulT2OrtZamYorum
+  - kod: O1
+    ad_tanimi: modulO1KarSapmasi
+    yorum_hucresi: modulO1KarSapmasiYorum
+  - kod: O2
+    ad_tanimi: modulO2EnYuksekFark
+    yorum_hucresi: modulO2EnYuksekFarkYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1Tahmin
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2P90
+    yorum_hucresi: modulI2P90Yorum
+deger:
+  satis_fiyati_tl: 1490
+  Y1_danisman_ikamesi_tl: 6000
+  Y2_kurulum_ikamesi_tl: 1500
+serbest_alternatif:
+  alternatifler:
+    - "Reçete maliyetini muhasebe/üretim sisteminden veya hesap makinesiyle kalem kalem çıkarmak"
+    - "Hammadde zamlarını teklif ve faturalardan elle toplayıp yeni reçete maliyetini ayrı ayrı güncellemek"
+    - "Fire, işçilik ve genel üretim giderlerini ayrı Excel sayfalarında tutup birim maliyeti manuel birleştirmek"
+    - "Zam sonrası fiyatı hedef kâr marjına göre yeniden fiyatlamadan sezgisel olarak güncellemek"
+    - "Her ürün için eski/yeni maliyet farkını aylarca elle toplayıp yönetici raporu ve zam gerekçesi hazırlamak"
+  ayrimlar:
+    - madde: "Reçete kalemlerinde miktar, birim fiyat, fire ve zam oranlarından eski/yeni reçete maliyetini tek tabloda canlı formülle üretir; alternatifte her kalem hesap makinesiyle çıkarılır."
+      karsilik: UretimToplamZamSonrasiMaliyet
+    - madde: "Zam yansıtma sonrası genel maliyet artışını ve hedef kâr marjını koruyan önerilen satış fiyatını ürün bazında üretir; alternatifte fiyat güncellemesi sezgiseldir."
+      karsilik: UretimEnYuksekArtis
+    - madde: "Genel maliyet artışını eşiklerle karşılaştırarak ZAM YANSIT/KISMİ YANSIT/FİYATI KORU kararını gerekçesi ve önerilen aksiyonlarla üretir; alternatifte karar belgesi elle yazılır."
+      karsilik: UretimKarar
+    - madde: "Zam senaryosu bant aralığı ve hammadde duyarlılık (tornado) analizi ile maliyet artışının belirsizlik aralığını ve en etkili değişkeni gösterir; alternatifte duyarlılık analizi yoktur."
+      karsilik: modulO3Senaryo
+    - madde: "Maliyet yoğunlaşmasını (HHI), kalem fark sapmasını ve veri kalite skorunu ölçerek karar kapısına güven katmanı ekler; alternatifte bu analizler yoktur."
+      karsilik: modulO8KaliteSkor
+
+recete:
+  versiyonlama: true

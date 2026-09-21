@@ -1,0 +1,159 @@
+# =============================================================================
+# SPEC — Hat A #29 · İSG Risk Değerlendirme Pro (6331)
+# Durum: ONAYLANDI — FAZ 1 (4. pilot; #11 ile sırayla)
+# =============================================================================
+
+urun:
+  kod: ISG-PRO
+  ad: "İSG Risk Değerlendirme Pro (6331)"
+  surum: "1.0.0"
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "İSG uzmanı, işveren vekili, denetim hazırlığı"
+
+arketip: A4
+fiyat: 7900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 6000
+  Y3_onlenen_hata_tl: 20000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "İSG risk değerlendirme danışmanlığı + şablon kurulum"
+
+deger_vektoru: ["R", "Z", "P"]
+uc_rol:
+  - rol: "İSG uzmanı"
+    is_bitince: "Risk envanterini skorlar"
+  - rol: "İşveren vekili"
+    is_bitince: "Eylem planını onaylar"
+  - rol: "Denetçi"
+    is_bitince: "KANIT_RAPORU ile dosyayı inceler"
+
+lansman_tetigi:
+  sinif: Olay
+  aciklama: "Denetim dalgası / yıllık risk değerlendirme yenileme"
+  tarih_penceresi: "yillik_yenileme"
+
+rakip_ayrim:
+  - sinif: R2_bedava
+    ayrim: "Senaryo + eylem yaşlandırma + skor dağılımı"
+    karsilik: "isg_skorDagilim"
+  - sinif: R2_bedava
+    ayrim: "Denetime sunulabilir kanıt + imza"
+    karsilik: "isg_kanitRaporu"
+  - sinif: R1_jenerik
+    ayrim: "6331 madde atıflı puanlama matrisi"
+    karsilik: "isg_maddeAtif"
+  - sinif: R1_jenerik
+    ayrim: "Geçersiz durum geçişi uyarısı"
+    karsilik: "isg_gecersizGecis"
+  - sinif: R4_yazilim
+    ayrim: "Çevrimdışı, makro yok, KVKK"
+    karsilik: "isg_kvkkBeyani"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "ÇSGB örnek form"
+    - "Word risk listesi"
+    - "Danışman PDF'i"
+  ayrimlar:
+    - madde: "L-matris / Fine-Kinney seçimli"
+      karsilik: "isg_puanlamaMatrisi"
+    - madde: "Eylem planı durum makinesi"
+      karsilik: "isg_eylemDurum"
+    - madde: "Yenileme takvimi"
+      karsilik: "isg_yenilemeTakvim"
+    - madde: "Uyum oranı veriden"
+      karsilik: "isg_uyumOrani"
+    - madde: "Revizyon geçmişi bloğu"
+      karsilik: "isg_revizyonGecmisi"
+
+mevzuat:
+  kurallar: [ISG-001, ISG-002, ISG-003]
+  vakalar: ornek_risk_senaryolari
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - matris_secimi_L_vs_FK
+
+akis:
+  durum_haritasi:
+    - {durum_id: PLANLANDI, durum_adi: Planlandı, sira: 1, izinli_sonraki_durumlar: "DEVAM|IPTAL", kategori: acik}
+    - {durum_id: DEVAM, durum_adi: Devam, sira: 2, izinli_sonraki_durumlar: "BEKLIYOR|TAMAMLANDI|IPTAL", kategori: acik}
+    - {durum_id: BEKLIYOR, durum_adi: Bekliyor, sira: 3, izinli_sonraki_durumlar: "DEVAM|TAMAMLANDI|IPTAL", kategori: acik}
+    - {durum_id: TAMAMLANDI, durum_adi: Tamamlandı, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: IPTAL, durum_adi: İptal, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [ilk_skor, hedef_skor]
+  kuyruk_tanimlari: [Planlandı, Devam, Bekliyor, Geciken]
+
+analitik_moduller:
+  - kod: O3
+    ad: "Senaryo"
+    ad_tanimi: "isg_senaryoKarsilastirma"
+    yorum_hucresi: "isg_yorumSenaryo"
+  - kod: T1
+    ad: "Eylem yaşlandırma"
+    ad_tanimi: "isg_eylemYas"
+    yorum_hucresi: "isg_yorumEylemYas"
+  - kod: I1
+    ad: "Tahmin aralık"
+    ad_tanimi: "isg_tahminAralik"
+    yorum_hucresi: "isg_yorumTahmin"
+  - kod: O1
+    ad: "Anomali skor"
+    ad_tanimi: "isg_anomaliSayisi"
+    yorum_hucresi: "isg_yorumAnomali"
+  - kod: O2
+    ad: "Duyarlılık tornado"
+    ad_tanimi: "isg_tornadoZirve"
+    yorum_hucresi: "isg_yorumTornado"
+  - kod: I7
+    ad: "Eylem öncelik"
+    ad_tanimi: "isg_eylemOncelik"
+    yorum_hucresi: "isg_yorumOncelik"
+  - kod: T3
+    ad: "Pareto kritik"
+    ad_tanimi: "isg_paretoKritik"
+    yorum_hucresi: "isg_yorumPareto"
+  - kod: O5
+    ad: "Gecikme maliyeti"
+    ad_tanimi: "isg_gecikmeMaliyeti"
+    yorum_hucresi: "isg_yorumGecikme"
+
+sayfa_akisi:
+  - PANO
+  - ENVANTER
+  - DEGERLENDIRME
+  - EYLEM_PLANI
+  - KANIT_RAPORU
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "DEGERLENDIRME"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "FAZ 1 4. pilot — sıra bekliyor"

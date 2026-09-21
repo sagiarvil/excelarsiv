@@ -1,0 +1,111 @@
+# =============================================================================
+# SPEC — Hat C C-03 · Teşvikli Bordro ve En Avantajlı Teşvik Seçen
+# Durum: ONAYLANDI — kullanıcı tam yetki 2026-08-14
+# Ayırt edici: çalışan satır bazlı bordro; kişi başı en avantajlı teşvik kodu
+# =============================================================================
+
+urun:
+  kod: TBA-PRO
+  ad: "Teşvikli Bordro ve En Avantajlı Teşvik Seçen"
+  surum: "1.0.0"
+  slug: tesvikli-bordro-avantajli-tesvik
+  dosya: TesvikliBordroAvantajliTesvik.xlsx
+  prefix: tba_
+  satis_fiyati_tl: 1490
+  hedef_kullanici: "İK, bordro, SMMM"
+
+arketip: A1
+fiyat: 1490
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 1490
+  Y1_danisman_ikamesi_tl: 4000
+  Y2_kurulum_ikamesi_tl: 1500
+  Y3_onlenen_hata_tl: 12000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Bordro teşvik seçim danışmanlığı"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - {rol: "İK / bordro", is_bitince: "Her çalışan için en avantajlı teşvik kodunu seçer"}
+  - {rol: "İşveren", is_bitince: "Kaçırılan tasarruf tutarını görür"}
+  - {rol: "SMMM", is_bitince: "Kanıt raporunu dosyalar"}
+
+lansman_tetigi:
+  sinif: Parametre_degisimi
+  aciklama: "Aylık bordro / asgari ücret veya teşvik tavanı değişimi"
+  tarih_penceresi: "aylik_bordro"
+
+rakip_ayrim:
+  - {sinif: R1_jenerik, ayrim: "Çalışan satır bazlı bordro girişi", karsilik: "tba_bordroSatir"}
+  - {sinif: R1_jenerik, ayrim: "Kişi başı en avantajlı teşvik kodu seçimi", karsilik: "tba_enAvantajli"}
+  - {sinif: R2_bedava, ayrim: "Kaçırılan tasarruf + kanıt raporu", karsilik: "tba_kanitRaporu"}
+  - {sinif: R1_jenerik, ayrim: "Yıl yan yana kural matrisi", karsilik: "tba_kuralYilMatris"}
+  - {sinif: R4, ayrim: "Karar motoru; yalnız kayıt değil", karsilik: "tba_kararMetni"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["SGK e-bildirge", "Elle Excel", "Bordro yazılımı"]
+  ayrimlar:
+    - {madde: "Satır bazlı bordro + teşvik uygunluk", karsilik: "tba_bordroSatir"}
+    - {madde: "En avantajlı kod otomatik seçilir", karsilik: "tba_enAvantajli"}
+    - {madde: "M-SEN kural değişimi senaryosu", karsilik: "tba_kuralDegisimSenaryo"}
+    - {madde: "Kaçırılan tutar P90", karsilik: "tba_modulI2"}
+    - {madde: "Boş dosyada VERİ YOK", karsilik: "tba_kararKapi"}
+
+mevzuat:
+  kurallar: [TBA-001, TBA-002, TBA-003, TBA-004, TBA-005]
+  vakalar: tesvik_bordro_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [tesvik_birikim_sirasi]
+
+analitik_moduller:
+  - {kod: T1, ad: "Kapsam matrah", ad_tanimi: "tba_modulT1", yorum_hucresi: "tba_modulT1Yorum"}
+  - {kod: T2, ad: "Mevcut/potansiyel", ad_tanimi: "tba_modulT2", yorum_hucresi: "tba_modulT2Yorum"}
+  - {kod: O1, ad: "Sapma", ad_tanimi: "tba_modulO1", yorum_hucresi: "tba_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık", ad_tanimi: "tba_duyarlilikSira", yorum_hucresi: "tba_yorumDuyarlilik"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "tba_senaryoKarsilastirma", yorum_hucresi: "tba_yorumSenaryo"}
+  - {kod: O6, ad: "5 puan payı", ad_tanimi: "tba_modulO6", yorum_hucresi: "tba_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "tba_modulO8", yorum_hucresi: "tba_modulO8Yorum"}
+  - {kod: M_SEN, ad: "Kural değişimi", ad_tanimi: "tba_kuralDegisimSenaryo", yorum_hucresi: "tba_yorumKuralDegisim"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "tba_tahminAralik", yorum_hucresi: "tba_yorumTahmin"}
+  - {kod: I2, ad: "Kaçırılan P90", ad_tanimi: "tba_modulI2", yorum_hucresi: "tba_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: kacirilan_yuksek, karar: "UYGULA"}
+  - {kosul: kismen, karar: "İNCELE"}
+  - {kosul: tam, karar: "UYGUN"}
+
+sayfa_akisi: [PANO, GIRDI, BORDRO, KURALLAR, MOTOR, SENARYO, VAKALAR, KANIT_RAPORU, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+
+testler:
+  olcek:
+    satir: 5000
+    azami_hesap_saniye: 30.0
+
+onay: {durum: ONAYLANDI, not: "Hat C C-03 — kullanıcı tam yetki"}

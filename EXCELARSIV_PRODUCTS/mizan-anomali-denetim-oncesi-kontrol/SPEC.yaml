@@ -1,0 +1,184 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #18 · Mizan Anomali & Denetim Öncesi Kontrol
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (A2 arketipi)
+# =============================================================================
+
+urun:
+  kod: MAD-PRO
+  ad: "Mizan Anomali & Denetim Öncesi Kontrol"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "SMMM, iç denetim, mali işler, denetim öncesi hazırlık"
+
+arketip: A2
+fiyat: 9900
+olcek_hedefi: 50000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 20000
+  Y2_kurulum_ikamesi_tl: 10000
+  Y3_onlenen_hata_tl: 18000
+  Y4_saas_yillik_ikamesi_tl: 8000
+  kaynak: "Denetim öncesi mizan tarama danışmanlığı + hesap↔profil eşleştirme kurulumu"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Mali işler / muhasebe"
+    is_bitince: "TEMİZ / İNCELE / KRİTİK kararını uygular"
+  - rol: "İç denetim"
+    is_bitince: "Anomali listesini saha kontrolüne alır"
+  - rol: "SMMM / dış denetçi"
+    is_bitince: "Denetim öncesi kanıt raporunu dosyalar"
+
+lansman_tetigi:
+  sinif: Donem
+  aciklama: "Dönem sonu / denetim ziyareti öncesi −14 gün"
+  tarih_penceresi: "denetim_oncesi_14_gun"
+
+rakip_ayrim:
+  - sinif: R3_saas
+    ayrim: "Tek seferlik alım, aylık abonelik yok"
+    karsilik: "mad_fiyatModeli"
+  - sinif: R3_saas
+    ayrim: "Veri cihazdan çıkmaz"
+    karsilik: "mad_kvkkBeyani"
+  - sinif: R1_jenerik
+    ayrim: "Borç=alacak denge + sapma % + anomali skoru tek motorda"
+    karsilik: "mad_anomaliMotoru"
+  - sinif: R1_jenerik
+    ayrim: "Mizan satırı↔beklenen profil eşleştirme"
+    karsilik: "mad_eslesmeOrani"
+  - sinif: R1_jenerik
+    ayrim: "MAD kök neden + TANIMSIZ kova"
+    karsilik: "mad_tanimsizKova"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Elle mizan Excel + filtre"
+    - "ERP mizan dökümü + hesap makinesi"
+    - "Muhasebecinin dönem sonu kontrol listesi"
+  ayrimlar:
+    - madde: "Hesap kodu normalize + duplike denetimli eşleştirme"
+      karsilik: "mad_normAnahtar"
+    - madde: "Dört kova bütünlüğü (mizan↔beklenen)"
+      karsilik: "mad_kovaButunluk"
+    - madde: "TANIMSIZ kök-neden kovası görünür"
+      karsilik: "mad_tanimsizKova"
+    - madde: "Eşleşme oranı veriden türer"
+      karsilik: "mad_eslesmeOrani"
+    - madde: "50.000 satır ölçek sözleşmesi"
+      karsilik: "mad_olcekHedef"
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(hesap_kodu,\" \",\"\")))"
+  ikincil: "LEFT(norm,8) veya hesap sınıfı"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+kurallar:
+  - MAD-001
+  - MAD-002
+  - MAD-003
+  - MAD-004
+  - MAD-005
+
+analitik_moduller:
+  - kod: T1
+    ad: "Ortalama sapma %"
+    ad_tanimi: "mad_modulT1"
+    yorum_hucresi: "mad_modulT1Yorum"
+  - kod: T2
+    ad: "Ortalama anomali skoru"
+    ad_tanimi: "mad_modulT2"
+    yorum_hucresi: "mad_modulT2Yorum"
+  - kod: O1
+    ad: "Kritik/incele sayısı"
+    ad_tanimi: "mad_modulO1"
+    yorum_hucresi: "mad_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık tornado"
+    ad_tanimi: "mad_modulO2"
+    yorum_hucresi: "mad_modulO2Yorum"
+  - kod: O3
+    ad: "Senaryo motoru"
+    ad_tanimi: "mad_modulO3"
+    yorum_hucresi: "mad_modulO3Yorum"
+  - kod: O6
+    ad: "Hesap sınıfı yoğunlaşması"
+    ad_tanimi: "mad_modulO6"
+    yorum_hucresi: "mad_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "mad_modulO8"
+    yorum_hucresi: "mad_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Eşik senaryosu"
+    ad_tanimi: "mad_modulMSen"
+    yorum_hucresi: "mad_modulMSenYorum"
+  - kod: I1
+    ad: "Sapma tahmin aralık"
+    ad_tanimi: "mad_modulI1"
+    yorum_hucresi: "mad_modulI1Yorum"
+  - kod: I2
+    ad: "Sapma P90"
+    ad_tanimi: "mad_modulI2"
+    yorum_hucresi: "mad_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "kritik_anomali"
+    karar: "KRİTİK"
+  - kosul: "inceleme_gerekli"
+    karar: "İNCELE"
+  - kosul: "esik_icinde"
+    karar: "TEMİZ"
+
+sayfa_akisi:
+  - KAPAK
+  - VERI_A
+  - VERI_B
+  - ANAHTAR
+  - MOTOR
+  - ESLESTIRME
+  - KOK_NEDEN
+  - PANO
+  - AKSIYON
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 15}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "FAZ 3 #18 — kullanıcı devam talimatı"

@@ -1,0 +1,184 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #14 · E-Ticaret Gerçek Kârlılık & Fiyatlama
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (A2 arketipi)
+# =============================================================================
+
+urun:
+  kod: EGK-PRO
+  ad: "E-Ticaret Gerçek Kârlılık & Fiyatlama"
+  surum: "1.0.0"
+  satis_fiyati_tl: 4900
+  hedef_kullanici: "E-ticaret işletmecisi, pazaryeri satıcısı, mali işler"
+
+arketip: A2
+fiyat: 4900
+olcek_hedefi: 50000
+
+deger:
+  satis_fiyati_tl: 4900
+  Y1_danisman_ikamesi_tl: 12000
+  Y2_kurulum_ikamesi_tl: 5000
+  Y3_onlenen_hata_tl: 18000
+  Y4_saas_yillik_ikamesi_tl: 6000
+  kaynak: "Ürün bazlı gerçek kâr danışmanlığı + fiyatlama model kurulum"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "E-ticaret işletmecisi"
+    is_bitince: "Ürün bazlı ZAM YAP / TUT / İNDİRİMİ KES kararını uygular"
+  - rol: "Mali işler"
+    is_bitince: "Net kâr, katkı payı ve başabaş fiyatı deftere işler"
+  - rol: "SMMM / danışman"
+    is_bitince: "Fiyatlama kanıt raporunu dosyalar"
+
+lansman_tetigi:
+  sinif: Sezon
+  aciklama: "Kampanya / indirim dönemi öncesi −7 gün veya komisyon değişiminde"
+  tarih_penceresi: "kampanya_oncesi_7_gun"
+
+rakip_ayrim:
+  - sinif: R3_saas
+    ayrim: "Tek seferlik alım, aylık abonelik yok"
+    karsilik: "egk_fiyatModeli"
+  - sinif: R3_saas
+    ayrim: "Veri cihazdan çıkmaz"
+    karsilik: "egk_kvkkBeyani"
+  - sinif: R1_jenerik
+    ayrim: "Başabaş fiyat + net kâr + karar tek motorda"
+    karsilik: "egk_basabasFiyat"
+  - sinif: R1_jenerik
+    ayrim: "SKU eşleştirme ile katalog↔platform gerçek kâr"
+    karsilik: "egk_eslesmeOrani"
+  - sinif: R1_jenerik
+    ayrim: "EGK kök neden + TANIMSIZ kova"
+    karsilik: "egk_tanimsizKova"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Elle komisyon/kargo/reklam Exceli"
+    - "Pazaryeri panosu + hesap makinesi"
+    - "Muhasebecinin dönem kâr özeti"
+  ayrimlar:
+    - madde: "SKU normalize + duplike denetimli eşleştirme"
+      karsilik: "egk_normAnahtar"
+    - madde: "Dört kova bütünlüğü (hedef↔gerçek kâr)"
+      karsilik: "egk_kovaButunluk"
+    - madde: "TANIMSIZ kök-neden kovası görünür"
+      karsilik: "egk_tanimsizKova"
+    - madde: "Eşleşme oranı veriden türer"
+      karsilik: "egk_eslesmeOrani"
+    - madde: "50.000 satır ölçek sözleşmesi"
+      karsilik: "egk_olcekHedef"
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(urun_kodu,\" \",\"\")))"
+  ikincil: "LEFT(norm,12) veya platform+kod"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+kurallar:
+  - EGK-001
+  - EGK-002
+  - EGK-003
+  - EGK-004
+  - EGK-005
+
+analitik_moduller:
+  - kod: T1
+    ad: "Ortalama net kâr marjı"
+    ad_tanimi: "egk_modulT1"
+    yorum_hucresi: "egk_modulT1Yorum"
+  - kod: T2
+    ad: "Ortalama komisyon oranı"
+    ad_tanimi: "egk_modulT2"
+    yorum_hucresi: "egk_modulT2Yorum"
+  - kod: O1
+    ad: "Net kâr sapması"
+    ad_tanimi: "egk_modulO1"
+    yorum_hucresi: "egk_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık tornado"
+    ad_tanimi: "egk_modulO2"
+    yorum_hucresi: "egk_modulO2Yorum"
+  - kod: O3
+    ad: "Senaryo motoru"
+    ad_tanimi: "egk_modulO3"
+    yorum_hucresi: "egk_modulO3Yorum"
+  - kod: O6
+    ad: "Platform yoğunlaşması"
+    ad_tanimi: "egk_modulO6"
+    yorum_hucresi: "egk_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "egk_modulO8"
+    yorum_hucresi: "egk_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Komisyon/parametre senaryosu"
+    ad_tanimi: "egk_modulMSen"
+    yorum_hucresi: "egk_modulMSenYorum"
+  - kod: I1
+    ad: "Net kâr tahmin aralık"
+    ad_tanimi: "egk_modulI1"
+    yorum_hucresi: "egk_modulI1Yorum"
+  - kod: I2
+    ad: "Net kâr P90"
+    ad_tanimi: "egk_modulI2"
+    yorum_hucresi: "egk_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "katki_dusuk"
+    karar: "ZAM YAP"
+  - kosul: "indirim_zarar"
+    karar: "İNDİRİMİ KES"
+  - kosul: "katki_hedefte"
+    karar: "TUT"
+
+sayfa_akisi:
+  - KAPAK
+  - VERI_A
+  - VERI_B
+  - ANAHTAR
+  - MOTOR
+  - ESLESTIRME
+  - KOK_NEDEN
+  - PANO
+  - AKSIYON
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 15}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "FAZ 3 #14 — kullanıcı devam talimatı"

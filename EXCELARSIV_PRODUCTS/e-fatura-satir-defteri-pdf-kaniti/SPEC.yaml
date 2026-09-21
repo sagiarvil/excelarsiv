@@ -1,0 +1,133 @@
+# =============================================================================
+# SPEC — Hat C C-02 · Toplu e-Fatura Satır Defteri ve PDF Kanıtı
+# Durum: ONAYLANDI — kullanıcı tam yetki 2026-08-14
+# Manda: v6 A2 · Ç15: XML/API/makro yok; satır yapıştır + eşleştirme + PDF baskı
+# =============================================================================
+
+urun:
+  kod: EFS-PRO
+  ad: "Toplu e-Fatura Satır Defteri ve PDF Kanıtı"
+  surum: "1.0.0"
+  slug: e-fatura-satir-defteri-pdf-kaniti
+  dosya: EFaturaSatirDefteriPdfKaniti.xlsx
+  prefix: efs_
+  satis_fiyati_tl: 990
+  hedef_kullanici: "SMMM, muhasebe, işletme sahibi"
+
+arketip: A2
+fiyat: 990
+olcek_hedefi: 50000
+
+deger:
+  satis_fiyati_tl: 990
+  Y1_danisman_ikamesi_tl: 2500
+  Y2_kurulum_ikamesi_tl: 1200
+  Y3_onlenen_hata_tl: 6000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "e-Fatura satır mutabakat + kanıt dosyası kurulum"
+
+deger_vektoru: ["P", "Z", "K"]
+uc_rol:
+  - rol: "Muhasebe"
+    is_bitince: "e-Fatura satırlarını yapıştırıp muhasebe ile eşleştirir"
+  - rol: "SMMM"
+    is_bitince: "Eşleşmeyen/farklı tutar listesini düzeltir"
+  - rol: "Vergi dairesi / denetçi"
+    is_bitince: "PDF baskı alanlı kanıt raporunu alır"
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "Aylık KDV beyanı öncesi e-Fatura ↔ muhasebe mutabakatı −15 gün"
+  tarih_penceresi: "kdv_beyan_oncesi_15_gun"
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "UUID + fatura no normalize anahtar; kısa/uzun senaryo"
+    karsilik: "efs_normAnahtar"
+  - sinif: R1_jenerik
+    ayrim: "Dört kova (eşleşti/tolerans/tutar farkı/eşleşmedi)"
+    karsilik: "efs_kovaButunluk"
+  - sinif: R2_bedava
+    ayrim: "PDF baskıya hazır KANIT_RAPORU (A4)"
+    karsilik: "efs_kanitRaporu"
+  - sinif: R3_saas
+    ayrim: "Makrosuz; XML/API yok; veri cihazda kalır"
+    karsilik: "efs_kvkkBeyani"
+  - sinif: R1_jenerik
+    ayrim: "TANIMSIZ kök-neden + itiraz metni"
+    karsilik: "efs_tanimsizKova"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "GİB portalından tek tek bakmak"
+    - "Elle VLOOKUP Excel"
+    - "Ön muhasebe e-Fatura modülü"
+  ayrimlar:
+    - madde: "Normalize UUID/fatura no + kısa/uzun ikincil anahtar"
+      karsilik: "efs_normAnahtar"
+    - madde: "Dört kova bütünlüğü denetimli"
+      karsilik: "efs_kovaButunluk"
+    - madde: "TANIMSIZ kök-neden kovası görünür"
+      karsilik: "efs_tanimsizKova"
+    - madde: "Eşleşme oranı veriden türer"
+      karsilik: "efs_eslesmeOrani"
+    - madde: "Boş dosyada VERİ YOK; UYGUN/İNCELE/DURDUR"
+      karsilik: "efs_kararKapi"
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(uuid,\"-\",\"\")))"
+  ikincil: "fatura_no veya tutar+tarih"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+analitik_moduller:
+  - {kod: T1, ad: "Eşleşme oranı", ad_tanimi: "efs_modulT1", yorum_hucresi: "efs_modulT1Yorum"}
+  - {kod: T2, ad: "Ort. tutar farkı", ad_tanimi: "efs_modulT2", yorum_hucresi: "efs_modulT2Yorum"}
+  - {kod: O1, ad: "Anomali", ad_tanimi: "efs_modulO1", yorum_hucresi: "efs_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık", ad_tanimi: "efs_modulO2", yorum_hucresi: "efs_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "efs_modulO3", yorum_hucresi: "efs_modulO3Yorum"}
+  - {kod: O6, ad: "VKN yoğunlaşması", ad_tanimi: "efs_modulO6", yorum_hucresi: "efs_modulO6Yorum"}
+  - {kod: O8, ad: "Veri kalite", ad_tanimi: "efs_modulO8", yorum_hucresi: "efs_modulO8Yorum"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "efs_modulI1", yorum_hucresi: "efs_modulI1Yorum"}
+  - {kod: I2, ad: "Fark P90", ad_tanimi: "efs_modulI2", yorum_hucresi: "efs_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: eslesme_dusuk, karar: "DURDUR"}
+  - {kosul: tutar_farki_var, karar: "İNCELE"}
+  - {kosul: esik_ustunde, karar: "UYGUN"}
+
+sayfa_akisi:
+  [KAPAK, VERI_A, VERI_B, ANAHTAR, MOTOR, ESLESTIRME, KOK_NEDEN, PANO, AKSIYON, KANIT_RAPORU, KONTROLLER, ORNEK_VERI, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+ornek_veri: ornek_veri.csv
+testler:
+  olcek:
+    satir: 5000
+    azami_hesap_saniye: 30.0
+onay: {durum: ONAYLANDI, not: "Hat C C-02 — makrosuz; XML/API yasak; kullanıcı tam yetki"}

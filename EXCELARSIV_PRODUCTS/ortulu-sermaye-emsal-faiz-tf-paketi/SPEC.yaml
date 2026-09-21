@@ -1,0 +1,174 @@
+# =============================================================================
+# SPEC — Hat A #7 · Örtülü Sermaye + Emsal Faiz + TF Paketi
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (v5 A1 arketipi miras)
+# =============================================================================
+
+urun:
+  kod: OSE-PRO
+  ad: "Örtülü Sermaye + Emsal Faiz + TF Paketi"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "SMMM, YMM, vergi müdürü, CFO, transfer fiyatı sorumlusu"
+
+arketip: A1
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 25000
+  Y2_kurulum_ikamesi_tl: 10000
+  Y3_onlenen_hata_tl: 75000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "KVK md.12 örtülü sermaye + emsal faiz + ilişkili işlem TF farkı savunma dosyası"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "SMMM"
+    is_bitince: "Örtülü sermaye / emsal faiz / TF KKEG riskini ve madde atfını müşteriye verir"
+  - rol: "CFO"
+    is_bitince: "TEMİZ / DİKKAT / KKEG RİSKİ kararını savunma dosyasına yazar"
+  - rol: "Ortak / denetçi"
+    is_bitince: "KANIT_RAPORU ile oran, faiz farkı ve TF farkını görür"
+
+lansman_tetigi:
+  sinif: Mevzuat_yayimi
+  aciklama: "KVK md.12 inceleme / emsal faiz güncellemesi veya kurumlar vergisi beyanname dönemi −30 gün"
+  tarih_penceresi: "beyanname_oncesi_30_gun"
+
+rakip_ayrim:
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Senaryo motoru (≥3) + yıl karşılaştırması (2025/2026/2027)"
+    karsilik: "ose_senaryoKarsilastirma"
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Tebliğ altın vakaları TUTARLI raporlanabilir"
+    karsilik: "ose_vakaDurum"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Her MOTOR adımında kural_id + madde atfı"
+    karsilik: "ose_maddeAtifMetni"
+  - sinif: R1_jenerik_sablon
+    ayrim: "KANIT_RAPORU A4 imza alanı — müşteriye çıktı"
+    karsilik: "ose_kanitRaporu"
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; karar + KKEG riski + gerekçe üretir"
+    karsilik: "ose_kararMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "TÜRMOB / GİB örnek tablo"
+    - "SMMM'nin tek satırlık Excel'i"
+    - "Muhasebe programı faiz alanı"
+  ayrimlar:
+    - madde: "Çok-yıllı kural tablosu yan yana (3x eşik + emsal faiz)"
+      karsilik: "ose_kuralYilMatris"
+    - madde: "M-SEN kural değişimi senaryosu (eşik sıkılaştırma)"
+      karsilik: "ose_kuralDegisimSenaryo"
+    - madde: "Tebliğ vakası FARK kontrolü"
+      karsilik: "ose_vakaFark"
+    - madde: "Makine üretilmiş gerekçeli karar cümlesi"
+      karsilik: "ose_kararGerekce"
+    - madde: "SHA-256 kanıt paketi"
+      karsilik: "ose_parmakIzi"
+
+mevzuat:
+  kurallar: [OSE-001, OSE-002, OSE-003, OSE-004, OSE-005]
+  vakalar: ortulu_sermaye_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - iliskili_kisi_yorumu
+
+analitik_moduller:
+  - kod: T1
+    ad: "Borç / özkaynak oranı"
+    ad_tanimi: "ose_modulT1"
+    yorum_hucresi: "ose_modulT1Yorum"
+  - kod: T2
+    ad: "Kabul edilmeyen faiz / yıllık faiz"
+    ad_tanimi: "ose_modulT2"
+    yorum_hucresi: "ose_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo KKEG sapması"
+    ad_tanimi: "ose_modulO1"
+    yorum_hucresi: "ose_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "ose_duyarlilikSira"
+    yorum_hucresi: "ose_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "ose_senaryoKarsilastirma"
+    yorum_hucresi: "ose_yorumSenaryo"
+  - kod: O6
+    ad: "TF fark / işlem yoğunlaşması"
+    ad_tanimi: "ose_modulO6"
+    yorum_hucresi: "ose_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "ose_modulO8"
+    yorum_hucresi: "ose_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Kural değişimi senaryosu"
+    ad_tanimi: "ose_kuralDegisimSenaryo"
+    yorum_hucresi: "ose_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "ose_tahminAralik"
+    yorum_hucresi: "ose_yorumTahmin"
+  - kod: I2
+    ad: "KKEG yüzdelik P90"
+    ad_tanimi: "ose_modulI2"
+    yorum_hucresi: "ose_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "kkeg_risk_esik_ustu"
+    karar: "KKEG RİSKİ"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "risk_esik_alti"
+    karar: "TEMİZ"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - PANO
+  - GIRDI
+  - KURALLAR
+  - MOTOR
+  - SENARYO
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "FAZ 3 hat A ürün #7 — üretim başlatıldı"

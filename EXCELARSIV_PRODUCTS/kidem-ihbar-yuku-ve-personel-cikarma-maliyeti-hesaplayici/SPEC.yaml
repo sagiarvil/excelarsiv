@@ -1,0 +1,115 @@
+arketip: A1
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 6
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+testler:
+  olcek:
+    satir: 1200
+
+urun:
+  slug: kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici
+  ad: "Kıdem–İhbar Yükü ve Personel Çıkarma Maliyeti Hesaplayıcı"
+  karar: "Çalışanın kıdem süresine göre kıdem tazminatı, ihbar tazminatı ve kullanılmamış yıllık izin ücretini hesaplar; toplam çıkarma maliyetini bütçeyle karşılaştırır ve UYGUN / İNCELE / DURDUR kararı üretir"
+  hedef_kullanici: "İnsan kaynakları yöneticileri, işverenler, mali müşavirler ve personel çıkarma planı yapan işletme sahipleri"
+  mevzuat:
+    - "1475 s. İş Kanunu md.14: kıdem tazminatı (her tam yıl için 30 günlük brüt ücret; tavan uygulaması)"
+    - "4857 s. İş Kanunu md.17: bildirim süreleri ve ihbar tazminatı (2/4/6/8 hafta)"
+    - "4857 s. İş Kanunu md.53: yıllık ücretli izin hakları (14/20/26 gün)"
+    - "SGK 5510 s. Kanun md.80-81: işveren prim yükleri ve bildirim yükümlülükleri"
+  giris:
+    calisanlar:
+      tablo: tblCalisan
+      kolonlar: [Çalışan Adı, İşe Giriş Tarihi, İşten Çıkış Tarihi, Brüt Ücret, Ücret Türü]
+  esikler:
+    cikarma_butce_esik: 500000
+    kidem_yil_esik: 10
+    ucret_anomali_z_esik: 2.00
+    veri_kalite_iyi: 90
+    veri_kalite_orta: 70
+  rapor: "A4, PDF'e hazır; yönetici özeti, kıdem/ihbar/izin yükü, bütçe kullanımı ve aksiyon önerileri"
+
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1CalisanYasOrt
+    yorum_hucresi: modulT1CalisanYasYorum
+  - kod: T2
+    ad_tanimi: modulT2UcretEgim
+    yorum_hucresi: modulT2UcretEgimYorum
+  - kod: T3
+    ad_tanimi: modulT3MaliyetParetoPay
+    yorum_hucresi: modulT3MaliyetParetoYorum
+  - kod: T5
+    ad_tanimi: modulT5ButceMutabakat
+    yorum_hucresi: modulT5ButceMutabakatYorum
+  - kod: T6
+    ad_tanimi: modulT6KidemPay
+    yorum_hucresi: modulT6KidemPayYorum
+  - kod: O1
+    ad_tanimi: modulO1AnomaliOran
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2TornadoZirve
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3SenaryoBazFark
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O4
+    ad_tanimi: modulO4OrtalamaKidemAy
+    yorum_hucresi: modulO4OrtalamaKidemYorum
+  - kod: O6
+    ad_tanimi: modulO6MaliyetHhi
+    yorum_hucresi: modulO6MaliyetHhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkoru
+    yorum_hucresi: modulO8KaliteYorum
+  - kod: I1
+    ad_tanimi: modulI1TahminOrta
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2MaliyetP90
+    yorum_hucresi: modulI2MaliyetP90Yorum
+  - kod: I3
+    ad_tanimi: modulI3MaliyetNpv
+    yorum_hucresi: modulI3MaliyetNpvYorum
+  - kod: I7
+    ad_tanimi: modulI7ButceAcikKopru
+    yorum_hucresi: modulI7ButceAcikYorum
+
+deger:
+  satis_fiyati_tl: 1490
+  Y1_danisman_ikamesi_tl: 4500
+  Y2_kurulum_ikamesi_tl: 2500
+
+serbest_alternatif:
+  alternatifler:
+    - "Her çalışanın kıdem/ihbar tazminatını ve izin ücretini elle hesaplayan hesap tablosu"
+    - "İK danışmanının toplu çıkarma maliyeti için talep ettiği dönemsel ücret"
+    - "Ücretsiz Excel şablonları ve genel amaçlı takip araçları"
+    - "Genel amaçlı yapay zekâ ile elle kurulum ve doğrulama"
+    - "SGK ve iş mahkemesi süreçlerinde yaşanabilecek eksik hesaplama riskiyle yüzleşmek"
+  ayrimlar:
+    - madde: "Kıdem tazminatını 1475 s. Kanun md.14 kuralıyla (tam yıl + artan gün oranı, tavan sınırlı) formülle hesaplar; elle oran kurmayı gerektirmez"
+      karsilik: ToplamKidem
+    - madde: "İhbar süresini 4857 s. Kanun md.17 kıdem dilimlerine göre otomatik seçer; ihbar tazminatını günlük ücretten türetir"
+      karsilik: ToplamIhbar
+    - madde: "Kullanılmamış yıllık izin ücretini 4857 s. Kanun md.53 izin hakkından hesaplar"
+      karsilik: ToplamIzinUcreti
+    - madde: "Toplam çıkarma maliyetini çıkarma bütçesiyle karşılaştırır; bütçe kullanım oranını ve açık köprüsünü üretir"
+      karsilik: ButceKullanimOrani
+    - madde: "Ücret anomali oranını Z skoruyla denetler; uç ücretli çalışanları tespit eder"
+      karsilik: modulO1AnomaliOran
+    - madde: "Tornado duyarlılıkla toplam maliyeti en çok etkileyen değişkeni sıralar"
+      karsilik: modulO2TornadoZirve
+    - madde: "Senaryo motoru ile kötümser/baz/iyimser ücret değişiminde maliyet ve kararı tek ekranda üretir"
+      karsilik: modulO3SenaryoBazFark
+    - madde: "Çalışan maliyeti trendinden sonraki dönem tahmini ve P90 yüzdelik aralığını üretir; sonuç ad tanımlı ve raporlanabilir"
+      karsilik: modulI1TahminOrta

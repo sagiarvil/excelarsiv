@@ -1,0 +1,154 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #22 · Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (A3+A4 melez — durum makinesi + kanıt zinciri)
+# =============================================================================
+
+urun:
+  kod: PVF-PRO
+  ad: "Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi"
+  surum: "1.0.0"
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "İK müdürü, bordro, işveren vekili, SMMM, denetçi"
+
+arketip: A3+A4
+fiyat: 7900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 16000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 45000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Puantaj/fazla mesai uyum danışmanlığı + kanıt dosyası kurulumu"
+
+deger_vektoru: ["R", "Z", "P"]
+uc_rol:
+  - rol: "İK / bordro"
+    is_bitince: "Günlük puantajı ve fazla mesai tavanını kilitler"
+  - rol: "İşveren vekili"
+    is_bitince: "UYGUN / SINIR / AŞIM kararını görür"
+  - rol: "Denetçi / SMMM"
+    is_bitince: "KANIT_RAPORU ile imza zincirini dosyalar"
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "Ay sonu bordro / SGK bildirimi öncesi puantaj kapanışı"
+  tarih_penceresi: "aylik_bordro_oncesi"
+
+rakip_ayrim:
+  - sinif: R2_bedava
+    ayrim: "Yasal tavan + durum makinesi + kanıt imza zinciri tek motorda"
+    karsilik: "pvf_kanitRaporu"
+  - sinif: R2_bedava
+    ayrim: "PVF-001..005 kural tablosu 2025-2027 yan yana"
+    karsilik: "pvf_kuralYilMatris"
+  - sinif: R1_jenerik
+    ayrim: "Giriş/çıkış ↔ planlı vardiya ↔ fazla mesai ZİNCİR KIRIK"
+    karsilik: "pvf_zincirKirik"
+  - sinif: R1_jenerik
+    ayrim: "Geçersiz durum geçişi görünür uyarı"
+    karsilik: "pvf_gecersizGecis"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz, çevrimdışı, bordro ERP bağı yok"
+    karsilik: "pvf_kapaliDusum"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Elle Excel puantaj listesi"
+    - "Kart basım CSV + manuel toplam"
+    - "Bordro yazılımı vardiya ekranı"
+  ayrimlar:
+    - madde: "Durum haritası AYARLAR'da"
+      karsilik: "pvf_durumHaritasi"
+    - madde: "Geçersiz geçiş görünür uyarı"
+      karsilik: "pvf_gecersizGecis"
+    - madde: "Fiili ↔ planlı ↔ FM zincir bayrağı"
+      karsilik: "pvf_zincirKirik"
+    - madde: "Kapalı kayıt kuyruktan düşer"
+      karsilik: "pvf_kapaliDusum"
+    - madde: "Kimlik disiplini otomatik öneri"
+      karsilik: "pvf_sonrakiKimlik"
+
+mevzuat:
+  kurallar: [PVF-001, PVF-002, PVF-003, PVF-004, PVF-005]
+  vakalar: puantaj_fazla_mesai_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - fazla_sure_vs_fazla_calisma_siniri
+
+akis:
+  durum_haritasi:
+    - {durum_id: TASLAK, durum_adi: Taslak, sira: 1, izinli_sonraki_durumlar: "KONTROL|RED", kategori: acik}
+    - {durum_id: KONTROL, durum_adi: Kontrol, sira: 2, izinli_sonraki_durumlar: "ONAY|TASLAK|RED", kategori: acik}
+    - {durum_id: ONAY, durum_adi: Onay, sira: 3, izinli_sonraki_durumlar: "ARSIV", kategori: acik}
+    - {durum_id: ARSIV, durum_adi: Arşiv, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: RED, durum_adi: Red, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [giris_cikis, planli_vardiya, fazla_mesai, imza_kanit]
+  kuyruk_tanimlari: [Taslak, Kontrol, Onay, Aşım]
+
+analitik_moduller:
+  - {kod: T1, ad: "Günlük FM ortalaması", ad_tanimi: "pvf_gunlukFmOrt", yorum_hucresi: "pvf_yorumGunluk"}
+  - {kod: T2, ad: "Haftalık FM toplam", ad_tanimi: "pvf_haftalikFm", yorum_hucresi: "pvf_yorumHaftalik"}
+  - {kod: O1, ad: "FM sapma", ad_tanimi: "pvf_fmSapma", yorum_hucresi: "pvf_yorumSapma"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "pvf_tornadoZirve", yorum_hucresi: "pvf_yorumTornado"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "pvf_senaryoKarsilastirma", yorum_hucresi: "pvf_yorumSenaryo"}
+  - {kod: O6, ad: "Yoğunlaşma HHI", ad_tanimi: "pvf_hhi", yorum_hucresi: "pvf_yorumHhi"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "pvf_kaliteSkor", yorum_hucresi: "pvf_yorumKalite"}
+  - {kod: M_SEN, ad: "Senaryo motoru", ad_tanimi: "pvf_senaryoMotor", yorum_hucresi: "pvf_yorumSenMotor"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "pvf_tahminAralik", yorum_hucresi: "pvf_yorumTahmin"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "pvf_yuzdelikP90", yorum_hucresi: "pvf_yorumP90"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "yillik_veya_haftalik_tavan_asim"
+    karar: "AŞIM"
+  - kosul: "tavan_sinir_bandinda"
+    karar: "SINIR"
+  - kosul: "tavan_alti_ve_zincir_saglam"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - PERSONEL
+  - AKIS
+  - KUYRUKLAR
+  - HESAP
+  - PANO
+  - KURALLAR
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat A FAZ 3 #22 — A3+A4 sevk hedefi"

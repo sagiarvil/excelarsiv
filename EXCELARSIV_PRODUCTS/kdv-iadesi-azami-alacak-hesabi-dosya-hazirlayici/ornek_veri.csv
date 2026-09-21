@@ -1,0 +1,11 @@
+Tarih,Belge Numarası,Belge Türü,Matrah (₺),KDV Oranı,Belge Durumu,KDV Tutarı (₺),Kayıt Açıklaması
+05.01.2026,F-1001,Satış,250000,0.2,Belgesi Tam,50000,Örnek: yurt içi satış
+12.01.2026,A-2001,Alış,180000,0.2,Belgesi Tam,36000,Örnek: mal alımı
+03.02.2026,İ-3001,İhracat,400000,0.01,Belgesi Tam,4000,Örnek: ihracat
+18.02.2026,A-2002,Alış,95000,0.2,Belge Eksik,19000,Örnek: hammadde
+07.03.2026,F-1002,Satış,320000,0.2,Belgesi Tam,64000,Örnek: yurt içi satış
+21.03.2026,G-4001,Gider,45000,0.2,Belgesi Tam,9000,Örnek: kira
+10.04.2026,A-2003,Alış,210000,0.1,Belgesi Tam,21000,Örnek: ara mal
+02.05.2026,İ-3002,İhracat,550000,0.01,Belgesi Tam,5500,Örnek: ihracat
+19.05.2026,Y-5001,Yatırım,300000,0.2,Belgesi Tam,60000,Örnek: makine
+11.06.2026,F-1003,Satış,280000,0.2,Belgesi Tam,56000,Örnek: yurt içi satış

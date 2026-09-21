@@ -1,0 +1,107 @@
+# =============================================================================
+# SPEC — Hat C C-04 · KDV Tevkifat Mahsup ve KDV İade Listesi
+# Durum: ONAYLANDI — kullanıcı tam yetki 2026-08-14
+# Ayırt edici: 2 No.lu beyanname tevkifat mahsup listesi + iade satır cetveli
+# =============================================================================
+
+urun:
+  kod: KTM-PRO
+  ad: "KDV Tevkifat Mahsup ve KDV İade Listesi"
+  surum: "1.0.0"
+  slug: kdv-tevkifat-mahsup-iade-listesi
+  dosya: KdvTevkifatMahsupIadeListesi.xlsx
+  prefix: ktm_
+  satis_fiyati_tl: 1490
+  hedef_kullanici: "SMMM, YMM, mali işler"
+
+arketip: A1
+fiyat: 1490
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 1490
+  Y1_danisman_ikamesi_tl: 4000
+  Y2_kurulum_ikamesi_tl: 1500
+  Y3_onlenen_hata_tl: 15000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "KDV2 tevkifat mahsup + iade listesi danışmanlığı"
+
+deger_vektoru: ["P", "R", "K"]
+uc_rol:
+  - {rol: "SMMM", is_bitince: "Tevkifat mahsup listesini KDV2 ile hizalar"}
+  - {rol: "Mükellef", is_bitince: "Mahsup / iade / bekle kararını alır"}
+  - {rol: "Vergi dairesi", is_bitince: "Kanıt listesini inceler"}
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "KDV1/KDV2 beyan dönemi −20 gün"
+  tarih_penceresi: "kdv_beyan_oncesi_20_gun"
+
+rakip_ayrim:
+  - {sinif: R1_jenerik, ayrim: "Tevkifat oranları kural_id ile AYARLAR'dan", karsilik: "ktm_kuralYilMatris"}
+  - {sinif: R1_jenerik, ayrim: "Mahsup listesi + iade satır cetveli ayrı", karsilik: "ktm_mahsupListe"}
+  - {sinif: R2_bedava, ayrim: "Kanıt raporu + madde atfı", karsilik: "ktm_kanitRaporu"}
+  - {sinif: R1_jenerik, ayrim: "Tebliğ vakası TUTARLI kontrolü", karsilik: "ktm_vakaDurum"}
+  - {sinif: R4, ayrim: "MAHSUP / İADE / BEKLE karar motoru", karsilik: "ktm_kararMetni"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["GİB e-beyanname ekranı", "Elle Excel", "Danışman listesi"]
+  ayrimlar:
+    - {madde: "Tevkifat oranı kural tablosundan", karsilik: "ktm_kuralYilMatris"}
+    - {madde: "Mahsup edilebilir tutar otomatik", karsilik: "ktm_mahsupListe"}
+    - {madde: "M-SEN oran değişimi senaryosu", karsilik: "ktm_kuralDegisimSenaryo"}
+    - {madde: "Vaka FARK kontrolü", karsilik: "ktm_vakaFark"}
+    - {madde: "Boş dosyada VERİ YOK", karsilik: "ktm_kararKapi"}
+
+mevzuat:
+  kurallar: [KTM-001, KTM-002, KTM-003, KTM-004, KTM-005]
+  vakalar: tevkifat_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [mahsup_sirasi]
+
+analitik_moduller:
+  - {kod: T1, ad: "Mahsup toplam", ad_tanimi: "ktm_modulT1", yorum_hucresi: "ktm_modulT1Yorum"}
+  - {kod: T2, ad: "İade toplam", ad_tanimi: "ktm_modulT2", yorum_hucresi: "ktm_modulT2Yorum"}
+  - {kod: O1, ad: "Sapma", ad_tanimi: "ktm_modulO1", yorum_hucresi: "ktm_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık", ad_tanimi: "ktm_duyarlilikSira", yorum_hucresi: "ktm_yorumDuyarlilik"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "ktm_senaryoKarsilastirma", yorum_hucresi: "ktm_yorumSenaryo"}
+  - {kod: O6, ad: "Oran dağılımı", ad_tanimi: "ktm_modulO6", yorum_hucresi: "ktm_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "ktm_modulO8", yorum_hucresi: "ktm_modulO8Yorum"}
+  - {kod: M_SEN, ad: "Kural değişimi", ad_tanimi: "ktm_kuralDegisimSenaryo", yorum_hucresi: "ktm_yorumKuralDegisim"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "ktm_tahminAralik", yorum_hucresi: "ktm_yorumTahmin"}
+  - {kod: I2, ad: "Mahsup P90", ad_tanimi: "ktm_modulI2", yorum_hucresi: "ktm_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: iade_uygun, karar: "İADE"}
+  - {kosul: mahsup_uygun, karar: "MAHSUP"}
+  - {kosul: belirsiz, karar: "BEKLE"}
+
+sayfa_akisi: [PANO, GIRDI, KURALLAR, MOTOR, MAHSUP_LISTE, IADE_LISTE, SENARYO, VAKALAR, KANIT_RAPORU, KONTROLLER, ORNEK_VERI, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 50
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+  azami_hesap_saniye: 60.0
+  olcek_satir: 30000
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "Hat C C-04 — kullanıcı tam yetki"}

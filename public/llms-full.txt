@@ -436,6 +436,20 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti#satin-al
 - Demo açılış: https://excelarsiv.com/demo/amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti
 
+### Arsa Proje Geliştirme Excel | Hasılat Paylaşımı
+- URL: https://excelarsiv.com/sablon/arsa-ve-gayrimenkul-proje-gelistirme-fizibilite
+- Ürün adı: Arsa ve Gayrimenkul Proje Geliştirme Fizibilite Exceli
+- Arama açıklaması: Arsa geliştirme projelerinde KAKS/TAKS emsal hesabı, kat karşılığı ve hasılat paylaşımı senaryolarını kurumsal Excel ile planlayın.
+- Ürün özeti: Arsa geliştirme projelerinde KAKS/TAKS emsal hesabı, kat karşılığı vs hasılat paylaşımı simülasyonu, inşaat maliyeti ve müteahhit net kâr modeli.
+- Kategori kodu: finansal-analiz
+- Fiyat: 1.499 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/arsa-ve-gayrimenkul-proje-gelistirme-fizibilite#satin-al
+- Demo açılış: https://excelarsiv.com/demo/arsa-ve-gayrimenkul-proje-gelistirme-fizibilite
+
 ### Asgari Ücret Zam Etkisi Excel | Fiyat Ayarlama
 - URL: https://excelarsiv.com/sablon/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli
 - Ürün adı: Asgari Ücret Zam Etkisi & Fiyat Ayarlama Cetveli
@@ -491,6 +505,20 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Ürün içerik tarihi: 2026-08-10
 - Satın alma: https://excelarsiv.com/sablon/banka-kredi-ve-taksit-takip-sistemi#satin-al
 - Demo açılış: https://excelarsiv.com/demo/banka-kredi-ve-taksit-takip-sistemi
+
+### LBO Şirket Satın Alma Excel | Borçla Finansman ve Getiri
+- URL: https://excelarsiv.com/sablon/borcla-sirket-satin-alma-ve-yatirim-getirisi
+- Ürün adı: Borçla Şirket Satın Alma ve Yatırım Getirisi Exceli
+- Arama açıklaması: Kaldıraçlı satın alma (LBO) analizinde serbest nakit akışıyla borç servisi, kıdemli kredi amortismanı ve kaldıraçlı IRR getirisini Excel ile çözün.
+- Ürün özeti: Kaldıraçlı şirket satın alma (LBO) analizlerinde banka kredisi, kıdemli borç, serbest nakit akışıyla borç ödeme takvimi ve kaldıraçlı özkaynak IRR modeli.
+- Kategori kodu: finansal-analiz
+- Fiyat: 1.499 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/borcla-sirket-satin-alma-ve-yatirim-getirisi#satin-al
+- Demo açılış: https://excelarsiv.com/demo/borcla-sirket-satin-alma-ve-yatirim-getirisi
 
 ### Ba Bs Mutabakat Excel | Cari Fark Kovası
 - URL: https://excelarsiv.com/sablon/cari-ba-bs-toplu-mutabakat
@@ -590,6 +618,20 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/e-fatura-toplu-donusturucu#satin-al
 - Demo açılış: https://excelarsiv.com/demo/e-fatura-toplu-donusturucu
 
+### Emsal Şirket Çarpanları Excel | Piyasa Değerlemesi
+- URL: https://excelarsiv.com/sablon/emsal-sirket-carpanlariyla-degerleme
+- Ürün adı: Emsal Şirket Çarpanlarıyla Değerleme Exceli
+- Arama açıklaması: Sektörel emsal şirketlerin EV/EBITDA, P/E ve F/K çarpanlarını normalize ederek şirketin adil piyasa değerini Excel modeliyle belirleyin.
+- Ürün özeti: Sektörel emsal şirket verileriyle EV/EBITDA, P/E, EV/Sales ve F/K çarpanlarını normalize eden, net borç köprüsüyle adil hisse fiyatı hesaplayan değerlem...
+- Kategori kodu: finansal-analiz
+- Fiyat: 999 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/emsal-sirket-carpanlariyla-degerleme#satin-al
+- Demo açılış: https://excelarsiv.com/demo/emsal-sirket-carpanlariyla-degerleme
+
 ### Fazla Mesai Hesaplama Excel | İşçi Dava Riski
 - URL: https://excelarsiv.com/sablon/fazla-mesai-ve-isci-dava-riski-tespit-dosyasi
 - Ürün adı: Fazla Mesai ve İşçi Dava Riski Tespit Dosyası
@@ -603,6 +645,76 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Ürün içerik tarihi: 2026-08-09
 - Satın alma: https://excelarsiv.com/sablon/fazla-mesai-ve-isci-dava-riski-tespit-dosyasi#satin-al
 - Demo açılış: https://excelarsiv.com/demo/fazla-mesai-ve-isci-dava-riski-tespit-dosyasi
+
+### Filo Araç Yenileme Excel | Satın Al vs Kirala TCO
+- URL: https://excelarsiv.com/sablon/filo-yatirim-ve-arac-yenileme-fizibilite
+- Ürün adı: Filo Yatırım ve Araç Yenileme Fizibilite Exceli
+- Arama açıklaması: Şirket araçlarında satın alma ile uzun dönem operasyonel kiralama (Buy vs Lease) maliyetlerini ve TCO farkını Excel ile karşılaştırın.
+- Ürün özeti: Şirket araçlarında satın alma vs uzun dönem kiralama (Buy vs Lease), amortisman, kasko, bakım, lastik ve KKEG vergi avantajı TCO analiz modeli.
+- Kategori kodu: finansal-analiz
+- Fiyat: 999 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/filo-yatirim-ve-arac-yenileme-fizibilite#satin-al
+- Demo açılış: https://excelarsiv.com/demo/filo-yatirim-ve-arac-yenileme-fizibilite
+
+### Franchise Yatırım Fizibilite Excel | Royalty ve Kâr
+- URL: https://excelarsiv.com/sablon/franchise-yatirim-fizibilite
+- Ürün adı: Franchise Yatırım Fizibilite Exceli
+- Arama açıklaması: Franchise yatırımlarında isim hakkı bedeli, aylık royalty kesintisi, ürün tedarik marjı ve yatırım geri dönüş süresini Excel ile hesaplayın.
+- Ürün özeti: Franchise şube yatırımlarında isim hakkı bedeli, aylık ciro royalty payı, reklam fonu, ürün tedarik marjı ve net kâr payback hesaplama modeli.
+- Kategori kodu: butce-ve-planlama
+- Fiyat: 999 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/franchise-yatirim-fizibilite#satin-al
+- Demo açılış: https://excelarsiv.com/demo/franchise-yatirim-fizibilite
+
+### Gayrimenkul Tut Sat Karar Excel | Alternatif Getiri
+- URL: https://excelarsiv.com/sablon/gayrimenkul-tut-sat-karar
+- Ürün adı: Gayrimenkul Tut / Sat Karar Exceli
+- Arama açıklaması: Gayrimenkulü kirada tutmak ile satıp mevduat veya fon yatırımına yönelme kararını 5 yıllık net bugünkü değerle Excel üzerinde kıyaslayın.
+- Ürün özeti: Mevcut gayrimenkulü kirada tutmaya devam etmek ile satıp alternatif getiri enstrümanlarına (mevduat, eurobond, fon) yatırmayı kıyaslayan karar modeli.
+- Kategori kodu: finansal-analiz
+- Fiyat: 799 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/gayrimenkul-tut-sat-karar#satin-al
+- Demo açılış: https://excelarsiv.com/demo/gayrimenkul-tut-sat-karar
+
+### Gayrimenkul Yatırım Fizibilite Excel | Cap Rate ve Getiri
+- URL: https://excelarsiv.com/sablon/gayrimenkul-yatirim-fizibilite-ve-karlilik
+- Ürün adı: Gayrimenkul Yatırım Fizibilite ve Karlılık Exceli
+- Arama açıklaması: Ticari ve konut gayrimenkul yatırımlarında kira projeksiyonu, Cap Rate, net işletme geliri (NOI) ve IRR getirisini Excel ile hesaplayın.
+- Ürün özeti: Ticari ve konut gayrimenkul yatırımlarında kira getirisi, doluluk, işletme giderleri, NOI, Cap Rate ve IRR hesaplayan dinamik fizibilite kokpiti.
+- Kategori kodu: finansal-analiz
+- Fiyat: 1.499 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/gayrimenkul-yatirim-fizibilite-ve-karlilik#satin-al
+- Demo açılış: https://excelarsiv.com/demo/gayrimenkul-yatirim-fizibilite-ve-karlilik
+
+### GES Yatırım Fizibilite Excel | Proje Finansmanı ve DSCR
+- URL: https://excelarsiv.com/sablon/ges-yatirim-fizibilite-ve-proje-finansmani
+- Ürün adı: GES Yatırım Fizibilite ve Proje Finansmanı Exceli
+- Arama açıklaması: Güneş enerjisi santrali (GES) yatırımlarında elektrik üretim satışı, degradasyon, DSCR ve amortisman süresini Excel ile hesaplayın.
+- Ürün özeti: Güneş Enerjisi Santrali (GES) yatırımlarında lisanssız/lisanslı üretim, YEKDEM/PTF elektrik satışı, degradasyon, DSCR ve proje finansmanı geri dönüş mod...
+- Kategori kodu: finansal-analiz
+- Fiyat: 1.499 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/ges-yatirim-fizibilite-ve-proje-finansmani#satin-al
+- Demo açılış: https://excelarsiv.com/demo/ges-yatirim-fizibilite-ve-proje-finansmani
 
 ### Gelir Gider Tablosu Excel | Gerçek Kârlılık
 - URL: https://excelarsiv.com/sablon/gunluk-gelir-gider-ve-gercek-karlilik-sistemi
@@ -772,6 +884,20 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti#satin-al
 - Demo açılış: https://excelarsiv.com/demo/kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti
 
+### Klinik Fizibilite Excel | Sağlık Merkezi Kârlılık
+- URL: https://excelarsiv.com/sablon/klinik-saglik-merkezi-fizibilite-ve-karlilik
+- Ürün adı: Klinik / Sağlık Merkezi Fizibilite ve Karlılık Exceli
+- Arama açıklaması: Tıp merkezi ve kliniklerde cihaz leasingi, hekim hakediş primleri, hasta kapasitesi ve branş kârlılığını dinamik Excel modeliyle yönetin.
+- Ürün özeti: Tıp merkezi, poliklinik ve diş kliniklerinde tıbbi cihaz leasingi, hekim prim hakedişi, SGK/ÖSS iskonto oranları ve branş bazlı kârlılık kokpiti.
+- Kategori kodu: butce-ve-planlama
+- Fiyat: 1.499 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/klinik-saglik-merkezi-fizibilite-ve-karlilik#satin-al
+- Demo açılış: https://excelarsiv.com/demo/klinik-saglik-merkezi-fizibilite-ve-karlilik
+
 ### KOBİ Finans Takip Excel | Nakit, Borç ve Kârlılık
 - URL: https://excelarsiv.com/sablon/kobi-finans-yonetim-paketi
 - Ürün adı: KOBİ Finans Yönetim Paketi
@@ -856,6 +982,34 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici#satin-al
 - Demo açılış: https://excelarsiv.com/demo/ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici
 
+### Ortaklı Gayrimenkul Kâr Dağıtım Excel | Waterfall Modeli
+- URL: https://excelarsiv.com/sablon/ortakli-gayrimenkul-yatirimi-kar-dagitim
+- Ürün adı: Ortaklı Gayrimenkul Yatırımı Kâr Dağıtım Exceli
+- Arama açıklaması: Ortaklı gayrimenkul projelerinde tercihli getiri (Preferred Return) ve kademeli Hurdle waterfall kâr paylaşımını Excel ile dağıtın.
+- Ürün özeti: Gayrimenkul fonları ve ortaklı projeler için Tercihli Getiri (Preferred Return), Hurdle basamakları (%8/%12/%15) ve GP/LP Waterfall kâr paylaşım mimarisi.
+- Kategori kodu: finansal-analiz
+- Fiyat: 999 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/ortakli-gayrimenkul-yatirimi-kar-dagitim#satin-al
+- Demo açılış: https://excelarsiv.com/demo/ortakli-gayrimenkul-yatirimi-kar-dagitim
+
+### Otel Fizibilite Excel | Doluluk ve RevPAR Kârlılık
+- URL: https://excelarsiv.com/sablon/otel-fizibilite-ve-karlilik
+- Ürün adı: Otel Fizibilite ve Karlılık Exceli
+- Arama açıklaması: Otel yatırımlarında sezonluk doluluk, RevPAR, ADR, yiyecek içecek gelirleri ve başabaş doluluk eşiğini dinamik Excel ile modelleyin.
+- Ürün özeti: Otel yatırımı ve işletmeciliğinde oda doluluk oranları, RevPAR, ADR, yiyecek-içecek yan gelirleri, GOP ve başabaş doluluk analiz kokpiti.
+- Kategori kodu: butce-ve-planlama
+- Fiyat: 1.499 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/otel-fizibilite-ve-karlilik#satin-al
+- Demo açılış: https://excelarsiv.com/demo/otel-fizibilite-ve-karlilik
+
 ### Pazaryeri Net Kâr Excel | Eksik Hakediş
 - URL: https://excelarsiv.com/sablon/pazaryeri-net-kar-ve-eksik-hakedis-yakalayici
 - Ürün adı: Pazaryeri Net Kâr & Eksik Hakediş Yakalayıcı
@@ -869,6 +1023,20 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Ürün içerik tarihi: 2026-08-10
 - Satın alma: https://excelarsiv.com/sablon/pazaryeri-net-kar-ve-eksik-hakedis-yakalayici#satin-al
 - Demo açılış: https://excelarsiv.com/demo/pazaryeri-net-kar-ve-eksik-hakedis-yakalayici
+
+### Mağaza Açılış Fizibilite Excel | Perakende Başabaş
+- URL: https://excelarsiv.com/sablon/perakende-magaza-acilis-fizibilite
+- Ürün adı: Perakende / Mağaza Açılış Fizibilite Exceli
+- Arama açıklaması: Cadde ve AVM mağaza açılışlarında fit-out capex, yaya trafiği, ciro kirası ve başabaş ciro eşiğini kurumsal Excel sistemiyle planlayın.
+- Ürün özeti: AVM ve cadde mağaza açılışlarında fit-out CAPEX, yaya trafiği dönüşüm oranı, sepet büyüklüğü, ciro kirası ve başabaş ciro hesaplama sistemi.
+- Kategori kodu: butce-ve-planlama
+- Fiyat: 999 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/perakende-magaza-acilis-fizibilite#satin-al
+- Demo açılış: https://excelarsiv.com/demo/perakende-magaza-acilis-fizibilite
 
 ### POS Komisyon Hesaplama Excel | Net Tahsilat
 - URL: https://excelarsiv.com/sablon/pos-komisyon-ve-net-tahsilat-kontrol-sistemi
@@ -884,6 +1052,20 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/pos-komisyon-ve-net-tahsilat-kontrol-sistemi#satin-al
 - Demo açılış: https://excelarsiv.com/demo/pos-komisyon-ve-net-tahsilat-kontrol-sistemi
 
+### Hizmet Şirketi Kârlılık Excel | Kapasite ve Adam Saat
+- URL: https://excelarsiv.com/sablon/profesyonel-hizmet-sirketi-karlilik-ve-kapasite
+- Ürün adı: Profesyonel Hizmet Şirketi Karlılık ve Kapasite Exceli
+- Arama açıklaması: Danışmanlık ve ajanslarda personel faturalandırılabilir kapasite oranı (Utilization) ve müşteri net kâr marjını Excel ile denetleyin.
+- Ürün özeti: Ajans, yazılım, hukuk ve danışmanlık firmaları için personel faturalandırılabilir saat oranı (Utilization), adam/saat maliyeti ve müşteri net kâr matrisi.
+- Kategori kodu: satis-ve-fiyatlama
+- Fiyat: 999 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/profesyonel-hizmet-sirketi-karlilik-ve-kapasite#satin-al
+- Demo açılış: https://excelarsiv.com/demo/profesyonel-hizmet-sirketi-karlilik-ve-kapasite
+
 ### Proje Maliyet Takip Excel | Gerçek Kârlılık
 - URL: https://excelarsiv.com/sablon/proje-ve-is-bazinda-gercek-karlilik-sistemi
 - Ürün adı: Proje ve İş Bazında Gerçek Kârlılık Sistemi
@@ -897,6 +1079,20 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Ürün içerik tarihi: 2026-08-10
 - Satın alma: https://excelarsiv.com/sablon/proje-ve-is-bazinda-gercek-karlilik-sistemi#satin-al
 - Demo açılış: https://excelarsiv.com/demo/proje-ve-is-bazinda-gercek-karlilik-sistemi
+
+### Restoran Kafe Yatırım Excel | Food Cost ve Başabaş
+- URL: https://excelarsiv.com/sablon/restoran-kafe-yatirim-fizibilite-ve-karlilik
+- Ürün adı: Restoran / Kafe Yatırım Fizibilite ve Karlılık Exceli
+- Arama açıklaması: Restoran ve kafe açılışlarında masa devir hızı, adisyon büyüklüğü, food cost reçete maliyeti ve başabaş ciro noktasını Excel ile hesaplayın.
+- Ürün özeti: Restoran ve kafe yatırımlarında masa devir hızı, kişi başı adisyon, reçete food cost (%28-35), kira ve personel dengesinde dinamik başabaş paneli.
+- Kategori kodu: butce-ve-planlama
+- Fiyat: 999 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/restoran-kafe-yatirim-fizibilite-ve-karlilik#satin-al
+- Demo açılış: https://excelarsiv.com/demo/restoran-kafe-yatirim-fizibilite-ve-karlilik
 
 ### Restoran Reçete Maliyet Excel | Fire
 - URL: https://excelarsiv.com/sablon/restoran-recete-maliyet-fire
@@ -912,6 +1108,20 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/restoran-recete-maliyet-fire#satin-al
 - Demo açılış: https://excelarsiv.com/demo/restoran-recete-maliyet-fire
 
+### SaaS Finansal Planlama Excel | Runway ve MRR Büyüme
+- URL: https://excelarsiv.com/sablon/saas-finansal-planlama-runway-ve-yatirim
+- Ürün adı: SaaS Finansal Planlama, Runway ve Yatırım Exceli
+- Arama açıklaması: Abonelik modelli yazılım şirketleri için MRR, Churn, CAC/LTV, aylık net nakit yakımı ve runway süresini Excel tablosunda takip edin.
+- Ürün özeti: Abonelik modelli yazılım şirketleri için MRR/ARR kohortları, Churn, LTV/CAC, aylık Net Burn, nakit tükenme süresi (Runway) ve Seri A planlama modeli.
+- Kategori kodu: butce-ve-planlama
+- Fiyat: 999 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/saas-finansal-planlama-runway-ve-yatirim#satin-al
+- Demo açılış: https://excelarsiv.com/demo/saas-finansal-planlama-runway-ve-yatirim
+
 ### TTK 376 Sermaye Kaybı Excel | Öz Kaynak Cetveli
 - URL: https://excelarsiv.com/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli
 - Ürün adı: Şirket Öz Kaynağı Eridi Mi? (TTK 376 Sermaye Tamamlama Cetveli)
@@ -925,6 +1135,34 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Ürün içerik tarihi: 2026-08-10
 - Satın alma: https://excelarsiv.com/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli#satin-al
 - Demo açılış: https://excelarsiv.com/demo/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli
+
+### Şirket Satın Alma Excel | Değerleme ve M&A Analizi
+- URL: https://excelarsiv.com/sablon/sirket-satin-alma-ve-ortaklik-devir-analizi
+- Ürün adı: Şirket Satın Alma ve Ortaklık Devir Analizi Exceli
+- Arama açıklaması: Şirket satın alma ve hisse devirlerinde normalize EBITDA, Net Borç köprüsü, DCF ve adil hisse değerini gelişmiş Excel ile hesaplayın.
+- Ürün özeti: M&A süreçlerinde hedef şirketin tarihsel finansallarını normalize eden, Net Borç köprüsü, DCF ve emsal çarpanlarla adil hisse değeri hesaplayan M&A kokp...
+- Kategori kodu: finansal-analiz
+- Fiyat: 1.499 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/sirket-satin-alma-ve-ortaklik-devir-analizi#satin-al
+- Demo açılış: https://excelarsiv.com/demo/sirket-satin-alma-ve-ortaklik-devir-analizi
+
+### Startup Yatırım ve Runway Excel | Cap Table Sulanma
+- URL: https://excelarsiv.com/sablon/startup-yatirim-alma-ve-nakit-runway
+- Ürün adı: Startup Yatırım Alma ve Nakit Runway Exceli
+- Arama açıklaması: Erken aşama girişimlerde yatırım öncesi/sonrası değerleme, Cap Table sulanma hesabı ve aylık nakit pisti (runway) süresini Excel ile izleyin.
+- Ürün özeti: Tohum ve erken aşama girişimler için yatırım öncesi/sonrası değerleme (Pre/Post-Money), Cap Table sulanma hesabı, aylık burn rate ve nakit pisti modeli.
+- Kategori kodu: nakit-akisi
+- Fiyat: 999 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/startup-yatirim-alma-ve-nakit-runway#satin-al
+- Demo açılış: https://excelarsiv.com/demo/startup-yatirim-alma-ve-nakit-runway
 
 ### Stok Takip Excel Şablonu | Satış ve Nakit
 - URL: https://excelarsiv.com/sablon/stok-satis-ve-nakit-baglanma-sistemi
@@ -1010,6 +1248,20 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/trendyol-komisyon-sonrasi-net-kar#satin-al
 - Demo açılış: https://excelarsiv.com/demo/trendyol-komisyon-sonrasi-net-kar
 
+### Üretim Kapasite Yatırım Excel | OEE ve Birim Maliyet
+- URL: https://excelarsiv.com/sablon/uretim-kapasite-yatirim-ve-karlilik
+- Ürün adı: Üretim Kapasite, Yatırım ve Karlılık Exceli
+- Arama açıklaması: Yeni makine ve hat yatırımlarında OEE kapasitesi, çevrim süresi, marjinal birim maliyet ve başabaş üretim adedini Excel ile analiz edin.
+- Ürün özeti: Yeni makine ve hat yatırımlarında OEE kapasite hesaplama, çevrim süresi, marjinal birim maliyet ve başabaş üretim hacmi karar sistemi.
+- Kategori kodu: stok-ve-uretim
+- Fiyat: 999 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/uretim-kapasite-yatirim-ve-karlilik#satin-al
+- Demo açılış: https://excelarsiv.com/demo/uretim-kapasite-yatirim-ve-karlilik
+
 ### Üretim Reçetesi Excel | Zam Yansıtma
 - URL: https://excelarsiv.com/sablon/uretim-recetesi-ve-zam-yansitma-hesaplayici
 - Ürün adı: Üretim Reçetesi & Zam Yansıtma Hesaplayıcı
@@ -1051,6 +1303,20 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Ürün içerik tarihi: 2026-08-10
 - Satın alma: https://excelarsiv.com/sablon/vergi-sgk-ve-maas-karsilik-ayirma-sistemi#satin-al
 - Demo açılış: https://excelarsiv.com/demo/vergi-sgk-ve-maas-karsilik-ayirma-sistemi
+
+### WACC Hesaplama Excel | Ağırlıklı Sermaye Maliyeti
+- URL: https://excelarsiv.com/sablon/wacc-hesaplama-ve-sermaye-maliyeti
+- Ürün adı: WACC Hesaplama ve Sermaye Maliyeti Exceli
+- Arama açıklaması: CAPM özkaynak maliyeti, vergi sonrası borçlanma maliyeti ve sermaye yapısıyla şirkete özgü WACC iskonto oranını Excel üzerinde hesaplayın.
+- Ürün özeti: CAPM modeliyle özkaynak maliyeti, vergi sonrası borçlanma maliyeti, beta katsayısı ve ülke risk primiyle şirkete özgü WACC iskonto oranı hesaplayıcı.
+- Kategori kodu: finansal-analiz
+- Fiyat: 799 TL (KDV dahil)
+- Dosya biçimi: xlsx
+- Çalışma sayfası sayısı: 37
+- Sürüm: 1.0.0
+- Ürün içerik tarihi: 2026-09-21
+- Satın alma: https://excelarsiv.com/sablon/wacc-hesaplama-ve-sermaye-maliyeti#satin-al
+- Demo açılış: https://excelarsiv.com/demo/wacc-hesaplama-ve-sermaye-maliyeti
 
 ### Yeniden Değerleme Excel | Vergi Tasarruf Analizi
 - URL: https://excelarsiv.com/sablon/yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi

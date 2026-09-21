@@ -1,0 +1,121 @@
+{
+  "product": "trendyol-komisyon-sonrasi-net-kar",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/trendyol-komisyon-sonrasi-net-kar/TrendyolKomisyonSonrasiNetKar.xlsx",
+  "sha256": "c7c0be168296aab378e8bff1f6531e1691bc15817cb84cd34ad5b0dcbb82cd5d",
+  "size_bytes": 468005,
+  "modified_at": "2026-08-14T20:47:30",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "GIRDI",
+    "HAKEDIS",
+    "ANAHTAR",
+    "MOTOR",
+    "ESLESTIRME",
+    "KOK_NEDEN",
+    "PANO",
+    "AKSIYON",
+    "KANIT_RAPORU",
+    "KONTROLLER",
+    "ORNEK_VERI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": "009A3412",
+    "GIRDI": "009A3412",
+    "HAKEDIS": "009A3412",
+    "ANAHTAR": "009A3412",
+    "MOTOR": "009A3412",
+    "ESLESTIRME": "009A3412",
+    "KOK_NEDEN": "009A3412",
+    "PANO": "009A3412",
+    "AKSIYON": "009A3412",
+    "KANIT_RAPORU": "009A3412",
+    "KONTROLLER": "00C00000",
+    "ORNEK_VERI": "0070AD47",
+    "LISTELER": "009A3412",
+    "AYARLAR": "009A3412",
+    "KILAVUZ": "009A3412"
+  },
+  "formula_count": 36083,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 13533,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 9,
+  "conditional_format_count": 46,
+  "data_validation_count": 72,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 6,
+  "merged_ranges": 55,
+  "order_mismatches": [
+    "Mevcut: KAPAK > GIRDI > HAKEDIS > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: GIRDI > KONTROLLER > KILAVUZ > KAPAK > HAKEDIS > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=13533"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > GIRDI > HAKEDIS > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: GIRDI > KONTROLLER > KILAVUZ > KAPAK > HAKEDIS > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=36083"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

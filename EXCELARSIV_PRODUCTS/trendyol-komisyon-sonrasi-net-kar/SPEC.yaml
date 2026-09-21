@@ -1,0 +1,129 @@
+# =============================================================================
+# SPEC — Hat C C-01 · Trendyol Komisyon Sonrası Net Kâr Hesaplama
+# Durum: ONAYLANDI — kullanıcı tam yetki 2026-08-14
+# Manda: v6 A2 · ayırt edici: yalnız Trendyol kategori/TY Plus/flash/reklam/desi
+# =============================================================================
+
+urun:
+  kod: TYK-PRO
+  ad: "Trendyol Komisyon Sonrası Net Kâr Hesaplama"
+  surum: "1.0.0"
+  slug: trendyol-komisyon-sonrasi-net-kar
+  dosya: TrendyolKomisyonSonrasiNetKar.xlsx
+  prefix: tyk_
+  satis_fiyati_tl: 990
+  hedef_kullanici: "Trendyol satıcısı, e-ticaret operasyon, mali işler"
+
+arketip: A2
+fiyat: 990
+olcek_hedefi: 50000
+
+deger:
+  satis_fiyati_tl: 990
+  Y1_danisman_ikamesi_tl: 2500
+  Y2_kurulum_ikamesi_tl: 1200
+  Y3_onlenen_hata_tl: 8000
+  Y4_saas_yillik_ikamesi_tl: 3600
+  kaynak: "Trendyol komisyon/kâr danışmanlığı + model kurulum"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Trendyol satıcısı"
+    is_bitince: "SKU bazlı SAT / ZAM / ÇEKİL kararını uygular"
+  - rol: "Mali işler"
+    is_bitince: "Net kâr ve komisyon kırılımını deftere işler"
+  - rol: "SMMM"
+    is_bitince: "Dönem net kâr kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Parametre_degisimi
+  aciklama: "Trendyol kategori komisyon veya kampanya kesintisi değişimi; ay sonu hakediş −3 gün"
+  tarih_penceresi: "trendyol_komisyon_veya_ay_sonu"
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "Trendyol kategori komisyon tablosu kanonik (genel pazaryeri değil)"
+    karsilik: "tyk_kategoriKomisyon"
+  - sinif: R1_jenerik
+    ayrim: "TY Plus + flash + ürün reklamı + desi kargo ayrı kalem"
+    karsilik: "tyk_kesintiKirilim"
+  - sinif: R3_saas
+    ayrim: "Tek seferlik; veri cihazdan çıkmaz"
+    karsilik: "tyk_kvkkBeyani"
+  - sinif: R2_bedava
+    ayrim: "Başabaş fiyat + net kâr karar kapısı"
+    karsilik: "tyk_basabasFiyat"
+  - sinif: R1_jenerik
+    ayrim: "TANIMSIZ kök-neden kovası görünür"
+    karsilik: "tyk_tanimsizKova"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Trendyol panosu + hesap makinesi"
+    - "Genel pazaryeri Excel şablonu"
+    - "Muhasebecinin dönem özeti"
+  ayrimlar:
+    - madde: "Kategori komisyon oranı AYARLAR tablosundan; formüle gömülü değil"
+      karsilik: "tyk_kategoriKomisyon"
+    - madde: "Kesinti kırılımı (komisyon/TY Plus/flash/reklam/kargo) ayrı kolon"
+      karsilik: "tyk_kesintiKirilim"
+    - madde: "SKU normalize anahtar + eşleşme oranı veriden türer"
+      karsilik: "tyk_eslesmeOrani"
+    - madde: "Dört kova bütünlüğü (beklenen↔hakediş)"
+      karsilik: "tyk_kovaButunluk"
+    - madde: "Boş dosyada VERİ YOK; SAT/ZAM/ÇEKİL kapısı"
+      karsilik: "tyk_kararKapi"
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(barkod,\" \",\"\")))"
+  ikincil: "LEFT(norm,12) veya stok_kodu"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+analitik_moduller:
+  - {kod: T1, ad: "Ort. net marj", ad_tanimi: "tyk_modulT1", yorum_hucresi: "tyk_modulT1Yorum"}
+  - {kod: T2, ad: "Ort. komisyon oranı", ad_tanimi: "tyk_modulT2", yorum_hucresi: "tyk_modulT2Yorum"}
+  - {kod: O1, ad: "Net kâr sapması", ad_tanimi: "tyk_modulO1", yorum_hucresi: "tyk_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "tyk_modulO2", yorum_hucresi: "tyk_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "tyk_modulO3", yorum_hucresi: "tyk_modulO3Yorum"}
+  - {kod: O6, ad: "Kategori yoğunlaşması", ad_tanimi: "tyk_modulO6", yorum_hucresi: "tyk_modulO6Yorum"}
+  - {kod: O8, ad: "Veri kalite", ad_tanimi: "tyk_modulO8", yorum_hucresi: "tyk_modulO8Yorum"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "tyk_modulI1", yorum_hucresi: "tyk_modulI1Yorum"}
+  - {kod: I2, ad: "Net kâr P90", ad_tanimi: "tyk_modulI2", yorum_hucresi: "tyk_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: marj_negatif, karar: "ÇEKİL"}
+  - {kosul: marj_dusuk, karar: "ZAM"}
+  - {kosul: marj_hedefte, karar: "SAT"}
+
+sayfa_akisi:
+  [KAPAK, GIRDI, HAKEDIS, ANAHTAR, MOTOR, ESLESTIRME, KOK_NEDEN, PANO, AKSIYON, KANIT_RAPORU, KONTROLLER, ORNEK_VERI, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "Hat C C-01 — kullanıcı tam yetki"}

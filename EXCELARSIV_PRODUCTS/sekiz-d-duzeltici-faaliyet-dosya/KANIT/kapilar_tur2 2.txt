@@ -1,0 +1,101 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : SekizDDuzelticiFaaliyetDosya.xlsx
+SHA-256 : 6d54b72147103599620b1cde0708dc591a2578e51540123cc6a668311d55df9a
+ARKETİP : A3+A4
+TARİH   : 11.08.2026 22:45
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (13 sayfa)
+  GEÇTİ  G02   13 sayfa şifreli korumada
+  GEÇTİ  G03   536 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   2697 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+  UYARI  G07   7 gömülü sabit: [('HESAP', 'C49', '8'), ('HESAP', 'B59', '0,1'), ('HESAP', 'B60', '0,1'), ('HESAP', 'B61', '0,1'), ('KANIT_RAPORU', 'B10', '8'), ('RAPOR', 'B9', '8')]
+  GEÇTİ  G08   3 tablo, hesaplanan kolonlar tanımlı
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   19 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   127 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  UYARI  G15   9 olası taşma: ['KANIT_RAPORU!B4 (37 krkt / genişlik 22)', 'KANIT_RAPORU!A24 (57 krkt / genişlik 28)', 'KANIT_RAPORU!A25 (44 krkt / genişlik 28)', 'KANIT_RAPORU!A36 (68 krkt / genişlik 28)', 'RAPOR!A23 (56 krkt / genişlik 32)', 'RAPOR!A24 (53 krkt / genişlik 32)']
+  GEÇTİ  G16   3 rapor sayfası baskıya hazır
+  GEÇTİ  G17   8 grafik
+  GEÇTİ  G18   83 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  UYARI  G24   Tablo kapasitesi düşük (ön-doldurulmuş satır <200): [('AYARLAR', 'tblDurumHaritasi', 48)]
+
+======================================================================
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_DENETIM.md
+SEVK EDİLEBİLİR
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  Ö2    7 uç durum temiz: ['tumu_sifir→KRİTİK', 'tumu_bos→VERİ YOK', 'negatif_deger→KRİTİK', 'gelecek_tarih→KRİTİK', 'yinelenen_kayit→KRİTİK', 'tek_satir→KRİTİK', 'azami_deger→KRİTİK']
+
+==========================================================================
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_OLCEK.md
+SEVK EDİLEBİLİR
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    2697 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   83 ad tanımının hedefi dolu
+  GEÇTİ  D06    Sabitten türeyen sahte KPI yok
+  GEÇTİ  D13    Motor 56 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 30 farklı canlı KPI
+  GEÇTİ  D09    8 grafik + tahmin katmanı mevcut
+  GEÇTİ  D09b   Grafik serilerinde veri var
+  GEÇTİ  D10    Tüm parametrelerde kaynak ve yürürlük tarihi dolu
+  GEÇTİ  D12    Çapraz tutarlılık sağlandı
+  GEÇTİ  D03    Derinlik puanı 145
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 26,000 TL ≥ eşik 23,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: 6d54b72147103599620b1cde0708dc591a2578e51540123cc6a668311d55df9a
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_DEGER.md
+SEVK EDİLEBİLİR
+
+[A] İş Akışı       → akis_kapilari.py  (arketip A3+A4)
+------------------------------------------------------------------------------
+  GEÇTİ  A01   AYARLAR'da durum haritası izi var
+  GEÇTİ  A02   yetim/kaynak_kart_id izi var
+  GEÇTİ  A03   geçersiz geçiş uyarısı mevcut
+  GEÇTİ  A04   ZİNCİR KIRIK bayrağı mevcut
+  GEÇTİ  A05   kuyruk COUNTIFS/SUMIFS izi var
+  GEÇTİ  A06   durum kategori (açık/kapalı) izi var
+
+ÖZET A: 0 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        TEMİZ      (0 KALDI / 23 GEÇTİ)  [her ürün] 0.4sn
+  Ö  Dayanıklılık   TEMİZ      (0 KALDI / 1 GEÇTİ)  [her ürün] 25.2sn
+  D  Değer          TEMİZ      (0 KALDI / 16 GEÇTİ)  [her ürün] 4.1sn
+  M  Mevzuat        ATLANDI      [arketip gerektirmiyor] 0.0sn
+  E  Eşleştirme     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  A  İş Akışı       TEMİZ      (0 KALDI / 6 GEÇTİ)  [arketip A3+A4] 0.2sn
+  F  Fizibilite     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  S  Saha           ATLANDI      [arketip gerektirmiyor] 0.0sn
+  R  Reçete         ATLANDI      [arketip gerektirmiyor] 0.0sn
+
+==============================================================================
+SONUÇ: 0 KALDI · SEVK EDİLEBİLİR
+Kanıt: KANIT/ · SHA-256: 6d54b72147103599620b1cde0708dc591a2578e51540123cc6a668311d55df9a
+Birleşik karar raporu: KANIT/SEVK_KARARI.md

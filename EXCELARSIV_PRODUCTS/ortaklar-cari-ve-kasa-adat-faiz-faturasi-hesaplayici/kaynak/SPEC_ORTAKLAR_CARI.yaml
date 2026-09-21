@@ -1,0 +1,86 @@
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici
+  ad: "Ortaklar Cari & Kasa Adat Faiz Faturası Hesaplayıcı"
+  karar: "Ortak cari bakiyeleri ve kasa adatları üzerinden dönem faizi nedir, fatura tutarı ne olur; karar UYGUN/İNCELE/DURDUR"
+  moduller:
+    - anomali_tespiti
+    - kalite_skoru
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - esik_kirilim
+    - zaman_serisi_projeksiyon
+    - karar_kapisi
+    - mutabakat_kok_neden
+    - aksiyon_uretici
+    - deger_olcer
+testler:
+  asgari_tablo_kapasitesi: 1000
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1DonemBakiye
+    yorum_hucresi: modulT1DonemBakiyeYorum
+  - kod: T2
+    ad_tanimi: modulT2FaizTrend
+    yorum_hucresi: modulT2FaizTrendYorum
+  - kod: T4
+    ad_tanimi: modulT4DonemFark
+    yorum_hucresi: modulT4DonemFarkYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2Tornado
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1AdatTahmin
+    yorum_hucresi: modulI1AdatTahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 9000
+  Y2_kurulum_ikamesi_tl: 4500
+serbest_alternatif:
+  alternatifler:
+    - "Ortak cari bakiyelerini ayrı ekranlarda elle toplayıp faiz hesabını hesap makinesiyle yapmak"
+    - "Kasa gün sonu bakiyelerini deftere elle işleyip adat formülünü kendisi kurmak"
+    - "Dönem sonunda faturayı tahmini tutarla kesip mutabakat farkını sonradan düzeltmek"
+    - "Örtülü sermaye ve KKEG riskini hiç izlemeyip vergi incelemesine kadar fark etmemek"
+    - "Faiz oranını emsal verilerle karşılaştırmadan sabit bir oranla kesmek"
+  ayrimlar:
+    - madde: "Ortak cari hareketlerini tarih sıralı tek tabloda toplar; her işlemden sonra bakiyeyi formülle canlı üretir."
+      karsilik: OrtakCariNetBakiye
+    - madde: "Adat ve dönem faizini gün bazlı formüllerle hesaplar; alternatifte adat hesabı elle yapılır."
+      karsilik: ToplamAdat
+    - madde: "Ortak ve kasa adatlarını ayrı tablolarda izleyip tek fatura tutarında birleştirir; alternatifte iki ayrı hesap dosyası gerekir."
+      karsilik: BrutFaizTutari
+    - madde: "Ortak cari bakiyesinin örtülü sermaye/KKEG eşiğini aşıp aşmadığını izler; alternatifte risk görünmez."
+      karsilik: modulO2Tornado
+    - madde: "Faiz oranı ve vade değişimlerinin fatura tutarına etkisini tornado ile gösterir; alternatifte bu analiz yoktur."
+      karsilik: modulO2Tornado
+    - madde: "Gelecek dönem adat ve faiz tutarını güven bandıyla tahmin eder; alternatifte tahmin yoktur."
+      karsilik: modulI1AdatTahmin

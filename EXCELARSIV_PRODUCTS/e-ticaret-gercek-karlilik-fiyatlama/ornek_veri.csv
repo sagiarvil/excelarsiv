@@ -1,0 +1,5 @@
+taraf,urun_kodu,urun_adi,satis_fiyati,maliyet,hedef_katki,komisyon_oran,kargo,iade_oran,reklam,roas,platform,yorum_ab,not
+A,SKU10001,Ürün 1,223,93.66,0.18,,,,,Trendyol,A,eslesir
+B,SKU10001,,,,,0.10,29.9,0.02,4.46,4.0,Trendyol,,eslesir
+A,SKU10002,Ürün 2,246,108.24,0.18,,,,,Hepsiburada,A,eslesir
+B,SKU10002,,,,,0.12,39.9,0.03,4.92,2.2,Hepsiburada,,eslesir

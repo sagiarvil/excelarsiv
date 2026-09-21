@@ -1,0 +1,100 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/sera-kurulum-fizibilite/SeraKurulumFizibilite.xlsx
+SHA-256 : d879703dce0bf2e45b800e2aa949422a14b45fb9456e310f4bd3d3d1b77d0511
+ARKETİP : A6
+TARİH   : 11.08.2026 21:02
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (17 sayfa)
+  GEÇTİ  G02   17 sayfa şifreli korumada
+  GEÇTİ  G03   228 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   2279 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+  GEÇTİ  G07   Formüllerde gömülü sihirli sayı yok
+  GEÇTİ  G08   5 tablo, hesaplanan kolonlar tanımlı
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   32 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   55 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  UYARI  G15   3 olası taşma: ['KANIT_RAPORU!A3 (39 krkt / genişlik 28)', 'AYARLAR!A3 (41 krkt / genişlik 28)', 'KILAVUZ!A20 (58 krkt / genişlik 36)']
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+  GEÇTİ  G17   8 grafik
+  GEÇTİ  G18   68 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  UYARI  G24   Tablo kapasitesi düşük (ön-doldurulmuş satır <200): [('VARSAYIMLAR', 'tblVarsayimlar', 11), ('KURALLAR', 'tblKurallar', 7), ('VAKALAR', 'tblVakalar', 5)]
+
+======================================================================
+SONUÇ: 0 KALDI | rapor: urunler/sera-kurulum-fizibilite/KANIT/RAPOR_DENETIM.md
+SEVK EDİLEBİLİR
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  Ö2    7 uç durum temiz: ['tumu_sifir→YATIRIM YAPMA', 'tumu_bos→VERİ YOK', 'negatif_deger→YATIRIM YAPMA', 'gelecek_tarih→YATIRIM YAPMA', 'yinelenen_kayit→YATIRIM YAPMA', 'tek_satir→YATIRIM YAPMA', 'azami_deger→YATIRIM YAPMA']
+
+==========================================================================
+SONUÇ: 0 KALDI | rapor: urunler/sera-kurulum-fizibilite/KANIT/RAPOR_OLCEK.md
+SEVK EDİLEBİLİR
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    2279 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   68 ad tanımının hedefi dolu
+  GEÇTİ  D06    Sabitten türeyen sahte KPI yok
+  GEÇTİ  D13    Motor 114 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 32 farklı canlı KPI
+  GEÇTİ  D09    8 grafik + tahmin katmanı mevcut
+  GEÇTİ  D09b   Grafik serilerinde veri var
+  GEÇTİ  D10    Tüm parametrelerde kaynak ve yürürlük tarihi dolu
+  GEÇTİ  D12    Çapraz tutarlılık sağlandı
+  GEÇTİ  D03    Derinlik puanı 170
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 31,000 TL ≥ eşik 29,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: d879703dce0bf2e45b800e2aa949422a14b45fb9456e310f4bd3d3d1b77d0511
+SONUÇ: 0 KALDI | rapor: urunler/sera-kurulum-fizibilite/KANIT/RAPOR_DEGER.md
+SEVK EDİLEBİLİR
+
+[F] Fizibilite     → fizibilite_kapilari.py  (arketip A6)
+------------------------------------------------------------------------------
+  GEÇTİ  F01   öz kaynak + kredi finansman senaryosu izi var
+  GEÇTİ  F02   10 varsayım satırında kaynak+güven mevcut
+  GEÇTİ  F03   CAPEX/OPEX (yatırım/işletme) ayrım izi var
+  GEÇTİ  F04   NPV/IRR aralık + tornado izi mevcut
+  GEÇTİ  F05   kötümser senaryoda YATIRIM YAPMA karar yolu mevcut
+
+ÖZET F: 0 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        TEMİZ      (0 KALDI / 24 GEÇTİ)  [her ürün] 0.3sn
+  Ö  Dayanıklılık   TEMİZ      (0 KALDI / 1 GEÇTİ)  [her ürün] 16.5sn
+  D  Değer          TEMİZ      (0 KALDI / 16 GEÇTİ)  [her ürün] 2.5sn
+  M  Mevzuat        ATLANDI      [arketip gerektirmiyor] 0.0sn
+  E  Eşleştirme     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  A  İş Akışı       ATLANDI      [arketip gerektirmiyor] 0.0sn
+  F  Fizibilite     TEMİZ      (0 KALDI / 5 GEÇTİ)  [arketip A6] 0.2sn
+  S  Saha           ATLANDI      [arketip gerektirmiyor] 0.0sn
+  R  Reçete         ATLANDI      [arketip gerektirmiyor] 0.0sn
+
+==============================================================================
+SONUÇ: 0 KALDI · SEVK EDİLEBİLİR
+Kanıt: urunler/sera-kurulum-fizibilite/KANIT/ · SHA-256: d879703dce0bf2e45b800e2aa949422a14b45fb9456e310f4bd3d3d1b77d0511
+Birleşik karar raporu: urunler/sera-kurulum-fizibilite/KANIT/SEVK_KARARI.md

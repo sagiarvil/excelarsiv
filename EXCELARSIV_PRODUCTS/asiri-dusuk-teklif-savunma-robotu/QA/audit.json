@@ -1,0 +1,129 @@
+{
+  "product": "asiri-dusuk-teklif-savunma-robotu",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/asiri-dusuk-teklif-savunma-robotu/AsiriDusukTeklifSavunmaRobotu.xlsx",
+  "sha256": "4d0e16e34fe6942d0c6dc357a16f65604e05ad037c771725fec29d97bfb53e96",
+  "size_bytes": 267448,
+  "modified_at": "2026-08-12T02:48:40",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "IHALE_KARTI",
+    "RAKIP_TEKLIFLER",
+    "TEKLIF_BILESENLERI",
+    "FIYAT_FARKI_ENDEX",
+    "MOTOR",
+    "KONTROL",
+    "KARAR",
+    "PANO",
+    "SENARYO_DUYARLILIK",
+    "RAPOR",
+    "ORNEK_VERI",
+    "KURALLAR",
+    "VAKALAR",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": null,
+    "HIZLI_BASLANGIC": null,
+    "IHALE_KARTI": null,
+    "RAKIP_TEKLIFLER": null,
+    "TEKLIF_BILESENLERI": null,
+    "FIYAT_FARKI_ENDEX": null,
+    "MOTOR": null,
+    "KONTROL": null,
+    "KARAR": null,
+    "PANO": null,
+    "SENARYO_DUYARLILIK": null,
+    "RAPOR": null,
+    "ORNEK_VERI": null,
+    "KURALLAR": null,
+    "VAKALAR": null,
+    "DEGISIKLIK_KAYDI": null,
+    "LISTELER": null,
+    "AYARLAR": null,
+    "KILAVUZ": null
+  },
+  "formula_count": 10204,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 116,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 3,
+  "conditional_format_count": 32,
+  "data_validation_count": 47,
+  "gridlines_on_count": 19,
+  "freeze_panes_count": 3,
+  "merged_ranges": 89,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > IHALE_KARTI > RAKIP_TEKLIFLER > TEKLIF_BILESENLERI > FIYAT_FARKI_ENDEX > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > IHALE_KARTI > RAKIP_TEKLIFLER > TEKLIF_BILESENLERI > FIYAT_FARKI_ENDEX > MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=116"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": false,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=19"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": false,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=19"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > IHALE_KARTI > RAKIP_TEKLIFLER > TEKLIF_BILESENLERI > FIYAT_FARKI_ENDEX > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > IHALE_KARTI > RAKIP_TEKLIFLER > TEKLIF_BILESENLERI > FIYAT_FARKI_ENDEX > MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=10204"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

@@ -1,0 +1,112 @@
+# =============================================================================
+# SPEC — Hat C C-10 · Kira ve Avans Takip + Dekont
+# Ayırt edici: avans mahsup + yazdırılabilir dekont (getiri/TÜFE değil)
+# =============================================================================
+
+urun:
+  kod: KAD-PRO
+  ad: "Kira ve Avans Takip + Dekont"
+  surum: "1.0.0"
+  slug: kira-avans-takip-dekont
+  dosya: KiraAvansTakipDekont.xlsx
+  prefix: kad_
+  satis_fiyati_tl: 990
+  hedef_kullanici: "Ev sahibi, malik, SMMM"
+
+arketip: A3
+fiyat: 990
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 990
+  Y1_danisman_ikamesi_tl: 2500
+  Y2_kurulum_ikamesi_tl: 1200
+  Y3_onlenen_hata_tl: 4000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Kira avans mahsup + dekont danışmanlığı"
+
+deger_vektoru: ["P", "Z", "K"]
+uc_rol:
+  - {rol: "Ev sahibi", is_bitince: "Kira/avans tahsilatını işler"}
+  - {rol: "Malik", is_bitince: "Bakiye ve mahsup kararını görür"}
+  - {rol: "Kiracı / SMMM", is_bitince: "Yazdırılabilir dekontu alır"}
+
+lansman_tetigi:
+  sinif: Donemsel_operasyon
+  aciklama: "Kira tahsil / avans mahsup günü"
+  tarih_penceresi: "kira_tahsil_gunu"
+
+rakip_ayrim:
+  - {sinif: R1_jenerik, ayrim: "Avans mahsup motoru", karsilik: "kad_avansMahsup"}
+  - {sinif: R1_jenerik, ayrim: "Yazdırılabilir DEKONT sayfası", karsilik: "kad_dekont"}
+  - {sinif: R2_bedava, ayrim: "Durum makinesi makrosuz", karsilik: "kad_durumHaritasi"}
+  - {sinif: R1_jenerik, ayrim: "Yaşlandırma kovaları", karsilik: "kad_yasKova"}
+  - {sinif: R4, ayrim: "VERİ YOK/UYGUN/DİKKAT/KRİTİK", karsilik: "kad_kararKapi"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["WhatsApp + defter", "Elle Excel", "Emlak yazılımı"]
+  ayrimlar:
+    - {madde: "Avans mahsup otomatik", karsilik: "kad_avansMahsup"}
+    - {madde: "PDF'e uygun dekont", karsilik: "kad_dekont"}
+    - {madde: "Durum haritası AYARLAR", karsilik: "kad_durumHaritasi"}
+    - {madde: "Yaşlandırma", karsilik: "kad_yasKova"}
+    - {madde: "Boş dosyada VERİ YOK", karsilik: "kad_kararKapi"}
+
+akis:
+  durum_haritasi:
+    - {durum_id: BEKLIYOR, durum_adi: Bekliyor, sira: 1, izinli_sonraki_durumlar: "TAHSIL|IPTAL", kategori: acik}
+    - {durum_id: TAHSIL, durum_adi: Tahsil, sira: 2, izinli_sonraki_durumlar: "MAHSUP|KAPALI", kategori: acik}
+    - {durum_id: MAHSUP, durum_adi: Mahsup, sira: 3, izinli_sonraki_durumlar: "KAPALI", kategori: acik}
+    - {durum_id: KAPALI, durum_adi: Kapalı, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: IPTAL, durum_adi: İptal, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [sozlesme, avans, kira, mahsup, dekont]
+  kuyruk_tanimlari: [Bekliyor, Tahsil, Geciken]
+
+analitik_moduller:
+  - {kod: T1, ad: "Yaşlandırma", ad_tanimi: "kad_yasKova", yorum_hucresi: "kad_yorumYas"}
+  - {kod: O5, ad: "Gecikme", ad_tanimi: "kad_gecikmeMaliyeti", yorum_hucresi: "kad_yorumGecikme"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "kad_tahminAralik", yorum_hucresi: "kad_yorumTahmin"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "kad_senaryoKarsilastirma", yorum_hucresi: "kad_yorumSenaryo"}
+  - {kod: O2, ad: "Tornado", ad_tanimi: "kad_tornadoZirve", yorum_hucresi: "kad_yorumTornado"}
+  - {kod: I7, ad: "Öncelik", ad_tanimi: "kad_odemeOncelik", yorum_hucresi: "kad_yorumOncelik"}
+  - {kod: T3, ad: "Pareto", ad_tanimi: "kad_paretoGecikme", yorum_hucresi: "kad_yorumPareto"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "kad_modulO8", yorum_hucresi: "kad_modulO8Yorum"}
+  - {kod: I2, ad: "P90", ad_tanimi: "kad_modulI2", yorum_hucresi: "kad_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: gecikme_kritik, karar: "KRİTİK"}
+  - {kosul: dikkat, karar: "DİKKAT"}
+  - {kosul: uygun, karar: "UYGUN"}
+
+sayfa_akisi: [PANO, KARTLAR, AKIS, KUYRUKLAR, AVANS, DEKONT, HESAP, RAPOR, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+testler:
+  olcek:
+    satir: 5000
+    azami_hesap_saniye: 20
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "Hat C C-10 — kullanıcı tam yetki"}

@@ -1,0 +1,84 @@
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: sube-karlilik-ve-nakit-hesaplayici
+  ad: "Şube Kârlılık ve Nakit Hesaplayıcı"
+  karar: "Şube bazında gelir, gider ve nakit akışını toplayarak şube kârlılığını, kâr marjını ve nakit pozisyonunu hesaplar; marjı eşiklerle karşılaştırarak KARLI/İNCELE/ZARARLI kararını gerekçesi ve önerilen aksiyonlarla üretir; gider kalemleri, gelir yoğunlaşması, anomali, senaryo ve tornado analiziyle gelecek dönem nakit tahminini üretir"
+  moduller:
+    - zaman_serisi_projeksiyon
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - yogunlasma_analizi
+    - anomali_tespiti
+    - kalite_skoru
+    - karar_kapisi
+    - aksiyon_uretici
+    - yuzdelik_dilim
+    - esik_kirilim
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1500
+    azami_hesap_saniye: 30.0
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1OrtMarj
+    yorum_hucresi: modulT1OrtMarjYorum
+  - kod: T2
+    ad_tanimi: modulT2OrtNakit
+    yorum_hucresi: modulT2OrtNakitYorum
+  - kod: O1
+    ad_tanimi: modulO1GiderSapmasi
+    yorum_hucresi: modulO1GiderSapmasiYorum
+  - kod: O2
+    ad_tanimi: modulO2EnYuksekGider
+    yorum_hucresi: modulO2EnYuksekGiderYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1Tahmin
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2P90
+    yorum_hucresi: modulI2P90Yorum
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 9000
+  Y2_kurulum_ikamesi_tl: 3000
+serbest_alternatif:
+  alternatifler:
+    - "Şube gelir ve giderlerini aylık hesap makinesiyle kalem kalem toplayıp kârlılığı elle çıkarmak"
+    - "Tahsilat ve ödemeleri ayrı Excel sayfalarında tutup nakit pozisyonunu manuel birleştirmek"
+    - "Kâr marjını eşiklerle karşılaştıran karar belgesini el yazısı notlarla yönetmek"
+    - "Gider kalemleri ve gelir yoğunlaşmasını hiç ölçmeden şube yönetimini sezgiyle yürütmek"
+    - "Gelecek dönem nakit ihtiyacını tahmin etmeden sürpriz nakit açıklarını ödeme günü öğrenmek"
+  ayrimlar:
+    - madde: "Şube bazlı gelir ve gider kayıtlarından işaretli tutar, net kâr ve kâr marjını tek tabloda canlı formülle üretir; alternatifte her kalem elle çarpılır."
+      karsilik: SubeNetKar
+    - madde: "Tahsilat ve ödeme kayıtlarından nakit akışını ve toplam nakit pozisyonunu otomatik hesaplar; alternatifte mutabakat elle yürütülür."
+      karsilik: SubeNakitPozisyonu
+    - madde: "Kâr marjını eşiklerle karşılaştırarak KARLI/İNCELE/ZARARLI kararını gerekçesi ve önerilen aksiyonlarla üretir; alternatifte karar belgesi elle yazılır."
+      karsilik: SubeKarar
+    - madde: "Gider kalemleri ve ciro senaryo bandı ile duyarlılık (tornado) analizi üreterek kâr belirsizliğini ve en etkili değişkeni gösterir; alternatifte duyarlılık analizi yoktur."
+      karsilik: modulO3Senaryo
+    - madde: "Şube gelir yoğunlaşmasını (HHI), gider sapmasını ve veri kalite skorunu ölçerek karar kapısına güven katmanı ekler; alternatifte bu analizler yoktur."
+      karsilik: modulO8KaliteSkor

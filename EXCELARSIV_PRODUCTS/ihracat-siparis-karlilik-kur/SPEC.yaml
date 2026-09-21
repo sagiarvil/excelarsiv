@@ -1,0 +1,194 @@
+# =============================================================================
+# SPEC — Hat B Y-24 · İhracat Sipariş Kârlılık & Kur Riski Komutası
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 · arketip A3+A6
+# =============================================================================
+
+urun:
+  kod: ISK-PRO
+  slug: ihracat-siparis-karlilik-kur
+  ad: "İhracat Sipariş Kârlılık & Kur Riski Komutası"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "İhracat müdürü, CFO, hazine, dış ticaret SMMM"
+
+arketip: A3+A6
+fiyat: 9900
+olcek_hedefi: 8000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 22000
+  Y2_kurulum_ikamesi_tl: 10000
+  Y3_onlenen_hata_tl: 40000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "İhracat sipariş kârlılık + kur riski stres danışmanlığı"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "İhracat operasyon"
+    is_bitince: "Sipariş satırını durum makinesinde kilitler"
+  - rol: "CFO / hazine"
+    is_bitince: "UYGUN / DİKKAT / YATIRIM YAPMA kararını görür"
+  - rol: "Denetçi / SMMM"
+    is_bitince: "KANIT_RAPORU ile kur varsayımlarını dosyalar"
+
+lansman_tetigi:
+  sinif: Kur_oynakligi
+  aciklama: "Kur oynaklığı veya büyük ihracat siparişi onayı −15 gün"
+  tarih_penceresi: "siparis_onay_oncesi_15_gun"
+
+fizibilite:
+  finansman_senaryolari: ["OZ_KAYNAK", "KREDI"]
+  kotumser_karar: "YATIRIM YAPMA"
+  capex_opex: true
+  npv_irr_tornado: true
+
+akis:
+  durum_haritasi:
+    - {durum_id: TEKLIF, durum_adi: Teklif, sira: 1, izinli_sonraki_durumlar: "ONAY|IPTAL", kategori: acik}
+    - {durum_id: ONAY, durum_adi: Onay, sira: 2, izinli_sonraki_durumlar: "URETIM|IPTAL", kategori: acik}
+    - {durum_id: URETIM, durum_adi: Üretim, sira: 3, izinli_sonraki_durumlar: "SEVK|IPTAL", kategori: acik}
+    - {durum_id: SEVK, durum_adi: Sevk, sira: 4, izinli_sonraki_durumlar: "TAHSILAT|IPTAL", kategori: acik}
+    - {durum_id: TAHSILAT, durum_adi: Tahsilat, sira: 5, izinli_sonraki_durumlar: "KAPALI", kategori: acik}
+    - {durum_id: KAPALI, durum_adi: Kapalı, sira: 6, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: IPTAL, durum_adi: İptal, sira: 7, izinli_sonraki_durumlar: "", kategori: kapali}
+
+rakip_ayrim:
+  - sinif: R1_jenerik_sablon
+    ayrim: "Sipariş durum makinesi + ZİNCİR KIRIK bayrağı"
+    karsilik: "isk_zincirKirik"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Kur tablosu (tarihli/kaynaklı) + hedge boşluğu"
+    karsilik: "isk_kurTablosu"
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Öz kaynak / kredi finansman + NPV/IRR tornado"
+    karsilik: "isk_finansmanKarsilastirma"
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Kötümser YATIRIM YAPMA karar yolu"
+    karsilik: "isk_kararMetni"
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; sipariş kârı + kur riski karar + kanıt üretir"
+    karsilik: "isk_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Elle döviz×kur ile sipariş kârı hesaplamak"
+    - "Hazineye ayrı Excel hedge notu"
+    - "ERP sipariş listesi (kur farkı yok)"
+  ayrimlar:
+    - madde: "FOB gelir − maliyet − komisyon + kur farkı tek zincirde"
+      karsilik: "isk_netKarTl"
+    - madde: "Hedge oranı vs açık pozisyon boşluğu"
+      karsilik: "isk_hedgeBosluk"
+    - madde: "Durum makinesi + yetim + geçersiz geçiş"
+      karsilik: "isk_durumHaritasi"
+    - madde: "Öz kaynak vs kredi + NPV/IRR tornado"
+      karsilik: "isk_finansmanKarsilastirma"
+    - madde: "Kötümser YATIRIM YAPMA + altın vakalar"
+      karsilik: "isk_kararMetni"
+
+mevzuat:
+  kurallar: [ISK-001, ISK-002, ISK-003, ISK-004, ISK-005]
+  vakalar: ihracat_siparis_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - hedge_etkinlik_yorumu
+
+analitik_moduller:
+  - kod: T1
+    ad: "Sipariş net kâr (TL)"
+    ad_tanimi: "isk_modulT1"
+    yorum_hucresi: "isk_modulT1Yorum"
+  - kod: T2
+    ad: "Kur etkisi / hedge boşluğu"
+    ad_tanimi: "isk_modulT2"
+    yorum_hucresi: "isk_modulT2Yorum"
+  - kod: O1
+    ad: "Açık sipariş kuyruğu"
+    ad_tanimi: "isk_modulO1"
+    yorum_hucresi: "isk_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "isk_duyarlilikSira"
+    yorum_hucresi: "isk_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "isk_senaryoKarsilastirma"
+    yorum_hucresi: "isk_yorumSenaryo"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "isk_modulO8"
+    yorum_hucresi: "isk_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Kur şoku senaryosu"
+    ad_tanimi: "isk_kuralDegisimSenaryo"
+    yorum_hucresi: "isk_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "isk_tahminAralik"
+    yorum_hucresi: "isk_yorumTahmin"
+  - kod: I2
+    ad: "Kur kayıp P90"
+    ad_tanimi: "isk_modulI2"
+    yorum_hucresi: "isk_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "npv_pozitif_ve_marj_hedef_ustu_hedge_uygun"
+    karar: "YATIRIM YAPILIR"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "kotumser_npv_negatif_veya_kur_riski"
+    karar: "YATIRIM YAPMA"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - KARTLAR
+  - AKIS
+  - KUYRUKLAR
+  - VARSAYIMLAR
+  - KURALLAR
+  - MOTOR
+  - FINANSMAN
+  - SENARYO
+  - PANO
+  - KARAR
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "KARAR"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-24 — dış ticaret dikey 2. ürün; D0 7/7; Y-23 SEVK sonrası"

@@ -1,0 +1,187 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #12 · Kat Karşılığı / Hasılat Paylaşımı Simülatör
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (A3+A1 melez)
+# =============================================================================
+
+urun:
+  kod: KKH-PRO
+  ad: "Kat Karşılığı / Hasılat Paylaşımı Simülatör"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "Müteahhit, arsa sahibi, SMMM, inşaat mali işler"
+
+arketip: A3+A1
+fiyat: 9900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 22000
+  Y2_kurulum_ikamesi_tl: 9000
+  Y3_onlenen_hata_tl: 40000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Kat karşılığı / hasılat paylaşımı sözleşme danışmanlığı + model kurulum"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Müteahhit mali işler"
+    is_bitince: "Pay, kâr ve başabaşı KANIT_RAPORU ile sunar"
+  - rol: "Arsa sahibi / ortak"
+    is_bitince: "UYGUN / DİKKAT / UYGUN DEĞİL kararını görür"
+  - rol: "SMMM"
+    is_bitince: "Sözleşme→inşaat→teslim→paylaşım zincirini dosyalar"
+
+lansman_tetigi:
+  sinif: Sezon
+  aciklama: "Kat karşılığı sözleşme imza öncesi −45 gün / ruhsat dönemi"
+  tarih_penceresi: "sozlesme_oncesi_45_gun"
+
+rakip_ayrim:
+  - sinif: R2_bedava
+    ayrim: "Net hasılat + tarafların kârı + başabaş tek motorda"
+    karsilik: "kkh_senaryoKarsilastirma"
+  - sinif: R2_bedava
+    ayrim: "Altın vakalar TUTARLI raporlanabilir"
+    karsilik: "kkh_vakaDurum"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Her MOTOR adımında kural_id + madde atıfı"
+    karsilik: "kkh_maddeAtifMetni"
+  - sinif: R1_jenerik_sablon
+    ayrim: "KANIT_RAPORU A4 + durum makinesi"
+    karsilik: "kkh_kanitRaporu"
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; paylaşım kararı + süreç zinciri üretir"
+    karsilik: "kkh_kararMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Elle Excel pay oranı hesabı"
+    - "Sözleşme avukatı notu"
+    - "Genel inşaat fizibilite şablonu"
+  ayrimlar:
+    - madde: "Çok-yıllı kural tablosu yan yana"
+      karsilik: "kkh_kuralYilMatris"
+    - madde: "M-SEN kural değişimi senaryosu"
+      karsilik: "kkh_kuralDegisimSenaryo"
+    - madde: "Tebliğ vakası FARK kontrolü"
+      karsilik: "kkh_vakaFark"
+    - madde: "Makine üretilmiş gerekçeli karar cümlesi"
+      karsilik: "kkh_kararGerekce"
+    - madde: "SHA-256 kanıt paketi + süreç zinciri"
+      karsilik: "kkh_parmakIzi"
+
+mevzuat:
+  kurallar: [KKH-001, KKH-002, KKH-003, KKH-004, KKH-005]
+  vakalar: kat_karsiligi_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - hasılat_paylasim_yorumu
+
+akis:
+  durum_haritasi:
+    - {durum_id: SOZLESME, durum_adi: Sözleşme, sira: 1, izinli_sonraki_durumlar: "INSAAT|IPTAL", kategori: acik}
+    - {durum_id: INSAAT, durum_adi: İnşaat, sira: 2, izinli_sonraki_durumlar: "TESLIM|IPTAL", kategori: acik}
+    - {durum_id: TESLIM, durum_adi: Teslim, sira: 3, izinli_sonraki_durumlar: "PAYLASIM|IPTAL", kategori: acik}
+    - {durum_id: PAYLASIM, durum_adi: Paylaşım, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: IPTAL, durum_adi: İptal, sira: 5, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [sozlesme, ruhsat, insaat, teslim, paylasim]
+  kuyruk_tanimlari: [Sözleşme, İnşaat, Teslim]
+
+analitik_moduller:
+  - kod: T1
+    ad: "Müteahhit kâr / net hasılat"
+    ad_tanimi: "kkh_modulT1"
+    yorum_hucresi: "kkh_modulT1Yorum"
+  - kod: T2
+    ad: "Arsa sahibi kâr / arsa değeri"
+    ad_tanimi: "kkh_modulT2"
+    yorum_hucresi: "kkh_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo kâr sapması"
+    ad_tanimi: "kkh_modulO1"
+    yorum_hucresi: "kkh_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "kkh_duyarlilikSira"
+    yorum_hucresi: "kkh_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "kkh_senaryoKarsilastirma"
+    yorum_hucresi: "kkh_yorumSenaryo"
+  - kod: O6
+    ad: "Finansman / inşaat yoğunlaşması"
+    ad_tanimi: "kkh_modulO6"
+    yorum_hucresi: "kkh_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "kkh_modulO8"
+    yorum_hucresi: "kkh_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Kural değişimi senaryosu"
+    ad_tanimi: "kkh_kuralDegisimSenaryo"
+    yorum_hucresi: "kkh_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "kkh_tahminAralik"
+    yorum_hucresi: "kkh_yorumTahmin"
+  - kod: I2
+    ad: "Müteahhit kâr P90"
+    ad_tanimi: "kkh_modulI2"
+    yorum_hucresi: "kkh_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "muteahhit_kar_ve_pay_uygun"
+    karar: "UYGUN"
+  - kosul: "marj_dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "zarar_veya_pay_bozuk"
+    karar: "UYGUN DEĞİL"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - PANO
+  - GIRDI
+  - KURALLAR
+  - MOTOR
+  - KARTLAR
+  - AKIS
+  - KUYRUKLAR
+  - SENARYO
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat A FAZ 3 #12 — A3+A1 sevk hedefi"

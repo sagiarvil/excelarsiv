@@ -1,0 +1,174 @@
+# =============================================================================
+# SPEC — Hat A #3 · Üretim Kârı %12,5 KV Optimizasyonu
+# Durum: ONAYLANDI — FAZ 3 üretim
+# Manda: v6 (v5 A1 arketipi miras)
+# =============================================================================
+
+urun:
+  kod: UKV-PRO
+  ad: "Üretim Kârı %12,5 KV Optimizasyonu"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "SMMM, YMM, vergi müdürü, imalat CFO"
+
+arketip: A1
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 25000
+  Y2_kurulum_ikamesi_tl: 10000
+  Y3_onlenen_hata_tl: 40000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Üretim KV indirimli oran senaryosu + SMMM karar dosyası"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "SMMM"
+    is_bitince: "İndirimli KV tasarrufunu ve madde atfını müşteriye verir"
+  - rol: "CFO"
+    is_bitince: "UYGULA / İNCELE / UYGULAMA kararını bütçeye yazar"
+  - rol: "Ortak / denetçi"
+    is_bitince: "KANIT_RAPORU ile oranı ve tasarrufu görür"
+
+lansman_tetigi:
+  sinif: Mevzuat_yayimi
+  aciklama: "Üretim faaliyetleri indirimli KV oran güncellemesi veya KV beyanname dönemi −30 gün"
+  tarih_penceresi: "beyanname_oncesi_30_gun"
+
+rakip_ayrim:
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Senaryo motoru (≥3) + yıl karşılaştırması (2025/2026/2027)"
+    karsilik: "ukv_senaryoKarsilastirma"
+  - sinif: R2_TURMOB_bedava
+    ayrim: "Tebliğ altın vakaları TUTARLI raporlanabilir"
+    karsilik: "ukv_vakaDurum"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Her MOTOR adımında kural_id + madde atfı"
+    karsilik: "ukv_maddeAtifMetni"
+  - sinif: R1_jenerik_sablon
+    ayrim: "KANIT_RAPORU A4 imza alanı — müşteriye çıktı"
+    karsilik: "ukv_kanitRaporu"
+  - sinif: R4_on_muhasebe
+    ayrim: "Kayıt tutmaz; karar + tasarruf + gerekçe üretir"
+    karsilik: "ukv_kararMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "TÜRMOB / GİB örnek tablo"
+    - "SMMM'nin tek satırlık Excel'i"
+    - "Muhasebe programı KV alanı"
+  ayrimlar:
+    - madde: "Çok-yıllı kural tablosu yan yana"
+      karsilik: "ukv_kuralYilMatris"
+    - madde: "M-SEN kural değişimi senaryosu"
+      karsilik: "ukv_kuralDegisimSenaryo"
+    - madde: "Tebliğ vakası FARK kontrolü"
+      karsilik: "ukv_vakaFark"
+    - madde: "Makine üretilmiş gerekçeli karar cümlesi"
+      karsilik: "ukv_kararGerekce"
+    - madde: "SHA-256 kanıt paketi"
+      karsilik: "ukv_parmakIzi"
+
+mevzuat:
+  kurallar: [UKV-001, UKV-002, UKV-003, UKV-004, UKV-005]
+  vakalar: uretim_kv_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - pay_dagitim_yorumu
+
+analitik_moduller:
+  - kod: T1
+    ad: "Üretim kârı / hasılat oranı"
+    ad_tanimi: "ukv_modulT1"
+    yorum_hucresi: "ukv_modulT1Yorum"
+  - kod: T2
+    ad: "Tasarruf / standart KV oranı"
+    ad_tanimi: "ukv_modulT2"
+    yorum_hucresi: "ukv_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo tasarruf sapması"
+    ad_tanimi: "ukv_modulO1"
+    yorum_hucresi: "ukv_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "ukv_duyarlilikSira"
+    yorum_hucresi: "ukv_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "ukv_senaryoKarsilastirma"
+    yorum_hucresi: "ukv_yorumSenaryo"
+  - kod: O6
+    ad: "İstisna / matrah yoğunlaşması"
+    ad_tanimi: "ukv_modulO6"
+    yorum_hucresi: "ukv_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "ukv_modulO8"
+    yorum_hucresi: "ukv_modulO8Yorum"
+  - kod: M_SEN
+    ad: "Kural değişimi senaryosu"
+    ad_tanimi: "ukv_kuralDegisimSenaryo"
+    yorum_hucresi: "ukv_yorumKuralDegisim"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "ukv_tahminAralik"
+    yorum_hucresi: "ukv_yorumTahmin"
+  - kod: I2
+    ad: "Tasarruf yüzdelik P90"
+    ad_tanimi: "ukv_modulI2"
+    yorum_hucresi: "ukv_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "tasarruf_uygula_esik_ustu"
+    karar: "UYGULA"
+  - kosul: "tasarruf_incele_bandinda"
+    karar: "İNCELE"
+  - kosul: "tasarruf_esik_alti"
+    karar: "UYGULAMA"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - PANO
+  - GIRDI
+  - KURALLAR
+  - MOTOR
+  - SENARYO
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "FAZ 3 hat A ürün #3 — üretim başlatıldı"

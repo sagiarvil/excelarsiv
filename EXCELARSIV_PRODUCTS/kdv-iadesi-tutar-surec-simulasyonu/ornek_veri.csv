@@ -1,0 +1,6 @@
+senaryo,yuklenilen,indirilecek,ihrac_hasilat,teminat_oran,inceleme_ay,finansman_yillik,iade_tur,yil
+Demo ana,5000000,2000000,20000000,0.20,6,0.30,TAM,2026
+Yuksek iade,8000000,1000000,40000000,0.15,4,0.25,TAM,2026
+Dusuk tutar,400000,200000,1000000,0.20,8,0.40,TAM,2026
+Kismi iade,5000000,2000000,20000000,0.20,6,0.30,KISMİ,2026
+2025 oran,5000000,2000000,20000000,0.20,6,0.30,TAM,2025

@@ -1,0 +1,152 @@
+# =============================================================================
+# SPEC — Hat B Y-09 · Filo Araç Maliyet Komutası
+# Durum: ONAYLANDI — Hat B lojistik dikey pilotu
+# Manda: v6 (A5 Saha Operasyon Komuta Merkezi — S01–S05 zorunlu)
+# =============================================================================
+
+urun:
+  kod: FAM-PRO
+  ad: "Filo Araç Maliyet Komutası"
+  surum: "1.0.0"
+  slug: filo-arac-maliyet-komutasi
+  dosya: FiloAracMaliyetKomutasi.xlsx
+  prefix: fam_
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "Filo yöneticisi, lojistik operasyon, saha şofi koordinatörü, CFO"
+
+arketip: A5
+fiyat: 7900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 7000
+  Y3_onlenen_hata_tl: 45000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Filo maliyet danışmanlığı + km başı gerçek maliyet komuta dosyası"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Saha / şoför koordinatörü"
+    is_bitince: "Günlük km-yakıt-bakım satırını ≤6 alanda kilitler"
+  - rol: "Filo yöneticisi"
+    is_bitince: "Km başı maliyet ve UYGUN/DİKKAT/KRİTİK/VERİ YOK kararını görür"
+  - rol: "CFO / denetçi"
+    is_bitince: "RAPOR ile dönemsel filo maliyet kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Donemsel_operasyon
+  aciklama: "Aylık filo maliyet kapanışı ve yakıt/bakım bütçe revizyonu"
+  tarih_penceresi: "aylik_filo_kapanisi"
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "Km başı gerçek maliyet: yakıt+bakım+amortisman+sigorta tek formül"
+    karsilik: "fam_kmBasiMaliyet"
+  - sinif: R1_jenerik
+    ayrim: "Varlık sağlık skoru sahadan formülle türer (sabit skor yok)"
+    karsilik: "fam_saglikSkor"
+  - sinif: R1_jenerik
+    ayrim: "Alarm eşikleri AYARLAR'da; listelenmiş alarm kuyruğu"
+    karsilik: "fam_alarmListesi"
+  - sinif: R2_bedava
+    ayrim: "12 aylık sezonsal km-maliyet zinciri"
+    karsilik: "fam_sezonsalTrend"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz, çevrimdışı; telematik bağı yok"
+    karsilik: "fam_kararKapi"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Yakıt fişi + bakım faturası + amortismanı ayrı Excel'de toplamak"
+    - "Km başına maliyeti hesap makinesiyle elle bölmek"
+    - "Filo yazılımı aboneliği (telematik)"
+  ayrimlar:
+    - madde: "Yakıt+bakım+amortisman+sigorta tek satırda km başına canlı formül"
+      karsilik: "fam_kmBasiMaliyet"
+    - madde: "Varlık sağlık skoru COUNTIF/SUMIF ile veriden türer"
+      karsilik: "fam_saglikSkor"
+    - madde: "Alarm eşiği AYARLAR + varlık/eşik/süre listesi"
+      karsilik: "fam_alarmListesi"
+    - madde: "12 ay sezonsal maliyet karşılaştırması"
+      karsilik: "fam_sezonsalTrend"
+    - madde: "Boş dosyada VERİ YOK; UYGUN/DİKKAT/KRİTİK kapısı"
+      karsilik: "fam_kararKapi"
+
+saha:
+  gunluk_giris_alan: 6
+  birim_disiplini: true
+  sezonsallik_ay: 12
+  saglik_skor_formul: true
+  alarm_esik_ayarlar: true
+
+analitik_moduller:
+  - {kod: T1, ad: "Günlük km ortalaması", ad_tanimi: "fam_gunlukKmOrt", yorum_hucresi: "fam_yorumGunluk"}
+  - {kod: T2, ad: "Aylık maliyet trend", ad_tanimi: "fam_aylikMaliyetTrend", yorum_hucresi: "fam_yorumAylik"}
+  - {kod: O1, ad: "Km başı sapma", ad_tanimi: "fam_kmBasiSapma", yorum_hucresi: "fam_yorumSapma"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "fam_tornadoZirve", yorum_hucresi: "fam_yorumTornado"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "fam_senaryoKarsilastirma", yorum_hucresi: "fam_yorumSenaryo"}
+  - {kod: O6, ad: "Yoğunlaşma HHI", ad_tanimi: "fam_hhi", yorum_hucresi: "fam_yorumHhi"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "fam_kaliteSkor", yorum_hucresi: "fam_yorumKalite"}
+  - {kod: M_SEN, ad: "Senaryo motoru", ad_tanimi: "fam_senaryoMotor", yorum_hucresi: "fam_yorumSenMotor"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "fam_tahminAralik", yorum_hucresi: "fam_yorumTahmin"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "fam_yuzdelikP90", yorum_hucresi: "fam_yorumP90"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "kritik_alarm_veya_saglik_dusuk"
+    karar: "KRİTİK"
+  - kosul: "km_basi_esik_asim"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - VARLIKLAR
+  - GUNLUK_GIRIS
+  - DONEM_ANALIZ
+  - HESAP
+  - PANO
+  - ALARMLAR
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 250
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+testler:
+  asgari_tablo_kapasitesi: 250
+  olcek:
+    satir: 500
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-09 — A5 filo maliyet komutası sevk hedefi"

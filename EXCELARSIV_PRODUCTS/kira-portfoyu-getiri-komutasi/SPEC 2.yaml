@@ -1,0 +1,153 @@
+# =============================================================================
+# SPEC — Hat B Y-15 · Kira Portföyü Getiri Komutası
+# Durum: ONAYLANDI — Hat B gayrimenkul dikey
+# Manda: v6 (A5 Saha Operasyon Komuta Merkezi — S01–S05 zorunlu)
+# Domain: kira tahsilat + doluluk/boşluk + TÜFE artış + getiri — rename-kopya değil
+# =============================================================================
+
+urun:
+  kod: KPG-PRO
+  ad: "Kira Portföyü Getiri Komutası"
+  surum: "1.0.0"
+  slug: kira-portfoyu-getiri-komutasi
+  dosya: KiraPortfoyuGetiriKomutasi.xlsx
+  prefix: kpg_
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "Portföy sahibi, emlak ofisi yöneticisi, gayrimenkul mali müşavir, CFO"
+
+arketip: A5
+fiyat: 7900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 42000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Kira portföy danışmanlığı + doluluk/getiri/TÜFE artış komuta dosyası"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Saha / emlak operatörü"
+    is_bitince: "Günlük tahsilat-boşluk-gider satırını ≤6 alanda kilitler"
+  - rol: "Portföy sahibi"
+    is_bitince: "Doluluk %, net getiri ve UYGUN/DİKKAT/KRİTİK/VERİ YOK kararını görür"
+  - rol: "Mali müşavir / denetçi"
+    is_bitince: "RAPOR ile dönemsel kira getiri ve TÜFE artış kanıtını dosyalar"
+
+lansman_tetigi:
+  sinif: Donemsel_operasyon
+  aciklama: "Kira artış dönemi (TÜFE) ve aylık portföy getiri kapanışı"
+  tarih_penceresi: "kira_artis_donemi_tufe"
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "Doluluk % + net getiri + TÜFE artış önerisi tek formülde canlı"
+    karsilik: "kpg_ortDoluluk"
+  - sinif: R1_jenerik
+    ayrim: "Varlık sağlık skoru sahadan formülle türer (sabit skor yok)"
+    karsilik: "kpg_saglikSkor"
+  - sinif: R1_jenerik
+    ayrim: "Alarm eşikleri AYARLAR'da; listelenmiş alarm kuyruğu"
+    karsilik: "kpg_alarmListesi"
+  - sinif: R2_bedava
+    ayrim: "12 aylık sezonsal tahsilat-doluluk zinciri"
+    karsilik: "kpg_sezonsalTrend"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz, çevrimdışı; API/canlı TÜFE bağı yok"
+    karsilik: "kpg_kararKapi"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Sözleşme + banka ekstresi + Excel'de yüzde elle bölmek"
+    - "TÜFE oranını ayrı not defterinde takip etmek"
+    - "Emlak portföy yazılımı aboneliği"
+  ayrimlar:
+    - madde: "Tahsilat, boş gün, gider ve TÜFE oranı tek satırda canlı getiri formülü"
+      karsilik: "kpg_ortGetiri"
+    - madde: "Varlık sağlık skoru COUNTIF/SUMIF ile veriden türer"
+      karsilik: "kpg_saglikSkor"
+    - madde: "Alarm eşiği AYARLAR + varlık/eşik/süre listesi"
+      karsilik: "kpg_alarmListesi"
+    - madde: "12 ay sezonsal tahsilat-doluluk karşılaştırması"
+      karsilik: "kpg_sezonsalTrend"
+    - madde: "Boş dosyada VERİ YOK; UYGUN/DİKKAT/KRİTİK kapısı"
+      karsilik: "kpg_kararKapi"
+
+saha:
+  gunluk_giris_alan: 6
+  birim_disiplini: true
+  sezonsallik_ay: 12
+  saglik_skor_formul: true
+  alarm_esik_ayarlar: true
+
+analitik_moduller:
+  - {kod: T1, ad: "Günlük doluluk ortalaması", ad_tanimi: "kpg_gunlukDolulukOrt", yorum_hucresi: "kpg_yorumGunluk"}
+  - {kod: T2, ad: "Aylık tahsilat trend", ad_tanimi: "kpg_aylikTahsilatTrend", yorum_hucresi: "kpg_yorumAylik"}
+  - {kod: O1, ad: "Getiri sapma", ad_tanimi: "kpg_getiriSapma", yorum_hucresi: "kpg_yorumSapma"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "kpg_tornadoZirve", yorum_hucresi: "kpg_yorumTornado"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "kpg_senaryoKarsilastirma", yorum_hucresi: "kpg_yorumSenaryo"}
+  - {kod: O6, ad: "Yoğunlaşma HHI", ad_tanimi: "kpg_hhi", yorum_hucresi: "kpg_yorumHhi"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "kpg_kaliteSkor", yorum_hucresi: "kpg_yorumKalite"}
+  - {kod: M_SEN, ad: "Senaryo motoru", ad_tanimi: "kpg_senaryoMotor", yorum_hucresi: "kpg_yorumSenMotor"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "kpg_tahminAralik", yorum_hucresi: "kpg_yorumTahmin"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "kpg_yuzdelikP90", yorum_hucresi: "kpg_yorumP90"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "kritik_alarm_veya_saglik_dusuk"
+    karar: "KRİTİK"
+  - kosul: "doluluk_veya_getiri_esik_asim"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - VARLIKLAR
+  - GUNLUK_GIRIS
+  - DONEM_ANALIZ
+  - HESAP
+  - PANO
+  - ALARMLAR
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 250
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+testler:
+  asgari_tablo_kapasitesi: 250
+  olcek:
+    satir: 500
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-15 — A5 kira portföyü getiri komutası sevk hedefi"

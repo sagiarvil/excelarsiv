@@ -1,0 +1,101 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/tarimsal-destek-uygunluk/TarimsalDestekUygunluk.xlsx
+SHA-256 : ae9b4338ecae4f77e8b647b355f786d433e8dde70f6e8d21009f1a883cb763d8
+ARKETİP : A1
+TARİH   : 11.08.2026 21:13
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (14 sayfa)
+  GEÇTİ  G02   14 sayfa şifreli korumada
+  GEÇTİ  G03   190 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   1275 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+  GEÇTİ  G07   Formüllerde gömülü sihirli sayı yok
+  GEÇTİ  G08   4 tablo, hesaplanan kolonlar tanımlı
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   12 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   64 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  UYARI  G15   5 olası taşma: ['HIZLI_BASLANGIC!A3 (26 krkt / genişlik 18)', 'KURALLAR!A17 (23 krkt / genişlik 12)', 'KURALLAR!A18 (27 krkt / genişlik 12)', 'KURALLAR!A19 (19 krkt / genişlik 12)', 'LISTELER!A3 (19 krkt / genişlik 10)']
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+  GEÇTİ  G17   9 grafik
+  GEÇTİ  G18   83 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  UYARI  G24   Tablo kapasitesi düşük (ön-doldurulmuş satır <200): [('KURALLAR', 'tblKurallar', 11), ('VAKALAR', 'tblVakalar', 5), ('ORNEK_VERI', 'tblOrnek', 11)]
+
+======================================================================
+SONUÇ: 0 KALDI | rapor: urunler/tarimsal-destek-uygunluk/KANIT/RAPOR_DENETIM.md
+SEVK EDİLEBİLİR
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  Ö2    7 uç durum temiz: ['tumu_sifir→UYGUN · BAŞVUR', 'tumu_bos→VERİ YOK', 'negatif_deger→UYGUN · BAŞVUR', 'gelecek_tarih→UYGUN · BAŞVUR', 'yinelenen_kayit→UYGUN · BAŞVUR', 'tek_satir→UYGUN · BAŞVUR', 'azami_deger→UYGUN · BAŞVUR']
+
+==========================================================================
+SONUÇ: 0 KALDI | rapor: urunler/tarimsal-destek-uygunluk/KANIT/RAPOR_OLCEK.md
+SEVK EDİLEBİLİR
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    1275 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   83 ad tanımının hedefi dolu
+  GEÇTİ  D06    Sabitten türeyen sahte KPI yok
+  GEÇTİ  D13    Motor 102 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 31 farklı canlı KPI
+  GEÇTİ  D09    9 grafik + tahmin katmanı mevcut
+  GEÇTİ  D09b   Grafik serilerinde veri var
+  GEÇTİ  D10    Tüm parametrelerde kaynak ve yürürlük tarihi dolu
+  GEÇTİ  D12    Çapraz tutarlılık sağlandı
+  GEÇTİ  D03    Derinlik puanı 170
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 16,500 TL ≥ eşik 14,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: ae9b4338ecae4f77e8b647b355f786d433e8dde70f6e8d21009f1a883cb763d8
+SONUÇ: 0 KALDI | rapor: urunler/tarimsal-destek-uygunluk/KANIT/RAPOR_DEGER.md
+SEVK EDİLEBİLİR
+
+[M] Mevzuat        → mevzuat_kapilari.py  (arketip A1)
+------------------------------------------------------------------------------
+  GEÇTİ  M01   6 vaka satırı mevcut; durum formülü/TUTARLI
+  GEÇTİ  M02   51 MOTOR adımının tamamında kural_id var
+  GEÇTİ  M03   KURALLAR yıl kolonları mevcut (sabit oran kaçışı M03 taraması)
+  GEÇTİ  M03b  MOTOR formüllerinde bariz sabit oran yok
+  GEÇTİ  M04   çok-yıllı / senaryo yapısı mevcut
+  GEÇTİ  M05   KILAVUZ'da belirsizlik beyanı görünür
+
+ÖZET M: 0 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        TEMİZ      (0 KALDI / 24 GEÇTİ)  [her ürün] 0.3sn
+  Ö  Dayanıklılık   TEMİZ      (0 KALDI / 1 GEÇTİ)  [her ürün] 17.2sn
+  D  Değer          TEMİZ      (0 KALDI / 16 GEÇTİ)  [her ürün] 2.8sn
+  M  Mevzuat        TEMİZ      (0 KALDI / 6 GEÇTİ)  [arketip A1] 0.2sn
+  E  Eşleştirme     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  A  İş Akışı       ATLANDI      [arketip gerektirmiyor] 0.0sn
+  F  Fizibilite     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  S  Saha           ATLANDI      [arketip gerektirmiyor] 0.0sn
+  R  Reçete         ATLANDI      [arketip gerektirmiyor] 0.0sn
+
+==============================================================================
+SONUÇ: 0 KALDI · SEVK EDİLEBİLİR
+Kanıt: urunler/tarimsal-destek-uygunluk/KANIT/ · SHA-256: ae9b4338ecae4f77e8b647b355f786d433e8dde70f6e8d21009f1a883cb763d8
+Birleşik karar raporu: urunler/tarimsal-destek-uygunluk/KANIT/SEVK_KARARI.md

@@ -1,0 +1,63 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/restoran-recete-maliyet-fire/RestoranReceteMaliyetFire.xlsx
+SHA-256 : 46ef95b5fc766c0138aea51395ffd769592ade8b325a7a0ed0e4b2e146791a47
+ARKETİP : A7
+TARİH   : 14.08.2026 21:26
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (16 sayfa)
+  GEÇTİ  G02   16 sayfa şifreli korumada
+  GEÇTİ  G03   243 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   655 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+  GEÇTİ  G07   Formüllerde gömülü sihirli sayı yok
+  GEÇTİ  G08   4 tablo, hesaplanan kolonlar tanımlı
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   9 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   44 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  UYARI  G15   2 olası taşma: ['FIYATLAMA!A3 (66 krkt / genişlik 28)', 'RAPOR!A3 (46 krkt / genişlik 28)']
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+  GEÇTİ  G17   9 grafik
+  GEÇTİ  G18   82 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  GEÇTİ  G24   Tablo kapasiteleri: [('GIRDI', 'tblGirdi', 1001), ('HAMMADDE', 'tblHammadde', 1001), ('RECETE', 'tblRecete', 1001), ('AYARLAR', 'tblDonusum', 1052)]
+
+======================================================================
+SONUÇ: 0 KALDI | rapor: KANIT/RAPOR_DENETIM.md
+SEVK EDİLEBİLİR
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+! KALDI  Ö1    20000 satır temiz ama yeniden hesap 16.0 sn (sınır 5.0 sn) — dosya kullanılamaz derecede yavaş
+  GEÇTİ  Ö1b   Ölçekte kullanıcıya görünen hata değeri yok
+  GEÇTİ  Ö2    7 uç durum temiz: ['tumu_sifir→KRİTİK', 'tumu_bos→VERİ YOK', 'negatif_deger→KRİTİK', 'gelecek_tarih→KRİTİK', 'yinelenen_kayit→KRİTİK', 'tek_satir→KRİTİK', 'azami_deger→KRİTİK']
+
+==========================================================================
+SONUÇ: 1 KALDI | rapor: KANIT/RAPOR_OLCEK.md
+SEVK EDİLEMEZ
+
+>>> Ö katmanı KALDI verdi. Sonraki katmanlar atlandı (--devam ile zorlayın).
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        TEMİZ      (0 KALDI / 25 GEÇTİ)  [her ürün] 0.8sn
+  Ö  Dayanıklılık   KALDI      (1 KALDI / 2 GEÇTİ)  [her ürün] 191.5sn
+
+==============================================================================
+SONUÇ: 1 KALDI · SEVK EDİLEMEZ
+Kanıt: KANIT/ · SHA-256: 46ef95b5fc766c0138aea51395ffd769592ade8b325a7a0ed0e4b2e146791a47
+Birleşik karar raporu: KANIT/SEVK_KARARI.md

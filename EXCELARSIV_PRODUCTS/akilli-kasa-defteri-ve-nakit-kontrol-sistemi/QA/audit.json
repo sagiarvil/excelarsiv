@@ -1,0 +1,133 @@
+{
+  "product": "akilli-kasa-defteri-ve-nakit-kontrol-sistemi",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/akilli-kasa-defteri-ve-nakit-kontrol-sistemi/AkilliKasaDefteriVeNakitKontrolSistemi.xlsx",
+  "sha256": "7b347384809bbdebbfd3419069d2461f48ef79c1f5770a41a720fad3081e5c0f",
+  "size_bytes": 218719,
+  "modified_at": "2026-08-12T14:04:14",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "HIZLI_BASLANGIC",
+    "KASA_HESAPLARI",
+    "KASA_HAREKETLERI",
+    "ODEME_TAHSILAT_TAKVIMI",
+    "FIZIKI_KASA_MUTABAKAT",
+    "GUNLUK_OZET",
+    "NAKIT_PROJEKSIYONU",
+    "MOTOR",
+    "KONTROLLER",
+    "KARAR_MOTORU",
+    "PANO",
+    "SENARYO_DUYARLILIK",
+    "RAPOR",
+    "ORNEK_VERI",
+    "TESTLER",
+    "AKIS",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": null,
+    "HIZLI_BASLANGIC": null,
+    "KASA_HESAPLARI": null,
+    "KASA_HAREKETLERI": null,
+    "ODEME_TAHSILAT_TAKVIMI": null,
+    "FIZIKI_KASA_MUTABAKAT": null,
+    "GUNLUK_OZET": null,
+    "NAKIT_PROJEKSIYONU": null,
+    "MOTOR": null,
+    "KONTROLLER": null,
+    "KARAR_MOTORU": null,
+    "PANO": null,
+    "SENARYO_DUYARLILIK": null,
+    "RAPOR": null,
+    "ORNEK_VERI": null,
+    "TESTLER": null,
+    "AKIS": null,
+    "DEGISIKLIK_KAYDI": null,
+    "LISTELER": null,
+    "AYARLAR": null,
+    "KILAVUZ": null
+  },
+  "formula_count": 377,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 140,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 6,
+  "conditional_format_count": 32,
+  "data_validation_count": 34,
+  "gridlines_on_count": 2,
+  "freeze_panes_count": 6,
+  "merged_ranges": 80,
+  "order_mismatches": [
+    "Mevcut: KAPAK > HIZLI_BASLANGIC > KASA_HESAPLARI > KASA_HAREKETLERI > ODEME_TAHSILAT_TAKVIMI > FIZIKI_KASA_MUTABAKAT > GUNLUK_OZET > NAKIT_PROJEKSIYONU > MOTOR > KONTROLLER > KARAR_MOTORU > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: HIZLI_BASLANGIC > GUNLUK_OZET > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > KASA_HESAPLARI > KASA_HAREKETLERI > ODEME_TAHSILAT_TAKVIMI > FIZIKI_KASA_MUTABAKAT > NAKIT_PROJEKSIYONU > MOTOR > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=140"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": false,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=21"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": false,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=2"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > KASA_HESAPLARI > KASA_HAREKETLERI > ODEME_TAHSILAT_TAKVIMI > FIZIKI_KASA_MUTABAKAT > GUNLUK_OZET > NAKIT_PROJEKSIYONU > MOTOR > KONTROLLER > KARAR_MOTORU > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > GUNLUK_OZET > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > KASA_HESAPLARI > KASA_HAREKETLERI > ODEME_TAHSILAT_TAKVIMI > FIZIKI_KASA_MUTABAKAT > NAKIT_PROJEKSIYONU > MOTOR > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=377"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

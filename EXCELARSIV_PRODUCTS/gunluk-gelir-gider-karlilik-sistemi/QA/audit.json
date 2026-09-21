@@ -1,0 +1,133 @@
+{
+  "product": "gunluk-gelir-gider-karlilik-sistemi",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/gunluk-gelir-gider-karlilik-sistemi/GunlukGelirGiderKarlilikSistemi.xlsx",
+  "sha256": "787cecfb8503d058690780d26e3f4c0998a41c7ae678ec714f04d301e5f466a1",
+  "size_bytes": 861147,
+  "modified_at": "2026-09-21T13:45:46",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "GUNLUK_OZET",
+    "TAHAKKUK_NAKIT_ESLEME",
+    "KARAR_MOTORU",
+    "KONTROLLER",
+    "KILAVUZ",
+    "HESAP_PLANI",
+    "GELIR_GIDER_KAYIT",
+    "SATIS_MALIYET",
+    "AYLIK_KARLILIK",
+    "BASABAS",
+    "PANO",
+    "RAPOR",
+    "ORNEK_VERI",
+    "TESTLER",
+    "ANAHTAR",
+    "ESLESTIRME",
+    "KOK_NEDEN",
+    "DEGISIKLIK_KAYDI",
+    "LISTELER",
+    "AYARLAR"
+  ],
+  "hidden_sheets": [
+    "ORNEK_VERI",
+    "LISTELER"
+  ],
+  "tab_colors": {
+    "GUNLUK_OZET": "FF17324D",
+    "TAHAKKUK_NAKIT_ESLEME": "FF2F75B5",
+    "KARAR_MOTORU": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "HESAP_PLANI": "FF0F6B78",
+    "GELIR_GIDER_KAYIT": "FF6B7280",
+    "SATIS_MALIYET": "FF6B7280",
+    "AYLIK_KARLILIK": "FF6B7280",
+    "BASABAS": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "TESTLER": "FF6B7280",
+    "ANAHTAR": "FF6B7280",
+    "ESLESTIRME": "FF6B7280",
+    "KOK_NEDEN": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
+  },
+  "formula_count": 17248,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 3,
+  "conditional_format_count": 31,
+  "data_validation_count": 59,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 5,
+  "merged_ranges": 90,
+  "order_mismatches": [],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": true,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=0"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": true,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": ""
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=17248"
+    }
+  ],
+  "status": "CALIBRATION_REQUIRED",
+  "notes": [
+    "Kalibre kopya: /Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/gunluk-gelir-gider-karlilik-sistemi/GunlukGelirGiderKarlilikSistemi.xlsx"
+  ]
+}

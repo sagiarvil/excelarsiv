@@ -1,0 +1,110 @@
+olcek_hedefi: 50000
+arketip: A2
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  karar_sayfasi: "KARAR"
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  ikame_carpani: 3
+  capraz_tutarlilik_tolerans: 0.2
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+testler:
+  olcek:
+    satir: 200
+    azami_hesap_saniye: 25.0
+
+urun:
+  slug: kobi-finans-yonetim-paketi
+  ad: "KOBİ Finans Yönetim Paketi"
+  karar: "Tüm günlük finans operasyonunu tek dosyada yönetir; nakit, cari, stok, satış ve ödeme planı entegrasyonu"
+  hedef_kullanici: "KOBİ sahipleri, finans sorumluları, operasyon yöneticileri ve muhasebe profesyonelleri"
+  mevzuat:
+    - "Türk Ticaret Kanunu (6102 s.): düzenli ve gerçeğe uygun kayıt ilkeleri"
+    - "Vergi Usul Kanunu (213 s.): belge ve kayıt nizamı"
+  moduller:
+    - anomali_tespiti
+    - kalite_skoru
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - esik_kirilim
+    - zaman_serisi_projeksiyon
+    - karar_kapisi
+    - mutabakat_kok_neden
+    - aksiyon_uretici
+    - deger_olcer
+  giris:
+    aylik_veri:
+      tablo: tblKobi
+      kolonlar: ["Dönem", "Kasa Tahsilat (₺)", "Banka Tahsilat (₺)", "Cari Tahsilat (₺)", "POS Tahsilat (₺)", "Stok Alışı (₺)", "Operasyon Gideri (₺)", "Maaş (₺)", "Kredi Taksidi (₺)", "Risk Skoru"]
+  esikler:
+    asgari_veri_sayisi: 3
+  rapor: "A4, PDF'e hazır; genel karar, KPI özeti, varsayımlar ve önerilen aksiyonlar"
+
+analitik_moduller:
+  - kod: T2
+    ad_tanimi: modulT2TrendOrt
+    yorum_hucresi: modulT2TrendOrtYorum
+  - kod: T4
+    ad_tanimi: modulT4DonemFark
+    yorum_hucresi: modulT4DonemFarkYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2Tornado
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O4
+    ad_tanimi: modulO4NakitDonusum
+    yorum_hucresi: modulO4NakitDonusumYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1Tahmin
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 6000
+  Y2_kurulum_ikamesi_tl: 2500
+
+serbest_alternatif:
+  alternatifler:
+    - "Gelir ve giderlerin ayrı Excel listelerinde elle tutulması; kapanış nakdinin manuel toplamla bulunması"
+    - "Bankanın internet şubesi dökümüyle nakit takibi (kasa, cari ve POS tahsilatı görünmez)"
+    - "Dönem sonunda mali müşavirden mali tablo beklemek (aylık karar alınamaz)"
+    - "Nakit akışını yalnızca giriş-çıkış farkıyla izlemek (risk skoru, senaryo ve tahmin yok)"
+    - "Aylık bütçe tablosunu her ay sıfırdan yeniden kurmak (birikimli karşılaştırma ve değişim takibi yok)"
+  ayrimlar:
+    - madde: "Dört tahsilat kanalını (kasa, banka, cari, POS) tek modelde birleştirir ve kapanış nakdini otomatik üretir"
+      karsilik: KobiNakitGiris
+    - madde: "Aylık risk skoru üretir; asgari ve hedef eşiğin altındaki kapanışları önceden işaretler"
+      karsilik: KobiRiskSkoru
+    - madde: "İyimser/baz/kötümser senaryoda kapanış ve risk bandını gösterir"
+      karsilik: KobiIyiSenaryo
+    - madde: "Tahsilat ve gider değişkeninin kapanışa etkisini tornado ile önceliklendirir"
+      karsilik: KobiTornadoTahsilat
+    - madde: "FORECAST ile gelecek ay nakit tahmini üretir; veri kalitesi düşükse karar VERİ YOK kalır"
+      karsilik: KobiTahminiKar
+
+anahtar_stratejisi:
+  kisa_uzun_senaryo: true
+  norm: UPPER_SUBSTITUTE

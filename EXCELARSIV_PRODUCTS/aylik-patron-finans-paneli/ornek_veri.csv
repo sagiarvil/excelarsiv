@@ -1,0 +1,36 @@
+ORNEK VERI — AYLIK PATRON FİNANS PANELİ
+Bu dosya otomasyon ve içe aktarma için yapıdır; AYLIK_GELIR_GIDER ve BORC_VE_ALACAK sayfalarına CSV/Excel'den kopyalayabilirsiniz.
+
+AYLIK_GELIR_GIDER (tblAylikGelirGider)
+Dönem,Kalem,Tür,Tutar (₺),Nakit mi?,Not
+Ağustos 2026,Ciro,GELİR,850000,EVET,Örnek: ana ciro
+Ağustos 2026,Satılan Mal Maliyeti,GİDER,520000,EVET,Örnek: yan gelir
+Ağustos 2026,Kira ve Giderler,GİDER,95000,EVET,Örnek: direkt maliyet
+Ağustos 2026,Personel,GİDER,120000,EVET,Örnek: sabit gider
+Ağustos 2026,Tahakkuk Eden Ciro,GELİR,120000,HAYIR,Örnek: genel gider
+Eylül 2026,Ciro,GELİR,920000,EVET,Örnek: bordro
+Eylül 2026,Satılan Mal Maliyeti,GİDER,550000,EVET,Örnek: reklam
+Eylül 2026,Kira ve Giderler,GİDER,95000,EVET,Örnek: vadel satış
+Eylül 2026,Personel,GİDER,125000,EVET,Örnek: fatura bekleyen
+Ekim 2026,Ciro,GELİR,980000,EVET,Örnek: sonraki ay
+Ekim 2026,Satılan Mal Maliyeti,GİDER,580000,EVET,Örnek: yan gelir
+Ekim 2026,Kira ve Giderler,GİDER,95000,EVET,Örnek: direkt maliyet
+Ekim 2026,Personel,GİDER,128000,EVET,Örnek: sabit gider
+Kasım 2026,Ciro,GELİR,1040000,EVET,Örnek: bordro
+Kasım 2026,Satılan Mal Maliyeti,GİDER,610000,EVET,Örnek: reklam
+Kasım 2026,Kira ve Giderler,GİDER,95000,EVET,None
+Kasım 2026,Personel,GİDER,130000,EVET,None
+Aralık 2026,Ciro,GELİR,1100000,EVET,None
+Aralık 2026,Satılan Mal Maliyeti,GİDER,640000,EVET,None
+Aralık 2026,Kira ve Giderler,GİDER,95000,EVET,None
+Aralık 2026,Personel,GİDER,132000,EVET,None
+
+BORC_VE_ALACAK (tblBorcAlacak)
+Tür,Kurum/Müşteri,Açıklama,Güncel Bakiye (₺),Kalan Taksit,Vade Tarihi,Not
+BORÇ,Banka A,Kredi,450000,6,15.01.2027,Örnek kayıt 1
+BORÇ,Tedarikçi B,Cari borç,85000,0,30.08.2026,Örnek kayıt 2
+BORÇ,Banka C,Kredi kartı,120000,4,10.12.2026,Örnek kayıt 3
+ALACAK,Müşteri D,Cari alacak,210000,0,20.09.2026,Örnek kayıt 4
+ALACAK,Müşteri E,Vadeli çek,95000,0,05.10.2026,Örnek kayıt 5
+BORÇ,Banka F,Kredi,300000,9,01.05.2027,Örnek kayıt 6
+ALACAK,Müşteri C,Faturalı ama tahsil edilmemiş,38000,0,2026-08-20 00:00:00,Örnek: alacak

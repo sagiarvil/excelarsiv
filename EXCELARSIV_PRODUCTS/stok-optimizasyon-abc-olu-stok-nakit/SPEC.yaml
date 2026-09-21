@@ -1,0 +1,150 @@
+# =============================================================================
+# SPEC — Hat A FAZ 3 #27 · Stok Optimizasyon + ABC + Ölü Stok Nakit
+# Durum: ONAYLANDI — FAZ 3 üretim
+# =============================================================================
+
+urun:
+  kod: SOA-PRO
+  ad: "Stok Optimizasyon + ABC + Ölü Stok Nakit"
+  surum: "1.0.0"
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "Satın alma, depo planlama, fabrika müdürü, SMMM"
+
+arketip: A3
+fiyat: 7900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 16000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 38000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Stok ABC danışmanlığı + ölü stok nakit eritme kurulumu"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Satın alma / depo planlama"
+    is_bitince: "ABC sınıfı ve önerilen siparişi kilitler"
+  - rol: "Fabrika müdürü"
+    is_bitince: "SİPARİŞ / BEKLE / ÖLÜ STOK ERİT kararını görür"
+  - rol: "SMMM / mali işler"
+    is_bitince: "Ölü stok nakit kanıt raporunu dosyalar"
+
+lansman_tetigi:
+  sinif: Sezon
+  aciklama: "Çeyrek sonu stok sayımı / ölü stok eritme turu"
+  tarih_penceresi: "ceyrek_stok_sayim"
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "Kayıt tutmaz; ABC + ölü stok nakit + sipariş kararı verir"
+    karsilik: "soa_kararMetni"
+  - sinif: R1_jenerik
+    ayrim: "Makrosuz durum makinesi SAYIM→ABC→AKSİYON→KAPALI"
+    karsilik: "soa_durumHaritasi"
+  - sinif: R4_on_muhasebe
+    ayrim: "Stok adet×maliyet ↔ kontrol nakit zinciri ZİNCİR KIRIK bayrağı"
+    karsilik: "soa_zincirKirik"
+  - sinif: R4_on_muhasebe
+    ayrim: "Yetim SKU kartı tespiti"
+    karsilik: "soa_yetimKayit"
+  - sinif: R1_jenerik
+    ayrim: "Dönemsel stok kanıt raporu + senaryo"
+    karsilik: "soa_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Elle Excel stok listesi"
+    - "ERP ABC ekranı (lisanslı)"
+    - "Depo sayım defteri"
+  ayrimlar:
+    - madde: "Durum haritası AYARLAR'da"
+      karsilik: "soa_durumHaritasi"
+    - madde: "Geçersiz geçiş görünür uyarı"
+      karsilik: "soa_gecersizGecis"
+    - madde: "Ölü stok nakit ve stok günü motoru"
+      karsilik: "soa_oluStokNakit"
+    - madde: "Kapalı kayıt kuyruktan düşer"
+      karsilik: "soa_kapaliDusum"
+    - madde: "Kimlik disiplini otomatik öneri"
+      karsilik: "soa_sonrakiKimlik"
+
+mevzuat:
+  kurallar: [SOA-001, SOA-002, SOA-003, SOA-004, SOA-005]
+  vakalar: stok_optimizasyon_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - olu_stok_gun_esigi_yorumu
+
+akis:
+  durum_haritasi:
+    - {durum_id: SAYIM, durum_adi: Sayım, sira: 1, izinli_sonraki_durumlar: "ABC", kategori: acik}
+    - {durum_id: ABC, durum_adi: ABC, sira: 2, izinli_sonraki_durumlar: "AKSIYON|SAYIM", kategori: acik}
+    - {durum_id: AKSIYON, durum_adi: Aksiyon, sira: 3, izinli_sonraki_durumlar: "KAPALI|ABC", kategori: acik}
+    - {durum_id: KAPALI, durum_adi: Kapalı, sira: 4, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [stok_adet, birim_maliyet, kontrol_nakit]
+  kuyruk_tanimlari: [Sayım, ABC, Aksiyon, Ölü Stok]
+
+analitik_moduller:
+  - {kod: T1, ad: "Ölü stok nakit toplam", ad_tanimi: "soa_oluStokNakit", yorum_hucresi: "soa_yorumOlu"}
+  - {kod: T2, ad: "Önerilen sipariş ort", ad_tanimi: "soa_onerilenSiparis", yorum_hucresi: "soa_yorumSiparis"}
+  - {kod: O1, ad: "Stok günü sapma", ad_tanimi: "soa_stokGunuSapma", yorum_hucresi: "soa_yorumSapma"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "soa_tornadoZirve", yorum_hucresi: "soa_yorumTornado"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "soa_senaryoKarsilastirma", yorum_hucresi: "soa_yorumSenaryo"}
+  - {kod: O6, ad: "Yoğunlaşma HHI", ad_tanimi: "soa_hhi", yorum_hucresi: "soa_yorumHhi"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "soa_kaliteSkor", yorum_hucresi: "soa_yorumKalite"}
+  - {kod: M_SEN, ad: "Senaryo motoru", ad_tanimi: "soa_senaryoMotor", yorum_hucresi: "soa_yorumSenMotor"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "soa_tahminAralik", yorum_hucresi: "soa_yorumTahmin"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "soa_yuzdelikP90", yorum_hucresi: "soa_yorumP90"}
+
+karar_kurallari:
+  - kosul: "olu_stok_kritik"
+    karar: "ÖLÜ STOK ERİT"
+  - kosul: "siparis_gerekli"
+    karar: "SİPARİŞ"
+  - kosul: "normal"
+    karar: "BEKLE"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - PANO
+  - KARTLAR
+  - AKIS
+  - KUYRUKLAR
+  - HESAP
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat A FAZ 3 #27 — A3 sevk hedefi"

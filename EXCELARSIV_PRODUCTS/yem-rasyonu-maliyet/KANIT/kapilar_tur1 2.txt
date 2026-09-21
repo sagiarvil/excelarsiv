@@ -1,0 +1,100 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/yem-rasyonu-maliyet/YemRasyonuMaliyet.xlsx
+SHA-256 : b657b56fb9a912f42f663cfeffdbfb734f31400dca7e151c8de346096afdcb98
+ARKETİP : A7
+TARİH   : 11.08.2026 20:44
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (17 sayfa)
+  GEÇTİ  G02   17 sayfa şifreli korumada
+  GEÇTİ  G03   243 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   605 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+  UYARI  G07   12 gömülü sabit: [('MALIYET', 'B59', '35,32'), ('MALIYET', 'B59', '1,2'), ('MALIYET', 'B60', '18.5'), ('MALIYET', 'B60', '18.2'), ('MALIYET', 'B60', '17.8'), ('MALIYET', 'B60', '1,2')]
+! KALDI  G08   Yeni satır formül devralmıyor: ['GIRDI.tblGirdi (6 kolon, 0 hesaplanan kolon)']
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   10 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   48 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  UYARI  G15   10 olası taşma: ['GIRDI!A3 (32 krkt / genişlik 22)', 'GIRDI!A4 (53 krkt / genişlik 22)', 'RASYON!A4 (32 krkt / genişlik 14)', 'PANO!A3 (51 krkt / genişlik 24)', 'ORNEK_VERI!A3 (47 krkt / genişlik 12)', 'ORNEK_VERI!A14 (57 krkt / genişlik 12)']
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+! KALDI  G17   Grafik sayısı 7 (asgari 8)
+  GEÇTİ  G18   66 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  GEÇTİ  G24   Tablo kapasiteleri: [('GIRDI', 'tblGirdi', 1001), ('HAMMADDE', 'tblHammadde', 1001), ('RASYON', 'tblRasyon', 1001), ('AYARLAR', 'tblDonusum', 1040)]
+
+======================================================================
+SONUÇ: 2 KALDI | rapor: urunler/yem-rasyonu-maliyet/KANIT/RAPOR_DENETIM.md
+SEVK EDİLEMEZ
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  Ö2    7 uç durum temiz: ['tumu_sifir→KRİTİK', 'tumu_bos→VERİ YOK', 'negatif_deger→KRİTİK', 'gelecek_tarih→KRİTİK', 'yinelenen_kayit→KRİTİK', 'tek_satir→KRİTİK', 'azami_deger→KRİTİK']
+
+==========================================================================
+SONUÇ: 0 KALDI | rapor: urunler/yem-rasyonu-maliyet/KANIT/RAPOR_OLCEK.md
+SEVK EDİLEBİLİR
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    605 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   66 ad tanımının hedefi dolu
+! KALDI  D06    SAHTE KPI — 2 hücre yalnızca sabitlerden türüyor, veriyi ölçmüyor: [('SENARYO', 'B6', '=1-yrm_senaryoIyi'), ('SENARYO', 'B8', '=1+yrm_senaryoKotu')]
+  GEÇTİ  D13    Motor 62 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 48 farklı canlı KPI
+! KALDI  D09    Grafik 7 (asgari 8)
+! KALDI  D09b   8 grafik serisi düz sıfır — alıcı ilk ekranda boş görür: ["MALIYET: 'MALIYET'!$B$63:$B$66 tamamı sıfır/boş", "MALIYET: 'MALIYET'!$B$69:$B$71 tamamı sıfır/boş", "VARYANS: 'VARYANS'!$B$6:$B$12 tamamı sıfır/boş", "VARYANS: 'VARYANS'!$C$6:$C$12 tamamı sıfır/boş", "SENARYO: 'SENARYO'!$C$6:$C$8 tamamı sıfır/boş"]
+! KALDI  D10    2 parametrede kaynak/yürürlük boş: ['satır 43 / kaynak', 'satır 43 / yururluk_tarihi']
+  GEÇTİ  D12    Çapraz tutarlılık sağlandı
+  GEÇTİ  D03    Derinlik puanı 145
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 32,000 TL ≥ eşik 29,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: b657b56fb9a912f42f663cfeffdbfb734f31400dca7e151c8de346096afdcb98
+SONUÇ: 4 KALDI | rapor: urunler/yem-rasyonu-maliyet/KANIT/RAPOR_DEGER.md
+SEVK EDİLEMEZ
+
+[R] Reçete         → recete_kapilari.py  (arketip A7)
+------------------------------------------------------------------------------
+  GEÇTİ  R01   bileşim %100 ±tolerans alarm izi mevcut
+  GEÇTİ  R02   AYARLAR birim dönüşüm tablosu izi var
+  GEÇTİ  R03   fire/bertaraf kolonu izi var
+  GEÇTİ  R04   reçete versiyon / varyans köprüsü izi var
+! KALDI  R05   kırılım etiketleri var; toplam=birim maliyet çapraz kontrolü yok
+
+ÖZET R: 1 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        KALDI      (2 KALDI / 22 GEÇTİ)  [her ürün] 0.6sn
+  Ö  Dayanıklılık   TEMİZ      (0 KALDI / 1 GEÇTİ)  [her ürün] 99.2sn
+  D  Değer          KALDI      (4 KALDI / 12 GEÇTİ)  [her ürün] 15.5sn
+  M  Mevzuat        ATLANDI      [arketip gerektirmiyor] 0.0sn
+  E  Eşleştirme     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  A  İş Akışı       ATLANDI      [arketip gerektirmiyor] 0.0sn
+  F  Fizibilite     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  S  Saha           ATLANDI      [arketip gerektirmiyor] 0.0sn
+  R  Reçete         KALDI      (1 KALDI / 4 GEÇTİ)  [arketip A7] 0.8sn
+
+==============================================================================
+SONUÇ: 7 KALDI · SEVK EDİLEMEZ
+Kanıt: urunler/yem-rasyonu-maliyet/KANIT/ · SHA-256: b657b56fb9a912f42f663cfeffdbfb734f31400dca7e151c8de346096afdcb98
+Birleşik karar raporu: urunler/yem-rasyonu-maliyet/KANIT/SEVK_KARARI.md

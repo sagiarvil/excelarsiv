@@ -1,0 +1,119 @@
+# Hat A #4 — Hizmet İhracatı %100 İndirim + Transfer Takip (A1+A2)
+# FAZ 2 · ONAYLANDI
+
+urun:
+  kod: HIH-PRO
+  ad: "Hizmet İhracatı %100 İndirim + Transfer Takip"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "SMMM, mali işler, ihracatçı hizmet işletmesi"
+
+arketip: A1+A2
+fiyat: 9900
+olcek_hedefi: 50000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 24000
+  Y2_kurulum_ikamesi_tl: 7000
+  Y3_onlenen_hata_tl: 35000
+  Y4_saas_yillik_ikamesi_tl: 6000
+  kaynak: "Hizmet ihracatı indirim dosyası + transfer mutabakat danışmanlığı"
+
+deger_vektoru: ["P", "Z", "R"]
+uc_rol:
+  - rol: "Operasyon / muhasebe"
+    is_bitince: "Fatura–transfer eşleşmesini günceller"
+  - rol: "Mali işler / CFO"
+    is_bitince: "UYGUN / DİKKAT / UYGUN DEĞİL kararını onaylar"
+  - rol: "SMMM / denetçi"
+    is_bitince: "Kanıt raporunu ve madde atıflarını dosyalar"
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "KDV iade / kurumlar vergisi hizmet ihracatı indirim beyan dönemi −10 gün"
+  tarih_penceresi: "kv_kdv_beyan_donemi"
+
+rakip_ayrim:
+  - {sinif: R2, ayrim: "Senaryo + kural yılı yan yana", karsilik: "hih_senaryoKarsilastirma"}
+  - {sinif: R2, ayrim: "Kanıt + madde atıf zinciri", karsilik: "hih_maddeAtifMetni"}
+  - {sinif: R1, ayrim: "Fatura–transfer dört kova mutabakatı", karsilik: "hih_kovaButunluk"}
+  - {sinif: R1, ayrim: "TANIMSIZ kök neden — zorla sınıflandırma yok", karsilik: "hih_tanimsizKova"}
+  - {sinif: R3, ayrim: "Tek seferlik; veri cihazdan çıkmaz", karsilik: "hih_kvkkBeyani"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["Elle VLOOKUP", "Bankadan döküm + not defteri", "Genel KDV iade Excel"]
+  ayrimlar:
+    - {madde: "Normalize referans + kısa/uzun no", karsilik: "hih_normAnahtar"}
+    - {madde: "Duyarlılık tornado", karsilik: "hih_tornadoZirve"}
+    - {madde: "Vaka tutarlılığı", karsilik: "hih_vakaDurum"}
+    - {madde: "Karar gerekçesi", karsilik: "hih_kararGerekce"}
+    - {madde: "Parmak izi", karsilik: "hih_parmakIzi"}
+
+mevzuat:
+  kurallar: [HIH-001, HIH-002, HIH-003, HIH-004, HIH-005]
+  vakalar: hizmet_ihracat_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [hizmet_yer_teslimi, belge_seti_tamamlik]
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(referans_no,\" \",\"\")))"
+  ikincil: "LEFT(norm,12) veya tutar+tarih"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+analitik_moduller:
+  - {kod: T5, ad: "Mutabakat farkı", ad_tanimi: "hih_mutabakatFarki", yorum_hucresi: "hih_yorumFark"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "hih_tornadoZirve", yorum_hucresi: "hih_yorumTornado"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "hih_senaryoKarsilastirma", yorum_hucresi: "hih_yorumSenaryo"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "hih_tahminAralik", yorum_hucresi: "hih_yorumTahmin"}
+  - {kod: I8, ad: "Kök-neden ayrıştırma", ad_tanimi: "hih_kokNedenDagilim", yorum_hucresi: "hih_yorumKokNeden"}
+  - {kod: M_SEN, ad: "Kural değişimi", ad_tanimi: "hih_kuralDegisimSenaryo", yorum_hucresi: "hih_yorumKuralDegisim"}
+
+sayfa_akisi:
+  - PANO
+  - GIRDI
+  - VERI_A
+  - VERI_B
+  - ANAHTAR
+  - ESLESTIRME
+  - KOK_NEDEN
+  - KURALLAR
+  - MOTOR
+  - SENARYO
+  - VAKALAR
+  - AKSIYON
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "FAZ 2 — Hat A #4 A1+A2"}

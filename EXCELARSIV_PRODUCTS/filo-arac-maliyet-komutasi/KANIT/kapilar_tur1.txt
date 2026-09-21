@@ -1,0 +1,100 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/filo-arac-maliyet-komutasi/FiloAracMaliyetKomutasi.xlsx
+SHA-256 : ab63988da8aef8a81a71549adf5097dbbf81bbfc74e671a6142b06a955451ea9
+ARKETİP : A5
+TARİH   : 11.08.2026 16:37
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (13 sayfa)
+  GEÇTİ  G02   13 sayfa şifreli korumada
+  GEÇTİ  G03   349 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   3486 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+! KALDI  G07   25 formülde gömülü sihirli sayı — parametre AYARLAR'da olmalı: [('DONEM_ANALIZ', 'C10', '5'), ('DONEM_ANALIZ', 'D10', '5'), ('DONEM_ANALIZ', 'C11', '6'), ('DONEM_ANALIZ', 'D11', '6'), ('DONEM_ANALIZ', 'C13', '8'), ('DONEM_ANALIZ', 'D13', '8')]
+  GEÇTİ  G08   2 tablo, hesaplanan kolonlar tanımlı
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   103 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   178 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  UYARI  G15   4 olası taşma: ['DONEM_ANALIZ!A20 (20 krkt / genişlik 14)', 'DONEM_ANALIZ!A23 (20 krkt / genişlik 14)', 'RAPOR!B5 (26 krkt / genişlik 18)', 'RAPOR!A31 (49 krkt / genişlik 24)']
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+  GEÇTİ  G17   10 grafik
+  GEÇTİ  G18   62 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  GEÇTİ  G24   Tablo kapasiteleri: [('VARLIKLAR', 'tblVarliklar', 251), ('GUNLUK_GIRIS', 'tblGunluk', 251)]
+
+======================================================================
+SONUÇ: 1 KALDI | rapor: urunler/filo-arac-maliyet-komutasi/KANIT/RAPOR_DENETIM.md
+SEVK EDİLEMEZ
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+! KALDI  Ö2b   Uç durumda sessiz yanlış karar: ["negatif_deger → karar 'UYGUN' (uç veride sessiz onay)"]
+
+==========================================================================
+SONUÇ: 1 KALDI | rapor: urunler/filo-arac-maliyet-komutasi/KANIT/RAPOR_OLCEK.md
+SEVK EDİLEMEZ
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    3486 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   62 ad tanımının hedefi dolu
+! KALDI  D06    SAHTE KPI — 8 hücre yalnızca sabitlerden türüyor, veriyi ölçmüyor: [('ALARMLAR', 'C6', '=fam_esikKmBasi'), ('ALARMLAR', 'C7', '=fam_esikKmBasi'), ('ALARMLAR', 'C8', '=fam_esikKmBasi'), ('ALARMLAR', 'C9', '=fam_esikKmBasi'), ('ALARMLAR', 'C10', '=fam_esikKmBasi')]
+  GEÇTİ  D13    Motor 47 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 34 farklı canlı KPI
+  GEÇTİ  D09    10 grafik + tahmin katmanı mevcut
+! KALDI  D09b   10 grafik serisi düz sıfır — alıcı ilk ekranda boş görür: ["DONEM_ANALIZ: 'DONEM_ANALIZ'!$D$6:$D$17 tamamı sıfır/boş", "DONEM_ANALIZ: 'DONEM_ANALIZ'!$C$6:$C$17 tamamı sıfır/boş", "PANO: 'PANO'!$B$23:$B$26 tamamı sıfır/boş", "PANO: 'PANO'!$E$23:$E$25 tamamı sıfır/boş", "PANO: 'PANO'!$H$23:$H$30 tamamı sıfır/boş"]
+  GEÇTİ  D10    Tüm parametrelerde kaynak ve yürürlük tarihi dolu
+  GEÇTİ  D12    Çapraz tutarlılık sağlandı
+  GEÇTİ  D03    Derinlik puanı 145
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 25,000 TL ≥ eşik 23,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: ab63988da8aef8a81a71549adf5097dbbf81bbfc74e671a6142b06a955451ea9
+SONUÇ: 2 KALDI | rapor: urunler/filo-arac-maliyet-komutasi/KANIT/RAPOR_DEGER.md
+SEVK EDİLEMEZ
+
+[S] Saha           → saha_kapilari.py  (arketip A5)
+------------------------------------------------------------------------------
+  GEÇTİ  S01   birimli kolon izi: 7/13
+! KALDI  S02   GUNLUK_GIRIS alan sayısı=15 > 6
+  GEÇTİ  S03   ≥12 aylık sezonsallık / dönem zinciri izi var
+  GEÇTİ  S04   varlık sağlık skoru formülle veriden türüyor
+  GEÇTİ  S05   AYARLAR eşik + listelenmiş alarm izi var
+
+ÖZET S: 1 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        KALDI      (1 KALDI / 24 GEÇTİ)  [her ürün] 0.4sn
+  Ö  Dayanıklılık   KALDI      (1 KALDI / 0 GEÇTİ)  [her ürün] 27.4sn
+  D  Değer          KALDI      (2 KALDI / 14 GEÇTİ)  [her ürün] 4.1sn
+  M  Mevzuat        ATLANDI      [arketip gerektirmiyor] 0.0sn
+  E  Eşleştirme     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  A  İş Akışı       ATLANDI      [arketip gerektirmiyor] 0.0sn
+  F  Fizibilite     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  S  Saha           KALDI      (1 KALDI / 4 GEÇTİ)  [arketip A5] 0.3sn
+  R  Reçete         ATLANDI      [arketip gerektirmiyor] 0.0sn
+
+==============================================================================
+SONUÇ: 5 KALDI · SEVK EDİLEMEZ
+Kanıt: urunler/filo-arac-maliyet-komutasi/KANIT/ · SHA-256: ab63988da8aef8a81a71549adf5097dbbf81bbfc74e671a6142b06a955451ea9
+Birleşik karar raporu: urunler/filo-arac-maliyet-komutasi/KANIT/SEVK_KARARI.md

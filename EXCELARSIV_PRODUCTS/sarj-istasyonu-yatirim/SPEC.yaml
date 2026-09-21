@@ -1,0 +1,177 @@
+# =============================================================================
+# SPEC — Hat B Y-03 · Şarj İstasyonu Yatırım Simülatörü
+# Durum: ONAYLANDI — Enerji dikeyi (D0 7/7)
+# Manda: v6 · arketip A6
+# =============================================================================
+
+urun:
+  kod: SIY-PRO
+  slug: sarj-istasyonu-yatirim
+  ad: "Şarj İstasyonu Yatırım Simülatörü"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "EV şarj yatırımcısı, tesis müdürü, CFO, enerji danışmanı"
+
+arketip: A6
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 28000
+  Y2_kurulum_ikamesi_tl: 9000
+  Y3_onlenen_hata_tl: 350000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Şarj istasyonu fizibilite danışmanlığı + CAPEX/OPEX nakit akışı model kurulum"
+
+deger_vektoru: ["P", "İ", "R"]
+uc_rol:
+  - rol: "Tesis / operasyon"
+    is_bitince: "Soket, kullanım, tarife ve CAPEX/OPEX girdilerini girer"
+  - rol: "Yatırımcı / CFO"
+    is_bitince: "NPV/IRR aralığı ve YATIRIM YAPILIR / YATIRIM YAPMA kararını verir"
+  - rol: "Banka / teşvik komitesi"
+    is_bitince: "KANIT_RAPORU ile varsayım kaynaklı fizibilite özetini dosyalar"
+
+lansman_tetigi:
+  sinif: Tesvik_acilisi
+  aciklama: "Şarj istasyonu teşvik / destek programı açılışı — fizibilite yeniden hesap"
+  tarih_penceresi: "tesvik_ilan_sonrasi_45_gun"
+
+fizibilite:
+  finansman_senaryolari: ["OZ_KAYNAK", "KREDI"]
+  kotumser_karar: "YATIRIM YAPMA"
+  capex_opex: true
+  npv_irr_tornado: true
+
+rakip_ayrim:
+  - sinif: R1_jenerik_sablon
+    ayrim: "Soket×kullanım×tarife gelir modeli (DC hızlı şarj)"
+    karsilik: "siy_kullanimGelir"
+  - sinif: R1_jenerik_sablon
+    ayrim: "CAPEX/OPEX ayrık nakit akışı + teşvik netleştirmesi"
+    karsilik: "siy_capexOpex"
+  - sinif: R2_danisman_excel
+    ayrim: "Öz kaynak / kredi finansman + NPV/IRR tornado"
+    karsilik: "siy_finansmanKarsilastirma"
+  - sinif: R2_danisman_excel
+    ayrim: "Kötümser YATIRIM YAPMA karar yolu"
+    karsilik: "siy_kararMetni"
+  - sinif: R4_brosur
+    ayrim: "Varsayım satırında kaynak+güven; bankaya sunulabilir KANIT_RAPORU"
+    karsilik: "siy_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Tedarikçi teklifindeki tek satırlık geri ödeme hesabı"
+    - "Danışmanın sabit tarifeli Excel'i"
+    - "Basit amortisman / geri ödeme cetveli"
+  ayrimlar:
+    - madde: "Soket×seans×kWh kullanım gelir modeli"
+      karsilik: "siy_kullanimGelir"
+    - madde: "CAPEX/OPEX ayrımı + teşvik net CAPEX"
+      karsilik: "siy_capexOpex"
+    - madde: "Öz kaynak vs kredi finansman senaryosu"
+      karsilik: "siy_finansmanKarsilastirma"
+    - madde: "NPV/IRR aralık + tornado + kötümser YATIRIM YAPMA"
+      karsilik: "siy_kararMetni"
+    - madde: "Altın vakalar + SHA-256 kanıt paketi"
+      karsilik: "siy_vakaDurum"
+
+mevzuat:
+  kurallar: [SIY-001, SIY-002, SIY-003, SIY-004, SIY-005]
+  vakalar: sarj_istasyonu_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik:
+    - tesvik_oran_yenileme
+
+analitik_moduller:
+  - kod: T1
+    ad: "Yıllık şarj kWh / kullanım"
+    ad_tanimi: "siy_modulT1"
+    yorum_hucresi: "siy_modulT1Yorum"
+  - kod: T2
+    ad: "Tarife marjı (perakende−toptan−ağ)"
+    ad_tanimi: "siy_modulT2"
+    yorum_hucresi: "siy_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo NPV sapması"
+    ad_tanimi: "siy_modulO1"
+    yorum_hucresi: "siy_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "siy_duyarlilikSira"
+    yorum_hucresi: "siy_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "siy_senaryoKarsilastirma"
+    yorum_hucresi: "siy_yorumSenaryo"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "siy_modulO8"
+    yorum_hucresi: "siy_modulO8Yorum"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "siy_tahminAralik"
+    yorum_hucresi: "siy_yorumTahmin"
+  - kod: I2
+    ad: "NPV yüzdelik P90"
+    ad_tanimi: "siy_modulI2"
+    yorum_hucresi: "siy_modulI2Yorum"
+
+karar_kurallari:
+  - kosul: "npv_pozitif_ve_geri_odeme_esik_alti"
+    karar: "YATIRIM YAPILIR"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "kotumser_npv_negatif"
+    karar: "YATIRIM YAPMA"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - VARSAYIMLAR
+  - KURALLAR
+  - MOTOR
+  - FINANSMAN
+  - SENARYO
+  - PANO
+  - KARAR
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "KARAR"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-03 — enerji dikeyi; D0 7/7; teşvik açılışı tetikli A6 fizibilite"

@@ -1,0 +1,111 @@
+# =============================================================================
+# SPEC — Hat D D-02 · e-Fatura Toplu Dönüştürücü
+# Ç15: XML/API/makro YOK. Toplu satır yapıştır → Excel + PDF kanıt. Ölçek 10k.
+# =============================================================================
+
+urun:
+  kod: ETD-PRO
+  ad: "e-Fatura Toplu Dönüştürücü"
+  surum: "1.0.0"
+  slug: e-fatura-toplu-donusturucu
+  dosya: EFaturaTopluDonusturucu.xlsx
+  prefix: etd_
+  satis_fiyati_tl: 1490
+  hedef_kullanici: "SMMM, mali müşavir kulübü, muhasebe"
+
+arketip: A2
+fiyat: 1490
+olcek_hedefi: 10000
+
+deger:
+  satis_fiyati_tl: 1490
+  Y1_danisman_ikamesi_tl: 4000
+  Y2_kurulum_ikamesi_tl: 1500
+  Y3_onlenen_hata_tl: 12000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Toplu e-Fatura satır → Excel/PDF dönüşüm danışmanlığı"
+
+deger_vektoru: ["P", "Z", "K"]
+uc_rol:
+  - {rol: "Muhasebe", is_bitince: "Toplu satırları yapıştırıp deftere dönüştürür"}
+  - {rol: "SMMM", is_bitince: "Hata/fark listesini temizler"}
+  - {rol: "Denetçi", is_bitince: "PDF kanıt raporunu alır"}
+
+lansman_tetigi:
+  sinif: Donemsel_beyan
+  aciklama: "Aylık KDV beyanı −15 gün"
+  tarih_penceresi: "kdv_beyan_oncesi_15_gun"
+
+rakip_ayrim:
+  - {sinif: R1_jenerik, ayrim: "10.000 satır ölçek sözleşmesi", karsilik: "etd_olcekHedef"}
+  - {sinif: R1_jenerik, ayrim: "UUID normalize + dört kova", karsilik: "etd_kovaButunluk"}
+  - {sinif: R2_bedava, ayrim: "PDF baskı KANIT_RAPORU", karsilik: "etd_kanitRaporu"}
+  - {sinif: R3_saas, ayrim: "Makrosuz; XML/API yok; veri cihazda", karsilik: "etd_kvkkBeyani"}
+  - {sinif: R4, ayrim: "VERİ YOK/UYGUN/İNCELE/DURDUR", karsilik: "etd_kararKapi"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["Tek tek GİB", "Elle VLOOKUP", "SaaS dönüştürücü"]
+  ayrimlar:
+    - {madde: "Normalize UUID anahtar", karsilik: "etd_normAnahtar"}
+    - {madde: "Dört kova bütünlük", karsilik: "etd_kovaButunluk"}
+    - {madde: "TANIMSIZ kök-neden", karsilik: "etd_tanimsizKova"}
+    - {madde: "Eşleşme oranı canlı", karsilik: "etd_eslesmeOrani"}
+    - {madde: "Boş dosyada VERİ YOK", karsilik: "etd_kararKapi"}
+
+anahtar_stratejisi:
+  birincil: "UPPER(TRIM(SUBSTITUTE(uuid,\"-\",\"\")))"
+  ikincil: "fatura_no veya tutar+tarih"
+  kisa_uzun_senaryo: true
+
+mutabakat:
+  tolerans_kurus: 0.05
+  kova_kurallari: [eslesti, tolerans_icinde, tutar_farki, eslesmedi]
+
+analitik_moduller:
+  - {kod: T1, ad: "Eşleşme oranı", ad_tanimi: "etd_modulT1", yorum_hucresi: "etd_modulT1Yorum"}
+  - {kod: T2, ad: "Ort. fark", ad_tanimi: "etd_modulT2", yorum_hucresi: "etd_modulT2Yorum"}
+  - {kod: O1, ad: "Anomali", ad_tanimi: "etd_modulO1", yorum_hucresi: "etd_modulO1Yorum"}
+  - {kod: O2, ad: "Tornado", ad_tanimi: "etd_modulO2", yorum_hucresi: "etd_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "etd_modulO3", yorum_hucresi: "etd_modulO3Yorum"}
+  - {kod: O6, ad: "VKN yoğunlaşması", ad_tanimi: "etd_modulO6", yorum_hucresi: "etd_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "etd_modulO8", yorum_hucresi: "etd_modulO8Yorum"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "etd_modulI1", yorum_hucresi: "etd_modulI1Yorum"}
+  - {kod: I2, ad: "P90", ad_tanimi: "etd_modulI2", yorum_hucresi: "etd_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: eslesme_dusuk, karar: "DURDUR"}
+  - {kosul: fark_var, karar: "İNCELE"}
+  - {kosul: temiz, karar: "UYGUN"}
+
+sayfa_akisi: [KAPAK, VERI_A, VERI_B, ANAHTAR, MOTOR, ESLESTIRME, KOK_NEDEN, PANO, AKSIYON, KANIT_RAPORU, KONTROLLER, ORNEK_VERI, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+
+testler:
+  olcek:
+    satir: 10000
+    azami_hesap_saniye: 90.0
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "Hat D D-02 — makrosuz; XML/API yasak"}

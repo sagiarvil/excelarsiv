@@ -1,0 +1,102 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/elektrik-faturasi-dogrulama/ElektrikFaturasiDogrulama.xlsx
+SHA-256 : c03f9aa9e79c89795e111ced2fd143d43419c2ac3a63c2f47b5711805765ec7d
+ARKETİP : A2
+TARİH   : 11.08.2026 20:25
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (14 sayfa)
+  GEÇTİ  G02   14 sayfa şifreli korumada
+  GEÇTİ  G03   701 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   23563 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+  GEÇTİ  G07   Formüllerde gömülü sihirli sayı yok
+  GEÇTİ  G08   7 tablo, hesaplanan kolonlar tanımlı
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   55 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   70 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  UYARI  G15   5 olası taşma: ['ESLESTIRME!A2 (22 krkt / genişlik 13)', 'KOK_NEDEN!A14 (21 krkt / genişlik 14)', 'KANIT_RAPORU!A21 (60 krkt / genişlik 28)', 'KANIT_RAPORU!A22 (41 krkt / genişlik 28)', 'KANIT_RAPORU!A23 (62 krkt / genişlik 28)']
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+  GEÇTİ  G17   8 grafik
+  GEÇTİ  G18   37 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  GEÇTİ  G24   Tablo kapasiteleri: [('VERI_A', 'tblVeriA', 501), ('VERI_B', 'tblVeriB', 501), ('ANAHTAR', 'tblAnahtarA', 501), ('ANAHTAR', 'tblAnahtarB', 501), ('ESLESTIRME', 'tblEslesme', 501), ('KOK_NEDEN', 'tblKok', 511), ('AKSIYON', 'tblAksiyon', 501)]
+
+======================================================================
+SONUÇ: 0 KALDI | rapor: urunler/elektrik-faturasi-dogrulama/KANIT/RAPOR_DENETIM.md
+SEVK EDİLEBİLİR
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  Ö2    7 uç durum temiz: ['tumu_sifir→UYGUN', 'tumu_bos→VERİ YOK', 'negatif_deger→İNCELE', 'gelecek_tarih→İNCELE', 'yinelenen_kayit→UYGUN', 'tek_satir→İNCELE', 'azami_deger→İNCELE']
+
+==========================================================================
+SONUÇ: 0 KALDI | rapor: urunler/elektrik-faturasi-dogrulama/KANIT/RAPOR_OLCEK.md
+SEVK EDİLEBİLİR
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    23563 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   37 ad tanımının hedefi dolu
+  GEÇTİ  D06    Sabitten türeyen sahte KPI yok
+  GEÇTİ  D13    Motor 8001 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 24 farklı canlı KPI
+  GEÇTİ  D09    8 grafik + tahmin katmanı mevcut
+  GEÇTİ  D09b   Grafik serilerinde veri var
+  GEÇTİ  D10    Tüm parametrelerde kaynak ve yürürlük tarihi dolu
+  GEÇTİ  D12    Çapraz tutarlılık sağlandı
+  GEÇTİ  D03    Derinlik puanı 100
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 17,000 TL ≥ eşik 14,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: c03f9aa9e79c89795e111ced2fd143d43419c2ac3a63c2f47b5711805765ec7d
+SONUÇ: 0 KALDI | rapor: urunler/elektrik-faturasi-dogrulama/KANIT/RAPOR_DEGER.md
+SEVK EDİLEBİLİR
+
+[E] Eşleştirme     → eslestirme_kapilari.py  (arketip A2)
+------------------------------------------------------------------------------
+  GEÇTİ  E01   ANAHTAR normalize kolon/formül izi var
+  GEÇTİ  E01b  SPEC anahtar_stratejisi mevcut
+  GEÇTİ  E02   dört kova etiket izleri mevcut
+  GEÇTİ  E03   eşleşme oranı formülle veriden türüyor
+  GEÇTİ  E04   TANIMSIZ/elle incele kovası görünür
+  GEÇTİ  E05   duplike tespit izi var
+  GEÇTİ  E06   SPEC olcek_hedefi=50000 (A2 50k sözleşmesi)
+
+ÖZET E: 0 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        TEMİZ      (0 KALDI / 25 GEÇTİ)  [her ürün] 1.1sn
+  Ö  Dayanıklılık   TEMİZ      (0 KALDI / 1 GEÇTİ)  [her ürün] 38.6sn
+  D  Değer          TEMİZ      (0 KALDI / 16 GEÇTİ)  [her ürün] 6.7sn
+  M  Mevzuat        ATLANDI      [arketip gerektirmiyor] 0.0sn
+  E  Eşleştirme     TEMİZ      (0 KALDI / 7 GEÇTİ)  [arketip A2] 0.3sn
+  A  İş Akışı       ATLANDI      [arketip gerektirmiyor] 0.0sn
+  F  Fizibilite     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  S  Saha           ATLANDI      [arketip gerektirmiyor] 0.0sn
+  R  Reçete         ATLANDI      [arketip gerektirmiyor] 0.0sn
+
+==============================================================================
+SONUÇ: 0 KALDI · SEVK EDİLEBİLİR
+Kanıt: urunler/elektrik-faturasi-dogrulama/KANIT/ · SHA-256: c03f9aa9e79c89795e111ced2fd143d43419c2ac3a63c2f47b5711805765ec7d
+Birleşik karar raporu: urunler/elektrik-faturasi-dogrulama/KANIT/SEVK_KARARI.md

@@ -1,0 +1,130 @@
+arketip: A3
+denetim:
+  karar_sayfasi: "KARAR_MOTORU"
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+testler:
+  olcek:
+    satir: 15
+
+urun:
+  slug: banka-kredi-ve-taksit-takip-sistemi
+  ad: "Banka, Kredi ve Taksit Takip Sistemi"
+  karar: "Toplam finansal borç, aylık borç servisi ve likidite oranlarından borç yükü ve refinansman ihtiyacı kararını üretir"
+  hedef_kullanici: "KOBİ sahipleri, finans yöneticileri, kredi kullanan işletmeler, muhasebe sorumluları"
+  mevzuat:
+    - "VUK (213 s.) md.185-198: defter tutma ve kayıt düzeni; borç ve alacakların kaydı"
+    - "TTK (6102 s.) md.64: defter tutma ve finansal tablo esasları"
+  giris:
+    bankalar:
+      tablo: tblBankalar
+      kolonlar: [Banka Adı, Kredi Limitleri, Durum]
+    krediler:
+      tablo: tblKrediler
+      kolonlar: [Kredi ID, Tür, Para Birimi, Anapara, Faiz Oranı, Vade]
+    odeme_takvimi:
+      tablo: tblOdemeTakvimi
+      kolonlar: [Tarih, Kredi ID, Tür, Tutar, Durum]
+  esikler:
+    likidite_esigi: 0.85
+    doviz_geliri_esigi: 1.0
+    kaldirac_esigi: 3.0
+    veri_kalite_yuksek: 80
+    veri_kalite_orta: 50
+  rapor: "A4, PDF'e hazır; borç yükü, borç servisi, likidite ve refinansman önerisi"
+
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1VadeGecmis
+    yorum_hucresi: modulT1VadeGecmisYorum
+  - kod: T2
+    ad_tanimi: modulT2OdemeEgimi
+    yorum_hucresi: modulT2OdemeEgimiYorum
+  - kod: T3
+    ad_tanimi: modulT3BorctaPareto
+    yorum_hucresi: modulT3BorctaParetoYorum
+  - kod: T4
+    ad_tanimi: modulT4AyFarki
+    yorum_hucresi: modulT4AyFarkiYorum
+  - kod: T5
+    ad_tanimi: modulT5MutabakatFark
+    yorum_hucresi: modulT5MutabakatFarkYorum
+  - kod: T6
+    ad_tanimi: modulT6KaldiracOran
+    yorum_hucresi: modulT6KaldiracOranYorum
+  - kod: O1
+    ad_tanimi: modulO1AnomaliOdeme
+    yorum_hucresi: modulO1AnomaliOdemeYorum
+  - kod: O2
+    ad_tanimi: modulO2TornadoZirve
+    yorum_hucresi: modulO2TornadoZirveYorum
+  - kod: O3
+    ad_tanimi: modulO3SenaryoFark
+    yorum_hucresi: modulO3SenaryoFarkYorum
+  - kod: O4
+    ad_tanimi: modulO4Dscr
+    yorum_hucresi: modulO4DscrYorum
+  - kod: O6
+    ad_tanimi: modulO6BankaHhi
+    yorum_hucresi: modulO6BankaHhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1OdemeTahmini
+    yorum_hucresi: modulI1OdemeTahminiYorum
+  - kod: I2
+    ad_tanimi: modulI2OdemeP90
+    yorum_hucresi: modulI2OdemeP90Yorum
+  - kod: I3
+    ad_tanimi: modulI3XirrRefinansman
+    yorum_hucresi: modulI3XirrRefinansmanYorum
+  - kod: I7
+    ad_tanimi: modulI7NakitAcigi
+    yorum_hucresi: modulI7NakitAcigiYorum
+
+deger:
+  satis_fiyati_tl: 1490
+  Y1_danisman_ikamesi_tl: 3500
+  Y2_kurulum_ikamesi_tl: 1500
+
+serbest_alternatif:
+  alternatifler:
+    - "Kredi ve taksitleri elle izleyen düzensiz hesap tablosu"
+    - "Banka ekstrelerinden borç servisi ve kullanılabilir nakit hesabı"
+    - "Mali müşavir veya finans danışmanından dönemsel borç durumu raporu"
+    - "Ücretsiz genel amaçlı kredi takip şablonları (refinansman kararı üretmez)"
+    - "Yaklaşan taksiti son anda fark edip ödeme planını ertelemek"
+  ayrimlar:
+    - madde: "Likidite, döviz uyumu ve kaldıraç oranlarından borç yükü kararını formülle üretir"
+      karsilik: KararBildirimi
+    - madde: "Aylık borç servisini ödeme takviminden otomatik hesaplar"
+      karsilik: AylikBorcServisi
+    - madde: "Vade yaşlandırması ve ödeme eğimiyle taksit riskini ölçer"
+      karsilik: modulT1VadeGecmis
+    - madde: "İyimser/kötümser senaryo ve tornado duyarlılıkla nakit etkisini sıralar"
+      karsilik: modulO3SenaryoFark
+    - madde: "Banka bazında borç yoğunlaşmasını (HHI) ve refinansman XIRR karşılaştırmasını üretir"
+      karsilik: modulO6BankaHhi
+    - madde: "Ödeme P90 aralığıyla gelecek borç servisi tahminini üretir; sonuç ad tanımlıdır"
+      karsilik: modulI2OdemeP90
+    - madde: "Masraf/komisyon mutabakat farkını ve nakit açığı köprüsünü üretir"
+      karsilik: modulI7NakitAcigi
+
+durum_haritasi:
+  durumlar: [ACIK, ISLEMDE, KAPALI]
+  kapali: [KAPALI]
+
+akis:
+  yetim_kontrol: true
+  zincir_kontrol: true

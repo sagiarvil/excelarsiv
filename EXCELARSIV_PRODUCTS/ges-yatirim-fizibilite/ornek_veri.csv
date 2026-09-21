@@ -1,0 +1,5 @@
+Senaryo,Proje_tipi,Kurulu_guc_kWp,Spesifik_uretim,Oz_tuketim,Perakende_tarife,Satis_tarife,Capex_birim,Opex_oran,WACC,Yil
+Demo cati,CATI,100,1400,0.70,3.50,1.20,12000,0.015,0.18,2026
+Yuksek uretim,CATI,100,1600,0.75,3.80,1.40,11000,0.012,0.16,2026
+Kotumser saha,SAHA,250,1200,0.40,3.20,1.00,14000,0.020,0.20,2026
+2025 gecis,CATI,80,1350,0.65,3.00,1.10,12500,0.016,0.18,2025

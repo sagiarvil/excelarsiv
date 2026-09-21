@@ -1,0 +1,15 @@
+SatirId,KalemId,Oran,Fire,Versiyon,Not
+RS-01,YM-01,0.4,0.08,V2,Silaj baz
+RS-02,YM-02,0.15,0.05,V2,Kaba yem
+RS-03,YM-03,0.2,0.02,V2,Enerji
+RS-04,YM-04,0.12,0.015,V2,Protein
+RS-05,YM-05,0.1,0.03,V2,Kesif
+RS-06,YM-06,0.02,0.01,V2,Mineral
+RS-07,YM-07,0.01,0.005,V2,Tuz
+RS-08,YM-01,0.45,0.1,V1,Eski silaj agir
+RS-09,YM-02,0.12,0.05,V1,Eski yonca
+RS-10,YM-03,0.18,0.02,V1,Eski arpa
+RS-11,YM-04,0.1,0.015,V1,Eski soya
+RS-12,YM-05,0.12,0.03,V1,Eski kesif
+RS-13,YM-06,0.02,0.01,V1,Eski mineral
+RS-14,YM-07,0.01,0.005,V1,Eski tuz

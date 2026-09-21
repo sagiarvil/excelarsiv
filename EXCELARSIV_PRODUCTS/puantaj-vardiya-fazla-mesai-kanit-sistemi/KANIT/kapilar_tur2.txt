@@ -1,0 +1,101 @@
+==============================================================================
+KAPILAR v2.0.0 · EXCELARSİV Üretim Mandası v6.0
+DOSYA   : urunler/puantaj-vardiya-fazla-mesai-kanit-sistemi/PuantajVardiyaFazlaMesaiKanitSistemi.xlsx
+SHA-256 : b3361a6735b10529abfb271787e32d6e27c8961ae454aa5e7e5c53bccea1295d
+ARKETİP : A3+A4
+TARİH   : 11.08.2026 14:33
+==============================================================================
+
+[G] İşçilik        → denetci.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  G01   Sayfa sırası doğru (14 sayfa)
+  GEÇTİ  G02   14 sayfa şifreli korumada
+  GEÇTİ  G03   516 giriş hücresi açık ve işaretli
+  GEÇTİ  G04   2936 formül hücresi kilitli
+  GEÇTİ  G05   Taşmalı dizi fonksiyonu yok
+  GEÇTİ  G05b  Önek kuralı temiz
+  GEÇTİ  G05c  Volatil kullanım 0 adet, sınır içinde
+  GEÇTİ  G06   Tam sütun referansı yok
+! KALDI  G07   17 formülde gömülü sihirli sayı — parametre AYARLAR'da olmalı: [('HESAP', 'C40', '0,100'), ('HESAP', 'C40', '10'), ('HESAP', 'C40', '10'), ('HESAP', 'C40', '10'), ('HESAP', 'B58', '0,1'), ('HESAP', 'B59', '0,1')]
+  GEÇTİ  G08   5 tablo, hesaplanan kolonlar tanımlı
+  GEÇTİ  G09   Doğrulama aralıkları tablo sınırıyla uyumlu
+  GEÇTİ  G10   73 doğrulamanın tamamında ipucu penceresi var
+  GEÇTİ  G11   Tüm doğrulamalarda hata mesajı tanımlı
+  GEÇTİ  G12   Giriş hücrelerinin %100'ünde açıklama notu var
+  GEÇTİ  G13   191 koşullu biçimlendirme kuralı
+  GEÇTİ  G14   Tüm sayısal hücrelerde biçim tanımlı
+  GEÇTİ  G15   Metin taşması saptanmadı
+  GEÇTİ  G16   2 rapor sayfası baskıya hazır
+  GEÇTİ  G17   8 grafik
+  GEÇTİ  G18   64 ad tanımı sağlam
+  GEÇTİ  G19   Görünen katman %100 Türkçe
+  GEÇTİ  G20   Dosya paketi temiz (eklenti/dış bağlantı artığı yok)
+  GEÇTİ  G21   Örnek veri sayfası: ['ORNEK_VERI']
+  GEÇTİ  G22   1 kontrol sayfası canlı formülle çalışıyor
+  GEÇTİ  G23   Sürüm/lisans bilgisi var
+  UYARI  G24   Tablo kapasitesi düşük (ön-doldurulmuş satır <200): [('KURALLAR', 'tblKurallar', 6), ('VAKALAR', 'tblVakalar', 7), ('AYARLAR', 'tblDurumHaritasi', 35)]
+
+======================================================================
+SONUÇ: 1 KALDI | rapor: urunler/puantaj-vardiya-fazla-mesai-kanit-sistemi/KANIT/RAPOR_DENETIM.md
+SEVK EDİLEMEZ
+
+[Ö] Dayanıklılık   → olcek_testi.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  Ö2    7 uç durum temiz: ['tumu_sifir→AŞIM', 'tumu_bos→VERİ YOK', 'negatif_deger→AŞIM', 'gelecek_tarih→AŞIM', 'yinelenen_kayit→AŞIM', 'tek_satir→UYGUN', 'azami_deger→AŞIM']
+
+==========================================================================
+SONUÇ: 0 KALDI | rapor: urunler/puantaj-vardiya-fazla-mesai-kanit-sistemi/KANIT/RAPOR_OLCEK.md
+SEVK EDİLEBİLİR
+
+[D] Değer          → deger_kapilari.py  (her ürün)
+------------------------------------------------------------------------------
+  GEÇTİ  D14    2936 formülde ayraç doğru (virgül)
+  GEÇTİ  D07    Ölü çıktı kolonu yok
+  GEÇTİ  D07b   64 ad tanımının hedefi dolu
+  GEÇTİ  D06    Sabitten türeyen sahte KPI yok
+  GEÇTİ  D13    Motor 54 isimli/hesaplı adım
+  GEÇTİ  D08    PANO'da 32 farklı canlı KPI
+  GEÇTİ  D09    8 grafik + tahmin katmanı mevcut
+  GEÇTİ  D09b   Grafik serilerinde veri var
+  GEÇTİ  D10    Tüm parametrelerde kaynak ve yürürlük tarihi dolu
+  GEÇTİ  D12    Çapraz tutarlılık sağlandı
+  GEÇTİ  D03    Derinlik puanı 145
+  GEÇTİ  D05    Modül yorumları makine üretimli
+  GEÇTİ  D04    2 ileri modül
+  GEÇTİ  D01    İkame 24,000 TL ≥ eşik 23,700 TL
+  GEÇTİ  D02    5 ayrım maddesi, hepsi dosyada karşılıklı
+  GEÇTİ  D11    Boş dosyada karar = 'VERİ YOK' (doğru)
+
+==========================================================================
+SHA-256: b3361a6735b10529abfb271787e32d6e27c8961ae454aa5e7e5c53bccea1295d
+SONUÇ: 0 KALDI | rapor: urunler/puantaj-vardiya-fazla-mesai-kanit-sistemi/KANIT/RAPOR_DEGER.md
+SEVK EDİLEBİLİR
+
+[A] İş Akışı       → akis_kapilari.py  (arketip A3+A4)
+------------------------------------------------------------------------------
+  GEÇTİ  A01   AYARLAR'da durum haritası izi var
+  GEÇTİ  A02   yetim/kaynak_kart_id izi var
+  GEÇTİ  A03   geçersiz geçiş uyarısı mevcut
+  GEÇTİ  A04   ZİNCİR KIRIK bayrağı mevcut
+  GEÇTİ  A05   kuyruk COUNTIFS/SUMIFS izi var
+  GEÇTİ  A06   durum kategori (açık/kapalı) izi var
+
+ÖZET A: 0 KALDI
+
+==============================================================================
+KATMAN ÖZETİ
+==============================================================================
+  G  İşçilik        KALDI      (1 KALDI / 24 GEÇTİ)  [her ürün] 8.3sn
+  Ö  Dayanıklılık   TEMİZ      (0 KALDI / 1 GEÇTİ)  [her ürün] 87.1sn
+  D  Değer          TEMİZ      (0 KALDI / 16 GEÇTİ)  [her ürün] 16.9sn
+  M  Mevzuat        ATLANDI      [arketip gerektirmiyor] 0.0sn
+  E  Eşleştirme     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  A  İş Akışı       TEMİZ      (0 KALDI / 6 GEÇTİ)  [arketip A3+A4] 1.4sn
+  F  Fizibilite     ATLANDI      [arketip gerektirmiyor] 0.0sn
+  S  Saha           ATLANDI      [arketip gerektirmiyor] 0.0sn
+  R  Reçete         ATLANDI      [arketip gerektirmiyor] 0.0sn
+
+==============================================================================
+SONUÇ: 1 KALDI · SEVK EDİLEMEZ
+Kanıt: urunler/puantaj-vardiya-fazla-mesai-kanit-sistemi/KANIT/ · SHA-256: b3361a6735b10529abfb271787e32d6e27c8961ae454aa5e7e5c53bccea1295d
+Birleşik karar raporu: urunler/puantaj-vardiya-fazla-mesai-kanit-sistemi/KANIT/SEVK_KARARI.md

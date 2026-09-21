@@ -1,0 +1,96 @@
+# Hat A #10 — İhale Fiyat Farkı (Eskalasyon) Pro
+# FAZ 2 · A1 · ONAYLANDI
+
+urun:
+  kod: IFF-PRO
+  ad: "İhale Fiyat Farkı (Eskalasyon) Pro"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "Müteahhit, ihale ofisi, maliyet kontrol"
+
+arketip: A1
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 23000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 45000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "İhale fiyat farkı / eskalasyon danışmanlığı"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "Maliyet kontrol"
+    is_bitince: "Eskalasyon tutarını hesaplar"
+  - rol: "Müteahhit"
+    is_bitince: "TALEP ET / BEKLE / VAZGEÇ kararını alır"
+  - rol: "Danışman"
+    is_bitince: "Kanıt raporunu dosyalar"
+
+lansman_tetigi:
+  sinif: Endeks_yayimi
+  aciklama: "TÜİK / KİK endeks yayımı veya hakediş dönemi"
+  tarih_penceresi: "endeks_yayim_sonrasi"
+
+rakip_ayrim:
+  - {sinif: R2_bedava, ayrim: "Senaryo + endeks şoku", karsilik: "iff_senaryoKarsilastirma"}
+  - {sinif: R2_bedava, ayrim: "Kanıt + madde atfı", karsilik: "iff_kanitRaporu"}
+  - {sinif: R1_jenerik, ayrim: "Yıl yan yana katsayı", karsilik: "iff_kuralYilMatris"}
+  - {sinif: R1_jenerik, ayrim: "Vaka tutarlılık", karsilik: "iff_vakaDurum"}
+  - {sinif: R4, ayrim: "Karar motoru", karsilik: "iff_kararMetni"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["KİK cetveli", "Elle Excel", "Danışman"]
+  ayrimlar:
+    - {madde: "M-SEN endeks değişimi", karsilik: "iff_kuralDegisimSenaryo"}
+    - {madde: "Duyarlılık", karsilik: "iff_duyarlilikSira"}
+    - {madde: "Vaka FARK", karsilik: "iff_vakaFark"}
+    - {madde: "Gerekçeli karar", karsilik: "iff_kararGerekce"}
+    - {madde: "Parmak izi", karsilik: "iff_parmakIzi"}
+
+mevzuat:
+  kurallar: [IFF-001, IFF-002, IFF-003, IFF-004, IFF-005]
+  vakalar: fiyat_farki_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [endeks_secimi]
+
+analitik_moduller:
+  - {kod: T1, ad: "Sözleşme / güncel endeks", ad_tanimi: "iff_modulT1", yorum_hucresi: "iff_modulT1Yorum"}
+  - {kod: T2, ad: "Fiyat farkı tutarı", ad_tanimi: "iff_modulT2", yorum_hucresi: "iff_modulT2Yorum"}
+  - {kod: O1, ad: "Sapma göstergesi", ad_tanimi: "iff_modulO1", yorum_hucresi: "iff_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık", ad_tanimi: "iff_duyarlilikSira", yorum_hucresi: "iff_yorumDuyarlilik"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "iff_senaryoKarsilastirma", yorum_hucresi: "iff_yorumSenaryo"}
+  - {kod: O6, ad: "Kalem payı", ad_tanimi: "iff_modulO6", yorum_hucresi: "iff_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "iff_modulO8", yorum_hucresi: "iff_modulO8Yorum"}
+  - {kod: M_SEN, ad: "Endeks değişimi", ad_tanimi: "iff_kuralDegisimSenaryo", yorum_hucresi: "iff_yorumKuralDegisim"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "iff_tahminAralik", yorum_hucresi: "iff_yorumTahmin"}
+  - {kod: I2, ad: "P90 fark", ad_tanimi: "iff_modulI2", yorum_hucresi: "iff_modulI2Yorum"}
+
+sayfa_akisi: [PANO, GIRDI, KURALLAR, MOTOR, SENARYO, VAKALAR, KANIT_RAPORU, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "FAZ 2 hat A ürün #10 — üretim başlatıldı"}

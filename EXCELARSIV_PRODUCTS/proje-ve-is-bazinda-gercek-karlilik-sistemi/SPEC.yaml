@@ -1,0 +1,86 @@
+olcek_hedefi: 50000
+arketip: A2
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: proje-ve-is-bazinda-gercek-karlilik-sistemi
+  ad: "Proje ve İş Bazında Gerçek Kârlılık Sistemi"
+  karar: "Hangi iş/proje para kazandırıyor, hangisi nakit tüketiyor; kaynak önceliklendirme ve fiyatlama kararı"
+  moduller:
+    - anomali_tespiti
+    - kalite_skoru
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - esik_kirilim
+    - zaman_serisi_projeksiyon
+    - karar_kapisi
+    - mutabakat_kok_neden
+    - aksiyon_uretici
+    - deger_olcer
+testler:
+  asgari_tablo_kapasitesi: 1000
+analitik_moduller:
+  - kod: T2
+    ad_tanimi: modulT2TrendOrt
+    yorum_hucresi: modulT2TrendOrtYorum
+  - kod: T4
+    ad_tanimi: modulT4DonemFark
+    yorum_hucresi: modulT4DonemFarkYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2Tornado
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1Tahmin
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 6000
+serbest_alternatif:
+  alternatifler:
+    - "Mali müşavirden iş kârlılık analizi (aylık danışmanlık)"
+    - "Excel'de elle iş kârı takip tablosu (işçilik saati)"
+    - "Muhasebe paketindeki genel kâr zarar raporu (iş kırılımı yok)"
+    - "SaaS iş kârlılık uygulamaları (yıllık abonelik)"
+    - "Ticari öngörü sağlamayan basit marj hesaplaması"
+  ayrimlar:
+    - madde: "Sistem iş bazında kâr, marj ve günlük kârı aynı anda hesaplar; alternatiflerde bu üç gösterge ayrı araçlardadır."
+      karsilik: IsAgirlikliMarj
+    - madde: "Zararlı ve riskli işleri eşik kurallarıyla otomatik işaretler; alternatifte elle tarama gerekir."
+      karsilik: IsRiskliAdet
+    - madde: "Gelecek iş kârını güven bandıyla tahmin eder; alternatifte tahmin yoktur."
+      karsilik: modulI1Tahmin
+    - madde: "Hangi değişkenin kârlılığı en çok etkilediğini tornado analiziyle gösterir; alternatifte bu analiz yoktur."
+      karsilik: modulO2Tornado
+    - madde: "İyimser/baz/kötümser senaryoları tek tıkla karşılaştırır; alternatifte senaryo motoru yoktur."
+      karsilik: modulO3Senaryo
+    - madde: "Karar kapısı UYGUN/İNCELE/DURDUR üretir ve gerekçe yazar; alternatifte karar kullanıcıya kalır."
+      karsilik: IsKarar
+
+anahtar_stratejisi:
+  kisa_uzun_senaryo: true
+  norm: UPPER_SUBSTITUTE

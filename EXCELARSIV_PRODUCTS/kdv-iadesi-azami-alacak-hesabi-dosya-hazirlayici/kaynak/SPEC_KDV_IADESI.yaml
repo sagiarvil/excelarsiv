@@ -1,0 +1,83 @@
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici
+  ad: "KDV İadesi Azami Alacak Hesabı & Dosya Hazırlayıcı"
+  karar: "Devreden KDV ve ihracat iadesi sınırına göre azami KDV iade alacağı nedir; dosya UYGUN/İNCELE/DURDUR"
+  moduller:
+    - anomali_tespiti
+    - kalite_skoru
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - esik_kirilim
+    - zaman_serisi_projeksiyon
+    - karar_kapisi
+    - mutabakat_kok_neden
+    - aksiyon_uretici
+    - deger_olcer
+testler:
+  asgari_tablo_kapasitesi: 1000
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1BelgeVade
+    yorum_hucresi: modulT1BelgeVadeYorum
+  - kod: T4
+    ad_tanimi: modulT4DonemFark
+    yorum_hucresi: modulT4DonemFarkYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2Tornado
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1IadeTahmin
+    yorum_hucresi: modulI1IadeTahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 6000
+serbest_alternatif:
+  alternatifler:
+    - "KDV iadesi dosyasını mali müşavire her dönem ücret ödeyerek hazırlatmak"
+    - "Devreden KDV ve ihracat iadesi sınırını ayrı ekranlarda elle hesaplamak"
+    - "Azami iade alacağını tahmin etmeden beyan dönemini beklemek"
+    - "Eksik belgeyi iade süreci başladıktan sonra fark etmek"
+    - "İade göstergelerini hiç izlemeyip riski dosya aşamasına taşımak"
+  ayrimlar:
+    - madde: "Sistem belge türü bazında hesaplanan ve indirilecek KDV'yi aynı motorda hesaplar; alternatifte göstergeler ayrı ekranlardadır."
+      karsilik: HesaplananKdv
+    - madde: "Devreden KDV ile ihracat iadesi sınırının kesişiminden azami iade alacağını otomatik üretir; alternatifte kesişim elle hesap edilir."
+      karsilik: AzamiIadeAlacak
+    - madde: "İyimser/baz/kötümser iade senaryolarını tek ekranda karşılaştırır; alternatifte senaryo motoru yoktur."
+      karsilik: modulO3Senaryo
+    - madde: "Hangi değişkenin iade alacağını en çok etkilediğini tornado ile gösterir; alternatifte bu analiz yoktur."
+      karsilik: modulO2Tornado
+    - madde: "Gelecek dönem devreden KDV'yi güven bandıyla tahmin eder; alternatifte tahmin yoktur."
+      karsilik: modulI1IadeTahmin
+    - madde: "Belge yoğunlaşmasını HHI ile ölçer; alternatifte yoğunlaşma riski görünmez."
+      karsilik: modulO6Hhi

@@ -1,0 +1,127 @@
+arketip: A3
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  karar_sayfasi: "KARAR_MOTORU"
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+testler:
+  olcek:
+    satir: 2000
+    azami_hesap_saniye: 5.0
+
+urun:
+  slug: on-uc-haftalik-nakit-akisi-ve-odeme-planlama-sistemi
+  ad: "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi"
+  karar: "13 haftalık giriş-çıkış planından para bitiş haftasını ve önlem önerisini üretir; kayıt yetersizse VERİ YOK der"
+  hedef_kullanici: "KOBİ sahipleri, finans yöneticileri, muhasebe sorumluları, mali müşavirler"
+  mevzuat:
+    - "VUK (213 s.) md.182-198: defter tutma ve kayıt düzeni; nakit ve tahakkuk kayıtlarının dayanağı"
+  giris:
+    nakit_girisleri:
+      tablo: tblGiris
+      kolonlar: [Hafta Numarası, Güvence, Kaynak, Tutar (₺)]
+    nakit_cikislari:
+      tablo: tblCikis
+      kolonlar: [Hafta Numarası, Kalem, Öncelik, Tutar (₺)]
+    haftalik_plan:
+      tablo: tblHaftaPlan
+      kolonlar: [Hafta Numarası, Toplam Giriş, Toplam Çıkış, Net Akış, Dönem Sonu Bakiye, Durum]
+  esikler:
+    asgari_tampon: 50000
+    veri_kalite_yuksek: 80
+    veri_kalite_orta: 60
+    minimum_veri_sayisi: 6
+  rapor: "A4, PDF'e hazır; dönem sonu bakiye, para bitiş haftası, karar, risk, gerekçe ve önlem önerisi"
+
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1KirlikHafta
+    yorum_hucresi: modulT1KirlikHaftaYorum
+  - kod: T2
+    ad_tanimi: modulT2NetAkisEgimi
+    yorum_hucresi: modulT2NetAkisEgimiYorum
+  - kod: T3
+    ad_tanimi: modulT3CikisPareto
+    yorum_hucresi: modulT3CikisParetoYorum
+  - kod: T4
+    ad_tanimi: modulT4DonemFark
+    yorum_hucresi: modulT4DonemFarkYorum
+  - kod: T5
+    ad_tanimi: modulT5MutabakatFark
+    yorum_hucresi: modulT5MutabakatFarkYorum
+  - kod: T6
+    ad_tanimi: modulT6KritikOdemePayi
+    yorum_hucresi: modulT6KritikOdemePayiYorum
+  - kod: O1
+    ad_tanimi: modulO1CikisAnomalisi
+    yorum_hucresi: modulO1CikisAnomalisiYorum
+  - kod: O2
+    ad_tanimi: modulO2TornadoZirve
+    yorum_hucresi: modulO2TornadoZirveYorum
+  - kod: O3
+    ad_tanimi: modulO3SenaryoFark
+    yorum_hucresi: modulO3SenaryoFarkYorum
+  - kod: O4
+    ad_tanimi: modulO4NakitDonusum
+    yorum_hucresi: modulO4NakitDonusumYorum
+  - kod: O5
+    ad_tanimi: modulO5KirlikMaliyeti
+    yorum_hucresi: modulO5KirlikMaliyetiYorum
+  - kod: O6
+    ad_tanimi: modulO6KalemHhi
+    yorum_hucresi: modulO6KalemHhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1BakiyeTahmini
+    yorum_hucresi: modulI1BakiyeTahminiYorum
+  - kod: I2
+    ad_tanimi: modulI2NetAkisP90
+    yorum_hucresi: modulI2NetAkisP90Yorum
+  - kod: I7
+    ad_tanimi: modulI7NakitAcigi
+    yorum_hucresi: modulI7NakitAcigiYorum
+
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 6000
+  Y2_kurulum_ikamesi_tl: 2500
+
+serbest_alternatif:
+  alternatifler:
+    - "Nakit giriş-çıkışlarını elle takip eden düzensiz hesap tablosu"
+    - "Banka ekstrelerinden haftalık bakiye takibi"
+    - "Mali müşavir veya finans danışmanından dönemsel nakit akışı raporu"
+    - "Ücretsiz genel amaçlı nakit akış şablonları (önlem önerisi üretmez)"
+    - "Kıtlık haftasını son anda fark edip krediyi acele aramak"
+  ayrimlar:
+    - madde: "Para bitiş haftasını ve önlem önerisini formülle üretir"
+      karsilik: KararBildirimi
+    - madde: "Giriş-çıkış planlarından haftalık bakiyeyi otomatik hesaplar"
+      karsilik: DonemSonuBakiye
+    - madde: "Negatif bakiye haftalarını ve dış finansman ihtiyacını ölçer"
+      karsilik: modulI7NakitAcigi
+    - madde: "İyimser/kötümser senaryo ve tornado duyarlılıkla nakit etkisini sıralar"
+      karsilik: modulO3SenaryoFark
+    - madde: "14. hafta bakiye tahmini ve P90 bandıyla ileriye dönük riski gösterir"
+      karsilik: modulI1BakiyeTahmini
+    - madde: "Gider kalem yoğunlaşmasını (HHI) ve kritik ödeme payını ölçer"
+      karsilik: modulO6KalemHhi
+
+durum_haritasi:
+  durumlar: [ACIK, ISLEMDE, KAPALI]
+  kapali: [KAPALI]
+
+akis:
+  yetim_kontrol: true
+  zincir_kontrol: true

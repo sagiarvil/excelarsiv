@@ -1,0 +1,7 @@
+Borç Kodu,Borç Türü,Borç Aslı (TL),Gecikme Zammı (TL),Vade Tarihi,Aylık Zam Oranı,Toplam Borç (TL),Açıklama
+V-1001,KDV,150000,42000,26.03.2025,0.04,=IF($C6="",0,$C6+$D6),=IF($B6="","",CONCATENATE("Örnek borç: ",$B6))
+V-1002,Muhtasar Stopaj,80000,19000,26.06.2025,0.04,=IF($C7="",0,$C7+$D7),=IF($B7="","",CONCATENATE("Örnek borç: ",$B7))
+V-1003,Kurumlar Vergisi,240000,61000,31.05.2025,0.04,=IF($C8="",0,$C8+$D8),=IF($B8="","",CONCATENATE("Örnek borç: ",$B8))
+S-2001,SGK Primi,120000,31000,31.08.2025,0.03,=IF($C9="",0,$C9+$D9),=IF($B9="","",CONCATENATE("Örnek borç: ",$B9))
+S-2002,SGK Cezası,40000,14000,31.10.2025,0.04,=IF($C10="",0,$C10+$D10),=IF($B10="","",CONCATENATE("Örnek borç: ",$B10))
+V-1004,Gelir Vergisi,60000,9000,30.11.2025,0.04,=IF($C11="",0,$C11+$D11),=IF($B11="","",CONCATENATE("Örnek borç: ",$B11))

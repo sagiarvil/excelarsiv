@@ -1,0 +1,11 @@
+URUNLER,Birim,Adet,FOB Birim Fiyat (Döviz),Döviz Cinsi,Kur (₺),Navlun/Sigorta Oranı,Gümrük Vergisi Oranı,ÖTV Oranı,KDV Oranı
+Hidrolik Pompa,Adet,50,120,USD,38.50,0.05,0.05,0.10,0.20
+Vana Seti,Adet,200,15,USD,38.50,0.05,0.05,0.10,0.20
+Boru Bağlantı Elemanı,Kg,3000,4,EUR,42.00,0.05,0.05,0.10,0.20
+Endüstriyel Motor,Adet,25,850,EUR,42.00,0.05,0.05,0.10,0.20
+
+MASRAFLAR,Tutar TL,Açıklama
+Liman ve Antrepo,25000,Sevkiyat başı
+Gümrük Müşavirliği,8000,Beyan ve refakat
+Yurt İçi Nakliye,15000,Liman → depo
+Belgelendirme,3000,Menşe ve uygunluk

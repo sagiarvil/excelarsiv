@@ -1,0 +1,24 @@
+ORNEK VERI — KAÇIRILAN SGK TEŞVİKLERİ & GERÇEK İŞÇİLİK MALİYETİ ANALİZİ
+Bu dosya otomasyon ve içe aktarma için yapıdır; çalışan ve teşvik satırlarını CSV/Excel'den kopyalayabilirsiniz.
+CALISAN_KARTI (tblCalisan)
+Çalışan Adı,Brüt Ücret (₺),Prim Günü,Yaş,Cinsiyet,Engelli mi?,İlave İstihdam Uygun mu?,Teşvik Aktif mi?
+Ali Yılmaz,35000,30,32,Erkek,Hayır,Evet,Hayır
+Ayşe Demir,42000,30,29,Kadın,Hayır,Evet,Hayır
+Mehmet Kaya,28000,30,40,Erkek,Hayır,Hayır,Hayır
+Zeynep Şahin,38000,30,34,Kadın,Hayır,Evet,Hayır
+Hasan Çelik,31000,30,45,Erkek,Evet,Hayır,Hayır
+GERCEK_MALIYET (tblMaliyet)
+Çalışan Adı,Yan Fayda (₺)
+Ali Yılmaz,3000
+Ayşe Demir,3000
+Mehmet Kaya,3000
+Zeynep Şahin,3000
+Hasan Çelik,3000
+TESVIK_SIMULATOR (tblTesvik)
+Çalışan Adı,Teşvik Türü,Kaçırılan?
+Ali Yılmaz,5 Puan İndirimi,Evet
+Ayşe Demir,İlave İstihdam,Evet
+Mehmet Kaya,Kadın/Genç,Hayır
+Zeynep Şahin,Genç Girişimci,Hayır
+Hasan Çelik,Engelli,Evet
+Örnek veri giriş sayfalarını beslemez; yapıyı gösterir.

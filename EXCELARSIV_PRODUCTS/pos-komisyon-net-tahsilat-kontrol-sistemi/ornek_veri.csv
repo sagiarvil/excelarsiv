@@ -1,0 +1,16 @@
+ORNEK VERI — POS, KOMİSYON VE NET TAHSİLAT KONTROL SİSTEMİ
+Bu dosya otomasyon ve içe aktarma için yapıdır; POS hareketlerinizi CSV/Excel'den kopyalayabilirsiniz.
+POS_HAREKETLER (tblPos)
+Kanal,İşlem Tarihi,Brüt Satış (₺),İade Tutarı (₺),Komisyon Oranı,Not
+Mağaza POS,05.01.2026,185000,12000,0.02,Örnek: ocak satışı
+Sanal POS,12.01.2026,94000,5000,0.035,Örnek: e-ticaret
+Mağaza POS,02.02.2026,172000,8500,0.02,Örnek: şubat satışı
+Sanal POS,15.02.2026,121000,6200,0.035,Örnek: kampanya
+Mobil POS,01.03.2026,68000,2100,0.015,Örnek: sahada satış
+Mağaza POS,18.03.2026,198000,10400,0.02,Örnek: mart satışı
+Sanal POS,06.04.2026,116000,7800,0.035,Örnek: nisan satışı
+Mobil POS,22.04.2026,74000,1900,0.015,Örnek: fuar satışı
+Mağaza POS,04.05.2026,204000,9500,0.02,Örnek: mayıs satışı
+Sanal POS,20.05.2026,133000,5100,0.035,Örnek: özel gün
+Mobil POS,02.06.2026,81000,2300,0.015,Örnek: haziran
+Mağaza POS,16.06.2026,187000,8900,0.02,Örnek: haziran satışı

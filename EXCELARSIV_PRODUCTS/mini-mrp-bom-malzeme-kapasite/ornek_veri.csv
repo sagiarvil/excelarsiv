@@ -1,0 +1,8 @@
+IslemId,KaynakKartId,BilesenKod,BirimIhtiyac,StokMiktar,SiparisMiktari,TedarikSuresiGun,IsEmriSuresiSaat,OncekiDurum,Durum,BrutBeklenen,PlanTarihi,YorumA,YorumB
+IE-00001,MAM-00001,CEL-001,2,5,15,4,2.5,,PLAN,30,09.08.2026,B,İş emri notu 1
+IE-00002,MAM-00002,PLK-002,3,8,20,5,3.0,PLAN,TEDARIK,60,07.08.2026,A,İş emri notu 2
+IE-00003,MAM-00003,RUL-003,1,2,10,6,2.0,TEDARIK,URETIM,10,05.08.2026,B,İş emri notu 3
+IE-00004,MAM-00004,CON-004,4,10,12,3,4.0,URETIM,TAMAM,48,03.08.2026,A,İş emri notu 4
+IE-00012,MAM-00004,VID-005,2,4,18,8,3.5,PLAN,TEDARIK,51,20.07.2026,A,Zincir sapmalı örnek
+IE-00018,MAM-00002,YAG-006,1,0,25,9,2.5,PLAN,URETIM,25,08.07.2026,A,Geçersiz geçiş örneği
+IE-00022,,FLN-007,3,6,14,7,3.0,PLAN,TEDARIK,42,28.06.2026,A,Yetim kayıt örneği

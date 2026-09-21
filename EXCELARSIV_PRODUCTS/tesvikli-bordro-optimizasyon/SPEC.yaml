@@ -1,0 +1,110 @@
+# =============================================================================
+# SPEC — Hat D D-04 · Teşvikli Bordro Optimizasyon (EXCLUSIVE 7900)
+# Ayırt edici: kişi×kod matrisi + çok senaryo; Hat C C-03 giriş SKU değil
+# =============================================================================
+
+urun:
+  kod: TBO-PRO
+  ad: "Teşvikli Bordro Optimizasyon"
+  surum: "1.0.0"
+  slug: tesvikli-bordro-optimizasyon
+  dosya: TesvikliBordroOptimizasyon.xlsx
+  prefix: tbo_
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "İK, bordro, SMMM, CFO"
+
+arketip: A1
+fiyat: 7900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 20000
+  Y2_kurulum_ikamesi_tl: 5000
+  Y3_onlenen_hata_tl: 40000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Teşvikli bordro optimizasyon danışmanlığı (EXCLUSIVE)"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - {rol: "İK / bordro", is_bitince: "Kişi×kod matrisinde en avantajlı seti kilitler"}
+  - {rol: "CFO", is_bitince: "Senaryo tasarruf bandını bütçeler"}
+  - {rol: "SMMM", is_bitince: "Kanıt raporunu dosyalar"}
+
+lansman_tetigi:
+  sinif: Parametre_degisimi
+  aciklama: "Aylık bordro / asgari ücret değişimi"
+  tarih_penceresi: "aylik_bordro"
+
+rakip_ayrim:
+  - {sinif: R1_jenerik, ayrim: "Kişi×teşvik kodu optimizasyon matrisi", karsilik: "tbo_kisiKodMatris"}
+  - {sinif: R1_jenerik, ayrim: "Çok senaryo + M-SEN", karsilik: "tbo_kuralDegisimSenaryo"}
+  - {sinif: R2_bedava, ayrim: "Kanıt + madde atfı", karsilik: "tbo_kanitRaporu"}
+  - {sinif: R1_jenerik, ayrim: "Yıl yan yana kural", karsilik: "tbo_kuralYilMatris"}
+  - {sinif: R4, ayrim: "UYGULA/İNCELE/UYGUN/VERİ YOK", karsilik: "tbo_kararKapi"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["SGK e-bildirge", "Elle Excel", "Basit teşvik seçici"]
+  ayrimlar:
+    - {madde: "Kişi×kod matrisi", karsilik: "tbo_kisiKodMatris"}
+    - {madde: "En avantajlı set", karsilik: "tbo_enAvantajli"}
+    - {madde: "M-SEN", karsilik: "tbo_kuralDegisimSenaryo"}
+    - {madde: "Kaçırılan P90", karsilik: "tbo_modulI2"}
+    - {madde: "Boş dosyada VERİ YOK", karsilik: "tbo_kararKapi"}
+
+mevzuat:
+  kurallar: [TBO-001, TBO-002, TBO-003, TBO-004, TBO-005]
+  vakalar: tesvik_opt_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [tesvik_birikim_sirasi]
+
+analitik_moduller:
+  - {kod: T1, ad: "Kapsam matrah", ad_tanimi: "tbo_modulT1", yorum_hucresi: "tbo_modulT1Yorum"}
+  - {kod: T2, ad: "Mevcut/potansiyel", ad_tanimi: "tbo_modulT2", yorum_hucresi: "tbo_modulT2Yorum"}
+  - {kod: O1, ad: "Sapma", ad_tanimi: "tbo_modulO1", yorum_hucresi: "tbo_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık", ad_tanimi: "tbo_duyarlilikSira", yorum_hucresi: "tbo_yorumDuyarlilik"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "tbo_senaryoKarsilastirma", yorum_hucresi: "tbo_yorumSenaryo"}
+  - {kod: O6, ad: "Kod payı", ad_tanimi: "tbo_modulO6", yorum_hucresi: "tbo_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite", ad_tanimi: "tbo_modulO8", yorum_hucresi: "tbo_modulO8Yorum"}
+  - {kod: M_SEN, ad: "Kural değişimi", ad_tanimi: "tbo_kuralDegisimSenaryo", yorum_hucresi: "tbo_yorumKuralDegisim"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "tbo_tahminAralik", yorum_hucresi: "tbo_yorumTahmin"}
+  - {kod: I2, ad: "Kaçırılan P90", ad_tanimi: "tbo_modulI2", yorum_hucresi: "tbo_modulI2Yorum"}
+
+karar_kurallari:
+  - {kosul: veri_yok, karar: "VERİ YOK"}
+  - {kosul: kacirilan_yuksek, karar: "UYGULA"}
+  - {kosul: kismen, karar: "İNCELE"}
+  - {kosul: tam, karar: "UYGUN"}
+
+sayfa_akisi: [PANO, GIRDI, BORDRO, MATRIS, KURALLAR, MOTOR, SENARYO, VAKALAR, KANIT_RAPORU, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+
+testler:
+  olcek:
+    satir: 5000
+    azami_hesap_saniye: 30.0
+
+onay: {durum: ONAYLANDI, not: "Hat D D-04 EXCLUSIVE"}

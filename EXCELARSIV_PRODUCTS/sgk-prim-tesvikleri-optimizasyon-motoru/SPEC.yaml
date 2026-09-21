@@ -1,0 +1,111 @@
+# Hat A #21 — SGK Prim Teşvikleri Optimizasyon Motoru
+# FAZ 2 · A1 · ONAYLANDI
+
+urun:
+  kod: SGK-PRO
+  ad: "SGK Prim Teşvikleri Optimizasyon Motoru"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "İK, SMMM, bordro"
+
+arketip: A1
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 22000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 35000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "SGK teşvik tarama danışmanlığı"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "İK"
+    is_bitince: "Uygun teşvik kodlarını seçer"
+  - rol: "SMMM"
+    is_bitince: "Kanıt raporunu dosyalar"
+  - rol: "İşveren"
+    is_bitince: "Tasarruf tutarını görür"
+
+lansman_tetigi:
+  sinif: Parametre_degisimi
+  aciklama: "Asgari ücret / teşvik tavanı değişimi veya aylık bordro"
+  tarih_penceresi: "aylik_bordro"
+
+rakip_ayrim:
+  - sinif: R2_bedava
+    ayrim: "Senaryo + çok teşvik karşılaştırması"
+    karsilik: "sgk_senaryoKarsilastirma"
+  - sinif: R2_bedava
+    ayrim: "Kanıt raporu + madde atfı"
+    karsilik: "sgk_kanitRaporu"
+  - sinif: R1_jenerik
+    ayrim: "Yıl yan yana parametre"
+    karsilik: "sgk_kuralYilMatris"
+  - sinif: R1_jenerik
+    ayrim: "Tebliğ/vaka tutarlılık"
+    karsilik: "sgk_vakaDurum"
+  - sinif: R4
+    ayrim: "Karar motoru; kayıt değil"
+    karsilik: "sgk_kararMetni"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["SGK e-bildirge ekranı", "Elle Excel", "Bordro yazılımı"]
+  ayrimlar:
+    - madde: "M-SEN oran değişimi"
+      karsilik: "sgk_kuralDegisimSenaryo"
+    - madde: "Duyarlılık"
+      karsilik: "sgk_duyarlilikSira"
+    - madde: "Vaka FARK"
+      karsilik: "sgk_vakaFark"
+    - madde: "Gerekçeli karar"
+      karsilik: "sgk_kararGerekce"
+    - madde: "Parmak izi"
+      karsilik: "sgk_parmakIzi"
+
+mevzuat:
+  kurallar: [SGK-001, SGK-002, SGK-003, SGK-004, SGK-005]
+  vakalar: tesvik_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [tesvik_birikim_sirasi]
+
+analitik_moduller:
+  - {kod: T1, ad: "Kapsam / matrah", ad_tanimi: "sgk_modulT1", yorum_hucresi: "sgk_modulT1Yorum"}
+  - {kod: T2, ad: "Mevcut / potansiyel", ad_tanimi: "sgk_modulT2", yorum_hucresi: "sgk_modulT2Yorum"}
+  - {kod: O1, ad: "Sapma göstergesi", ad_tanimi: "sgk_modulO1", yorum_hucresi: "sgk_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık", ad_tanimi: "sgk_duyarlilikSira", yorum_hucresi: "sgk_yorumDuyarlilik"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "sgk_senaryoKarsilastirma", yorum_hucresi: "sgk_yorumSenaryo"}
+  - {kod: O6, ad: "5 puan payı", ad_tanimi: "sgk_modulO6", yorum_hucresi: "sgk_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "sgk_modulO8", yorum_hucresi: "sgk_modulO8Yorum"}
+  - {kod: M_SEN, ad: "Kural değişimi", ad_tanimi: "sgk_kuralDegisimSenaryo", yorum_hucresi: "sgk_yorumKuralDegisim"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "sgk_tahminAralik", yorum_hucresi: "sgk_yorumTahmin"}
+  - {kod: I2, ad: "Kaçırılan P90", ad_tanimi: "sgk_modulI2", yorum_hucresi: "sgk_modulI2Yorum"}
+
+sayfa_akisi: [PANO, GIRDI, KURALLAR, MOTOR, SENARYO, VAKALAR, KANIT_RAPORU, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "FAZ 2 hat 2"}

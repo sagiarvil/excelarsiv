@@ -1,0 +1,107 @@
+arketip: A1
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 6
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+urun:
+  slug: hakedis-fiyat-farki-hak-kaybi-cetveli
+  ad: "Hakediş Fiyat Farkı ve Hak Kaybı Cetveli"
+  karar: "Sözleşmeli işlerde fiyat farkı katsayısını hesaplamak, sözleşme fiyatları ile piyasa arasındaki farktan doğan hak kaybını ölçmek ve hak kaybının telafisi için aksiyon üretmek"
+  hedef_kullanici: "Yapım işleri ve mal alımlarında hakediş düzenleyen yükleniciler, müteahhitler ve sözleşme yöneticileri"
+  mevzuat:
+    - "4734/4735 sayılı Kamu İhale Kanunu: sözleşmelerde fiyat farkı uygulaması"
+    - "Türk Borçlar Kanunu md.480: aşırı ifa güçlüğü ve işin yapılması"
+    - "Hazine ve Maliye Bakanlığı tebliğleri: fiyat farkı katsayı formülleri (işçilik, malzeme, makine ve ekipman bileşenleri)"
+  giris:
+    sozlesme_karti:
+      alanlar: [sozlesmeAdi, yuklenici, isveren, sozlesmeTarihi, ihaleTarihi, sozlesmeBedeli, isSuresi, paraBirimi]
+    hakedis_kalemleri:
+      tablo: tblHakedis
+      kolonlar: [kalemAdi, birim, miktar, sozlesmeBirimFiyat, piyasaBirimFiyat]
+    endeks_kayitlari:
+      tablo: tblEndeks
+      kolonlar: [donem, iscilikEndeks, malzemeEndeks, makineEndeks]
+    hakedis_donemleri:
+      tablo: tblDonemler
+      kolonlar: [donemNo, donemTarihi, hakedisTutari, gecOdemeGun]
+  esikler:
+    kayip_dikkat_oran: 0.05      # sözleşme bedeline göre kayıp oranı > %5 → DİKKAT
+    kayip_kritik_oran: 0.15      # kayıp oranı > %15 → KRİTİK (hak kaybı telafi gerekir)
+    fiyat_farki_esik: 0.03       # fiyat farkı katsayısı > %3 → artış lehte
+    mutabakat_tolerans: 100      # hakediş/mutabakat farkı kabul toleransı (₺)
+    veri_kalite_iyi: 90
+    veri_kalite_orta: 70
+  rapor: "A4, PDF'e hazır; yönetici özeti, fiyat farkı katsayısı, hak kaybı tutarı ve telafi aksiyonları"
+
+analitik_moduller:
+  - kod: T2
+    ad_tanimi: modulT2EndeksEgim
+    yorum_hucresi: modulT2EndeksYorum
+  - kod: T3
+    ad_tanimi: modulT3ParetoPayi
+    yorum_hucresi: modulT3ParetoYorum
+  - kod: T5
+    ad_tanimi: modulT5MutabakatFark
+    yorum_hucresi: modulT5MutabakatYorum
+  - kod: T6
+    ad_tanimi: modulT6KirilimOrani
+    yorum_hucresi: modulT6KirilimYorum
+  - kod: O1
+    ad_tanimi: modulO1AnomaliSayisi
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2TornadoZirve
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3SenaryoBaz
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O4
+    ad_tanimi: modulO4NakitGunu
+    yorum_hucresi: modulO4NakitYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkoru
+    yorum_hucresi: modulO8KaliteYorum
+  - kod: I1
+    ad_tanimi: modulI1TahminOrta
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2P90
+    yorum_hucresi: modulI2Yorum
+  - kod: I7
+    ad_tanimi: modulI7NakitAcigi
+    yorum_hucresi: modulI7NakitYorum
+
+deger:
+  satis_fiyati_tl: 990
+  Y1_danisman_ikamesi_tl: 3000
+  Y2_kurulum_ikamesi_tl: 1500
+
+serbest_alternatif:
+  alternatifler:
+    - "Fiyat farkı katsayısını elle formülle kuran hesap tablosu (a, b, c, d ağırlıkları ve endeksler)"
+    - "Zam farkı/hak kaybı danışmanının hakediş başına talep ettiği rapor ücreti"
+    - "Ücretsiz Excel şablonları ve genel amaçlı hesaplayıcılar"
+    - "Genel amaçlı yapay zekâ ile elle kurulum ve doğrulama"
+  ayrimlar:
+    - madde: "Fiyat farkı katsayısını sözleşme ağırlıklarına göre otomatik hesaplar; katsayı formülünü elle yeniden kurmayı gerektirmez"
+      karsilik: FiyatFarkiKatsayi
+    - madde: "Kalem bazında sözleşme-piyasa farkını TL olarak hak kaybına çevirir; güncel rayiç girildiğinde tutar otomatik yenilenir"
+      karsilik: HakKaybiToplam
+    - madde: "Hakediş dönemlerinde geç ödeme gününü ve hak kaybını otomatik hesaplar; eşik üstü gecikmeyi işaretler"
+      karsilik: modulO4NakitGunu
+    - madde: "Endeks hareketlerini Z skoruyla denetler; uç hareketi TÜİK ile mutabakat gerekliliği olarak raporlar"
+      karsilik: modulO1AnomaliSayisi
+    - madde: "Tornado duyarlılıkla fiyat farkı katsayısını en çok etkileyen değişkeni sıralar"
+      karsilik: modulO2TornadoZirve
+    - madde: "Senaryo motoru ile kötümser/baz/iyimser fiyat farkı ve kararı tek ekranda üretir"
+      karsilik: modulO3SenaryoBaz
+    - madde: "Endeks trendinden sonraki dönem projeksiyonu ve tahmin bandını üretir; sonuç ad tanımlı ve raporlanabilir"
+      karsilik: modulI1TahminOrta

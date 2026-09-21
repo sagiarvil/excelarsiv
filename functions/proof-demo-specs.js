@@ -3798,6 +3798,1185 @@ const SPECS = Object.freeze({
       "Tam sürümde FIFO açık kalem, 7 kovalı yaşlandırma, 13 hafta ve VUK 323 ön eleği açılır."
     ]
   }
+,
+  "gayrimenkul-yatirim-fizibilite-ve-karlilik": {
+    "karar": "Ticari/konut gayrimenkul yatırımlarında kira getirisi, Cap Rate ve IRR getiri analizi.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "ges-yatirim-fizibilite-ve-proje-finansmani": {
+    "karar": "Güneş santrali yatırımlarında elektrik satışı, DSCR ve proje finansmanı amortismanı.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "otel-fizibilite-ve-karlilik": {
+    "karar": "Otel yatırımlarında oda doluluk, RevPAR, GOP ve başabaş analiz kokpiti.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "uretim-kapasite-yatirim-ve-karlilik": {
+    "karar": "Yeni makine/hat yatırımlarında OEE kapasite, birim maliyet ve ROI analizi.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "arsa-ve-gayrimenkul-proje-gelistirme-fizibilite": {
+    "karar": "Arsa projelerinde KAKS/TAKS hesabı, hasılat paylaşımı ve müteahhit net kâr modeli.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "sirket-satin-alma-ve-ortaklik-devir-analizi": {
+    "karar": "M&A süreçlerinde normalize EBITDA, net borç köprüsü ve hisse değerleme kokpiti.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "saas-finansal-planlama-runway-ve-yatirim": {
+    "karar": "Abonelik modellerinde MRR, Churn, CAC/LTV ve nakit ömrü (runway) modeli.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "gayrimenkul-tut-sat-karar": {
+    "karar": "Gayrimenkulü kirada tutmak ile satıp getiri fonuna yatırmayı kıyaslayan model.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "ortakli-gayrimenkul-yatirimi-kar-dagitim": {
+    "karar": "Gayrimenkul ortaklıklarında Tercihli Getiri ve Waterfall kâr dağıtım mimarisi.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "borcla-sirket-satin-alma-ve-yatirim-getirisi": {
+    "karar": "LBO modellerinde borç amortismanı ve kaldıraçlı özkaynak IRR hesabı.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "startup-yatirim-alma-ve-nakit-runway": {
+    "karar": "Erken aşama girişimlerde yatırım sonrası değerleme, Cap Table ve burn rate modeli.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "emsal-sirket-carpanlariyla-degerleme": {
+    "karar": "Emsal şirket çarpanları (EV/EBITDA, P/E) ile piyasa değeri ve adil hisse fiyatı.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "wacc-hesaplama-ve-sermaye-maliyeti": {
+    "karar": "CAPM modeli ve borçlanma maliyetiyle ağırlıklı ortalama sermaye maliyeti (WACC).",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "profesyonel-hizmet-sirketi-karlilik-ve-kapasite": {
+    "karar": "Danışmanlık/yazılımda faturalandırılabilir kapasite ve müşteri kârlılık matrisi.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "perakende-magaza-acilis-fizibilite": {
+    "karar": "Mağaza açılışlarında fit-out capex, ciro kirası ve başabaş ciro eşiği.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "filo-yatirim-ve-arac-yenileme-fizibilite": {
+    "karar": "Şirket araçlarında satın alma vs kiralama (Buy vs Lease) TCO maliyet analizi.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "franchise-yatirim-fizibilite": {
+    "karar": "Franchise yatırımlarında royalty, isim hakkı, tedarik marjı ve payback hesabı.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "klinik-saglik-merkezi-fizibilite-ve-karlilik": {
+    "karar": "Klinik yatırımlarında cihaz leasingi, hekim hakedişi ve hasta başı kârlılık.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  },
+  "restoran-kafe-yatirim-fizibilite-ve-karlilik": {
+    "karar": "Restoranlarda masa devri, adisyon, food cost ve başabaş ciro kokpiti.",
+    "girisBasliklari": [
+      "Dönem / Kalem",
+      "Gelir (₺)",
+      "Gider / OPEX (₺)",
+      "Net Nakit Akışı (₺)",
+      "Kümülatif Getiri (₺)"
+    ],
+    "ornek": [
+      [
+        "Yıl 1",
+        1200000,
+        650000,
+        "=B6-C6",
+        "=D6"
+      ],
+      [
+        "Yıl 2",
+        1450000,
+        720000,
+        "=B7-C7",
+        "=E6+D7"
+      ],
+      [
+        "Yıl 3",
+        1800000,
+        800000,
+        "=B8-C8",
+        "=E7+D8"
+      ],
+      [
+        "Yıl 4",
+        2200000,
+        890000,
+        "=B9-C9",
+        "=E8+D9"
+      ]
+    ],
+    "ozet": [
+      [
+        "Toplam Net Getiri",
+        "=E9",
+        "para"
+      ],
+      [
+        "Yıllık Ortalama Nakit",
+        "=AVERAGE(D6:D9)",
+        "para"
+      ],
+      [
+        "Demo karar",
+        "=IF(E9>=3000000,\"UYGUN\",IF(E9>=1500000,\"İNCELE\",\"RİSKLİ\"))",
+        "metin"
+      ]
+    ],
+    "aksiyonlar": [
+      "Nakit projeksiyonunu ve kümülatif başabaş süresini kontrol edin.",
+      "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
+      "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
+    ]
+  }
 });
 
 function getProofDemoSpec(slug) {

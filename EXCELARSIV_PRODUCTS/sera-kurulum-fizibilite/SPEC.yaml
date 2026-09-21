@@ -1,0 +1,180 @@
+# =============================================================================
+# SPEC — Hat B Y-07 · Sera Kurulum & Rekolte Fizibilitesi
+# Durum: ONAYLANDI — Hat B tarım dikey
+# Manda: v6 · arketip A6 · F01–F05 zorunlu
+# Domain: sera CAPEX/OPEX, rekolte, NPV/IRR — GES/şarj KOPYASI DEĞİL
+# =============================================================================
+
+urun:
+  kod: SKF-PRO
+  slug: sera-kurulum-fizibilite
+  ad: "Sera Kurulum & Rekolte Fizibilitesi"
+  surum: "1.0.0"
+  dosya: SeraKurulumFizibilite.xlsx
+  prefix: skf_
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "Sera yatırımcısı, ziraat mühendisi, tarım danışmanı, CFO"
+
+arketip: A6
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 22000
+  Y2_kurulum_ikamesi_tl: 9000
+  Y3_onlenen_hata_tl: 180000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Sera fizibilite danışmanlığı + CAPEX/OPEX-rekolte model kurulum ikamesi"
+
+deger_vektoru: ["P", "İ", "R"]
+uc_rol:
+  - rol: "Ziraat / proje giren"
+    is_bitince: "Alan, CAPEX kırılımı, rekolte ve OPEX girdilerini sarı hücrelere kilitler"
+  - rol: "Yatırımcı / CFO"
+    is_bitince: "NPV/IRR aralığı ile YATIRIM YAPILIR / YATIRIM YAPMA kararını verir"
+  - rol: "Banka / hibe / kanıt isteyen"
+    is_bitince: "KANIT_RAPORU ile finansman ve varsayım kaynaklarını dosyalar"
+
+lansman_tetigi:
+  sinif: Sezon_eksi_45_gun
+  aciklama: "Sezon başlangıcından 45 gün önce sera kurulum ve rekolte fizibilitesi yenilenir"
+  tarih_penceresi: "sezon_eksi_45_gun"
+
+fizibilite:
+  finansman_senaryolari: ["OZ_KAYNAK", "KREDI"]
+  kotumser_karar: "YATIRIM YAPMA"
+  capex_opex: true
+  npv_irr_tornado: true
+
+rakip_ayrim:
+  - sinif: R1_jenerik_sablon
+    ayrim: "CAPEX kırılımı (iskelet/örtü/ısıtma/sulama/iklim) + OPEX ayrık nakit"
+    karsilik: "skf_capexToplam"
+  - sinif: R1_jenerik_sablon
+    ayrim: "Rekolte × alan × birim fiyat → yıllık gelir; sabit skor yok"
+    karsilik: "skf_yillikGelir"
+  - sinif: R2_bedava
+    ayrim: "Öz kaynak / kredi finansman + NPV/IRR tornado"
+    karsilik: "skf_finansmanKarsilastirma"
+  - sinif: R2_bedava
+    ayrim: "Kötümser YATIRIM YAPMA karar yolu"
+    karsilik: "skf_kararMetni"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz; dış API/GES tarife vaadi yok; sera rekolte odaklı"
+    karsilik: "skf_kanitRaporu"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Sera satıcısının tek satırlık teklif Excel'i"
+    - "Danışmanın dağınık CAPEX/OPEX notları"
+    - "Genel yatırım şablonu (rekoltesiz)"
+  ayrimlar:
+    - madde: "CAPEX kalemleri + OPEX + rekolte tek zincirde NPV/IRR üretir"
+      karsilik: "skf_npv"
+    - madde: "Varsayımlarda kaynak+güven; tornado ilk değişkenler sıralı"
+      karsilik: "skf_duyarlilikSira"
+    - madde: "Öz kaynak vs kredi finansman senaryosu"
+      karsilik: "skf_finansmanKarsilastirma"
+    - madde: "NPV/IRR aralık + kötümser YATIRIM YAPMA"
+      karsilik: "skf_kararMetni"
+    - madde: "Altın vakalar + SHA-256 kanıt paketi"
+      karsilik: "skf_vakaDurum"
+
+analitik_moduller:
+  - kod: T1
+    ad: "Yıllık sera geliri"
+    ad_tanimi: "skf_modulT1"
+    yorum_hucresi: "skf_modulT1Yorum"
+  - kod: T2
+    ad: "Net yıllık nakit"
+    ad_tanimi: "skf_modulT2"
+    yorum_hucresi: "skf_modulT2Yorum"
+  - kod: O1
+    ad: "Senaryo NPV sapması"
+    ad_tanimi: "skf_modulO1"
+    yorum_hucresi: "skf_modulO1Yorum"
+  - kod: O2
+    ad: "Duyarlılık / tornado"
+    ad_tanimi: "skf_duyarlilikSira"
+    yorum_hucresi: "skf_yorumDuyarlilik"
+  - kod: O3
+    ad: "Senaryo motoru (≥3)"
+    ad_tanimi: "skf_senaryoKarsilastirma"
+    yorum_hucresi: "skf_yorumSenaryo"
+  - kod: O6
+    ad: "OPEX/gelir yoğunlaşması"
+    ad_tanimi: "skf_modulO6"
+    yorum_hucresi: "skf_modulO6Yorum"
+  - kod: O8
+    ad: "Veri kalite skoru"
+    ad_tanimi: "skf_modulO8"
+    yorum_hucresi: "skf_modulO8Yorum"
+  - kod: I1
+    ad: "Tahmin + aralık"
+    ad_tanimi: "skf_tahminAralik"
+    yorum_hucresi: "skf_yorumTahmin"
+  - kod: I3
+    ad: "IRR aralık bandı"
+    ad_tanimi: "skf_modulI3"
+    yorum_hucresi: "skf_modulI3Yorum"
+  - kod: F_TOR
+    ad: "Tornado ilk 5"
+    ad_tanimi: "skf_modulFTor"
+    yorum_hucresi: "skf_modulFTorYorum"
+
+karar_kurallari:
+  - kosul: "npv_pozitif_ve_irr_hedef_ustu"
+    karar: "YATIRIM YAPILIR"
+  - kosul: "dikkat_bandinda"
+    karar: "DİKKAT"
+  - kosul: "kotumser_npv_negatif"
+    karar: "YATIRIM YAPMA"
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+
+sayfa_akisi:
+  - KAPAK
+  - HIZLI_BASLANGIC
+  - GIRDI
+  - VARSAYIMLAR
+  - MOTOR
+  - FINANSMAN
+  - SENARYO
+  - PANO
+  - KARAR
+  - VAKALAR
+  - KANIT_RAPORU
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "KARAR"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "F": 25}
+  capraz_tutarlilik_tolerans: 0.01
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-07 — tarım dikey; D0 7/7; A6 F01–F05"

@@ -1,0 +1,113 @@
+olcek_hedefi: 50000
+arketip: A2
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  karar_sayfasi: "KARAR_MOTORU"
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  motor_sayfasi: "KARAR_MOTORU"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari:
+    T: 10
+    O: 15
+    I: 25
+
+testler:
+  olcek:
+    satir: 200
+    azami_hesap_saniye: 25.0
+
+urun:
+  slug: gunluk-gelir-gider-karlilik-sistemi
+  ad: "Günlük Gelir-Gider ve Gerçek Kârlılık Sistemi"
+  karar: "Tahakkuk ve nakit bazlı gelir-gideri günlük kaydeder; brüt/faaliyet marjı, başabaş cirosu, kârın nakde dönüşümü ve senaryo bandını hesaplar; eşik dışı marj, ortak çekişi ve finansman yükünde RİSKLİ/DİKKAT kararı üretir; veri yetersizse VERİ YOK der"
+  hedef_kullanici: "Kobi sahipleri, finans yöneticileri, muhasebe sorumluları, operasyon yöneticileri"
+  mevzuat:
+    - "Türk Ticaret Kanunu (6102 s.): gerçeğe uygun ve dönemsel kayıt ilkeleri"
+    - "Vergi Usul Kanunu (213 s.): kayıt düzeni, defter ve belge nizamı"
+    - "Türkiye Muhasebe Standartları kapsamında tahakkuk esası ve dönem ayrımı"
+  giris:
+    hesap_plani:
+      tablo: tblHesap
+      kolonlar: ["Hesap Kodu", "Hesap Adı", "Tür", "Alt Hesap", "Varsayılan Sınıf", "Sıra No", "Açıklama", "Veri Durumu"]
+    gelir_gider:
+      tablo: tblGelirGider
+      kolonlar: ["Kayıt ID", "Tarih", "Belge No", "İşlem Türü", "Ana Sınıf", "Kategori", "Alt Kategori", "Cari", "Ürün/Hizmet", "Proje", "Açıklama", "Miktar", "Birim", "Birim Fiyat", "Tutar", "KDV İşareti", "Tahakkuk Tarihi", "Nakit Tarihi", "Nakit Gerçekleşti mi?", "Sabit/Değişken", "Doğrudan/Dolaylı", "Tekrarlayan/Tek Seferlik", "Ortak İşlemi", "Finansman İşlemi", "Yatırım İşlemi"]
+    satis_maliyet:
+      tablo: tblSatis
+      kolonlar: ["Ürün/Hizmet", "Kategori", "Satış Adedi", "Birim Fiyat", "Satış Tutarı", "Birim Maliyet", "Maliyet Tutarı", "Brüt Kâr", "Brüt Marj"]
+  esikler:
+    asgari_veri_sayisi: 6
+    esik_izle: 49
+    esik_kritik: 70
+  rapor: "A4, PDF'e hazır; genel karar, KPI özeti, varsayımlar ve önerilen aksiyonlar"
+
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1Yaslandirma
+    yorum_hucresi: modulT1YaslandirmaYorum
+  - kod: T2
+    ad_tanimi: modulT2Trend
+    yorum_hucresi: modulT2TrendYorum
+  - kod: T3
+    ad_tanimi: modulT3Pareto
+    yorum_hucresi: modulT3ParetoYorum
+  - kod: T4
+    ad_tanimi: modulT4Karsilastirma
+    yorum_hucresi: modulT4KarsilastirmaYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2Duyarlilik
+    yorum_hucresi: modulO2DuyarlilikYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O4
+    ad_tanimi: modulO4Donusum
+    yorum_hucresi: modulO4DonusumYorum
+  - kod: I1
+    ad_tanimi: modulI1Tahmin
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+  - kod: I6
+    ad_tanimi: modulI6VaryansKopru
+    yorum_hucresi: modulI6VaryansKopruYorum
+
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 6000
+  Y2_kurulum_ikamesi_tl: 2500
+
+serbest_alternatif:
+  alternatifler:
+    - "Gelir ve giderlerin deftere veya tek Excel listesine elle işlenmesi, dönem sonunda sadece toplam alınması"
+    - "Banka hesap hareketleriyle nakit takibi (tahakkuk edilmiş ama tahsil edilmemiş satış görünmez)"
+    - "Kârlılığın yalnızca dönem sonu gelir-gider farkıyla ölçülmesi (marj ve başabaş analizi yok)"
+    - "Muhasebeciden aylık mali tablo beklentisi (günlük karar alınamaz, gecikmeli tespit)"
+    - "Sadece vergiye esas kârın izlenmesi (nakit dönüşümü ve ortak çekişi görünmez)"
+  ayrimlar:
+    - madde: "Tahakkuk ile nakit arasında köprü kurarak kârın nakde dönüşüm oranını hesaplar"
+      karsilik: NakitDonusumOrani
+    - madde: "Başabaş cirosunu hesaplayarak hangi satış seviyesinde zarar edileceğini gösterir"
+      karsilik: BasabasCiro
+    - madde: "Nakdi gerçekleşmemiş satışı yaşlandırarak tahsilat riskini görünür kılar"
+      karsilik: modulT1Yaslandirma
+    - madde: "Aylık trend ve dönem karşılaştırmasıyla bozulmayı erken yakalar"
+      karsilik: modulT2Trend
+    - madde: "Satış hacmi ±%15 senaryosunda kâr bandını göstererek karar aralığı sunar"
+      karsilik: modulO3Senaryo
+    - madde: "Veri yetersizse karar üretmez, VERİ YOK der; boş dosyada 'UYGUN' demez"
+      karsilik: KayitSayisi
+
+anahtar_stratejisi:
+  kisa_uzun_senaryo: true
+  norm: UPPER_SUBSTITUTE

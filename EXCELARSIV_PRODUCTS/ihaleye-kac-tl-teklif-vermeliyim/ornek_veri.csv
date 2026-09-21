@@ -1,0 +1,26 @@
+ORNEK VERI — İHALEYE KAÇ TL TEKLİF VERMELİYİM? (SINIR DEĞER HESAPLAYICI)
+Bu dosya otomasyon ve içe aktarma için yapıdır; rakip tekliflerinizi CSV/Excel'den kopyalayabilirsiniz.
+IHALE_KARTI (manuel giriş)
+İhale Adı,İdare,İhale Tarihi,Yaklaşık Maliyet (₺),Sınır Değer Katsayısı (N),Hedef Kâr Marjı (%),Toplam İş Maliyeti (₺),İş Kalemi Sayısı,Fiyat Farkı Maddesi
+İl Yolu Yapım İşi,İl Özel İdaresi,20.08.2026,15000000,0.35,0.12,11500000,25,Evet
+RAKIP_TEKLIFLER (tblRakipler)
+Rakip Adı,Teklif Tutarı (₺),Geçerli Mi?
+Yapı A A.Ş.,14800000,Evet
+İnşaat B Ltd.,15200000,Evet
+C Yapım,13900000,Evet
+D İnşaat,16400000,Evet
+E Müteahhit,15500000,Hayır
+ONCEKI_IHALELER (tblGecmis)
+İhale Adı,Tarih,Yaklaşık Maliyet (₺),Sınır Değer (₺),Bizim Teklif (₺),Kazanan Teklif (₺)
+Köprü Onarım,10.03.2026,9000000,8500000,8300000,8300000
+İçme Suyu Hattı,22.01.2026,5000000,4700000,4500000,4600000
+Okul Tadilat,05.11.2025,3000000,2800000,2750000,2750000
+Yol Bakım,14.08.2025,7000000,6600000,6500000,6400000
+Kanalizasyon,20.05.2025,4000000,3800000,3600000,3700000
+MALIYET_KALEMLERI (tblMaliyet)
+Kalem Adı,Birim,Miktar,Birim Maliyet (₺)
+Altyapı,m,15000,150
+Üst yapı,m³,20000,220
+Asfalt,ton,8000,950
+Köprü,adet,2,750000
+Sanat yapısı,adet,30,60000

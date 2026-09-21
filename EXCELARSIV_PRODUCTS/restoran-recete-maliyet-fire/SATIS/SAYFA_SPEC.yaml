@@ -1,0 +1,7 @@
+slug: restoran-recete-maliyet-fire
+name: "Restoran Reçete Maliyet + Fire Hesaplama"
+price_tl: 990
+tier: PRO
+shopier_kademe_id: "49652321"
+summary: "Fire dahil porsiyon maliyetini ve bileşim yüzde 100 kontrolünü gösterir."
+sha256: d349c307e888b4897075104650ded46a65bbe91c40bfd0de7294d6b9ee3733b7

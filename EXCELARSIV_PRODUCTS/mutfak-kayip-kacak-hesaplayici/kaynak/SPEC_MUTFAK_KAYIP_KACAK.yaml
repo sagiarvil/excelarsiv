@@ -1,0 +1,84 @@
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: mutfak-kayip-kacak-hesaplayici
+  ad: "Mutfak Kayıp/Kaçak Hesaplayıcı"
+  karar: "Satılan ürünlerin reçetelerinden üretilen teorik hammadde tüketimini, dönem başı stok + alım − dönem sonu stok ile bulunan fiili tüketimle karşılaştırarak mutfaktaki kayıp ve kaçağı tutar ve oran olarak tespit eder; hammadde bazında kayıp tutarı ve oranını, toplam kayıp maliyetini ve kâr katkısına etkisini hesaplar; kayıp yoğunlaşması, anomali, senaryo ve tornado analiziyle gelecek dönem kayıp tahmini ve KONTROL ALTINDA/İNCELE/KRİTİK KAYIP kararını gerekçesiyle üretir"
+  moduller:
+    - zaman_serisi_projeksiyon
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - yogunlasma_analizi
+    - anomali_tespiti
+    - kalite_skoru
+    - karar_kapisi
+    - aksiyon_uretici
+    - yuzdelik_dilim
+    - esik_kirilim
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1500
+    azami_hesap_saniye: 30.0
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1OrtKayip
+    yorum_hucresi: modulT1OrtKayipYorum
+  - kod: T2
+    ad_tanimi: modulT2OrtMaliyet
+    yorum_hucresi: modulT2OrtMaliyetYorum
+  - kod: O1
+    ad_tanimi: modulO1KayipSapmasi
+    yorum_hucresi: modulO1KayipSapmasiYorum
+  - kod: O2
+    ad_tanimi: modulO2EnYuksekKayip
+    yorum_hucresi: modulO2EnYuksekKayipYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1Tahmin
+    yorum_hucresi: modulI1TahminYorum
+  - kod: I2
+    ad_tanimi: modulI2P90
+    yorum_hucresi: modulI2P90Yorum
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 9000
+  Y2_kurulum_ikamesi_tl: 3000
+serbest_alternatif:
+  alternatifler:
+    - "Kayıp ve kaçağı hissetmek; stok sayımı ile satışı elle karşılaştırarak kayıp tutarını hesap makinesiyle çıkarmak"
+    - "Ürün reçetelerini ve dönemlik stok hareketini ayrı Excel sayfalarında tutup teorik/fiili tüketimi manuel birleştirmek"
+    - "Kayıp oranını hiç ölçmeden, sezgisel olarak 'kayıp normaldir' varsayımıyla yönetim kararı almak"
+    - "Her dönem için hammadde bazlı kayıp özetini aylarca elle toplamak ve yönetici raporu hazırlamak"
+    - "Kritik kayıp kalemini belirleyip aksiyon planını el yazısı notlarla yönetmek"
+  ayrimlar:
+    - madde: "Satış adedi ile reçete miktarını çarpıp hammadde bazında teorik tüketimi tek tabloda canlı formülle üretir; alternatifte her ürün ve hammadde elle çarpılır."
+      karsilik: MutfakToplamKayip
+    - madde: "Dönem başı + alım − dönem sonu stok ile fiili tüketimi, kayıp miktarını, oranını ve tutarını otomatik hesaplar; alternatifte mutabakat elle yürütülür."
+      karsilik: MutfakToplamKayipOrani
+    - madde: "Toplam kayıp oranını eşiklerle karşılaştırarak KONTROL ALTINDA/İNCELE/KRİTİK KAYIP kararını gerekçesi ve önerilen aksiyonlarla üretir; alternatifte karar belgesi elle yazılır."
+      karsilik: MutfakKarar
+    - madde: "Kayıp senaryosu bant aralığı ve hammadde duyarlılık (tornado) analizi ile kayıp tutarının belirsizlik aralığını ve en etkili değişkeni gösterir; alternatifte duyarlılık analizi yoktur."
+      karsilik: modulO3Senaryo
+    - madde: "Kayıp yoğunlaşmasını (HHI), kayıp sapmasını ve veri kalite skorunu ölçerek karar kapısına güven katmanı ekler; alternatifte bu analizler yoktur."
+      karsilik: modulO8KaliteSkor

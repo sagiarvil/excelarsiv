@@ -1,0 +1,119 @@
+{
+  "product": "makine-bakim-kalibrasyon-durus-maliyeti",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/makine-bakim-kalibrasyon-durus-maliyeti/MakineBakimKalibrasyonDurusMaliyeti.xlsx",
+  "sha256": "2676944b35ff8ff32adae89ca806e8d6ca65205932c6c7b0583e14d0f8674275",
+  "size_bytes": 164212,
+  "modified_at": "2026-08-11T16:20:19",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "MAKINELER",
+    "AKIS",
+    "KUYRUKLAR",
+    "HESAP",
+    "PANO",
+    "KURALLAR",
+    "VAKALAR",
+    "KANIT_RAPORU",
+    "KONTROLLER",
+    "ORNEK_VERI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": "001F4E79",
+    "MAKINELER": "001F4E79",
+    "AKIS": "001F4E79",
+    "KUYRUKLAR": "001F4E79",
+    "HESAP": "001F4E79",
+    "PANO": "001F4E79",
+    "KURALLAR": "001F4E79",
+    "VAKALAR": "001F4E79",
+    "KANIT_RAPORU": "001F4E79",
+    "KONTROLLER": "001F4E79",
+    "ORNEK_VERI": "001F4E79",
+    "LISTELER": "001F4E79",
+    "AYARLAR": "001F4E79",
+    "KILAVUZ": "001F4E79"
+  },
+  "formula_count": 2683,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 809,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 8,
+  "table_count": 5,
+  "conditional_format_count": 112,
+  "data_validation_count": 77,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 3,
+  "merged_ranges": 56,
+  "order_mismatches": [
+    "Mevcut: KAPAK > MAKINELER > AKIS > KUYRUKLAR > HESAP > PANO > KURALLAR > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > MAKINELER > AKIS > KUYRUKLAR > HESAP > PANO > KURALLAR > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=809"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > MAKINELER > AKIS > KUYRUKLAR > HESAP > PANO > KURALLAR > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > MAKINELER > AKIS > KUYRUKLAR > HESAP > PANO > KURALLAR > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=2683"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

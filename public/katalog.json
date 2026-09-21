@@ -3,7 +3,7 @@
   "site": "https://excelarsiv.com",
   "currency": "TRY",
   "language": "tr-TR",
-  "productCount": 51,
+  "productCount": 70,
   "eeat": {
     "brand": "Excel Arşiv",
     "author": {
@@ -166,6 +166,21 @@
       "demoUrl": "https://excelarsiv.com/demo/amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti"
     },
     {
+      "slug": "arsa-ve-gayrimenkul-proje-gelistirme-fizibilite",
+      "name": "Arsa ve Gayrimenkul Proje Geliştirme Fizibilite Exceli",
+      "summary": "Arsa geliştirme projelerinde KAKS/TAKS emsal hesabı, kat karşılığı vs hasılat paylaşımı simülasyonu, inşaat maliyeti ve müteahhit net kâr modeli.",
+      "category": "finansal-analiz",
+      "priceTL": 1499,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/arsa-ve-gayrimenkul-proje-gelistirme-fizibilite",
+      "buyUrl": "https://excelarsiv.com/sablon/arsa-ve-gayrimenkul-proje-gelistirme-fizibilite#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/arsa-ve-gayrimenkul-proje-gelistirme-fizibilite"
+    },
+    {
       "slug": "asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli",
       "name": "Asgari Ücret Zam Etkisi & Fiyat Ayarlama Cetveli",
       "summary": "Asgari ücret zammının maliyet tablonuza etkisini hesaplayın; satış fiyatlarınızı koruyacak ayarlamayı önerin.",
@@ -224,6 +239,21 @@
       "url": "https://excelarsiv.com/sablon/banka-kredi-ve-taksit-takip-sistemi",
       "buyUrl": "https://excelarsiv.com/sablon/banka-kredi-ve-taksit-takip-sistemi#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/banka-kredi-ve-taksit-takip-sistemi"
+    },
+    {
+      "slug": "borcla-sirket-satin-alma-ve-yatirim-getirisi",
+      "name": "Borçla Şirket Satın Alma ve Yatırım Getirisi Exceli",
+      "summary": "Kaldıraçlı şirket satın alma (LBO) analizlerinde banka kredisi, kıdemli borç, serbest nakit akışıyla borç ödeme takvimi ve kaldıraçlı özkaynak IRR modeli.",
+      "category": "finansal-analiz",
+      "priceTL": 1499,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/borcla-sirket-satin-alma-ve-yatirim-getirisi",
+      "buyUrl": "https://excelarsiv.com/sablon/borcla-sirket-satin-alma-ve-yatirim-getirisi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/borcla-sirket-satin-alma-ve-yatirim-getirisi"
     },
     {
       "slug": "cari-ba-bs-toplu-mutabakat",
@@ -331,6 +361,21 @@
       "demoUrl": "https://excelarsiv.com/demo/e-fatura-toplu-donusturucu"
     },
     {
+      "slug": "emsal-sirket-carpanlariyla-degerleme",
+      "name": "Emsal Şirket Çarpanlarıyla Değerleme Exceli",
+      "summary": "Sektörel emsal şirket verileriyle EV/EBITDA, P/E, EV/Sales ve F/K çarpanlarını normalize eden, net borç köprüsüyle adil hisse fiyatı hesaplayan değerlem...",
+      "category": "finansal-analiz",
+      "priceTL": 999,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/emsal-sirket-carpanlariyla-degerleme",
+      "buyUrl": "https://excelarsiv.com/sablon/emsal-sirket-carpanlariyla-degerleme#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/emsal-sirket-carpanlariyla-degerleme"
+    },
+    {
       "slug": "fazla-mesai-ve-isci-dava-riski-tespit-dosyasi",
       "name": "Fazla Mesai ve İşçi Dava Riski Tespit Dosyası",
       "summary": "Fazla mesai kayıtlarınızı yasal yükümlülüklerle karşılaştırın; işçi alacağı ve dava riskini önceden tespit edin.",
@@ -344,6 +389,81 @@
       "url": "https://excelarsiv.com/sablon/fazla-mesai-ve-isci-dava-riski-tespit-dosyasi",
       "buyUrl": "https://excelarsiv.com/sablon/fazla-mesai-ve-isci-dava-riski-tespit-dosyasi#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/fazla-mesai-ve-isci-dava-riski-tespit-dosyasi"
+    },
+    {
+      "slug": "filo-yatirim-ve-arac-yenileme-fizibilite",
+      "name": "Filo Yatırım ve Araç Yenileme Fizibilite Exceli",
+      "summary": "Şirket araçlarında satın alma vs uzun dönem kiralama (Buy vs Lease), amortisman, kasko, bakım, lastik ve KKEG vergi avantajı TCO analiz modeli.",
+      "category": "finansal-analiz",
+      "priceTL": 999,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/filo-yatirim-ve-arac-yenileme-fizibilite",
+      "buyUrl": "https://excelarsiv.com/sablon/filo-yatirim-ve-arac-yenileme-fizibilite#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/filo-yatirim-ve-arac-yenileme-fizibilite"
+    },
+    {
+      "slug": "franchise-yatirim-fizibilite",
+      "name": "Franchise Yatırım Fizibilite Exceli",
+      "summary": "Franchise şube yatırımlarında isim hakkı bedeli, aylık ciro royalty payı, reklam fonu, ürün tedarik marjı ve net kâr payback hesaplama modeli.",
+      "category": "butce-ve-planlama",
+      "priceTL": 999,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/franchise-yatirim-fizibilite",
+      "buyUrl": "https://excelarsiv.com/sablon/franchise-yatirim-fizibilite#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/franchise-yatirim-fizibilite"
+    },
+    {
+      "slug": "gayrimenkul-tut-sat-karar",
+      "name": "Gayrimenkul Tut / Sat Karar Exceli",
+      "summary": "Mevcut gayrimenkulü kirada tutmaya devam etmek ile satıp alternatif getiri enstrümanlarına (mevduat, eurobond, fon) yatırmayı kıyaslayan karar modeli.",
+      "category": "finansal-analiz",
+      "priceTL": 799,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/gayrimenkul-tut-sat-karar",
+      "buyUrl": "https://excelarsiv.com/sablon/gayrimenkul-tut-sat-karar#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/gayrimenkul-tut-sat-karar"
+    },
+    {
+      "slug": "gayrimenkul-yatirim-fizibilite-ve-karlilik",
+      "name": "Gayrimenkul Yatırım Fizibilite ve Karlılık Exceli",
+      "summary": "Ticari ve konut gayrimenkul yatırımlarında kira getirisi, doluluk, işletme giderleri, NOI, Cap Rate ve IRR hesaplayan dinamik fizibilite kokpiti.",
+      "category": "finansal-analiz",
+      "priceTL": 1499,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/gayrimenkul-yatirim-fizibilite-ve-karlilik",
+      "buyUrl": "https://excelarsiv.com/sablon/gayrimenkul-yatirim-fizibilite-ve-karlilik#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/gayrimenkul-yatirim-fizibilite-ve-karlilik"
+    },
+    {
+      "slug": "ges-yatirim-fizibilite-ve-proje-finansmani",
+      "name": "GES Yatırım Fizibilite ve Proje Finansmanı Exceli",
+      "summary": "Güneş Enerjisi Santrali (GES) yatırımlarında lisanssız/lisanslı üretim, YEKDEM/PTF elektrik satışı, degradasyon, DSCR ve proje finansmanı geri dönüş mod...",
+      "category": "finansal-analiz",
+      "priceTL": 1499,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/ges-yatirim-fizibilite-ve-proje-finansmani",
+      "buyUrl": "https://excelarsiv.com/sablon/ges-yatirim-fizibilite-ve-proje-finansmani#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/ges-yatirim-fizibilite-ve-proje-finansmani"
     },
     {
       "slug": "gunluk-gelir-gider-ve-gercek-karlilik-sistemi",
@@ -526,6 +646,21 @@
       "demoUrl": "https://excelarsiv.com/demo/kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti"
     },
     {
+      "slug": "klinik-saglik-merkezi-fizibilite-ve-karlilik",
+      "name": "Klinik / Sağlık Merkezi Fizibilite ve Karlılık Exceli",
+      "summary": "Tıp merkezi, poliklinik ve diş kliniklerinde tıbbi cihaz leasingi, hekim prim hakedişi, SGK/ÖSS iskonto oranları ve branş bazlı kârlılık kokpiti.",
+      "category": "butce-ve-planlama",
+      "priceTL": 1499,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/klinik-saglik-merkezi-fizibilite-ve-karlilik",
+      "buyUrl": "https://excelarsiv.com/sablon/klinik-saglik-merkezi-fizibilite-ve-karlilik#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/klinik-saglik-merkezi-fizibilite-ve-karlilik"
+    },
+    {
       "slug": "kobi-finans-yonetim-paketi",
       "name": "KOBİ Finans Yönetim Paketi",
       "summary": "Kasa, banka, cari ve POS bakiyeleri ile stok alışı, operasyon, maaş ve kredi kalemlerini tek dosyada konsolide edin; kâr tahmini ve risk skorunu görün.",
@@ -616,6 +751,36 @@
       "demoUrl": "https://excelarsiv.com/demo/ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici"
     },
     {
+      "slug": "ortakli-gayrimenkul-yatirimi-kar-dagitim",
+      "name": "Ortaklı Gayrimenkul Yatırımı Kâr Dağıtım Exceli",
+      "summary": "Gayrimenkul fonları ve ortaklı projeler için Tercihli Getiri (Preferred Return), Hurdle basamakları (%8/%12/%15) ve GP/LP Waterfall kâr paylaşım mimarisi.",
+      "category": "finansal-analiz",
+      "priceTL": 999,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/ortakli-gayrimenkul-yatirimi-kar-dagitim",
+      "buyUrl": "https://excelarsiv.com/sablon/ortakli-gayrimenkul-yatirimi-kar-dagitim#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/ortakli-gayrimenkul-yatirimi-kar-dagitim"
+    },
+    {
+      "slug": "otel-fizibilite-ve-karlilik",
+      "name": "Otel Fizibilite ve Karlılık Exceli",
+      "summary": "Otel yatırımı ve işletmeciliğinde oda doluluk oranları, RevPAR, ADR, yiyecek-içecek yan gelirleri, GOP ve başabaş doluluk analiz kokpiti.",
+      "category": "butce-ve-planlama",
+      "priceTL": 1499,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/otel-fizibilite-ve-karlilik",
+      "buyUrl": "https://excelarsiv.com/sablon/otel-fizibilite-ve-karlilik#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/otel-fizibilite-ve-karlilik"
+    },
+    {
       "slug": "pazaryeri-net-kar-ve-eksik-hakedis-yakalayici",
       "name": "Pazaryeri Net Kâr & Eksik Hakediş Yakalayıcı",
       "summary": "Komisyon, kargo, reklam ve iade sonrası net kârı hesaplayın; beklenen ile gerçek hakedişi karşılaştırıp eksik tahsilatı yakalayın.",
@@ -629,6 +794,21 @@
       "url": "https://excelarsiv.com/sablon/pazaryeri-net-kar-ve-eksik-hakedis-yakalayici",
       "buyUrl": "https://excelarsiv.com/sablon/pazaryeri-net-kar-ve-eksik-hakedis-yakalayici#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/pazaryeri-net-kar-ve-eksik-hakedis-yakalayici"
+    },
+    {
+      "slug": "perakende-magaza-acilis-fizibilite",
+      "name": "Perakende / Mağaza Açılış Fizibilite Exceli",
+      "summary": "AVM ve cadde mağaza açılışlarında fit-out CAPEX, yaya trafiği dönüşüm oranı, sepet büyüklüğü, ciro kirası ve başabaş ciro hesaplama sistemi.",
+      "category": "butce-ve-planlama",
+      "priceTL": 999,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/perakende-magaza-acilis-fizibilite",
+      "buyUrl": "https://excelarsiv.com/sablon/perakende-magaza-acilis-fizibilite#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/perakende-magaza-acilis-fizibilite"
     },
     {
       "slug": "pos-komisyon-ve-net-tahsilat-kontrol-sistemi",
@@ -646,6 +826,21 @@
       "demoUrl": "https://excelarsiv.com/demo/pos-komisyon-ve-net-tahsilat-kontrol-sistemi"
     },
     {
+      "slug": "profesyonel-hizmet-sirketi-karlilik-ve-kapasite",
+      "name": "Profesyonel Hizmet Şirketi Karlılık ve Kapasite Exceli",
+      "summary": "Ajans, yazılım, hukuk ve danışmanlık firmaları için personel faturalandırılabilir saat oranı (Utilization), adam/saat maliyeti ve müşteri net kâr matrisi.",
+      "category": "satis-ve-fiyatlama",
+      "priceTL": 999,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/profesyonel-hizmet-sirketi-karlilik-ve-kapasite",
+      "buyUrl": "https://excelarsiv.com/sablon/profesyonel-hizmet-sirketi-karlilik-ve-kapasite#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/profesyonel-hizmet-sirketi-karlilik-ve-kapasite"
+    },
+    {
       "slug": "proje-ve-is-bazinda-gercek-karlilik-sistemi",
       "name": "Proje ve İş Bazında Gerçek Kârlılık Sistemi",
       "summary": "Her işin gelirini direkt giderlerle eşleştirin; iş bazında gerçek kâr ve marjı çıkarın, kaynakları kârlı işlere yönlendirin.",
@@ -659,6 +854,21 @@
       "url": "https://excelarsiv.com/sablon/proje-ve-is-bazinda-gercek-karlilik-sistemi",
       "buyUrl": "https://excelarsiv.com/sablon/proje-ve-is-bazinda-gercek-karlilik-sistemi#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/proje-ve-is-bazinda-gercek-karlilik-sistemi"
+    },
+    {
+      "slug": "restoran-kafe-yatirim-fizibilite-ve-karlilik",
+      "name": "Restoran / Kafe Yatırım Fizibilite ve Karlılık Exceli",
+      "summary": "Restoran ve kafe yatırımlarında masa devir hızı, kişi başı adisyon, reçete food cost (%28-35), kira ve personel dengesinde dinamik başabaş paneli.",
+      "category": "butce-ve-planlama",
+      "priceTL": 999,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/restoran-kafe-yatirim-fizibilite-ve-karlilik",
+      "buyUrl": "https://excelarsiv.com/sablon/restoran-kafe-yatirim-fizibilite-ve-karlilik#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/restoran-kafe-yatirim-fizibilite-ve-karlilik"
     },
     {
       "slug": "restoran-recete-maliyet-fire",
@@ -676,6 +886,21 @@
       "demoUrl": "https://excelarsiv.com/demo/restoran-recete-maliyet-fire"
     },
     {
+      "slug": "saas-finansal-planlama-runway-ve-yatirim",
+      "name": "SaaS Finansal Planlama, Runway ve Yatırım Exceli",
+      "summary": "Abonelik modelli yazılım şirketleri için MRR/ARR kohortları, Churn, LTV/CAC, aylık Net Burn, nakit tükenme süresi (Runway) ve Seri A planlama modeli.",
+      "category": "butce-ve-planlama",
+      "priceTL": 999,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/saas-finansal-planlama-runway-ve-yatirim",
+      "buyUrl": "https://excelarsiv.com/sablon/saas-finansal-planlama-runway-ve-yatirim#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/saas-finansal-planlama-runway-ve-yatirim"
+    },
+    {
       "slug": "sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli",
       "name": "Şirket Öz Kaynağı Eridi Mi? (TTK 376 Sermaye Tamamlama Cetveli)",
       "summary": "Bilanço bileşenlerinden öz kaynağı ve sermaye kaybını hesaplayın; TTK 376''daki 1/3 ve 2/3 eşikleriyle borca batıklığı izleyin.",
@@ -689,6 +914,36 @@
       "url": "https://excelarsiv.com/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli",
       "buyUrl": "https://excelarsiv.com/sablon/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli"
+    },
+    {
+      "slug": "sirket-satin-alma-ve-ortaklik-devir-analizi",
+      "name": "Şirket Satın Alma ve Ortaklık Devir Analizi Exceli",
+      "summary": "M&A süreçlerinde hedef şirketin tarihsel finansallarını normalize eden, Net Borç köprüsü, DCF ve emsal çarpanlarla adil hisse değeri hesaplayan M&A kokp...",
+      "category": "finansal-analiz",
+      "priceTL": 1499,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/sirket-satin-alma-ve-ortaklik-devir-analizi",
+      "buyUrl": "https://excelarsiv.com/sablon/sirket-satin-alma-ve-ortaklik-devir-analizi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/sirket-satin-alma-ve-ortaklik-devir-analizi"
+    },
+    {
+      "slug": "startup-yatirim-alma-ve-nakit-runway",
+      "name": "Startup Yatırım Alma ve Nakit Runway Exceli",
+      "summary": "Tohum ve erken aşama girişimler için yatırım öncesi/sonrası değerleme (Pre/Post-Money), Cap Table sulanma hesabı, aylık burn rate ve nakit pisti modeli.",
+      "category": "nakit-akisi",
+      "priceTL": 999,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/startup-yatirim-alma-ve-nakit-runway",
+      "buyUrl": "https://excelarsiv.com/sablon/startup-yatirim-alma-ve-nakit-runway#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/startup-yatirim-alma-ve-nakit-runway"
     },
     {
       "slug": "stok-satis-ve-nakit-baglanma-sistemi",
@@ -781,6 +1036,21 @@
       "demoUrl": "https://excelarsiv.com/demo/trendyol-komisyon-sonrasi-net-kar"
     },
     {
+      "slug": "uretim-kapasite-yatirim-ve-karlilik",
+      "name": "Üretim Kapasite, Yatırım ve Karlılık Exceli",
+      "summary": "Yeni makine ve hat yatırımlarında OEE kapasite hesaplama, çevrim süresi, marjinal birim maliyet ve başabaş üretim hacmi karar sistemi.",
+      "category": "stok-ve-uretim",
+      "priceTL": 999,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/uretim-kapasite-yatirim-ve-karlilik",
+      "buyUrl": "https://excelarsiv.com/sablon/uretim-kapasite-yatirim-ve-karlilik#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/uretim-kapasite-yatirim-ve-karlilik"
+    },
+    {
       "slug": "uretim-recetesi-ve-zam-yansitma-hesaplayici",
       "name": "Üretim Reçetesi & Zam Yansıtma Hesaplayıcı",
       "summary": "Reçetedeki hammadde miktar, birim fiyat, fire ve zam oranlarıyla eski/yeni reçete maliyetini üretin; hedef kâr marjını koruyan satış fiyatını hesaplayın.",
@@ -824,6 +1094,21 @@
       "url": "https://excelarsiv.com/sablon/vergi-sgk-ve-maas-karsilik-ayirma-sistemi",
       "buyUrl": "https://excelarsiv.com/sablon/vergi-sgk-ve-maas-karsilik-ayirma-sistemi#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/vergi-sgk-ve-maas-karsilik-ayirma-sistemi"
+    },
+    {
+      "slug": "wacc-hesaplama-ve-sermaye-maliyeti",
+      "name": "WACC Hesaplama ve Sermaye Maliyeti Exceli",
+      "summary": "CAPM modeliyle özkaynak maliyeti, vergi sonrası borçlanma maliyeti, beta katsayısı ve ülke risk primiyle şirkete özgü WACC iskonto oranı hesaplayıcı.",
+      "category": "finansal-analiz",
+      "priceTL": 799,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 37,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/wacc-hesaplama-ve-sermaye-maliyeti",
+      "buyUrl": "https://excelarsiv.com/sablon/wacc-hesaplama-ve-sermaye-maliyeti#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/wacc-hesaplama-ve-sermaye-maliyeti"
     },
     {
       "slug": "yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi",

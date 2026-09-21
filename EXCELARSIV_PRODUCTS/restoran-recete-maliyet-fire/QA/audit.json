@@ -1,0 +1,123 @@
+{
+  "product": "restoran-recete-maliyet-fire",
+  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/restoran-recete-maliyet-fire/RestoranReceteMaliyetFire.xlsx",
+  "sha256": "d349c307e888b4897075104650ded46a65bbe91c40bfd0de7294d6b9ee3733b7",
+  "size_bytes": 492897,
+  "modified_at": "2026-08-14T21:30:31",
+  "fmt": ".xlsx",
+  "zip_ok": true,
+  "sheets": [
+    "KAPAK",
+    "GIRDI",
+    "HAMMADDE",
+    "RECETE",
+    "MALIYET",
+    "FIYATLAMA",
+    "VARYANS",
+    "SENARYO",
+    "PANO",
+    "KARAR",
+    "RAPOR",
+    "KONTROLLER",
+    "ORNEK_VERI",
+    "LISTELER",
+    "AYARLAR",
+    "KILAVUZ"
+  ],
+  "hidden_sheets": [],
+  "tab_colors": {
+    "KAPAK": "009A3412",
+    "GIRDI": "009A3412",
+    "HAMMADDE": "009A3412",
+    "RECETE": "009A3412",
+    "MALIYET": "009A3412",
+    "FIYATLAMA": "009A3412",
+    "VARYANS": "009A3412",
+    "SENARYO": "009A3412",
+    "PANO": "009A3412",
+    "KARAR": "009A3412",
+    "RAPOR": "009A3412",
+    "KONTROLLER": "009A3412",
+    "ORNEK_VERI": "009A3412",
+    "LISTELER": "009A3412",
+    "AYARLAR": "009A3412",
+    "KILAVUZ": "009A3412"
+  },
+  "formula_count": 655,
+  "error_cells": [],
+  "external_link_parts": 0,
+  "external_formula_count": 190,
+  "hyperlink_formula_count": 0,
+  "hyperlink_rel_count": 0,
+  "chart_count": 9,
+  "table_count": 4,
+  "conditional_format_count": 25,
+  "data_validation_count": 9,
+  "gridlines_on_count": 0,
+  "freeze_panes_count": 3,
+  "merged_ranges": 44,
+  "order_mismatches": [
+    "Mevcut: KAPAK > GIRDI > HAMMADDE > RECETE > MALIYET > FIYATLAMA > VARYANS > SENARYO > PANO > KARAR > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
+    "Beklenen: GIRDI > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > HAMMADDE > RECETE > MALIYET > FIYATLAMA > VARYANS > PANO > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+  ],
+  "gates": [
+    {
+      "code": "T001",
+      "severity": "P1",
+      "passed": true,
+      "message": "OOXML paket bütünlüğü",
+      "evidence": "zip test"
+    },
+    {
+      "code": "T010",
+      "severity": "P1",
+      "passed": true,
+      "message": "Workbook içinde Excel hata hücresi olmamalı",
+      "evidence": ""
+    },
+    {
+      "code": "T020",
+      "severity": "P1",
+      "passed": false,
+      "message": "Kontrolsüz harici link bağımlılığı olmamalı",
+      "evidence": "parts=0; formulas=190"
+    },
+    {
+      "code": "U010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
+      "evidence": "renksiz=0"
+    },
+    {
+      "code": "U020",
+      "severity": "P2",
+      "passed": true,
+      "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
+      "evidence": "gridlines_on=0"
+    },
+    {
+      "code": "U030",
+      "severity": "P2",
+      "passed": false,
+      "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
+      "evidence": "Mevcut: KAPAK > GIRDI > HAMMADDE > RECETE > MALIYET > FIYATLAMA > VARYANS > SENARYO > PANO > KARAR > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: GIRDI > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > HAMMADDE > RECETE > MALIYET > FIYATLAMA > VARYANS > PANO > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+    },
+    {
+      "code": "U040",
+      "severity": "P2",
+      "passed": false,
+      "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
+      "evidence": "real_hyperlinks=0"
+    },
+    {
+      "code": "M010",
+      "severity": "P2",
+      "passed": true,
+      "message": "Ürün yalnız statik tablo olmamalı",
+      "evidence": "formula_count=655"
+    }
+  ],
+  "status": "BLOCKED",
+  "notes": []
+}

@@ -10,7 +10,7 @@ interface Props {
 
 const { productSlug, name, sheetCount, minExcelVersion, macCompatible, hasMacros } = Astro.props;
 
-const demoUrl = `/demo/${productSlug}.xlsx`;
+const demoUrl = `/demo/${productSlug}`;
 const waNumber = '905393333303';
 const waFormatted = '0539 333 33 03';
 const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(`Merhaba, ${name} Excel sistemi için teklif almak istiyorum.`)}`;
@@ -75,10 +75,9 @@ const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(`Merhaba, ${n
         </div>
       </a>
 
-      <!-- 2. İkincil Buton: Ücretsiz Demo İndir -->
+      <!-- 2. İkincil Buton: Ücretsiz Demo İncele -->
       <a
         href={demoUrl}
-        download
         class="btn-action-secondary-demo"
         data-demo-track
       >
@@ -87,7 +86,7 @@ const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(`Merhaba, ${n
           <polyline points="7 10 12 15 17 10"></polyline>
           <line x1="12" y1="15" x2="12" y2="3"></line>
         </svg>
-        <span>Ücretsiz Demo İndir (.XLSX)</span>
+        <span>Ücretsiz Demo Sayfası</span>
       </a>
     </div>
 

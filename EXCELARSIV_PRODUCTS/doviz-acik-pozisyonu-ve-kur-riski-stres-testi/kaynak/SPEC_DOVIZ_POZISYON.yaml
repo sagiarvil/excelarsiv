@@ -1,0 +1,83 @@
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: doviz-acik-pozisyonu-ve-kur-riski-stres-testi
+  ad: "Döviz Açık Pozisyonu ve Kur Riski Stres Testi"
+  karar: "Döviz cinsinden varlık ve borçların net açık pozisyonu nedir, kur şokunda etki ne olur; pozisyon UYGUN/İNCELE/DURDUR"
+  moduller:
+    - anomali_tespiti
+    - kalite_skoru
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - esik_kirilim
+    - zaman_serisi_projeksiyon
+    - karar_kapisi
+    - mutabakat_kok_neden
+    - aksiyon_uretici
+    - deger_olcer
+testler:
+  asgari_tablo_kapasitesi: 1000
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1VadeYapisi
+    yorum_hucresi: modulT1VadeYapisiYorum
+  - kod: T2
+    ad_tanimi: modulT2KurTrend
+    yorum_hucresi: modulT2KurTrendYorum
+  - kod: O1
+    ad_tanimi: modulO1Anomali
+    yorum_hucresi: modulO1AnomaliYorum
+  - kod: O2
+    ad_tanimi: modulO2Tornado
+    yorum_hucresi: modulO2TornadoYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1KurTahmin
+    yorum_hucresi: modulI1KurTahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 6000
+serbest_alternatif:
+  alternatifler:
+    - "Döviz pozisyonlarını elle toplayıp kur riskini tahmin etmek (işçilik saati)"
+    - "Muhasebe paketinin dövizli hesap özeti (pozisyon kırılımı ve stres yok)"
+    - "Treasury danışmanlık hizmeti (aylık ücretli dış kaynak)"
+    - "Kur hareketini izleyip sezgisel pozisyon kararı vermek"
+    - "Açık pozisyonu hiç ölçmeden kur şokunu beklemek"
+  ayrimlar:
+    - madde: "Sistem döviz cinsi bazında varlık, borç ve net açık pozisyonu aynı anda hesaplar; alternatifte bu göstergeler ayrı ekranlardadır."
+      karsilik: NetAcikPozisyon
+    - madde: "Kur şoklarını stres testiyle (kötümser/kritik) senaryolara dönüştürür; alternatifte stres testi yoktur."
+      karsilik: modulO3Senaryo
+    - madde: "Hangi döviz cinsinin toplam riski en çok etkilediğini tornado ile gösterir; alternatifte bu analiz yoktur."
+      karsilik: modulO2Tornado
+    - madde: "Gelecek kur seviyesini güven bandıyla tahmin eder; alternatifte tahmin yoktur."
+      karsilik: modulI1KurTahmin
+    - madde: "Pozisyon yoğunlaşmasını HHI ile ölçer; alternatifte yoğunlaşma riski görünmez."
+      karsilik: modulO6Hhi
+    - madde: "İyimser/baz/kötümser/kritik senaryoları tek ekranda karşılaştırır; alternatifte senaryo motoru yoktur."
+      karsilik: modulO3Senaryo

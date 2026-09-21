@@ -1,0 +1,87 @@
+denetim:
+  giris_dolgu: ["FFFFF2CC", "FFFFE699", "FFFFF9DB"]
+  koruma_sifresi: "1234"
+  asgari_grafik: 8
+  sonda_olacak_sayfalar: ["KILAVUZ", "AYARLAR", "LISTELER"]
+  asgari_derinlik_puani: 100
+  asgari_ayrim_maddesi: 5
+  asgari_ileri_modul: 2
+  ikame_carpani: 3
+  karar_sayfasi: KARAR
+  motor_sayfasi: HESAP
+  pano_sayfasi: PANO
+  ayarlar_sayfasi: AYARLAR
+  capraz_tutarlilik_tolerans: 0.01
+urun:
+  slug: pazaryeri-net-kar-ve-eksik-hakedis-yakalayici
+  ad: "Pazaryeri Net Kâr & Eksik Hakediş Yakalayıcı"
+  karar: "Pazaryerinde satılan kalemlerin komisyon, kargo, reklam, iade ve ek gider sonrası net kârını ve kâr marjını hesaplar; beklenen hakediş ile pazaryerinden gelen gerçek hakedişi karşılaştırarak eksik tahsilatı eşiklerle işaretler; pazaryeri bazlı satış/kâr özeti, yoğunlaşma, anomali, senaryo ve tornado analiziyle net kâr projeksiyonu ve GÜÇLÜ/NORMAL/İNCELE kararı üretir"
+  moduller:
+    - zaman_serisi_projeksiyon
+    - duyarlilik_tornado
+    - senaryo_motoru
+    - yogunlasma_analizi
+    - anomali_tespiti
+    - kalite_skoru
+    - karar_kapisi
+    - aksiyon_uretici
+    - deger_olcer
+    - esik_kirilim
+testler:
+  asgari_tablo_kapasitesi: 1000
+  olcek:
+    satir: 1500
+    azami_hesap_saniye: 30.0
+analitik_moduller:
+  - kod: T1
+    ad_tanimi: modulT1OrtMarj
+    yorum_hucresi: modulT1OrtMarjYorum
+  - kod: T2
+    ad_tanimi: modulT2OrtKomisyon
+    yorum_hucresi: modulT2OrtKomisyonYorum
+  - kod: O1
+    ad_tanimi: modulO1KarSapmasi
+    yorum_hucresi: modulO1KarSapmasiYorum
+  - kod: O2
+    ad_tanimi: modulO2EnYuksekKar
+    yorum_hucresi: modulO2EnYuksekKarYorum
+  - kod: O3
+    ad_tanimi: modulO3Senaryo
+    yorum_hucresi: modulO3SenaryoYorum
+  - kod: O6
+    ad_tanimi: modulO6Hhi
+    yorum_hucresi: modulO6HhiYorum
+  - kod: O8
+    ad_tanimi: modulO8KaliteSkor
+    yorum_hucresi: modulO8KaliteSkorYorum
+  - kod: I1
+    ad_tanimi: modulI1NetKarTahmin
+    yorum_hucresi: modulI1NetKarTahminYorum
+  - kod: I2
+    ad_tanimi: modulI2YuzdelikP90
+    yorum_hucresi: modulI2YuzdelikP90Yorum
+  - kod: I8
+    ad_tanimi: modulI8HakedisEtkisi
+    yorum_hucresi: modulI8HakedisEtkisiYorum
+deger:
+  satis_fiyati_tl: 2490
+  Y1_danisman_ikamesi_tl: 9000
+  Y2_kurulum_ikamesi_tl: 3000
+serbest_alternatif:
+  alternatifler:
+    - "Her kalemin net kârını muhasebe/rapor sisteminden veya hesap makinesiyle kalem kalem çıkarmak"
+    - "Pazaryeri mutabakat raporu ile banka tahsilatını elle karşılaştırıp eksik hakedişi teker teker aramak"
+    - "Komisyon, kargo, reklam, iade ve ek giderleri ayrı ayrı Excel sayfalarında tutup toplam kârı manuel birleştirmek"
+    - "Satış fiyatı ve komisyon değişimlerinin kâra etkisini ölçmeden, sezgisel olarak pazaryeri/fiyat kararı almak"
+    - "Her dönem için pazaryeri bazlı kâr ve hakediş özetini aylarca elle toplamak ve yönetici raporu hazırlamak"
+  ayrimlar:
+    - madde: "Kalem bazında satış, komisyon, kargo, reklam, iade ve ek gider sonrası net kâr ve kâr marjını tek tabloda canlı formülle üretir; alternatifte her kalem elle hesap makinesiyle çıkarılır."
+      karsilik: PazaryeriToplamNetKar
+    - madde: "Beklenen hakediş ile gerçek hakedişi eşiklerle karşılaştırır, eksik tahsilatı kalem bazında işaretler ve toplam farkı üretir; alternatifte mutabakat elle yürütülür."
+      karsilik: PazaryeriToplamFark
+    - madde: "Pazaryeri bazlı satış, kâr, marj ve hakediş farkı özetini otomatik üretir, en iyi pazaryerini gerekçeli seçer; alternatifte bu özet haftalarca elle toplanır."
+      karsilik: PazaryeriEnIyiPazaryeri
+    - madde: "Satış fiyatı senaryoları ve komisyon tornado analizi ile net kâr bant aralığını ve en etkili değişkeni gösterir; alternatifte duyarlılık analizi yoktur."
+      karsilik: modulO3Senaryo
+    - madde: "Pazaryeri yoğunlaşmasını (HHI), net kâr sapmasını ve veri kalite skorunu ölçerek karar kapısına güven katmanı ekler; alternatifte bu analizler yoktur."
+      karsilik: modulO8KaliteSkor

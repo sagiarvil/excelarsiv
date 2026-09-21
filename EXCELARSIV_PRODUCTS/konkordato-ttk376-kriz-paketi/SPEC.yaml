@@ -1,0 +1,96 @@
+# Hat A #30 — Konkordato + TTK 376 Kriz Paketi
+# FAZ 2 · A1 · ONAYLANDI
+
+urun:
+  kod: KTK-PRO
+  ad: "Konkordato + TTK 376 Kriz Paketi"
+  surum: "1.0.0"
+  satis_fiyati_tl: 9900
+  hedef_kullanici: "CFO, SMMM, hukuk / kriz masası"
+
+arketip: A1
+fiyat: 9900
+olcek_hedefi: 5000
+
+deger:
+  satis_fiyati_tl: 9900
+  Y1_danisman_ikamesi_tl: 35000
+  Y2_kurulum_ikamesi_tl: 10000
+  Y3_onlenen_hata_tl: 50000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "TTK 376 + konkordato ön değerlendirme danışmanlığı"
+
+deger_vektoru: ["P", "R", "Z"]
+uc_rol:
+  - rol: "CFO"
+    is_bitince: "Özkaynak / sermaye tamamlamayı görür"
+  - rol: "Ortaklar kurulu"
+    is_bitince: "NORMAL / DİKKAT / KRİZ kararını alır"
+  - rol: "SMMM / hukuk"
+    is_bitince: "Kanıt raporunu dosyalar"
+
+lansman_tetigi:
+  sinif: Donemsel_bilanço
+  aciklama: "Ara dönem bilanço veya zarar birikimi eşiği aşımı"
+  tarih_penceresi: "bilanco_sonrasi_15_gun"
+
+rakip_ayrim:
+  - {sinif: R2_bedava, ayrim: "Senaryo + sermaye tamamlama", karsilik: "ktk_senaryoKarsilastirma"}
+  - {sinif: R2_bedava, ayrim: "Kanıt + madde atfı", karsilik: "ktk_kanitRaporu"}
+  - {sinif: R1_jenerik, ayrim: "Yıl yan yana eşik", karsilik: "ktk_kuralYilMatris"}
+  - {sinif: R1_jenerik, ayrim: "Vaka tutarlılık", karsilik: "ktk_vakaDurum"}
+  - {sinif: R4, ayrim: "Karar motoru", karsilik: "ktk_kararMetni"}
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar: ["Elle TTK 376 cetveli", "Genel Excel", "Hukuk bürosu notu"]
+  ayrimlar:
+    - {madde: "M-SEN eşik değişimi", karsilik: "ktk_kuralDegisimSenaryo"}
+    - {madde: "Duyarlılık", karsilik: "ktk_duyarlilikSira"}
+    - {madde: "Vaka FARK", karsilik: "ktk_vakaFark"}
+    - {madde: "Gerekçeli karar", karsilik: "ktk_kararGerekce"}
+    - {madde: "Parmak izi", karsilik: "ktk_parmakIzi"}
+
+mevzuat:
+  kurallar: [KTK-001, KTK-002, KTK-003, KTK-004, KTK-005]
+  vakalar: ttk376_konkordato_ornekleri
+  hesap_yillari: [2025, 2026, 2027]
+  belirsizlik: [sermaye_tamamlama_suresi]
+
+analitik_moduller:
+  - {kod: T1, ad: "Özkaynak / sermaye oranı", ad_tanimi: "ktk_modulT1", yorum_hucresi: "ktk_modulT1Yorum"}
+  - {kod: T2, ad: "Eksik sermaye tutarı", ad_tanimi: "ktk_modulT2", yorum_hucresi: "ktk_modulT2Yorum"}
+  - {kod: O1, ad: "Risk göstergesi", ad_tanimi: "ktk_modulO1", yorum_hucresi: "ktk_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık", ad_tanimi: "ktk_duyarlilikSira", yorum_hucresi: "ktk_yorumDuyarlilik"}
+  - {kod: O3, ad: "Senaryo", ad_tanimi: "ktk_senaryoKarsilastirma", yorum_hucresi: "ktk_yorumSenaryo"}
+  - {kod: O6, ad: "Borç / aktif", ad_tanimi: "ktk_modulO6", yorum_hucresi: "ktk_modulO6Yorum"}
+  - {kod: O8, ad: "Kalite skoru", ad_tanimi: "ktk_modulO8", yorum_hucresi: "ktk_modulO8Yorum"}
+  - {kod: M_SEN, ad: "Eşik değişimi", ad_tanimi: "ktk_kuralDegisimSenaryo", yorum_hucresi: "ktk_yorumKuralDegisim"}
+  - {kod: I1, ad: "Tahmin", ad_tanimi: "ktk_tahminAralik", yorum_hucresi: "ktk_yorumTahmin"}
+  - {kod: I2, ad: "P90 açık", ad_tanimi: "ktk_modulI2", yorum_hucresi: "ktk_modulI2Yorum"}
+
+sayfa_akisi: [PANO, GIRDI, KURALLAR, MOTOR, SENARYO, VAKALAR, KANIT_RAPORU, LISTELER, AYARLAR, KILAVUZ]
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 1000
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "MOTOR"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25, "M": 25}
+
+ornek_veri: ornek_veri.csv
+onay: {durum: ONAYLANDI, not: "FAZ 2 hat A ürün #30 — üretim başlatıldı"}

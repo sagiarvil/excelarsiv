@@ -1,0 +1,7 @@
+Kıymet Kodu,Kıymet Türü,Edinim Tarihi,Edinim Bedeli (TL),Amortisman Yöntemi,Amortisman Oranı,Birikmiş Amortisman (TL),NDD (TL),Açıklama
+K-1001,Bina,15.05.2019,1500000,Normal,0.02,=IF($D6="",0,MIN($D6,$D6*$F6*MAX(0,ROUNDDOWN((DATE(2026,8,10)-$C6)/365,0)))),=IF($D6="",0,MAX(0,$D6-$G6)),=IF($B6="","",CONCATENATE("Örnek kıymet: ",$B6))
+K-1002,Makine,10.03.2021,600000,Azalan,0.2,=IF($D7="",0,MIN($D7,$D7*$F7*MAX(0,ROUNDDOWN((DATE(2026,8,10)-$C7)/365,0)))),=IF($D7="",0,MAX(0,$D7-$G7)),=IF($B7="","",CONCATENATE("Örnek kıymet: ",$B7))
+K-1003,Makine,01.09.2020,400000,Normal,0.2,=IF($D8="",0,MIN($D8,$D8*$F8*MAX(0,ROUNDDOWN((DATE(2026,8,10)-$C8)/365,0)))),=IF($D8="",0,MAX(0,$D8-$G8)),=IF($B8="","",CONCATENATE("Örnek kıymet: ",$B8))
+K-1004,Taşıt,20.01.2022,350000,Normal,0.2,=IF($D9="",0,MIN($D9,$D9*$F9*MAX(0,ROUNDDOWN((DATE(2026,8,10)-$C9)/365,0)))),=IF($D9="",0,MAX(0,$D9-$G9)),=IF($B9="","",CONCATENATE("Örnek kıymet: ",$B9))
+K-1005,Demirbaş,05.04.2023,180000,Normal,0.2,=IF($D10="",0,MIN($D10,$D10*$F10*MAX(0,ROUNDDOWN((DATE(2026,8,10)-$C10)/365,0)))),=IF($D10="",0,MAX(0,$D10-$G10)),=IF($B10="","",CONCATENATE("Örnek kıymet: ",$B10))
+K-1006,Yazılım,15.06.2024,120000,Azalan,0.33,=IF($D11="",0,MIN($D11,$D11*$F11*MAX(0,ROUNDDOWN((DATE(2026,8,10)-$C11)/365,0)))),=IF($D11="",0,MAX(0,$D11-$G11)),=IF($B11="","",CONCATENATE("Örnek kıymet: ",$B11))

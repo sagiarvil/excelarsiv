@@ -1,0 +1,197 @@
+# =============================================================================
+# SPEC — Hat B Y-22 · 8D / Düzeltici Faaliyet Dosya Sistemi
+# Durum: ONAYLANDI — Hat B kalite dikeyi SON ürün
+# Manda: v6 · arketip A4+A3 (kanıt dosyası + durum makinesi)
+# Domain: 8D adımları D1–D8, düzeltici faaliyet (DF), kök neden — rename YASAK
+# =============================================================================
+
+urun:
+  kod: SDF-PRO
+  ad: "8D / Düzeltici Faaliyet Dosya Sistemi"
+  surum: "1.0.0"
+  slug: sekiz-d-duzeltici-faaliyet-dosya
+  dosya: SekizDDuzelticiFaaliyetDosya.xlsx
+  prefix: sdf_
+  satis_fiyati_tl: 7900
+  hedef_kullanici: "Kalite müdürü, QA sorumlusu, müşteri şikâyet / 8D lideri, IATF denetim hazırlığı"
+
+arketip: A4+A3
+fiyat: 7900
+olcek_hedefi: 20000
+
+deger:
+  satis_fiyati_tl: 7900
+  Y1_danisman_ikamesi_tl: 18000
+  Y2_kurulum_ikamesi_tl: 8000
+  Y3_onlenen_hata_tl: 45000
+  Y4_saas_yillik_ikamesi_tl: 0
+  kaynak: "Müşteri şikâyeti 8D dosya + DF kapanış danışmanlığı / yeniden denetim kaçınma"
+
+deger_vektoru: ["P", "R", "K", "İ"]
+uc_rol:
+  - rol: "8D lideri / QA (giren)"
+    is_bitince: "Şikâyet satırını D1–D8 durum makinesinde kilitler; kök neden ve DF aksiyonunu girer"
+  - rol: "Kalite müdürü (karar veren)"
+    is_bitince: "Açık 8D kuyruğu, geciken DF ve UYGUN/DİKKAT/KRİTİK/VERİ YOK kararını panoda görür"
+  - rol: "Müşteri / IATF denetçisi (kanıt isteyen)"
+    is_bitince: "KANIT_RAPORU ile 8D kapanış ve DF kanıtını imzalı dosyalar"
+
+lansman_tetigi:
+  sinif: Musteri_denetimi
+  aciklama: "Müşteri şikâyeti / 8D açılışı; IATF veya müşteri denetimi öncesi kapanış kanıtı"
+  tarih_penceresi: "musteri_sikayet_8d_denetim"
+
+rakip_ayrim:
+  - sinif: R1_jenerik
+    ayrim: "Makrosuz 8D durum: D1→D2→D3→D4→D5→D6→D7→D8/Kapalı"
+    karsilik: "sdf_durumHaritasi"
+  - sinif: R1_jenerik
+    ayrim: "Kök neden + DF plan/gerçek maliyet zinciri ZİNCİR KIRIK"
+    karsilik: "sdf_zincirKirik"
+  - sinif: R1_jenerik
+    ayrim: "Yetim ekip kaydı + geçersiz 8D geçişi görünür"
+    karsilik: "sdf_gecersizGecis"
+  - sinif: R2_bedava
+    ayrim: "KANIT_RAPORU imza alanı — müşteri/IATF dosyasına uygun"
+    karsilik: "sdf_kanitRaporu"
+  - sinif: R4_yazilim
+    ayrim: "Makrosuz, çevrimdışı; QMS aboneliği yok"
+    karsilik: "sdf_fiyatModeli"
+
+serbest_alternatif:
+  soru: "Alıcı bunu bedavaya nasıl yapar?"
+  adaylar:
+    - "Word/PowerPoint 8D şablonu + elle takip"
+    - "QMS yazılımı aboneliği"
+    - "Danışmandan tek seferlik 8D kapanış paketi"
+  ayrimlar:
+    - madde: "D1–D8 durum haritası AYARLAR'da; izinli geçiş görünür"
+      karsilik: "sdf_durumHaritasi"
+    - madde: "Geçersiz 8D adım geçişi görünür uyarı"
+      karsilik: "sdf_gecersizGecis"
+    - madde: "DF plan vs gerçek maliyet zinciri bayrağı"
+      karsilik: "sdf_zincirKirik"
+    - madde: "Kuyruk COUNTIF ile veriden türer; kapalı D8 düşer"
+      karsilik: "sdf_kuyrukOzeti"
+    - madde: "Boş dosyada VERİ YOK; KANIT_RAPORU imza"
+      karsilik: "sdf_kararKapi"
+
+akis:
+  durum_haritasi:
+    - {durum_id: D1_EKIP, durum_adi: "D1 Ekip", sira: 1, izinli_sonraki_durumlar: "D2_PROBLEM|IPTAL", kategori: acik}
+    - {durum_id: D2_PROBLEM, durum_adi: "D2 Problem", sira: 2, izinli_sonraki_durumlar: "D3_MUHAFAZA|IPTAL|D1_EKIP", kategori: acik}
+    - {durum_id: D3_MUHAFAZA, durum_adi: "D3 Muhafaza", sira: 3, izinli_sonraki_durumlar: "D4_KOK|IPTAL|D2_PROBLEM", kategori: acik}
+    - {durum_id: D4_KOK, durum_adi: "D4 Kök Neden", sira: 4, izinli_sonraki_durumlar: "D5_DF|IPTAL|D3_MUHAFAZA", kategori: acik}
+    - {durum_id: D5_DF, durum_adi: "D5 DF Plan", sira: 5, izinli_sonraki_durumlar: "D6_UYGULA|IPTAL|D4_KOK", kategori: acik}
+    - {durum_id: D6_UYGULA, durum_adi: "D6 Uygulama", sira: 6, izinli_sonraki_durumlar: "D7_ONLE|IPTAL|D5_DF", kategori: acik}
+    - {durum_id: D7_ONLE, durum_adi: "D7 Önleme", sira: 7, izinli_sonraki_durumlar: "D8_KAPALI|IPTAL", kategori: acik}
+    - {durum_id: D8_KAPALI, durum_adi: "D8 Kapalı", sira: 8, izinli_sonraki_durumlar: "", kategori: kapali}
+    - {durum_id: IPTAL, durum_adi: İptal, sira: 9, izinli_sonraki_durumlar: "", kategori: kapali}
+  zincir_halkalari: [df_plan_maliyet, df_gercek_maliyet]
+  kuyruk_tanimlari: [D1_EKIP, D2_PROBLEM, D3_MUHAFAZA, D4_KOK, D5_DF, D6_UYGULA, D7_ONLE]
+
+analitik_moduller:
+  - {kod: T1, ad: "Açık 8D adedi", ad_tanimi: "sdf_modulT1", yorum_hucresi: "sdf_modulT1Yorum"}
+  - {kod: T2, ad: "DF maliyet trend", ad_tanimi: "sdf_modulT2", yorum_hucresi: "sdf_modulT2Yorum"}
+  - {kod: O1, ad: "Geciken DF anomali", ad_tanimi: "sdf_modulO1", yorum_hucresi: "sdf_modulO1Yorum"}
+  - {kod: O2, ad: "Duyarlılık tornado", ad_tanimi: "sdf_modulO2", yorum_hucresi: "sdf_modulO2Yorum"}
+  - {kod: O3, ad: "Senaryo motoru", ad_tanimi: "sdf_modulO3", yorum_hucresi: "sdf_modulO3Yorum"}
+  - {kod: O6, ad: "Kök neden yoğunlaşma", ad_tanimi: "sdf_modulO6", yorum_hucresi: "sdf_modulO6Yorum"}
+  - {kod: O8, ad: "Veri kalite skoru", ad_tanimi: "sdf_modulO8", yorum_hucresi: "sdf_modulO8Yorum"}
+  - {kod: I1, ad: "Tahmin aralık", ad_tanimi: "sdf_modulI1", yorum_hucresi: "sdf_modulI1Yorum"}
+  - {kod: I2, ad: "Yüzdelik P90", ad_tanimi: "sdf_modulI2", yorum_hucresi: "sdf_modulI2Yorum"}
+
+karar_kurallari:
+  - kosul: "veri_yok"
+    karar: "VERİ YOK"
+  - kosul: "yetim_veya_gecersiz_veya_zincir"
+    karar: "KRİTİK"
+  - kosul: "geciken_veya_hedef_alti"
+    karar: "DİKKAT"
+  - kosul: "esik_altinda"
+    karar: "UYGUN"
+
+sayfa_akisi:
+  - KAPAK
+  - PANO
+  - EKIP
+  - AKIS
+  - KUYRUKLAR
+  - HESAP
+  - KANIT_RAPORU
+  - RAPOR
+  - KONTROLLER
+  - ORNEK_VERI
+  - LISTELER
+  - AYARLAR
+  - KILAVUZ
+
+denetim:
+  giris_dolgu: ["FFFFF2CC"]
+  koruma_sifresi: "1234"
+  asgari_kb_kurali_toplam: 40
+  asgari_grafik: 8
+  volatil_ust_sinir: 12
+  sonda_olacak_sayfalar: ["LISTELER", "AYARLAR", "KILAVUZ"]
+  asgari_tablo_kapasitesi: 250
+  asgari_pano_kpi: 12
+  asgari_motor_adimi: 40
+  asgari_derinlik_puani: 100
+  asgari_ileri_modul: 2
+  ikame_carpani: 3.0
+  asgari_ayrim_maddesi: 5
+  bos_dosya_beklenen_karar: "VERİ YOK"
+  karar_sayfasi: "PANO"
+  motor_sayfasi: "HESAP"
+  pano_sayfasi: "PANO"
+  ayarlar_sayfasi: "AYARLAR"
+  modul_puanlari: {"T": 10, "O": 15, "I": 25}
+  sozluk_beyaz_liste:
+    KDV: true
+    VKN: true
+    SGK: true
+    VUK: true
+    TTK: true
+    IBAN: true
+    TL: true
+    USD: true
+    EUR: true
+    NPV: true
+    IRR: true
+    WACC: true
+    DSCR: true
+    FAVOK: true
+    EBITDA: true
+    KPI: true
+    PDF: true
+    ID: true
+    NO: true
+    AR: true
+    GE: true
+    OK: true
+    MIN: true
+    MAX: true
+    TRY: true
+    BSMV: true
+    MASAK: true
+    TCMB: true
+    ISO: true
+    QR: true
+    IATF: true
+    AIAG: true
+    PPAP: true
+    SPC: true
+    OEE: true
+    DF: true
+    "8D": true
+
+testler:
+  asgari_tablo_kapasitesi: 250
+  olcek:
+    satir: 500
+    azami_hesap_saniye: 30.0
+
+ornek_veri: ornek_veri.csv
+onay:
+  durum: ONAYLANDI
+  not: "Hat B Y-22 — A4+A3 8D/DF dosya; D0 kalite 7/7; tetik müşteri denetimi"
