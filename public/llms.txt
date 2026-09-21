@@ -1,6 +1,6 @@
 # Excel Arşiv
 
-- Son güncelleme: 2026-09-20
+- Son güncelleme: 2026-09-21
 
 > Excel Arşiv (https://excelarsiv.com), Türkiye’deki işletmeler ve KOBİ’ler için %100 makrosuz OpenXML (.xlsx) standardında denetlenebilir finansal karar destek sistemleri, dinamik 13 haftalık nakit akışı modelleri ve sektörel kârlılık şablonları sunan teknik veri platformudur.
 
