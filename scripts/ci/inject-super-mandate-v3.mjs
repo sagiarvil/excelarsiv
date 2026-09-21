@@ -81,9 +81,15 @@ for (const filePath of htmlFiles) {
       h1Text = h1Match[1].replace(/<[^>]+>/g, '').trim();
     }
 
-    const heroAnswerText = metaDesc
-      ? `${h1Text}; ${metaDesc} Türkiye mevzuatına tam uyumlu, makrosuz ve doğrulanmış formül mimarisiyle anında kullanıma hazırdır.`
-      : `${h1Text}; işletmeler için finansal karar alma süreçlerini hızlandıran, test edilmiş formüllere sahip ve denetlenebilir profesyonel kurumsal Excel sistemidir.`;
+    const sourceAnswer = metaDesc
+      ? `${h1Text}; ${metaDesc}`
+      : `${h1Text}; işletmeler için finansal karar alma süreçlerini hızlandıran, test edilmiş ve denetlenebilir profesyonel Excel çalışma sistemidir.`;
+    const heroAnswerText = sourceAnswer
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 34)
+      .join(' ')
+      .replace(/[;,]$/, '') + '.';
 
     const heroBox = `
 <div class="hero-answer-engine mb-6 p-4 rounded-xl bg-[#f7faf8] border border-[#dbe6df] text-xs text-[#526158]" data-chunk-id="hero-answer-summary">
