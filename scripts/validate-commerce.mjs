@@ -59,8 +59,17 @@ for (const file of templateFiles) {
   const price = Number(source.match(/^priceTL:\s*(\d+(?:\.\d+)?)\s*$/m)?.[1]);
   const product = catalog.products[slug];
 
+  // Quote-only catalogue entries are allowed to exist without a Shopier/commerce SKU.
+  // They must not be treated as purchasable until a commerce product is explicitly created.
   if (!product) {
-    errors.push(`${slug}: commerce/catalog.json içinde ürün kaydı yok.`);
+    const hasRequiredCatalogFields =
+      Boolean(name) &&
+      Number.isFinite(price) &&
+      /^category:\s*['"][^'"]+['"]\s*$/m.test(source) &&
+      /^summary:\s*['"][^'"]+['"]\s*$/m.test(source);
+    if (!hasRequiredCatalogFields) {
+      errors.push(`${slug}: teklif-odaklı katalog kaydı zorunlu metadata taşımıyor.`);
+    }
     continue;
   }
   const tier = catalog.tiers[product.tier];
