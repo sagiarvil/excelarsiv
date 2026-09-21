@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-21T11:56:06.000Z",
+  "generatedAt": "2026-09-21T17:03:13.000Z",
   "site": "https://excelarsiv.com",
   "currency": "TRY",
   "language": "tr-TR",
-  "productCount": 70,
+  "productCount": 124,
   "eeat": {
     "brand": "Excel Arşiv",
     "author": {
@@ -181,6 +181,21 @@
       "demoUrl": "https://excelarsiv.com/demo/arsa-ve-gayrimenkul-proje-gelistirme-fizibilite"
     },
     {
+      "slug": "asgari-kurumlar-vergisi-simulasyon-motoru",
+      "name": "Asgari Kurumlar Vergisi Simülasyon Motoru",
+      "summary": "Asgari Kurumlar Vergisi Simülasyon Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "muhasebe-ve-vergi",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/asgari-kurumlar-vergisi-simulasyon-motoru",
+      "buyUrl": "https://excelarsiv.com/sablon/asgari-kurumlar-vergisi-simulasyon-motoru#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/asgari-kurumlar-vergisi-simulasyon-motoru"
+    },
+    {
       "slug": "asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli",
       "name": "Asgari Ücret Zam Etkisi & Fiyat Ayarlama Cetveli",
       "summary": "Asgari ücret zammının maliyet tablonuza etkisini hesaplayın; satış fiyatlarınızı koruyacak ayarlamayı önerin.",
@@ -224,6 +239,21 @@
       "url": "https://excelarsiv.com/sablon/aylik-patron-finans-paneli",
       "buyUrl": "https://excelarsiv.com/sablon/aylik-patron-finans-paneli#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/aylik-patron-finans-paneli"
+    },
+    {
+      "slug": "banka-kredi-covenant-erken-uyari",
+      "name": "Banka Kredi + Covenant Erken Uyarı",
+      "summary": "Banka Kredi + Covenant Erken Uyarı: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "finansal-analiz",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 18,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/banka-kredi-covenant-erken-uyari",
+      "buyUrl": "https://excelarsiv.com/sablon/banka-kredi-covenant-erken-uyari#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/banka-kredi-covenant-erken-uyari"
     },
     {
       "slug": "banka-kredi-ve-taksit-takip-sistemi",
@@ -301,6 +331,21 @@
       "demoUrl": "https://excelarsiv.com/demo/cek-senet-ve-vade-risk-sistemi"
     },
     {
+      "slug": "dava-masraf-harc-hesaplama",
+      "name": "Dava Masraf & Harç Hesaplama Motoru",
+      "summary": "Dava Masraf & Harç Hesaplama Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "butce-ve-planlama",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/dava-masraf-harc-hesaplama",
+      "buyUrl": "https://excelarsiv.com/sablon/dava-masraf-harc-hesaplama#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/dava-masraf-harc-hesaplama"
+    },
+    {
       "slug": "defter-beyan-e-arsiv-aktarim",
       "name": "Defter Beyan e-Arşiv Aktarım Düzenleyici",
       "summary": "e-Arşiv satırlarını Defter Beyan kolon haritasına dönüştürür ve hata listesini üretir.",
@@ -316,6 +361,36 @@
       "demoUrl": "https://excelarsiv.com/demo/defter-beyan-e-arsiv-aktarim"
     },
     {
+      "slug": "depo-doluluk-lokasyon",
+      "name": "Depo Doluluk & Lokasyon Optimizasyonu",
+      "summary": "Depo Doluluk & Lokasyon Optimizasyonu: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 4900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 14,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/depo-doluluk-lokasyon",
+      "buyUrl": "https://excelarsiv.com/sablon/depo-doluluk-lokasyon#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/depo-doluluk-lokasyon"
+    },
+    {
+      "slug": "dernek-kooperatif-mali-yonetim",
+      "name": "Dernek/Kooperatif Mali Yönetim Sistemi",
+      "summary": "Dernek/Kooperatif Mali Yönetim Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "butce-ve-planlama",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 21,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/dernek-kooperatif-mali-yonetim",
+      "buyUrl": "https://excelarsiv.com/sablon/dernek-kooperatif-mali-yonetim#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/dernek-kooperatif-mali-yonetim"
+    },
+    {
       "slug": "doviz-acik-pozisyonu-ve-kur-riski-stres-testi",
       "name": "Döviz Açık Pozisyonu ve Kur Riski Stres Testi",
       "summary": "Döviz cinsinden varlık ve borçlarınızın net açık pozisyonunu hesaplayın; kur şoku senaryolarında kâr/zarar etkisini ve pozisyon kararını görün.",
@@ -329,6 +404,21 @@
       "url": "https://excelarsiv.com/sablon/doviz-acik-pozisyonu-ve-kur-riski-stres-testi",
       "buyUrl": "https://excelarsiv.com/sablon/doviz-acik-pozisyonu-ve-kur-riski-stres-testi#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/doviz-acik-pozisyonu-ve-kur-riski-stres-testi"
+    },
+    {
+      "slug": "e-belge-zorunluluk-radari",
+      "name": "e-Belge Zorunluluk Radarı",
+      "summary": "e-Belge Zorunluluk Radarı: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "muhasebe-ve-vergi",
+      "priceTL": 4900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 17,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/e-belge-zorunluluk-radari",
+      "buyUrl": "https://excelarsiv.com/sablon/e-belge-zorunluluk-radari#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/e-belge-zorunluluk-radari"
     },
     {
       "slug": "e-fatura-satir-defteri-pdf-kaniti",
@@ -361,6 +451,51 @@
       "demoUrl": "https://excelarsiv.com/demo/e-fatura-toplu-donusturucu"
     },
     {
+      "slug": "e-ticaret-gercek-karlilik-fiyatlama",
+      "name": "E-Ticaret Gerçek Kârlılık & Fiyatlama",
+      "summary": "E-Ticaret Gerçek Kârlılık & Fiyatlama: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "satis-ve-fiyatlama",
+      "priceTL": 4900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 16,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/e-ticaret-gercek-karlilik-fiyatlama",
+      "buyUrl": "https://excelarsiv.com/sablon/e-ticaret-gercek-karlilik-fiyatlama#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/e-ticaret-gercek-karlilik-fiyatlama"
+    },
+    {
+      "slug": "elektrik-faturasi-dogrulama",
+      "name": "Elektrik Faturası Doğrulama Motoru",
+      "summary": "Elektrik Faturası Doğrulama Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "butce-ve-planlama",
+      "priceTL": 4900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/elektrik-faturasi-dogrulama",
+      "buyUrl": "https://excelarsiv.com/sablon/elektrik-faturasi-dogrulama#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/elektrik-faturasi-dogrulama"
+    },
+    {
+      "slug": "emlak-pipeline-komisyon",
+      "name": "Emlak Ofisi Satış Pipeline & Komisyon Takibi",
+      "summary": "Emlak Ofisi Satış Pipeline & Komisyon Takibi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "satis-ve-fiyatlama",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 13,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/emlak-pipeline-komisyon",
+      "buyUrl": "https://excelarsiv.com/sablon/emlak-pipeline-komisyon#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/emlak-pipeline-komisyon"
+    },
+    {
       "slug": "emsal-sirket-carpanlariyla-degerleme",
       "name": "Emsal Şirket Çarpanlarıyla Değerleme Exceli",
       "summary": "Sektörel emsal şirket verileriyle EV/EBITDA, P/E, EV/Sales ve F/K çarpanlarını normalize eden, net borç köprüsüyle adil hisse fiyatı hesaplayan değerlem...",
@@ -376,6 +511,21 @@
       "demoUrl": "https://excelarsiv.com/demo/emsal-sirket-carpanlariyla-degerleme"
     },
     {
+      "slug": "fason-uretim-takip-sistemi",
+      "name": "Fason Üretim Takip Sistemi",
+      "summary": "Fason Üretim Takip Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 13,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/fason-uretim-takip-sistemi",
+      "buyUrl": "https://excelarsiv.com/sablon/fason-uretim-takip-sistemi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/fason-uretim-takip-sistemi"
+    },
+    {
       "slug": "fazla-mesai-ve-isci-dava-riski-tespit-dosyasi",
       "name": "Fazla Mesai ve İşçi Dava Riski Tespit Dosyası",
       "summary": "Fazla mesai kayıtlarınızı yasal yükümlülüklerle karşılaştırın; işçi alacağı ve dava riskini önceden tespit edin.",
@@ -389,6 +539,36 @@
       "url": "https://excelarsiv.com/sablon/fazla-mesai-ve-isci-dava-riski-tespit-dosyasi",
       "buyUrl": "https://excelarsiv.com/sablon/fazla-mesai-ve-isci-dava-riski-tespit-dosyasi#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/fazla-mesai-ve-isci-dava-riski-tespit-dosyasi"
+    },
+    {
+      "slug": "fesih-maliyeti-simulatoru",
+      "name": "Fesih Maliyeti Simülatörü (kıdem+ihbar+işe iade)",
+      "summary": "Fesih Maliyeti Simülatörü (kıdem+ihbar+işe iade): SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "personel-ve-bordro",
+      "priceTL": 4900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/fesih-maliyeti-simulatoru",
+      "buyUrl": "https://excelarsiv.com/sablon/fesih-maliyeti-simulatoru#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/fesih-maliyeti-simulatoru"
+    },
+    {
+      "slug": "filo-arac-maliyet-komutasi",
+      "name": "Filo Araç Maliyet Komutası",
+      "summary": "Filo Araç Maliyet Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "butce-ve-planlama",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 14,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/filo-arac-maliyet-komutasi",
+      "buyUrl": "https://excelarsiv.com/sablon/filo-arac-maliyet-komutasi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/filo-arac-maliyet-komutasi"
     },
     {
       "slug": "filo-yatirim-ve-arac-yenileme-fizibilite",
@@ -451,6 +631,36 @@
       "demoUrl": "https://excelarsiv.com/demo/gayrimenkul-yatirim-fizibilite-ve-karlilik"
     },
     {
+      "slug": "ges-uretim-performans",
+      "name": "GES Üretim & Performans Takibi",
+      "summary": "GES Üretim & Performans Takibi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 14,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/ges-uretim-performans",
+      "buyUrl": "https://excelarsiv.com/sablon/ges-uretim-performans#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/ges-uretim-performans"
+    },
+    {
+      "slug": "ges-yatirim-fizibilite",
+      "name": "GES Yatırım Fizibilite Simülatörü",
+      "summary": "GES Yatırım Fizibilite Simülatörü: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "finansal-analiz",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 18,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/ges-yatirim-fizibilite",
+      "buyUrl": "https://excelarsiv.com/sablon/ges-yatirim-fizibilite#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/ges-yatirim-fizibilite"
+    },
+    {
       "slug": "ges-yatirim-fizibilite-ve-proje-finansmani",
       "name": "GES Yatırım Fizibilite ve Proje Finansmanı Exceli",
       "summary": "Güneş Enerjisi Santrali (GES) yatırımlarında lisanssız/lisanslı üretim, YEKDEM/PTF elektrik satışı, degradasyon, DSCR ve proje finansmanı geri dönüş mod...",
@@ -464,6 +674,21 @@
       "url": "https://excelarsiv.com/sablon/ges-yatirim-fizibilite-ve-proje-finansmani",
       "buyUrl": "https://excelarsiv.com/sablon/ges-yatirim-fizibilite-ve-proje-finansmani#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/ges-yatirim-fizibilite-ve-proje-finansmani"
+    },
+    {
+      "slug": "gida-lot-maliyet-izlenebilirlik",
+      "name": "Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik",
+      "summary": "Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 21,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/gida-lot-maliyet-izlenebilirlik",
+      "buyUrl": "https://excelarsiv.com/sablon/gida-lot-maliyet-izlenebilirlik#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/gida-lot-maliyet-izlenebilirlik"
     },
     {
       "slug": "gunluk-gelir-gider-ve-gercek-karlilik-sistemi",
@@ -496,6 +721,51 @@
       "demoUrl": "https://excelarsiv.com/demo/hakedis-fiyat-farki-hak-kaybi-cetveli"
     },
     {
+      "slug": "hizmet-ihracati-100-indirim-transfer-takip",
+      "name": "Hizmet İhracatı %100 İndirim + Transfer Takip",
+      "summary": "Hizmet İhracatı %100 İndirim + Transfer Takip: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "muhasebe-ve-vergi",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 20,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/hizmet-ihracati-100-indirim-transfer-takip",
+      "buyUrl": "https://excelarsiv.com/sablon/hizmet-ihracati-100-indirim-transfer-takip#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/hizmet-ihracati-100-indirim-transfer-takip"
+    },
+    {
+      "slug": "hukuk-burosu-dosya-vekalet",
+      "name": "Hukuk Bürosu Dosya & Vekalet Komutası",
+      "summary": "Hukuk Bürosu Dosya & Vekalet Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "butce-ve-planlama",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 22,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/hukuk-burosu-dosya-vekalet",
+      "buyUrl": "https://excelarsiv.com/sablon/hukuk-burosu-dosya-vekalet#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/hukuk-burosu-dosya-vekalet"
+    },
+    {
+      "slug": "ihale-fiyat-farki-eskalasyon-pro",
+      "name": "İhale Fiyat Farkı (Eskalasyon) Pro",
+      "summary": "İhale Fiyat Farkı (Eskalasyon) Pro: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "satis-ve-fiyatlama",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/ihale-fiyat-farki-eskalasyon-pro",
+      "buyUrl": "https://excelarsiv.com/sablon/ihale-fiyat-farki-eskalasyon-pro#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/ihale-fiyat-farki-eskalasyon-pro"
+    },
+    {
       "slug": "ihaleye-kac-tl-teklif-vermeliyim",
       "name": "İhaleye Kaç TL Teklif Vermeliyim? (Sınır Değer Hesaplayıcı)",
       "summary": "Rakip teklifler ve yaklaşık maliyet üzerinden sınır değeri hesaplayın; kârlı ve güvenli teklif aralığını görün.",
@@ -509,6 +779,21 @@
       "url": "https://excelarsiv.com/sablon/ihaleye-kac-tl-teklif-vermeliyim",
       "buyUrl": "https://excelarsiv.com/sablon/ihaleye-kac-tl-teklif-vermeliyim#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/ihaleye-kac-tl-teklif-vermeliyim"
+    },
+    {
+      "slug": "ihracat-siparis-karlilik-kur",
+      "name": "İhracat Sipariş Kârlılık & Kur Riski Komutası",
+      "summary": "İhracat Sipariş Kârlılık & Kur Riski Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "satis-ve-fiyatlama",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 21,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/ihracat-siparis-karlilik-kur",
+      "buyUrl": "https://excelarsiv.com/sablon/ihracat-siparis-karlilik-kur#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/ihracat-siparis-karlilik-kur"
     },
     {
       "slug": "insaat-hakedis-santiye-maliyet",
@@ -526,6 +811,36 @@
       "demoUrl": "https://excelarsiv.com/demo/insaat-hakedis-santiye-maliyet"
     },
     {
+      "slug": "insaat-hakedis-yonetim-sistemi",
+      "name": "İnşaat Hakediş Yönetim Sistemi",
+      "summary": "İnşaat Hakediş Yönetim Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "butce-ve-planlama",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 13,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/insaat-hakedis-yonetim-sistemi",
+      "buyUrl": "https://excelarsiv.com/sablon/insaat-hakedis-yonetim-sistemi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/insaat-hakedis-yonetim-sistemi"
+    },
+    {
+      "slug": "isg-risk-degerlendirme-pro-6331",
+      "name": "İSG Risk Değerlendirme Pro (6331)",
+      "summary": "İSG Risk Değerlendirme Pro (6331): SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "personel-ve-bordro",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 13,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/isg-risk-degerlendirme-pro-6331",
+      "buyUrl": "https://excelarsiv.com/sablon/isg-risk-degerlendirme-pro-6331#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/isg-risk-degerlendirme-pro-6331"
+    },
+    {
       "slug": "ithalat-depo-teslim-rafa-gelen-net-birim-maliyet",
       "name": "İthalat Depo Teslim (Rafa Gelen) Net Birim Maliyet",
       "summary": "İthal ürünün FOB maliyetinden rafa gelene kadarki tüm vergi ve masraflarını ekleyin; depo teslim net birim maliyeti görün.",
@@ -541,6 +856,21 @@
       "demoUrl": "https://excelarsiv.com/demo/ithalat-depo-teslim-rafa-gelen-net-birim-maliyet"
     },
     {
+      "slug": "ithalat-landed-cost-motoru",
+      "name": "İthalat Landed Cost Motoru",
+      "summary": "İthalat Landed Cost Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 18,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/ithalat-landed-cost-motoru",
+      "buyUrl": "https://excelarsiv.com/sablon/ithalat-landed-cost-motoru#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/ithalat-landed-cost-motoru"
+    },
+    {
       "slug": "kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi",
       "name": "Kaçırılan SGK Teşvikleri & Gerçek İşçilik Maliyeti Analizi",
       "summary": "Hangi SGK teşvikinden yararlanabileceğinizi ve kaçırdığınız tutarı hesaplayın; gerçek işçilik maliyetinizi net görün.",
@@ -554,6 +884,36 @@
       "url": "https://excelarsiv.com/sablon/kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi",
       "buyUrl": "https://excelarsiv.com/sablon/kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi"
+    },
+    {
+      "slug": "kargo-desi-maliyet-optimizasyonu",
+      "name": "Kargo/Desi Maliyet Optimizasyonu",
+      "summary": "Kargo/Desi Maliyet Optimizasyonu: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "satis-ve-fiyatlama",
+      "priceTL": 4900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 16,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/kargo-desi-maliyet-optimizasyonu",
+      "buyUrl": "https://excelarsiv.com/sablon/kargo-desi-maliyet-optimizasyonu#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/kargo-desi-maliyet-optimizasyonu"
+    },
+    {
+      "slug": "kat-karsiligi-hasilat-paylasimi-simulator",
+      "name": "Kat Karşılığı / Hasılat Paylaşımı Simülatör",
+      "summary": "Kat Karşılığı / Hasılat Paylaşımı Simülatör: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "finansal-analiz",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 18,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/kat-karsiligi-hasilat-paylasimi-simulator",
+      "buyUrl": "https://excelarsiv.com/sablon/kat-karsiligi-hasilat-paylasimi-simulator#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/kat-karsiligi-hasilat-paylasimi-simulator"
     },
     {
       "slug": "kdv-iade-listesi-robotu-gib7",
@@ -586,6 +946,21 @@
       "demoUrl": "https://excelarsiv.com/demo/kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici"
     },
     {
+      "slug": "kdv-iadesi-tutar-surec-simulasyonu",
+      "name": "KDV İadesi Tutar ve Süreç Simülasyonu",
+      "summary": "KDV İadesi Tutar ve Süreç Simülasyonu: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "muhasebe-ve-vergi",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 18,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/kdv-iadesi-tutar-surec-simulasyonu",
+      "buyUrl": "https://excelarsiv.com/sablon/kdv-iadesi-tutar-surec-simulasyonu#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/kdv-iadesi-tutar-surec-simulasyonu"
+    },
+    {
       "slug": "kdv-tevkifat-mahsup-iade-listesi",
       "name": "KDV Tevkifat Mahsup ve KDV İade Listesi",
       "summary": "Tevkifat mahsup listesi ile iade satırlarını ayırır; MAHSUP/İADE/BEKLE kararını üretir.",
@@ -616,6 +991,21 @@
       "demoUrl": "https://excelarsiv.com/demo/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici"
     },
     {
+      "slug": "kik-asiri-dusuk-savunma-sinir-deger",
+      "name": "KİK Aşırı Düşük Savunma + Sınır Değer Paketi",
+      "summary": "KİK Aşırı Düşük Savunma + Sınır Değer Paketi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "satis-ve-fiyatlama",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/kik-asiri-dusuk-savunma-sinir-deger",
+      "buyUrl": "https://excelarsiv.com/sablon/kik-asiri-dusuk-savunma-sinir-deger#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/kik-asiri-dusuk-savunma-sinir-deger"
+    },
+    {
       "slug": "kira-avans-takip-dekont",
       "name": "Kira ve Avans Takip + Dekont",
       "summary": "Kira ve avans mahsup bakiyesini gösterir; yazdırılabilir dekont için karar üretir.",
@@ -629,6 +1019,21 @@
       "url": "https://excelarsiv.com/sablon/kira-avans-takip-dekont",
       "buyUrl": "https://excelarsiv.com/sablon/kira-avans-takip-dekont#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/kira-avans-takip-dekont"
+    },
+    {
+      "slug": "kira-portfoyu-getiri-komutasi",
+      "name": "Kira Portföyü Getiri Komutası",
+      "summary": "Kira Portföyü Getiri Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "finansal-analiz",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 14,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/kira-portfoyu-getiri-komutasi",
+      "buyUrl": "https://excelarsiv.com/sablon/kira-portfoyu-getiri-komutasi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/kira-portfoyu-getiri-komutasi"
     },
     {
       "slug": "kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti",
@@ -691,6 +1096,36 @@
       "demoUrl": "https://excelarsiv.com/demo/konkordato-nakit-akis-on-projesi"
     },
     {
+      "slug": "konkordato-ttk376-kriz-paketi",
+      "name": "Konkordato + TTK 376 Kriz Paketi",
+      "summary": "Konkordato + TTK 376 Kriz Paketi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "finansal-analiz",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/konkordato-ttk376-kriz-paketi",
+      "buyUrl": "https://excelarsiv.com/sablon/konkordato-ttk376-kriz-paketi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/konkordato-ttk376-kriz-paketi"
+    },
+    {
+      "slug": "kvkk-veri-envanteri-verbis-uyum",
+      "name": "KVKK Veri Envanteri + VERBİS Uyum Sistemi",
+      "summary": "KVKK Veri Envanteri + VERBİS Uyum Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "muhasebe-ve-vergi",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 13,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/kvkk-veri-envanteri-verbis-uyum",
+      "buyUrl": "https://excelarsiv.com/sablon/kvkk-veri-envanteri-verbis-uyum#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/kvkk-veri-envanteri-verbis-uyum"
+    },
+    {
       "slug": "logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
       "name": "Logo SQL Cari Yaşlandırma & Tahsilat Karar Motoru",
       "summary": "Windows Microsoft 365 Excel için: Logo/SQL cari hareket çıktısını FIFO açık kalem, yaşlandırma ve tahsilat kararına dönüştürür.",
@@ -704,6 +1139,51 @@
       "url": "https://excelarsiv.com/sablon/logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
       "buyUrl": "https://excelarsiv.com/sablon/logo-sql-cari-yaslandirma-tahsilat-karar-motoru#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/logo-sql-cari-yaslandirma-tahsilat-karar-motoru"
+    },
+    {
+      "slug": "makine-bakim-kalibrasyon-durus-maliyeti",
+      "name": "Makine Bakım & Kalibrasyon + Duruş Maliyeti",
+      "summary": "Makine Bakım & Kalibrasyon + Duruş Maliyeti: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/makine-bakim-kalibrasyon-durus-maliyeti",
+      "buyUrl": "https://excelarsiv.com/sablon/makine-bakim-kalibrasyon-durus-maliyeti#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/makine-bakim-kalibrasyon-durus-maliyeti"
+    },
+    {
+      "slug": "mini-mrp-bom-malzeme-kapasite",
+      "name": "Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite)",
+      "summary": "Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite): SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 13,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/mini-mrp-bom-malzeme-kapasite",
+      "buyUrl": "https://excelarsiv.com/sablon/mini-mrp-bom-malzeme-kapasite#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/mini-mrp-bom-malzeme-kapasite"
+    },
+    {
+      "slug": "mizan-anomali-denetim-oncesi-kontrol",
+      "name": "Mizan Anomali & Denetim Öncesi Kontrol",
+      "summary": "Mizan Anomali & Denetim Öncesi Kontrol: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "muhasebe-ve-vergi",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 16,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/mizan-anomali-denetim-oncesi-kontrol",
+      "buyUrl": "https://excelarsiv.com/sablon/mizan-anomali-denetim-oncesi-kontrol#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/mizan-anomali-denetim-oncesi-kontrol"
     },
     {
       "slug": "mutfak-kayip-kacak-hesaplayici",
@@ -736,6 +1216,36 @@
       "demoUrl": "https://excelarsiv.com/demo/nakliye-maliyeti-hesaplayici"
     },
     {
+      "slug": "oee-durus-kok-neden-komutasi",
+      "name": "OEE & Duruş Kök-Neden Komutası",
+      "summary": "OEE & Duruş Kök-Neden Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 14,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/oee-durus-kok-neden-komutasi",
+      "buyUrl": "https://excelarsiv.com/sablon/oee-durus-kok-neden-komutasi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/oee-durus-kok-neden-komutasi"
+    },
+    {
+      "slug": "on-uc-haftalik-nakit-odeme-onceligi",
+      "name": "13 Haftalık Nakit + Ödeme Önceliği",
+      "summary": "13 Haftalık Nakit + Ödeme Önceliği: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "nakit-akisi",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 13,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/on-uc-haftalik-nakit-odeme-onceligi",
+      "buyUrl": "https://excelarsiv.com/sablon/on-uc-haftalik-nakit-odeme-onceligi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/on-uc-haftalik-nakit-odeme-onceligi"
+    },
+    {
       "slug": "ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici",
       "name": "Ortaklar Cari & Kasa Adat Faiz Faturası Hesaplayıcı",
       "summary": "Ortak cari bakiyeleri ve kasa adatları üzerinden dönem faizini hesaplayın; fatura tutarını mevzuata uygun şekilde üretin.",
@@ -766,6 +1276,21 @@
       "demoUrl": "https://excelarsiv.com/demo/ortakli-gayrimenkul-yatirimi-kar-dagitim"
     },
     {
+      "slug": "ortulu-sermaye-emsal-faiz-tf-paketi",
+      "name": "Örtülü Sermaye + Emsal Faiz + TF Paketi",
+      "summary": "Örtülü Sermaye + Emsal Faiz + TF Paketi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "muhasebe-ve-vergi",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/ortulu-sermaye-emsal-faiz-tf-paketi",
+      "buyUrl": "https://excelarsiv.com/sablon/ortulu-sermaye-emsal-faiz-tf-paketi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/ortulu-sermaye-emsal-faiz-tf-paketi"
+    },
+    {
       "slug": "otel-fizibilite-ve-karlilik",
       "name": "Otel Fizibilite ve Karlılık Exceli",
       "summary": "Otel yatırımı ve işletmeciliğinde oda doluluk oranları, RevPAR, ADR, yiyecek-içecek yan gelirleri, GOP ve başabaş doluluk analiz kokpiti.",
@@ -779,6 +1304,21 @@
       "url": "https://excelarsiv.com/sablon/otel-fizibilite-ve-karlilik",
       "buyUrl": "https://excelarsiv.com/sablon/otel-fizibilite-ve-karlilik#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/otel-fizibilite-ve-karlilik"
+    },
+    {
+      "slug": "pazaryeri-hakedis-mutabakat-motoru",
+      "name": "Pazaryeri Hakediş Mutabakat Motoru",
+      "summary": "Pazaryeri Hakediş Mutabakat Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "satis-ve-fiyatlama",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/pazaryeri-hakedis-mutabakat-motoru",
+      "buyUrl": "https://excelarsiv.com/sablon/pazaryeri-hakedis-mutabakat-motoru#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/pazaryeri-hakedis-mutabakat-motoru"
     },
     {
       "slug": "pazaryeri-net-kar-ve-eksik-hakedis-yakalayici",
@@ -841,6 +1381,21 @@
       "demoUrl": "https://excelarsiv.com/demo/profesyonel-hizmet-sirketi-karlilik-ve-kapasite"
     },
     {
+      "slug": "proje-finansmani-dscr-llcr-paketi",
+      "name": "Proje Finansmanı Paketi (DSCR/LLCR)",
+      "summary": "Proje Finansmanı Paketi (DSCR/LLCR): SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "finansal-analiz",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/proje-finansmani-dscr-llcr-paketi",
+      "buyUrl": "https://excelarsiv.com/sablon/proje-finansmani-dscr-llcr-paketi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/proje-finansmani-dscr-llcr-paketi"
+    },
+    {
       "slug": "proje-ve-is-bazinda-gercek-karlilik-sistemi",
       "name": "Proje ve İş Bazında Gerçek Kârlılık Sistemi",
       "summary": "Her işin gelirini direkt giderlerle eşleştirin; iş bazında gerçek kâr ve marjı çıkarın, kaynakları kârlı işlere yönlendirin.",
@@ -854,6 +1409,36 @@
       "url": "https://excelarsiv.com/sablon/proje-ve-is-bazinda-gercek-karlilik-sistemi",
       "buyUrl": "https://excelarsiv.com/sablon/proje-ve-is-bazinda-gercek-karlilik-sistemi#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/proje-ve-is-bazinda-gercek-karlilik-sistemi"
+    },
+    {
+      "slug": "puantaj-vardiya-fazla-mesai-kanit-sistemi",
+      "name": "Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi",
+      "summary": "Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "personel-ve-bordro",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/puantaj-vardiya-fazla-mesai-kanit-sistemi",
+      "buyUrl": "https://excelarsiv.com/sablon/puantaj-vardiya-fazla-mesai-kanit-sistemi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/puantaj-vardiya-fazla-mesai-kanit-sistemi"
+    },
+    {
+      "slug": "recete-maliyeti-menu-muhendisligi",
+      "name": "Reçete Maliyeti & Menü Mühendisliği",
+      "summary": "Reçete Maliyeti & Menü Mühendisliği: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 18,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/recete-maliyeti-menu-muhendisligi",
+      "buyUrl": "https://excelarsiv.com/sablon/recete-maliyeti-menu-muhendisligi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/recete-maliyeti-menu-muhendisligi"
     },
     {
       "slug": "restoran-kafe-yatirim-fizibilite-ve-karlilik",
@@ -901,6 +1486,81 @@
       "demoUrl": "https://excelarsiv.com/demo/saas-finansal-planlama-runway-ve-yatirim"
     },
     {
+      "slug": "sarj-istasyonu-yatirim",
+      "name": "Şarj İstasyonu Yatırım Simülatörü",
+      "summary": "Şarj İstasyonu Yatırım Simülatörü: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "finansal-analiz",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 18,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/sarj-istasyonu-yatirim",
+      "buyUrl": "https://excelarsiv.com/sablon/sarj-istasyonu-yatirim#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/sarj-istasyonu-yatirim"
+    },
+    {
+      "slug": "sekiz-d-duzeltici-faaliyet-dosya",
+      "name": "8D / Düzeltici Faaliyet Dosya Sistemi",
+      "summary": "8D / Düzeltici Faaliyet Dosya Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 14,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/sekiz-d-duzeltici-faaliyet-dosya",
+      "buyUrl": "https://excelarsiv.com/sablon/sekiz-d-duzeltici-faaliyet-dosya#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/sekiz-d-duzeltici-faaliyet-dosya"
+    },
+    {
+      "slug": "sera-kurulum-fizibilite",
+      "name": "Sera Kurulum & Rekolte Fizibilitesi",
+      "summary": "Sera Kurulum & Rekolte Fizibilitesi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "finansal-analiz",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 18,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/sera-kurulum-fizibilite",
+      "buyUrl": "https://excelarsiv.com/sablon/sera-kurulum-fizibilite#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/sera-kurulum-fizibilite"
+    },
+    {
+      "slug": "sevkiyat-fiyatlama-navlun",
+      "name": "Sevkiyat Fiyatlama & Navlun Maliyet Motoru",
+      "summary": "Sevkiyat Fiyatlama & Navlun Maliyet Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "satis-ve-fiyatlama",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 20,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/sevkiyat-fiyatlama-navlun",
+      "buyUrl": "https://excelarsiv.com/sablon/sevkiyat-fiyatlama-navlun#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/sevkiyat-fiyatlama-navlun"
+    },
+    {
+      "slug": "sgk-prim-tesvikleri-optimizasyon-motoru",
+      "name": "SGK Prim Teşvikleri Optimizasyon Motoru",
+      "summary": "SGK Prim Teşvikleri Optimizasyon Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "personel-ve-bordro",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/sgk-prim-tesvikleri-optimizasyon-motoru",
+      "buyUrl": "https://excelarsiv.com/sablon/sgk-prim-tesvikleri-optimizasyon-motoru#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/sgk-prim-tesvikleri-optimizasyon-motoru"
+    },
+    {
       "slug": "sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli",
       "name": "Şirket Öz Kaynağı Eridi Mi? (TTK 376 Sermaye Tamamlama Cetveli)",
       "summary": "Bilanço bileşenlerinden öz kaynağı ve sermaye kaybını hesaplayın; TTK 376''daki 1/3 ve 2/3 eşikleriyle borca batıklığı izleyin.",
@@ -931,6 +1591,36 @@
       "demoUrl": "https://excelarsiv.com/demo/sirket-satin-alma-ve-ortaklik-devir-analizi"
     },
     {
+      "slug": "site-apartman-yonetim-sistemi",
+      "name": "Site/Apartman Yönetim Sistemi",
+      "summary": "Site/Apartman Yönetim Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "butce-ve-planlama",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 21,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/site-apartman-yonetim-sistemi",
+      "buyUrl": "https://excelarsiv.com/sablon/site-apartman-yonetim-sistemi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/site-apartman-yonetim-sistemi"
+    },
+    {
+      "slug": "spc-proses-yetenek-analizi",
+      "name": "SPC Proses Yetenek Analizi",
+      "summary": "SPC Proses Yetenek Analizi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 14,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/spc-proses-yetenek-analizi",
+      "buyUrl": "https://excelarsiv.com/sablon/spc-proses-yetenek-analizi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/spc-proses-yetenek-analizi"
+    },
+    {
       "slug": "startup-yatirim-alma-ve-nakit-runway",
       "name": "Startup Yatırım Alma ve Nakit Runway Exceli",
       "summary": "Tohum ve erken aşama girişimler için yatırım öncesi/sonrası değerleme (Pre/Post-Money), Cap Table sulanma hesabı, aylık burn rate ve nakit pisti modeli.",
@@ -944,6 +1634,21 @@
       "url": "https://excelarsiv.com/sablon/startup-yatirim-alma-ve-nakit-runway",
       "buyUrl": "https://excelarsiv.com/sablon/startup-yatirim-alma-ve-nakit-runway#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/startup-yatirim-alma-ve-nakit-runway"
+    },
+    {
+      "slug": "stok-optimizasyon-abc-olu-stok-nakit",
+      "name": "Stok Optimizasyon + ABC + Ölü Stok Nakit",
+      "summary": "Stok Optimizasyon + ABC + Ölü Stok Nakit: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 13,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/stok-optimizasyon-abc-olu-stok-nakit",
+      "buyUrl": "https://excelarsiv.com/sablon/stok-optimizasyon-abc-olu-stok-nakit#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/stok-optimizasyon-abc-olu-stok-nakit"
     },
     {
       "slug": "stok-satis-ve-nakit-baglanma-sistemi",
@@ -974,6 +1679,51 @@
       "url": "https://excelarsiv.com/sablon/sube-karlilik-ve-nakit-hesaplayici",
       "buyUrl": "https://excelarsiv.com/sablon/sube-karlilik-ve-nakit-hesaplayici#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/sube-karlilik-ve-nakit-hesaplayici"
+    },
+    {
+      "slug": "sut-surusu-yonetim",
+      "name": "Süt Sürüsü Yönetim Komutası",
+      "summary": "Süt Sürüsü Yönetim Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 14,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/sut-surusu-yonetim",
+      "buyUrl": "https://excelarsiv.com/sablon/sut-surusu-yonetim#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/sut-surusu-yonetim"
+    },
+    {
+      "slug": "tahsilat-riski-vade-komuta-paneli",
+      "name": "Tahsilat Riski & Vade Komuta Paneli",
+      "summary": "Tahsilat Riski & Vade Komuta Paneli: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "nakit-akisi",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 13,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/tahsilat-riski-vade-komuta-paneli",
+      "buyUrl": "https://excelarsiv.com/sablon/tahsilat-riski-vade-komuta-paneli#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/tahsilat-riski-vade-komuta-paneli"
+    },
+    {
+      "slug": "tarimsal-destek-uygunluk",
+      "name": "Tarımsal Destek/Teşvik Uygunluk Testi",
+      "summary": "Tarımsal Destek/Teşvik Uygunluk Testi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "butce-ve-planlama",
+      "priceTL": 4900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/tarimsal-destek-uygunluk",
+      "buyUrl": "https://excelarsiv.com/sablon/tarimsal-destek-uygunluk#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/tarimsal-destek-uygunluk"
     },
     {
       "slug": "taseron-hakedis-kesinti-mutabakati",
@@ -1051,6 +1801,21 @@
       "demoUrl": "https://excelarsiv.com/demo/uretim-kapasite-yatirim-ve-karlilik"
     },
     {
+      "slug": "uretim-kari-125-kv-optimizasyonu",
+      "name": "Üretim Kârı %12,5 KV Optimizasyonu",
+      "summary": "Üretim Kârı %12,5 KV Optimizasyonu: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/uretim-kari-125-kv-optimizasyonu",
+      "buyUrl": "https://excelarsiv.com/sablon/uretim-kari-125-kv-optimizasyonu#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/uretim-kari-125-kv-optimizasyonu"
+    },
+    {
       "slug": "uretim-recetesi-ve-zam-yansitma-hesaplayici",
       "name": "Üretim Reçetesi & Zam Yansıtma Hesaplayıcı",
       "summary": "Reçetedeki hammadde miktar, birim fiyat, fire ve zam oranlarıyla eski/yeni reçete maliyetini üretin; hedef kâr marjını koruyan satış fiyatını hesaplayın.",
@@ -1111,6 +1876,36 @@
       "demoUrl": "https://excelarsiv.com/demo/wacc-hesaplama-ve-sermaye-maliyeti"
     },
     {
+      "slug": "yem-rasyonu-maliyet",
+      "name": "Yem Rasyonu & Maliyet Motoru",
+      "summary": "Yem Rasyonu & Maliyet Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "stok-ve-uretim",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 18,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/yem-rasyonu-maliyet",
+      "buyUrl": "https://excelarsiv.com/sablon/yem-rasyonu-maliyet#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/yem-rasyonu-maliyet"
+    },
+    {
+      "slug": "yeniden-degerleme-komuta-merkezi",
+      "name": "Yeniden Değerleme Komuta Merkezi (298/Ç + Geç.32)",
+      "summary": "Yeniden Değerleme Komuta Merkezi (298/Ç + Geç.32): SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "muhasebe-ve-vergi",
+      "priceTL": 9900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/yeniden-degerleme-komuta-merkezi",
+      "buyUrl": "https://excelarsiv.com/sablon/yeniden-degerleme-komuta-merkezi#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/yeniden-degerleme-komuta-merkezi"
+    },
+    {
       "slug": "yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi",
       "name": "Yeniden Değerleme Yapmalı Mıyım? (Vergi Tasarruf Analizi)",
       "summary": "Kıymet bazında yeniden değerleme katsayısı, değer artışı ve %2 fon vergisi ile ek amortismanın vergi tasarrufunu karşılaştırın; net fayda kararı üretin.",
@@ -1154,6 +1949,21 @@
       "url": "https://excelarsiv.com/sablon/ymm-tasdik-kontrol-robotu",
       "buyUrl": "https://excelarsiv.com/sablon/ymm-tasdik-kontrol-robotu#satin-al",
       "demoUrl": "https://excelarsiv.com/demo/ymm-tasdik-kontrol-robotu"
+    },
+    {
+      "slug": "yurt-disi-yapilanma-vergi-simulatoru",
+      "name": "Yurt Dışı Yapılanma Vergi Simülatörü",
+      "summary": "Yurt Dışı Yapılanma Vergi Simülatörü: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "category": "finansal-analiz",
+      "priceTL": 7900,
+      "vatIncluded": true,
+      "fileFormat": "xlsx",
+      "sheetCount": 15,
+      "version": "1.0.0",
+      "updatedAt": "2026-09-21",
+      "url": "https://excelarsiv.com/sablon/yurt-disi-yapilanma-vergi-simulatoru",
+      "buyUrl": "https://excelarsiv.com/sablon/yurt-disi-yapilanma-vergi-simulatoru#satin-al",
+      "demoUrl": "https://excelarsiv.com/demo/yurt-disi-yapilanma-vergi-simulatoru"
     }
   ]
 }

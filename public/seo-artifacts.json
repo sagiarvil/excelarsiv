@@ -3,18 +3,18 @@
   "children": [
     {
       "file": "sitemap-pages.xml",
-      "urlCount": 151,
-      "sha256": "b517d0a11f57826646260bd2c6e666ec08df9ff9111b10dc3d49a85c0d1637f1"
+      "urlCount": 205,
+      "sha256": "1b8fd3410987c24e37b4770251dac19ccfc4c02ce6789bbdb8c4cd5d49b0cd95"
     },
     {
       "file": "sitemap-products.xml",
-      "urlCount": 70,
-      "sha256": "77db26de4c6f8f57b49dceea04522ee946381271f7ee52aa527b7cee8e955e78"
+      "urlCount": 124,
+      "sha256": "5d40803f36dc750ee839498bd83c3e88cc84cb6fbda740c4423f4923115f8f88"
     },
     {
       "file": "sitemap-images.xml",
-      "urlCount": 69,
-      "sha256": "e72657fab08fded83046bd29022f66e3a1aaf1c017e7d3496ae774fcde22c76f"
+      "urlCount": 123,
+      "sha256": "6252c316209c5ad4150a2a5bbdcc17f65c0a702154c14c927e44dfe329b4d198"
     }
   ]
 }
