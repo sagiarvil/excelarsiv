@@ -2,7 +2,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { pickCatalogScreenshot, screenshotSlug } from './catalog-screenshot';
 import { kapakYolu, premiumKapakUrl } from './kapak';
 import { categories, getCategoryName, type CategorySlug } from './categories';
-import { shopierUrlForPrice } from './shopier';
+import { getTierForPrice } from './shopier';
 import type { SearchItem } from './search';
 
 export interface TemplateSheetMap {
@@ -56,7 +56,7 @@ export function toTemplateViewModel(entry: TemplateEntry): TemplateViewModel {
     kapak: premiumKapakUrl(entry.id) ?? kapakYolu(entry.id),
     screenshotFocus: 'result',
     url: `/sablon/${entry.id}`,
-    shopierUrl: shopierUrlForPrice(data.priceTL),
+    shopierUrl: getTierForPrice(data.priceTL)?.tier.shopierUrl ?? '/iletisim',
   };
 }
 
