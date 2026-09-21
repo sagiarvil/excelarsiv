@@ -8,7 +8,6 @@ interface Props {
 
 const { template, priority = false } = Astro.props;
 const thumbSrc = template.kapak || template.preview?.src || '';
-const whatsappMsg = encodeURIComponent(`Merhaba, ${template.name} sistemi için teklif almak istiyorum.`);
 ---
 
 <article class="someka-product-custom-card" data-template-card data-category={template.categorySlug} data-name={template.name} data-category-label={template.categoryName} data-summary={template.summary}>
@@ -42,12 +41,9 @@ const whatsappMsg = encodeURIComponent(`Merhaba, ${template.name} sistemi için 
     </div>
     <p class="vcex-post-excerpt">{template.summary}</p>
     <div class="someka-card-bottom">
-      <a
-        href={`https://wa.me/905393333303?text=${whatsappMsg}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-someka-teklif"
-      >Teklif İste</a>
+      <a href={template.shopierUrl} class="btn-someka-teklif">
+        {template.shopierUrl === '/iletisim' ? 'Teklif İste' : 'Satın Al'}
+      </a>
       <a href={template.url} class="btn-someka-view">Detay</a>
     </div>
   </div>
