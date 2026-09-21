@@ -1,67 +1,66 @@
 {
   "product": "taseron-hakedis-kesinti-mutabakati",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/taseron-hakedis-kesinti-mutabakati/TaseronHakedisVeKesintiMutabakati.xlsx",
-  "sha256": "5beb2098fbb8add65c3fe8d735ea267a1f71c147086109d5491d517e0abfccea",
-  "size_bytes": 168798,
-  "modified_at": "2026-08-12T13:48:49",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/taseron-hakedis-kesinti-mutabakati/TaseronHakedisVeKesintiMutabakati.xlsx",
+  "sha256": "c524117ff3dacbeb88d30a34d4a210c1d34f9608e6f4b84d9305fe81036d2ce6",
+  "size_bytes": 166605,
+  "modified_at": "2026-09-21T13:38:07",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
+    "SENARYO_DUYARLILIK",
+    "KARAR",
+    "KONTROL",
+    "KILAVUZ",
     "SOZLESME_KARTI",
     "HAKEDISLER",
     "ODEMELER",
     "MOTOR",
-    "KONTROL",
-    "KARAR",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "AKIS",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "SOZLESME_KARTI": null,
-    "HAKEDISLER": null,
-    "ODEMELER": null,
-    "MOTOR": null,
-    "KONTROL": null,
-    "KARAR": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "AKIS": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROL": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "SOZLESME_KARTI": "FF6B7280",
+    "HAKEDISLER": "FF6B7280",
+    "ODEMELER": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 276,
+  "formula_count": 310,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 27,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 34,
   "hyperlink_rel_count": 0,
   "chart_count": 6,
   "table_count": 2,
   "conditional_format_count": 5020,
   "data_validation_count": 13,
-  "gridlines_on_count": 17,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 2,
-  "merged_ranges": 107,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > SOZLESME_KARTI > HAKEDISLER > ODEMELER > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > SOZLESME_KARTI > HAKEDISLER > ODEMELER > MOTOR > PANO > RAPOR > ORNEK_VERI > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 101,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -80,46 +79,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=27"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=17"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=17"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > SOZLESME_KARTI > HAKEDISLER > ODEMELER > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > SOZLESME_KARTI > HAKEDISLER > ODEMELER > MOTOR > PANO > RAPOR > ORNEK_VERI > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=34"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=276"
+      "evidence": "formula_count=310"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/taseron-hakedis-kesinti-mutabakati/TaseronHakedisVeKesintiMutabakati.xlsx"
+  ]
 }

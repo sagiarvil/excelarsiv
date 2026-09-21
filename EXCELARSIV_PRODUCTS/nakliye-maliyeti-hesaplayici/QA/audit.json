@@ -1,67 +1,66 @@
 {
   "product": "nakliye-maliyeti-hesaplayici",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/nakliye-maliyeti-hesaplayici/NakliyeMaliyetiHesaplayici.xlsx",
-  "sha256": "d3866e12e6cef15d2f65ee393f410f41e864ef2c52509c5fc487478f98c066b3",
-  "size_bytes": 588067,
-  "modified_at": "2026-08-12T14:22:08",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/nakliye-maliyeti-hesaplayici/NakliyeMaliyetiHesaplayici.xlsx",
+  "sha256": "d8e9ea47a7808db7822d9108d33330b881a4e7ab68455227ad5b5c56bca09a29",
+  "size_bytes": 582350,
+  "modified_at": "2026-09-21T13:37:57",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
+    "SENARYO_DUYARLILIK",
+    "KARAR",
+    "KONTROLLER",
+    "KILAVUZ",
     "ARAC_LISTESI",
     "SEFERLER",
     "HESAP",
-    "KONTROLLER",
-    "KARAR",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "GUNLUK_GIRIS",
     "ALARMLAR",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "ARAC_LISTESI": null,
-    "SEFERLER": null,
-    "HESAP": null,
-    "KONTROLLER": null,
-    "KARAR": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "GUNLUK_GIRIS": null,
-    "ALARMLAR": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "ARAC_LISTESI": "FF6B7280",
+    "SEFERLER": "FF6B7280",
+    "HESAP": "FF0F6B78",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "GUNLUK_GIRIS": "FF6B7280",
+    "ALARMLAR": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 1369,
+  "formula_count": 1403,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 484,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 34,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 4,
   "conditional_format_count": 26,
   "data_validation_count": 23,
-  "gridlines_on_count": 17,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 3,
-  "merged_ranges": 56,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > ARAC_LISTESI > SEFERLER > HESAP > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > GUNLUK_GIRIS > ALARMLAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > ARAC_LISTESI > SEFERLER > HESAP > PANO > RAPOR > ORNEK_VERI > GUNLUK_GIRIS > ALARMLAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 44,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -80,46 +79,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=484"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=17"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=17"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > ARAC_LISTESI > SEFERLER > HESAP > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > GUNLUK_GIRIS > ALARMLAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > ARAC_LISTESI > SEFERLER > HESAP > PANO > RAPOR > ORNEK_VERI > GUNLUK_GIRIS > ALARMLAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=34"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=1369"
+      "evidence": "formula_count=1403"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/nakliye-maliyeti-hesaplayici/NakliyeMaliyetiHesaplayici.xlsx"
+  ]
 }

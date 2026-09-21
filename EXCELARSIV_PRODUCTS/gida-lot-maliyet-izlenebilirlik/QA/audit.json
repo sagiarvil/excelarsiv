@@ -1,15 +1,20 @@
 {
   "product": "gida-lot-maliyet-izlenebilirlik",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/gida-lot-maliyet-izlenebilirlik/GidaLotMaliyetIzlenebilirlik.xlsx",
-  "sha256": "bf30ad481a93f67265f8bab2795e577fa62bfe1c56495775e8f47b8f97777642",
-  "size_bytes": 796670,
-  "modified_at": "2026-08-11T23:29:04",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/gida-lot-maliyet-izlenebilirlik/GidaLotMaliyetIzlenebilirlik.xlsx",
+  "sha256": "217d50fcb4368c28dfc20aefeaefd8da4b60f3dd5ed6ccc722d6859a0f049b89",
+  "size_bytes": 797114,
+  "modified_at": "2026-09-21T13:37:44",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
     "GIRDI",
+    "SENARYO",
+    "KARAR",
+    "KONTROLLER",
+    "KILAVUZ",
     "HAMMADDE",
     "RECETE",
     "LOTLAR",
@@ -17,45 +22,42 @@
     "MALIYET",
     "FIYATLAMA",
     "VARYANS",
-    "SENARYO",
     "PANO",
-    "KARAR",
     "KANIT_RAPORU",
     "RAPOR",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "007C2D12",
-    "HIZLI_BASLANGIC": "007C2D12",
-    "GIRDI": "007C2D12",
-    "HAMMADDE": "007C2D12",
-    "RECETE": "007C2D12",
-    "LOTLAR": "007C2D12",
-    "HAREKET": "007C2D12",
-    "MALIYET": "007C2D12",
-    "FIYATLAMA": "007C2D12",
-    "VARYANS": "007C2D12",
-    "SENARYO": "007C2D12",
-    "PANO": "007C2D12",
-    "KARAR": "007C2D12",
-    "KANIT_RAPORU": "007C2D12",
-    "RAPOR": "007C2D12",
-    "KONTROLLER": "007C2D12",
-    "ORNEK_VERI": "007C2D12",
-    "LISTELER": "007C2D12",
-    "AYARLAR": "007C2D12",
-    "KILAVUZ": "007C2D12"
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "SENARYO": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "HAMMADDE": "FF6B7280",
+    "RECETE": "FF6B7280",
+    "LOTLAR": "FF6B7280",
+    "HAREKET": "FF6B7280",
+    "MALIYET": "FF6B7280",
+    "FIYATLAMA": "FF6B7280",
+    "VARYANS": "FF6B7280",
+    "PANO": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 998,
+  "formula_count": 1038,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 360,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 40,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 7,
@@ -63,11 +65,8 @@
   "data_validation_count": 12,
   "gridlines_on_count": 0,
   "freeze_panes_count": 5,
-  "merged_ranges": 55,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > GIRDI > HAMMADDE > RECETE > LOTLAR > HAREKET > MALIYET > FIYATLAMA > VARYANS > SENARYO > PANO > KARAR > KANIT_RAPORU > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > GIRDI > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > HAMMADDE > RECETE > LOTLAR > HAREKET > MALIYET > FIYATLAMA > VARYANS > PANO > KANIT_RAPORU > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 49,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -86,9 +85,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=360"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -107,25 +106,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > GIRDI > HAMMADDE > RECETE > LOTLAR > HAREKET > MALIYET > FIYATLAMA > VARYANS > SENARYO > PANO > KARAR > KANIT_RAPORU > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > GIRDI > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > HAMMADDE > RECETE > LOTLAR > HAREKET > MALIYET > FIYATLAMA > VARYANS > PANO > KANIT_RAPORU > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=40"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=998"
+      "evidence": "formula_count=1038"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/gida-lot-maliyet-izlenebilirlik/GidaLotMaliyetIzlenebilirlik.xlsx"
+  ]
 }

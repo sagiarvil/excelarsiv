@@ -1,13 +1,16 @@
 {
   "product": "kira-avans-takip-dekont",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/kira-avans-takip-dekont/KiraAvansTakipDekont.xlsx",
-  "sha256": "4cc174ecece8dc9fbc6aba8ff985063bc9a482c321abf0cbed21b1382c03a190",
-  "size_bytes": 198066,
-  "modified_at": "2026-08-14T21:57:18",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/kira-avans-takip-dekont/KiraAvansTakipDekont.xlsx",
+  "sha256": "88c761f5181aa864307f6a9512a2ac07709497806021244452422734461eb3f6",
+  "size_bytes": 198147,
+  "modified_at": "2026-09-21T13:37:53",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
+    "KONTROLLER",
+    "KILAVUZ",
     "PANO",
     "KARTLAR",
     "AKIS",
@@ -16,34 +19,33 @@
     "DEKONT",
     "HESAP",
     "RAPOR",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "000F3D4C",
-    "PANO": "000F3D4C",
-    "KARTLAR": "000F3D4C",
-    "AKIS": "000F3D4C",
-    "KUYRUKLAR": "000F3D4C",
-    "AVANS": "000F3D4C",
-    "DEKONT": "000F3D4C",
-    "HESAP": "000F3D4C",
-    "RAPOR": "000F3D4C",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "000F3D4C",
-    "AYARLAR": "000F3D4C",
-    "KILAVUZ": "000F3D4C"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "PANO": "FF6B7280",
+    "KARTLAR": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "KUYRUKLAR": "FF6B7280",
+    "AVANS": "FF6B7280",
+    "DEKONT": "FF6B7280",
+    "HESAP": "FF0F6B78",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 3936,
+  "formula_count": 3964,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 1583,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 28,
   "hyperlink_rel_count": 0,
   "chart_count": 9,
   "table_count": 4,
@@ -51,11 +53,8 @@
   "data_validation_count": 75,
   "gridlines_on_count": 0,
   "freeze_panes_count": 4,
-  "merged_ranges": 55,
-  "order_mismatches": [
-    "Mevcut: KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > AVANS > DEKONT > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > AVANS > DEKONT > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 48,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -74,9 +73,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=1583"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -95,25 +94,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > AVANS > DEKONT > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > AVANS > DEKONT > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=28"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=3936"
+      "evidence": "formula_count=3964"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/kira-avans-takip-dekont/KiraAvansTakipDekont.xlsx"
+  ]
 }

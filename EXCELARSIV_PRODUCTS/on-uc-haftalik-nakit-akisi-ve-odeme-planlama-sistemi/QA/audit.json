@@ -1,69 +1,68 @@
 {
   "product": "on-uc-haftalik-nakit-akisi-ve-odeme-planlama-sistemi",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/on-uc-haftalik-nakit-akisi-ve-odeme-planlama-sistemi/OnUcHaftalikNakitAkisiVeOdemePlanlamaSistemi.xlsx",
-  "sha256": "052a0ec2387f929a71161168338be809e521976e935432337f462dfb6aad715b",
-  "size_bytes": 114773,
-  "modified_at": "2026-08-12T13:39:46",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/on-uc-haftalik-nakit-akisi-ve-odeme-planlama-sistemi/OnUcHaftalikNakitAkisiVeOdemePlanlamaSistemi.xlsx",
+  "sha256": "f0935593c25f036eca2ca0bcaa0f9e36b79ffc8041fb35add903058ad2db9eaf",
+  "size_bytes": 112437,
+  "modified_at": "2026-09-21T13:37:58",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
+    "SENARYO_DUYARLILIK",
+    "KARAR_MOTORU",
+    "KONTROLLER",
+    "KILAVUZ",
     "NAKIT_GIRISLERI",
     "NAKIT_CIKISLARI",
     "HAFTALIK_PLAN",
     "MOTOR",
-    "KONTROLLER",
-    "KARAR_MOTORU",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "TESTLER",
     "AKIS",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "NAKIT_GIRISLERI": null,
-    "NAKIT_CIKISLARI": null,
-    "HAFTALIK_PLAN": null,
-    "MOTOR": null,
-    "KONTROLLER": null,
-    "KARAR_MOTORU": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "TESTLER": null,
-    "AKIS": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR_MOTORU": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "NAKIT_GIRISLERI": "FF6B7280",
+    "NAKIT_CIKISLARI": "FF6B7280",
+    "HAFTALIK_PLAN": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "TESTLER": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 534,
+  "formula_count": 570,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 25,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 36,
   "hyperlink_rel_count": 0,
   "chart_count": 10,
   "table_count": 3,
   "conditional_format_count": 27,
   "data_validation_count": 10,
-  "gridlines_on_count": 18,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 3,
-  "merged_ranges": 44,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > NAKIT_GIRISLERI > NAKIT_CIKISLARI > HAFTALIK_PLAN > MOTOR > KONTROLLER > KARAR_MOTORU > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > NAKIT_GIRISLERI > NAKIT_CIKISLARI > HAFTALIK_PLAN > MOTOR > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 45,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -82,46 +81,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=25"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=18"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=18"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > NAKIT_GIRISLERI > NAKIT_CIKISLARI > HAFTALIK_PLAN > MOTOR > KONTROLLER > KARAR_MOTORU > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > NAKIT_GIRISLERI > NAKIT_CIKISLARI > HAFTALIK_PLAN > MOTOR > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=36"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=534"
+      "evidence": "formula_count=570"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/on-uc-haftalik-nakit-akisi-ve-odeme-planlama-sistemi/OnUcHaftalikNakitAkisiVeOdemePlanlamaSistemi.xlsx"
+  ]
 }

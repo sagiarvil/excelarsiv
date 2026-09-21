@@ -1,69 +1,68 @@
 {
   "product": "ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici/OrtaklarCariVeKasaAdatFaizFaturasiHesaplayici.xlsx",
-  "sha256": "c1ccbde9824f14879314d375ec1e004fd0b926d43c5468f5f33ef1e6f0621ff0",
-  "size_bytes": 356692,
-  "modified_at": "2026-08-12T03:12:05",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici/OrtaklarCariVeKasaAdatFaizFaturasiHesaplayici.xlsx",
+  "sha256": "38ef44ff22c0b6490adde6a75801d305045717861a96776b4ccc7e9beb460168",
+  "size_bytes": 351752,
+  "modified_at": "2026-09-21T13:37:58",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
+    "SENARYO_DUYARLILIK",
+    "KARAR",
+    "KONTROLLER",
+    "KILAVUZ",
     "ORTAK_CARI",
     "KASA_ADAT",
     "HESAP",
     "ANALITIK_MOTOR",
-    "KONTROLLER",
-    "KARAR",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "KURALLAR",
     "VAKALAR",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "ORTAK_CARI": null,
-    "KASA_ADAT": null,
-    "HESAP": null,
-    "ANALITIK_MOTOR": null,
-    "KONTROLLER": null,
-    "KARAR": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "KURALLAR": null,
-    "VAKALAR": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "ORTAK_CARI": "FF6B7280",
+    "KASA_ADAT": "FF6B7280",
+    "HESAP": "FF0F6B78",
+    "ANALITIK_MOTOR": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "KURALLAR": "FF6B7280",
+    "VAKALAR": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 7223,
+  "formula_count": 7259,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 3072,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 36,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 2,
   "conditional_format_count": 26,
   "data_validation_count": 20,
-  "gridlines_on_count": 18,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 2,
-  "merged_ranges": 59,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > ORTAK_CARI > KASA_ADAT > HESAP > ANALITIK_MOTOR > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > ORTAK_CARI > KASA_ADAT > HESAP > ANALITIK_MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 51,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -82,46 +81,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=3072"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=18"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=18"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > ORTAK_CARI > KASA_ADAT > HESAP > ANALITIK_MOTOR > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > ORTAK_CARI > KASA_ADAT > HESAP > ANALITIK_MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=36"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=7223"
+      "evidence": "formula_count=7259"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici/OrtaklarCariVeKasaAdatFaizFaturasiHesaplayici.xlsx"
+  ]
 }

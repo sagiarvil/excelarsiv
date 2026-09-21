@@ -1,69 +1,68 @@
 {
   "product": "vergi-sgk-ve-maas-karsilik-ayirma-sistemi",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/vergi-sgk-ve-maas-karsilik-ayirma-sistemi/VergiSgkVeMaasKarsilikAyirmaSistemi.xlsx",
-  "sha256": "c89c23b6c86750ffa046894b302afca071202272b5ffe32982cc7d9dba5facda",
-  "size_bytes": 410088,
-  "modified_at": "2026-08-12T14:06:23",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/vergi-sgk-ve-maas-karsilik-ayirma-sistemi/VergiSgkVeMaasKarsilikAyirmaSistemi.xlsx",
+  "sha256": "0f32a56242455cf815810e876458d252ddd94f4fcbf5f17f53038db56f839eb4",
+  "size_bytes": 407900,
+  "modified_at": "2026-09-21T13:38:10",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
+    "SENARYO_DUYARLILIK",
+    "KARAR",
+    "KONTROLLER",
+    "KILAVUZ",
     "DÖNEM_GELIR_GIDER",
     "BORDRO",
     "KARSILIK_MOTORU",
     "ANALITIK_MOTOR",
     "NAKIT_PROJEKSIYON",
-    "KONTROLLER",
-    "KARAR",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "AKIS",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "DÖNEM_GELIR_GIDER": null,
-    "BORDRO": null,
-    "KARSILIK_MOTORU": null,
-    "ANALITIK_MOTOR": null,
-    "NAKIT_PROJEKSIYON": null,
-    "KONTROLLER": null,
-    "KARAR": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "AKIS": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "DÖNEM_GELIR_GIDER": "FF6B7280",
+    "BORDRO": "FF6B7280",
+    "KARSILIK_MOTORU": "FF6B7280",
+    "ANALITIK_MOTOR": "FF6B7280",
+    "NAKIT_PROJEKSIYON": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 21014,
+  "formula_count": 21050,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 3013,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 36,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 5,
   "conditional_format_count": 24,
   "data_validation_count": 7,
-  "gridlines_on_count": 18,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 3,
-  "merged_ranges": 67,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > DÖNEM_GELIR_GIDER > BORDRO > KARSILIK_MOTORU > ANALITIK_MOTOR > NAKIT_PROJEKSIYON > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > DÖNEM_GELIR_GIDER > BORDRO > KARSILIK_MOTORU > ANALITIK_MOTOR > NAKIT_PROJEKSIYON > PANO > RAPOR > ORNEK_VERI > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 61,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -82,46 +81,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=3013"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=18"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=18"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > DÖNEM_GELIR_GIDER > BORDRO > KARSILIK_MOTORU > ANALITIK_MOTOR > NAKIT_PROJEKSIYON > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > DÖNEM_GELIR_GIDER > BORDRO > KARSILIK_MOTORU > ANALITIK_MOTOR > NAKIT_PROJEKSIYON > PANO > RAPOR > ORNEK_VERI > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=36"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=21014"
+      "evidence": "formula_count=21050"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/vergi-sgk-ve-maas-karsilik-ayirma-sistemi/VergiSgkVeMaasKarsilikAyirmaSistemi.xlsx"
+  ]
 }

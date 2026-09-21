@@ -1,13 +1,16 @@
 {
   "product": "cari-ba-bs-toplu-mutabakat",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/cari-ba-bs-toplu-mutabakat/CariBaBsTopluMutabakat.xlsx",
-  "sha256": "8e84e258a56c1de2e09fe961d26b05520089a89563758d0b513a3cbfda2ffc06",
-  "size_bytes": 371741,
-  "modified_at": "2026-08-14T21:48:10",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/cari-ba-bs-toplu-mutabakat/CariBaBsTopluMutabakat.xlsx",
+  "sha256": "be0f0b44da25ec4de973dbfb4ba82fea4b483dd512cd229e6f3e0e18b2924212",
+  "size_bytes": 371754,
+  "modified_at": "2026-09-21T13:37:34",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
+    "KONTROLLER",
+    "KILAVUZ",
     "VERI_A",
     "VERI_B",
     "ANAHTAR",
@@ -17,35 +20,34 @@
     "PANO",
     "AKSIYON",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "001F4E79",
-    "VERI_A": "001F4E79",
-    "VERI_B": "001F4E79",
-    "ANAHTAR": "001F4E79",
-    "MOTOR": "008064A2",
-    "ESLESTIRME": "001F4E79",
-    "KOK_NEDEN": "001F4E79",
-    "PANO": "001F4E79",
-    "AKSIYON": "001F4E79",
-    "KANIT_RAPORU": "001F4E79",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "001F4E79",
-    "AYARLAR": "001F4E79",
-    "KILAVUZ": "001F4E79"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "VERI_A": "FF6B7280",
+    "VERI_B": "FF6B7280",
+    "ANAHTAR": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "ESLESTIRME": "FF6B7280",
+    "KOK_NEDEN": "FF6B7280",
+    "PANO": "FF6B7280",
+    "AKSIYON": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 23616,
+  "formula_count": 23646,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 7562,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 30,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 7,
@@ -53,11 +55,8 @@
   "data_validation_count": 48,
   "gridlines_on_count": 0,
   "freeze_panes_count": 6,
-  "merged_ranges": 53,
-  "order_mismatches": [
-    "Mevcut: KAPAK > VERI_A > VERI_B > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > VERI_A > VERI_B > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 46,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -76,9 +75,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=7562"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -97,25 +96,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > VERI_A > VERI_B > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > VERI_A > VERI_B > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=30"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=23616"
+      "evidence": "formula_count=23646"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/cari-ba-bs-toplu-mutabakat/CariBaBsTopluMutabakat.xlsx"
+  ]
 }

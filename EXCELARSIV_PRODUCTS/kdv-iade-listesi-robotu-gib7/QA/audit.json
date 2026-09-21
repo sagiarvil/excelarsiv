@@ -1,14 +1,18 @@
 {
   "product": "kdv-iade-listesi-robotu-gib7",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/kdv-iade-listesi-robotu-gib7/KdvIadeListesiRobotuGib7.xlsx",
-  "sha256": "e42099034cd5601e321037ebd9ce40c8008b60cb06524f130ea9b5de98420716",
-  "size_bytes": 107542,
-  "modified_at": "2026-08-14T22:28:45",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/kdv-iade-listesi-robotu-gib7/KdvIadeListesiRobotuGib7.xlsx",
+  "sha256": "e3c25b5f860722ad15603e764e5b8dcb6e30df94fe6287a7c8366b4afd86072d",
+  "size_bytes": 106881,
+  "modified_at": "2026-09-21T13:37:51",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "PANO",
+    "00_NAVIGASYON",
     "GIRDI",
+    "SENARYO",
+    "KONTROLLER",
+    "KILAVUZ",
+    "PANO",
     "KURALLAR",
     "MOTOR",
     "LISTE_1",
@@ -18,54 +22,49 @@
     "LISTE_5",
     "LISTE_6",
     "LISTE_7",
-    "SENARYO",
     "VAKALAR",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "PANO": "000F2742",
-    "GIRDI": "00B08948",
-    "KURALLAR": "001F7A4D",
-    "MOTOR": "008064A2",
-    "LISTE_1": "001F4E79",
-    "LISTE_2": "002E75B6",
-    "LISTE_3": "00548235",
-    "LISTE_4": "00C45911",
-    "LISTE_5": "007030A0",
-    "LISTE_6": "00B08948",
-    "LISTE_7": "00C00000",
-    "SENARYO": "00ED7D31",
-    "VAKALAR": "002E75B6",
-    "KANIT_RAPORU": "000F2742",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "00595959",
-    "AYARLAR": "000F2742",
-    "KILAVUZ": "001F4E79"
+    "00_NAVIGASYON": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "SENARYO": "FF8A5A1F",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "PANO": "FF6B7280",
+    "KURALLAR": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "LISTE_1": "FF6B7280",
+    "LISTE_2": "FF6B7280",
+    "LISTE_3": "FF6B7280",
+    "LISTE_4": "FF6B7280",
+    "LISTE_5": "FF6B7280",
+    "LISTE_6": "FF6B7280",
+    "LISTE_7": "FF6B7280",
+    "VAKALAR": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 389,
+  "formula_count": 391,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 17,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 38,
   "hyperlink_rel_count": 0,
   "chart_count": 11,
   "table_count": 4,
-  "conditional_format_count": 53,
+  "conditional_format_count": 39,
   "data_validation_count": 22,
   "gridlines_on_count": 0,
   "freeze_panes_count": 11,
-  "merged_ranges": 66,
-  "order_mismatches": [
-    "Mevcut: PANO > GIRDI > KURALLAR > MOTOR > LISTE_1 > LISTE_2 > LISTE_3 > LISTE_4 > LISTE_5 > LISTE_6 > LISTE_7 > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > KURALLAR > MOTOR > LISTE_1 > LISTE_2 > LISTE_3 > LISTE_4 > LISTE_5 > LISTE_6 > LISTE_7 > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 65,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -84,9 +83,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=17"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -105,25 +104,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: PANO > GIRDI > KURALLAR > MOTOR > LISTE_1 > LISTE_2 > LISTE_3 > LISTE_4 > LISTE_5 > LISTE_6 > LISTE_7 > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > KURALLAR > MOTOR > LISTE_1 > LISTE_2 > LISTE_3 > LISTE_4 > LISTE_5 > LISTE_6 > LISTE_7 > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=38"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=389"
+      "evidence": "formula_count=391"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/kdv-iade-listesi-robotu-gib7/KdvIadeListesiRobotuGib7.xlsx"
+  ]
 }

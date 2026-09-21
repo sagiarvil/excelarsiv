@@ -1,45 +1,47 @@
 {
   "product": "isg-risk-degerlendirme-pro-6331",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/isg-risk-degerlendirme-pro-6331/IsgRiskDegerlendirmePro6331.xlsx",
-  "sha256": "016791107578dc5a9660724adff9facb5b9381c508bd0529c772bdfb8081cdc5",
-  "size_bytes": 134598,
-  "modified_at": "2026-08-11T00:26:53",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/isg-risk-degerlendirme-pro-6331/IsgRiskDegerlendirmePro6331.xlsx",
+  "sha256": "1628591c0d45e44fb9c0e8f52d35773eb2db8c062c26cd2a1ebd18941e56471c",
+  "size_bytes": 134555,
+  "modified_at": "2026-09-21T13:37:49",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
+    "KONTROLLER",
+    "KILAVUZ",
+    "DEGERLENDIRME",
     "PANO",
     "ENVANTER",
-    "DEGERLENDIRME",
     "EYLEM_PLANI",
     "AKIS",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "001F4E79",
-    "PANO": "001F4E79",
-    "ENVANTER": "001F4E79",
-    "DEGERLENDIRME": "001F4E79",
-    "EYLEM_PLANI": "001F4E79",
-    "AKIS": "001F4E79",
-    "KANIT_RAPORU": "001F4E79",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "001F4E79",
-    "AYARLAR": "001F4E79",
-    "KILAVUZ": "001F4E79"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "DEGERLENDIRME": "FF997300",
+    "PANO": "FF6B7280",
+    "ENVANTER": "FF6B7280",
+    "EYLEM_PLANI": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 1976,
+  "formula_count": 2000,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 270,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 24,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 3,
@@ -47,11 +49,8 @@
   "data_validation_count": 74,
   "gridlines_on_count": 0,
   "freeze_panes_count": 3,
-  "merged_ranges": 50,
-  "order_mismatches": [
-    "Mevcut: KAPAK > PANO > ENVANTER > DEGERLENDIRME > EYLEM_PLANI > AKIS > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: KONTROLLER > KILAVUZ > DEGERLENDIRME > KAPAK > PANO > ENVANTER > EYLEM_PLANI > AKIS > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 43,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -70,9 +69,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=270"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -91,25 +90,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > PANO > ENVANTER > DEGERLENDIRME > EYLEM_PLANI > AKIS > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > DEGERLENDIRME > KAPAK > PANO > ENVANTER > EYLEM_PLANI > AKIS > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=24"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=1976"
+      "evidence": "formula_count=2000"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/isg-risk-degerlendirme-pro-6331/IsgRiskDegerlendirmePro6331.xlsx"
+  ]
 }

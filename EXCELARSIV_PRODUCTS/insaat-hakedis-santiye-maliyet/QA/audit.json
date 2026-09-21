@@ -1,13 +1,16 @@
 {
   "product": "insaat-hakedis-santiye-maliyet",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/insaat-hakedis-santiye-maliyet/InsaatHakedisSantiyeMaliyet.xlsx",
-  "sha256": "c9f98928156ce552b8ae0ef3d97acf7a0ada8700c865003ee7525b9a5b19c16d",
-  "size_bytes": 204790,
-  "modified_at": "2026-08-14T21:33:27",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/insaat-hakedis-santiye-maliyet/InsaatHakedisSantiyeMaliyet.xlsx",
+  "sha256": "d7450ad2abcf905fb3aa7d71683a302cd60a76335e7f8f7520b1a0f7d1400376",
+  "size_bytes": 204761,
+  "modified_at": "2026-09-21T13:37:48",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
+    "KONTROLLER",
+    "KILAVUZ",
     "PANO",
     "KARTLAR",
     "AKIS",
@@ -15,33 +18,32 @@
     "SANTIYE_MALIYET",
     "HESAP",
     "RAPOR",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "001F4E79",
-    "PANO": "001F4E79",
-    "KARTLAR": "001F4E79",
-    "AKIS": "001F4E79",
-    "KUYRUKLAR": "001F4E79",
-    "SANTIYE_MALIYET": "001F4E79",
-    "HESAP": "001F4E79",
-    "RAPOR": "001F4E79",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "001F4E79",
-    "AYARLAR": "001F4E79",
-    "KILAVUZ": "001F4E79"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "PANO": "FF6B7280",
+    "KARTLAR": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "KUYRUKLAR": "FF6B7280",
+    "SANTIYE_MALIYET": "FF6B7280",
+    "HESAP": "FF0F6B78",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 3427,
+  "formula_count": 3453,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 1069,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 26,
   "hyperlink_rel_count": 0,
   "chart_count": 9,
   "table_count": 4,
@@ -49,11 +51,8 @@
   "data_validation_count": 75,
   "gridlines_on_count": 0,
   "freeze_panes_count": 4,
-  "merged_ranges": 51,
-  "order_mismatches": [
-    "Mevcut: KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > SANTIYE_MALIYET > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > SANTIYE_MALIYET > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 44,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -72,9 +71,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=1069"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -93,25 +92,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > SANTIYE_MALIYET > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > SANTIYE_MALIYET > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=26"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=3427"
+      "evidence": "formula_count=3453"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/insaat-hakedis-santiye-maliyet/InsaatHakedisSantiyeMaliyet.xlsx"
+  ]
 }

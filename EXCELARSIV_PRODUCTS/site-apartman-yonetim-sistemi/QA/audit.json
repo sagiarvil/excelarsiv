@@ -1,15 +1,20 @@
 {
   "product": "site-apartman-yonetim-sistemi",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/site-apartman-yonetim-sistemi/SiteApartmanYonetimSistemi.xlsx",
-  "sha256": "52f4079ea54e4765df844455d9c676d7253278d5de3dcd1a3be8984500950ecc",
-  "size_bytes": 117483,
-  "modified_at": "2026-08-11T23:29:04",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/site-apartman-yonetim-sistemi/SiteApartmanYonetimSistemi.xlsx",
+  "sha256": "1baf54c427128f05995c7f6405993cf7d45f2018cc5a97b0a60ce94da3da8eb2",
+  "size_bytes": 117975,
+  "modified_at": "2026-09-21T13:38:05",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
     "GIRDI",
+    "KARARLAR",
+    "KARAR",
+    "KONTROLLER",
+    "KILAVUZ",
     "PAYDASLAR",
     "DONEMLER",
     "TAHSILAT",
@@ -18,44 +23,41 @@
     "KOK_NEDEN",
     "AKIS",
     "GIDER",
-    "KARARLAR",
     "PANO",
-    "KARAR",
     "RAPOR",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "001E3A5F",
-    "HIZLI_BASLANGIC": "001E3A5F",
-    "GIRDI": "001E3A5F",
-    "PAYDASLAR": "001E3A5F",
-    "DONEMLER": "001E3A5F",
-    "TAHSILAT": "001E3A5F",
-    "ANAHTAR": "001E3A5F",
-    "ESLESTIRME": "001E3A5F",
-    "KOK_NEDEN": "001E3A5F",
-    "AKIS": "001E3A5F",
-    "GIDER": "001E3A5F",
-    "KARARLAR": "001E3A5F",
-    "PANO": "001E3A5F",
-    "KARAR": "001E3A5F",
-    "RAPOR": "001E3A5F",
-    "KONTROLLER": "001E3A5F",
-    "ORNEK_VERI": "001E3A5F",
-    "LISTELER": "001E3A5F",
-    "AYARLAR": "001E3A5F",
-    "KILAVUZ": "001E3A5F"
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "KARARLAR": "FF5B477E",
+    "KARAR": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "PAYDASLAR": "FF6B7280",
+    "DONEMLER": "FF6B7280",
+    "TAHSILAT": "FF6B7280",
+    "ANAHTAR": "FF6B7280",
+    "ESLESTIRME": "FF6B7280",
+    "KOK_NEDEN": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "GIDER": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 4780,
+  "formula_count": 4820,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 996,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 40,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 10,
@@ -63,11 +65,8 @@
   "data_validation_count": 19,
   "gridlines_on_count": 0,
   "freeze_panes_count": 9,
-  "merged_ranges": 40,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > GIRDI > PAYDASLAR > DONEMLER > TAHSILAT > ANAHTAR > ESLESTIRME > KOK_NEDEN > AKIS > GIDER > KARARLAR > PANO > KARAR > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > GIRDI > KARARLAR > KARAR > KONTROLLER > KILAVUZ > KAPAK > PAYDASLAR > DONEMLER > TAHSILAT > ANAHTAR > ESLESTIRME > KOK_NEDEN > AKIS > GIDER > PANO > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 35,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -86,9 +85,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=996"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -107,25 +106,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > GIRDI > PAYDASLAR > DONEMLER > TAHSILAT > ANAHTAR > ESLESTIRME > KOK_NEDEN > AKIS > GIDER > KARARLAR > PANO > KARAR > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > GIRDI > KARARLAR > KARAR > KONTROLLER > KILAVUZ > KAPAK > PAYDASLAR > DONEMLER > TAHSILAT > ANAHTAR > ESLESTIRME > KOK_NEDEN > AKIS > GIDER > PANO > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=40"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=4780"
+      "evidence": "formula_count=4820"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/site-apartman-yonetim-sistemi/SiteApartmanYonetimSistemi.xlsx"
+  ]
 }

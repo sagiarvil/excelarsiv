@@ -1,12 +1,13 @@
 {
   "product": "cek-senet-vade-risk-sistemi",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/cek-senet-vade-risk-sistemi/CekSenetVadeRiskSistemi.xlsx",
-  "sha256": "bda714517068eb7d82aafe79cb43e3dd41a64695e3c18720def559d6649c61fd",
-  "size_bytes": 614484,
-  "modified_at": "2026-09-21T13:45:45",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/cek-senet-vade-risk-sistemi/CekSenetVadeRiskSistemi.xlsx",
+  "sha256": "5a62eda01345e78a6897e659af08a722407b0be7f9c1daf441a7d5f03811fbfe",
+  "size_bytes": 563404,
+  "modified_at": "2026-09-21T13:37:36",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KARAR_MOTORU",
     "KONTROLLER",
     "KILAVUZ",
@@ -31,6 +32,7 @@
     "TESTLER"
   ],
   "tab_colors": {
+    "00_NAVIGASYON": "FF6B7280",
     "KARAR_MOTORU": "FF5B477E",
     "KONTROLLER": "FF9B2C2C",
     "KILAVUZ": "FF7F8C8D",
@@ -50,18 +52,18 @@
     "LISTELER": "FF6B7280",
     "AYARLAR": "FF6B7280"
   },
-  "formula_count": 8701,
+  "formula_count": 7738,
   "error_cells": [],
   "external_link_parts": 0,
   "external_formula_count": 0,
-  "hyperlink_formula_count": 0,
+  "hyperlink_formula_count": 32,
   "hyperlink_rel_count": 0,
   "chart_count": 9,
   "table_count": 6,
-  "conditional_format_count": 24,
-  "data_validation_count": 51,
+  "conditional_format_count": 22,
+  "data_validation_count": 47,
   "gridlines_on_count": 0,
-  "freeze_panes_count": 7,
+  "freeze_panes_count": 6,
   "merged_ranges": 85,
   "order_mismatches": [],
   "gates": [
@@ -110,20 +112,20 @@
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=32"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=8701"
+      "evidence": "formula_count=7738"
     }
   ],
-  "status": "CALIBRATION_REQUIRED",
+  "status": "READY_FOR_REVIEW",
   "notes": [
-    "Kalibre kopya: /Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/cek-senet-vade-risk-sistemi/CekSenetVadeRiskSistemi.xlsx"
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/cek-senet-vade-risk-sistemi/CekSenetVadeRiskSistemi.xlsx"
   ]
 }

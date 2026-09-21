@@ -1,67 +1,66 @@
 {
   "product": "amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti/AmortismanVeSabitKiymetSatisZamanlamaStratejisti.xlsx",
-  "sha256": "e2d0dbabcb7affca1e2eae6689204a1fcfad4cb3f8293c9802d91006ff6ef4bd",
-  "size_bytes": 341079,
-  "modified_at": "2026-08-12T02:46:58",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti/AmortismanVeSabitKiymetSatisZamanlamaStratejisti.xlsx",
+  "sha256": "e7f5ad742b7847cdc275b93bb22ae73ce39e8d1658805f982a276f9cfd3cc0fb",
+  "size_bytes": 334866,
+  "modified_at": "2026-09-21T13:37:32",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
+    "SENARYO_DUYARLILIK",
+    "KARAR",
+    "KONTROLLER",
+    "KILAVUZ",
     "KIYMET_LISTESI",
     "HESAP",
     "ANALITIK_MOTOR",
-    "KONTROLLER",
-    "KARAR",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "KURALLAR",
     "VAKALAR",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "KIYMET_LISTESI": null,
-    "HESAP": null,
-    "ANALITIK_MOTOR": null,
-    "KONTROLLER": null,
-    "KARAR": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "KURALLAR": null,
-    "VAKALAR": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "KIYMET_LISTESI": "FF6B7280",
+    "HESAP": "FF0F6B78",
+    "ANALITIK_MOTOR": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "KURALLAR": "FF6B7280",
+    "VAKALAR": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 9204,
+  "formula_count": 9238,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 68,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 34,
   "hyperlink_rel_count": 0,
   "chart_count": 9,
   "table_count": 2,
   "conditional_format_count": 84,
   "data_validation_count": 26,
-  "gridlines_on_count": 17,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 1,
-  "merged_ranges": 61,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > KIYMET_LISTESI > HESAP > ANALITIK_MOTOR > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > KIYMET_LISTESI > HESAP > ANALITIK_MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 53,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -80,46 +79,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=68"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=17"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=17"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > KIYMET_LISTESI > HESAP > ANALITIK_MOTOR > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > KIYMET_LISTESI > HESAP > ANALITIK_MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=34"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=9204"
+      "evidence": "formula_count=9238"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti/AmortismanVeSabitKiymetSatisZamanlamaStratejisti.xlsx"
+  ]
 }

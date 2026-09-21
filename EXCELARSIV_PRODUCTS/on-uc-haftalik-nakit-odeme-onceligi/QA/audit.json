@@ -1,45 +1,47 @@
 {
   "product": "on-uc-haftalik-nakit-odeme-onceligi",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/on-uc-haftalik-nakit-odeme-onceligi/OnUcHaftalikNakitOdemeOnceligi.xlsx",
-  "sha256": "ff4e8a597eef6da0926879a7ca3c130e29ce6e74c8f6998f0d18a31442a792b4",
-  "size_bytes": 147576,
-  "modified_at": "2026-08-11T01:44:50",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/on-uc-haftalik-nakit-odeme-onceligi/OnUcHaftalikNakitOdemeOnceligi.xlsx",
+  "sha256": "114d890085b99940bf0f9caa3b85f50c7a36ecfb4f870b5700d28f013e2339e1",
+  "size_bytes": 147520,
+  "modified_at": "2026-09-21T13:37:58",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
+    "KONTROLLER",
+    "KILAVUZ",
     "PANO",
     "KARTLAR",
     "AKIS",
     "KUYRUKLAR",
     "HESAP",
     "RAPOR",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "000B3D2E",
-    "PANO": "000B3D2E",
-    "KARTLAR": "000B3D2E",
-    "AKIS": "000B3D2E",
-    "KUYRUKLAR": "000B3D2E",
-    "HESAP": "000B3D2E",
-    "RAPOR": "000B3D2E",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "000B3D2E",
-    "AYARLAR": "000B3D2E",
-    "KILAVUZ": "000B3D2E"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "PANO": "FF6B7280",
+    "KARTLAR": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "KUYRUKLAR": "FF6B7280",
+    "HESAP": "FF0F6B78",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 2154,
+  "formula_count": 2178,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 817,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 24,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 3,
@@ -47,11 +49,8 @@
   "data_validation_count": 64,
   "gridlines_on_count": 0,
   "freeze_panes_count": 3,
-  "merged_ranges": 45,
-  "order_mismatches": [
-    "Mevcut: KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 38,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -70,9 +69,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=817"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -91,25 +90,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=24"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=2154"
+      "evidence": "formula_count=2178"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/on-uc-haftalik-nakit-odeme-onceligi/OnUcHaftalikNakitOdemeOnceligi.xlsx"
+  ]
 }

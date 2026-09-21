@@ -1,14 +1,17 @@
 {
   "product": "trendyol-komisyon-sonrasi-net-kar",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/trendyol-komisyon-sonrasi-net-kar/TrendyolKomisyonSonrasiNetKar.xlsx",
-  "sha256": "c7c0be168296aab378e8bff1f6531e1691bc15817cb84cd34ad5b0dcbb82cd5d",
-  "size_bytes": 468005,
-  "modified_at": "2026-08-14T20:47:30",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/trendyol-komisyon-sonrasi-net-kar/TrendyolKomisyonSonrasiNetKar.xlsx",
+  "sha256": "4be8251e0cf76ad15a2a5a40de463b0e1df5d1c83aa285b70b6a0635608e81cc",
+  "size_bytes": 468136,
+  "modified_at": "2026-09-21T13:38:08",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
     "GIRDI",
+    "KONTROLLER",
+    "KILAVUZ",
     "HAKEDIS",
     "ANAHTAR",
     "MOTOR",
@@ -17,35 +20,34 @@
     "PANO",
     "AKSIYON",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "009A3412",
-    "GIRDI": "009A3412",
-    "HAKEDIS": "009A3412",
-    "ANAHTAR": "009A3412",
-    "MOTOR": "009A3412",
-    "ESLESTIRME": "009A3412",
-    "KOK_NEDEN": "009A3412",
-    "PANO": "009A3412",
-    "AKSIYON": "009A3412",
-    "KANIT_RAPORU": "009A3412",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "009A3412",
-    "AYARLAR": "009A3412",
-    "KILAVUZ": "009A3412"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "HAKEDIS": "FF6B7280",
+    "ANAHTAR": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "ESLESTIRME": "FF6B7280",
+    "KOK_NEDEN": "FF6B7280",
+    "PANO": "FF6B7280",
+    "AKSIYON": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 36083,
+  "formula_count": 36113,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 13533,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 30,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 9,
@@ -53,11 +55,8 @@
   "data_validation_count": 72,
   "gridlines_on_count": 0,
   "freeze_panes_count": 6,
-  "merged_ranges": 55,
-  "order_mismatches": [
-    "Mevcut: KAPAK > GIRDI > HAKEDIS > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: GIRDI > KONTROLLER > KILAVUZ > KAPAK > HAKEDIS > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 48,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -76,9 +75,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=13533"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -97,25 +96,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > GIRDI > HAKEDIS > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: GIRDI > KONTROLLER > KILAVUZ > KAPAK > HAKEDIS > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=30"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=36083"
+      "evidence": "formula_count=36113"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/trendyol-komisyon-sonrasi-net-kar/TrendyolKomisyonSonrasiNetKar.xlsx"
+  ]
 }

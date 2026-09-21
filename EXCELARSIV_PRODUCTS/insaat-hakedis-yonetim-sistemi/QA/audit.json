@@ -1,45 +1,47 @@
 {
   "product": "insaat-hakedis-yonetim-sistemi",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/insaat-hakedis-yonetim-sistemi/InsaatHakedisYonetimSistemi.xlsx",
-  "sha256": "5bcd91d869d6db471c48affbe042e214b1b98dab121684fc3e76f2cc0a17e723",
-  "size_bytes": 146260,
-  "modified_at": "2026-08-11T00:26:53",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/insaat-hakedis-yonetim-sistemi/InsaatHakedisYonetimSistemi.xlsx",
+  "sha256": "9bb713886afac0a9626a747bdac084ac33ef3d1fc3dd5cd70a368ea39be19627",
+  "size_bytes": 146219,
+  "modified_at": "2026-09-21T13:37:49",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
+    "KONTROLLER",
+    "KILAVUZ",
     "PANO",
     "KARTLAR",
     "AKIS",
     "KUYRUKLAR",
     "HESAP",
     "RAPOR",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "001F4E79",
-    "PANO": "001F4E79",
-    "KARTLAR": "001F4E79",
-    "AKIS": "001F4E79",
-    "KUYRUKLAR": "001F4E79",
-    "HESAP": "001F4E79",
-    "RAPOR": "001F4E79",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "001F4E79",
-    "AYARLAR": "001F4E79",
-    "KILAVUZ": "001F4E79"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "PANO": "FF6B7280",
+    "KARTLAR": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "KUYRUKLAR": "FF6B7280",
+    "HESAP": "FF0F6B78",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 2147,
+  "formula_count": 2171,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 814,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 24,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 3,
@@ -47,11 +49,8 @@
   "data_validation_count": 62,
   "gridlines_on_count": 0,
   "freeze_panes_count": 3,
-  "merged_ranges": 45,
-  "order_mismatches": [
-    "Mevcut: KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 38,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -70,9 +69,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=814"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -91,25 +90,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=24"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=2147"
+      "evidence": "formula_count=2171"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/insaat-hakedis-yonetim-sistemi/InsaatHakedisYonetimSistemi.xlsx"
+  ]
 }

@@ -1,47 +1,49 @@
 {
   "product": "ymm-tasdik-kontrol-robotu",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/ymm-tasdik-kontrol-robotu/YmmTasdikKontrolRobotu.xlsx",
-  "sha256": "f7a38a6ee76ed3b9bfcc85ebb5634e7e58fbd680af5f09d9dbc5a2981b072ff6",
-  "size_bytes": 192344,
-  "modified_at": "2026-08-14T22:41:47",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/ymm-tasdik-kontrol-robotu/YmmTasdikKontrolRobotu.xlsx",
+  "sha256": "f12a4f23d00a7a888d61bef23cacebb768a71d5ffcf8397d9a74174c0a04f99d",
+  "size_bytes": 192372,
+  "modified_at": "2026-09-21T13:38:12",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
+    "KONTROL_LISTE",
+    "KONTROLLER",
+    "KILAVUZ",
     "PANO",
     "KARTLAR",
     "AKIS",
     "KUYRUKLAR",
-    "KONTROL_LISTE",
     "HESAP",
     "RAPOR",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "001A365D",
-    "PANO": "001A365D",
-    "KARTLAR": "001A365D",
-    "AKIS": "001A365D",
-    "KUYRUKLAR": "001A365D",
-    "KONTROL_LISTE": "001A365D",
-    "HESAP": "001A365D",
-    "RAPOR": "001A365D",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "001A365D",
-    "AYARLAR": "001A365D",
-    "KILAVUZ": "001A365D"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "KONTROL_LISTE": "FF9B2C2C",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "PANO": "FF6B7280",
+    "KARTLAR": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "KUYRUKLAR": "FF6B7280",
+    "HESAP": "FF0F6B78",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 3678,
+  "formula_count": 3704,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 1323,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 26,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 4,
@@ -49,11 +51,8 @@
   "data_validation_count": 73,
   "gridlines_on_count": 0,
   "freeze_panes_count": 4,
-  "merged_ranges": 51,
-  "order_mismatches": [
-    "Mevcut: KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > KONTROL_LISTE > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: KONTROL_LISTE > KONTROLLER > KILAVUZ > KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 44,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -72,9 +71,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=1323"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -93,25 +92,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > KONTROL_LISTE > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROL_LISTE > KONTROLLER > KILAVUZ > KAPAK > PANO > KARTLAR > AKIS > KUYRUKLAR > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=26"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=3678"
+      "evidence": "formula_count=3704"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/ymm-tasdik-kontrol-robotu/YmmTasdikKontrolRobotu.xlsx"
+  ]
 }

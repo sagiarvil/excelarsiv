@@ -1,55 +1,57 @@
 {
   "product": "ithalat-landed-cost-motoru",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/ithalat-landed-cost-motoru/IthalatLandedCostMotoru.xlsx",
-  "sha256": "97e60ea5b11e7c3a52ebebae4bb47a9d45811b23b24c5ecbe18806f6aa571961",
-  "size_bytes": 106159,
-  "modified_at": "2026-08-11T23:29:04",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/ithalat-landed-cost-motoru/IthalatLandedCostMotoru.xlsx",
+  "sha256": "c909c34df5eca349273c72af42b3bf44e97134e9ed395b6e0cd18c10c350d13e",
+  "size_bytes": 106539,
+  "modified_at": "2026-09-21T13:37:49",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
     "GIRDI",
     "VARSAYIMLAR",
-    "KURALLAR",
-    "MOTOR",
     "FINANSMAN",
     "SENARYO",
-    "PANO",
     "KARAR",
+    "KONTROLLER",
+    "KILAVUZ",
+    "KURALLAR",
+    "MOTOR",
+    "PANO",
     "VAKALAR",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "000F2742",
-    "HIZLI_BASLANGIC": "001F4E79",
-    "GIRDI": "00B08948",
-    "VARSAYIMLAR": "002E75B6",
-    "KURALLAR": "001F7A4D",
-    "MOTOR": "008064A2",
-    "FINANSMAN": "00C65911",
-    "SENARYO": "00ED7D31",
-    "PANO": "000F2742",
-    "KARAR": "00B3261E",
-    "VAKALAR": "002E75B6",
-    "KANIT_RAPORU": "000F2742",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "00548235",
-    "LISTELER": "007030A0",
-    "AYARLAR": "00833C0C",
-    "KILAVUZ": "001F4E79"
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "VARSAYIMLAR": "FF4472C4",
+    "FINANSMAN": "FF0F6B78",
+    "SENARYO": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "KURALLAR": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "PANO": "FF6B7280",
+    "VAKALAR": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 2286,
+  "formula_count": 2320,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 22,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 34,
   "hyperlink_rel_count": 0,
   "chart_count": 9,
   "table_count": 6,
@@ -57,11 +59,8 @@
   "data_validation_count": 32,
   "gridlines_on_count": 0,
   "freeze_panes_count": 4,
-  "merged_ranges": 53,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > GIRDI > VARSAYIMLAR > KURALLAR > MOTOR > FINANSMAN > SENARYO > PANO > KARAR > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > GIRDI > VARSAYIMLAR > FINANSMAN > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > KURALLAR > MOTOR > PANO > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 46,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -80,9 +79,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=22"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -101,25 +100,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > GIRDI > VARSAYIMLAR > KURALLAR > MOTOR > FINANSMAN > SENARYO > PANO > KARAR > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > GIRDI > VARSAYIMLAR > FINANSMAN > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > KURALLAR > MOTOR > PANO > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=34"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=2286"
+      "evidence": "formula_count=2320"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/ithalat-landed-cost-motoru/IthalatLandedCostMotoru.xlsx"
+  ]
 }

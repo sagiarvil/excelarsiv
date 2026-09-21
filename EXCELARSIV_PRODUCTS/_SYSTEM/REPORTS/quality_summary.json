@@ -1,13 +1,12 @@
 {
-  "generated_at": "2026-09-21T13:45:48",
-  "root": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS",
+  "generated_at": "2026-09-21T13:38:13",
+  "root": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS",
   "mode": "CALIBRATE_COPY",
-  "products": 104,
+  "products": 123,
   "statuses": {
-    "BLOCKED": 102,
-    "CALIBRATION_REQUIRED": 2
+    "READY_FOR_REVIEW": 123
   },
-  "duplicate_hash_groups": 6,
+  "duplicate_hash_groups": 0,
   "quality_target": "500_USD_CLASS_PRODUCT_QUALITY",
   "auto_release": false,
   "human_checker_required": true

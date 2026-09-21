@@ -1,13 +1,16 @@
 {
   "product": "sut-surusu-yonetim",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/sut-surusu-yonetim/SutSurusuYonetim.xlsx",
-  "sha256": "6a8497d8fff1ebc6a83df076abb328b12132e1934c43097c16af9b414d14bf60",
-  "size_bytes": 140870,
-  "modified_at": "2026-08-11T23:29:04",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/sut-surusu-yonetim/SutSurusuYonetim.xlsx",
+  "sha256": "010ad95dc43c2923a0806a248df76a50dbf517c6772cc2a55a5ad04b995979ab",
+  "size_bytes": 140654,
+  "modified_at": "2026-09-21T13:38:06",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
+    "KONTROLLER",
+    "KILAVUZ",
     "VARLIKLAR",
     "GUNLUK_GIRIS",
     "DONEM_ANALIZ",
@@ -15,45 +18,41 @@
     "PANO",
     "ALARMLAR",
     "RAPOR",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "001B4332",
-    "VARLIKLAR": "001B4332",
-    "GUNLUK_GIRIS": "001B4332",
-    "DONEM_ANALIZ": "001B4332",
-    "HESAP": "001B4332",
-    "PANO": "001B4332",
-    "ALARMLAR": "001B4332",
-    "RAPOR": "001B4332",
-    "KONTROLLER": "001B4332",
-    "ORNEK_VERI": "001B4332",
-    "LISTELER": "001B4332",
-    "AYARLAR": "001B4332",
-    "KILAVUZ": "001B4332"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "VARLIKLAR": "FF6B7280",
+    "GUNLUK_GIRIS": "FF6B7280",
+    "DONEM_ANALIZ": "FF6B7280",
+    "HESAP": "FF0F6B78",
+    "PANO": "FF6B7280",
+    "ALARMLAR": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 3181,
+  "formula_count": 3207,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 1550,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 26,
   "hyperlink_rel_count": 0,
   "chart_count": 10,
   "table_count": 2,
   "conditional_format_count": 124,
-  "data_validation_count": 109,
+  "data_validation_count": 108,
   "gridlines_on_count": 0,
   "freeze_panes_count": 2,
-  "merged_ranges": 44,
-  "order_mismatches": [
-    "Mevcut: KAPAK > VARLIKLAR > GUNLUK_GIRIS > DONEM_ANALIZ > HESAP > PANO > ALARMLAR > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > VARLIKLAR > GUNLUK_GIRIS > DONEM_ANALIZ > HESAP > PANO > ALARMLAR > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 37,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -72,9 +71,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=1550"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -93,25 +92,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > VARLIKLAR > GUNLUK_GIRIS > DONEM_ANALIZ > HESAP > PANO > ALARMLAR > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > VARLIKLAR > GUNLUK_GIRIS > DONEM_ANALIZ > HESAP > PANO > ALARMLAR > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=26"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=3181"
+      "evidence": "formula_count=3207"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/sut-surusu-yonetim/SutSurusuYonetim.xlsx"
+  ]
 }

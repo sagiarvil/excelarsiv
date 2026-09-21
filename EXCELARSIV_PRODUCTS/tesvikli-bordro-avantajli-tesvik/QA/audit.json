@@ -1,59 +1,58 @@
 {
   "product": "tesvikli-bordro-avantajli-tesvik",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/tesvikli-bordro-avantajli-tesvik/TesvikliBordroAvantajliTesvik.xlsx",
-  "sha256": "1e54848f894d7e806d4f3fda9bee76df2ace5ba1bb1da9c7764c50c5e876e6a1",
-  "size_bytes": 294788,
-  "modified_at": "2026-08-14T21:08:07",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/tesvikli-bordro-avantajli-tesvik/TesvikliBordroAvantajliTesvik.xlsx",
+  "sha256": "710fdbec5046a45a10eff20187b0835aa33971692afbc3d45617a551c20a3288",
+  "size_bytes": 293647,
+  "modified_at": "2026-09-21T13:38:07",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "PANO",
+    "00_NAVIGASYON",
     "GIRDI",
+    "SENARYO",
+    "KONTROLLER",
+    "KILAVUZ",
+    "PANO",
     "BORDRO",
     "KURALLAR",
     "MOTOR",
-    "SENARYO",
     "VAKALAR",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "PANO": "000F2742",
-    "GIRDI": "00B08948",
-    "BORDRO": "00C8A96A",
-    "KURALLAR": "001F7A4D",
-    "MOTOR": "008064A2",
-    "SENARYO": "00ED7D31",
-    "VAKALAR": "002E75B6",
-    "KANIT_RAPORU": "000F2742",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "00595959",
-    "AYARLAR": "000F2742",
-    "KILAVUZ": "001F4E79"
+    "00_NAVIGASYON": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "SENARYO": "FF8A5A1F",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "PANO": "FF6B7280",
+    "BORDRO": "FF6B7280",
+    "KURALLAR": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "VAKALAR": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 7232,
+  "formula_count": 7224,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 1045,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 26,
   "hyperlink_rel_count": 0,
   "chart_count": 10,
   "table_count": 5,
-  "conditional_format_count": 36,
+  "conditional_format_count": 23,
   "data_validation_count": 36,
   "gridlines_on_count": 0,
   "freeze_panes_count": 5,
   "merged_ranges": 38,
-  "order_mismatches": [
-    "Mevcut: PANO > GIRDI > BORDRO > KURALLAR > MOTOR > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > BORDRO > KURALLAR > MOTOR > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -72,9 +71,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=1045"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -93,25 +92,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: PANO > GIRDI > BORDRO > KURALLAR > MOTOR > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > BORDRO > KURALLAR > MOTOR > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=26"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=7232"
+      "evidence": "formula_count=7224"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/tesvikli-bordro-avantajli-tesvik/TesvikliBordroAvantajliTesvik.xlsx"
+  ]
 }

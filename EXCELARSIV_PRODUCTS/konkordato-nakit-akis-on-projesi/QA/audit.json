@@ -1,49 +1,51 @@
 {
   "product": "konkordato-nakit-akis-on-projesi",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/konkordato-nakit-akis-on-projesi/KonkordatoNakitAkisOnProjesi.xlsx",
-  "sha256": "70d06eb835bc43cd8efe65cd706e4532339f9ecf013c23c13f2bc681ecec53a8",
-  "size_bytes": 161263,
-  "modified_at": "2026-08-14T22:50:07",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/konkordato-nakit-akis-on-projesi/KonkordatoNakitAkisOnProjesi.xlsx",
+  "sha256": "2c3bc2a8a22743c09feda81936913658211b00168cc9cbac451f43fcc6486557",
+  "size_bytes": 161336,
+  "modified_at": "2026-09-21T13:37:54",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
-    "PANO",
     "GIRDI",
     "BILANCO",
     "NAKIT_AKIS",
+    "KONTROLLER",
+    "KILAVUZ",
+    "PANO",
     "AKIS",
     "KUYRUKLAR",
     "HESAP",
     "RAPOR",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "001B365D",
-    "PANO": "001B365D",
-    "GIRDI": "001B365D",
-    "BILANCO": "001B365D",
-    "NAKIT_AKIS": "001B365D",
-    "AKIS": "001B365D",
-    "KUYRUKLAR": "001B365D",
-    "HESAP": "001B365D",
-    "RAPOR": "001B365D",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "001B365D",
-    "AYARLAR": "001B365D",
-    "KILAVUZ": "001B365D"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "BILANCO": "FF1F4E78",
+    "NAKIT_AKIS": "FF1F4E78",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "PANO": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "KUYRUKLAR": "FF6B7280",
+    "HESAP": "FF0F6B78",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 2111,
+  "formula_count": 2139,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 67,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 28,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 2,
@@ -51,11 +53,8 @@
   "data_validation_count": 82,
   "gridlines_on_count": 0,
   "freeze_panes_count": 5,
-  "merged_ranges": 54,
-  "order_mismatches": [
-    "Mevcut: KAPAK > PANO > GIRDI > BILANCO > NAKIT_AKIS > AKIS > KUYRUKLAR > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: GIRDI > BILANCO > NAKIT_AKIS > KONTROLLER > KILAVUZ > KAPAK > PANO > AKIS > KUYRUKLAR > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 47,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -74,9 +73,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=67"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -95,25 +94,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > PANO > GIRDI > BILANCO > NAKIT_AKIS > AKIS > KUYRUKLAR > HESAP > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: GIRDI > BILANCO > NAKIT_AKIS > KONTROLLER > KILAVUZ > KAPAK > PANO > AKIS > KUYRUKLAR > HESAP > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=28"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=2111"
+      "evidence": "formula_count=2139"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/konkordato-nakit-akis-on-projesi/KonkordatoNakitAkisOnProjesi.xlsx"
+  ]
 }

@@ -1,13 +1,16 @@
 {
   "product": "elektrik-faturasi-dogrulama",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/elektrik-faturasi-dogrulama/ElektrikFaturasiDogrulama.xlsx",
-  "sha256": "c03f9aa9e79c89795e111ced2fd143d43419c2ac3a63c2f47b5711805765ec7d",
-  "size_bytes": 379967,
-  "modified_at": "2026-08-11T23:29:04",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/elektrik-faturasi-dogrulama/ElektrikFaturasiDogrulama.xlsx",
+  "sha256": "829a1ec76822696e03e5c96ed6041feff4795f340b1af14508eee463bfae6d65",
+  "size_bytes": 379949,
+  "modified_at": "2026-09-21T13:37:41",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
+    "KONTROLLER",
+    "KILAVUZ",
     "VERI_A",
     "VERI_B",
     "ANAHTAR",
@@ -16,34 +19,33 @@
     "PANO",
     "AKSIYON",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "000B3D2E",
-    "VERI_A": "000B3D2E",
-    "VERI_B": "000B3D2E",
-    "ANAHTAR": "000B3D2E",
-    "ESLESTIRME": "000B3D2E",
-    "KOK_NEDEN": "000B3D2E",
-    "PANO": "000B3D2E",
-    "AKSIYON": "000B3D2E",
-    "KANIT_RAPORU": "000B3D2E",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "000B3D2E",
-    "AYARLAR": "000B3D2E",
-    "KILAVUZ": "000B3D2E"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "VERI_A": "FF6B7280",
+    "VERI_B": "FF6B7280",
+    "ANAHTAR": "FF6B7280",
+    "ESLESTIRME": "FF6B7280",
+    "KOK_NEDEN": "FF6B7280",
+    "PANO": "FF6B7280",
+    "AKSIYON": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 23563,
+  "formula_count": 23591,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 7531,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 28,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 7,
@@ -51,11 +53,8 @@
   "data_validation_count": 55,
   "gridlines_on_count": 0,
   "freeze_panes_count": 6,
-  "merged_ranges": 46,
-  "order_mismatches": [
-    "Mevcut: KAPAK > VERI_A > VERI_B > ANAHTAR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > VERI_A > VERI_B > ANAHTAR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 39,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -74,9 +73,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=7531"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -95,25 +94,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > VERI_A > VERI_B > ANAHTAR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > VERI_A > VERI_B > ANAHTAR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=28"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=23563"
+      "evidence": "formula_count=23591"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/elektrik-faturasi-dogrulama/ElektrikFaturasiDogrulama.xlsx"
+  ]
 }

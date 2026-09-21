@@ -1,21 +1,23 @@
 {
   "product": "ithalat-depo-teslim-rafa-gelen-net-birim-maliyet",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/ithalat-depo-teslim-rafa-gelen-net-birim-maliyet/IthalatDepoTeslimNetBirimMaliyet.xlsx",
-  "sha256": "84553d3560b2fed83f49023c1be3fcf7e57b15f2cee868565870025345c7dd53",
-  "size_bytes": 152465,
-  "modified_at": "2026-08-12T13:28:25",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/ithalat-depo-teslim-rafa-gelen-net-birim-maliyet/IthalatDepoTeslimNetBirimMaliyet.xlsx",
+  "sha256": "56fd88839af9274818dac4bbf6868987f27529b9629b04925ee4799c07af69a3",
+  "size_bytes": 148180,
+  "modified_at": "2026-09-21T13:37:49",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
+    "SENARYO_DUYARLILIK",
+    "KARAR",
+    "KONTROL",
+    "KILAVUZ",
     "URUNLER",
     "MASRAFLAR",
     "MOTOR",
-    "KONTROL",
-    "KARAR",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "ANAHTAR",
@@ -23,47 +25,44 @@
     "KOK_NEDEN",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "URUNLER": null,
-    "MASRAFLAR": null,
-    "MOTOR": null,
-    "KONTROL": null,
-    "KARAR": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "ANAHTAR": null,
-    "ESLESTIRME": null,
-    "KOK_NEDEN": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROL": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "URUNLER": "FF6B7280",
+    "MASRAFLAR": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "ANAHTAR": "FF6B7280",
+    "ESLESTIRME": "FF6B7280",
+    "KOK_NEDEN": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 300,
+  "formula_count": 336,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 40,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 36,
   "hyperlink_rel_count": 0,
   "chart_count": 6,
   "table_count": 2,
   "conditional_format_count": 27,
   "data_validation_count": 5,
-  "gridlines_on_count": 18,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 2,
-  "merged_ranges": 94,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > URUNLER > MASRAFLAR > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > ANAHTAR > ESLESTIRME > KOK_NEDEN > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > URUNLER > MASRAFLAR > MOTOR > PANO > RAPOR > ORNEK_VERI > ANAHTAR > ESLESTIRME > KOK_NEDEN > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 88,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -82,46 +81,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=40"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=18"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=18"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > URUNLER > MASRAFLAR > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > ANAHTAR > ESLESTIRME > KOK_NEDEN > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > URUNLER > MASRAFLAR > MOTOR > PANO > RAPOR > ORNEK_VERI > ANAHTAR > ESLESTIRME > KOK_NEDEN > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=36"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=300"
+      "evidence": "formula_count=336"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/ithalat-depo-teslim-rafa-gelen-net-birim-maliyet/IthalatDepoTeslimNetBirimMaliyet.xlsx"
+  ]
 }

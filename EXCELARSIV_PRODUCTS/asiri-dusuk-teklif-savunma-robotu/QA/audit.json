@@ -1,71 +1,70 @@
 {
   "product": "asiri-dusuk-teklif-savunma-robotu",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/asiri-dusuk-teklif-savunma-robotu/AsiriDusukTeklifSavunmaRobotu.xlsx",
-  "sha256": "4d0e16e34fe6942d0c6dc357a16f65604e05ad037c771725fec29d97bfb53e96",
-  "size_bytes": 267448,
-  "modified_at": "2026-08-12T02:48:40",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/asiri-dusuk-teklif-savunma-robotu/AsiriDusukTeklifSavunmaRobotu.xlsx",
+  "sha256": "138c5adc7391efb26c28e93e054d4a008c86cbd82a68a8764eeb0e79f93cadc1",
+  "size_bytes": 262277,
+  "modified_at": "2026-09-21T13:37:33",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
+    "SENARYO_DUYARLILIK",
+    "KARAR",
+    "KONTROL",
+    "KILAVUZ",
     "IHALE_KARTI",
     "RAKIP_TEKLIFLER",
     "TEKLIF_BILESENLERI",
     "FIYAT_FARKI_ENDEX",
     "MOTOR",
-    "KONTROL",
-    "KARAR",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "KURALLAR",
     "VAKALAR",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "IHALE_KARTI": null,
-    "RAKIP_TEKLIFLER": null,
-    "TEKLIF_BILESENLERI": null,
-    "FIYAT_FARKI_ENDEX": null,
-    "MOTOR": null,
-    "KONTROL": null,
-    "KARAR": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "KURALLAR": null,
-    "VAKALAR": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROL": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "IHALE_KARTI": "FF6B7280",
+    "RAKIP_TEKLIFLER": "FF6B7280",
+    "TEKLIF_BILESENLERI": "FF6B7280",
+    "FIYAT_FARKI_ENDEX": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "KURALLAR": "FF6B7280",
+    "VAKALAR": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 10204,
+  "formula_count": 10242,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 116,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 38,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 3,
   "conditional_format_count": 32,
   "data_validation_count": 47,
-  "gridlines_on_count": 19,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 3,
-  "merged_ranges": 89,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > IHALE_KARTI > RAKIP_TEKLIFLER > TEKLIF_BILESENLERI > FIYAT_FARKI_ENDEX > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > IHALE_KARTI > RAKIP_TEKLIFLER > TEKLIF_BILESENLERI > FIYAT_FARKI_ENDEX > MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 83,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -84,46 +83,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=116"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=19"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=19"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > IHALE_KARTI > RAKIP_TEKLIFLER > TEKLIF_BILESENLERI > FIYAT_FARKI_ENDEX > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > IHALE_KARTI > RAKIP_TEKLIFLER > TEKLIF_BILESENLERI > FIYAT_FARKI_ENDEX > MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=38"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=10204"
+      "evidence": "formula_count=10242"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/asiri-dusuk-teklif-savunma-robotu/AsiriDusukTeklifSavunmaRobotu.xlsx"
+  ]
 }

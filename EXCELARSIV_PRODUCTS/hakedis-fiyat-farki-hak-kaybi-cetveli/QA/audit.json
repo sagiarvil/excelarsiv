@@ -1,71 +1,70 @@
 {
   "product": "hakedis-fiyat-farki-hak-kaybi-cetveli",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/hakedis-fiyat-farki-hak-kaybi-cetveli/HakedisFiyatFarkiVeHakKaybiCetveli.xlsx",
-  "sha256": "be73307c19a11b8ecab45c2656644c8d326feed7321ccedd45d7fdbbc4fd041f",
-  "size_bytes": 202943,
-  "modified_at": "2026-08-12T02:50:28",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/hakedis-fiyat-farki-hak-kaybi-cetveli/HakedisFiyatFarkiVeHakKaybiCetveli.xlsx",
+  "sha256": "ca9df0483a1dd1f02a0fca0403ba9676e4be8ec3a309d8d50b7031d4f119d808",
+  "size_bytes": 200540,
+  "modified_at": "2026-09-21T13:37:46",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
+    "SENARYO_DUYARLILIK",
+    "KARAR",
+    "KONTROL",
+    "KILAVUZ",
     "SOZLESME_KARTI",
     "HAKEDIS_KALEMLERI",
     "ENDEKS_KAYITLARI",
     "HAKEDIS_DONEMLERI",
     "MOTOR",
-    "KONTROL",
-    "KARAR",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "KURALLAR",
     "VAKALAR",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "SOZLESME_KARTI": null,
-    "HAKEDIS_KALEMLERI": null,
-    "ENDEKS_KAYITLARI": null,
-    "HAKEDIS_DONEMLERI": null,
-    "MOTOR": null,
-    "KONTROL": null,
-    "KARAR": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "KURALLAR": null,
-    "VAKALAR": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROL": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "SOZLESME_KARTI": "FF6B7280",
+    "HAKEDIS_KALEMLERI": "FF6B7280",
+    "ENDEKS_KAYITLARI": "FF6B7280",
+    "HAKEDIS_DONEMLERI": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "KURALLAR": "FF6B7280",
+    "VAKALAR": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 218,
+  "formula_count": 256,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 18,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 38,
   "hyperlink_rel_count": 0,
   "chart_count": 6,
   "table_count": 3,
   "conditional_format_count": 5023,
   "data_validation_count": 16,
-  "gridlines_on_count": 19,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 3,
-  "merged_ranges": 107,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > SOZLESME_KARTI > HAKEDIS_KALEMLERI > ENDEKS_KAYITLARI > HAKEDIS_DONEMLERI > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > SOZLESME_KARTI > HAKEDIS_KALEMLERI > ENDEKS_KAYITLARI > HAKEDIS_DONEMLERI > MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 101,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -84,46 +83,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=18"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=19"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=19"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > SOZLESME_KARTI > HAKEDIS_KALEMLERI > ENDEKS_KAYITLARI > HAKEDIS_DONEMLERI > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > SOZLESME_KARTI > HAKEDIS_KALEMLERI > ENDEKS_KAYITLARI > HAKEDIS_DONEMLERI > MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=38"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=218"
+      "evidence": "formula_count=256"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/hakedis-fiyat-farki-hak-kaybi-cetveli/HakedisFiyatFarkiVeHakKaybiCetveli.xlsx"
+  ]
 }

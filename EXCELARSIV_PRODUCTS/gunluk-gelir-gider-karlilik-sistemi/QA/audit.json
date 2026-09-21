@@ -1,12 +1,13 @@
 {
   "product": "gunluk-gelir-gider-karlilik-sistemi",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/gunluk-gelir-gider-karlilik-sistemi/GunlukGelirGiderKarlilikSistemi.xlsx",
-  "sha256": "787cecfb8503d058690780d26e3f4c0998a41c7ae678ec714f04d301e5f466a1",
-  "size_bytes": 861147,
-  "modified_at": "2026-09-21T13:45:46",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/gunluk-gelir-gider-karlilik-sistemi/GunlukGelirGiderKarlilikSistemi.xlsx",
+  "sha256": "d33016c9176efed1c02355a75fb51dade6fec1ba6e0b12e70ed824c27c700e60",
+  "size_bytes": 858896,
+  "modified_at": "2026-09-21T13:37:46",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "GUNLUK_OZET",
     "TAHAKKUK_NAKIT_ESLEME",
     "KARAR_MOTORU",
@@ -33,6 +34,7 @@
     "LISTELER"
   ],
   "tab_colors": {
+    "00_NAVIGASYON": "FF0F6B78",
     "GUNLUK_OZET": "FF17324D",
     "TAHAKKUK_NAKIT_ESLEME": "FF2F75B5",
     "KARAR_MOTORU": "FF5B477E",
@@ -54,18 +56,18 @@
     "LISTELER": "FF6B7280",
     "AYARLAR": "FF6B7280"
   },
-  "formula_count": 17248,
+  "formula_count": 17264,
   "error_cells": [],
   "external_link_parts": 0,
   "external_formula_count": 0,
-  "hyperlink_formula_count": 0,
+  "hyperlink_formula_count": 36,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 3,
-  "conditional_format_count": 31,
+  "conditional_format_count": 30,
   "data_validation_count": 59,
   "gridlines_on_count": 0,
-  "freeze_panes_count": 5,
+  "freeze_panes_count": 4,
   "merged_ranges": 90,
   "order_mismatches": [],
   "gates": [
@@ -114,20 +116,20 @@
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=36"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=17248"
+      "evidence": "formula_count=17264"
     }
   ],
-  "status": "CALIBRATION_REQUIRED",
+  "status": "READY_FOR_REVIEW",
   "notes": [
-    "Kalibre kopya: /Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/gunluk-gelir-gider-karlilik-sistemi/GunlukGelirGiderKarlilikSistemi.xlsx"
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/gunluk-gelir-gider-karlilik-sistemi/GunlukGelirGiderKarlilikSistemi.xlsx"
   ]
 }

@@ -1,14 +1,19 @@
 {
   "product": "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi/CariHesapTahsilatVeMusteriRiskTakipSistemi.xlsx",
-  "sha256": "9f5b1d4f333cb4334039ea8bf1cf40f0c383eeb53dc94a3a7eab5e4536c9486a",
-  "size_bytes": 341672,
-  "modified_at": "2026-08-12T13:42:32",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi/CariHesapTahsilatVeMusteriRiskTakipSistemi.xlsx",
+  "sha256": "fe5c1fdfca30cb8825f08fb5f7e5bcf043f0fe5a8d67b3daaed6bf69b436c7ab",
+  "size_bytes": 337924,
+  "modified_at": "2026-09-21T13:37:35",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
+    "SENARYO_DUYARLILIK",
+    "KARAR_MOTORU",
+    "KONTROLLER",
+    "KILAVUZ",
     "MUSTERI_KARTLARI",
     "FATURALAR",
     "TAHSILATLAR",
@@ -18,62 +23,56 @@
     "ANALITIK_MOTOR",
     "MUSTERI_RISK_SKORU",
     "TAHSILAT_AKSIYON",
-    "KARAR_MOTORU",
-    "KONTROLLER",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "TESTLER",
     "AKIS",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "MUSTERI_KARTLARI": null,
-    "FATURALAR": null,
-    "TAHSILATLAR": null,
-    "TEMINATLAR": null,
-    "ILETISIM_TAKIP": null,
-    "YASLANDIRMA": null,
-    "ANALITIK_MOTOR": null,
-    "MUSTERI_RISK_SKORU": null,
-    "TAHSILAT_AKSIYON": null,
-    "KARAR_MOTORU": null,
-    "KONTROLLER": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "TESTLER": null,
-    "AKIS": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR_MOTORU": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "MUSTERI_KARTLARI": "FF6B7280",
+    "FATURALAR": "FF6B7280",
+    "TAHSILATLAR": "FF6B7280",
+    "TEMINATLAR": "FF6B7280",
+    "ILETISIM_TAKIP": "FF6B7280",
+    "YASLANDIRMA": "FF6B7280",
+    "ANALITIK_MOTOR": "FF6B7280",
+    "MUSTERI_RISK_SKORU": "FF6B7280",
+    "TAHSILAT_AKSIYON": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "TESTLER": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 2818,
+  "formula_count": 2864,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 476,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 46,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 9,
   "conditional_format_count": 43,
   "data_validation_count": 15,
-  "gridlines_on_count": 23,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 9,
   "merged_ranges": 65,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > MUSTERI_KARTLARI > FATURALAR > TAHSILATLAR > TEMINATLAR > ILETISIM_TAKIP > YASLANDIRMA > ANALITIK_MOTOR > MUSTERI_RISK_SKORU > TAHSILAT_AKSIYON > KARAR_MOTORU > KONTROLLER > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > MUSTERI_KARTLARI > FATURALAR > TAHSILATLAR > TEMINATLAR > ILETISIM_TAKIP > YASLANDIRMA > ANALITIK_MOTOR > MUSTERI_RISK_SKORU > TAHSILAT_AKSIYON > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -92,46 +91,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=476"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=23"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=23"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > MUSTERI_KARTLARI > FATURALAR > TAHSILATLAR > TEMINATLAR > ILETISIM_TAKIP > YASLANDIRMA > ANALITIK_MOTOR > MUSTERI_RISK_SKORU > TAHSILAT_AKSIYON > KARAR_MOTORU > KONTROLLER > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > MUSTERI_KARTLARI > FATURALAR > TAHSILATLAR > TEMINATLAR > ILETISIM_TAKIP > YASLANDIRMA > ANALITIK_MOTOR > MUSTERI_RISK_SKORU > TAHSILAT_AKSIYON > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=46"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=2818"
+      "evidence": "formula_count=2864"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi/CariHesapTahsilatVeMusteriRiskTakipSistemi.xlsx"
+  ]
 }

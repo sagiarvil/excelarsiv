@@ -1,13 +1,16 @@
 {
   "product": "depo-doluluk-lokasyon",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/depo-doluluk-lokasyon/DepoDolulukLokasyon.xlsx",
-  "sha256": "09845216c6e15a5d46e2c8cc9a5681a984b5d8f22f91d4a55e036b6e7a0e6898",
-  "size_bytes": 135615,
-  "modified_at": "2026-08-11T23:29:04",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/depo-doluluk-lokasyon/DepoDolulukLokasyon.xlsx",
+  "sha256": "9777fd691c80fdef6df83d29b5119baf6a63a08ceece8ed88ae2c0f0c862b86c",
+  "size_bytes": 135389,
+  "modified_at": "2026-09-21T13:37:37",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
+    "KONTROLLER",
+    "KILAVUZ",
     "VARLIKLAR",
     "GUNLUK_GIRIS",
     "DONEM_ANALIZ",
@@ -15,45 +18,41 @@
     "PANO",
     "ALARMLAR",
     "RAPOR",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "000F2742",
-    "VARLIKLAR": "000F2742",
-    "GUNLUK_GIRIS": "000F2742",
-    "DONEM_ANALIZ": "000F2742",
-    "HESAP": "000F2742",
-    "PANO": "000F2742",
-    "ALARMLAR": "000F2742",
-    "RAPOR": "000F2742",
-    "KONTROLLER": "000F2742",
-    "ORNEK_VERI": "000F2742",
-    "LISTELER": "000F2742",
-    "AYARLAR": "000F2742",
-    "KILAVUZ": "000F2742"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "VARLIKLAR": "FF6B7280",
+    "GUNLUK_GIRIS": "FF6B7280",
+    "DONEM_ANALIZ": "FF6B7280",
+    "HESAP": "FF0F6B78",
+    "PANO": "FF6B7280",
+    "ALARMLAR": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 2945,
+  "formula_count": 2971,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 1795,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 26,
   "hyperlink_rel_count": 0,
   "chart_count": 10,
   "table_count": 2,
   "conditional_format_count": 124,
-  "data_validation_count": 100,
+  "data_validation_count": 99,
   "gridlines_on_count": 0,
   "freeze_panes_count": 2,
-  "merged_ranges": 44,
-  "order_mismatches": [
-    "Mevcut: KAPAK > VARLIKLAR > GUNLUK_GIRIS > DONEM_ANALIZ > HESAP > PANO > ALARMLAR > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > VARLIKLAR > GUNLUK_GIRIS > DONEM_ANALIZ > HESAP > PANO > ALARMLAR > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 37,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -72,9 +71,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=1795"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -93,25 +92,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > VARLIKLAR > GUNLUK_GIRIS > DONEM_ANALIZ > HESAP > PANO > ALARMLAR > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > VARLIKLAR > GUNLUK_GIRIS > DONEM_ANALIZ > HESAP > PANO > ALARMLAR > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=26"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=2945"
+      "evidence": "formula_count=2971"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/depo-doluluk-lokasyon/DepoDolulukLokasyon.xlsx"
+  ]
 }

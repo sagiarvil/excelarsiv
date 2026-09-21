@@ -1,61 +1,60 @@
 {
   "product": "kdv-tevkifat-mahsup-iade-listesi",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/kdv-tevkifat-mahsup-iade-listesi/KdvTevkifatMahsupIadeListesi.xlsx",
-  "sha256": "3a782563e9e8c3d1d63fc349f1866627a8087a6029bbda6dbd4c6ad722225590",
-  "size_bytes": 92985,
-  "modified_at": "2026-08-14T22:23:02",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/kdv-tevkifat-mahsup-iade-listesi/KdvTevkifatMahsupIadeListesi.xlsx",
+  "sha256": "49c44ac5fc14a011f650b8e6fbd2d8a29c442a1cfd78c686bff3d02d482036ea",
+  "size_bytes": 92036,
+  "modified_at": "2026-09-21T13:37:52",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "PANO",
+    "00_NAVIGASYON",
     "GIRDI",
+    "SENARYO",
+    "KONTROLLER",
+    "KILAVUZ",
+    "PANO",
     "KURALLAR",
     "MOTOR",
     "MAHSUP_LISTE",
     "IADE_LISTE",
-    "SENARYO",
     "VAKALAR",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "PANO": "000F2742",
-    "GIRDI": "00B08948",
-    "KURALLAR": "001F7A4D",
-    "MOTOR": "008064A2",
-    "MAHSUP_LISTE": "001F4E79",
-    "IADE_LISTE": "00C45911",
-    "SENARYO": "00ED7D31",
-    "VAKALAR": "002E75B6",
-    "KANIT_RAPORU": "000F2742",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "00595959",
-    "AYARLAR": "000F2742",
-    "KILAVUZ": "001F4E79"
+    "00_NAVIGASYON": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "SENARYO": "FF8A5A1F",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "PANO": "FF6B7280",
+    "KURALLAR": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "MAHSUP_LISTE": "FF6B7280",
+    "IADE_LISTE": "FF6B7280",
+    "VAKALAR": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 457,
+  "formula_count": 451,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 26,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 28,
   "hyperlink_rel_count": 0,
   "chart_count": 11,
   "table_count": 4,
-  "conditional_format_count": 43,
+  "conditional_format_count": 30,
   "data_validation_count": 33,
   "gridlines_on_count": 0,
   "freeze_panes_count": 6,
   "merged_ranges": 41,
-  "order_mismatches": [
-    "Mevcut: PANO > GIRDI > KURALLAR > MOTOR > MAHSUP_LISTE > IADE_LISTE > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > KURALLAR > MOTOR > MAHSUP_LISTE > IADE_LISTE > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -74,9 +73,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=26"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -95,25 +94,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: PANO > GIRDI > KURALLAR > MOTOR > MAHSUP_LISTE > IADE_LISTE > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > KURALLAR > MOTOR > MAHSUP_LISTE > IADE_LISTE > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=28"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=457"
+      "evidence": "formula_count=451"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/kdv-tevkifat-mahsup-iade-listesi/KdvTevkifatMahsupIadeListesi.xlsx"
+  ]
 }

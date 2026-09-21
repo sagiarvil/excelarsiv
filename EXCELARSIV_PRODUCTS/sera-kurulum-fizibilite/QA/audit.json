@@ -1,55 +1,57 @@
 {
   "product": "sera-kurulum-fizibilite",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/sera-kurulum-fizibilite/SeraKurulumFizibilite.xlsx",
-  "sha256": "d879703dce0bf2e45b800e2aa949422a14b45fb9456e310f4bd3d3d1b77d0511",
-  "size_bytes": 89681,
-  "modified_at": "2026-08-11T23:29:04",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/sera-kurulum-fizibilite/SeraKurulumFizibilite 2.xlsx",
+  "sha256": "b06b5cc10c3a96bf2fbbf7143d34969b63521fc327e5db1ad6afcb60b5edee25",
+  "size_bytes": 90058,
+  "modified_at": "2026-09-21T13:38:03",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
     "GIRDI",
     "VARSAYIMLAR",
-    "KURALLAR",
-    "MOTOR",
     "FINANSMAN",
     "SENARYO",
-    "PANO",
     "KARAR",
+    "KONTROLLER",
+    "KILAVUZ",
+    "KURALLAR",
+    "MOTOR",
+    "PANO",
     "VAKALAR",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "000F2742",
-    "HIZLI_BASLANGIC": "001F4E79",
-    "GIRDI": "00B08948",
-    "VARSAYIMLAR": "002E75B6",
-    "KURALLAR": "001F7A4D",
-    "MOTOR": "008064A2",
-    "FINANSMAN": "00C65911",
-    "SENARYO": "00ED7D31",
-    "PANO": "000F2742",
-    "KARAR": "00B3261E",
-    "VAKALAR": "002E75B6",
-    "KANIT_RAPORU": "000F2742",
-    "KONTROLLER": "00833C0C",
-    "ORNEK_VERI": "00548235",
-    "LISTELER": "007030A0",
-    "AYARLAR": "00833C0C",
-    "KILAVUZ": "001F4E79"
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "VARSAYIMLAR": "FF4472C4",
+    "FINANSMAN": "FF0F6B78",
+    "SENARYO": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "KURALLAR": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "PANO": "FF6B7280",
+    "VAKALAR": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 2279,
+  "formula_count": 2313,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 21,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 34,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 5,
@@ -57,11 +59,8 @@
   "data_validation_count": 32,
   "gridlines_on_count": 0,
   "freeze_panes_count": 4,
-  "merged_ranges": 67,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > GIRDI > VARSAYIMLAR > KURALLAR > MOTOR > FINANSMAN > SENARYO > PANO > KARAR > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > GIRDI > VARSAYIMLAR > FINANSMAN > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > KURALLAR > MOTOR > PANO > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 60,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -80,9 +79,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=21"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -101,32 +100,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > GIRDI > VARSAYIMLAR > KURALLAR > MOTOR > FINANSMAN > SENARYO > PANO > KARAR > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > GIRDI > VARSAYIMLAR > FINANSMAN > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > KURALLAR > MOTOR > PANO > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=34"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=2279"
-    },
-    {
-      "code": "R010",
-      "severity": "P2",
-      "passed": false,
-      "message": "Tek kanonik workbook ilkesi",
-      "evidence": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/sera-kurulum-fizibilite/SeraKurulumFizibilite 2.xlsx"
+      "evidence": "formula_count=2313"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/sera-kurulum-fizibilite/SeraKurulumFizibilite 2.xlsx"
+  ]
 }

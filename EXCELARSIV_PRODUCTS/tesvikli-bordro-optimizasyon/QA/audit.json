@@ -1,61 +1,60 @@
 {
   "product": "tesvikli-bordro-optimizasyon",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/tesvikli-bordro-optimizasyon/TesvikliBordroOptimizasyon.xlsx",
-  "sha256": "1b912c0712b4ab07857fed75b89a94fb804373e96a6ad66445b180d587b9e1aa",
-  "size_bytes": 402117,
-  "modified_at": "2026-08-14T22:59:45",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/tesvikli-bordro-optimizasyon/TesvikliBordroOptimizasyon.xlsx",
+  "sha256": "6f944e3dd59a28332a74b685ff91ddc48fe7c269d6332f5d3a23369c4e58fae9",
+  "size_bytes": 401005,
+  "modified_at": "2026-09-21T13:38:07",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "PANO",
+    "00_NAVIGASYON",
     "GIRDI",
+    "SENARYO",
+    "KONTROLLER",
+    "KILAVUZ",
+    "PANO",
     "BORDRO",
     "MATRIS",
     "KURALLAR",
     "MOTOR",
-    "SENARYO",
     "VAKALAR",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "PANO": "000F2742",
-    "GIRDI": "00B08948",
-    "BORDRO": "00C8A96A",
-    "MATRIS": "008B5A2B",
-    "KURALLAR": "001F7A4D",
-    "MOTOR": "008064A2",
-    "SENARYO": "00ED7D31",
-    "VAKALAR": "002E75B6",
-    "KANIT_RAPORU": "000F2742",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "00595959",
-    "AYARLAR": "000F2742",
-    "KILAVUZ": "001F4E79"
+    "00_NAVIGASYON": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "SENARYO": "FF8A5A1F",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "PANO": "FF6B7280",
+    "BORDRO": "FF6B7280",
+    "MATRIS": "FF6B7280",
+    "KURALLAR": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "VAKALAR": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 14254,
+  "formula_count": 14248,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 1053,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 28,
   "hyperlink_rel_count": 0,
   "chart_count": 11,
   "table_count": 6,
-  "conditional_format_count": 36,
+  "conditional_format_count": 23,
   "data_validation_count": 40,
   "gridlines_on_count": 0,
   "freeze_panes_count": 6,
   "merged_ranges": 45,
-  "order_mismatches": [
-    "Mevcut: PANO > GIRDI > BORDRO > MATRIS > KURALLAR > MOTOR > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > BORDRO > MATRIS > KURALLAR > MOTOR > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -74,9 +73,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=1053"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -95,25 +94,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: PANO > GIRDI > BORDRO > MATRIS > KURALLAR > MOTOR > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: GIRDI > SENARYO > KONTROLLER > KILAVUZ > PANO > BORDRO > MATRIS > KURALLAR > MOTOR > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=28"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=14254"
+      "evidence": "formula_count=14248"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/tesvikli-bordro-optimizasyon/TesvikliBordroOptimizasyon.xlsx"
+  ]
 }

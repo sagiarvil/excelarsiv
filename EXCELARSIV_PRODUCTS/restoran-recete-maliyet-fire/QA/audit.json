@@ -1,53 +1,55 @@
 {
   "product": "restoran-recete-maliyet-fire",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/restoran-recete-maliyet-fire/RestoranReceteMaliyetFire.xlsx",
-  "sha256": "d349c307e888b4897075104650ded46a65bbe91c40bfd0de7294d6b9ee3733b7",
-  "size_bytes": 492897,
-  "modified_at": "2026-08-14T21:30:31",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/restoran-recete-maliyet-fire/RestoranReceteMaliyetFire.xlsx",
+  "sha256": "140471dbbe35b06f99d00b679d84a56320eb2f07ee8b20c4d97d34ce313d5487",
+  "size_bytes": 493168,
+  "modified_at": "2026-09-21T13:38:03",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
     "GIRDI",
+    "SENARYO",
+    "KARAR",
+    "KONTROLLER",
+    "KILAVUZ",
     "HAMMADDE",
     "RECETE",
     "MALIYET",
     "FIYATLAMA",
     "VARYANS",
-    "SENARYO",
     "PANO",
-    "KARAR",
     "RAPOR",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "009A3412",
-    "GIRDI": "009A3412",
-    "HAMMADDE": "009A3412",
-    "RECETE": "009A3412",
-    "MALIYET": "009A3412",
-    "FIYATLAMA": "009A3412",
-    "VARYANS": "009A3412",
-    "SENARYO": "009A3412",
-    "PANO": "009A3412",
-    "KARAR": "009A3412",
-    "RAPOR": "009A3412",
-    "KONTROLLER": "009A3412",
-    "ORNEK_VERI": "009A3412",
-    "LISTELER": "009A3412",
-    "AYARLAR": "009A3412",
-    "KILAVUZ": "009A3412"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "SENARYO": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "HAMMADDE": "FF6B7280",
+    "RECETE": "FF6B7280",
+    "MALIYET": "FF6B7280",
+    "FIYATLAMA": "FF6B7280",
+    "VARYANS": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 655,
+  "formula_count": 687,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 190,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 32,
   "hyperlink_rel_count": 0,
   "chart_count": 9,
   "table_count": 4,
@@ -55,11 +57,8 @@
   "data_validation_count": 9,
   "gridlines_on_count": 0,
   "freeze_panes_count": 3,
-  "merged_ranges": 44,
-  "order_mismatches": [
-    "Mevcut: KAPAK > GIRDI > HAMMADDE > RECETE > MALIYET > FIYATLAMA > VARYANS > SENARYO > PANO > KARAR > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: GIRDI > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > HAMMADDE > RECETE > MALIYET > FIYATLAMA > VARYANS > PANO > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 38,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -78,9 +77,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=190"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -99,25 +98,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > GIRDI > HAMMADDE > RECETE > MALIYET > FIYATLAMA > VARYANS > SENARYO > PANO > KARAR > RAPOR > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: GIRDI > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > HAMMADDE > RECETE > MALIYET > FIYATLAMA > VARYANS > PANO > RAPOR > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=32"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=655"
+      "evidence": "formula_count=687"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/restoran-recete-maliyet-fire/RestoranReceteMaliyetFire.xlsx"
+  ]
 }

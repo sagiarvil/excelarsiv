@@ -1,13 +1,16 @@
 {
   "product": "kargo-desi-maliyet-optimizasyonu",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/kargo-desi-maliyet-optimizasyonu/KargoDesiMaliyetOptimizasyonu.xlsx",
-  "sha256": "2e692d3166cbc405e71cf42d6f9924ccf231c43346819a7b413862b3ab266b5e",
-  "size_bytes": 468475,
-  "modified_at": "2026-08-11T16:20:19",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/kargo-desi-maliyet-optimizasyonu/KargoDesiMaliyetOptimizasyonu.xlsx",
+  "sha256": "3e8910ad245e59b4fdc423e0fba14966b0e3c60f0980c9887547d06e2667446f",
+  "size_bytes": 468547,
+  "modified_at": "2026-09-21T13:37:50",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
+    "00_NAVIGASYON",
     "KAPAK",
+    "KONTROLLER",
+    "KILAVUZ",
     "VERI_A",
     "VERI_B",
     "ANAHTAR",
@@ -17,35 +20,34 @@
     "PANO",
     "AKSIYON",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "001B3A4B",
-    "VERI_A": "001B3A4B",
-    "VERI_B": "001B3A4B",
-    "ANAHTAR": "001B3A4B",
-    "MOTOR": "001B3A4B",
-    "ESLESTIRME": "001B3A4B",
-    "KOK_NEDEN": "001B3A4B",
-    "PANO": "001B3A4B",
-    "AKSIYON": "001B3A4B",
-    "KANIT_RAPORU": "001B3A4B",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "001B3A4B",
-    "AYARLAR": "001B3A4B",
-    "KILAVUZ": "001B3A4B"
+    "00_NAVIGASYON": "FF6B7280",
+    "KAPAK": "FF6B7280",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "VERI_A": "FF6B7280",
+    "VERI_B": "FF6B7280",
+    "ANAHTAR": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "ESLESTIRME": "FF6B7280",
+    "KOK_NEDEN": "FF6B7280",
+    "PANO": "FF6B7280",
+    "AKSIYON": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 34079,
+  "formula_count": 34109,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 13533,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 30,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 8,
@@ -53,11 +55,8 @@
   "data_validation_count": 54,
   "gridlines_on_count": 0,
   "freeze_panes_count": 6,
-  "merged_ranges": 52,
-  "order_mismatches": [
-    "Mevcut: KAPAK > VERI_A > VERI_B > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: KONTROLLER > KILAVUZ > KAPAK > VERI_A > VERI_B > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 45,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -76,9 +75,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=13533"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -97,25 +96,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > VERI_A > VERI_B > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: KONTROLLER > KILAVUZ > KAPAK > VERI_A > VERI_B > ANAHTAR > MOTOR > ESLESTIRME > KOK_NEDEN > PANO > AKSIYON > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=30"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=34079"
+      "evidence": "formula_count=34109"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/kargo-desi-maliyet-optimizasyonu/KargoDesiMaliyetOptimizasyonu.xlsx"
+  ]
 }

@@ -1,67 +1,66 @@
 {
   "product": "vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi/VergiSgkBorcunuTecilEtmeliMiyimKrediMiTecilMi.xlsx",
-  "sha256": "0bbe711ecf2cccec0851a9d8e646d3ecaf6962e7f3098be00e656bdec1636041",
-  "size_bytes": 252592,
-  "modified_at": "2026-08-12T03:03:02",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi/VergiSgkBorcunuTecilEtmeliMiyimKrediMiTecilMi.xlsx",
+  "sha256": "733fe83af7ab8bc7a61a5e4ee1d5f8089e00c65c51827edcee37d7e4f6da7615",
+  "size_bytes": 249975,
+  "modified_at": "2026-09-21T13:38:09",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
     "BORC_LISTESI",
+    "SENARYO_DUYARLILIK",
+    "KARAR",
+    "KONTROLLER",
+    "KILAVUZ",
     "HESAP",
     "ANALITIK_MOTOR",
-    "KONTROLLER",
-    "KARAR",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "KURALLAR",
     "VAKALAR",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "BORC_LISTESI": null,
-    "HESAP": null,
-    "ANALITIK_MOTOR": null,
-    "KONTROLLER": null,
-    "KARAR": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "KURALLAR": null,
-    "VAKALAR": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "BORC_LISTESI": "FF0F6B78",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "HESAP": "FF0F6B78",
+    "ANALITIK_MOTOR": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "KURALLAR": "FF6B7280",
+    "VAKALAR": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 6198,
+  "formula_count": 6232,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 67,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 34,
   "hyperlink_rel_count": 0,
   "chart_count": 9,
   "table_count": 2,
   "conditional_format_count": 72,
   "data_validation_count": 27,
-  "gridlines_on_count": 17,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 1,
-  "merged_ranges": 61,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > BORC_LISTESI > HESAP > ANALITIK_MOTOR > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > BORC_LISTESI > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > HESAP > ANALITIK_MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 53,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -80,46 +79,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=67"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=17"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=17"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > BORC_LISTESI > HESAP > ANALITIK_MOTOR > KONTROLLER > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > BORC_LISTESI > SENARYO_DUYARLILIK > KARAR > KONTROLLER > KILAVUZ > KAPAK > HESAP > ANALITIK_MOTOR > PANO > RAPOR > ORNEK_VERI > KURALLAR > VAKALAR > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=34"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=6198"
+      "evidence": "formula_count=6232"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi/VergiSgkBorcunuTecilEtmeliMiyimKrediMiTecilMi.xlsx"
+  ]
 }

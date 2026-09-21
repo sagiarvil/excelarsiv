@@ -1,65 +1,64 @@
 {
   "product": "asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli/AsgariUcretZamEtkisiFiyatAyarlamaCetveli.xlsx",
-  "sha256": "eb37f63039bb6a519f2ee7430095224172a212bd85d0ffdc25cc2d2010574ae9",
-  "size_bytes": 133528,
-  "modified_at": "2026-08-12T13:51:01",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli/AsgariUcretZamEtkisiFiyatAyarlamaCetveli.xlsx",
+  "sha256": "dbc5917de3150567055764db7f389c50ed115f0d7f8ce890e5b1838f6b897af6",
+  "size_bytes": 131508,
+  "modified_at": "2026-09-21T13:37:32",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
+    "SENARYO_DUYARLILIK",
+    "KARAR",
+    "KONTROL",
+    "KILAVUZ",
     "CALISANLAR",
     "URUNLER",
     "MOTOR",
-    "KONTROL",
-    "KARAR",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "AKIS",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "CALISANLAR": null,
-    "URUNLER": null,
-    "MOTOR": null,
-    "KONTROL": null,
-    "KARAR": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "AKIS": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROL": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "CALISANLAR": "FF6B7280",
+    "URUNLER": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 317,
+  "formula_count": 349,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 48,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 32,
   "hyperlink_rel_count": 0,
   "chart_count": 6,
   "table_count": 2,
   "conditional_format_count": 29,
   "data_validation_count": 2,
-  "gridlines_on_count": 16,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 2,
-  "merged_ranges": 94,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > CALISANLAR > URUNLER > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > CALISANLAR > URUNLER > MOTOR > PANO > RAPOR > ORNEK_VERI > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 88,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -78,46 +77,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=48"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=16"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=16"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > CALISANLAR > URUNLER > MOTOR > KONTROL > KARAR > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > SENARYO_DUYARLILIK > KARAR > KONTROL > KILAVUZ > KAPAK > CALISANLAR > URUNLER > MOTOR > PANO > RAPOR > ORNEK_VERI > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=32"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=317"
+      "evidence": "formula_count=349"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli/AsgariUcretZamEtkisiFiyatAyarlamaCetveli.xlsx"
+  ]
 }

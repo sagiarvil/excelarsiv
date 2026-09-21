@@ -1,59 +1,61 @@
 {
   "product": "sevkiyat-fiyatlama-navlun",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/sevkiyat-fiyatlama-navlun/SevkiyatFiyatlamaNavlun.xlsx",
-  "sha256": "f610e26748ad608ca9214078cec8cd90d25b210cb977af2cf854c0b62969a19c",
-  "size_bytes": 148801,
-  "modified_at": "2026-08-11T23:29:04",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/sevkiyat-fiyatlama-navlun/SevkiyatFiyatlamaNavlun.xlsx",
+  "sha256": "f4eb10fd895fb7b940e380c25f451600482048224604e0bef32ff596259a9cb5",
+  "size_bytes": 149244,
+  "modified_at": "2026-09-21T13:38:03",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
     "GIRDI",
+    "VARSAYIMLAR",
+    "FINANSMAN",
+    "SENARYO",
+    "KARAR",
+    "KONTROLLER",
+    "KILAVUZ",
     "HAMMADDE",
     "RECETE",
     "MOTOR",
     "FIYATLAMA",
     "VARYANS",
-    "VARSAYIMLAR",
-    "FINANSMAN",
-    "SENARYO",
     "PANO",
-    "KARAR",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "000F2742",
-    "HIZLI_BASLANGIC": "001F4E79",
-    "GIRDI": "00B08948",
-    "HAMMADDE": "002E75B6",
-    "RECETE": "00548235",
-    "MOTOR": "008064A2",
-    "FIYATLAMA": "00C65911",
-    "VARYANS": "007030A0",
-    "VARSAYIMLAR": "001F4E79",
-    "FINANSMAN": "00C65911",
-    "SENARYO": "002E75B6",
-    "PANO": "000F2742",
-    "KARAR": "00B3261E",
-    "KANIT_RAPORU": "000F2742",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "00595959",
-    "AYARLAR": "000F2742",
-    "KILAVUZ": "00548235"
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "VARSAYIMLAR": "FF4472C4",
+    "FINANSMAN": "FF0F6B78",
+    "SENARYO": "FF8A5A1F",
+    "KARAR": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "HAMMADDE": "FF6B7280",
+    "RECETE": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "FIYATLAMA": "FF6B7280",
+    "VARYANS": "FF6B7280",
+    "PANO": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 5219,
+  "formula_count": 5257,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 21,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 38,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 6,
@@ -61,11 +63,8 @@
   "data_validation_count": 37,
   "gridlines_on_count": 0,
   "freeze_panes_count": 7,
-  "merged_ranges": 53,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > GIRDI > HAMMADDE > RECETE > MOTOR > FIYATLAMA > VARYANS > VARSAYIMLAR > FINANSMAN > SENARYO > PANO > KARAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > GIRDI > VARSAYIMLAR > FINANSMAN > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > HAMMADDE > RECETE > MOTOR > FIYATLAMA > VARYANS > PANO > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 47,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -84,9 +83,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=21"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -105,25 +104,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > GIRDI > HAMMADDE > RECETE > MOTOR > FIYATLAMA > VARYANS > VARSAYIMLAR > FINANSMAN > SENARYO > PANO > KARAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > GIRDI > VARSAYIMLAR > FINANSMAN > SENARYO > KARAR > KONTROLLER > KILAVUZ > KAPAK > HAMMADDE > RECETE > MOTOR > FIYATLAMA > VARYANS > PANO > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=38"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=5219"
+      "evidence": "formula_count=5257"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/sevkiyat-fiyatlama-navlun/SevkiyatFiyatlamaNavlun.xlsx"
+  ]
 }

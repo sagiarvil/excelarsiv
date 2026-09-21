@@ -1,14 +1,20 @@
 {
   "product": "banka-kredi-ve-taksit-takip-sistemi",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/banka-kredi-ve-taksit-takip-sistemi/BankaKrediVeTaksitTakipSistemi.xlsx",
-  "sha256": "8bdd404ab0dcd97d05c80101807346da18ae720492ab37f5533b7b82b6f638f9",
-  "size_bytes": 163634,
-  "modified_at": "2026-08-12T14:07:57",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/banka-kredi-ve-taksit-takip-sistemi/BankaKrediVeTaksitTakipSistemi.xlsx",
+  "sha256": "266d9594d6d657b4d6c01ea7758dc5c53668a9b07d5c5d4caf359ac72953fc58",
+  "size_bytes": 160966,
+  "modified_at": "2026-09-21T13:37:34",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
+    "KAPAK",
+    "REFINANSMAN",
+    "SENARYO_DUYARLILIK",
+    "KARAR_MOTORU",
+    "KONTROLLER",
+    "KILAVUZ",
     "BANKALAR",
     "LIMITLER",
     "KREDILER",
@@ -17,65 +23,58 @@
     "TEMINATLAR",
     "YENI_TEKLIFLER",
     "ODEME_TAKVIMI",
-    "REFINANSMAN",
-    "KONTROLLER",
     "MOTOR",
-    "KARAR_MOTORU",
     "PANO",
-    "SENARYO_DUYARLILIK",
     "RAPOR",
     "ORNEK_VERI",
     "TESTLER",
     "AKIS",
     "DEGISIKLIK_KAYDI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": null,
-    "HIZLI_BASLANGIC": null,
-    "BANKALAR": null,
-    "LIMITLER": null,
-    "KREDILER": null,
-    "TAKSIT_PLANI": null,
-    "MASRAF_KOMISYON": null,
-    "TEMINATLAR": null,
-    "YENI_TEKLIFLER": null,
-    "ODEME_TAKVIMI": null,
-    "REFINANSMAN": null,
-    "KONTROLLER": null,
-    "MOTOR": null,
-    "KARAR_MOTORU": null,
-    "PANO": null,
-    "SENARYO_DUYARLILIK": null,
-    "RAPOR": null,
-    "ORNEK_VERI": null,
-    "TESTLER": null,
-    "AKIS": null,
-    "DEGISIKLIK_KAYDI": null,
-    "LISTELER": null,
-    "AYARLAR": null,
-    "KILAVUZ": null
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "REFINANSMAN": "FF0F6B78",
+    "SENARYO_DUYARLILIK": "FF8A5A1F",
+    "KARAR_MOTORU": "FF5B477E",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "BANKALAR": "FF6B7280",
+    "LIMITLER": "FF6B7280",
+    "KREDILER": "FF6B7280",
+    "TAKSIT_PLANI": "FF6B7280",
+    "MASRAF_KOMISYON": "FF6B7280",
+    "TEMINATLAR": "FF6B7280",
+    "YENI_TEKLIFLER": "FF6B7280",
+    "ODEME_TAKVIMI": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "PANO": "FF6B7280",
+    "RAPOR": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "TESTLER": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "DEGISIKLIK_KAYDI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 1119,
+  "formula_count": 1167,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 29,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 48,
   "hyperlink_rel_count": 0,
   "chart_count": 8,
   "table_count": 9,
   "conditional_format_count": 43,
   "data_validation_count": 13,
-  "gridlines_on_count": 24,
+  "gridlines_on_count": 0,
   "freeze_panes_count": 9,
-  "merged_ranges": 39,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > BANKALAR > LIMITLER > KREDILER > TAKSIT_PLANI > MASRAF_KOMISYON > TEMINATLAR > YENI_TEKLIFLER > ODEME_TAKVIMI > REFINANSMAN > KONTROLLER > MOTOR > KARAR_MOTORU > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > REFINANSMAN > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > BANKALAR > LIMITLER > KREDILER > TAKSIT_PLANI > MASRAF_KOMISYON > TEMINATLAR > YENI_TEKLIFLER > ODEME_TAKVIMI > MOTOR > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 40,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -94,46 +93,48 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=29"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Tüm görünür sheet tabları kurumsal renkte olmalı",
-      "evidence": "renksiz=24"
+      "evidence": "renksiz=0"
     },
     {
       "code": "U020",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Kullanıcı sheetlerinde gridline kapalı olmalı",
-      "evidence": "gridlines_on=24"
+      "evidence": "gridlines_on=0"
     },
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > BANKALAR > LIMITLER > KREDILER > TAKSIT_PLANI > MASRAF_KOMISYON > TEMINATLAR > YENI_TEKLIFLER > ODEME_TAKVIMI > REFINANSMAN > KONTROLLER > MOTOR > KARAR_MOTORU > PANO > SENARYO_DUYARLILIK > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > REFINANSMAN > SENARYO_DUYARLILIK > KARAR_MOTORU > KONTROLLER > KILAVUZ > KAPAK > BANKALAR > LIMITLER > KREDILER > TAKSIT_PLANI > MASRAF_KOMISYON > TEMINATLAR > YENI_TEKLIFLER > ODEME_TAKVIMI > MOTOR > PANO > RAPOR > ORNEK_VERI > TESTLER > AKIS > DEGISIKLIK_KAYDI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=48"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=1119"
+      "evidence": "formula_count=1167"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/banka-kredi-ve-taksit-takip-sistemi/BankaKrediVeTaksitTakipSistemi.xlsx"
+  ]
 }

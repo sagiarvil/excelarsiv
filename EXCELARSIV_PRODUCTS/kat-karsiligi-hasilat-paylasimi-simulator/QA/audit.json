@@ -1,55 +1,57 @@
 {
   "product": "kat-karsiligi-hasilat-paylasimi-simulator",
-  "path": "/Users/macair1/projects/excel-arsiv/EXCELARSIV_PRODUCTS/kat-karsiligi-hasilat-paylasimi-simulator/KatKarsiligiHasilatPaylasimiSimulator.xlsx",
-  "sha256": "ab650f976bc2aef79d632505d33cb07ab75ead6a1e00ce83359b1089bc03c8c5",
-  "size_bytes": 597786,
-  "modified_at": "2026-08-11T16:20:19",
+  "path": "/home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/kat-karsiligi-hasilat-paylasimi-simulator/KatKarsiligiHasilatPaylasimiSimulator.xlsx",
+  "sha256": "b0a1b1321d96273abd00ab7277b42d593ef4d42e7d740e3954eab693ec8adec9",
+  "size_bytes": 598116,
+  "modified_at": "2026-09-21T13:37:51",
   "fmt": ".xlsx",
   "zip_ok": true,
   "sheets": [
-    "KAPAK",
+    "00_NAVIGASYON",
     "HIZLI_BASLANGIC",
-    "PANO",
+    "KAPAK",
     "GIRDI",
+    "SENARYO",
+    "KONTROLLER",
+    "KILAVUZ",
+    "PANO",
     "KURALLAR",
     "MOTOR",
     "KARTLAR",
     "AKIS",
     "KUYRUKLAR",
-    "SENARYO",
     "VAKALAR",
     "KANIT_RAPORU",
-    "KONTROLLER",
     "ORNEK_VERI",
     "LISTELER",
-    "AYARLAR",
-    "KILAVUZ"
+    "AYARLAR"
   ],
   "hidden_sheets": [],
   "tab_colors": {
-    "KAPAK": "000F2742",
-    "HIZLI_BASLANGIC": "001F4E79",
-    "PANO": "000F2742",
-    "GIRDI": "00B08948",
-    "KURALLAR": "001F7A4D",
-    "MOTOR": "008064A2",
-    "KARTLAR": "000F2742",
-    "AKIS": "000F2742",
-    "KUYRUKLAR": "000F2742",
-    "SENARYO": "00ED7D31",
-    "VAKALAR": "002E75B6",
-    "KANIT_RAPORU": "000F2742",
-    "KONTROLLER": "00C00000",
-    "ORNEK_VERI": "0070AD47",
-    "LISTELER": "00595959",
-    "AYARLAR": "000F2742",
-    "KILAVUZ": "001F4E79"
+    "00_NAVIGASYON": "FF6B7280",
+    "HIZLI_BASLANGIC": "FF0F2942",
+    "KAPAK": "FF6B7280",
+    "GIRDI": "FF4472C4",
+    "SENARYO": "FF8A5A1F",
+    "KONTROLLER": "FF9B2C2C",
+    "KILAVUZ": "FF7F8C8D",
+    "PANO": "FF6B7280",
+    "KURALLAR": "FF6B7280",
+    "MOTOR": "FF6B7280",
+    "KARTLAR": "FF6B7280",
+    "AKIS": "FF6B7280",
+    "KUYRUKLAR": "FF6B7280",
+    "VAKALAR": "FF6B7280",
+    "KANIT_RAPORU": "FF1F4E78",
+    "ORNEK_VERI": "FF6B7280",
+    "LISTELER": "FF6B7280",
+    "AYARLAR": "FF6B7280"
   },
-  "formula_count": 10261,
+  "formula_count": 10295,
   "error_cells": [],
   "external_link_parts": 0,
-  "external_formula_count": 4053,
-  "hyperlink_formula_count": 0,
+  "external_formula_count": 0,
+  "hyperlink_formula_count": 34,
   "hyperlink_rel_count": 0,
   "chart_count": 9,
   "table_count": 7,
@@ -57,11 +59,8 @@
   "data_validation_count": 47,
   "gridlines_on_count": 0,
   "freeze_panes_count": 6,
-  "merged_ranges": 58,
-  "order_mismatches": [
-    "Mevcut: KAPAK > HIZLI_BASLANGIC > PANO > GIRDI > KURALLAR > MOTOR > KARTLAR > AKIS > KUYRUKLAR > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ",
-    "Beklenen: HIZLI_BASLANGIC > GIRDI > SENARYO > KONTROLLER > KILAVUZ > KAPAK > PANO > KURALLAR > MOTOR > KARTLAR > AKIS > KUYRUKLAR > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
-  ],
+  "merged_ranges": 51,
+  "order_mismatches": [],
   "gates": [
     {
       "code": "T001",
@@ -80,9 +79,9 @@
     {
       "code": "T020",
       "severity": "P1",
-      "passed": false,
+      "passed": true,
       "message": "Kontrolsüz harici link bağımlılığı olmamalı",
-      "evidence": "parts=0; formulas=4053"
+      "evidence": "parts=0; formulas=0"
     },
     {
       "code": "U010",
@@ -101,25 +100,27 @@
     {
       "code": "U030",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Sheet sırası kullanıcı iş akışına uygun olmalı",
-      "evidence": "Mevcut: KAPAK > HIZLI_BASLANGIC > PANO > GIRDI > KURALLAR > MOTOR > KARTLAR > AKIS > KUYRUKLAR > SENARYO > VAKALAR > KANIT_RAPORU > KONTROLLER > ORNEK_VERI > LISTELER > AYARLAR > KILAVUZ | Beklenen: HIZLI_BASLANGIC > GIRDI > SENARYO > KONTROLLER > KILAVUZ > KAPAK > PANO > KURALLAR > MOTOR > KARTLAR > AKIS > KUYRUKLAR > VAKALAR > KANIT_RAPORU > ORNEK_VERI > LISTELER > AYARLAR"
+      "evidence": ""
     },
     {
       "code": "U040",
       "severity": "P2",
-      "passed": false,
+      "passed": true,
       "message": "Çok sayfalı workbook'ta gerçek tıklanabilir navigasyon olmalı",
-      "evidence": "real_hyperlinks=0"
+      "evidence": "real_hyperlinks=34"
     },
     {
       "code": "M010",
       "severity": "P2",
       "passed": true,
       "message": "Ürün yalnız statik tablo olmamalı",
-      "evidence": "formula_count=10261"
+      "evidence": "formula_count=10295"
     }
   ],
-  "status": "BLOCKED",
-  "notes": []
+  "status": "READY_FOR_REVIEW",
+  "notes": [
+    "Kalibre kopya: /home/runner/work/excelarsiv/excelarsiv/EXCELARSIV_PRODUCTS/_SYSTEM/CALIBRATED/kat-karsiligi-hasilat-paylasimi-simulator/KatKarsiligiHasilatPaylasimiSimulator.xlsx"
+  ]
 }
