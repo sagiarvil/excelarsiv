@@ -7,7 +7,6 @@ const EXIT = Object.freeze({ PASS: 0, BLOCK: 1, CONFIG: 4 });
 
 type RegistryRecord = { route: string; status: string };
 type Registry = { records: RegistryRecord[] };
-type Catalog = { products: Record<string, unknown> };
 
 function normalizeRoute(route: string): string {
   if (route === '/') return '/';
@@ -50,8 +49,13 @@ function guideRoutes(): string[] {
 }
 
 function productRoutes(): string[] {
-  const catalog = JSON.parse(readFileSync(resolve(ROOT, 'commerce/catalog.json'), 'utf8')) as Catalog;
-  return Object.keys(catalog.products).map((slug) => `/sablon/${slug}`);
+  // Indexlenebilir ürün rotalarının kaynağı görünür template koleksiyonudur.
+  // Commerce kataloğu yalnız doğrudan satın alınabilir SKU'ları temsil eder;
+  // teklif-odaklı fakat yayındaki ürünler de /sablon ve /demo rotası üretir.
+  return readdirSync(resolve(ROOT, 'src/content/templates'))
+    .filter((entry) => /\.mdx?$/.test(entry))
+    .map((entry) => `/sablon/${entry.replace(/\.mdx?$/, '')}`)
+    .sort();
 }
 
 function demoRoutes(): string[] {
