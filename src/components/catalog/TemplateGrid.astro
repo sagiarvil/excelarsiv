@@ -37,7 +37,7 @@ const { templates } = Astro.props;
         data-category={template.categorySlug}
         data-name={`${template.name} ${template.summary} ${template.categoryName}`.toLocaleLowerCase('tr-TR')}
       >
-        <KatalogUrunKarti template={template} priority={index < 4} />
+        <KatalogUrunKarti template={template} priority={false} />
       </div>
     ))}
   </div>
@@ -216,6 +216,8 @@ const { templates } = Astro.props;
   .soho-card-col {
     display: flex;
     min-width: 0;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 560px;
   }
 
   @media (max-width: 1200px) {
