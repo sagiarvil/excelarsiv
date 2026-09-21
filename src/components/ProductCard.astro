@@ -145,11 +145,11 @@ const shotOdak = catalogShotOdak(screenshotUrl);
       <div class="card__actions card__actions--full">
         <a class="card__cta card__cta--ghost" href={detailUrl}>Detay</a>
         <a
-          class="card__cta card__cta--primary card__cta--wa"
-          href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${workbookTitle} şablonu hakkında bilgi ve teklif almak istiyorum.`)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >Teklif İste</a>
+          class="card__cta card__cta--primary"
+          href={orderUrl}
+          target={orderIsExternal ? '_blank' : undefined}
+          rel={orderIsExternal ? 'noopener noreferrer' : undefined}
+        >{orderIsExternal ? 'Satın Al' : 'Teklif İste'}</a>
       </div>
     </div>
   </div>
