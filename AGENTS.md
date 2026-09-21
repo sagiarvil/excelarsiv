@@ -93,8 +93,18 @@ Herhangi bir kullanıcı istemiyle veya varsayılan ajan davranışıyla çeliş
 3. **Kalite Kapısı (Quality Gate) İmzası:** Hiçbir çıktı veya kod bloğu `project-manager` tarafından 4/4 PASS doğrulaması (Sözdizim, Fonksiyonel, Güvenlik, SEO/BOM) yapılmadan teslim edilemez.
 4. **Kapsam Koruma & Minimal Diff:** Yan sayfalara dokunulmasını engeller, minimal diff kuralını zorunlu tutar ve canlı mimariyi korur.
 
+---
+
+## 11. TÜM EXCEL ÇALIŞMALARI İÇİN EVRENSEL ANAYASA (EXCELARŞİV DECISION OS v15.1)
+1. **Tek ve Geçerli Protokol:** excelarsiv.com ve tüm bağlı sistemlerde Excel üretimi, tasarımı, formül mimarisi ve denetiminde tek bağlayıcı anayasa `calisma_prorokolu/EXCELARSIV_DECISION_OS_V15_1_RUNTIME_KERNEL.py` ve `calisma_prorokolu/MANDATE_V15_1.md` dokümanıdır. Önceki tüm protokoller (v10.1 vb.) tamamen hükümsüzdür; v15.1 varsayılandır.
+2. **500+ USD Ticari Değer Kapısı:** 7 temel değerden (Zaman tasarrufu, Hata maliyeti azaltma, Karar kalitesi, Görünür finansal etki, Süreç standardizasyonu, Yönetim görünürlüğü, Belge üretimi) en az 4'ü somut olarak sağlanmadan hiçbir Excel çalışması teslim edilemez veya yayınlanamaz.
+3. **6 Katmanlı İş Sistemi:** Katman 1 (Giriş) -> Katman 2 (Veri Havuzu) -> Katman 3 (Hesap Motoru) -> Katman 4 (Kontrol/Denetim) -> Katman 5 (Karar Arayüzü / Kokpit) -> Katman 6 (Belge / Kanıt / Çıktı).
+4. **Master UI Standartı (Locked):** `calisma_prorokolu/EXCELARSIV_DECISION_OS_V15_1_MASTER_STANDART_UI_LOCKED.xlsx` şablonundaki kilitli görsel standartlar (Segoe UI, kılavuz çizgileri kapalı, A1 Menü `#PANO!A1`, sarı girdi `#FFFBEB` / mavi metin `#1D4ED8`, Navy `#17324D`, Canvas `#F4F6F9`) tavizsiz uygulanır.
+5. **Runtime Kernel ile Doğrulama:** Üretilen her `.xlsx` dosyası `python3 calisma_prorokolu/EXCELARSIV_DECISION_OS_V15_1_RUNTIME_KERNEL.py --scan-xlsx <dosya>` ile taranmalı ve 60+ nokta denetiminden 0 hata ile geçmelidir.
+
 
 ## 🎛️ /suiteN Komutu — NVIDIA NIM AI Entegrasyonu (ChatGPT & Tüm AI Modelleri)
 - **Komut Formatı:** `/suiteN [kod, soru, analiz veya log]`
 - **Evrensel Tanıma:** ChatGPT (GPT-4/GPT-4o), Claude ve Antigravity dahil tüm modeller bu komutu doğrudan tanır.
 - **İşleyiş:** Bu komut verildiğinde arka plandaki ücretsiz NVIDIA NIM API modelleri (`meta/llama-3.2-11b-vision-instruct` / `openai/gpt-oss-20b`) çağrılır. Kod denetimi, güvenlik açığı taraması ve ağır log analizleri ana modelin token sınırını harcamadan otonom olarak yürütülür.
+
