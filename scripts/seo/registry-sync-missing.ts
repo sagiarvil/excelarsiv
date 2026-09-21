@@ -25,6 +25,21 @@ function typeFor(route: string): string {
 }
 
 for (const route of missing) {
+  const existing = registry.records.find((record: { route: string }) => record.route === route);
+  if (existing) {
+    existing.status = 'live';
+    existing.type = typeFor(route);
+    existing.canonical = `https://excelarsiv.com${route === '/' ? '' : route}`;
+    existing.primaryEntity = existing.primaryEntity || route;
+    existing.searchIntent =
+      existing.searchIntent || (route.startsWith('/demo/') || route.startsWith('/hesaplayici/') ? 'informational' : null);
+    if (route.startsWith('/demo/')) {
+      existing.ownerRoute = route.replace('/demo/', '/sablon/');
+    }
+    existing.notes = 'Registry parity sync — QA onaylı katalog ürünü canlı sete alındı.';
+    continue;
+  }
+
   const pageId = `excelarsiv:${route === '/' ? 'home' : route.replace(/^\//, '').replace(/\//g, ':')}`;
   registry.records.push({
     pageId,
@@ -37,8 +52,8 @@ for (const route of missing) {
     templateId: null,
     serpFeatureTargets: [],
     canonical: `https://excelarsiv.com${route === '/' ? '' : route}`,
-    ownerRoute: null,
-    notes: 'Registry parity sync — otomatik eklendi.',
+    ownerRoute: route.startsWith('/demo/') ? route.replace('/demo/', '/sablon/') : null,
+    notes: 'Registry parity sync — QA onaylı katalog ürünü otomatik eklendi.',
   });
 }
 
