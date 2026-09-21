@@ -355,7 +355,7 @@ def ensure_navigation_sheet(files: Dict[str, bytes], wb_root: ET.Element, rels_r
         m = re.fullmatch(r"rId(\d+)", rid)
         if m:
             max_rid = max(max_rid, int(m.group(1)))
-        target = rel.attrib.get("Target", "").replace("\\\\", "/")
+        target = rel.attrib.get("Target", "").replace("\\", "/")
         if "worksheets/sheet" in target:
             worksheet_targets.append(target)
 
@@ -432,7 +432,7 @@ def ensure_navigation_sheet(files: Dict[str, bytes], wb_root: ET.Element, rels_r
         formula = ET.SubElement(cell, f"{{{NS_MAIN}}}f")
         safe_sheet = sheet_name.replace("'", "''")
         safe_label = sheet_name.replace('"', '""')
-        formula.text = f'HYPERLINK("#\\'{safe_sheet}\\'!A1","{safe_label}")'
+        formula.text = f'HYPERLINK("#\'{safe_sheet}\'!A1","{safe_label}")'
         value = ET.SubElement(cell, f"{{{NS_MAIN}}}v")
         value.text = sheet_name
         inline_cell(row, f"B{idx}", category(sheet_name))
