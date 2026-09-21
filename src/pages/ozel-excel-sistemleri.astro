@@ -278,6 +278,28 @@
 
     .section{padding:54px 0}.section-soft{background:var(--soft)}.section-green{background:linear-gradient(180deg,#f3fbf6 0%,#fff 100%)}.section-head{max-width:760px;margin:0 auto 28px;text-align:center}.section-head h2{margin:0;font-size:clamp(26px,2.6vw,32px);line-height:1.24;font-weight:750;letter-spacing:-.028em;text-wrap:balance;color:#222222}.section-head p{margin:10px auto 0;max-width:660px;color:#555555;font-size:16px;line-height:1.6}.section-kicker{display:inline-flex;align-items:center;gap:7px;margin-bottom:8px;color:var(--green);font-size:13px;font-weight:750;letter-spacing:.02em}.section-kicker::before{content:"";width:20px;height:2.5px;border-radius:3px;background:linear-gradient(90deg,var(--green) 0 45%,var(--amber) 45% 70%,var(--violet) 70%)}
 
+    /* 01.5 SEO AUTHORITY & STRATEJİK EXCEL ÇÖZÜMLERİ */
+    .seo-authority-section{padding:52px 0 46px;background:#ffffff;border-bottom:1px solid #e7eee9}
+    .seo-pillar-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+    .seo-pillar-card{display:flex;flex-direction:column;min-width:0;padding:24px 22px;border:1px solid #dbe6df;border-radius:16px;background:#fbfdfc;box-shadow:var(--shadow-sm);transition:transform .18s ease,border-color .18s ease}
+    .seo-pillar-card:hover{transform:translateY(-2px);border-color:#97cfb2}
+    .seo-pillar-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;border-bottom:1px solid #eef3f0;padding-bottom:12px}
+    .seo-pillar-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:10px;font-size:16px;font-weight:800;flex-shrink:0}
+    .seo-pillar-card.why .seo-pillar-icon{background:var(--green-soft);color:var(--green-dark)}
+    .seo-pillar-card.benefits .seo-pillar-icon{background:var(--blue-soft);color:var(--blue)}
+    .seo-pillar-card.solutions .seo-pillar-icon{background:var(--amber-soft);color:var(--amber)}
+    .seo-pillar-head h3{margin:0;font-size:17.5px;line-height:1.3;font-weight:750;color:#1e293b}
+    .seo-pillar-desc{margin:0 0 14px;color:#555555;font-size:14px;line-height:1.55}
+    .seo-pillar-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+    .seo-pillar-list li{display:flex;flex-direction:column;gap:3px;font-size:13.5px;line-height:1.5;color:#475569;border-left:2px solid #82c5a0;padding-left:10px}
+    .seo-pillar-list li strong{color:#1e293b;font-weight:750;font-size:14px}
+    .seo-authority-bar{margin-top:26px;padding:18px 22px;border-radius:14px;background:#f3f9f5;border:1px solid #cce5d7;display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:center}
+    .seo-bar-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;background:#0b7440;color:#fff;font-size:12px;font-weight:750;letter-spacing:.02em;white-space:nowrap}
+    .seo-bar-tags{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+    .seo-tag-pill{display:inline-flex;align-items:center;padding:4px 10px;border-radius:6px;background:#fff;border:1px solid #bcdbc9;color:#166534;font-size:12.5px;font-weight:650}
+    .seo-authority-note{margin-top:14px;text-align:center;font-size:13px;color:#64748b;line-height:1.5}
+    .seo-authority-note strong{color:#0e6a3c}
+
     /* 02 MEKANİZMA (6 ADIM) */
     .mech-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
     .mech-card{padding:20px 18px;border-radius:14px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .18s ease,border-color .18s ease}
@@ -449,6 +471,8 @@
 
     @media(max-width:1080px){
       .hero-grid{grid-template-columns:1fr;gap:32px}
+      .seo-pillar-grid{grid-template-columns:1fr;gap:20px}
+      .seo-authority-bar{grid-template-columns:1fr;gap:12px}
       .mech-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
       .sample-systems-grid{grid-template-columns:1fr}
       .problem-grid,.why-grid,.process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -988,6 +1012,125 @@
             }
           })();
         </script>
+      </div>
+    </section>
+
+    <!-- 01.5 STRATEJİK KURUMSAL EXCEL ÇÖZÜMLERİ & ARAMA NİYETİ ODAKLI MİMARİ -->
+    <section class="section seo-authority-section" id="ozel-excel-cozumleri">
+      <div class="wrap-wide">
+        <div class="section-head">
+          <span class="section-kicker">KURUMSAL EXCEL ÇÖZÜMLERİ &amp; KARAR DESTEK</span>
+          <h2>Şirketinize Özel Excel Sistemleri Neden Gereklidir, Ne Kazandırır?</h2>
+          <p>Her işletmenin nakit döngüsü, birim kârlılık dinamikleri, banka kredi limitleri ve yönetim raporlama gereksinimleri kendine özgüdür. Ağır ve aylar süren maliyetli ERP uyarlamaları veya internetteki sıradan şablonlar yerine; şirketinizin mevcut veri akışına tam oturan, verilerinizin yerel cihazınızda kaldığı, formülleri açık ve hatasız çalışan kurumsal Excel sistemleri inşa ediyoruz.</p>
+        </div>
+
+        <div class="seo-pillar-grid">
+          <!-- SÜTUN 1: NEDEN GEREKLİ? -->
+          <article class="seo-pillar-card why">
+            <div class="seo-pillar-head">
+              <span class="seo-pillar-icon" aria-hidden="true">🎯</span>
+              <div>
+                <h3>Neden Özel Excel Sistemi?</h3>
+              </div>
+            </div>
+            <p class="seo-pillar-desc">Standart çözümlerin işletmenizin gerçek temposuna yetmediği noktalarda özel bir sistem kurmak zorunluluk haline gelir:</p>
+            <ul class="seo-pillar-list">
+              <li>
+                <strong>Kalıp Şablonların Yetersizliği:</strong>
+                <span>Genel indirme tabloları; firmanıza özel vade farklarını, iskonto basamaklarını, çoklu dövizli carileri ve karmaşık kârlılık kurallarını karşılayamaz.</span>
+              </li>
+              <li>
+                <strong>ERP ve Hantal Yazılımların Boşluğu:</strong>
+                <span>Ağır ERP sistemleri aylar sürer, yüksek danışmanlık faturaları çıkarır ve karar vericiye anlık esneklik sunamaz. Özel Excel modelleri ise anında çeviklik sağlar.</span>
+              </li>
+              <li>
+                <strong>Formül Bozulmaları &amp; Hata Riski:</strong>
+                <span>Elden ele dolaşan, kopyala-yapıştır ile hücre referansları kayan ve formül hataları veren dosyalar yüzünden finansal kararlar karanlıkta alınır.</span>
+              </li>
+              <li>
+                <strong>Kişiye Bağımlılığın Sona Ermesi:</strong>
+                <span>Şirket verilerinin tek bir personelin hafızasına veya kişisel arşivine hapsolmasını engeller; tüm ekibin kullanabileceği kurumsal bir standart oluşturur.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- SÜTUN 2: İŞLETMENİZE FAYDALARI -->
+          <article class="seo-pillar-card benefits">
+            <div class="seo-pillar-head">
+              <span class="seo-pillar-icon" aria-hidden="true">⚡</span>
+              <div>
+                <h3>İşletmenize Sağladığı Faydalar</h3>
+              </div>
+            </div>
+            <p class="seo-pillar-desc">Sadece bir tablo değil; şirketin finansal sağlığını koruyan, saatleri saniyelere indiren canlı bir altyapı kazanırsınız:</p>
+            <ul class="seo-pillar-list">
+              <li>
+                <strong>%100 Yerel Veri Güvenliği ve Gizlilik:</strong>
+                <span>Tüm ticari verileriniz, müşteri listeleriniz ve kâr marjlarınız üçüncü parti bulutlara gitmez; şirket bilgisayarlarınızda tam KVKK güvencesiyle çalışır.</span>
+              </li>
+              <li>
+                <strong>Kontrollü Veri Girişi &amp; Sıfır Hata:</strong>
+                <span>Hücre doğrulama, dinamik açılır listeler ve otomatik mutabakat kontrolleri ile personelin yanlış veya mükerrer kayıt girmesi kaynağında engellenir.</span>
+              </li>
+              <li>
+                <strong>Hızlı Karar ve Yönetici Kokpiti:</strong>
+                <span>Haftalık ve aylık rapor derleme çilesi biter; 13 haftalık yuvarlanan nakit projeksiyonu, kredi risk durumu ve kârlılık tek ekranda anlık izlenir.</span>
+              </li>
+              <li>
+                <strong>Sıfır Ekstra Lisans &amp; Açık Formül:</strong>
+                <span>Aylık kullanıcı başı SaaS ücretleri ödemezsiniz. Formüller şeffaftır, gizli kod barındırmaz ve şirketinize kalıcı operasyonel bağımsızlık sağlar.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- SÜTUN 3: NASIL ÇÖZÜMLER SUNUYORUZ? -->
+          <article class="seo-pillar-card solutions">
+            <div class="seo-pillar-head">
+              <span class="seo-pillar-icon" aria-hidden="true">🛠️</span>
+              <div>
+                <h3>Nasıl Çözümler Sunuyoruz?</h3>
+              </div>
+            </div>
+            <p class="seo-pillar-desc">İhtiyacınızı dinliyor, mühendislik disipliniyle çalışan güvenli ve ölçeklenebilir sistemler tasarlıyoruz:</p>
+            <ul class="seo-pillar-list">
+              <li>
+                <strong>İş Akışı &amp; Darboğaz Analizi:</strong>
+                <span>Mevcut Excel dosyalarınızı, fatura akışınızı ve ERP çıktılarınızı inceliyor; hata üreten ve zaman kaybettiren tüm kör noktaları haritalandırıyoruz.</span>
+              </li>
+              <li>
+                <strong>İleri Matematik &amp; Formül Mimarisi:</strong>
+                <span>Güvenlik riski taşıyan hantal makrolar yerine modern Excel'in en güçlü fonksiyonlarıyla (XLOOKUP, LAMBDA, LET, Dinamik Matrisler) ultra hızlı modeller kuruyoruz.</span>
+              </li>
+              <li>
+                <strong>Dinamik Yönetim Dashboardları:</strong>
+                <span>Şirket ortakları ve finans yöneticileri için nakit dengesini, alacak yaşlandırmayı, bütçe sapmalarını ve kâr marjlarını gösteren karar kokpitleri tasarlıyoruz.</span>
+              </li>
+              <li>
+                <strong>Veri Aktarımı, Test &amp; Oryantasyon:</strong>
+                <span>Geçmiş verilerinizi yeni sisteme aktarıyor, sınır durum ve stres testlerini tamamlayıp ekibinize eksiksiz kullanım dokümanıyla teslim ediyoruz.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- EN ÇOK ARANAN KURUMSAL ÇÖZÜMLER & UYUMLULUK ÇUBUĞU -->
+        <div class="seo-authority-bar">
+          <div class="seo-bar-badge">
+            <span aria-hidden="true">★</span>
+            <span>En Sık Kurduğumuz Özel Çözümler</span>
+          </div>
+          <div class="seo-bar-tags" aria-label="Popüler kurumsal Excel çözümleri">
+            <span class="seo-tag-pill">13-Haftalık Dinamik Nakit Akışı</span>
+            <span class="seo-tag-pill">Banka Kredi &amp; Rotatif Limit-Risk Takibi</span>
+            <span class="seo-tag-pill">Birim Maliyet &amp; Başabaş (Break-Even) Motoru</span>
+            <span class="seo-tag-pill">Alacak Yaşlandırma &amp; Tahsilat Kokpiti</span>
+            <span class="seo-tag-pill">Bütçe vs. Fiili Sapma Analizi</span>
+            <span class="seo-tag-pill">Patron Yönetim Dashboardu</span>
+          </div>
+        </div>
+        <p class="seo-authority-note">
+          <strong>Donanım ve Sürüm Uyumluluğu:</strong> Microsoft Excel 2016, 2019, 2021 ve Microsoft 365 (Windows &amp; macOS) sürümleriyle %100 uyumludur. Dış kaynaklı eklenti veya ek yazılım kurulumu gerektirmeden yerel olarak çalışır.
+        </p>
       </div>
     </section>
 
