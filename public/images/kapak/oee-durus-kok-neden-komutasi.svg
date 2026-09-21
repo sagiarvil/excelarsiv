@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f0fdfa" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="276.70877371914685" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="200" width="249.65213537216187" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="300" width="227.08494406659156" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="400" width="104.53222923912108" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="500" width="189.11996148061007" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="600" width="103.28496173024178" height="30" rx="15" fill="#ccfbf1"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 347.14733995497227 L 880 466.71348738018423 L 1020 438.73752097133547 L 1160 231.36070799082518 L 1300 329.3613174930215" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 462.6931863836944 L 1860 220.8026500651613 L 2000 416.3655990501866 L 2140 293.8790903892368 L 2280 495.40733410976827" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1183.5062829544768" width="60" height="116.49371704552323" rx="10" fill="#14b8a6"/><rect x="720" y="1042.8684841375798" width="60" height="257.1315158624202" rx="10" fill="#14b8a6"/><rect x="840" y="1068.7131075421348" width="60" height="231.28689245786518" rx="10" fill="#14b8a6"/><rect x="960" y="1195.0087092351168" width="60" height="104.99129076488316" rx="10" fill="#14b8a6"/><rect x="1080" y="1150.8350368821993" width="60" height="149.16496311780065" rx="10" fill="#14b8a6"/><rect x="1200" y="1034.5923627493903" width="60" height="265.4076372506097" rx="10" fill="#14b8a6"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 1021.1067349417135 L 1860 1006.032471684739 L 2000 1176.5411578584462 L 2140 993.0429256288335 L 2280 977.2120466222987" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#0f172a" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: OEE-DURUS-KOK-NEDEN-KOMUTASI</text>
+      <text x="100" y="1570" fill="#0f172a" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

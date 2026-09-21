@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f8fafc" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="220.22387641482055" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="155.65074199344963" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="122.35336346551776" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="131.1197617603466" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="129.22485682182014" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="242.15200468432158" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 281.30662923213094 L 880 341.22971477918327 L 1020 292.80791892670095 L 1160 459.04722020495683 L 1300 395.7146386615932" fill="none" stroke="#059669" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 270.97130466718227 L 1860 470.54804435465485 L 2000 302.2415598388761 L 2140 407.69110654946417 L 2280 313.5591745842248" fill="none" stroke="#059669" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1183.8257139315829" width="60" height="116.17428606841713" rx="10" fill="#10b981"/><rect x="720" y="1027.447715587914" width="60" height="272.552284412086" rx="10" fill="#10b981"/><rect x="840" y="1090.852898452431" width="60" height="209.14710154756904" rx="10" fill="#10b981"/><rect x="960" y="1022.7157686604187" width="60" height="277.2842313395813" rx="10" fill="#10b981"/><rect x="1080" y="1164.302663714625" width="60" height="135.69733628537506" rx="10" fill="#10b981"/><rect x="1200" y="946.8848189804703" width="60" height="353.1151810195297" rx="10" fill="#10b981"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: ELEKTRIK-FATURASI-DOGRULAMA</text>
+      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

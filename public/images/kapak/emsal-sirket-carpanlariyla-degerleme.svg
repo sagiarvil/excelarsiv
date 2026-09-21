@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f0fdfa" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="120.56621979456395" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="200" width="269.53649363014847" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="300" width="114.6576933702454" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="400" width="232.4369478272274" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="500" width="205.7628445373848" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="600" width="190.11454926803708" height="30" rx="15" fill="#ccfbf1"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 321.39280510600656 L 880 470.34921227023005 L 1020 268.7353427289054 L 1160 308.0925343558192 L 1300 327.06213833298534" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 341.0064346389845 L 1860 244.32882808614522 L 2000 386.7652275599539 L 2140 210.8489777194336 L 2280 204.53714695759118" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 931.1327462783083 L 880 1157.7499599661678 L 1020 1183.6623300332576 L 1160 1135.6199586996809 L 1300 1191.6806540451944" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#0f172a" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: EMSAL-SIRKET-CARPANLARIYLA-DEGERLEME</text>
+      <text x="100" y="1570" fill="#0f172a" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

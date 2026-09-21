@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f0fdfa" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="111.0951551515609" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="200" width="249.7336893202737" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="300" width="123.85665993671864" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="400" width="118.51236425805837" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="500" width="118.23538510594517" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="600" width="187.88405782077461" height="30" rx="15" fill="#ccfbf1"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 486.0858178464696 L 880 283.4480319172144 L 1020 370.9247098537162 L 1160 374.8677665833384 L 1300 356.27329342532903" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="376.20214112102985" width="60" height="223.79785887897015" rx="10" fill="#14b8a6"/><rect x="1700" y="236.85310140717775" width="60" height="363.14689859282225" rx="10" fill="#14b8a6"/><rect x="1820" y="385.6181090697646" width="60" height="214.3818909302354" rx="10" fill="#14b8a6"/><rect x="1940" y="242.08188578486443" width="60" height="357.9181142151356" rx="10" fill="#14b8a6"/><rect x="2060" y="462.8207484027371" width="60" height="137.17925159726292" rx="10" fill="#14b8a6"/><rect x="2180" y="211.22743468731642" width="60" height="388.7725653126836" rx="10" fill="#14b8a6"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 967.4368990352377 L 880 990.9823280526325 L 1020 903.6424169316888 L 1160 923.0549198342487 L 1300 1008.4611145080999" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 1184.0076550841331 L 1860 1119.7802874958143 L 2000 911.0489746090025 L 2140 1122.9532443685457 L 2280 1037.5708444509655" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="1500" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1900 L 740 1623.425015853718 L 880 1630.45609514229 L 1020 1646.1520650424063 L 1160 1716.2708647781983 L 1300 1770.3090348979458" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#0f172a" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: DOVIZ-ACIK-POZISYONU-VE-KUR-RISKI-STRES-TESTI</text>
+      <text x="100" y="1570" fill="#0f172a" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

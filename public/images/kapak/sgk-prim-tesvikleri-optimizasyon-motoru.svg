@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f1f5f9" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="216.44101408775896" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="200" width="277.35238758381456" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="300" width="191.24261588789523" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="400" width="147.51703900285065" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="500" width="190.48171723727137" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="600" width="153.39739439543337" height="30" rx="15" fill="#cbd5e1"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 384.44728285539895 L 880 476.40032924246043 L 1020 283.18176337052137 L 1160 328.95405150484294 L 1300 394.375783437863" fill="none" stroke="#2563eb" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="387.7352800918743" width="60" height="212.2647199081257" rx="10" fill="#3b82f6"/><rect x="1700" y="496.7708776704967" width="60" height="103.2291223295033" rx="10" fill="#3b82f6"/><rect x="1820" y="488.2147387601435" width="60" height="111.78526123985648" rx="10" fill="#3b82f6"/><rect x="1940" y="378.6429525818676" width="60" height="221.35704741813242" rx="10" fill="#3b82f6"/><rect x="2060" y="241.034394945018" width="60" height="358.965605054982" rx="10" fill="#3b82f6"/><rect x="2180" y="333.7916250806302" width="60" height="266.2083749193698" rx="10" fill="#3b82f6"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1068.7816836638376" width="60" height="231.2183163361624" rx="10" fill="#3b82f6"/><rect x="720" y="981.1105322325602" width="60" height="318.8894677674398" rx="10" fill="#3b82f6"/><rect x="840" y="1169.038652535528" width="60" height="130.96134746447206" rx="10" fill="#3b82f6"/><rect x="960" y="1145.1438049552962" width="60" height="154.85619504470378" rx="10" fill="#3b82f6"/><rect x="1080" y="943.0901736253873" width="60" height="356.90982637461275" rx="10" fill="#3b82f6"/><rect x="1200" y="1091.8937105219811" width="60" height="208.10628947801888" rx="10" fill="#3b82f6"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="1183.1675076624379" width="60" height="116.83249233756214" rx="10" fill="#3b82f6"/><rect x="1700" y="1082.2666654363275" width="60" height="217.73333456367254" rx="10" fill="#3b82f6"/><rect x="1820" y="1167.9260447155684" width="60" height="132.07395528443158" rx="10" fill="#3b82f6"/><rect x="1940" y="1125.7834064774215" width="60" height="174.21659352257848" rx="10" fill="#3b82f6"/><rect x="2060" y="1078.6617179168388" width="60" height="221.33828208316118" rx="10" fill="#3b82f6"/><rect x="2180" y="1124.055888550356" width="60" height="175.94411144964397" rx="10" fill="#3b82f6"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#1e293b" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: SGK-PRIM-TESVIKLERI-OPTIMIZASYON-MOTORU</text>
+      <text x="100" y="1570" fill="#1e293b" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

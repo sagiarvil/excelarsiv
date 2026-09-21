@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f1f5f9" />
+  
+  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#3b82f6"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#cbd5e1"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#cbd5e1"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#cbd5e1"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#cbd5e1"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#cbd5e1" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#cbd5e1" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#cbd5e1" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#cbd5e1" stroke-width="4"/><path d="M 200 1100 C 320 727.0740211009979, 320 406.80004958994687, 440 406.80004958994687 C 560 406.80004958994687, 560 579.0204588323832, 680 579.0204588323832 C 800 579.0204588323832, 800 891.9022993184626, 920 891.9022993184626 C 1040 891.9022993184626, 1040 827.0043831784278, 1160 827.0043831784278 C 1280 827.0043831784278, 1280 476.89937404356897, 1400 476.89937404356897 C 1520 476.89937404356897, 1520 922.1613198518753, 1640 922.1613198518753 C 1760 922.1613198518753, 1760 641.61711409688, 1880 641.61711409688 C 2000 641.61711409688, 2000 804.0362036786973, 2120 804.0362036786973 C 2240 804.0362036786973, 2240 585.135416360572, 2360 585.135416360572 L 2360 1360 L 200 1360 Z" fill="#60a5fa" opacity="0.2"/><path d="M 200 1100 C 320 727.0740211009979, 320 406.80004958994687, 440 406.80004958994687 C 560 406.80004958994687, 560 579.0204588323832, 680 579.0204588323832 C 800 579.0204588323832, 800 891.9022993184626, 920 891.9022993184626 C 1040 891.9022993184626, 1040 827.0043831784278, 1160 827.0043831784278 C 1280 827.0043831784278, 1280 476.89937404356897, 1400 476.89937404356897 C 1520 476.89937404356897, 1520 922.1613198518753, 1640 922.1613198518753 C 1760 922.1613198518753, 1760 641.61711409688, 1880 641.61711409688 C 2000 641.61711409688, 2000 804.0362036786973, 2120 804.0362036786973 C 2240 804.0362036786973, 2240 585.135416360572, 2360 585.135416360572" fill="none" stroke="#3b82f6" stroke-width="24" stroke-linecap="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#1e293b" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: BORCLA-SIRKET-SATIN-ALMA-VE-YATIRIM-GETIRISI</text>
+      <text x="100" y="1570" fill="#1e293b" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

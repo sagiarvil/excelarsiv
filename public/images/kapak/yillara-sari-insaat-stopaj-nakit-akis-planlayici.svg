@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f1f5f9" />
+  
+  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#3b82f6"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#cbd5e1"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#cbd5e1"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#cbd5e1"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#cbd5e1"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#cbd5e1" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#cbd5e1" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#cbd5e1" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#cbd5e1" stroke-width="4"/><path d="M 200 1100 C 320 442.1255865134299, 320 578.9178859908134, 440 578.9178859908134 C 560 578.9178859908134, 560 816.6077514179051, 680 816.6077514179051 C 800 816.6077514179051, 800 518.1483373977244, 920 518.1483373977244 C 1040 518.1483373977244, 1040 551.5760256443173, 1160 551.5760256443173 C 1280 551.5760256443173, 1280 527.1717523224652, 1400 527.1717523224652 C 1520 527.1717523224652, 1520 874.0295425988734, 1640 874.0295425988734 C 1760 874.0295425988734, 1760 402.7127342298627, 1880 402.7127342298627 C 2000 402.7127342298627, 2000 756.403158325702, 2120 756.403158325702 C 2240 756.403158325702, 2240 762.5688981730491, 2360 762.5688981730491 L 2360 1360 L 200 1360 Z" fill="#60a5fa" opacity="0.2"/><path d="M 200 1100 C 320 442.1255865134299, 320 578.9178859908134, 440 578.9178859908134 C 560 578.9178859908134, 560 816.6077514179051, 680 816.6077514179051 C 800 816.6077514179051, 800 518.1483373977244, 920 518.1483373977244 C 1040 518.1483373977244, 1040 551.5760256443173, 1160 551.5760256443173 C 1280 551.5760256443173, 1280 527.1717523224652, 1400 527.1717523224652 C 1520 527.1717523224652, 1520 874.0295425988734, 1640 874.0295425988734 C 1760 874.0295425988734, 1760 402.7127342298627, 1880 402.7127342298627 C 2000 402.7127342298627, 2000 756.403158325702, 2120 756.403158325702 C 2240 756.403158325702, 2240 762.5688981730491, 2360 762.5688981730491" fill="none" stroke="#3b82f6" stroke-width="24" stroke-linecap="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#1e293b" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: YILLARA-SARI-INSAAT-STOPAJ-NAKIT-AKIS-PLANLAYICI</text>
+      <text x="100" y="1570" fill="#1e293b" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

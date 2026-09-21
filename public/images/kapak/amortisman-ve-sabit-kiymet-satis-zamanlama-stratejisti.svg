@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#fffbeb" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="247.42998299654573" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="200" width="133.3953971322626" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="300" width="258.92062592785805" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="400" width="246.55694479122758" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="500" width="262.33540292829275" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="600" width="262.27350689005107" height="30" rx="15" fill="#fef3c7"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 236.5005676401779 L 880 226.76505660638213 L 1020 261.2068525282666 L 1160 256.2456423183903 L 1300 273.0758316582069" fill="none" stroke="#d97706" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="313.2063443772495" width="60" height="286.7936556227505" rx="10" fill="#f59e0b"/><rect x="1700" y="221.25980730634183" width="60" height="378.7401926936582" rx="10" fill="#f59e0b"/><rect x="1820" y="289.1177189303562" width="60" height="310.8822810696438" rx="10" fill="#f59e0b"/><rect x="1940" y="394.9951481074095" width="60" height="205.00485189259052" rx="10" fill="#f59e0b"/><rect x="2060" y="376.8565600272268" width="60" height="223.1434399727732" rx="10" fill="#f59e0b"/><rect x="2180" y="300.7688502315432" width="60" height="299.2311497684568" rx="10" fill="#f59e0b"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 1079.2648232309148 L 880 1109.3696189112961 L 1020 1078.404865320772 L 1160 1021.1685303831473 L 1300 956.240698043257" fill="none" stroke="#d97706" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 916.3381942547858 L 1860 920.0450168224052 L 2000 977.01002843678 L 2140 992.0306026004255 L 2280 1074.605338065885" fill="none" stroke="#d97706" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="1500" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1900 L 740 1642.526834923774 L 880 1723.9462191937491 L 1020 1762.3090620851144 L 1160 1766.2570814602077 L 1300 1787.2983333654702" fill="none" stroke="#d97706" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#451a03" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: AMORTISMAN-VE-SABIT-KIYMET-SATIS-ZAMANLAMA-STRATEJISTI</text>
+      <text x="100" y="1570" fill="#451a03" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

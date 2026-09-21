@@ -1,15 +1,15 @@
 // Ürün slug'ından kapak görseli yolunu döndürür.
 // Kapak yalnızca kapak görseli üretilmiş ürünlerde mevcuttur; diğerlerinde undefined.
 const KAPAKLAR: Record<string, string> = {
-  '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi': '/images/kapak/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi.webp',
-  'asiri-dusuk-teklif-savunma-robotu': '/images/kapak/asiri-dusuk-teklif-savunma-robotu.webp',
-  'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi': '/images/kapak/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi.webp',
-  'cek-senet-ve-vade-risk-sistemi': '/images/kapak/cek-senet-ve-vade-risk-sistemi.webp',
-  'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici': '/images/kapak/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici.webp',
-  'pos-komisyon-ve-net-tahsilat-kontrol-sistemi': '/images/kapak/pos-komisyon-ve-net-tahsilat-kontrol-sistemi.webp',
-  'sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli': '/images/kapak/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli.webp',
-  'uretim-recetesi-ve-zam-yansitma-hesaplayici': '/images/kapak/uretim-recetesi-ve-zam-yansitma-hesaplayici.webp',
-  'vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi': '/images/kapak/vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi.webp',
+  '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi': '/images/kapak/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi.svg',
+  'asiri-dusuk-teklif-savunma-robotu': '/images/kapak/asiri-dusuk-teklif-savunma-robotu.svg',
+  'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi': '/images/kapak/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi.svg',
+  'cek-senet-ve-vade-risk-sistemi': '/images/kapak/cek-senet-ve-vade-risk-sistemi.svg',
+  'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici': '/images/kapak/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici.svg',
+  'pos-komisyon-ve-net-tahsilat-kontrol-sistemi': '/images/kapak/pos-komisyon-ve-net-tahsilat-kontrol-sistemi.svg',
+  'sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli': '/images/kapak/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli.svg',
+  'uretim-recetesi-ve-zam-yansitma-hesaplayici': '/images/kapak/uretim-recetesi-ve-zam-yansitma-hesaplayici.svg',
+  'vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi': '/images/kapak/vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi.svg',
 };
 
 export function kapakYolu(slug: string): string | undefined {
@@ -155,7 +155,7 @@ export function premiumKapakUrl(input: unknown): string | undefined {
         ? __premiumValue.id
         : undefined;
   if (__premiumSlug && PREMIUM_KAPAK_SLUGS.has(__premiumSlug)) {
-    return `/images/kapak/${__premiumSlug}.webp`;
+    return `/images/kapak/${__premiumSlug}.svg`;
   }
 
   const value = input as { slug?: unknown; id?: unknown } | string | null | undefined;
@@ -166,5 +166,5 @@ export function premiumKapakUrl(input: unknown): string | undefined {
       : typeof value?.id === 'string'
         ? value.id
         : undefined;
-  return slug && PREMIUM_KAPAK_SLUGS.has(slug) ? `/images/kapak/${slug}.webp` : undefined;
+  return slug && PREMIUM_KAPAK_SLUGS.has(slug) ? `/images/kapak/${slug}.svg` : undefined;
 }

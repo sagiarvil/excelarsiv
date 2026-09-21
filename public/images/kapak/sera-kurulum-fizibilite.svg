@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f0fdfa" />
+  
+  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#14b8a6"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#ccfbf1"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#ccfbf1"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#ccfbf1"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#ccfbf1"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#ccfbf1" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#ccfbf1" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#ccfbf1" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#ccfbf1" stroke-width="4"/><path d="M 200 1100 C 320 617.3949392978102, 320 557.7233617659658, 440 557.7233617659658 C 560 557.7233617659658, 560 745.7970426883548, 680 745.7970426883548 C 800 745.7970426883548, 800 498.88439807109535, 920 498.88439807109535 C 1040 498.88439807109535, 1040 596.7617365997285, 1160 596.7617365997285 C 1280 596.7617365997285, 1280 903.6868060473353, 1400 903.6868060473353 C 1520 903.6868060473353, 1520 897.0057298894972, 1640 897.0057298894972 C 1760 897.0057298894972, 1760 840.9289797767997, 1880 840.9289797767997 C 2000 840.9289797767997, 2000 722.8913786355406, 2120 722.8913786355406 C 2240 722.8913786355406, 2240 523.4136299230158, 2360 523.4136299230158 L 2360 1360 L 200 1360 Z" fill="#5eead4" opacity="0.2"/><path d="M 200 1100 C 320 617.3949392978102, 320 557.7233617659658, 440 557.7233617659658 C 560 557.7233617659658, 560 745.7970426883548, 680 745.7970426883548 C 800 745.7970426883548, 800 498.88439807109535, 920 498.88439807109535 C 1040 498.88439807109535, 1040 596.7617365997285, 1160 596.7617365997285 C 1280 596.7617365997285, 1280 903.6868060473353, 1400 903.6868060473353 C 1520 903.6868060473353, 1520 897.0057298894972, 1640 897.0057298894972 C 1760 897.0057298894972, 1760 840.9289797767997, 1880 840.9289797767997 C 2000 840.9289797767997, 2000 722.8913786355406, 2120 722.8913786355406 C 2240 722.8913786355406, 2240 523.4136299230158, 2360 523.4136299230158" fill="none" stroke="#14b8a6" stroke-width="24" stroke-linecap="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#0f172a" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: SERA-KURULUM-FIZIBILITE</text>
+      <text x="100" y="1570" fill="#0f172a" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

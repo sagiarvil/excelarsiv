@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#fffbeb" />
+  
+  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#f59e0b"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#fef3c7" stroke-width="4"/><path d="M 200 1100 C 320 866.1989329848439, 320 792.4130872823298, 440 792.4130872823298 C 560 792.4130872823298, 560 988.7972237542272, 680 988.7972237542272 C 800 988.7972237542272, 800 538.4387924801558, 920 538.4387924801558 C 1040 538.4387924801558, 1040 843.5825429391116, 1160 843.5825429391116 C 1280 843.5825429391116, 1280 955.098443524912, 1400 955.098443524912 C 1520 955.098443524912, 1520 506.33262414485216, 1640 506.33262414485216 C 1760 506.33262414485216, 1760 918.0600156541914, 1880 918.0600156541914 C 2000 918.0600156541914, 2000 611.5540783852339, 2120 611.5540783852339 C 2240 611.5540783852339, 2240 929.9673246685416, 2360 929.9673246685416 L 2360 1360 L 200 1360 Z" fill="#fbbf24" opacity="0.2"/><path d="M 200 1100 C 320 866.1989329848439, 320 792.4130872823298, 440 792.4130872823298 C 560 792.4130872823298, 560 988.7972237542272, 680 988.7972237542272 C 800 988.7972237542272, 800 538.4387924801558, 920 538.4387924801558 C 1040 538.4387924801558, 1040 843.5825429391116, 1160 843.5825429391116 C 1280 843.5825429391116, 1280 955.098443524912, 1400 955.098443524912 C 1520 955.098443524912, 1520 506.33262414485216, 1640 506.33262414485216 C 1760 506.33262414485216, 1760 918.0600156541914, 1880 918.0600156541914 C 2000 918.0600156541914, 2000 611.5540783852339, 2120 611.5540783852339 C 2240 611.5540783852339, 2240 929.9673246685416, 2360 929.9673246685416" fill="none" stroke="#f59e0b" stroke-width="24" stroke-linecap="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#451a03" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: BANKA-KREDI-VE-TAKSIT-TAKIP-SISTEMI</text>
+      <text x="100" y="1570" fill="#451a03" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

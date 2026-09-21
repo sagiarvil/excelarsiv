@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f0fdfa" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="221.12684002611786" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="200" width="103.89182903803885" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="300" width="263.0662536295131" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="400" width="239.33204852044582" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="500" width="234.42378116305918" height="30" rx="15" fill="#ccfbf1"/><rect x="40" y="600" width="202.54792739637196" height="30" rx="15" fill="#ccfbf1"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 476.82751985266805 L 880 424.87410213798285 L 1020 213.43349523376673 L 1160 336.9333649519831 L 1300 218.11194599140435" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 228.68194833863527 L 1860 280.49659833777696 L 2000 448.7967925146222 L 2140 445.4205164453015 L 2280 418.5110036749393" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1111.3114768406376" width="60" height="188.68852315936238" rx="10" fill="#14b8a6"/><rect x="720" y="1130.7788796024397" width="60" height="169.2211203975603" rx="10" fill="#14b8a6"/><rect x="840" y="1073.0989589123055" width="60" height="226.90104108769447" rx="10" fill="#14b8a6"/><rect x="960" y="1070.4457929125056" width="60" height="229.55420708749443" rx="10" fill="#14b8a6"/><rect x="1080" y="974.7363022528589" width="60" height="325.2636977471411" rx="10" fill="#14b8a6"/><rect x="1200" y="1186.0584302572533" width="60" height="113.94156974274665" rx="10" fill="#14b8a6"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 1156.7576344124973 L 1860 1003.9740659762174 L 2000 991.4706974057481 L 2140 1039.8900859057903 L 2280 1180.401906534098" fill="none" stroke="#0d9488" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#0f172a" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: PERAKENDE-MAGAZA-ACILIS-FIZIBILITE</text>
+      <text x="100" y="1570" fill="#0f172a" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

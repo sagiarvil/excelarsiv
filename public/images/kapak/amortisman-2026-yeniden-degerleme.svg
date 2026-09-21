@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#fffbeb" />
+  
+  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#f59e0b"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#fef3c7" stroke-width="4"/><path d="M 200 1100 C 320 940.0402843486518, 320 527.3188354447484, 440 527.3188354447484 C 560 527.3188354447484, 560 454.30404492653906, 680 454.30404492653906 C 800 454.30404492653906, 800 432.939427299425, 920 432.939427299425 C 1040 432.939427299425, 1040 546.6554645914584, 1160 546.6554645914584 C 1280 546.6554645914584, 1280 947.1383098978549, 1400 947.1383098978549 C 1520 947.1383098978549, 1520 499.0511271171272, 1640 499.0511271171272 C 1760 499.0511271171272, 1760 422.30779812671244, 1880 422.30779812671244 C 2000 422.30779812671244, 2000 915.3896450996399, 2120 915.3896450996399 C 2240 915.3896450996399, 2240 548.4214034862816, 2360 548.4214034862816 L 2360 1360 L 200 1360 Z" fill="#fbbf24" opacity="0.2"/><path d="M 200 1100 C 320 940.0402843486518, 320 527.3188354447484, 440 527.3188354447484 C 560 527.3188354447484, 560 454.30404492653906, 680 454.30404492653906 C 800 454.30404492653906, 800 432.939427299425, 920 432.939427299425 C 1040 432.939427299425, 1040 546.6554645914584, 1160 546.6554645914584 C 1280 546.6554645914584, 1280 947.1383098978549, 1400 947.1383098978549 C 1520 947.1383098978549, 1520 499.0511271171272, 1640 499.0511271171272 C 1760 499.0511271171272, 1760 422.30779812671244, 1880 422.30779812671244 C 2000 422.30779812671244, 2000 915.3896450996399, 2120 915.3896450996399 C 2240 915.3896450996399, 2240 548.4214034862816, 2360 548.4214034862816" fill="none" stroke="#f59e0b" stroke-width="24" stroke-linecap="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#451a03" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: AMORTISMAN-2026-YENIDEN-DEGERLEME</text>
+      <text x="100" y="1570" fill="#451a03" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

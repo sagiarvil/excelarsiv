@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f0fdfa" />
+  
+  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#14b8a6"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#ccfbf1"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#ccfbf1"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#ccfbf1"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#ccfbf1"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#ccfbf1" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#ccfbf1" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#ccfbf1" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#ccfbf1" stroke-width="4"/><path d="M 200 1100 C 320 603.7875312380493, 320 491.33359706029296, 440 491.33359706029296 C 560 491.33359706029296, 560 789.7969842422754, 680 789.7969842422754 C 800 789.7969842422754, 800 535.2124667726457, 920 535.2124667726457 C 1040 535.2124667726457, 1040 584.2479968909174, 1160 584.2479968909174 C 1280 584.2479968909174, 1280 662.4520919751376, 1400 662.4520919751376 C 1520 662.4520919751376, 1520 585.1040543522686, 1640 585.1040543522686 C 1760 585.1040543522686, 1760 850.417193165049, 1880 850.417193165049 C 2000 850.417193165049, 2000 916.1201901268214, 2120 916.1201901268214 C 2240 916.1201901268214, 2240 510.9501305036247, 2360 510.9501305036247 L 2360 1360 L 200 1360 Z" fill="#5eead4" opacity="0.2"/><path d="M 200 1100 C 320 603.7875312380493, 320 491.33359706029296, 440 491.33359706029296 C 560 491.33359706029296, 560 789.7969842422754, 680 789.7969842422754 C 800 789.7969842422754, 800 535.2124667726457, 920 535.2124667726457 C 1040 535.2124667726457, 1040 584.2479968909174, 1160 584.2479968909174 C 1280 584.2479968909174, 1280 662.4520919751376, 1400 662.4520919751376 C 1520 662.4520919751376, 1520 585.1040543522686, 1640 585.1040543522686 C 1760 585.1040543522686, 1760 850.417193165049, 1880 850.417193165049 C 2000 850.417193165049, 2000 916.1201901268214, 2120 916.1201901268214 C 2240 916.1201901268214, 2240 510.9501305036247, 2360 510.9501305036247" fill="none" stroke="#14b8a6" stroke-width="24" stroke-linecap="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#0f172a" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: MINI-MRP-BOM-MALZEME-KAPASITE</text>
+      <text x="100" y="1570" fill="#0f172a" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

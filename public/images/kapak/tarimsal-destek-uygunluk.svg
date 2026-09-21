@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f8fafc" />
+  
+  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#8b5cf6"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#e2e8f0"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#e2e8f0" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#e2e8f0" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#e2e8f0" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#e2e8f0" stroke-width="4"/><path d="M 200 1100 C 320 700.1481594983488, 320 640.9521861001849, 440 640.9521861001849 C 560 640.9521861001849, 560 765.24732359685, 680 765.24732359685 C 800 765.24732359685, 800 655.7489517144859, 920 655.7489517144859 C 1040 655.7489517144859, 1040 996.277888212353, 1160 996.277888212353 C 1280 996.277888212353, 1280 493.2678512763232, 1400 493.2678512763232 C 1520 493.2678512763232, 1520 604.95157209225, 1640 604.95157209225 C 1760 604.95157209225, 1760 618.1813009548932, 1880 618.1813009548932 C 2000 618.1813009548932, 2000 865.3831887058914, 2120 865.3831887058914 C 2240 865.3831887058914, 2240 530.9495870023966, 2360 530.9495870023966 L 2360 1360 L 200 1360 Z" fill="#a78bfa" opacity="0.2"/><path d="M 200 1100 C 320 700.1481594983488, 320 640.9521861001849, 440 640.9521861001849 C 560 640.9521861001849, 560 765.24732359685, 680 765.24732359685 C 800 765.24732359685, 800 655.7489517144859, 920 655.7489517144859 C 1040 655.7489517144859, 1040 996.277888212353, 1160 996.277888212353 C 1280 996.277888212353, 1280 493.2678512763232, 1400 493.2678512763232 C 1520 493.2678512763232, 1520 604.95157209225, 1640 604.95157209225 C 1760 604.95157209225, 1760 618.1813009548932, 1880 618.1813009548932 C 2000 618.1813009548932, 2000 865.3831887058914, 2120 865.3831887058914 C 2240 865.3831887058914, 2240 530.9495870023966, 2360 530.9495870023966" fill="none" stroke="#8b5cf6" stroke-width="24" stroke-linecap="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: TARIMSAL-DESTEK-UYGUNLUK</text>
+      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f1f5f9" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="104.41190928220749" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="200" width="264.9851298891008" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="300" width="106.71223929151893" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="400" width="175.43829509522766" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="500" width="125.31180011108518" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="600" width="274.56419195979834" height="30" rx="15" fill="#cbd5e1"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 404.4654895318672 L 880 284.3587735434994 L 1020 465.2634749189019 L 1160 292.81033277511597 L 1300 474.3406471097842" fill="none" stroke="#2563eb" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="442.9173932876438" width="60" height="157.0826067123562" rx="10" fill="#3b82f6"/><rect x="1700" y="470.84255691152066" width="60" height="129.15744308847934" rx="10" fill="#3b82f6"/><rect x="1820" y="201.6274948604405" width="60" height="398.3725051395595" rx="10" fill="#3b82f6"/><rect x="1940" y="349.13846873678267" width="60" height="250.86153126321733" rx="10" fill="#3b82f6"/><rect x="2060" y="477.5713736657053" width="60" height="122.42862633429468" rx="10" fill="#3b82f6"/><rect x="2180" y="433.1272159004584" width="60" height="166.8727840995416" rx="10" fill="#3b82f6"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1101.264181919396" width="60" height="198.73581808060408" rx="10" fill="#3b82f6"/><rect x="720" y="1157.11436024867" width="60" height="142.88563975133002" rx="10" fill="#3b82f6"/><rect x="840" y="1082.7390185091645" width="60" height="217.26098149083555" rx="10" fill="#3b82f6"/><rect x="960" y="1072.2665773937479" width="60" height="227.73342260625213" rx="10" fill="#3b82f6"/><rect x="1080" y="1192.703447327949" width="60" height="107.2965526720509" rx="10" fill="#3b82f6"/><rect x="1200" y="926.9582868553698" width="60" height="373.0417131446302" rx="10" fill="#3b82f6"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 1025.0560990534723 L 1860 1087.0230530155823 L 2000 1103.4128668019548 L 2140 1041.7713245144114 L 2280 903.9477798622102" fill="none" stroke="#2563eb" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#1e293b" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: INSAAT-HAKEDIS-YONETIM-SISTEMI</text>
+      <text x="100" y="1570" fill="#1e293b" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

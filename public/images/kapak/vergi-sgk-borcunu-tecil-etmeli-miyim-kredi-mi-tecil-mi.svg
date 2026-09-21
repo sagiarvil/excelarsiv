@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f1f5f9" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="119.79441511444747" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="200" width="200.7371289888397" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="300" width="218.8887456478551" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="400" width="191.5006721811369" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="500" width="180.566989867948" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="600" width="209.82700093649328" height="30" rx="15" fill="#cbd5e1"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 413.2398805581033 L 880 356.2323031248525 L 1020 245.49550022929907 L 1160 462.260696454905 L 1300 358.4526089252904" fill="none" stroke="#2563eb" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 414.79605031199753 L 1860 412.9289636388421 L 2000 201.3119450537488 L 2140 385.1759372744709 L 2280 499.5465597836301" fill="none" stroke="#2563eb" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 1060.795854125172 L 880 1071.321659674868 L 1020 946.4838274754584 L 1160 1097.9081708472222 L 1300 1066.5765949292108" fill="none" stroke="#2563eb" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#1e293b" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: VERGI-SGK-BORCUNU-TECIL-ETMELI-MIYIM-KREDI-MI-TECIL-MI</text>
+      <text x="100" y="1570" fill="#1e293b" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

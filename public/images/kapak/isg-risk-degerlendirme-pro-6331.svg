@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#fffbeb" />
+  
+  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#f59e0b"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#fef3c7" stroke-width="4"/><path d="M 200 1100 C 320 448.6164457164705, 320 538.2284058723599, 440 538.2284058723599 C 560 538.2284058723599, 560 403.17039005458355, 680 403.17039005458355 C 800 403.17039005458355, 800 774.8288749251515, 920 774.8288749251515 C 1040 774.8288749251515, 1040 598.86031341739, 1160 598.86031341739 C 1280 598.86031341739, 1280 832.1756278164685, 1400 832.1756278164685 C 1520 832.1756278164685, 1520 840.5629876069725, 1640 840.5629876069725 C 1760 840.5629876069725, 1760 910.9289387241006, 1880 910.9289387241006 C 2000 910.9289387241006, 2000 552.8751232661307, 2120 552.8751232661307 C 2240 552.8751232661307, 2240 823.1204486917704, 2360 823.1204486917704 L 2360 1360 L 200 1360 Z" fill="#fbbf24" opacity="0.2"/><path d="M 200 1100 C 320 448.6164457164705, 320 538.2284058723599, 440 538.2284058723599 C 560 538.2284058723599, 560 403.17039005458355, 680 403.17039005458355 C 800 403.17039005458355, 800 774.8288749251515, 920 774.8288749251515 C 1040 774.8288749251515, 1040 598.86031341739, 1160 598.86031341739 C 1280 598.86031341739, 1280 832.1756278164685, 1400 832.1756278164685 C 1520 832.1756278164685, 1520 840.5629876069725, 1640 840.5629876069725 C 1760 840.5629876069725, 1760 910.9289387241006, 1880 910.9289387241006 C 2000 910.9289387241006, 2000 552.8751232661307, 2120 552.8751232661307 C 2240 552.8751232661307, 2240 823.1204486917704, 2360 823.1204486917704" fill="none" stroke="#f59e0b" stroke-width="24" stroke-linecap="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#451a03" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: ISG-RISK-DEGERLENDIRME-PRO-6331</text>
+      <text x="100" y="1570" fill="#451a03" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

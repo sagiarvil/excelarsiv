@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f0fdfa" />
+  
+  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#14b8a6"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#ccfbf1"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#ccfbf1"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#ccfbf1"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#ccfbf1"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#ccfbf1" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#ccfbf1" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#ccfbf1" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#ccfbf1" stroke-width="4"/><path d="M 200 1100 C 320 841.427806392312, 320 759.7783304285258, 440 759.7783304285258 C 560 759.7783304285258, 560 805.9944455046207, 680 805.9944455046207 C 800 805.9944455046207, 800 455.36814108490944, 920 455.36814108490944 C 1040 455.36814108490944, 1040 842.7982046734542, 1160 842.7982046734542 C 1280 842.7982046734542, 1280 685.0760130211711, 1400 685.0760130211711 C 1520 685.0760130211711, 1520 973.2866619713604, 1640 973.2866619713604 C 1760 973.2866619713604, 1760 863.0631956737489, 1880 863.0631956737489 C 2000 863.0631956737489, 2000 953.5509575624019, 2120 953.5509575624019 C 2240 953.5509575624019, 2240 906.4948643092066, 2360 906.4948643092066 L 2360 1360 L 200 1360 Z" fill="#5eead4" opacity="0.2"/><path d="M 200 1100 C 320 841.427806392312, 320 759.7783304285258, 440 759.7783304285258 C 560 759.7783304285258, 560 805.9944455046207, 680 805.9944455046207 C 800 805.9944455046207, 800 455.36814108490944, 920 455.36814108490944 C 1040 455.36814108490944, 1040 842.7982046734542, 1160 842.7982046734542 C 1280 842.7982046734542, 1280 685.0760130211711, 1400 685.0760130211711 C 1520 685.0760130211711, 1520 973.2866619713604, 1640 973.2866619713604 C 1760 973.2866619713604, 1760 863.0631956737489, 1880 863.0631956737489 C 2000 863.0631956737489, 2000 953.5509575624019, 2120 953.5509575624019 C 2240 953.5509575624019, 2240 906.4948643092066, 2360 906.4948643092066" fill="none" stroke="#14b8a6" stroke-width="24" stroke-linecap="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#0f172a" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: GES-YATIRIM-FIZIBILITE</text>
+      <text x="100" y="1570" fill="#0f172a" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

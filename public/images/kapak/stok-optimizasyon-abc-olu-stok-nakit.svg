@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f1f5f9" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="179.9711326509714" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="200" width="150.54494272451848" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="300" width="111.74833645578474" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="400" width="233.49557557608932" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="500" width="273.7275929469615" height="30" rx="15" fill="#cbd5e1"/><rect x="40" y="600" width="252.2410226240754" height="30" rx="15" fill="#cbd5e1"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 384.86988032236695 L 880 207.92972925119102 L 1020 488.1021570181474 L 1160 243.87747845612466 L 1300 340.6928549287841" fill="none" stroke="#2563eb" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 470.9174670279026 L 1860 304.4333246303722 L 2000 283.4787533385679 L 2140 261.2237630179152 L 2280 307.7882983023301" fill="none" stroke="#2563eb" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 900.9782051900402 L 880 1057.7342736767605 L 1020 1072.300917422399 L 1160 940.7199025852606 L 1300 1018.9701854484156" fill="none" stroke="#2563eb" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 1064.42967094481 L 1860 1159.8741170251742 L 2000 1137.0606845011935 L 2140 1066.216304129921 L 2280 1094.5170062128454" fill="none" stroke="#2563eb" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="1500" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1708.3596198586747" width="60" height="291.6403801413253" rx="10" fill="#3b82f6"/><rect x="720" y="1821.8232964165509" width="60" height="178.17670358344913" rx="10" fill="#3b82f6"/><rect x="840" y="1753.4959893440828" width="60" height="246.50401065591723" rx="10" fill="#3b82f6"/><rect x="960" y="1767.1839036978781" width="60" height="232.81609630212188" rx="10" fill="#3b82f6"/><rect x="1080" y="1852.4129602592438" width="60" height="147.58703974075615" rx="10" fill="#3b82f6"/><rect x="1200" y="1733.0443182727322" width="60" height="266.9556817272678" rx="10" fill="#3b82f6"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#1e293b" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: STOK-OPTIMIZASYON-ABC-OLU-STOK-NAKIT</text>
+      <text x="100" y="1570" fill="#1e293b" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

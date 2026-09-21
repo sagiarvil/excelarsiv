@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#fffbeb" />
+  
+  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#f59e0b"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#fef3c7" stroke-width="4"/><path d="M 200 1100 C 320 619.1235123667866, 320 598.266749503091, 440 598.266749503091 C 560 598.266749503091, 560 756.4124760683626, 680 756.4124760683626 C 800 756.4124760683626, 800 742.4675384070724, 920 742.4675384070724 C 1040 742.4675384070724, 1040 887.1388610918075, 1160 887.1388610918075 C 1280 887.1388610918075, 1280 888.9884434174746, 1400 888.9884434174746 C 1520 888.9884434174746, 1520 773.0149202980101, 1640 773.0149202980101 C 1760 773.0149202980101, 1760 687.1691597625613, 1880 687.1691597625613 C 2000 687.1691597625613, 2000 406.20717061683536, 2120 406.20717061683536 C 2240 406.20717061683536, 2240 930.288649816066, 2360 930.288649816066 L 2360 1360 L 200 1360 Z" fill="#fbbf24" opacity="0.2"/><path d="M 200 1100 C 320 619.1235123667866, 320 598.266749503091, 440 598.266749503091 C 560 598.266749503091, 560 756.4124760683626, 680 756.4124760683626 C 800 756.4124760683626, 800 742.4675384070724, 920 742.4675384070724 C 1040 742.4675384070724, 1040 887.1388610918075, 1160 887.1388610918075 C 1280 887.1388610918075, 1280 888.9884434174746, 1400 888.9884434174746 C 1520 888.9884434174746, 1520 773.0149202980101, 1640 773.0149202980101 C 1760 773.0149202980101, 1760 687.1691597625613, 1880 687.1691597625613 C 2000 687.1691597625613, 2000 406.20717061683536, 2120 406.20717061683536 C 2240 406.20717061683536, 2240 930.288649816066, 2360 930.288649816066" fill="none" stroke="#f59e0b" stroke-width="24" stroke-linecap="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#451a03" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: KDV-TEVKIFAT-MAHSUP-IADE-LISTESI</text>
+      <text x="100" y="1570" fill="#451a03" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

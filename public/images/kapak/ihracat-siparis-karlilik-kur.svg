@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#fffbeb" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="231.8928055278957" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="200" width="161.2092903908342" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="300" width="119.68163849320263" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="400" width="258.9904216583818" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="500" width="149.30486714001745" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="600" width="224.32106371503323" height="30" rx="15" fill="#fef3c7"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 420.1355916215107 L 880 311.5186921088025 L 1020 344.99488887377083 L 1160 298.6920435912907 L 1300 321.00636863615364" fill="none" stroke="#d97706" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="284.32818085420877" width="60" height="315.67181914579123" rx="10" fill="#f59e0b"/><rect x="1700" y="430.46158391516656" width="60" height="169.53841608483344" rx="10" fill="#f59e0b"/><rect x="1820" y="352.13629845529795" width="60" height="247.86370154470205" rx="10" fill="#f59e0b"/><rect x="1940" y="402.777628833428" width="60" height="197.22237116657197" rx="10" fill="#f59e0b"/><rect x="2060" y="443.3232200331986" width="60" height="156.6767799668014" rx="10" fill="#f59e0b"/><rect x="2180" y="348.9682636456564" width="60" height="251.0317363543436" rx="10" fill="#f59e0b"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="936.0727478284389" width="60" height="363.9272521715611" rx="10" fill="#f59e0b"/><rect x="720" y="1061.6016191896051" width="60" height="238.39838081039488" rx="10" fill="#f59e0b"/><rect x="840" y="1071.1718747857958" width="60" height="228.8281252142042" rx="10" fill="#f59e0b"/><rect x="960" y="1187.34623354394" width="60" height="112.65376645606011" rx="10" fill="#f59e0b"/><rect x="1080" y="947.3880365956575" width="60" height="352.61196340434253" rx="10" fill="#f59e0b"/><rect x="1200" y="1150.2214185660705" width="60" height="149.7785814339295" rx="10" fill="#f59e0b"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 1074.1403994848952 L 1860 1157.8091155271977 L 2000 1180.53646995686 L 2140 1198.3819912187755 L 2280 1036.3937237067148" fill="none" stroke="#d97706" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="1500" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1900 L 740 1602.6887253159657 L 880 1789.7109855432063 L 1020 1615.591070940718 L 1160 1615.2007697848603 L 1300 1831.3200124772266" fill="none" stroke="#d97706" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#451a03" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: IHRACAT-SIPARIS-KARLILIK-KUR</text>
+      <text x="100" y="1570" fill="#451a03" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

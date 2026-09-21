@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f8fafc" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="237.8334519919008" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="139.52333491761237" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="166.59191873390228" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="217.01840475667268" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="196.3792252726853" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="262.3578151734546" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="442.00477607082576" width="60" height="157.99522392917424" rx="10" fill="#8b5cf6"/><rect x="720" y="483.21401556022465" width="60" height="116.78598443977535" rx="10" fill="#8b5cf6"/><rect x="840" y="266.8809256516397" width="60" height="333.1190743483603" rx="10" fill="#8b5cf6"/><rect x="960" y="344.1340750316158" width="60" height="255.8659249683842" rx="10" fill="#8b5cf6"/><rect x="1080" y="244.604935310781" width="60" height="355.395064689219" rx="10" fill="#8b5cf6"/><rect x="1200" y="341.007117414847" width="60" height="258.992882585153" rx="10" fill="#8b5cf6"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 406.15625616628677 L 1860 363.0986345000565 L 2000 254.51668445020914 L 2140 294.6125109679997 L 2280 492.6388645544648" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 1133.6317547829822 L 880 1068.6766574392095 L 1020 954.1368765989318 L 1160 902.0104652736336 L 1300 1004.4727991335094" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 968.3442943263799 L 1860 1002.4535167962313 L 2000 1059.7843250725418 L 2140 1149.7581917094067 L 2280 1150.6132839247584" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: FESIH-MALIYETI-SIMULATORU</text>
+      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f8fafc" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="170.68287610076368" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="185.36412219982594" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="149.12014751229435" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="179.03655652422458" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="150.87092625442892" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="150.26627784594893" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="464.9882106343284" width="60" height="135.01178936567158" rx="10" fill="#10b981"/><rect x="720" y="322.8153950534761" width="60" height="277.1846049465239" rx="10" fill="#10b981"/><rect x="840" y="297.3190493648872" width="60" height="302.6809506351128" rx="10" fill="#10b981"/><rect x="960" y="219.67679492663592" width="60" height="380.3232050733641" rx="10" fill="#10b981"/><rect x="1080" y="375.14790480490774" width="60" height="224.85209519509226" rx="10" fill="#10b981"/><rect x="1200" y="446.8707238556817" width="60" height="153.12927614431828" rx="10" fill="#10b981"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="412.0178907876834" width="60" height="187.98210921231657" rx="10" fill="#10b981"/><rect x="1700" y="228.95458245184273" width="60" height="371.0454175481573" rx="10" fill="#10b981"/><rect x="1820" y="330.25438231416047" width="60" height="269.74561768583953" rx="10" fill="#10b981"/><rect x="1940" y="269.2232836969197" width="60" height="330.7767163030803" rx="10" fill="#10b981"/><rect x="2060" y="423.49249857943505" width="60" height="176.50750142056495" rx="10" fill="#10b981"/><rect x="2180" y="246.64708473719656" width="60" height="353.35291526280344" rx="10" fill="#10b981"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 1066.9637770392 L 880 965.4599075205624 L 1020 1111.9143484393135 L 1160 961.7854409851134 L 1300 1011.3522375700995" fill="none" stroke="#059669" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="1036.3999664783478" width="60" height="263.6000335216522" rx="10" fill="#10b981"/><rect x="1700" y="1012.7658798359334" width="60" height="287.23412016406655" rx="10" fill="#10b981"/><rect x="1820" y="956.0535544529557" width="60" height="343.9464455470443" rx="10" fill="#10b981"/><rect x="1940" y="906.4303853781894" width="60" height="393.5696146218106" rx="10" fill="#10b981"/><rect x="2060" y="1112.4787726672366" width="60" height="187.52122733276337" rx="10" fill="#10b981"/><rect x="2180" y="1180.9448804240674" width="60" height="119.05511957593262" rx="10" fill="#10b981"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: RECETE-MALIYETI-MENU-MUHENDISLIGI</text>
+      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#fffbeb" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="218.69523072149605" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="200" width="276.5834047552198" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="300" width="162.12875604163855" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="400" width="260.00501562375575" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="500" width="270.10846263263375" height="30" rx="15" fill="#fef3c7"/><rect x="40" y="600" width="226.38784402050078" height="30" rx="15" fill="#fef3c7"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="351.9878799561411" width="60" height="248.01212004385889" rx="10" fill="#f59e0b"/><rect x="720" y="454.2787821730599" width="60" height="145.72121782694012" rx="10" fill="#f59e0b"/><rect x="840" y="324.71424718387425" width="60" height="275.28575281612575" rx="10" fill="#f59e0b"/><rect x="960" y="285.3824089281261" width="60" height="314.6175910718739" rx="10" fill="#f59e0b"/><rect x="1080" y="200.46932036057115" width="60" height="399.53067963942885" rx="10" fill="#f59e0b"/><rect x="1200" y="469.0243056509644" width="60" height="130.97569434903562" rx="10" fill="#f59e0b"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="443.80782898515463" width="60" height="156.19217101484537" rx="10" fill="#f59e0b"/><rect x="1700" y="445.4907263396308" width="60" height="154.50927366036922" rx="10" fill="#f59e0b"/><rect x="1820" y="229.50993089471012" width="60" height="370.4900691052899" rx="10" fill="#f59e0b"/><rect x="1940" y="374.5220449985936" width="60" height="225.47795500140637" rx="10" fill="#f59e0b"/><rect x="2060" y="300.6441940786317" width="60" height="299.3558059213683" rx="10" fill="#f59e0b"/><rect x="2180" y="264.8079226491973" width="60" height="335.1920773508027" rx="10" fill="#f59e0b"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 1128.362405137159 L 880 1151.2158495141193 L 1020 972.8971259202808 L 1160 1127.375907311216 L 1300 972.9559114901349" fill="none" stroke="#d97706" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 945.5959141720086 L 1860 1006.7760420497507 L 2000 1156.7901049274951 L 2140 1180.6333542102948 L 2280 1098.8774319877848" fill="none" stroke="#d97706" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#451a03" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: ORTAKLI-GAYRIMENKUL-YATIRIMI-KAR-DAGITIM</text>
+      <text x="100" y="1570" fill="#451a03" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f8fafc" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="104.26732790656388" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="222.4867918714881" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="247.51220074947923" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="182.07229330204427" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="115.07903684861958" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="129.10516211297363" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="289.4325200933963" width="60" height="310.5674799066037" rx="10" fill="#10b981"/><rect x="720" y="357.38525101915" width="60" height="242.61474898084998" rx="10" fill="#10b981"/><rect x="840" y="209.33036203496158" width="60" height="390.6696379650384" rx="10" fill="#10b981"/><rect x="960" y="431.94136393722147" width="60" height="168.05863606277853" rx="10" fill="#10b981"/><rect x="1080" y="499.98656548559666" width="60" height="100.01343451440334" rx="10" fill="#10b981"/><rect x="1200" y="486.2047818489373" width="60" height="113.79521815106273" rx="10" fill="#10b981"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 202.3064438952133 L 1860 440.63630192540586 L 2000 307.3008113540709 L 2140 366.6025242768228 L 2280 493.08669664897025" fill="none" stroke="#059669" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1142.362779029645" width="60" height="157.63722097035497" rx="10" fill="#10b981"/><rect x="720" y="902.8105452423915" width="60" height="397.1894547576085" rx="10" fill="#10b981"/><rect x="840" y="919.9655834119767" width="60" height="380.0344165880233" rx="10" fill="#10b981"/><rect x="960" y="1164.5946000237018" width="60" height="135.4053999762982" rx="10" fill="#10b981"/><rect x="1080" y="1144.619595981203" width="60" height="155.38040401879698" rx="10" fill="#10b981"/><rect x="1200" y="961.2718965159729" width="60" height="338.7281034840271" rx="10" fill="#10b981"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 1049.8813561862335 L 1860 1099.738423875533 L 2000 1011.4431745838374 L 2140 921.1861939402297 L 2280 1103.8808860816061" fill="none" stroke="#059669" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: DERNEK-KOOPERATIF-MALI-YONETIM</text>
+      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f8fafc" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="223.7428770167753" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="279.6894455840811" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="140.94694974832237" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="165.95299663953483" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="103.11585574410856" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="120.34231217112392" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="393.17232521716505" width="60" height="206.82767478283495" rx="10" fill="#8b5cf6"/><rect x="720" y="280.13255272526294" width="60" height="319.86744727473706" rx="10" fill="#8b5cf6"/><rect x="840" y="494.66308117844164" width="60" height="105.33691882155836" rx="10" fill="#8b5cf6"/><rect x="960" y="470.43799876701087" width="60" height="129.56200123298913" rx="10" fill="#8b5cf6"/><rect x="1080" y="349.961462453939" width="60" height="250.03853754606098" rx="10" fill="#8b5cf6"/><rect x="1200" y="364.0336015028879" width="60" height="235.9663984971121" rx="10" fill="#8b5cf6"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 314.5488762529567 L 1860 480.2297205897048 L 2000 467.7085228031501 L 2140 349.30004256311804 L 2280 495.44100093189627" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="1177.6703682728112" width="60" height="122.32963172718883" rx="10" fill="#8b5cf6"/><rect x="720" y="1105.319249164313" width="60" height="194.68075083568692" rx="10" fill="#8b5cf6"/><rect x="840" y="1117.5552121829242" width="60" height="182.44478781707585" rx="10" fill="#8b5cf6"/><rect x="960" y="1052.0545831415802" width="60" height="247.94541685841978" rx="10" fill="#8b5cf6"/><rect x="1080" y="1187.770602456294" width="60" height="112.229397543706" rx="10" fill="#8b5cf6"/><rect x="1200" y="1013.1311715580523" width="60" height="286.8688284419477" rx="10" fill="#8b5cf6"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: SEKIZ-D-DUZELTICI-FAALIYET-DOSYA</text>
+      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

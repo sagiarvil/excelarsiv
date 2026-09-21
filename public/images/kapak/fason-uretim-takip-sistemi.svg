@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f8fafc" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="181.29584940616041" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="251.77528519183397" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="105.61084636021405" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="276.33852837607265" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="196.25526702497154" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="195.4302570829168" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 383.991736266762 L 880 477.0323619013652 L 1020 320.548178255558 L 1160 297.6752718677744 L 1300 469.8099017608911" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 462.3661998193711 L 1860 328.040929348208 L 2000 416.42338815145195 L 2140 323.9284509560093 L 2280 300.3271851921454" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 957.7674040105194 L 880 1104.0326551767066 L 1020 900.8493547327816 L 1160 955.5207876954228 L 1300 1065.6857199501246" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 1028.8987664273009 L 1860 1014.5863305777311 L 2000 914.8057179758325 L 2140 953.4476913046092 L 2280 979.1646104771644" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="1500" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1900 L 740 1739.288176340051 L 880 1867.5726191839203 L 1020 1877.9478449607268 L 1160 1636.8233304936439 L 1300 1647.0666251145303" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: FASON-URETIM-TAKIP-SISTEMI</text>
+      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

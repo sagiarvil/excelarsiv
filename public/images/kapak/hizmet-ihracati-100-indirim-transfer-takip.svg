@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f8fafc" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="252.63464568182826" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="127.08849825430661" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="253.56967195868492" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="215.583977564238" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="221.60523782018572" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="268.8765597390011" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 500 L 740 391.9000503839925 L 880 451.5780240762979 L 1020 208.94288627896458 L 1160 420.20684422459453 L 1300 487.0827426901087" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="1580" y="446.0794520797208" width="60" height="153.9205479202792" rx="10" fill="#8b5cf6"/><rect x="1700" y="410.9242014819756" width="60" height="189.07579851802438" rx="10" fill="#8b5cf6"/><rect x="1820" y="422.2121175378561" width="60" height="177.7878824621439" rx="10" fill="#8b5cf6"/><rect x="1940" y="277.4630567524582" width="60" height="322.5369432475418" rx="10" fill="#8b5cf6"/><rect x="2060" y="319.4489155430347" width="60" height="280.5510844569653" rx="10" fill="#8b5cf6"/><rect x="2180" y="349.9913384206593" width="60" height="250.0086615793407" rx="10" fill="#8b5cf6"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 1035.911997081712 L 880 1189.879900496453 L 1020 968.2689601555467 L 1160 904.7048473963514 L 1300 1162.1562768006697" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 1105.1816969644278 L 1860 1177.2820585872978 L 2000 1197.869238210842 L 2140 913.1222944473848 L 2280 1124.6496205218136" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: HIZMET-IHRACATI-100-INDIRIM-TRANSFER-TAKIP</text>
+      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#f8fafc" />
+  
+  <rect x="0" y="0" width="400" height="1600" fill="#ffffff" filter="url(#shadowRight)"/><rect x="40" y="100" width="157.5055449316278" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="200" width="232.62149449437857" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="300" width="124.4740544538945" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="400" width="158.29211223870516" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="500" width="238.33776445128024" height="30" rx="15" fill="#e2e8f0"/><rect x="40" y="600" width="205.02772049047053" height="30" rx="15" fill="#e2e8f0"/><rect x="500" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><rect x="600" y="304.8973320517689" width="60" height="295.1026679482311" rx="10" fill="#8b5cf6"/><rect x="720" y="421.13411964382976" width="60" height="178.86588035617024" rx="10" fill="#8b5cf6"/><rect x="840" y="438.43854470178485" width="60" height="161.56145529821515" rx="10" fill="#8b5cf6"/><rect x="960" y="344.2116324324161" width="60" height="255.78836756758392" rx="10" fill="#8b5cf6"/><rect x="1080" y="312.3417016817257" width="60" height="287.6582983182743" rx="10" fill="#8b5cf6"/><rect x="1200" y="357.86645237822086" width="60" height="242.13354762177914" rx="10" fill="#8b5cf6"/><rect x="1480" y="100" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 500 L 1720 303.9677659282461 L 1860 287.50081481412053 L 2000 290.54399342276156 L 2140 261.32559364195913 L 2280 452.25433679297566" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1200 L 740 991.6981413960457 L 880 1197.4578386871144 L 1020 1066.3970433175564 L 1160 1045.385024487041 L 1300 1126.7738342285156" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="1480" y="800" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 1580 1200 L 1720 926.0198135627434 L 1860 956.2907662242651 L 2000 1077.9096665326506 L 2140 1057.6784912031144 L 2280 952.6423609117046" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/><rect x="500" y="1500" width="900" height="600" rx="40" fill="#ffffff" filter="url(#shadowDown)"/><path d="M 600 1900 L 740 1649.8180051567033 L 880 1883.4621001267806 L 1020 1713.8589497189969 L 1160 1880.6545222876593 L 1300 1879.3417249340564" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linejoin="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#334155" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: DEPO-DOLULUK-LOKASYON</text>
+      <text x="100" y="1570" fill="#334155" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>

@@ -1,0 +1,19 @@
+<svg width="2560" height="1600" viewBox="0 0 2560 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowDown" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadowRight" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="20" dy="0" stdDeviation="30" flood-opacity="0.05" />
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#fffbeb" />
+  
+  <rect x="0" y="0" width="2560" height="160" fill="#ffffff" filter="url(#shadowDown)"/><circle cx="100" cy="80" r="40" fill="#f59e0b"/><rect x="200" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="400" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="600" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="800" y="60" width="120" height="40" rx="20" fill="#fef3c7"/><rect x="100" y="260" width="2360" height="1100" rx="60" fill="#ffffff" filter="url(#shadowDown)"/><line x1="200" y1="400" x2="2360" y2="400" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="650" x2="2360" y2="650" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="900" x2="2360" y2="900" stroke="#fef3c7" stroke-width="4"/><line x1="200" y1="1150" x2="2360" y2="1150" stroke="#fef3c7" stroke-width="4"/><path d="M 200 1100 C 320 861.3957347813994, 320 882.9534375108778, 440 882.9534375108778 C 560 882.9534375108778, 560 662.346303416416, 680 662.346303416416 C 800 662.346303416416, 800 872.1279403660446, 920 872.1279403660446 C 1040 872.1279403660446, 1040 684.0006040874869, 1160 684.0006040874869 C 1280 684.0006040874869, 1280 914.6977980621159, 1400 914.6977980621159 C 1520 914.6977980621159, 1520 523.7575076986104, 1640 523.7575076986104 C 1760 523.7575076986104, 1760 923.1293286662549, 1880 923.1293286662549 C 2000 923.1293286662549, 2000 494.3434215616435, 2120 494.3434215616435 C 2240 494.3434215616435, 2240 623.9807340316474, 2360 623.9807340316474 L 2360 1360 L 200 1360 Z" fill="#fbbf24" opacity="0.2"/><path d="M 200 1100 C 320 861.3957347813994, 320 882.9534375108778, 440 882.9534375108778 C 560 882.9534375108778, 560 662.346303416416, 680 662.346303416416 C 800 662.346303416416, 800 872.1279403660446, 920 872.1279403660446 C 1040 872.1279403660446, 1040 684.0006040874869, 1160 684.0006040874869 C 1280 684.0006040874869, 1280 914.6977980621159, 1400 914.6977980621159 C 1520 914.6977980621159, 1520 523.7575076986104, 1640 523.7575076986104 C 1760 523.7575076986104, 1760 923.1293286662549, 1880 923.1293286662549 C 2000 923.1293286662549, 2000 494.3434215616435, 2120 494.3434215616435 C 2240 494.3434215616435, 2240 623.9807340316474, 2360 623.9807340316474" fill="none" stroke="#f59e0b" stroke-width="24" stroke-linecap="round"/>
+  
+      <rect x="2560" y="1400" width="2560" height="200" transform="translate(-2560,0)"/>
+      <text x="100" y="1520" fill="#451a03" font-family="sans-serif" font-size="48" font-weight="bold">SYSTEM REF: DEFTER-BEYAN-E-ARSIV-AKTARIM</text>
+      <text x="100" y="1570" fill="#451a03" opacity="0.6" font-family="sans-serif" font-size="32">ENTERPRISE EXCEL OS // LIGHT THEME v1.0 // 4K NATIVE</text>
+    
+</svg>
