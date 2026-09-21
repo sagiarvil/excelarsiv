@@ -17,8 +17,8 @@ const thumbSrc = template.kapak || template.preview?.src || '';
         class="someka-thumb-img premium-card__shot"
         src={thumbSrc}
         alt={template.name}
-        width="727"
-        height="373"
+        width="720"
+        height="450"
         loading={priority ? 'eager' : 'lazy'}
         fetchpriority={priority ? 'high' : 'auto'}
         decoding="async"
@@ -78,8 +78,8 @@ const thumbSrc = template.kapak || template.preview?.src || '';
   .someka-thumb-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top;
+    object-fit: contain;
+    object-position: center;
     display: block;
     transition: transform 220ms ease, opacity 220ms ease;
   }
