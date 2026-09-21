@@ -69,16 +69,18 @@ const mobileCss = `<style id="mobile-premium-v18-css">
   body[data-mobile-premium-v18] .home-finance-close__cta{min-height:52px!important;border-radius:14px!important;font-size:14px!important;touch-action:manipulation;transition:transform .12s ease}
   body[data-mobile-premium-v18] .home-finance-close__cta:active{transform:scale(0.97)}
 
-  /* HOME — premium mobile someka cards & clean tabs */
-  body[data-mobile-premium-v18] .soho-product-grid{grid-template-columns:1fr!important;gap:14px!important;margin-bottom:18px!important}
-  body[data-mobile-premium-v18] .someka-product-custom-card{border-radius:10px!important;box-shadow:0 3px 12px rgba(15,23,42,0.06)!important}
-  body[data-mobile-premium-v18] .someka-card-details{padding:12px 14px 14px!important}
-  body[data-mobile-premium-v18] .single-post-title{font-size:16px!important;min-height:auto!important;margin:3px 0 5px!important;line-height:1.32!important}
-  body[data-mobile-premium-v18] .vcex-star-rating{margin-bottom:5px!important;font-size:13px!important}
-  body[data-mobile-premium-v18] .vcex-post-excerpt{font-size:12.5px!important;line-height:1.45!important;min-height:auto!important;margin:0 0 10px!important}
-  body[data-mobile-premium-v18] .someka-card-bottom{display:grid!important;grid-template-columns:1.3fr 1fr!important;gap:8px!important;padding-top:10px!important}
-  body[data-mobile-premium-v18] .btn-someka-teklif{min-height:44px!important;font-size:13px!important;font-weight:750!important;border-radius:8px!important}
-  body[data-mobile-premium-v18] .btn-someka-view{min-height:44px!important;font-size:12.5px!important;font-weight:600!important;border-radius:8px!important}
+  /* HOME — premium mobile someka cards & clean tabs (2 sütunlu çiftli kutu) */
+  body[data-mobile-premium-v18] .soho-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;margin-bottom:18px!important}
+  body[data-mobile-premium-v18] .someka-product-custom-card{border-radius:6px!important;box-shadow:0 1px 3px rgba(0,0,0,0.05)!important;border:1px solid #e2e8f0!important;background:#fff!important}
+  body[data-mobile-premium-v18] .someka-card-thumb-wrap{aspect-ratio:16/10!important;border-bottom:1px solid #e2e8f0!important}
+  body[data-mobile-premium-v18] .someka-category-tag{display:none!important}
+  body[data-mobile-premium-v18] .someka-card-details{padding:8px 6px 10px!important;text-align:center!important}
+  body[data-mobile-premium-v18] .single-post-title,
+  body[data-mobile-premium-v18] .single-post-title a{font-size:12.5px!important;font-weight:700!important;color:#4a97c2!important;min-height:32px!important;margin:2px 0 4px!important;line-height:1.28!important;text-align:center!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
+  body[data-mobile-premium-v18] .vcex-star-rating{display:block!important;margin-bottom:4px!important;font-size:11px!important;text-align:center!important;color:#f59e0b!important}
+  body[data-mobile-premium-v18] .vcex-post-excerpt{display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;font-size:10.5px!important;line-height:1.35!important;min-height:auto!important;margin:0!important;color:#64748b!important;text-align:center!important}
+  body[data-mobile-premium-v18] .someka-card-price{display:none!important}
+  body[data-mobile-premium-v18] .someka-card-bottom{display:none!important}
   body[data-mobile-premium-v18] .soho-reviews-bar{margin-top:0!important;margin-bottom:20px!important;padding:12px 0!important}
   body[data-mobile-premium-v18] .soho-reviews-inner{flex-direction:column!important;align-items:stretch!important;gap:10px!important}
   body[data-mobile-premium-v18] .soho-trustpilot-box{justify-content:center!important}

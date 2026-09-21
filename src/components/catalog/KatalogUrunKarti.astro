@@ -209,4 +209,43 @@ const thumbSrc = template.kapak || template.preview?.src || '';
     border-color: #9ca3af;
     color: #111827;
   }
+
+  @media (max-width: 640px) {
+    .someka-product-custom-card {
+      border-radius: 6px;
+    }
+    .someka-category-tag {
+      display: none !important;
+    }
+    .someka-card-details {
+      padding: 8px 6px 10px;
+    }
+    .single-post-title,
+    .single-post-title a {
+      font-size: 12.5px !important;
+      font-weight: 700 !important;
+      line-height: 1.28 !important;
+      min-height: 32px;
+      color: #4a97c2 !important;
+    }
+    .vcex-star-rating {
+      display: block !important;
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+    .vcex-post-excerpt {
+      display: -webkit-box !important;
+      -webkit-line-clamp: 2 !important;
+      -webkit-box-orient: vertical !important;
+      overflow: hidden !important;
+      font-size: 10.5px !important;
+      line-height: 1.35 !important;
+      color: #64748b !important;
+      min-height: auto;
+      margin: 0 !important;
+    }
+    .someka-card-bottom {
+      display: none !important;
+    }
+  }
 </style>

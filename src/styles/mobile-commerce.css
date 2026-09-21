@@ -218,6 +218,68 @@ body.ea-menu-active {
   main {
     padding-bottom: 32px;
   }
+
+  /* Someka Mobil Çiftli Kutu (2 Sütunlu Grid & Kart Standartı) */
+  .soho-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+  .someka-product-custom-card {
+    border-radius: 6px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+    border: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+  }
+  .someka-card-thumb-wrap {
+    aspect-ratio: 16 / 10 !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+  }
+  .someka-category-tag {
+    display: none !important;
+  }
+  .someka-card-details {
+    padding: 8px 6px 10px !important;
+    text-align: center !important;
+  }
+  .soho-product-grid .single-post-title,
+  .soho-product-grid .single-post-title a {
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    color: #4a97c2 !important;
+    min-height: 32px !important;
+    margin: 2px 0 4px !important;
+    line-height: 1.28 !important;
+    text-align: center !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  .vcex-star-rating {
+    display: block !important;
+    margin-bottom: 4px !important;
+    font-size: 11px !important;
+    text-align: center !important;
+    color: #f59e0b !important;
+  }
+  .vcex-post-excerpt {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    font-size: 10.5px !important;
+    line-height: 1.35 !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    color: #64748b !important;
+    text-align: center !important;
+  }
+  .someka-card-price {
+    display: none !important;
+  }
+  .someka-card-bottom {
+    display: none !important;
+  }
 }
 
 @media (max-width: 390px) {
