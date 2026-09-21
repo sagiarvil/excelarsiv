@@ -61,7 +61,9 @@ PALETTE = {
 }
 
 ORDER_RULES = [
-    (0,   ["baslangic", "ana_sayfa", "anasayfa", "home", "start"]),
+    (-10, ["00_navigasyon", "navigasyon"]),
+    (-5,  ["hizli_baslangic"]),
+    (0,   ["baslangic", "ana_sayfa", "anasayfa", "home", "start", "kapak"]),
     (10,  ["yonetici_ozeti", "ozet", "dashboard", "panel"]),
     (20,  ["varsayim", "assumption", "girdi", "input"]),
     (30,  ["tarihsel", "historical", "mizan"]),
@@ -273,7 +275,9 @@ def audit_workbook(path: Path, product: str) -> Audit:
             if formula is not None:
                 audit.formula_count += 1
                 txt = formula.text or ""
-                if "[" in txt and "]" in txt:
+                # Excel table structured references also use [..] and are NOT external links.
+                # Count only real external-workbook syntax such as [1]Sheet!A1 or [book.xlsx]Sheet!A1.
+                if re.search(r"\[(?:\d+|[^\]]+\.(?:xlsx|xlsm|xlsb|xls))\][^!]*!", txt, re.I):
                     audit.external_formula_count += 1
                 if txt.strip().upper().startswith("HYPERLINK("):
                     audit.hyperlink_formula_count += 1
@@ -325,6 +329,120 @@ def audit_workbook(path: Path, product: str) -> Audit:
     audit.status = "BLOCKED" if p1_fail else ("CALIBRATION_REQUIRED" if p2_fail else "READY_FOR_REVIEW")
     return audit
 
+def ensure_navigation_sheet(files: Dict[str, bytes], wb_root: ET.Element, rels_root: ET.Element) -> None:
+    """Create a safe, formula-based navigation sheet without shifting existing cells/formulas."""
+    sheets_node = wb_root.find(f"{{{NS_MAIN}}}sheets")
+    if sheets_node is None:
+        return
+
+    existing_nodes = list(sheets_node)
+    existing_names = [n.attrib.get("name", "") for n in existing_nodes]
+    if "00_NAVIGASYON" in existing_names:
+        return
+
+    # Capture user sheets before adding the menu.
+    visible_names = [
+        n.attrib.get("name", "")
+        for n in existing_nodes
+        if n.attrib.get("state", "visible") == "visible"
+    ]
+
+    # Allocate a new worksheet target safely.
+    worksheet_targets = []
+    max_rid = 0
+    for rel in rels_root.findall(f"{{{NS_PKG_REL}}}Relationship"):
+        rid = rel.attrib.get("Id", "")
+        m = re.fullmatch(r"rId(\d+)", rid)
+        if m:
+            max_rid = max(max_rid, int(m.group(1)))
+        target = rel.attrib.get("Target", "").replace("\\\\", "/")
+        if "worksheets/sheet" in target:
+            worksheet_targets.append(target)
+
+    nums = []
+    for target in worksheet_targets:
+        m = re.search(r"sheet(\d+)\\.xml$", target)
+        if m:
+            nums.append(int(m.group(1)))
+    sheet_num = (max(nums) if nums else 0) + 1
+    rid = f"rId{max_rid + 1}"
+    sheet_id = max([int(n.attrib.get("sheetId", "0")) for n in existing_nodes] + [0]) + 1
+    target_rel = f"worksheets/sheet{sheet_num}.xml"
+    target_file = f"xl/{target_rel}"
+
+    # Add workbook sheet + relationship.
+    new_sheet = ET.Element(
+        f"{{{NS_MAIN}}}sheet",
+        {"name": "00_NAVIGASYON", "sheetId": str(sheet_id), f"{{{NS_REL}}}id": rid},
+    )
+    sheets_node.append(new_sheet)
+    ET.SubElement(
+        rels_root,
+        f"{{{NS_PKG_REL}}}Relationship",
+        {
+            "Id": rid,
+            "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet",
+            "Target": target_rel,
+        },
+    )
+
+    # Add content type override.
+    ct_ns = "http://schemas.openxmlformats.org/package/2006/content-types"
+    ct_root = parse_xml(files["[Content_Types].xml"])
+    part_name = f"/xl/worksheets/sheet{sheet_num}.xml"
+    if not any(x.attrib.get("PartName") == part_name for x in ct_root.findall(f"{{{ct_ns}}}Override")):
+        ET.SubElement(
+            ct_root,
+            f"{{{ct_ns}}}Override",
+            {
+                "PartName": part_name,
+                "ContentType": "application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml",
+            },
+        )
+    files["[Content_Types].xml"] = ET.tostring(ct_root, encoding="utf-8", xml_declaration=True)
+
+    # Build a compact functional menu. No existing cell is moved or overwritten.
+    ws = ET.Element(f"{{{NS_MAIN}}}worksheet")
+    sheet_pr = ET.SubElement(ws, f"{{{NS_MAIN}}}sheetPr")
+    ET.SubElement(sheet_pr, f"{{{NS_MAIN}}}tabColor", {"rgb": PALETTE["START"]})
+    ET.SubElement(ws, f"{{{NS_MAIN}}}dimension", {"ref": f"A1:B{max(4, len(visible_names)+3)}"})
+    views = ET.SubElement(ws, f"{{{NS_MAIN}}}sheetViews")
+    ET.SubElement(views, f"{{{NS_MAIN}}}sheetView", {"workbookViewId": "0", "showGridLines": "0", "zoomScale": "95"})
+    ET.SubElement(ws, f"{{{NS_MAIN}}}sheetFormatPr", {"defaultRowHeight": "18"})
+    cols = ET.SubElement(ws, f"{{{NS_MAIN}}}cols")
+    ET.SubElement(cols, f"{{{NS_MAIN}}}col", {"min": "1", "max": "1", "width": "36", "customWidth": "1"})
+    ET.SubElement(cols, f"{{{NS_MAIN}}}col", {"min": "2", "max": "2", "width": "24", "customWidth": "1"})
+    data = ET.SubElement(ws, f"{{{NS_MAIN}}}sheetData")
+
+    def inline_cell(row, ref, value):
+        cell = ET.SubElement(row, f"{{{NS_MAIN}}}c", {"r": ref, "t": "inlineStr"})
+        is_el = ET.SubElement(cell, f"{{{NS_MAIN}}}is")
+        t_el = ET.SubElement(is_el, f"{{{NS_MAIN}}}t")
+        t_el.text = value
+
+    row1 = ET.SubElement(data, f"{{{NS_MAIN}}}row", {"r": "1", "ht": "26", "customHeight": "1"})
+    inline_cell(row1, "A1", "EXCELARSIV | NAVİGASYON")
+    row3 = ET.SubElement(data, f"{{{NS_MAIN}}}row", {"r": "3"})
+    inline_cell(row3, "A3", "SAYFA")
+    inline_cell(row3, "B3", "İŞLEV")
+
+    for idx, sheet_name in enumerate(visible_names, start=4):
+        row = ET.SubElement(data, f"{{{NS_MAIN}}}row", {"r": str(idx)})
+        cell = ET.SubElement(row, f"{{{NS_MAIN}}}c", {"r": f"A{idx}", "t": "str"})
+        formula = ET.SubElement(cell, f"{{{NS_MAIN}}}f")
+        safe_sheet = sheet_name.replace("'", "''")
+        safe_label = sheet_name.replace('"', '""')
+        formula.text = f'HYPERLINK("#\\'{safe_sheet}\\'!A1","{safe_label}")'
+        value = ET.SubElement(cell, f"{{{NS_MAIN}}}v")
+        value.text = sheet_name
+        inline_cell(row, f"B{idx}", category(sheet_name))
+
+    merge_cells = ET.SubElement(ws, f"{{{NS_MAIN}}}mergeCells", {"count": "1"})
+    ET.SubElement(merge_cells, f"{{{NS_MAIN}}}mergeCell", {"ref": "A1:B1"})
+    files[target_file] = ET.tostring(ws, encoding="utf-8", xml_declaration=True)
+    files["xl/_rels/workbook.xml.rels"] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
+
+
 def calibrate_copy(src: Path, dest: Path) -> None:
     """
     Düşük riskli, içerik değiştirmeyen kalibrasyon:
@@ -339,6 +457,9 @@ def calibrate_copy(src: Path, dest: Path) -> None:
 
     wb_root = parse_xml(files["xl/workbook.xml"])
     rels_root = parse_xml(files["xl/_rels/workbook.xml.rels"])
+
+    # Add one functional navigation hub as a safe, non-destructive premium UI layer.
+    ensure_navigation_sheet(files, wb_root, rels_root)
 
     rid_to_target = {}
     for rel in rels_root.findall(f"{{{NS_PKG_REL}}}Relationship"):
@@ -370,6 +491,7 @@ def calibrate_copy(src: Path, dest: Path) -> None:
     calc.set("forceFullCalc", "1")
 
     files["xl/workbook.xml"] = ET.tostring(wb_root, encoding="utf-8", xml_declaration=True)
+    files["xl/_rels/workbook.xml.rels"] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
 
     for _, sn in ordered_pairs:
         name = sn.attrib.get("name","")
