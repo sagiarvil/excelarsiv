@@ -1,0 +1,622 @@
+[
+  {
+    "slug": "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi",
+    "title": "13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi",
+    "category": "nakit-akisi"
+  },
+  {
+    "slug": "akilli-kasa-defteri-ve-nakit-kontrol-sistemi",
+    "title": "Akıllı Kasa Defteri ve Nakit Kontrol Sistemi",
+    "category": "nakit-akisi"
+  },
+  {
+    "slug": "amortisman-2026-yeniden-degerleme",
+    "title": "Amortisman + 2026 Yeniden Değerleme",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti",
+    "title": "Amortisman & Sabit Kıymet Satış Zamanlama Stratejisti",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "arsa-ve-gayrimenkul-proje-gelistirme-fizibilite",
+    "title": "Arsa ve Gayrimenkul Proje Geliştirme Fizibilite Exceli",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "asgari-kurumlar-vergisi-simulasyon-motoru",
+    "title": "Asgari Kurumlar Vergisi Simulasyon Motoru",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli",
+    "title": "Asgari Ücret Zam Etkisi & Fiyat Ayarlama Cetveli",
+    "category": "personel-ve-bordro"
+  },
+  {
+    "slug": "asiri-dusuk-teklif-savunma-robotu",
+    "title": "İhale Elinden Gidiyor Mu? (Aşırı Düşük Teklif Savunma Robotu)",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "aylik-patron-finans-paneli",
+    "title": "Aylık Patron Finans Paneli",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "banka-kredi-covenant-erken-uyari",
+    "title": "Banka Kredi Covenant Erken Uyari",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "banka-kredi-ve-taksit-takip-sistemi",
+    "title": "Banka, Kredi ve Taksit Takip Sistemi",
+    "category": "nakit-akisi"
+  },
+  {
+    "slug": "borcla-sirket-satin-alma-ve-yatirim-getirisi",
+    "title": "Borçla Şirket Satın Alma ve Yatırım Getirisi Exceli",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "cari-ba-bs-toplu-mutabakat",
+    "title": "Cari ve Ba-Bs Toplu Mutabakat Motoru",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi",
+    "title": "Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "cek-senet-ve-vade-risk-sistemi",
+    "title": "Çek–Senet ve Vade Risk Sistemi",
+    "category": "nakit-akisi"
+  },
+  {
+    "slug": "dava-masraf-harc-hesaplama",
+    "title": "Dava Masraf Harc Hesaplama",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "defter-beyan-e-arsiv-aktarim",
+    "title": "Defter Beyan e-Arşiv Aktarım Düzenleyici",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "depo-doluluk-lokasyon",
+    "title": "Depo Doluluk Lokasyon",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "dernek-kooperatif-mali-yonetim",
+    "title": "Dernek Kooperatif Mali Yonetim",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "doviz-acik-pozisyonu-ve-kur-riski-stres-testi",
+    "title": "Döviz Açık Pozisyonu ve Kur Riski Stres Testi",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "e-belge-zorunluluk-radari",
+    "title": "E Belge Zorunluluk Radari",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "e-fatura-satir-defteri-pdf-kaniti",
+    "title": "Toplu e-Fatura Satır Defteri ve PDF Kanıtı",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "e-fatura-toplu-donusturucu",
+    "title": "e-Fatura Toplu Dönüştürücü",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "e-ticaret-gercek-karlilik-fiyatlama",
+    "title": "E Ticaret Gercek Karlilik Fiyatlama",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "elektrik-faturasi-dogrulama",
+    "title": "Elektrik Faturasi Dogrulama",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "emlak-pipeline-komisyon",
+    "title": "Emlak Pipeline Komisyon",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "emsal-sirket-carpanlariyla-degerleme",
+    "title": "Emsal Şirket Çarpanlarıyla Değerleme Exceli",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "fason-uretim-takip-sistemi",
+    "title": "Fason Uretim Takip Sistemi",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "fazla-mesai-ve-isci-dava-riski-tespit-dosyasi",
+    "title": "Fazla Mesai ve İşçi Dava Riski Tespit Dosyası",
+    "category": "personel-ve-bordro"
+  },
+  {
+    "slug": "fesih-maliyeti-simulatoru",
+    "title": "Fesih Maliyeti Simulatoru",
+    "category": "personel-ve-bordro"
+  },
+  {
+    "slug": "filo-arac-maliyet-komutasi",
+    "title": "Filo Arac Maliyet Komutasi",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "filo-yatirim-ve-arac-yenileme-fizibilite",
+    "title": "Filo Yatırım ve Araç Yenileme Fizibilite Exceli",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "franchise-yatirim-fizibilite",
+    "title": "Franchise Yatırım Fizibilite Exceli",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "gayrimenkul-tut-sat-karar",
+    "title": "Gayrimenkul Tut / Sat Karar Exceli",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "gayrimenkul-yatirim-fizibilite-ve-karlilik",
+    "title": "Gayrimenkul Yatırım Fizibilite ve Karlılık Exceli",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "ges-uretim-performans",
+    "title": "Ges Uretim Performans",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "ges-yatirim-fizibilite-ve-proje-finansmani",
+    "title": "GES Yatırım Fizibilite ve Proje Finansmanı Exceli",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "ges-yatirim-fizibilite",
+    "title": "Ges Yatirim Fizibilite",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "gida-lot-maliyet-izlenebilirlik",
+    "title": "Gida Lot Maliyet Izlenebilirlik",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "gunluk-gelir-gider-ve-gercek-karlilik-sistemi",
+    "title": "Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "hakedis-fiyat-farki-hak-kaybi-cetveli",
+    "title": "Hakediş Fiyat Farkı ve Hak Kaybı Cetveli",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "hizmet-ihracati-100-indirim-transfer-takip",
+    "title": "Hizmet Ihracati 100 Indirim Transfer Takip",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "hukuk-burosu-dosya-vekalet",
+    "title": "Hukuk Burosu Dosya Vekalet",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "ihale-fiyat-farki-eskalasyon-pro",
+    "title": "Ihale Fiyat Farki Eskalasyon Pro",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "ihaleye-kac-tl-teklif-vermeliyim",
+    "title": "İhaleye Kaç TL Teklif Vermeliyim? (Sınır Değer Hesaplayıcı)",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "ihracat-siparis-karlilik-kur",
+    "title": "Ihracat Siparis Karlilik Kur",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "insaat-hakedis-santiye-maliyet",
+    "title": "İnşaat Hakediş ve Şantiye Maliyet Takip",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "insaat-hakedis-yonetim-sistemi",
+    "title": "Insaat Hakedis Yonetim Sistemi",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "isg-risk-degerlendirme-pro-6331",
+    "title": "Isg Risk Degerlendirme Pro 6331",
+    "category": "personel-ve-bordro"
+  },
+  {
+    "slug": "ithalat-depo-teslim-rafa-gelen-net-birim-maliyet",
+    "title": "İthalat Depo Teslim (Rafa Gelen) Net Birim Maliyet",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "ithalat-landed-cost-motoru",
+    "title": "Ithalat Landed Cost Motoru",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi",
+    "title": "Kaçırılan SGK Teşvikleri & Gerçek İşçilik Maliyeti Analizi",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "kargo-desi-maliyet-optimizasyonu",
+    "title": "Kargo Desi Maliyet Optimizasyonu",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "kat-karsiligi-hasilat-paylasimi-simulator",
+    "title": "Kat Karsiligi Hasilat Paylasimi Simulator",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "kdv-iade-listesi-robotu-gib7",
+    "title": "KDV İade Listesi Robotu (GİB 7 Liste)",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici",
+    "title": "KDV İadesi Azami Alacak Hesabı & Dosya Hazırlayıcı",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "kdv-iadesi-tutar-surec-simulasyonu",
+    "title": "Kdv Iadesi Tutar Surec Simulasyonu",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "kdv-tevkifat-mahsup-iade-listesi",
+    "title": "KDV Tevkifat Mahsup ve KDV İade Listesi",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici",
+    "title": "Kıdem–İhbar Yükü ve Personel Çıkarma Maliyeti Hesaplayıcı",
+    "category": "personel-ve-bordro"
+  },
+  {
+    "slug": "kik-asiri-dusuk-savunma-sinir-deger",
+    "title": "Kik Asiri Dusuk Savunma Sinir Deger",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "kira-avans-takip-dekont",
+    "title": "Kira ve Avans Takip + Dekont",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "kira-portfoyu-getiri-komutasi",
+    "title": "Kira Portfoyu Getiri Komutasi",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti",
+    "title": "KKEG ve Finansman Gider Kısıtlaması Vergi Savunma Seti",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "klinik-saglik-merkezi-fizibilite-ve-karlilik",
+    "title": "Klinik / Sağlık Merkezi Fizibilite ve Karlılık Exceli",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "kobi-finans-yonetim-paketi",
+    "title": "KOBİ Finans Yönetim Paketi",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "konkordato-nakit-akis-on-projesi",
+    "title": "Konkordato Nakit Akış Ön Projesi",
+    "category": "nakit-akisi"
+  },
+  {
+    "slug": "konkordato-ttk376-kriz-paketi",
+    "title": "Konkordato Ttk376 Kriz Paketi",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "kvkk-veri-envanteri-verbis-uyum",
+    "title": "Kvkk Veri Envanteri Verbis Uyum",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "logo-sql-cari-yaslandirma-tahsilat-karar-motoru",
+    "title": "Logo SQL Cari Yaşlandırma & Tahsilat Karar Motoru",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "makine-bakim-kalibrasyon-durus-maliyeti",
+    "title": "Makine Bakim Kalibrasyon Durus Maliyeti",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "mini-mrp-bom-malzeme-kapasite",
+    "title": "Mini Mrp Bom Malzeme Kapasite",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "mizan-anomali-denetim-oncesi-kontrol",
+    "title": "Mizan Anomali Denetim Oncesi Kontrol",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "mutfak-kayip-kacak-hesaplayici",
+    "title": "Mutfak Kayıp/Kaçak Tespiti & Menü Kârlılık Analizi",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "nakliye-maliyeti-hesaplayici",
+    "title": "Sefer Başına Nakliye Maliyeti & Fiyatlandırma Cetveli",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "oee-durus-kok-neden-komutasi",
+    "title": "Oee Durus Kok Neden Komutasi",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "on-uc-haftalik-nakit-odeme-onceligi",
+    "title": "On Uc Haftalik Nakit Odeme Onceligi",
+    "category": "nakit-akisi"
+  },
+  {
+    "slug": "ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici",
+    "title": "Ortaklar Cari & Kasa Adat Faiz Faturası Hesaplayıcı",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "ortakli-gayrimenkul-yatirimi-kar-dagitim",
+    "title": "Ortaklı Gayrimenkul Yatırımı Kâr Dağıtım Exceli",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "ortulu-sermaye-emsal-faiz-tf-paketi",
+    "title": "Ortulu Sermaye Emsal Faiz Tf Paketi",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "otel-fizibilite-ve-karlilik",
+    "title": "Otel Fizibilite ve Karlılık Exceli",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "pazaryeri-hakedis-mutabakat-motoru",
+    "title": "Pazaryeri Hakedis Mutabakat Motoru",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "pazaryeri-net-kar-ve-eksik-hakedis-yakalayici",
+    "title": "Pazaryeri Net Kâr & Eksik Hakediş Yakalayıcı",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "perakende-magaza-acilis-fizibilite",
+    "title": "Perakende / Mağaza Açılış Fizibilite Exceli",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "pos-komisyon-ve-net-tahsilat-kontrol-sistemi",
+    "title": "POS, Komisyon ve Net Tahsilat Kontrol Sistemi",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "profesyonel-hizmet-sirketi-karlilik-ve-kapasite",
+    "title": "Profesyonel Hizmet Şirketi Karlılık ve Kapasite Exceli",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "proje-finansmani-dscr-llcr-paketi",
+    "title": "Proje Finansmani Dscr Llcr Paketi",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "proje-ve-is-bazinda-gercek-karlilik-sistemi",
+    "title": "Proje ve İş Bazında Gerçek Kârlılık Sistemi",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "puantaj-vardiya-fazla-mesai-kanit-sistemi",
+    "title": "Puantaj Vardiya Fazla Mesai Kanit Sistemi",
+    "category": "personel-ve-bordro"
+  },
+  {
+    "slug": "recete-maliyeti-menu-muhendisligi",
+    "title": "Recete Maliyeti Menu Muhendisligi",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "restoran-kafe-yatirim-fizibilite-ve-karlilik",
+    "title": "Restoran / Kafe Yatırım Fizibilite ve Karlılık Exceli",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "restoran-recete-maliyet-fire",
+    "title": "Restoran Reçete Maliyet + Fire Hesaplama",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "saas-finansal-planlama-runway-ve-yatirim",
+    "title": "SaaS Finansal Planlama, Runway ve Yatırım Exceli",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "sarj-istasyonu-yatirim",
+    "title": "Sarj Istasyonu Yatirim",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "sekiz-d-duzeltici-faaliyet-dosya",
+    "title": "Sekiz D Duzeltici Faaliyet Dosya",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "sera-kurulum-fizibilite",
+    "title": "Sera Kurulum Fizibilite",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "sevkiyat-fiyatlama-navlun",
+    "title": "Sevkiyat Fiyatlama Navlun",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "sgk-prim-tesvikleri-optimizasyon-motoru",
+    "title": "Sgk Prim Tesvikleri Optimizasyon Motoru",
+    "category": "personel-ve-bordro"
+  },
+  {
+    "slug": "sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli",
+    "title": "Şirket Öz Kaynağı Eridi Mi? (TTK 376 Sermaye Tamamlama Cetveli)",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "sirket-satin-alma-ve-ortaklik-devir-analizi",
+    "title": "Şirket Satın Alma ve Ortaklık Devir Analizi Exceli",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "site-apartman-yonetim-sistemi",
+    "title": "Site Apartman Yonetim Sistemi",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "spc-proses-yetenek-analizi",
+    "title": "Spc Proses Yetenek Analizi",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "startup-yatirim-alma-ve-nakit-runway",
+    "title": "Startup Yatırım Alma ve Nakit Runway Exceli",
+    "category": "nakit-akisi"
+  },
+  {
+    "slug": "stok-optimizasyon-abc-olu-stok-nakit",
+    "title": "Stok Optimizasyon Abc Olu Stok Nakit",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "stok-satis-ve-nakit-baglanma-sistemi",
+    "title": "Stok, Satış ve Nakit Bağlanma Sistemi",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "sube-karlilik-ve-nakit-hesaplayici",
+    "title": "Bu Şubeyi Kapatmalı Mıyım? (Şube Kârlılık & Nakit Yakış Analizi)",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "sut-surusu-yonetim",
+    "title": "Sut Surusu Yonetim",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "tahsilat-riski-vade-komuta-paneli",
+    "title": "Tahsilat Riski Vade Komuta Paneli",
+    "category": "nakit-akisi"
+  },
+  {
+    "slug": "tarimsal-destek-uygunluk",
+    "title": "Tarimsal Destek Uygunluk",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "taseron-hakedis-kesinti-mutabakati",
+    "title": "Taşeron/Alt Yüklenici Hakediş & Kesinti Mutabakatı",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "tesvikli-bordro-avantajli-tesvik",
+    "title": "Teşvikli Bordro ve En Avantajlı Teşvik Seçen",
+    "category": "personel-ve-bordro"
+  },
+  {
+    "slug": "tesvikli-bordro-optimizasyon",
+    "title": "Teşvikli Bordro Optimizasyon",
+    "category": "personel-ve-bordro"
+  },
+  {
+    "slug": "trendyol-komisyon-sonrasi-net-kar",
+    "title": "Trendyol Komisyon Sonrası Net Kâr Hesaplama",
+    "category": "satis-ve-fiyatlama"
+  },
+  {
+    "slug": "uretim-kapasite-yatirim-ve-karlilik",
+    "title": "Üretim Kapasite, Yatırım ve Karlılık Exceli",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "uretim-kari-125-kv-optimizasyonu",
+    "title": "Uretim Kari 125 Kv Optimizasyonu",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "uretim-recetesi-ve-zam-yansitma-hesaplayici",
+    "title": "Üretim Reçetesi & Zam Yansıtma Hesaplayıcı",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi",
+    "title": "Vergi/SGK Borcunu Tecil Etmeli Miyim? (Kredi mi Tecil mi?)",
+    "category": "butce-ve-planlama"
+  },
+  {
+    "slug": "vergi-sgk-ve-maas-karsilik-ayirma-sistemi",
+    "title": "Vergi, SGK ve Maaş Karşılık Ayırma Sistemi",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "wacc-hesaplama-ve-sermaye-maliyeti",
+    "title": "WACC Hesaplama ve Sermaye Maliyeti Exceli",
+    "category": "finansal-analiz"
+  },
+  {
+    "slug": "yem-rasyonu-maliyet",
+    "title": "Yem Rasyonu Maliyet",
+    "category": "stok-ve-uretim"
+  },
+  {
+    "slug": "yeniden-degerleme-komuta-merkezi",
+    "title": "Yeniden Degerleme Komuta Merkezi",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi",
+    "title": "Yeniden Değerleme Yapmalı Mıyım? (Vergi Tasarruf Analizi)",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "yillara-sari-insaat-stopaj-nakit-akis-planlayici",
+    "title": "Yıllara Sari İnşaat Stopaj & Nakit Akış Planlayıcı",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "ymm-tasdik-kontrol-robotu",
+    "title": "YMM Tasdik Kontrol Robotu",
+    "category": "muhasebe-ve-vergi"
+  },
+  {
+    "slug": "yurt-disi-yapilanma-vergi-simulatoru",
+    "title": "Yurt Disi Yapilanma Vergi Simulatoru",
+    "category": "finansal-analiz"
+  }
+]

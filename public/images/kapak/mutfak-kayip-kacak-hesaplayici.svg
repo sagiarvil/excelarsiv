@@ -1,34 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
   <defs>
-    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
-      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
+    <linearGradient id="gGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#107c41" />
+      <stop offset="100%" stop-color="#0d5c3a" />
+    </linearGradient>
+    <linearGradient id="gBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="gAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+    <linearGradient id="gRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#b91c1c" />
+    </linearGradient>
+    <linearGradient id="gPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#6d28d9" />
+    </linearGradient>
+    <filter id="softCard" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.06" />
     </filter>
   </defs>
-  
-  <!-- Canvas Background -->
-  <rect width="100%" height="100%" fill="#f8fafc" />
-  
-  <!-- Subtle Grid Pattern -->
-  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
-    <line x1="0" y1="200" x2="1600" y2="200" />
-    <line x1="0" y1="400" x2="1600" y2="400" />
-    <line x1="0" y1="600" x2="1600" y2="600" />
-    <line x1="0" y1="800" x2="1600" y2="800" />
+
+  <!-- Saf Açık Tema Arka Plan (1000x1000 Kare Alan) -->
+  <rect width="1000" height="1000" fill="#ffffff" />
+
+  <!-- Dış Kenar Çerçeve (820x820 Çizim Alanı: x=90, y=90, %82 Doluluk) -->
+  <rect x="90" y="90" width="820" height="820" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2.5" filter="url(#softCard)" />
+
+  <!-- Üst Başlık & Kategori Rozeti (x: 130, y: 130) -->
+  <g transform="translate(130, 130)">
+    <rect x="0" y="0" width="160" height="32" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+    <circle cx="16" cy="16" r="5" fill="#107c41" />
+    <text x="32" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="800" fill="#334155" letter-spacing="0.5">STOK-VE-URETIM</text>
+    
+    <text x="0" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#0f172a">Mutfak Kayıp/Kaçak Tespiti &amp; Menü Kârlılık Analizi</text>
   </g>
-  
-  <!-- Main Presentation Card -->
-  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
-  
-  <!-- Card Header -->
-  <g transform="translate(240, 170)">
-    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
-    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">FİNANSAL YÖNETİM</text>
-    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Mutfak Kayip Kacak Hesaplayici</text>
-  </g>
-  
-  <!-- Chart Area (Centered) -->
-  <g transform="translate(180, 230)">
-    <g transform="translate(300, 80)"><line x1="0" y1="0" x2="640" y2="0" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="6 6"/><text x="-16" y="5" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="end">100%</text><line x1="0" y1="90" x2="640" y2="90" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="6 6"/><text x="-16" y="95" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="end">75%</text><line x1="0" y1="180" x2="640" y2="180" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="6 6"/><text x="-16" y="185" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="end">50%</text><line x1="0" y1="270" x2="640" y2="270" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="6 6"/><text x="-16" y="275" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="end">25%</text><line x1="0" y1="360" x2="640" y2="360" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="6 6"/><text x="-16" y="365" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="end">0%</text><line x1="0" y1="0" x2="0" y2="360" stroke="#cbd5e1" stroke-width="2"/><line x1="0" y1="360" x2="640" y2="360" stroke="#cbd5e1" stroke-width="2"/><polygon points="32,244 92,208 152,244 152,360 32,360" fill="#064e3b" /><text x="92" y="390" fill="#64748b" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="middle">M1</text><polygon points="184,77 244,41 304,77 304,360 184,360" fill="#047857" /><text x="244" y="390" fill="#64748b" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="middle">M2</text><polygon points="336,202 396,166 456,202 456,360 336,360" fill="#059669" /><text x="396" y="390" fill="#64748b" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="middle">M3</text><polygon points="488,138 548,102 608,138 608,360 488,360" fill="#10b981" /><text x="548" y="390" fill="#64748b" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="middle">M4</text></g>
+
+  <!-- 1:1 Kare Alanını Dolduran Benzersiz İnfografik / Çizim (x: 130, y: 220, w: 740, h: 650) -->
+  <g transform="translate(130, 220)">
+    
+    <rect x="20" y="20" width="700" height="520" rx="20" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" />
+    <g transform="translate(100, 50)">
+      <!-- Fire Hunisi -->
+      <polygon points="20,0 420,0 370,80 70,80" fill="#1e293b" /><text x="220" y="48" font-family="system-ui" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">SATIN ALMA HAMMADDE (100 kg)</text>
+      <polygon points="75,90 365,90 315,170 125,170" fill="#f59e0b" /><text x="220" y="138" font-family="system-ui" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">ÖN HAZIRLIK &amp; AYIKLAMA (88 kg)</text>
+      <polygon points="130,180 310,180 270,260 170,260" fill="#2563eb" /><text x="220" y="228" font-family="system-ui" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">PİŞİRME FİRESİ (72 kg)</text>
+      <rect x="135" y="290" width="170" height="50" rx="10" fill="#107c41" /><text x="220" y="322" font-family="system-ui" font-size="15" font-weight="900" fill="#ffffff" text-anchor="middle">NET PORKSİYON: %72</text>
+    </g>
+    
   </g>
 </svg>

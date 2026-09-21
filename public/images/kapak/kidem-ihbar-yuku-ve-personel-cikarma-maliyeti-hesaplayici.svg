@@ -1,47 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
   <defs>
-    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
-      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#0f172a" flood-opacity="0.06" />
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.04" />
+    <linearGradient id="gGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#107c41" />
+      <stop offset="100%" stop-color="#0d5c3a" />
+    </linearGradient>
+    <linearGradient id="gBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="gAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+    <linearGradient id="gRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#b91c1c" />
+    </linearGradient>
+    <linearGradient id="gPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#6d28d9" />
+    </linearGradient>
+    <filter id="softCard" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.06" />
     </filter>
   </defs>
-  
-  <!-- Canvas Background -->
-  <rect width="100%" height="100%" fill="#f8fafc" />
-  
-  <!-- Subtle Grid Pattern -->
-  <g stroke="#e2e8f0" stroke-width="1" opacity="0.4">
-    <line x1="0" y1="200" x2="1600" y2="200" />
-    <line x1="0" y1="400" x2="1600" y2="400" />
-    <line x1="0" y1="600" x2="1600" y2="600" />
-    <line x1="0" y1="800" x2="1600" y2="800" />
+
+  <!-- Saf Açık Tema Arka Plan (1000x1000 Kare Alan) -->
+  <rect width="1000" height="1000" fill="#ffffff" />
+
+  <!-- Dış Kenar Çerçeve (820x820 Çizim Alanı: x=90, y=90, %82 Doluluk) -->
+  <rect x="90" y="90" width="820" height="820" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2.5" filter="url(#softCard)" />
+
+  <!-- Üst Başlık & Kategori Rozeti (x: 130, y: 130) -->
+  <g transform="translate(130, 130)">
+    <rect x="0" y="0" width="160" height="32" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+    <circle cx="16" cy="16" r="5" fill="#107c41" />
+    <text x="32" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="800" fill="#334155" letter-spacing="0.5">PERSONEL-VE-BORDRO</text>
+    
+    <text x="0" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#0f172a">Kıdem–İhbar Yükü ve Personel Çıkarma Maliyeti Hesaplayıcı</text>
   </g>
-  
-  <!-- Main Presentation Card -->
-  <rect x="180" y="110" width="1240" height="780" rx="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#cardShadow)" />
-  
-  <!-- Card Header -->
-  <g transform="translate(240, 170)">
-    <rect x="0" y="0" width="200" height="32" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
-    <text x="100" y="21" fill="#065f46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">FİNANSAL YÖNETİM</text>
-    <text x="0" y="70" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Kidem Ihbar Yuku &amp; Personel Cikarma Maliyeti Hesaplayici</text>
-  </g>
-  
-  <!-- Chart Area (Centered) -->
-  <g transform="translate(180, 230)">
-    <g transform="translate(360, 80)">
-      <line x1="0" y1="0" x2="0" y2="360" stroke="#cbd5e1" stroke-width="3"/>
-      <line x1="0" y1="360" x2="520" y2="360" stroke="#cbd5e1" stroke-width="3"/>
-      <!-- Benchmark Target Line -->
-      <line x1="0" y1="120" x2="520" y2="120" stroke="#ef4444" stroke-width="3" stroke-dasharray="10 6"/>
-      <text x="530" y="125" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="800">HEDEF</text>
-      <!-- 3 Bars -->
-      <rect x="60" y="188" width="90" height="172" rx="8" fill="#65a30d" />
-      <text x="105" y="390" fill="#334155" font-family="sans-serif" font-size="16" font-weight="700" text-anchor="middle">GEÇEN YIL</text>
-      <rect x="200" y="92" width="90" height="268" rx="8" fill="#f59e0b" />
-      <text x="245" y="390" fill="#334155" font-family="sans-serif" font-size="16" font-weight="700" text-anchor="middle">BÜTÇE</text>
-      <rect x="340" y="26" width="90" height="334" rx="8" fill="#047857" />
-      <text x="385" y="390" fill="#334155" font-family="sans-serif" font-size="16" font-weight="700" text-anchor="middle">FİİLİ</text>
+
+  <!-- 1:1 Kare Alanını Dolduran Benzersiz İnfografik / Çizim (x: 130, y: 220, w: 740, h: 650) -->
+  <g transform="translate(130, 220)">
+    
+    <rect x="20" y="20" width="700" height="520" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+    <g transform="translate(60, 40)">
+      <rect x="40" y="40" width="520" height="110" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" />
+      <text x="70" y="80" font-family="system-ui" font-size="14" font-weight="700" fill="#64748b">TOPLAM FİRMA KIDEM YÜKÜ</text>
+      <text x="70" y="125" font-family="system-ui" font-size="32" font-weight="900" fill="#0f172a">₺6.420.000</text>
+      <rect x="40" y="170" width="240" height="180" rx="14" fill="#fee2e2" />
+      <text x="70" y="210" font-family="system-ui" font-size="14" font-weight="800" fill="#b91c1c">İHBAR TAZMİNATI</text>
+      <text x="70" y="260" font-family="system-ui" font-size="26" font-weight="900" fill="#b91c1c">₺1.180.000</text>
+      <rect x="320" y="170" width="240" height="180" rx="14" fill="#dcfce7" />
+      <text x="350" y="210" font-family="system-ui" font-size="14" font-weight="800" fill="#0d5c3a">AYLIK KARŞILIK</text>
+      <text x="350" y="260" font-family="system-ui" font-size="26" font-weight="900" fill="#0d5c3a">₺142.000</text>
     </g>
+    
   </g>
 </svg>
