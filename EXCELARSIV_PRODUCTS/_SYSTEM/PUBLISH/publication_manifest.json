@@ -1,0 +1,689 @@
+{
+  "generatedAt": "2026-09-21",
+  "createdCount": 54,
+  "created": [
+    "asgari-kurumlar-vergisi-simulasyon-motoru",
+    "banka-kredi-covenant-erken-uyari",
+    "dava-masraf-harc-hesaplama",
+    "depo-doluluk-lokasyon",
+    "dernek-kooperatif-mali-yonetim",
+    "e-belge-zorunluluk-radari",
+    "e-ticaret-gercek-karlilik-fiyatlama",
+    "elektrik-faturasi-dogrulama",
+    "emlak-pipeline-komisyon",
+    "fason-uretim-takip-sistemi",
+    "fesih-maliyeti-simulatoru",
+    "filo-arac-maliyet-komutasi",
+    "ges-uretim-performans",
+    "ges-yatirim-fizibilite",
+    "gida-lot-maliyet-izlenebilirlik",
+    "hizmet-ihracati-100-indirim-transfer-takip",
+    "hukuk-burosu-dosya-vekalet",
+    "ihale-fiyat-farki-eskalasyon-pro",
+    "ihracat-siparis-karlilik-kur",
+    "insaat-hakedis-yonetim-sistemi",
+    "isg-risk-degerlendirme-pro-6331",
+    "ithalat-landed-cost-motoru",
+    "kargo-desi-maliyet-optimizasyonu",
+    "kat-karsiligi-hasilat-paylasimi-simulator",
+    "kdv-iadesi-tutar-surec-simulasyonu",
+    "kik-asiri-dusuk-savunma-sinir-deger",
+    "kira-portfoyu-getiri-komutasi",
+    "konkordato-ttk376-kriz-paketi",
+    "kvkk-veri-envanteri-verbis-uyum",
+    "makine-bakim-kalibrasyon-durus-maliyeti",
+    "mini-mrp-bom-malzeme-kapasite",
+    "mizan-anomali-denetim-oncesi-kontrol",
+    "oee-durus-kok-neden-komutasi",
+    "on-uc-haftalik-nakit-odeme-onceligi",
+    "ortulu-sermaye-emsal-faiz-tf-paketi",
+    "pazaryeri-hakedis-mutabakat-motoru",
+    "proje-finansmani-dscr-llcr-paketi",
+    "puantaj-vardiya-fazla-mesai-kanit-sistemi",
+    "recete-maliyeti-menu-muhendisligi",
+    "sarj-istasyonu-yatirim",
+    "sekiz-d-duzeltici-faaliyet-dosya",
+    "sera-kurulum-fizibilite",
+    "sevkiyat-fiyatlama-navlun",
+    "sgk-prim-tesvikleri-optimizasyon-motoru",
+    "site-apartman-yonetim-sistemi",
+    "spc-proses-yetenek-analizi",
+    "stok-optimizasyon-abc-olu-stok-nakit",
+    "sut-surusu-yonetim",
+    "tahsilat-riski-vade-komuta-paneli",
+    "tarimsal-destek-uygunluk",
+    "uretim-kari-125-kv-optimizasyonu",
+    "yem-rasyonu-maliyet",
+    "yeniden-degerleme-komuta-merkezi",
+    "yurt-disi-yapilanma-vergi-simulatoru"
+  ],
+  "records": [
+    {
+      "slug": "akilli-kasa-defteri-ve-nakit-kontrol-sistemi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "amortisman-2026-yeniden-degerleme",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "arsa-ve-gayrimenkul-proje-gelistirme-fizibilite",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "asgari-kurumlar-vergisi-simulasyon-motoru",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "asiri-dusuk-teklif-savunma-robotu",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "aylik-patron-finans-paneli",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "banka-kredi-covenant-erken-uyari",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "banka-kredi-ve-taksit-takip-sistemi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "borcla-sirket-satin-alma-ve-yatirim-getirisi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "cari-ba-bs-toplu-mutabakat",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "cek-senet-vade-risk-sistemi",
+      "status": "CONSOLIDATED_ALIAS",
+      "reason": "cek-senet-ve-vade-risk-sistemi"
+    },
+    {
+      "slug": "dava-masraf-harc-hesaplama",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "defter-beyan-e-arsiv-aktarim",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "depo-doluluk-lokasyon",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "dernek-kooperatif-mali-yonetim",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "doviz-acik-pozisyonu-ve-kur-riski-stres-testi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "e-belge-zorunluluk-radari",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "e-fatura-satir-defteri-pdf-kaniti",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "e-fatura-toplu-donusturucu",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "e-ticaret-gercek-karlilik-fiyatlama",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "elektrik-faturasi-dogrulama",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "emlak-pipeline-komisyon",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "emsal-sirket-carpanlariyla-degerleme",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "fason-uretim-takip-sistemi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "fazla-mesai-ve-isci-dava-riski-tespit-dosyasi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "fesih-maliyeti-simulatoru",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "filo-arac-maliyet-komutasi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "filo-yatirim-ve-arac-yenileme-fizibilite",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "franchise-yatirim-fizibilite",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "gayrimenkul-tut-sat-karar",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "gayrimenkul-yatirim-fizibilite-ve-karlilik",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "ges-uretim-performans",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "ges-yatirim-fizibilite",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "ges-yatirim-fizibilite-ve-proje-finansmani",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "gida-lot-maliyet-izlenebilirlik",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "gunluk-gelir-gider-karlilik-sistemi",
+      "status": "CONSOLIDATED_ALIAS",
+      "reason": "gunluk-gelir-gider-ve-gercek-karlilik-sistemi"
+    },
+    {
+      "slug": "hakedis-fiyat-farki-hak-kaybi-cetveli",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "hizmet-ihracati-100-indirim-transfer-takip",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "hukuk-burosu-dosya-vekalet",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "ihale-fiyat-farki-eskalasyon-pro",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "ihaleye-kac-tl-teklif-vermeliyim",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "ihracat-siparis-karlilik-kur",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "insaat-hakedis-santiye-maliyet",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "insaat-hakedis-yonetim-sistemi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "isg-risk-degerlendirme-pro-6331",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "ithalat-depo-teslim-rafa-gelen-net-birim-maliyet",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "ithalat-landed-cost-motoru",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "kargo-desi-maliyet-optimizasyonu",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "kat-karsiligi-hasilat-paylasimi-simulator",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "kdv-iade-listesi-robotu-gib7",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "kdv-iadesi-tutar-surec-simulasyonu",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "kdv-tevkifat-mahsup-iade-listesi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "kik-asiri-dusuk-savunma-sinir-deger",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "kira-avans-takip-dekont",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "kira-portfoyu-getiri-komutasi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "klinik-saglik-merkezi-fizibilite-ve-karlilik",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "kobi-finans-yonetim-paketi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "konkordato-nakit-akis-on-projesi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "konkordato-ttk376-kriz-paketi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "kvkk-veri-envanteri-verbis-uyum",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "makine-bakim-kalibrasyon-durus-maliyeti",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "mini-mrp-bom-malzeme-kapasite",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "mizan-anomali-denetim-oncesi-kontrol",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "mutfak-kayip-kacak-hesaplayici",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "nakliye-maliyeti-hesaplayici",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "oee-durus-kok-neden-komutasi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "on-uc-haftalik-nakit-akisi-ve-odeme-planlama-sistemi",
+      "status": "CONSOLIDATED_ALIAS",
+      "reason": "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi"
+    },
+    {
+      "slug": "on-uc-haftalik-nakit-odeme-onceligi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "ortakli-gayrimenkul-yatirimi-kar-dagitim",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "ortulu-sermaye-emsal-faiz-tf-paketi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "otel-fizibilite-ve-karlilik",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "pazaryeri-hakedis-mutabakat-motoru",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "pazaryeri-net-kar-ve-eksik-hakedis-yakalayici",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "perakende-magaza-acilis-fizibilite",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "pos-komisyon-net-tahsilat-kontrol-sistemi",
+      "status": "CONSOLIDATED_ALIAS",
+      "reason": "pos-komisyon-ve-net-tahsilat-kontrol-sistemi"
+    },
+    {
+      "slug": "profesyonel-hizmet-sirketi-karlilik-ve-kapasite",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "proje-finansmani-dscr-llcr-paketi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "proje-ve-is-bazinda-gercek-karlilik-sistemi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "puantaj-vardiya-fazla-mesai-kanit-sistemi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "recete-maliyeti-menu-muhendisligi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "restoran-kafe-yatirim-fizibilite-ve-karlilik",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "restoran-recete-maliyet-fire",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "saas-finansal-planlama-runway-ve-yatirim",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "sarj-istasyonu-yatirim",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "sekiz-d-duzeltici-faaliyet-dosya",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "sera-kurulum-fizibilite",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "sevkiyat-fiyatlama-navlun",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "sgk-prim-tesvikleri-optimizasyon-motoru",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "sirket-satin-alma-ve-ortaklik-devir-analizi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "site-apartman-yonetim-sistemi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "spc-proses-yetenek-analizi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "startup-yatirim-alma-ve-nakit-runway",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "stok-optimizasyon-abc-olu-stok-nakit",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "stok-satis-ve-nakit-baglanma-sistemi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "sube-karlilik-ve-nakit-hesaplayici",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "sut-surusu-yonetim",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "tahsilat-riski-vade-komuta-paneli",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "tarimsal-destek-uygunluk",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "taseron-hakedis-kesinti-mutabakati",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "tesvikli-bordro-avantajli-tesvik",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "tesvikli-bordro-optimizasyon",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "trendyol-komisyon-sonrasi-net-kar",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "uretim-kapasite-yatirim-ve-karlilik",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "uretim-kari-125-kv-optimizasyonu",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "uretim-recetesi-ve-zam-yansitma-hesaplayici",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "vergi-sgk-ve-maas-karsilik-ayirma-sistemi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "wacc-hesaplama-ve-sermaye-maliyeti",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "yem-rasyonu-maliyet",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "yeniden-degerleme-komuta-merkezi",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    },
+    {
+      "slug": "yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "yillara-sari-insaat-stopaj-nakit-akis-planlayici",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "ymm-tasdik-kontrol-robotu",
+      "status": "ALREADY_PUBLISHED",
+      "reason": ""
+    },
+    {
+      "slug": "yurt-disi-yapilanma-vergi-simulatoru",
+      "status": "PUBLISHED_TO_CATALOG",
+      "reason": "QUOTE_ONLY_NO_COMMERCE_MAPPING"
+    }
+  ],
+  "rules": {
+    "qa": "READY_FOR_REVIEW required",
+    "sevk": "SEVK EDİLEBİLİR required",
+    "screenshots": "3 required",
+    "aliases": {
+      "cek-senet-vade-risk-sistemi": "cek-senet-ve-vade-risk-sistemi",
+      "gunluk-gelir-gider-karlilik-sistemi": "gunluk-gelir-gider-ve-gercek-karlilik-sistemi",
+      "on-uc-haftalik-nakit-akisi-ve-odeme-planlama-sistemi": "13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi",
+      "pos-komisyon-net-tahsilat-kontrol-sistemi": "pos-komisyon-ve-net-tahsilat-kontrol-sistemi"
+    },
+    "directSale": "only when commerce/catalog.json has satista=true"
+  }
+}

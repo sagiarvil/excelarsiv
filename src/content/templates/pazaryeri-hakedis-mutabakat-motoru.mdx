@@ -1,0 +1,91 @@
+---
+name: 'Pazaryeri Hakediş Mutabakat Motoru'
+summary: 'Pazaryeri Hakediş Mutabakat Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
+category: 'satis-ve-fiyatlama'
+priceTL: 9900
+vatIncluded: true
+fileFormat: xlsx
+sizeMB: 0.35
+sheetCount: 15
+hasMacros: false
+minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+macCompatible: true
+sheetsCompatibility: 'partial'
+version: '1.0.0'
+updatedAt: '2026-09-21'
+sheetMap:
+  - name: 'KAPAK'
+    purpose: 'Kapak için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'KONTROLLER'
+    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'KILAVUZ'
+    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'PANO'
+    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
+    kind: 'output'
+  - name: 'VERI_A'
+    purpose: 'Veri A için kullanıcı veri girişi ve tanım alanı'
+    kind: 'input'
+  - name: 'VERI_B'
+    purpose: 'Veri B için kullanıcı veri girişi ve tanım alanı'
+    kind: 'input'
+  - name: 'ANAHTAR'
+    purpose: 'Anahtar için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'ESLESTIRME'
+    purpose: 'Eslestirme için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'KOK_NEDEN'
+    purpose: 'Kok Neden için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'AKSIYON'
+    purpose: 'Aksiyon için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'KANIT_RAPORU'
+    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
+    kind: 'output'
+  - name: 'ORNEK_VERI'
+    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
+    kind: 'input'
+  - name: 'LISTELER'
+    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
+    kind: 'input'
+  - name: 'AYARLAR'
+    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
+    kind: 'input'
+inputs:
+  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+outputs:
+  - 'Karar motoru, kontrol ve yönetim çıktıları'
+suitableFor:
+  - 'E-ticaret operasyon'
+  - 'mali işler'
+  - 'SMMM'
+notSuitableFor:
+  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+requirements:
+  - 'Microsoft Excel 2016 veya üzeri'
+  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
+  - 'Makro gerektirmez'
+updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+faq:
+  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
+    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
+  - question: 'Kalite kontrolü nasıl doğrulandı?'
+    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
+  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
+    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+screenshots:
+  - src: '/screenshots/pazaryeri-hakedis-mutabakat-motoru-1.png'
+    alt: 'Pazaryeri Hakediş Mutabakat Motoru — ürün ekranı 1'
+  - src: '/screenshots/pazaryeri-hakedis-mutabakat-motoru-2.png'
+    alt: 'Pazaryeri Hakediş Mutabakat Motoru — ürün ekranı 2'
+  - src: '/screenshots/pazaryeri-hakedis-mutabakat-motoru-3.png'
+    alt: 'Pazaryeri Hakediş Mutabakat Motoru — ürün ekranı 3'
+related: []
+---
+
+Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.

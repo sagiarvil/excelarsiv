@@ -1,0 +1,86 @@
+---
+name: 'Tahsilat Riski & Vade Komuta Paneli'
+summary: 'Tahsilat Riski & Vade Komuta Paneli: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
+category: 'nakit-akisi'
+priceTL: 7900
+vatIncluded: true
+fileFormat: xlsx
+sizeMB: 0.15
+sheetCount: 13
+hasMacros: false
+minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+macCompatible: true
+sheetsCompatibility: 'partial'
+version: '1.0.0'
+updatedAt: '2026-09-21'
+sheetMap:
+  - name: 'KAPAK'
+    purpose: 'Kapak için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'KONTROLLER'
+    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'KILAVUZ'
+    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'PANO'
+    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
+    kind: 'output'
+  - name: 'KARTLAR'
+    purpose: 'Kartlar için kullanıcı veri girişi ve tanım alanı'
+    kind: 'input'
+  - name: 'AKIS'
+    purpose: 'Akis için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'KUYRUKLAR'
+    purpose: 'Kuyruklar için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'HESAP'
+    purpose: 'Hesap için hesaplama ve kontrol katmanı'
+    kind: 'calculation'
+  - name: 'RAPOR'
+    purpose: 'Rapor üzerinden sonuç, karar veya yönetim çıktısı'
+    kind: 'output'
+  - name: 'ORNEK_VERI'
+    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
+    kind: 'input'
+  - name: 'LISTELER'
+    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
+    kind: 'input'
+  - name: 'AYARLAR'
+    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
+    kind: 'input'
+inputs:
+  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+outputs:
+  - 'Karar motoru, kontrol ve yönetim çıktıları'
+suitableFor:
+  - 'Tahsilat müdürü'
+  - 'CFO'
+  - 'mali işler'
+  - 'SMMM'
+notSuitableFor:
+  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+requirements:
+  - 'Microsoft Excel 2016 veya üzeri'
+  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
+  - 'Makro gerektirmez'
+updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+faq:
+  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
+    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
+  - question: 'Kalite kontrolü nasıl doğrulandı?'
+    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
+  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
+    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+screenshots:
+  - src: '/screenshots/tahsilat-riski-vade-komuta-paneli-1.png'
+    alt: 'Tahsilat Riski & Vade Komuta Paneli — ürün ekranı 1'
+  - src: '/screenshots/tahsilat-riski-vade-komuta-paneli-2.png'
+    alt: 'Tahsilat Riski & Vade Komuta Paneli — ürün ekranı 2'
+  - src: '/screenshots/tahsilat-riski-vade-komuta-paneli-3.png'
+    alt: 'Tahsilat Riski & Vade Komuta Paneli — ürün ekranı 3'
+related: []
+---
+
+Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
