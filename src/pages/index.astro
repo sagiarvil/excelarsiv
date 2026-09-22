@@ -1,11 +1,10 @@
 ---
 import CommerceLayout from '../layouts/CommerceLayout.astro';
 import HeroSection from '../components/home/HeroSection.astro';
-import { getAllTemplates, getTemplateSearchIndex } from '../lib/templates';
+import { getAllTemplates } from '../lib/templates';
 import { kararPages } from '../data/kararPages';
 
 const templates = await getAllTemplates();
-const searchIndex = await getTemplateSearchIndex();
 const productCount = templates.length;
 const categoryCount = new Set(templates.map((item) => item.categorySlug)).size;
 const minPrice = Math.min(...templates.map((item) => item.priceTL));
@@ -88,7 +87,7 @@ const homeJsonLd = {
 
   <div class="home-v2 someka-layout-root">
     <!-- HERO BÖLÜMÜ (Kullanıcı Talimatı: Kesinlikle Birebir Korunuyor) -->
-    <HeroSection searchIndex={searchIndex} />
+    <HeroSection />
 
     <!-- SOMEKA GÜVEN VE REFERANSLAR BANDI (soho-reviews-row) -->
     <div class="soho-reviews-bar">
