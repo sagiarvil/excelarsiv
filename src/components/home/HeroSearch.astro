@@ -1,19 +1,4 @@
 ---
-import type { SearchItem } from '../../lib/search';
-
-interface Props {
-  searchIndex: SearchItem[];
-}
-
-const { searchIndex } = Astro.props;
-
-const quickLinks = [
-  { label: 'Nakit Akışı', href: '/sablonlar?q=nakit' },
-  { label: 'Kasa', href: '/sablonlar?q=kasa' },
-  { label: 'Cari Hesap', href: '/sablonlar?q=cari' },
-  { label: 'Stok', href: '/sablonlar?q=stok' },
-  { label: 'Kârlılık', href: '/sablonlar?q=kârlılık' },
-];
 ---
 
 <div class="hero-search hero-search--premium" data-hero-search>
@@ -68,12 +53,21 @@ const quickLinks = [
 
 </div>
 
-<script type="application/json" id="hero-search-index" set:html={JSON.stringify(searchIndex)}></script>
 <script>
   import { mountHeroSearch } from '../../scripts/hero-search';
+
   const root = document.querySelector<HTMLElement>('[data-hero-search]');
-  const indexEl = document.getElementById('hero-search-index');
-  if (root && indexEl) mountHeroSearch(root, JSON.parse(indexEl.textContent ?? '[]'));
+  if (root) {
+    fetch('/search-index.json', { headers: { Accept: 'application/json' } })
+      .then((response) => {
+        if (!response.ok) throw new Error(`search-index HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((items) => mountHeroSearch(root, Array.isArray(items) ? items : []))
+      .catch(() => {
+        // Form submit remains a functional no-JS/fetch-failure fallback.
+      });
+  }
 </script>
 
 <style>
