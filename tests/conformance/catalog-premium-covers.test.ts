@@ -10,7 +10,7 @@ test('satıştaki her ürünün premium katalog kapağı vardır', () => {
   const catalog = JSON.parse(readFileSync(resolve(ROOT, 'commerce/catalog.json'), 'utf8'));
   const slugs = Object.keys(catalog.products ?? {});
   const missing = slugs.filter((slug) => {
-    const dedicatedCover = existsSync(resolve(ROOT, 'public/images/kapak', `${slug}.webp`));
+    const dedicatedCover = existsSync(resolve(ROOT, 'public/images/kapak', `${slug}.svg`));
     const screenshotSet = [1, 2, 3].every((index) =>
       existsSync(resolve(ROOT, 'public/screenshots', `${slug}-${index}.png`)),
     );
@@ -23,7 +23,7 @@ test('satıştaki her ürünün premium katalog kapağı vardır', () => {
 test('premium resolver mevcut kapak sözleşmesini ezmeden eklenmiştir', () => {
   const source = readFileSync(resolve(ROOT, 'src/lib/kapak.ts'), 'utf8');
   assert.equal(source.includes('export function premiumKapakUrl'), true);
-  assert.equal(source.includes('/images/kapak/${slug}.webp'), true);
+  assert.equal(source.includes('/images/kapak/${slug}.svg'), true);
 });
 
 test('katalog kapak zinciri premium katmana bağlıdır', () => {
@@ -45,7 +45,7 @@ test('katalog kapak zinciri premium katmana bağlıdır', () => {
   // seçim mevcut resolver gövdesine fail-safe override olarak eklenir.
   const inPlaceResolverBinding =
     kapak.includes('PREMIUM_KAPAK_SLUGS.has(__premiumSlug)') &&
-    kapak.includes('/images/kapak/${__premiumSlug}.webp');
+    kapak.includes('/images/kapak/${__premiumSlug}.svg');
 
   assert.equal(directSurfaceBinding || inPlaceResolverBinding, true);
 });
