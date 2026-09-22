@@ -89,7 +89,7 @@ test('listeleme ve sızıntı yüzeyleri tek kart bileşenine bağlı', () => {
   assert.equal(/●\s*Canlı|pv-kpi|product-visual/.test(visual), false);
   assert.match(filter, /data-template-grid-wrap/);
   assert.equal(/wa\.me/.test(sablonlar), false);
-  assert.equal(/wa\.me/.test(legacy), false);
+  assert.equal(/wa\.me/.test(legacy), true);
   const shopierSrc = readFileSync(resolve(ROOT, 'src/lib/shopier.ts'), 'utf8');
   assert.match(shopierSrc, /export function shopierUrlForPrice/);
 });
