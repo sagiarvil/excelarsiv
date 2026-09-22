@@ -39,9 +39,9 @@ const {
   priority = false,
 } = Astro.props;
 
-const commerceTier = getTierForPrice(priceTL);
-const orderUrl = commerceTier?.tier.shopierUrl ?? '/iletisim';
-const orderLabel = commerceTier ? 'Satın Al' : 'Teklif İste';
+const waOrderUrl = `https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${name} Excel sistemi için teklif almak istiyorum.`)}`;
+const orderUrl = waOrderUrl;
+const orderLabel = 'Teklif Al';
 const benefitItems = outputs.slice(0, 3);
 const structure = sheetMap.slice(0, 3);
 const kindLabel: Record<string, string> = { input: 'Girdi', calculation: 'Hesap', output: 'Çıktı' };

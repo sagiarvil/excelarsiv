@@ -41,8 +41,13 @@ const thumbSrc = template.kapak || template.preview?.src || '';
     </div>
     <p class="vcex-post-excerpt">{template.summary}</p>
     <div class="someka-card-bottom">
-      <a href={template.shopierUrl} class="btn-someka-teklif">
-        {template.shopierUrl === '/iletisim' ? 'Teklif İste' : 'Satın Al'}
+      <a
+        href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${template.name} Excel sistemi için teklif almak istiyorum.`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-someka-teklif"
+      >
+        Teklif Al
       </a>
       <a href={template.url} class="btn-someka-view">Detay</a>
     </div>

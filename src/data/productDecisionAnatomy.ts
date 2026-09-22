@@ -20,7 +20,7 @@ export const specificDecisionData: Record<string, Partial<ProductDecisionData>> 
     systemComputes: '13 haftalık dinamik likidite dengesini, kritik nakit açığı haftalarını ve gerekli acil finansman ihtiyacını hesaplar.',
     decisionAction: 'Hangi haftada nakit açığı oluşacağını 14 gün önceden görüp tahsilatları öne çekme veya tedarikçi vadesini yeniden sıralama kararı verirsiniz.',
     wrongDataEffect: 'Eksik veya hatalı veri durumunda sistem formülü bozulmaz; hücre bazlı doğrulama alarmları ve negatif bakiye uyarıları devreye girer.',
-    whyPayPrice: 'Tek bir karşılıksız çek veya acil spot kredinin komisyonu en az 40.000 TL iken, bu karar sistemi 999 TL tek ödemeyle ömür boyu nakit kontrolü sağlar.',
+    whyPayPrice: 'Tek bir karşılıksız çek veya acil spot kredinin komisyonu en az 40.000 TL iken, bu karar sistemi şirketinize özel teklif avantajıyla ömür boyu nakit kontrolü sağlar.',
     concreteDecisionExample: '4. haftada 186.000 TL kümülatif açık oluşuyor → 2 hafta önceden vadeli tahsilatlar öne çekilmeli, 3. hafta tedarikçi ödemesi 5 gün ötelenmeli.'
   },
   'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi': {
@@ -42,7 +42,7 @@ export const specificDecisionData: Record<string, Partial<ProductDecisionData>> 
     systemComputes: 'Tüm bankaların aylık anapara ve faiz ödeme takvimini, toplam finansman yükünü ve kalan borç bakiyesini tek tabloda toplar.',
     decisionAction: 'Hangi ay finansman baskısının zirve yapacağını görerek erken kredi kapama, rotatif faiz yenileme veya borç yapılandırma kararı alırsınız.',
     wrongDataEffect: 'Faiz veya taksit sayısı yanlış girilirse sağlama toplamı banka ödeme planıyla eşleşmez ve uyarı verir.',
-    whyPayPrice: 'Gereksiz yere rotatifte bırakılan kredinin 1 aylık faiz farkı binlerce lira tutarken, 799 TL ile tüm banka portföyünüzü kontrol edersiniz.',
+    whyPayPrice: 'Gereksiz yere rotatifte bırakılan kredinin 1 aylık faiz farkı binlerce lira tutarken, bu karar sistemiyle tüm banka portföyünüzü kontrol edersiniz.',
     concreteDecisionExample: 'Ekim ayında 3 ayrı bankanın taksiti aynı haftaya denk geliyor (₺420.000) → Rotatif kredi limiti devreye alınmalı veya 1 kredi ötelenmeli.'
   },
   'aylik-patron-finans-paneli': {
@@ -53,7 +53,7 @@ export const specificDecisionData: Record<string, Partial<ProductDecisionData>> 
     systemComputes: 'EBITDA (FAVÖK), brüt kâr marjı, net nakit pozisyonu, başabaş noktası ve aylık büyüme hızını tek ekranda özetler.',
     decisionAction: 'Hangi operasyonel kalemin bütçeyi aştığını görerek masraf kısma, yeni yatırım yapma veya kâr dağıtma kararını verirsiniz.',
     wrongDataEffect: 'Gelir tablosu ile bilanço bakiyesi tutmadığında yönetici paneli otomatik kırmızı alarm verir.',
-    whyPayPrice: 'Bir finans direktörü (CFO) istihdam etmek ayda 100.000 TL maliyet yaratırken, 1.499 TL tek ödemeyle CFO yönetim kokpitine sahip olursunuz.',
+    whyPayPrice: 'Bir finans direktörü (CFO) istihdam etmek ayda 100.000 TL maliyet yaratırken, kurumsal teklif avantajıyla CFO yönetim kokpitine sahip olursunuz.',
     concreteDecisionExample: 'Ciro %18 arttı ancak brüt marj %32\'den %24\'e geriledi → Satış fiyatları enflasyonun altında kalmış, acil %12 zam yapılmalı.'
   },
   'sube-karlilik-ve-nakit-hesaplayici': {
@@ -75,7 +75,7 @@ export const specificDecisionData: Record<string, Partial<ProductDecisionData>> 
     systemComputes: 'Stok devir hızını, gün cinsinden stokta kalma süresini (DIO) ve ölü stoğa kilitlenen net nakit tutarını hesaplar.',
     decisionAction: 'Hangi üründen acilen sipariş verilmesi gerektiğini, hangi ürün için kampanya yapılıp nakde çevrileceğini belirlersiniz.',
     wrongDataEffect: 'Negatif stok veya tutarsız maliyet girişinde sistem satırı sarı renkle işaretler.',
-    whyPayPrice: 'Depoda kilitlenen 300.000 TL\'lik ölü stok şirketin nakit akışını felç ederken, 799 TL ile nakdinizi serbest bırakırsınız.',
+    whyPayPrice: 'Depoda kilitlenen 300.000 TL\'lik ölü stok şirketin nakit akışını felç ederken, bu sistemle nakdinizi serbest bırakırsınız.',
     concreteDecisionExample: 'X modelinde 94 günlük stok var ve ₺140.000 nakit bağlı → Acil %15 indirimle tasfiye edilmeli, sipariş durdurulmalı.'
   }
 };
