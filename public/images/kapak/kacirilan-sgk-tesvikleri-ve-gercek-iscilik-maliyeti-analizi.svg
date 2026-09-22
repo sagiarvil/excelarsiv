@@ -1,147 +1,292 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%">
   <defs>
-    <filter id="softCard" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.07" />
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+    <filter id="btnShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#ef4444" flood-opacity="0.3" />
     </filter>
   </defs>
 
-  <!-- Saf Beyaz Zemin -->
-  <rect width="1000" height="1000" fill="#ffffff" />
+  <!-- Arka Plan: Saf Beyaz -->
+  <rect width="1600" height="1000" fill="#ffffff" />
 
-  <!-- Genişletilmiş ve Dengeli Kart (%92 Doluluk: 920x920) -->
-  <rect x="40" y="40" width="920" height="920" rx="24" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#softCard)" />
+  <!-- Ana Çalışma Kitabı Çerçevesi (16:10, 1540x940, 30px kenar boşluğu) -->
+  <rect x="30" y="30" width="1540" height="940" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#cardShadow)" />
 
-  <!-- A) Üst Sistem Çubuğu -->
-  <g transform="translate(70, 68)">
-    <circle cx="0" cy="0" r="6" fill="#ef4444" />
-    <circle cx="18" cy="0" r="6" fill="#f59e0b" />
-    <circle cx="36" cy="0" r="6" fill="#107c41" />
-
-    <rect x="65" y="-14" width="140" height="28" rx="6" fill="#107c41" />
-    <text x="135" y="4" font-family="system-ui" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">EXCEL PRO ENGINE</text>
-
-    <rect x="215" y="-14" width="160" height="28" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
-    <text x="295" y="4" font-family="system-ui" font-size="10" font-weight="700" fill="#475569" text-anchor="middle" letter-spacing="0.5">MUHASEBE-VE-VERGI</text>
-
-    <text x="860" y="4" font-family="system-ui" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="end">DECISION OS v15.1 · LOKAL ÇALIŞIR</text>
+  <!-- 1. ÜST BAŞLIK VE ŞERİT (Örnekteki 'SETTINGS AND SUMMARY PAGE' formatında) -->
+  <g transform="translate(55, 60)">
+    <text x="0" y="20" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="900" fill="#1e293b" letter-spacing="0.5">KAÇIRILAN SGK TEŞVIKLERI &amp; GERÇEK İŞÇILIK MALIYETI ANALIZI</text>
+    <text x="1490" y="20" font-family="system-ui" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="end">MODÜL: MUHASEBE VE VERGI · v15.1</text>
+    <line x1="0" y1="32" x2="1490" y2="32" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round" />
   </g>
 
-  <!-- B) Başlık ve Formül Çubuğu -->
-  <g transform="translate(70, 130)">
-    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="25" font-weight="900" fill="#0f172a">Kaçırılan SGK Teşvikleri &amp; Gerçek İşçilik Maliyeti Analizi</text>
-    <rect x="0" y="16" width="860" height="34" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
-    <text x="14" y="38" font-family="system-ui, monospace" font-size="12" font-weight="800" fill="#107c41">fx</text>
-    <line x1="36" y1="22" x2="36" y2="44" stroke="#cbd5e1" stroke-width="1.5" />
-    <text x="46" y="38" font-family="system-ui, monospace" font-size="11" font-weight="600" fill="#475569">=KARAR_OPTIMIZASYONU(VeriGirisleri!A2:E50; Senaryo=&quot;Dinamik&quot;; Eşik=Otomatik)</text>
-  </g>
+  <!-- 2. ÜST GİRDİ TABLOLARI VE AKSİYON BUTONU (Örnekteki 3'lü Kategori Tablosu + Kırmızı Buton) -->
+  <g transform="translate(55, 115)">
+    <text x="0" y="35" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#64748b">Parametre Girişi</text>
+    <path d="M 95 32 L 115 32 M 110 27 L 116 32 L 110 37" stroke="#94a3b8" stroke-width="2" fill="none" stroke-linecap="round" />
 
-  <!-- C) 3'lü Üst KPI Vitrin Kartları -->
-  <g transform="translate(70, 205)">
-    <!-- KPI 1 -->
-    <rect x="0" y="0" width="270" height="85" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
-    <text x="20" y="28" font-family="system-ui" font-size="11" font-weight="700" fill="#64748b">Mevcut Nakit Hacmi</text>
-    <text x="20" y="62" font-family="system-ui" font-size="24" font-weight="900" fill="#0f172a">₺4.850.000</text>
-
-    <!-- KPI 2 -->
-    <rect x="295" y="0" width="270" height="85" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
-    <text x="315" y="28" font-family="system-ui" font-size="11" font-weight="700" fill="#64748b">Ortalama Tahsilat (DSO)</text>
-    <text x="315" y="62" font-family="system-ui" font-size="24" font-weight="900" fill="#2563eb">34 Gün</text>
-
-    <!-- KPI 3 -->
-    <rect x="590" y="0" width="270" height="85" rx="12" fill="#dcfce7" stroke="#107c41" stroke-width="2" />
-    <text x="610" y="28" font-family="system-ui" font-size="11" font-weight="800" fill="#0d5c3a">Öngörülen Net Likidite</text>
-    <text x="610" y="62" font-family="system-ui" font-size="24" font-weight="900" fill="#0d5c3a">+₺2.420.000</text>
-  </g>
-
-  <!-- D) Ana Gövde: Sol Analitik Tablo + Sağ Dinamik Görsel -->
-  <!-- Sol Tablo Başlığı -->
-  <rect x="65" y="325" width="495" height="38" rx="8" fill="#1e293b" />
-  <text x="80" y="349" font-family="system-ui" font-size="11" font-weight="800" fill="#ffffff">PARAMETRE / KALEM</text>
-  <text x="310" y="349" font-family="system-ui" font-size="11" font-weight="800" fill="#ffffff" text-anchor="end">TUTAR / DEĞER</text>
-  <text x="365" y="349" font-family="system-ui" font-size="11" font-weight="800" fill="#ffffff" text-anchor="end">PAY (%)</text>
-  <text x="465" y="349" font-family="system-ui" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">DURUM</text>
-
-  <!-- Sol Tablo Satırları -->
-  
-        <rect x="65" y="375" width="495" height="42" rx="8" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
-        <text x="80" y="401" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#334155">Banka / Cari Tahsilat</text>
-        <text x="310" y="401" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#0f172a" text-anchor="end">₺3.850.000</text>
-        <text x="365" y="401" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">%42.0</text>
-        
-        <rect x="385" y="385" width="160" height="22" rx="11" fill="#dcfce7" />
-        <text x="465" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800" fill="#107c41" text-anchor="middle">✓ TAHSİL EDİLDİ</text>
-        
-        <rect x="65" y="423" width="495" height="42" rx="8" fill="#f8fafc" stroke="#f1f5f9" stroke-width="1" />
-        <text x="80" y="449" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#334155">Sabit Gider &amp; Rezerv</text>
-        <text x="310" y="449" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#0f172a" text-anchor="end">-₺820.000</text>
-        <text x="365" y="449" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">%9.0</text>
-        
-        <rect x="385" y="433" width="160" height="22" rx="11" fill="#dbeafe" />
-        <text x="465" y="448" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800" fill="#2563eb" text-anchor="middle">AYRILDI</text>
-        
-        <rect x="65" y="471" width="495" height="42" rx="8" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
-        <text x="80" y="497" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#334155">Personel &amp; SGK Yükü</text>
-        <text x="310" y="497" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#0f172a" text-anchor="end">-₺1.450.000</text>
-        <text x="365" y="497" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">%15.8</text>
-        
-        <rect x="385" y="481" width="160" height="22" rx="11" fill="#dbeafe" />
-        <text x="465" y="496" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800" fill="#2563eb" text-anchor="middle">BLOKE EDİLDİ</text>
-        
-        <rect x="65" y="519" width="495" height="42" rx="8" fill="#f8fafc" stroke="#f1f5f9" stroke-width="1" />
-        <text x="80" y="545" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#334155">Tedarikçi / Çek Çıkışı</text>
-        <text x="310" y="545" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#0f172a" text-anchor="end">-₺940.000</text>
-        <text x="365" y="545" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">%10.2</text>
-        
-        <rect x="385" y="529" width="160" height="22" rx="11" fill="#dbeafe" />
-        <text x="465" y="544" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800" fill="#2563eb" text-anchor="middle">ÖDEME ONAYLI</text>
-        
-        <rect x="65" y="567" width="495" height="42" rx="8" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
-        <text x="80" y="593" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#334155">KDV &amp; Vergi Karşılığı</text>
-        <text x="310" y="593" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#0f172a" text-anchor="end">-₺420.000</text>
-        <text x="365" y="593" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">%4.6</text>
-        
-        <rect x="385" y="577" width="160" height="22" rx="11" fill="#dcfce7" />
-        <text x="465" y="592" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800" fill="#107c41" text-anchor="middle">✓ GÜVENLİ</text>
-        
-        <rect x="65" y="615" width="495" height="42" rx="8" fill="#f8fafc" stroke="#f1f5f9" stroke-width="1" />
-        <text x="80" y="641" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#334155">Net Serbest Likidite</text>
-        <text x="310" y="641" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#0f172a" text-anchor="end">₺2.420.000</text>
-        <text x="365" y="641" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">%100</text>
-        
-        <rect x="385" y="625" width="160" height="22" rx="11" fill="#dcfce7" />
-        <text x="465" y="640" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800" fill="#107c41" text-anchor="middle">★ POZİTİF</text>
-        
-
-  <!-- Sağ Grafik (x: 570, y: 325, w: 360, h: 430) -->
-  <g transform="translate(570, 325)">
     
-        <rect width="360" height="430" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
-        <text x="25" y="32" font-family="system-ui" font-size="12" font-weight="800" fill="#0f172a">DİNAMİK NAKİT DÖNGÜSÜ</text>
-        <rect x="220" y="16" width="120" height="28" rx="6" fill="#dbeafe" />
-        <text x="280" y="35" font-family="system-ui" font-size="12" font-weight="900" fill="#1e40af" text-anchor="middle">+₺2.42M NAKİT</text>
-        
-        <line x1="25" y1="365" x2="335" y2="365" stroke="#cbd5e1" stroke-width="2" />
-        <path d="M 35 340 Q 140 330 200 180 T 320 80" fill="none" stroke="#107c41" stroke-width="5" stroke-linecap="round" />
-        <circle cx="320" cy="80" r="7" fill="#107c41" />
-        <circle cx="200" cy="180" r="5" fill="#2563eb" />
-        
-        <g transform="translate(35, 120)">
-          <rect width="140" height="50" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
-          <text x="15" y="22" font-family="system-ui" font-size="10" font-weight="700" fill="#64748b">Başabaş Eşiği</text>
-          <text x="15" y="40" font-family="system-ui" font-size="13" font-weight="900" fill="#2563eb">4. Çeyrek</text>
-        </g>
-        
-        <text x="25" y="415" font-family="system-ui" font-size="11" font-weight="600" fill="#64748b">13 Haftalık güvenli likidite kalkanı devrede.</text>
-        
+    <g transform="translate(135, 0)">
+      <rect width="280" height="98" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+      <rect width="280" height="24" rx="6" fill="#eff6ff" />
+      <text x="12" y="16" font-family="system-ui" font-size="11" font-weight="800" fill="#1e3a8a">GİRDİ VE TAHMİNLER</text>
+      
+      <rect x="0" y="24" width="280" height="18" fill="#ffffff" />
+      <line x1="0" y1="24" x2="280" y2="24" stroke="#e2e8f0" stroke-width="1" />
+      <text x="12" y="37" font-family="system-ui" font-size="10" font-weight="600" fill="#475569">Temel Kapasite / Hacim</text>
+      <text x="268" y="37" font-family="system-ui" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">97.000 Birim</text>
+      
+      <rect x="0" y="42" width="280" height="18" fill="#f8fafc" />
+      <line x1="0" y1="42" x2="280" y2="42" stroke="#e2e8f0" stroke-width="1" />
+      <text x="12" y="55" font-family="system-ui" font-size="10" font-weight="600" fill="#475569">Operasyonel Bütçe</text>
+      <text x="268" y="55" font-family="system-ui" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">₺2.67M</text>
+      
+      <rect x="0" y="60" width="280" height="18" fill="#ffffff" />
+      <line x1="0" y1="60" x2="280" y2="60" stroke="#e2e8f0" stroke-width="1" />
+      <text x="12" y="73" font-family="system-ui" font-size="10" font-weight="600" fill="#475569">Hedeflenen Kâr Marjı</text>
+      <text x="268" y="73" font-family="system-ui" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">%43.0</text>
+      
+      <rect x="0" y="78" width="280" height="18" fill="#f8fafc" />
+      <line x1="0" y1="78" x2="280" y2="78" stroke="#e2e8f0" stroke-width="1" />
+      <text x="12" y="91" font-family="system-ui" font-size="10" font-weight="600" fill="#475569">Mevzuat &amp; Standart Uyum</text>
+      <text x="268" y="91" font-family="system-ui" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">Tam Uyumlu</text>
+      
+    </g>
+    
+    
+    <g transform="translate(435, 0)">
+      <rect width="280" height="98" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+      <rect width="280" height="24" rx="6" fill="#eff6ff" />
+      <text x="12" y="16" font-family="system-ui" font-size="11" font-weight="800" fill="#1e3a8a">HESAPLAMA KRİTERLERİ</text>
+      
+      <rect x="0" y="24" width="280" height="18" fill="#ffffff" />
+      <line x1="0" y1="24" x2="280" y2="24" stroke="#e2e8f0" stroke-width="1" />
+      <text x="12" y="37" font-family="system-ui" font-size="10" font-weight="600" fill="#475569">Duyarlılık Eşiği</text>
+      <text x="268" y="37" font-family="system-ui" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">±%15 Tolerans</text>
+      
+      <rect x="0" y="42" width="280" height="18" fill="#f8fafc" />
+      <line x1="0" y1="42" x2="280" y2="42" stroke="#e2e8f0" stroke-width="1" />
+      <text x="12" y="55" font-family="system-ui" font-size="10" font-weight="600" fill="#475569">Kritik Risk Puanı</text>
+      <text x="268" y="55" font-family="system-ui" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">3/100 (Düşük)</text>
+      
+      <rect x="0" y="60" width="280" height="18" fill="#ffffff" />
+      <line x1="0" y1="60" x2="280" y2="60" stroke="#e2e8f0" stroke-width="1" />
+      <text x="12" y="73" font-family="system-ui" font-size="10" font-weight="600" fill="#475569">Geri Dönüş (Payback)</text>
+      <text x="268" y="73" font-family="system-ui" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">16.9 Ay</text>
+      
+      <rect x="0" y="78" width="280" height="18" fill="#f8fafc" />
+      <line x1="0" y1="78" x2="280" y2="78" stroke="#e2e8f0" stroke-width="1" />
+      <text x="12" y="91" font-family="system-ui" font-size="10" font-weight="600" fill="#475569">Denetim İmzası</text>
+      <text x="268" y="91" font-family="system-ui" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">Doğrulandı</text>
+      
+    </g>
+    
+    
+    <g transform="translate(735, 0)">
+      <rect width="280" height="98" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+      <rect width="280" height="24" rx="6" fill="#eff6ff" />
+      <text x="12" y="16" font-family="system-ui" font-size="11" font-weight="800" fill="#1e3a8a">DENETİM &amp; ÇIKTILAR</text>
+      
+      <rect x="0" y="24" width="280" height="18" fill="#ffffff" />
+      <line x1="0" y1="24" x2="280" y2="24" stroke="#e2e8f0" stroke-width="1" />
+      <text x="12" y="37" font-family="system-ui" font-size="10" font-weight="600" fill="#475569">Yönetim Tavsiyesi</text>
+      <text x="268" y="37" font-family="system-ui" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">Onaylandı</text>
+      
+      <rect x="0" y="42" width="280" height="18" fill="#f8fafc" />
+      <line x1="0" y1="42" x2="280" y2="42" stroke="#e2e8f0" stroke-width="1" />
+      <text x="12" y="55" font-family="system-ui" font-size="10" font-weight="600" fill="#475569">Vergi Kalkanı Avantajı</text>
+      <text x="268" y="55" font-family="system-ui" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">₺772.000</text>
+      
+      <rect x="0" y="60" width="280" height="18" fill="#ffffff" />
+      <line x1="0" y1="60" x2="280" y2="60" stroke="#e2e8f0" stroke-width="1" />
+      <text x="12" y="73" font-family="system-ui" font-size="10" font-weight="600" fill="#475569">Nakit Rezerv Oranı</text>
+      <text x="268" y="73" font-family="system-ui" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">%18 Likit</text>
+      
+      <rect x="0" y="78" width="280" height="18" fill="#f8fafc" />
+      <line x1="0" y1="78" x2="280" y2="78" stroke="#e2e8f0" stroke-width="1" />
+      <text x="12" y="91" font-family="system-ui" font-size="10" font-weight="600" fill="#475569">Nihai Karar Durumu</text>
+      <text x="268" y="91" font-family="system-ui" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">★ POZİTİF GÜVENLİ</text>
+      
+    </g>
+    
+
+    <!-- Kırmızı 3D Aksiyon Butonu (Örnekteki 'BRAIN DUMP INPUT PAGE' butonu) -->
+    <g transform="translate(1270, 10)" filter="url(#btnShadow)">
+      <rect width="220" height="75" rx="16" fill="#ef4444" />
+      <rect x="2" y="2" width="216" height="36" rx="14" fill="#ffffff" fill-opacity="0.18" />
+      <text x="110" y="35" font-family="system-ui, sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">HESAPLAMA &amp; PANO</text>
+      <text x="110" y="55" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#fee2e2" text-anchor="middle">FORMÜL MOTORUNA GEÇ ›</text>
+    </g>
   </g>
 
-  <!-- E) Alt Güvenlik ve Denetim Çubuğu -->
-  <g transform="translate(70, 920)">
-    <line x1="0" y1="0" x2="860" y2="0" stroke="#e2e8f0" stroke-width="1.5" />
-    <circle cx="10" cy="18" r="4" fill="#107c41" />
-    <text x="22" y="22" font-family="system-ui" font-size="11" font-weight="700" fill="#0d5c3a">Tam Otomatik Özet Pano &amp; Karar Raporu</text>
-    <text x="860" y="22" font-family="system-ui" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">Formüller Açık · Dilediğiniz Gibi Özelleştirilebilir</text>
+  <!-- 3. ORTA GRAFİK VE KOKPİT BÖLÜMÜ -->
+  <g transform="translate(55, 235)">
+    <rect width="1490" height="420" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+    
+    <!-- Sol Analitik Tablo -->
+    <g transform="translate(30, 30)">
+      <rect width="640" height="360" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+      <rect width="640" height="36" rx="8" fill="#1e293b" />
+      <text x="20" y="23" font-family="system-ui" font-size="11" font-weight="800" fill="#ffffff">KALEM / OPERASYONEL AKIŞ</text>
+      <text x="360" y="23" font-family="system-ui" font-size="11" font-weight="800" fill="#ffffff" text-anchor="end">TUTAR (TL)</text>
+      <text x="470" y="23" font-family="system-ui" font-size="11" font-weight="800" fill="#ffffff" text-anchor="end">PAY (%)</text>
+      <text x="565" y="23" font-family="system-ui" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">DURUM</text>
+      
+      <!-- Satır 1 -->
+      <text x="20" y="70" font-family="system-ui" font-size="11" font-weight="700" fill="#334155">Banka &amp; Cari Tahsilat</text>
+      <text x="360" y="70" font-family="system-ui" font-size="12" font-weight="800" fill="#0f172a" text-anchor="end">₺4.850.000</text>
+      <text x="470" y="70" font-family="system-ui" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">%52.4</text>
+      <rect x="510" y="52" width="110" height="24" rx="12" fill="#dcfce7" /><text x="565" y="68" font-family="system-ui" font-size="10" font-weight="800" fill="#107c41" text-anchor="middle">✓ TAHSİL OK</text>
+      <line x1="20" y1="88" x2="620" y2="88" stroke="#f1f5f9" stroke-width="1" />
+
+      <!-- Satır 2 -->
+      <text x="20" y="120" font-family="system-ui" font-size="11" font-weight="700" fill="#334155">Personel Maaş &amp; SGK Yükü</text>
+      <text x="360" y="120" font-family="system-ui" font-size="12" font-weight="800" fill="#dc2626" text-anchor="end">-₺1.420.000</text>
+      <text x="470" y="120" font-family="system-ui" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">%15.3</text>
+      <rect x="510" y="102" width="110" height="24" rx="12" fill="#fee2e2" /><text x="565" y="118" font-family="system-ui" font-size="10" font-weight="800" fill="#dc2626" text-anchor="middle">BLOKE EDİLDİ</text>
+      <line x1="20" y1="138" x2="620" y2="138" stroke="#f1f5f9" stroke-width="1" />
+
+      <!-- Satır 3 -->
+      <text x="20" y="170" font-family="system-ui" font-size="11" font-weight="700" fill="#334155">Tedarikçi Çek &amp; Fatura Çıkışı</text>
+      <text x="360" y="170" font-family="system-ui" font-size="12" font-weight="800" fill="#dc2626" text-anchor="end">-₺980.000</text>
+      <text x="470" y="170" font-family="system-ui" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">%10.6</text>
+      <rect x="510" y="152" width="110" height="24" rx="12" fill="#dbeafe" /><text x="565" y="168" font-family="system-ui" font-size="10" font-weight="800" fill="#2563eb" text-anchor="middle">ONAYLANDI</text>
+      <line x1="20" y1="188" x2="620" y2="188" stroke="#f1f5f9" stroke-width="1" />
+
+      <!-- Satır 4 -->
+      <text x="20" y="220" font-family="system-ui" font-size="11" font-weight="700" fill="#334155">Vergi &amp; KDV Mahsup Karşılığı</text>
+      <text x="360" y="220" font-family="system-ui" font-size="12" font-weight="800" fill="#dc2626" text-anchor="end">-₺450.000</text>
+      <text x="470" y="220" font-family="system-ui" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">%4.9</text>
+      <rect x="510" y="202" width="110" height="24" rx="12" fill="#dcfce7" /><text x="565" y="218" font-family="system-ui" font-size="10" font-weight="800" fill="#107c41" text-anchor="middle">✓ KORUNDU</text>
+      <line x1="20" y1="238" x2="620" y2="238" stroke="#f1f5f9" stroke-width="1" />
+
+      <!-- Satır 5 -->
+      <text x="20" y="270" font-family="system-ui" font-size="11" font-weight="700" fill="#334155">Sabit Gider &amp; Tesis Rezervi</text>
+      <text x="360" y="270" font-family="system-ui" font-size="12" font-weight="800" fill="#dc2626" text-anchor="end">-₺320.000</text>
+      <text x="470" y="270" font-family="system-ui" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">%3.5</text>
+      <rect x="510" y="252" width="110" height="24" rx="12" fill="#fef3c7" /><text x="565" y="268" font-family="system-ui" font-size="10" font-weight="800" fill="#d97706" text-anchor="middle">AYRILDI</text>
+      <line x1="20" y1="288" x2="620" y2="288" stroke="#f1f5f9" stroke-width="1" />
+
+      <!-- Satır 6 -->
+      <text x="20" y="325" font-family="system-ui" font-size="12" font-weight="900" fill="#0f172a">NET SERBEST LİKİDİTE</text>
+      <text x="360" y="325" font-family="system-ui" font-size="14" font-weight="900" fill="#107c41" text-anchor="end">+₺1.680.000</text>
+      <text x="470" y="325" font-family="system-ui" font-size="12" font-weight="800" fill="#107c41" text-anchor="end">%100</text>
+      <rect x="510" y="307" width="110" height="26" rx="13" fill="#107c41" /><text x="565" y="324" font-family="system-ui" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">★ GÜVENLİ</text>
+    </g>
+
+    <!-- Sağ Waterfall Grafiği -->
+    <g transform="translate(710, 30)">
+      <rect width="750" height="360" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+      <text x="30" y="35" font-family="system-ui" font-size="13" font-weight="800" fill="#0f172a">KÜMÜLATİF DÖNGÜ VE WATERFALL NAKİT BASAMAKLARI</text>
+      <rect x="560" y="16" width="160" height="28" rx="6" fill="#dbeafe" />
+      <text x="640" y="35" font-family="system-ui" font-size="11" font-weight="800" fill="#1e3a8a" text-anchor="middle">+₺1.68M NET FARK</text>
+      
+      <line x1="40" y1="310" x2="710" y2="310" stroke="#cbd5e1" stroke-width="2" />
+
+      <!-- Basamak 1: Giriş -->
+      <rect x="60" y="110" width="70" height="200" rx="4" fill="#107c41" />
+      <text x="95" y="95" font-family="system-ui" font-size="11" font-weight="800" fill="#107c41" text-anchor="middle">+4.85M</text>
+      <text x="95" y="330" font-family="system-ui" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle">GİRİŞ</text>
+
+      <!-- Basamak 2: Maaş -->
+      <rect x="170" y="110" width="70" height="70" rx="4" fill="#dc2626" />
+      <text x="205" y="95" font-family="system-ui" font-size="11" font-weight="800" fill="#dc2626" text-anchor="middle">-1.42M</text>
+      <text x="205" y="330" font-family="system-ui" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle">MAAŞ</text>
+
+      <!-- Basamak 3: Tedarik -->
+      <rect x="280" y="180" width="70" height="50" rx="4" fill="#dc2626" />
+      <text x="315" y="165" font-family="system-ui" font-size="11" font-weight="800" fill="#dc2626" text-anchor="middle">-980K</text>
+      <text x="315" y="330" font-family="system-ui" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle">TEDARİK</text>
+
+      <!-- Basamak 4: Vergi -->
+      <rect x="390" y="230" width="70" height="28" rx="4" fill="#dc2626" />
+      <text x="425" y="215" font-family="system-ui" font-size="11" font-weight="800" fill="#dc2626" text-anchor="middle">-450K</text>
+      <text x="425" y="330" font-family="system-ui" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle">VERGİ</text>
+
+      <!-- Basamak 5: Sabit -->
+      <rect x="500" y="258" width="70" height="20" rx="4" fill="#f59e0b" />
+      <text x="535" y="245" font-family="system-ui" font-size="11" font-weight="800" fill="#d97706" text-anchor="middle">-320K</text>
+      <text x="535" y="330" font-family="system-ui" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle">SABİT</text>
+
+      <!-- Basamak 6: Net Bakiye -->
+      <rect x="610" y="225" width="80" height="85" rx="4" fill="#1e293b" />
+      <text x="650" y="210" font-family="system-ui" font-size="12" font-weight="900" fill="#0f172a" text-anchor="middle">+1.68M</text>
+      <text x="650" y="330" font-family="system-ui" font-size="11" font-weight="800" fill="#1e293b" text-anchor="middle">BAKİYE</text>
+
+      <!-- Likidite Eğrisi -->
+      <path d="M 95 110 L 205 180 L 315 230 L 425 258 L 535 278 L 650 225" fill="none" stroke="#1d4ed8" stroke-width="4" stroke-dasharray="6 4" />
+      <circle cx="650" cy="225" r="7" fill="#1d4ed8" />
+    </g>
+    
   </g>
 
+  <!-- 4. ALT ÖZET VE İCRA KARAR ŞERİDİ (Örnekteki Turuncu Başlıklı Alt Bölüm) -->
+  <g transform="translate(55, 675)">
+    <text x="0" y="20" font-family="system-ui" font-size="13" font-weight="800" fill="#334155">ÖZET VE İCRA RAPORU : KAÇIRILAN SGK TEŞVIKLERI &amp; GERÇEK İŞÇILIK MALIYETI ANALIZI</text>
+    <rect x="0" y="32" width="1490" height="170" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    
+    <!-- Turuncu Sol İcra Kartı -->
+    <rect x="0" y="32" width="240" height="170" fill="#f97316" />
+    <text x="120" y="68" font-family="system-ui" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">SİSTEM ANALİZ SKORU</text>
+    <text x="120" y="86" font-family="system-ui" font-size="10" fill="#ffedd5" text-anchor="middle">GÜVEN VE DOĞRULUK</text>
+    <text x="120" y="145" font-family="system-ui" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">100 / 100</text>
+    <text x="120" y="175" font-family="system-ui" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">✓ TAM DOĞRULANDI</text>
+
+    <!-- Orta Rapor Metinleri -->
+    <g transform="translate(270, 55)">
+      <text x="0" y="25" font-family="system-ui" font-size="13" font-weight="700" fill="#334155">Matematiksel Model Doğrulaması:</text>
+      <text x="280" y="25" font-family="system-ui" font-size="13" font-weight="800" fill="#0d9488">Hatasız (Çapraz Sağlama OK)</text>
+
+      <text x="0" y="65" font-family="system-ui" font-size="13" font-weight="700" fill="#334155">Makro Bağımlılığı:</text>
+      <text x="280" y="65" font-family="system-ui" font-size="13" font-weight="800" fill="#0d9488">Sıfır VBA (Windows &amp; Mac Uyumlu)</text>
+
+      <text x="0" y="105" font-family="system-ui" font-size="13" font-weight="700" fill="#334155">Karar Destek Çıktısı:</text>
+      <text x="280" y="105" font-family="system-ui" font-size="13" font-weight="800" fill="#2563eb">Yönetim Sunumuna Hazır Dinamik Rapor</text>
+
+      <!-- Sağ İkincil Özet Kutuları -->
+      <rect x="620" y="10" width="270" height="105" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+      <text x="640" y="35" font-family="system-ui" font-size="11" font-weight="700" fill="#64748b">İŞLETME SERMAYESİ KORUMASI</text>
+      <text x="640" y="70" font-family="system-ui" font-size="22" font-weight="900" fill="#0f172a">₺5.25M</text>
+      <text x="640" y="95" font-family="system-ui" font-size="11" font-weight="800" fill="#107c41">✓ RİSK EŞİKLERİ DEVREDE</text>
+
+      <!-- Sağ En Son Turuncu Kutu -->
+      <rect x="910" y="10" width="280" height="105" rx="8" fill="#ffedd5" stroke="#fdba74" stroke-width="1.5" />
+      <text x="930" y="35" font-family="system-ui" font-size="11" font-weight="800" fill="#c2410c">KURUMSAL KARAR ÖNERİSİ</text>
+      <text x="930" y="65" font-family="system-ui" font-size="12" font-weight="800" fill="#9a3412">Haftalık veri girişleriyle simülasyonu</text>
+      <text x="930" y="88" font-family="system-ui" font-size="12" font-weight="800" fill="#9a3412">canlı tutup riskleri önceden bertaraf edin.</text>
+    </g>
+  </g>
+
+  <!-- 5. EN ALT EXCEL SAYFA SEKMELERİ (Gerçek Excel SheetMap Tabs) -->
+  <g transform="translate(55, 905)">
+    <rect width="1490" height="45" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    
+    <rect x="10" y="6" width="120" height="33" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <line x1="10" y1="38" x2="130" y2="38" stroke="#1d4ed8" stroke-width="3" />
+    <text x="70" y="27" font-family="system-ui" font-size="10.5" font-weight="800" fill="#1d4ed8" text-anchor="middle">KAPAK</text>
+    
+    <rect x="140" y="6" width="165" height="33" rx="4" fill="#e2e8f0"  />
+    
+    <text x="222.5" y="27" font-family="system-ui" font-size="10.5" font-weight="700" fill="#475569" text-anchor="middle">HIZLI BASLANGIC</text>
+    
+    <rect x="315" y="6" width="147" height="33" rx="4" fill="#e2e8f0"  />
+    
+    <text x="388.5" y="27" font-family="system-ui" font-size="10.5" font-weight="700" fill="#475569" text-anchor="middle">CALISAN KARTI</text>
+    
+    <rect x="472" y="6" width="156" height="33" rx="4" fill="#e2e8f0"  />
+    
+    <text x="550" y="27" font-family="system-ui" font-size="10.5" font-weight="700" fill="#475569" text-anchor="middle">GERCEK MALIYET</text>
+    
+    <rect x="638" y="6" width="174" height="33" rx="4" fill="#e2e8f0"  />
+    
+    <text x="725" y="27" font-family="system-ui" font-size="10.5" font-weight="700" fill="#475569" text-anchor="middle">TESVIK SIMULATOR</text>
+    
+    <rect x="822" y="6" width="120" height="33" rx="4" fill="#e2e8f0"  />
+    
+    <text x="882" y="27" font-family="system-ui" font-size="10.5" font-weight="700" fill="#475569" text-anchor="middle">MOTOR</text>
+    
+    <text x="1470" y="28" font-family="system-ui" font-size="11" font-weight="800" fill="#64748b" text-anchor="end">DECISION OS v15.1 · %100 FORMÜLLER AÇIK</text>
+  </g>
 </svg>
