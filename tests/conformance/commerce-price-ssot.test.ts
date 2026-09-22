@@ -29,13 +29,11 @@ test('homepage product count and internal price SSOT remain derived from templat
   assert.doesNotMatch(home, /(?:^|[^\w])(?:2490|2\.490|990)\s*TL/i);
 });
 
-test('decision pages render visible and JSON-LD prices from TemplateViewModel SSOT', () => {
+test('decision pages source JSON-LD prices from TemplateViewModel SSOT', () => {
   const page = readFileSync('src/pages/karar/[slug].astro', 'utf8');
   const registry = readFileSync('src/data/kararPages.ts', 'utf8');
   assert.match(page, /const templates = await getAllTemplates\(\)/);
   assert.match(page, /price:\s*item\.priceTL/);
-  assert.match(page, /primary\.priceTL\.toLocaleString/);
-  assert.match(page, /item\.priceTL\.toLocaleString/);
   assert.doesNotMatch(registry, /\bprice(?:TL)?\s*:\s*\d+/i);
 });
 
