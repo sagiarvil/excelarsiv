@@ -1,6 +1,12 @@
 ---
+import type { SearchItem } from '../../lib/search';
 import HeroSearch from './HeroSearch.astro';
 
+interface Props {
+  searchIndex: SearchItem[];
+}
+
+const { searchIndex } = Astro.props;
 ---
 
 <section class="hero-section" aria-labelledby="hero-title">
@@ -128,7 +134,7 @@ import HeroSearch from './HeroSearch.astro';
     </div>
 
     <div class="hero-search-rail" id="hero-search">
-      <HeroSearch />
+      <HeroSearch searchIndex={searchIndex} />
       <div class="hero-route-actions" aria-label="Ana çözüm yolları">
         <a href="#problemler" class="hero-route-actions__ready" data-cta="home_ready_systems" data-location="hero">Probleminizi Seçin <span aria-hidden="true">↓</span></a>
         <a href="/sablonlar" class="hero-route-actions__custom" data-cta="home_custom_system" data-location="hero">Gerçek Ürünleri Görün <span aria-hidden="true">→</span></a>
