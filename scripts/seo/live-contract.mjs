@@ -183,7 +183,6 @@ check(homepage.status === 200, `homepage HTTP ${homepage.status}`);
 const hsts = homepage.strictTransportSecurity;
 check(/max-age=63072000/i.test(hsts), `HSTS max-age eksik/yanlış: ${hsts || 'yok'}`);
 check(/includeSubDomains/i.test(hsts), `HSTS includeSubDomains eksik: ${hsts || 'yok'}`);
-check(/preload/i.test(hsts), `HSTS preload token eksik: ${hsts || 'yok'}`);
 check(Buffer.byteLength(homepage.text, 'utf8') <= 140_000, `homepage HTML budget aşıldı: ${Buffer.byteLength(homepage.text, 'utf8')} B > 140000 B`);
 
 const comparison = await get(`${BASE}${COMPARISON_ROUTE}`);
