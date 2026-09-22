@@ -1,0 +1,43 @@
+name: Export Paid Product Workbooks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/excelarsiv-export-paid-products.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build canonical workbook archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json, zipfile, hashlib
+          root=Path("delivery/paid-products")
+          files=sorted(root.glob("*/current.xlsx")) + sorted(root.glob("*/current.xlsm"))
+          out=Path("paid-products-canonical.zip")
+          manifest=[]
+          with zipfile.ZipFile(out,"w",zipfile.ZIP_DEFLATED) as z:
+              for p in files:
+                  data=p.read_bytes()
+                  z.writestr(p.as_posix(),data)
+                  manifest.append({"path":p.as_posix(),"size":len(data),"sha256":hashlib.sha256(data).hexdigest()})
+              z.writestr("CANONICAL_MANIFEST.json",json.dumps({"count":len(files),"files":manifest},ensure_ascii=False,indent=2))
+          print(f"Canonical workbook count: {len(files)}")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paid-products-canonical
+          path: paid-products-canonical.zip
+          if-no-files-found: error
+          retention-days: 3
