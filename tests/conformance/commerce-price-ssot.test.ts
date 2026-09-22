@@ -20,12 +20,15 @@ test('every commerce product price matches its tier and MDX SSOT', () => {
   }
 });
 
-test('homepage product count, minimum price and visible product prices are derived from template data', () => {
+test('homepage product count and internal price SSOT remain data-driven while sales CTA uses offer flow', () => {
   const home = readFileSync('src/pages/index.astro', 'utf8');
   assert.match(home, /const templates = await getAllTemplates\(\)/);
   assert.match(home, /const productCount = templates\.length/);
   assert.match(home, /Math\.min\(\.\.\.templates\.map\(\(item\) => item\.priceTL\)\)/);
-  assert.match(home, /item\.priceTL\.toLocaleString\(['"]tr-TR['"]\)/);
+  assert.match(home, /href=\{item\.shopierUrl\}/);
+  assert.match(home, /Teklif Ver/);
+  assert.doesNotMatch(home, /Teklif Al/);
+  assert.doesNotMatch(home, /wa\.me/);
   assert.doesNotMatch(home, /price:\s*['"]\d[\d.]*\s*TL/i);
   assert.doesNotMatch(home, /(?:^|[^\w])(?:2490|2\.490|990)\s*TL/i);
 });
