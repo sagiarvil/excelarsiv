@@ -39,9 +39,9 @@ const {
   priority = false,
 } = Astro.props;
 
-const waOrderUrl = `https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${name} Excel sistemi için teklif almak istiyorum.`)}`;
+const waOrderUrl = `https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${name} Excel sistemi için teklif vermek istiyorum.`)}`;
 const orderUrl = waOrderUrl;
-const orderLabel = 'Teklif Al';
+const orderLabel = 'Teklif Ver';
 const benefitItems = outputs.slice(0, 3);
 const structure = sheetMap.slice(0, 3);
 const kindLabel: Record<string, string> = { input: 'Girdi', calculation: 'Hesap', output: 'Çıktı' };
