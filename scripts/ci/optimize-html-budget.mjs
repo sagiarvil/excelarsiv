@@ -12,6 +12,7 @@ import crypto from 'node:crypto';
 const DIST_DIR = path.resolve('dist');
 const HOME_HTML = path.join(DIST_DIR, 'index.html');
 const ASTRO_DIR = path.join(DIST_DIR, '_astro');
+const MAX_HOME_HTML_BYTES = 140_000;
 
 if (!fs.existsSync(HOME_HTML)) {
   console.log('optimize-html-budget: dist/index.html bulunamadı, atlanıyor.');
@@ -77,3 +78,12 @@ if (extractedCss.length > 0) {
 } else {
   console.log('ℹ️ [HTML-BUDGET] Ayrıştırılacak inline style bulunamadı.');
 }
+
+
+// Hard release gate: the post-optimization homepage must stay inside the measured HTML budget.
+const verifiedSize = Buffer.byteLength(fs.readFileSync(HOME_HTML, 'utf8'), 'utf8');
+if (verifiedSize > MAX_HOME_HTML_BYTES) {
+  console.error(`❌ [HTML-BUDGET] FINAL FAIL: dist/index.html ${verifiedSize} B > ${MAX_HOME_HTML_BYTES} B`);
+  process.exit(1);
+}
+console.log(`✅ [HTML-BUDGET] FINAL PASS: dist/index.html ${verifiedSize} B <= ${MAX_HOME_HTML_BYTES} B`);
