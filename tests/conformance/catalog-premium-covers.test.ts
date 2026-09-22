@@ -23,7 +23,7 @@ test('satıştaki her ürünün premium katalog kapağı vardır', () => {
 test('premium resolver mevcut kapak sözleşmesini ezmeden eklenmiştir', () => {
   const source = readFileSync(resolve(ROOT, 'src/lib/kapak.ts'), 'utf8');
   assert.equal(source.includes('export function premiumKapakUrl'), true);
-  assert.equal(source.includes('/images/kapak/${slug}.webp'), true);
+  assert.equal(source.includes('/images/kapak/${slug}.svg'), true);
 });
 
 test('katalog kapak zinciri premium katmana bağlıdır', () => {
@@ -45,7 +45,7 @@ test('katalog kapak zinciri premium katmana bağlıdır', () => {
   // seçim mevcut resolver gövdesine fail-safe override olarak eklenir.
   const inPlaceResolverBinding =
     kapak.includes('PREMIUM_KAPAK_SLUGS.has(__premiumSlug)') &&
-    kapak.includes('/images/kapak/${__premiumSlug}.webp');
+    kapak.includes('/images/kapak/${__premiumSlug}.svg');
 
   assert.equal(directSurfaceBinding || inPlaceResolverBinding, true);
 });
