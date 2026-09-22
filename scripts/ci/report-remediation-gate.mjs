@@ -18,9 +18,10 @@ pass(Boolean(hosting), 'firebase hosting config missing');
 
 const globalHeaders = hosting?.headers?.find((x) => x.source === '/**')?.headers ?? [];
 const hsts = globalHeaders.find((x) => x.key === 'Strict-Transport-Security')?.value ?? '';
-for (const token of ['max-age=63072000', 'includeSubDomains', 'preload']) {
+for (const token of ['max-age=63072000', 'includeSubDomains']) {
   pass(hsts.includes(token), `HSTS missing token: ${token}`);
 }
+pass(!/(?:^|;\s*)preload(?:;|$)/i.test(hsts), 'HSTS preload must remain disabled until the dedicated approval gate allows it');
 
 const redirects = new Map((hosting?.redirects ?? []).map((x) => [x.source, x]));
 const requiredRedirects = new Map([
