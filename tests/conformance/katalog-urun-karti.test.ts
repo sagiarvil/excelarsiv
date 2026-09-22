@@ -80,8 +80,8 @@ test('listeleme ve sızıntı yüzeyleri tek kart bileşenine bağlı', () => {
   assert.equal(/TemplateCard/.test(notFound), false);
   assert.match(home, /premium-card__shot/);
   assert.equal(/CatalogProductVisual/.test(home), false);
-  assert.match(visual, /aspect-ratio:\s*4\s*\/\s*3/);
-  assert.match(visual, /object-fit:\s*cover/);
+  assert.match(visual, /aspect-ratio:\s*16\s*\/\s*10/);
+  assert.match(visual, /object-fit:\s*contain/);
   assert.match(visual, /catalogShotOdak/);
   assert.match(visual, /transform:\s*scale/);
   assert.match(visual, /card__workbook/);
