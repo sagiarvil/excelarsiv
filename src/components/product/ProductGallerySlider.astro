@@ -12,16 +12,34 @@ interface Props {
 
 const { name, kapakUrl, screenshots } = Astro.props;
 
-// Galeride gösterilecek tüm görseller: Kapak varsa ilk sırada, ardından screenshots
-const allImages: Screenshot[] = [];
+// Galeride gösterilecek tüm görseller:
+// 1. Kapak Görseli (Vektörel Executive Dashboard)
+// 2. Screenshot 2 (Veri Girişi & Dinamik Tablo)
+// 3. Screenshot 3 (Yönetim Raporu & Senaryolar)
+const allImages: (Screenshot & { label?: string })[] = [];
 if (kapakUrl) {
-  allImages.push({ src: kapakUrl, alt: `${name} — Genel Görünüm ve Kapak` });
+  allImages.push({ src: kapakUrl, alt: `${name} — Yönetici Panosu ve Kokpit`, label: 'Yönetici Panosu' });
 }
-screenshots.forEach((s) => {
+
+const defaultLabels = ['Yönetici Kokpiti', 'Veri & Formüller', 'Yönetim Raporu'];
+
+screenshots.forEach((s, idx) => {
+  // Eğer kapakUrl zaten varsa ve bu s.src -1.png ise atla (mükerrer olmaması için)
+  if (kapakUrl && s.src.includes('-1.')) {
+    return;
+  }
   if (!allImages.some((img) => img.src === s.src)) {
-    allImages.push(s);
+    allImages.push({
+      src: s.src,
+      alt: s.alt,
+      label: s.src.includes('-2.') ? 'Veri & Formüller' : s.src.includes('-3.') ? 'Yönetim Raporu' : defaultLabels[idx] || `Sayfa ${idx + 1}`
+    });
   }
 });
+
+if (allImages.length === 0 && screenshots.length > 0) {
+  allImages.push(...screenshots.map((s, i) => ({ ...s, label: defaultLabels[i] || `Görsel ${i + 1}` })));
+}
 ---
 
 <div class="product-gallery-slider" data-gallery-slider>
@@ -101,6 +119,7 @@ screenshots.forEach((s) => {
           aria-label={`Görsel ${index + 1}`}
         >
           <img src={img.src} alt={img.alt} loading="lazy" width="120" height="75" />
+          {img.label && <span class="gallery-thumb-label">{img.label}</span>}
         </button>
       ))}
     </div>
@@ -289,36 +308,34 @@ screenshots.forEach((s) => {
     position: relative;
     width: 100%;
     flex: 1;
-    min-height: 380px;
-    border-radius: 18px;
-    border: 1px solid #dbe5df;
-    background: radial-gradient(ellipse at 50% 40%, #f8fafc 0%, #edf2f7 100%);
+    border-radius: 14px;
     border: 1px solid #cbd5e1;
-    box-shadow: 0 12px 36px -8px rgba(15, 23, 42, 0.12);
+    background: #0f172a;
+    box-shadow: 0 12px 36px -8px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.06);
     overflow: hidden;
-    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.05);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
   }
 
   .gallery-active-wrapper {
     position: relative;
     width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 10;
     cursor: zoom-in;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #0f172a;
+    overflow: hidden;
   }
 
   .gallery-active-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 10px;
-    border-radius: 8px;
-    filter: drop-shadow(0 8px 24px rgba(15, 23, 42, 0.09));
+    padding: 0;
+    margin: 0;
+    display: block;
     transition: opacity 0.2s ease;
   }
 
@@ -392,28 +409,51 @@ screenshots.forEach((s) => {
   }
 
   .gallery-thumb-btn {
-    flex: 0 0 92px;
-    height: 58px;
+    position: relative;
+    flex: 0 0 115px;
+    height: 72px;
     border-radius: 8px;
-    border: 2px solid transparent;
+    border: 2px solid #cbd5e1;
     padding: 0;
     overflow: hidden;
-    background: #ffffff;
+    background: #0f172a;
     cursor: pointer;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
     transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
   }
   .gallery-thumb-btn img {
     width: 100%;
-    height: 100%;
+    flex: 1;
     object-fit: cover;
+    display: block;
+  }
+  .gallery-thumb-label {
+    width: 100%;
+    height: 18px;
+    background: rgba(15, 23, 42, 0.92);
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 4px;
+    letter-spacing: 0.02em;
   }
   .gallery-thumb-btn:hover {
     border-color: #94a3b8;
   }
   .gallery-thumb-btn.is-active {
-    border-color: #0b743f;
-    box-shadow: 0 0 0 1px #0b743f;
+    border-color: #107c41;
+    box-shadow: 0 0 0 2px #107c41;
+  }
+  .gallery-thumb-btn.is-active .gallery-thumb-label {
+    background: #107c41;
+    color: #ffffff;
   }
 
   /* Lightbox */
