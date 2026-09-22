@@ -1,4 +1,12 @@
 ---
+import type { SearchItem } from '../../lib/search';
+
+interface Props {
+  searchIndex: SearchItem[];
+}
+
+// Preserve the component API/source contract; the large corpus is served from /search-index.json.
+const { searchIndex: _searchIndex } = Astro.props;
 ---
 
 <div class="hero-search hero-search--premium" data-hero-search>
