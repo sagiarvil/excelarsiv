@@ -4,7 +4,7 @@ const crypto = require('node:crypto');
 const { deflateRawSync } = require('node:zlib');
 const { onRequest } = require('firebase-functions/v2/https');
 const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
-const { PRODUCTS } = require('./catalog');
+const { PRODUCTS, getDemoProduct } = require('./catalog');
 const { getProofDemoSpec } = require('./proof-demo-specs');
 
 const REGION = 'europe-west1';
@@ -212,7 +212,7 @@ function validationFor(info, colLetter) {
 
 function makeWorkbookModel({ productSlug, productName, priceTL, demoId, emailFingerprint }) {
   const spec = getProofDemoSpec(productSlug); if (!spec) throw new Error('UNKNOWN_DEMO_SPEC');
-  const ui = PRODUCT_UI[productSlug] || ['Yönetici Özeti', 'Ana gösterge görünümü', 'Karar odağı']; const cols = inferColumns(spec);
+  const ui = spec.ui || PRODUCT_UI[productSlug] || ['Yönetici Özeti', 'Ana gösterge görünümü', 'Karar odağı']; const cols = inferColumns(spec);
   const watermark = `Proof Demo v${VERSION} · ${demoId} · E-posta izi ${emailFingerprint}`;
   const colA = colRef(cols.primary); const colB = colRef(cols.secondary);
   const sheets = [];
@@ -286,7 +286,7 @@ function buildProofDemo(args) {
 }
 
 const requestProofDemo = onRequest(functionDefaults, async (req,res)=>{
-  if(req.method!=='POST') return sendJson(res,405,{error:'METHOD_NOT_ALLOWED'}); const productSlug=String(req.body?.productSlug??'').trim(); const email=normalizeEmail(req.body?.email); const acceptedTerms=req.body?.acceptedTerms===true; const product=PRODUCTS[productSlug]; const spec=getProofDemoSpec(productSlug);
+  if(req.method!=='POST') return sendJson(res,405,{error:'METHOD_NOT_ALLOWED'}); const productSlug=String(req.body?.productSlug??'').trim(); const email=normalizeEmail(req.body?.email); const acceptedTerms=req.body?.acceptedTerms===true; const product=(getDemoProduct?getDemoProduct(productSlug):PRODUCTS[productSlug])||PRODUCTS[productSlug]; const spec=getProofDemoSpec(productSlug);
   if(!product||!spec) return sendJson(res,400,{error:'UNKNOWN_PRODUCT'}); if(!validEmail(email)) return sendJson(res,400,{error:'INVALID_EMAIL'}); if(!acceptedTerms) return sendJson(res,400,{error:'DEMO_TERMS_REQUIRED'}); const emailHash=sha256(email);
   try{await enforceDemoRateLimit(req,emailHash);}catch(error){if(error?.code==='DEMO_RATE_LIMITED') return sendJson(res,429,{error:'DEMO_RATE_LIMITED'}); console.error('demo rate limit failed',error?.message); return sendJson(res,500,{error:'INTERNAL_ERROR'});}
   const db=getFirestore(); const token=crypto.randomBytes(32).toString('base64url'); const tokenHash=sha256(token); const demoId=`DM-${crypto.randomBytes(6).toString('hex').toUpperCase()}`; const emailFingerprint=emailHash.slice(0,12).toUpperCase(); const now=Date.now();
@@ -297,7 +297,7 @@ const requestProofDemo = onRequest(functionDefaults, async (req,res)=>{
 const downloadProofDemo = onRequest(functionDefaults, async (req,res)=>{
   if(req.method!=='GET') return sendJson(res,405,{error:'METHOD_NOT_ALLOWED'}); const token=String(req.query?.token??''); if(token.length<32||token.length>128) return sendJson(res,400,{error:'INVALID_TOKEN'}); const db=getFirestore(); const tokenHash=sha256(token); const ref=db.collection('excelarsiv_demo_tokens').doc(tokenHash); let demo=null;
   try{await db.runTransaction(async tx=>{const snap=await tx.get(ref); if(!snap.exists){const e=new Error('TOKEN_NOT_FOUND');e.code='TOKEN_NOT_FOUND';throw e;} const data=snap.data(); if(data.used||data.expiresAt?.toMillis?.()<=Date.now()){const e=new Error('TOKEN_EXPIRED');e.code='TOKEN_EXPIRED';throw e;} demo=data; tx.update(ref,{used:true,usedAt:FieldValue.serverTimestamp()});});}catch(error){if(error?.code==='TOKEN_NOT_FOUND') return sendJson(res,404,{error:'TOKEN_NOT_FOUND'}); if(error?.code==='TOKEN_EXPIRED') return sendJson(res,410,{error:'TOKEN_EXPIRED'}); console.error('demo token transaction failed',error?.message); return sendJson(res,500,{error:'INTERNAL_ERROR'});}
-  const product=PRODUCTS[demo.productSlug]; const spec=getProofDemoSpec(demo.productSlug); if(!product||!spec||product.name!==demo.productName) return sendJson(res,500,{error:'CATALOG_MISMATCH'}); let buffer;
+  const product=(getDemoProduct?getDemoProduct(demo.productSlug):PRODUCTS[demo.productSlug])||PRODUCTS[demo.productSlug]; const spec=getProofDemoSpec(demo.productSlug); if(!product||!spec||product.name!==demo.productName) return sendJson(res,500,{error:'CATALOG_MISMATCH'}); let buffer;
   try{buffer=buildProofDemo({productSlug:demo.productSlug,productName:product.name,priceTL:product.priceTL,demoId:demo.demoId,emailFingerprint:demo.emailFingerprint});}catch(error){console.error('proof demo v3 generation failed',error?.message);return sendJson(res,500,{error:'DEMO_GENERATION_FAILED'});}
   const filename=`${demo.productSlug}-proof-demo-v3.xlsx`; res.status(200); res.set('Content-Type','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'); res.set('Content-Disposition',`attachment; filename="${filename}"`); res.set('Content-Length',String(buffer.length)); res.set('Cache-Control','private, no-store, max-age=0'); res.set('Pragma','no-cache'); res.set('X-Content-Type-Options','nosniff'); res.set('X-Robots-Tag','noindex, nofollow'); res.set('X-ExcelArsiv-Demo-Id',demo.demoId); res.set('X-ExcelArsiv-Demo-Version',VERSION); res.end(buffer);
 });

@@ -4,7 +4,7 @@ process.env.GCLOUD_PROJECT = 'demo-excelarsiv';
 process.env.FIREBASE_CONFIG = JSON.stringify({ projectId: 'demo-excelarsiv', storageBucket: 'demo-excelarsiv.appspot.com' });
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { PRODUCTS } = require('../catalog');
+const { PRODUCTS, DEMO_PRODUCTS } = require('../catalog');
 const { SPECS } = require('../proof-demo-specs');
 const { _test } = require('../proof-demo-v3');
 
@@ -23,7 +23,7 @@ const FORBIDDEN_PREMIUM_SHEETS = ['MOTOR', 'AYARLAR', 'LISTELER', 'KONTROL', 'RA
 const FORBIDDEN_FORMULAS = ['XLOOKUP(', 'XMATCH(', 'FILTER(', 'SORT(', 'UNIQUE(', 'LAMBDA(', 'LET(', 'VSTACK(', 'HSTACK('];
 
 function modelFor(slug) {
-  const product = PRODUCTS[slug];
+  const product = DEMO_PRODUCTS[slug];
   return _test.makeWorkbookModel({
     productSlug: slug,
     productName: product.name,
@@ -34,12 +34,12 @@ function modelFor(slug) {
 }
 
 test('all catalog products have a Proof Demo contract', () => {
-  assert.ok(Object.keys(PRODUCTS).length > 0);
-  assert.deepEqual(Object.keys(SPECS).sort(), Object.keys(PRODUCTS).sort());
+  assert.ok(Object.keys(DEMO_PRODUCTS).length > 0);
+  assert.deepEqual(Object.keys(SPECS).sort(), Object.keys(DEMO_PRODUCTS).sort());
 });
 
 test('Proof Demo v3 has the approved premium evaluation flow and no premium engine sheets', () => {
-  for (const slug of Object.keys(PRODUCTS)) {
+  for (const slug of Object.keys(DEMO_PRODUCTS)) {
     const model = modelFor(slug);
     const names = model.sheets.map((sheet) => sheet.name);
     assert.deepEqual(names, ALLOWED_SHEETS, slug);
@@ -53,7 +53,7 @@ test('Proof Demo v3 has the approved premium evaluation flow and no premium engi
 });
 
 test('Proof Demo v3 keeps 20 editable evaluation rows but adds validation and visual feedback', () => {
-  for (const slug of Object.keys(PRODUCTS)) {
+  for (const slug of Object.keys(DEMO_PRODUCTS)) {
     const model = modelFor(slug);
     const input = model.sheets.find((sheet) => sheet.name === 'DEMO_GIRIS');
     assert.ok(input, slug);
@@ -68,7 +68,7 @@ test('Proof Demo v3 keeps 20 editable evaluation rows but adds validation and vi
 });
 
 test('Proof Demo v3 has analysis, decision and print-ready manager presentation', () => {
-  for (const slug of Object.keys(PRODUCTS)) {
+  for (const slug of Object.keys(DEMO_PRODUCTS)) {
     const model = modelFor(slug);
     const analysis = model.sheets.find((sheet) => sheet.name === 'DEMO_ANALIZ');
     const decision = model.sheets.find((sheet) => sheet.name === 'DEMO_KARAR');
@@ -83,7 +83,7 @@ test('Proof Demo v3 has analysis, decision and print-ready manager presentation'
 });
 
 test('Proof Demo formulas avoid banned modern/spill functions and premium sheet references', () => {
-  for (const slug of Object.keys(PRODUCTS)) {
+  for (const slug of Object.keys(DEMO_PRODUCTS)) {
     const model = modelFor(slug);
     const formulas = model.sheets
       .flatMap((sheet) => sheet.rows)
@@ -100,8 +100,8 @@ test('Proof Demo formulas avoid banned modern/spill functions and premium sheet 
 });
 
 test('runtime-generated Proof Demo v3 is a compact XLSX ZIP for every catalog product', () => {
-  for (const slug of Object.keys(PRODUCTS)) {
-    const product = PRODUCTS[slug];
+  for (const slug of Object.keys(DEMO_PRODUCTS)) {
+    const product = DEMO_PRODUCTS[slug];
     const buffer = _test.buildProofDemo({
       productSlug: slug,
       productName: product.name,

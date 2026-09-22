@@ -15,6 +15,7 @@ import { getProductFullDescription } from '../../data/productDescriptions';
 import ProductGallerySlider from '../../components/product/ProductGallerySlider.astro';
 import ProductPurchaseCard from '../../components/product/ProductPurchaseCard.astro';
 import ProductTabsSomeka from '../../components/product/ProductTabsSomeka.astro';
+import DemoDownloadBox from '../../components/DemoDownloadBox.astro';
 
 export async function getStaticPaths() {
   const templates = await getCollection('templates');
@@ -189,6 +190,11 @@ const jsonLd = {
         />
       </aside>
     </section>
+
+    <!-- Doğrudan Demo İndirme Bölümü (Kalıcı #demo-indir Çapası) -->
+    <div class="product-demo-download-wrapper my-8">
+      <DemoDownloadBox productSlug={template.id} name={t.name} />
+    </div>
 
     <!-- Sekmeli Zengin İçerik Alanı (Someka Tabs) -->
     <ProductTabsSomeka

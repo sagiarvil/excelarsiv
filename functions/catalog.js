@@ -10,6 +10,8 @@ if (!catalog?.tiers || !catalog?.products) {
   throw new Error('Packaged commerce catalog is incomplete');
 }
 
+const quoteCatalog = require('./quote-products.json');
+
 const TIERS = Object.freeze(
   Object.fromEntries(
     Object.entries(catalog.tiers).map(([name, value]) => [name, Object.freeze({ ...value })]),
@@ -26,6 +28,24 @@ const PRODUCTS = Object.freeze(
   ),
 );
 
+const DEMO_PRODUCTS = Object.freeze({
+  ...PRODUCTS,
+  ...Object.fromEntries(
+    Object.entries(quoteCatalog).map(([slug, value]) => [
+      slug,
+      Object.freeze({
+        ...value,
+        priceTL: value.priceTL || 4900,
+        storageKey: `quote-products/${slug}/current.xlsx`,
+      }),
+    ]),
+  ),
+});
+
+function getDemoProduct(slug) {
+  return DEMO_PRODUCTS[slug] ?? null;
+}
+
 function getTierForPrice(priceTL) {
   return Object.entries(TIERS).find(([, value]) => value.priceTL === Number(priceTL))?.[0] ?? null;
 }
@@ -35,4 +55,4 @@ function getTierByProductId(productId) {
   return Object.entries(TIERS).find(([, value]) => value.shopierProductId === normalized)?.[0] ?? null;
 }
 
-module.exports = { TIERS, PRODUCTS, getTierForPrice, getTierByProductId };
+module.exports = { TIERS, PRODUCTS, DEMO_PRODUCTS, getDemoProduct, getTierForPrice, getTierByProductId };

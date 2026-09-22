@@ -4,7 +4,7 @@ const crypto = require('node:crypto');
 const { deflateRawSync } = require('node:zlib');
 const { onRequest } = require('firebase-functions/v2/https');
 const { getFirestore, FieldValue } = require('firebase-admin/firestore');
-const { PRODUCTS } = require('./catalog');
+const { PRODUCTS, getDemoProduct } = require('./catalog');
 const { getProofDemoSpec } = require('./proof-demo-specs');
 const { _test: v31 } = require('./proof-demo-v31');
 
@@ -246,7 +246,7 @@ const downloadProofDemo = onRequest(functionDefaults, async (req, res) => {
     return sendJson(res, 500, { error: 'INTERNAL_ERROR' });
   }
 
-  const product = PRODUCTS[demo.productSlug];
+  const product = (getDemoProduct ? getDemoProduct(demo.productSlug) : PRODUCTS[demo.productSlug]) || PRODUCTS[demo.productSlug];
   const spec = getProofDemoSpec(demo.productSlug);
   if (!product || !spec || product.name !== demo.productName) return sendJson(res, 500, { error: 'CATALOG_MISMATCH' });
 

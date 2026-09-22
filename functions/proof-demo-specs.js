@@ -4976,6 +4976,4920 @@ const SPECS = Object.freeze({
       "İskonto ve enflasyon parametrelerini şirket hedeflerine göre güncelleyin.",
       "Tam sürümde 60+ nokta bağımsız audit kernel, dinamik senaryo seçici ve kilitli karar kokpiti açılır."
     ]
+  },
+  'asgari-kurumlar-vergisi-simulasyon-motoru': {
+      "karar": "İndirim ve istisnalar sonrası asgari kurumlar vergisi matrah farkını ve ek vergi yükünü gösterir.",
+      "girisBasliklari": [
+          "Dönem",
+          "Ticari Bilanço Kârı (₺)",
+          "İstisna & İndirim (₺)",
+          "KKEG (₺)",
+          "Asgari KV Farkı (₺)"
+      ],
+      "ornek": [
+          [
+              "1. Geçici",
+              850000,
+              240000,
+              45000,
+              "=MAX(0,(B6+D6-C6)*0.10-(B6-C6)*0.25*0.3)"
+          ],
+          [
+              "2. Geçici",
+              1120000,
+              310000,
+              62000,
+              "=MAX(0,(B7+D7-C7)*0.10-(B7-C7)*0.25*0.3)"
+          ],
+          [
+              "3. Geçici",
+              1450000,
+              420000,
+              78000,
+              "=MAX(0,(B8+D8-C8)*0.10-(B8-C8)*0.25*0.3)"
+          ],
+          [
+              "4. Geçici",
+              1980000,
+              560000,
+              95000,
+              "=MAX(0,(B9+D9-C9)*0.10-(B9-C9)*0.25*0.3)"
+          ],
+          [
+              "Yıllık Beyan",
+              2400000,
+              680000,
+              120000,
+              "=MAX(0,(B10+D10-C10)*0.10-(B10-C10)*0.25*0.3)"
+          ],
+          [
+              "Revize Proj.",
+              2750000,
+              750000,
+              135000,
+              "=MAX(0,(B11+D11-C11)*0.10-(B11-C11)*0.25*0.3)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam ek vergi farkı",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Fark çıkan dönem",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">0\")",
+              "sayi"
+          ],
+          [
+              "Dönem matrah toplamı",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "para"
+          ],
+          [
+              "Ek vergi baskı oranı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>1,\"DURDUR\",IF(B6>50000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "İstisna ve indirim kalemlerini Geçici Vergi dönemleri bazında yeniden sınıflandırın.",
+          "7524 sayılı Kanun 32/C kapsamındaki indirim tavanlarını kontrol edin.",
+          "Tam sürümde 32/A teşvik entegrasyonu, iştirak kazancı istisnası ve vergi kalkanı simülatörü birlikte çalışır."
+      ],
+      "ui": [
+          "Asgari KV Radarı",
+          "Matrah farkı görünümü",
+          "Ek vergi baskısı"
+      ]
+  },
+  'banka-kredi-covenant-erken-uyari': {
+      "karar": "Banka kredi sözleşmelerindeki finansal taahhüt (covenant) ihlal riskini ve erken uyarı eşiklerini gösterir.",
+      "girisBasliklari": [
+          "Dönem",
+          "FAVÖK (₺)",
+          "Net Borç (₺)",
+          "Faiz Gideri (₺)",
+          "Borç / FAVÖK"
+      ],
+      "ornek": [
+          [
+              "2025/Q1",
+              4200000,
+              11500000,
+              650000,
+              "=C6/MAX(1,B6)"
+          ],
+          [
+              "2025/Q2",
+              4600000,
+              13200000,
+              720000,
+              "=C7/MAX(1,B7)"
+          ],
+          [
+              "2025/Q3",
+              3900000,
+              14800000,
+              810000,
+              "=C8/MAX(1,B8)"
+          ],
+          [
+              "2025/Q4",
+              4800000,
+              15100000,
+              890000,
+              "=C9/MAX(1,B9)"
+          ],
+          [
+              "2026/Q1",
+              4500000,
+              15900000,
+              940000,
+              "=C10/MAX(1,B10)"
+          ],
+          [
+              "2026/Q2",
+              4700000,
+              16200000,
+              980000,
+              "=C11/MAX(1,B11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "En yüksek Borç/FAVÖK",
+              "=MAX(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "İhlal riski taşıyan çeyrek",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">3.5\")",
+              "sayi"
+          ],
+          [
+              "Toplam net borç",
+              "=MAX(DEMO_GIRIS!C6:C25)",
+              "para"
+          ],
+          [
+              "Ortalama faiz karşılama",
+              "=AVERAGE(DEMO_GIRIS!B6:B25)/MAX(1,AVERAGE(DEMO_GIRIS!D6:D25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>0,\"DURDUR\",IF(B6>3.2,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Borç/FAVÖK rasyosu 3.5 sınırına yaklaşan dönemlerde kısa vadeli borçlanmayı durdurun.",
+          "Banka konsorsiyumuna bildirim öncesi FAVÖK düzeltmelerini kesinleştirin.",
+          "Tam sürümde DSCR, ICR, Net Debt/EBITDA stres testi ve otomatik banka bildirim mektubu üretilir."
+      ],
+      "ui": [
+          "Kredi Covenant Radarı",
+          "Finansal rasyo görünümü",
+          "İhlal erken uyarısı"
+      ]
+  },
+  'dava-masraf-harc-hesaplama': {
+      "karar": "Dava açılış harçlarını, nispi ve maktu gider avansını ve olası aleyhe vekalet ücreti riskini gösterir.",
+      "girisBasliklari": [
+          "Dava Konusu",
+          "Dava Değeri (₺)",
+          "Peşin Harç (₺)",
+          "Gider Avansı (₺)",
+          "Toplam Dava Maliyeti (₺)"
+      ],
+      "ornek": [
+          [
+              "Ticari Alacak A",
+              450000,
+              7688,
+              2500,
+              "=B6*0.06831/4+D6"
+          ],
+          [
+              "Haksız Fesih B",
+              180000,
+              3074,
+              1800,
+              "=B7*0.06831/4+D7"
+          ],
+          [
+              "Tazminat Davası C",
+              850000,
+              14516,
+              3200,
+              "=B8*0.06831/4+D8"
+          ],
+          [
+              "Hissedar İhtilafı D",
+              1200000,
+              20493,
+              4000,
+              "=B9*0.06831/4+D9"
+          ],
+          [
+              "Sözleşme Cezai Şart E",
+              320000,
+              5465,
+              2100,
+              "=B10*0.06831/4+D10"
+          ],
+          [
+              "Fikri Mülkiyet F",
+              600000,
+              10247,
+              2800,
+              "=B11*0.06831/4+D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam risk tutarı",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "para"
+          ],
+          [
+              "Toplam yargılama harcı",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Yüksek bütçeli dava sayısı",
+              "=COUNTIF(DEMO_GIRIS!B6:B25,\">500000\")",
+              "sayi"
+          ],
+          [
+              "Ortalama dava maliyet oranı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6>3000000,\"DURDUR\",IF(B8>2,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Islah ve nispi peşin harç yükünü dava açılış öncesi finansman planına ekleyin.",
+          "Arabuluculuk aşamasında anlaşma ihtimali yüksek dosyaları önceliklendirin.",
+          "Tam sürümde AAÜT nispi vekalet baremleri, tebligat/bilirkişi gider avansı ve icra masraf motoru çalışır."
+      ],
+      "ui": [
+          "Dava & Harç Radarı",
+          "Yargılama masraf görünümü",
+          "Vekalet ücreti riski"
+      ]
+  },
+  'depo-doluluk-lokasyon': {
+      "karar": "Depo hacimsel doluluk oranını, atıl alan maliyetini ve lokasyon bazında palet başı gideri gösterir.",
+      "girisBasliklari": [
+          "Depo/Koridor",
+          "Kapasite (Palet)",
+          "Mevcut Stok (Palet)",
+          "Kira+Enerji (₺)",
+          "Doluluk Oranı"
+      ],
+      "ornek": [
+          [
+              "Koridor A - Hızlı Tüketim",
+              1200,
+              1080,
+              48000,
+              "=C6/MAX(1,B6)"
+          ],
+          [
+              "Koridor B - Soğuk Hava",
+              600,
+              550,
+              72000,
+              "=C7/MAX(1,B7)"
+          ],
+          [
+              "Koridor C - Kuru Gıda",
+              1500,
+              920,
+              42000,
+              "=C8/MAX(1,B8)"
+          ],
+          [
+              "Koridor D - Ambalaj",
+              800,
+              420,
+              26000,
+              "=C9/MAX(1,B9)"
+          ],
+          [
+              "Koridor E - Kimyasal",
+              400,
+              360,
+              38000,
+              "=C10/MAX(1,B10)"
+          ],
+          [
+              "Asma Kat - Yedek",
+              500,
+              180,
+              16000,
+              "=C11/MAX(1,B11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Ortalama depo doluluğu",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "Kritik doluluk koridoru (>%85)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">0.85\")",
+              "sayi"
+          ],
+          [
+              "Düşük verimli alan (<%60)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<0.60\")",
+              "sayi"
+          ],
+          [
+              "Toplam palet kapasitesi",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>2,\"DURDUR\",IF(B8>2,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "%85 üzeri koridorlarda operasyonel kilitlenmeyi önlemek için ikmal rotalarını revize edin.",
+          "Düşük doluluklu alanlardaki sabit gider yükünü yüksek devirli ürünlere kaydırın.",
+          "Tam sürümde 3D hacim analitiği, ABC stok yerleşimi, forklift rotalama ve palet başı birim maliyet hesaplanır."
+      ],
+      "ui": [
+          "Depo Alan Radarı",
+          "Hacimsel doluluk görünümü",
+          "Atıl alan maliyet riski"
+      ]
+  },
+  'dernek-kooperatif-mali-yonetim': {
+      "karar": "Dernek ve kooperatiflerde aidat tahsilat performansını, bütçe sapmasını ve nakit karşılık güvencesini gösterir.",
+      "girisBasliklari": [
+          "Ay",
+          "Tahakkuk Eden Aidat (₺)",
+          "Tahsil Edilen (₺)",
+          "Genel Gider (₺)",
+          "Tahsilat Oranı"
+      ],
+      "ornek": [
+          [
+              "Ocak",
+              145000,
+              132000,
+              118000,
+              "=C6/MAX(1,B6)"
+          ],
+          [
+              "Şubat",
+              145000,
+              126000,
+              122000,
+              "=C7/MAX(1,B7)"
+          ],
+          [
+              "Mart",
+              150000,
+              138000,
+              129000,
+              "=C8/MAX(1,B8)"
+          ],
+          [
+              "Nisan",
+              150000,
+              115000,
+              134000,
+              "=C9/MAX(1,B9)"
+          ],
+          [
+              "Mayıs",
+              155000,
+              142000,
+              130000,
+              "=C10/MAX(1,B10)"
+          ],
+          [
+              "Haziran",
+              155000,
+              120000,
+              141000,
+              "=C11/MAX(1,B11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Dönem net nakit fazlası",
+              "=SUM(DEMO_GIRIS!C6:C25)-SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Ortalama tahsilat oranı",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "Gecikmeli tahsilat tutarı",
+              "=SUM(DEMO_GIRIS!B6:B25)-SUM(DEMO_GIRIS!C6:C25)",
+              "para"
+          ],
+          [
+              "Kritik açık ayı sayısı",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<0.80\")",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B9>0,\"DURDUR\",IF(B7<0.85,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Tahsilat oranı %80 altına inen aylarda gecikme faizi ve icra takip bildirimlerini başlatın.",
+          "Demirbaş ve fon karşılıklarını vadesiz hesap yerine nemalandırılan fonlarda tutun.",
+          "Tam sürümde DERBİS uyumlu gelir-gider cetveli, genel kurul bütçe simülatörü ve üye cari defteri açılır."
+      ],
+      "ui": [
+          "Kooperatif Finans Radarı",
+          "Aidat tahsilat dengesi",
+          "Bütçe sapma riski"
+      ]
+  },
+  'e-belge-zorunluluk-radari': {
+      "karar": "Şirketin ciro ve sektör kriterlerine göre e-Fatura, e-Arşiv ve e-Defter geçiş takvimini ve ceza riskini gösterir.",
+      "girisBasliklari": [
+          "Mali Yıl / Çeyrek",
+          "Brüt Satış Hasılatı (₺)",
+          "E-Ticaret Hasılatı (₺)",
+          "Ciro Eşiği (₺)",
+          "Zorunluluk Oranı"
+      ],
+      "ornek": [
+          [
+              "2024 Yılı",
+              3400000,
+              650000,
+              3000000,
+              "=B6/D6"
+          ],
+          [
+              "2025/Q1",
+              1100000,
+              220000,
+              3000000,
+              "=(B7*4)/D7"
+          ],
+          [
+              "2025/Q2",
+              2300000,
+              480000,
+              3000000,
+              "=(B8*2)/D8"
+          ],
+          [
+              "2025/Q3",
+              3600000,
+              750000,
+              3000000,
+              "=B9/D9"
+          ],
+          [
+              "2025/Q4",
+              4900000,
+              1100000,
+              3000000,
+              "=B10/D10"
+          ],
+          [
+              "2026 Hedef",
+              6200000,
+              1400000,
+              3000000,
+              "=B11/D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "En güncel yıllık ciro",
+              "=MAX(DEMO_GIRIS!B6:B25)",
+              "para"
+          ],
+          [
+              "Eşik aşım katsayısı",
+              "=MAX(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "Eşik aşan dönem sayısı",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">1.0\")",
+              "sayi"
+          ],
+          [
+              "E-Ticaret payı",
+              "=SUM(DEMO_GIRIS!C6:C25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8>0,\"DURDUR\",IF(B7>0.9,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Ciro eşiğini aşan dönemlerde 1 Temmuz e-Fatura ve müteakip 1 Ocak e-Defter takvimini başlatın.",
+          "Özel entegratör veya GİB portal sözleşmelerini geçiş tarihinden 30 gün önce tamamlayın.",
+          "Tam sürümde 509 Sıra No VUK Genel Tebliği sektörel radar, ceza hesaplayıcı ve otomatik başvuru kılavuzu çalışır."
+      ],
+      "ui": [
+          "e-Belge Geçiş Radarı",
+          "Ciro eşiği görünümü",
+          "Ceza ve takvim riski"
+      ]
+  },
+  'e-ticaret-gercek-karlilik-fiyatlama': {
+      "karar": "Pazaryeri komisyonları, kargo, iade ve reklam sonrası e-ticarette gerçek net kârlılığı ve optimum fiyatı gösterir.",
+      "girisBasliklari": [
+          "Ürün Adı",
+          "Satış Fiyatı (₺)",
+          "Ürün Maliyeti (₺)",
+          "Komisyon+Kargo+İade (₺)",
+          "Net Kâr (₺)"
+      ],
+      "ornek": [
+          [
+              "Deri Cüzdan A",
+              450,
+              160,
+              145,
+              "=B6-C6-D6"
+          ],
+          [
+              "Kablosuz Kulaklık B",
+              890,
+              420,
+              240,
+              "=B7-C7-D7"
+          ],
+          [
+              "Termos Kupa C",
+              320,
+              110,
+              125,
+              "=B8-C8-D8"
+          ],
+          [
+              "Sırt Çantası D",
+              650,
+              240,
+              195,
+              "=B9-C9-D9"
+          ],
+          [
+              "Telefon Kılıfı E",
+              180,
+              45,
+              95,
+              "=B10-C10-D10"
+          ],
+          [
+              "Akıllı Saat F",
+              1250,
+              680,
+              310,
+              "=B11-C11-D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam net kâr",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Ortalama kâr marjı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Zarar eden ürün sayısı",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<0\")",
+              "sayi"
+          ],
+          [
+              "Düşük marjlı (<%15) ürün",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<50\")",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8>0,\"DURDUR\",IF(B7<0.15,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Zarar eden veya marjı %15'in altına inen ürünlerde pazaryeri komisyon anlaşmalarını güncelleyin.",
+          "Kargo ve iade kesintisi satış fiyatının %25'ini aşan kalemlerde sepet ortalamasını artırın.",
+          "Tam sürümde Trendyol, Hepsiburada, Amazon komisyon matrisleri, kupon analitiği ve kâr koruma motoru çalışır."
+      ],
+      "ui": [
+          "E-Ticaret Net Kâr Radarı",
+          "Birim kârlılık dengesi",
+          "Komisyon ve iade erozyonu"
+      ]
+  },
+  'elektrik-faturasi-dogrulama': {
+      "karar": "Sanayi ve ticarethane elektrik faturalarında aktif tüketim, reaktif ceza ve dağıtım kalemi tutarlılığını denetler.",
+      "girisBasliklari": [
+          "Dönem",
+          "Aktif Tüketim (kWh)",
+          "Reaktif Ceza (₺)",
+          "Fatura Tutarı (₺)",
+          "Reaktif / Aktif Oranı"
+      ],
+      "ornek": [
+          [
+              "Ocak",
+              48000,
+              0,
+              185000,
+              "=C6/MAX(1,B6)"
+          ],
+          [
+              "Şubat",
+              52000,
+              3400,
+              204000,
+              "=C7/MAX(1,B7)"
+          ],
+          [
+              "Mart",
+              49000,
+              8900,
+              198000,
+              "=C8/MAX(1,B8)"
+          ],
+          [
+              "Nisan",
+              55000,
+              14200,
+              226000,
+              "=C9/MAX(1,B9)"
+          ],
+          [
+              "Mayıs",
+              61000,
+              2200,
+              238000,
+              "=C10/MAX(1,B10)"
+          ],
+          [
+              "Haziran",
+              58000,
+              0,
+              224000,
+              "=C11/MAX(1,B11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam reaktif ceza tutarı",
+              "=SUM(DEMO_GIRIS!C6:C25)",
+              "para"
+          ],
+          [
+              "Cezalı fatura sayısı",
+              "=COUNTIF(DEMO_GIRIS!C6:C25,\">0\")",
+              "sayi"
+          ],
+          [
+              "Toplam elektrik gideri",
+              "=SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Ortalama birim kWh maliyeti",
+              "=SUM(DEMO_GIRIS!D6:D25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "para"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>2,\"DURDUR\",IF(B6>10000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Reaktif ceza görülen aylarda kompanzasyon panosu kondansatör ve kademe testini yaptırın.",
+          "Endüktif ve kapasitif sayaç çarpanlarını dağıtım şirketiyle yazılı olarak teyit edin.",
+          "Tam sürümde EPDK tarife denetimi, reaktif ceza kurtarma simülasyonu ve serbest tüketici sözleşme kontrolü açılır."
+      ],
+      "ui": [
+          "Elektrik Fatura Denetimi",
+          "Reaktif ceza radarı",
+          "Birim kWh maliyet baskısı"
+      ]
+  },
+  'emlak-pipeline-komisyon': {
+      "karar": "Gayrimenkul portföyündeki satış/kiralama pipeline'ını, ağırlıklı komisyon potansiyelini ve nakit akışını gösterir.",
+      "girisBasliklari": [
+          "Portföy / Gayrimenkul",
+          "Liste Fiyatı (₺)",
+          "Kapanış Olasılığı",
+          "Komisyon Oranı",
+          "Beklenen Komisyon (₺)"
+      ],
+      "ornek": [
+          [
+              "Rezidans Daire A",
+              8500000,
+              0.7,
+              0.02,
+              "=B6*C6*D6"
+          ],
+          [
+              "Ticari Plaza Katı B",
+              24000000,
+              0.4,
+              0.02,
+              "=B7*C7*D7"
+          ],
+          [
+              "Villa Projesi C",
+              16500000,
+              0.5,
+              0.02,
+              "=B8*C8*D8"
+          ],
+          [
+              "Sanayi Deposu D",
+              32000000,
+              0.3,
+              0.02,
+              "=B9*C9*D9"
+          ],
+          [
+              "Cadde Mağaza E",
+              14000000,
+              0.8,
+              0.02,
+              "=B10*C10*D10"
+          ],
+          [
+              "Arsa Parsel F",
+              9500000,
+              0.6,
+              0.02,
+              "=B11*C11*D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam beklenen komisyon",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Portföy brüt değeri",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "para"
+          ],
+          [
+              "Yüksek olasılıklı (>%60) portföy",
+              "=COUNTIF(DEMO_GIRIS!C6:C25,\">0.60\")",
+              "sayi"
+          ],
+          [
+              "Ağırlıklı kapanış oranı",
+              "=SUM(DEMO_GIRIS!E6:E25)/(SUM(DEMO_GIRIS!B6:B25)*0.02)",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6<500000,\"DURDUR\",IF(B8<3,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Kapanış olasılığı %40 altında kalan yüksek değerli portföyler için fiyat ekspertizi isteyin.",
+          "Yetki sözleşmesi süresi bitmek üzere olan gayrimenkullerde müşteri temasını hızlandırın.",
+          "Tam sürümde danışman prim paylaşımı, tapu harcı/stopaj matrahı ve aylık ciro projeksiyonu çalışır."
+      ],
+      "ui": [
+          "Emlak Komisyon Radarı",
+          "Pipeline nakit görünümü",
+          "Ağırlıklı tahsilat potansiyeli"
+      ]
+  },
+  'fason-uretim-takip-sistemi': {
+      "karar": "Fason atölyelere gönderilen hammadde, teslim edilen yarı mamul, fire sapması ve birim fason maliyetini denetler.",
+      "girisBasliklari": [
+          "Fasoncu / İş Emri",
+          "Gönderilen Kumaş (m)",
+          "Gelen Ürün (Adet)",
+          "Birim Fason Ücreti (₺)",
+          "Fiili Fire Oranı"
+      ],
+      "ornek": [
+          [
+              "Atölye Alfa - Model 101",
+              3500,
+              2100,
+              48,
+              "=1-(C6*1.5/B6)"
+          ],
+          [
+              "Atölye Beta - Model 102",
+              4200,
+              2350,
+              52,
+              "=1-(C7*1.6/B7)"
+          ],
+          [
+              "Atölye Gama - Model 103",
+              2800,
+              1620,
+              45,
+              "=1-(C8*1.55/B8)"
+          ],
+          [
+              "Atölye Delta - Model 104",
+              5100,
+              2800,
+              55,
+              "=1-(C9*1.65/B9)"
+          ],
+          [
+              "Atölye Epsilon - Model 105",
+              1900,
+              1080,
+              50,
+              "=1-(C10*1.58/B10)"
+          ],
+          [
+              "Atölye Zeta - Model 106",
+              3300,
+              1920,
+              46,
+              "=1-(C11*1.52/B11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Ortalama fiili fire",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "Yüksek fireli atölye (>%8)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">0.08\")",
+              "sayi"
+          ],
+          [
+              "Toplam fason hakedişi",
+              "=SUMPRODUCT(DEMO_GIRIS!C6:C25,DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Toplam üretilen adet",
+              "=SUM(DEMO_GIRIS!C6:C25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>1,\"DURDUR\",IF(B6>0.06,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Standart fire payını (%5) aşan atölyelerde hakedişten hammadde bedeli kesintisi uygulayın.",
+          "İş emri bazında numune kontrolü ve teslimat tutanağı olmadan ödeme yapmayın.",
+          "Tam sürümde pastal planı entegrasyonu, iplik/kumaş denge mutabakatı ve fasoncu kârlılık karnesi çalışır."
+      ],
+      "ui": [
+          "Fason İmalat Radarı",
+          "Fire ve teslimat dengesi",
+          "Hammadde kayıp riski"
+      ]
+  },
+  'fesih-maliyeti-simulatoru': {
+      "karar": "İş akdi feshinde kıdem, ihbar, yıllık izin, işe iade ve arabuluculuk masraflarının net maliyetini gösterir.",
+      "girisBasliklari": [
+          "Personel / Ünvan",
+          "Brüt Ücret (₺)",
+          "Kıdem Süresi (Yıl)",
+          "İhbar Süresi (Hafta)",
+          "Toplam Fesih Maliyeti (₺)"
+      ],
+      "ornek": [
+          [
+              "Üretim Müdürü A",
+              65000,
+              5.5,
+              8,
+              "=B6*C6+(B6/30*D6*7)"
+          ],
+          [
+              "Muhasebe Uzmanı B",
+              38000,
+              3.2,
+              6,
+              "=B7*C7+(B7/30*D7*7)"
+          ],
+          [
+              "Satış Temsilcisi C",
+              42000,
+              1.8,
+              4,
+              "=B8*C8+(B8/30*D8*7)"
+          ],
+          [
+              "Vardiya Amiri D",
+              46000,
+              7.2,
+              8,
+              "=B9*C9+(B9/30*D9*7)"
+          ],
+          [
+              "Depo Görevlisi E",
+              28000,
+              4.1,
+              6,
+              "=B10*C10+(B10/30*D10*7)"
+          ],
+          [
+              "Operatör F",
+              31000,
+              2.4,
+              6,
+              "=B11*C11+(B11/30*D11*7)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam fesih yükü",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Yüksek maliyetli personel",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">250000\")",
+              "sayi"
+          ],
+          [
+              "Ortalama kıdem yılı",
+              "=AVERAGE(DEMO_GIRIS!C6:C25)",
+              "sayi"
+          ],
+          [
+              "Ortalama kişi başı yük",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6>1500000,\"DURDUR\",IF(B7>1,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "İşe iade riski taşıyan personelde arabuluculuk anlaşma protokolünü fesih tarihinden önce hazırlayın.",
+          "Kıdem tazminatı tavanını (GİB güncel) aşan ücretlerde vergi kesintisi kontrolü yapın.",
+          "Tam sürümde giydirilmiş brüt ücret, boşta geçen süre tazminatı, 4+4 iş güvencesi tazminatı hesaplanır."
+      ],
+      "ui": [
+          "Fesih Maliyet Radarı",
+          "Kıdem ve ihbar görünümü",
+          "İşe iade tazminat riski"
+      ]
+  },
+  'filo-arac-maliyet-komutasi': {
+      "karar": "Şirket araç filosunda yakıt, bakım, kasko, MTV ve km başı birim maliyeti ve araç değişim zamanlamasını gösterir.",
+      "girisBasliklari": [
+          "Plaka / Model",
+          "Aylık Km",
+          "Yakıt Gideri (₺)",
+          "Bakım+Sigorta+MTV (₺)",
+          "Km Başı Maliyet (₺)"
+      ],
+      "ornek": [
+          [
+              "34 ABC 101 - Sedan",
+              4200,
+              14500,
+              6200,
+              "=(C6+D6)/MAX(1,B6)"
+          ],
+          [
+              "34 ABC 102 - SUV",
+              3100,
+              15800,
+              8400,
+              "=(C7+D7)/MAX(1,B7)"
+          ],
+          [
+              "34 ABC 103 - Panelvan",
+              5800,
+              22400,
+              7100,
+              "=(C8+D8)/MAX(1,B8)"
+          ],
+          [
+              "34 ABC 104 - Kamyonet",
+              4900,
+              24100,
+              9500,
+              "=(C9+D9)/MAX(1,B9)"
+          ],
+          [
+              "34 ABC 105 - Hatchback",
+              2600,
+              8900,
+              4800,
+              "=(C10+D10)/MAX(1,B10)"
+          ],
+          [
+              "34 ABC 106 - Panelvan",
+              5400,
+              21200,
+              6900,
+              "=(C11+D11)/MAX(1,B11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Aylık toplam filo gideri",
+              "=SUM(DEMO_GIRIS!C6:C25)+SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Ortalama km başı maliyet",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Yüksek maliyetli araç (>7 ₺/km)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">7\")",
+              "sayi"
+          ],
+          [
+              "Toplam filo kilometresi",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8>2,\"DURDUR\",IF(B7>6,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Km başı maliyeti 7 TL'yi aşan araçlarda yakıt tüketim anomalisi veya periyodik bakım gecikmesini inceleyin.",
+          "150.000 km üzerindeki ticari araçlarda kiralama vs. satın alma karşılaştırması yapın.",
+          "Tam sürümde TCO (Toplam Sahip Olma Maliyeti), amortisman erimesi ve optimum araç yenileme yılı çalışır."
+      ],
+      "ui": [
+          "Filo Maliyet Radarı",
+          "Km başı gider görünümü",
+          "Araç verimsizlik riski"
+      ]
+  },
+  'ges-uretim-performans': {
+      "karar": "Güneş enerji santrallerinde (GES) ışınım, kurulu güç, üretilen kWh ve performans oranı (PR) sapmasını gösterir.",
+      "girisBasliklari": [
+          "Ay",
+          "Kurulu Güç (kWp)",
+          "Beklenen Üretim (kWh)",
+          "Fiili Üretim (kWh)",
+          "Performans Oranı (PR)"
+      ],
+      "ornek": [
+          [
+              "Ocak",
+              1200,
+              85000,
+              78000,
+              "=D6/MAX(1,C6)"
+          ],
+          [
+              "Şubat",
+              1200,
+              102000,
+              96000,
+              "=D7/MAX(1,C7)"
+          ],
+          [
+              "Mart",
+              1200,
+              142000,
+              138000,
+              "=D8/MAX(1,C8)"
+          ],
+          [
+              "Nisan",
+              1200,
+              168000,
+              159000,
+              "=D9/MAX(1,C9)"
+          ],
+          [
+              "Mayıs",
+              1200,
+              195000,
+              189000,
+              "=D10/MAX(1,C10)"
+          ],
+          [
+              "Haziran",
+              1200,
+              210000,
+              204000,
+              "=D11/MAX(1,C11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Ortalama santral PR",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "Düşük verim ayı (<%92)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<0.92\")",
+              "sayi"
+          ],
+          [
+              "Toplam fiili elektrik üretimi",
+              "=SUM(DEMO_GIRIS!D6:D25)",
+              "sayi"
+          ],
+          [
+              "Üretim kaybı (kWh)",
+              "=SUM(DEMO_GIRIS!C6:C25)-SUM(DEMO_GIRIS!D6:D25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>1,\"DURDUR\",IF(B6<0.94,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Performans oranı %92 altına inen aylarda invertör arızası ve panel kirlilik temizliğini planlayın.",
+          "Şebeke kesintisi veya trafo kayıplarını dağıtım şirketi scada kayıtlarıyla karşılaştırın.",
+          "Tam sürümde degredasyon oranı, YEKDEM mahsuplaşması, arıza kök-neden ve aylık gelir kaybı motoru çalışır."
+      ],
+      "ui": [
+          "GES Performans Radarı",
+          "Üretim ve PR dengesi",
+          "Gelir kayıp riski"
+      ]
+  },
+  'ges-yatirim-fizibilite': {
+      "karar": "Çatı ve arazi GES yatırımlarında CAPEX, elektrik üretim projeksiyonu, öz tüketim tasarrufu ve NPV/IRR gösterir.",
+      "girisBasliklari": [
+          "Yıl",
+          "Yıllık Üretim (kWh)",
+          "Elektrik Geliri/Tasarruf (₺)",
+          "İşletme+Bakım OPEX (₺)",
+          "Net Nakit Akışı (₺)"
+      ],
+      "ornek": [
+          [
+              "Yıl 1",
+              1650000,
+              6270000,
+              280000,
+              "=C6-D6"
+          ],
+          [
+              "Yıl 2",
+              1640000,
+              6865000,
+              310000,
+              "=C7-D7"
+          ],
+          [
+              "Yıl 3",
+              1630000,
+              7517000,
+              340000,
+              "=C8-D8"
+          ],
+          [
+              "Yıl 4",
+              1620000,
+              8231000,
+              375000,
+              "=C9-D9"
+          ],
+          [
+              "Yıl 5",
+              1610000,
+              9013000,
+              415000,
+              "=C10-D10"
+          ],
+          [
+              "Yıl 6",
+              1600000,
+              9869000,
+              460000,
+              "=C11-D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Kümülatif 6 yıllık net nakit",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Yıllık ortalama tasarruf",
+              "=AVERAGE(DEMO_GIRIS!C6:C25)",
+              "para"
+          ],
+          [
+              "Toplam üretilecek elektrik",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "İşletme gider oranı",
+              "=SUM(DEMO_GIRIS!D6:D25)/MAX(1,SUM(DEMO_GIRIS!C6:C25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6<25000000,\"DURDUR\",IF(B9>0.08,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Yatırım geri dönüş süresini (Payback) 4.2 yılın altında tutmak için panel tedarik tekliflerini kıyaslayın.",
+          "Çağrı mektubu ve bağlantı anlaşması kapasite tahsis harçlarını CAPEX bütçesine dahil edin.",
+          "Tam sürümde WACC, Vergi Öncesi/Sonrası IRR, DSCR borç servisi ve 25 yıllık panel degredasyon eğrisi çalışır."
+      ],
+      "ui": [
+          "GES Fizibilite Radarı",
+          "Yatırım geri dönüşü",
+          "Elektrik tasarruf projeksiyonu"
+      ]
+  },
+  'gida-lot-maliyet-izlenebilirlik': {
+      "karar": "Gıda üretiminde parti (lot) bazında hammadde, fire, ambalaj, işçilik ve birim paket maliyetini izler.",
+      "girisBasliklari": [
+          "Parti (Lot) No",
+          "Hammadde Girdisi (kg)",
+          "Çıkan Mamul (kg)",
+          "Toplam Lot Gideri (₺)",
+          "Birim Maliyet (₺/kg)"
+      ],
+      "ornek": [
+          [
+              "LOT-2026-001 - Peynir",
+              4500,
+              680,
+              85000,
+              "=D6/MAX(1,C6)"
+          ],
+          [
+              "LOT-2026-002 - Yoğurt",
+              8000,
+              7400,
+              112000,
+              "=D7/MAX(1,C7)"
+          ],
+          [
+              "LOT-2026-003 - Tereyağı",
+              6200,
+              520,
+              94000,
+              "=D8/MAX(1,C8)"
+          ],
+          [
+              "LOT-2026-004 - Kaşar",
+              5000,
+              510,
+              89000,
+              "=D9/MAX(1,C9)"
+          ],
+          [
+              "LOT-2026-005 - Ayran",
+              9500,
+              9100,
+              78000,
+              "=D10/MAX(1,C10)"
+          ],
+          [
+              "LOT-2026-006 - Lor",
+              3800,
+              890,
+              42000,
+              "=D11/MAX(1,C11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Ortalama birim kg maliyeti",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "En yüksek birim maliyetli lot",
+              "=MAX(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Toplam işlenen hammadde",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Ortalama randıman oranı",
+              "=SUM(DEMO_GIRIS!C6:C25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>180,\"DURDUR\",IF(B9<0.30,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Randımanı standart reçetenin %5 altına inen partilerde proses sıcaklık ve süzme kayıplarını denetleyin.",
+          "SKT ve lot izlenebilirlik kayıtlarını dijital etiketleme sistemiyle eşleştirin.",
+          "Tam sürümde HACCP izlenebilirlik zinciri, geri çağırma (recall) simülatörü ve parti kârlılık matrisi açılır."
+      ],
+      "ui": [
+          "Gıda Lot Radarı",
+          "Randıman ve birim maliyet",
+          "Proses fire riski"
+      ]
+  },
+  'hizmet-ihracati-100-indirim-transfer-takip': {
+      "karar": "Yazılım, tasarım, veri analizi vb. hizmet ihracatında %80/%100 KV kazanç indirimi ve döviz transfer şartını denetler.",
+      "girisBasliklari": [
+          "Dönem / Fatura",
+          "Yurt Dışı Fatura Tutarı (Döviz)",
+          "Yurda Getirilen Bedel (₺)",
+          "KVK 10/1-ğ Kazanç (₺)",
+          "İndirim Tutarı (₺)"
+      ],
+      "ornek": [
+          [
+              "Fatura 2026-01 - Yazılım",
+              45000,
+              1620000,
+              1150000,
+              "=D6*0.80"
+          ],
+          [
+              "Fatura 2026-02 - Danışmanlık",
+              28000,
+              1008000,
+              720000,
+              "=D7*0.80"
+          ],
+          [
+              "Fatura 2026-03 - Tasarım",
+              18500,
+              666000,
+              480000,
+              "=D8*0.80"
+          ],
+          [
+              "Fatura 2026-04 - Çağrı Mrk.",
+              62000,
+              2232000,
+              1580000,
+              "=D9*0.80"
+          ],
+          [
+              "Fatura 2026-05 - Veri Analitiği",
+              34000,
+              1224000,
+              890000,
+              "=D10*0.80"
+          ],
+          [
+              "Fatura 2026-06 - SaaS Lisans",
+              52000,
+              1872000,
+              1340000,
+              "=D11*0.80"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam yararlanılan indirim",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Toplam döviz kazancı (₺)",
+              "=SUM(DEMO_GIRIS!C6:C25)",
+              "para"
+          ],
+          [
+              "Vergi tasarrufu (%25 KV)",
+              "=SUM(DEMO_GIRIS!E6:E25)*0.25",
+              "para"
+          ],
+          [
+              "Ortalama indirim oranı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!D6:D25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6<1000000,\"DURDUR\",IF(B8<300000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Kazancın %50'sinin Türkiye'ye transfer şartını beyanname verilme tarihine kadar tamamlayın.",
+          "Hizmetten yurt dışında faydalanıldığını gösteren sözleşme ve teslim kanıtlarını dosyaya ekleyin.",
+          "Tam sürümde 7491 SK %80 indirim kuralı, transfer bildirim cetveli ve stopaj iade takibi çalışır."
+      ],
+      "ui": [
+          "Hizmet İhracatı Radarı",
+          "Kazanç indirimi görünümü",
+          "Döviz transfer şartı riski"
+      ]
+  },
+  'hukuk-burosu-dosya-vekalet': {
+      "karar": "Hukuk bürolarında dosya bazlı tahsilat, masraf avansı, karşı yan vekalet ücreti ve avukat kârlılığını izler.",
+      "girisBasliklari": [
+          "Müvekkil / Dosya",
+          "Anlaşılan Vekalet (₺)",
+          "Tahsil Edilen (₺)",
+          "Yapılan Masraf (₺)",
+          "Tahsilat Oranı"
+      ],
+      "ornek": [
+          [
+              "Şirket A - Genel Danışmanlık",
+              180000,
+              150000,
+              18000,
+              "=C6/MAX(1,B6)"
+          ],
+          [
+              "Holding B - Dava Takibi",
+              320000,
+              240000,
+              42000,
+              "=C7/MAX(1,B7)"
+          ],
+          [
+              "Grup C - Tahkim Dosyası",
+              450000,
+              300000,
+              68000,
+              "=C8/MAX(1,B8)"
+          ],
+          [
+              "Müvekkil D - İcra Takibi",
+              95000,
+              65000,
+              24000,
+              "=C9/MAX(1,B9)"
+          ],
+          [
+              "Şirket E - Sözleşme Revizyon",
+              120000,
+              120000,
+              8500,
+              "=C10/MAX(1,B10)"
+          ],
+          [
+              "Grup F - Ceza Dosyası",
+              250000,
+              175000,
+              31000,
+              "=C11/MAX(1,B11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam tahsil edilen vekalet",
+              "=SUM(DEMO_GIRIS!C6:C25)",
+              "para"
+          ],
+          [
+              "Bekleyen vekalet alacağı",
+              "=SUM(DEMO_GIRIS!B6:B25)-SUM(DEMO_GIRIS!C6:C25)",
+              "para"
+          ],
+          [
+              "Ortalama tahsilat oranı",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "Gecikmeli dosya sayısı (<%75)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<0.75\")",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B9>1,\"DURDUR\",IF(B8<0.80,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Tahsilat oranı %75 altına inen dosyalarda ara hakediş ve masraf kapama talebini iletin.",
+          "Gider avansı bakiyesi tükenen dosyalarda masraf ödemelerini durdurun.",
+          "Tam sürümde avukat bazlı saatlik verimlilik, serbest meslek makbuzu (SMM) stopajı ve icra harç motoru çalışır."
+      ],
+      "ui": [
+          "Hukuk Bürosu Radarı",
+          "Vekalet tahsilat dengesi",
+          "Masraf avansı riski"
+      ]
+  },
+  'ihale-fiyat-farki-eskalasyon-pro': {
+      "karar": "Kamu ve özel sektör ihalelerinde TUİK endeksleri, eskalasyon formülleri ve hak kaybı riskini hesaplar.",
+      "girisBasliklari": [
+          "Hakediş No / Ay",
+          "Hakediş Tutarı (₺)",
+          "Temel Endeks (Pn)",
+          "Güncel Endeks (Po)",
+          "Fiyat Farkı Tutarı (₺)"
+      ],
+      "ornek": [
+          [
+              "Hakediş 1 - Ocak",
+              4200000,
+              1250,
+              1340,
+              "=B6*(D6/C6-1)"
+          ],
+          [
+              "Hakediş 2 - Şubat",
+              4800000,
+              1250,
+              1395,
+              "=B7*(D7/C7-1)"
+          ],
+          [
+              "Hakediş 3 - Mart",
+              5100000,
+              1250,
+              1460,
+              "=B8*(D8/C8-1)"
+          ],
+          [
+              "Hakediş 4 - Nisan",
+              5600000,
+              1250,
+              1530,
+              "=B9*(D9/C9-1)"
+          ],
+          [
+              "Hakediş 5 - Mayıs",
+              6200000,
+              1250,
+              1610,
+              "=B10*(D10/C10-1)"
+          ],
+          [
+              "Hakediş 6 - Haziran",
+              6800000,
+              1250,
+              1690,
+              "=B11*(D11/C11-1)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam fiyat farkı alacağı",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Kümülatif hakediş tutarı",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "para"
+          ],
+          [
+              "En yüksek endeks artış oranı",
+              "=MAX(DEMO_GIRIS!D6:D25)/MIN(DEMO_GIRIS!C6:C25)-1",
+              "oran"
+          ],
+          [
+              "Fiyat farkı / Hakediş oranı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6<500000,\"DURDUR\",IF(B8>0.25,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "4734 sayılı KİK Fiyat Farkı Kararnamesi ağırlık katsayılarını (a1, a2, b, c) sözleşmeye göre teyit edin.",
+          "İdarenin revize zeyilname ve ceza kesintisi uygulamalarını itirazi kayıtla imzalayın.",
+          "Tam sürümde mazot, çimento, demir katsayıları, kriz kararnameleri ve gecikme cezası mahsubu çalışır."
+      ],
+      "ui": [
+          "İhale Fiyat Farkı Radarı",
+          "Eskalasyon alacak görünümü",
+          "Hak kaybı riski"
+      ]
+  },
+  'ihracat-siparis-karlilik-kur': {
+      "karar": "Dövizli ihracat siparişlerinde kur riski, navlun, gümrük masrafı ve net TL kârlılık marjını gösterir.",
+      "girisBasliklari": [
+          "Sipariş / Ülke",
+          "Döviz Tutarı ($/€)",
+          "Döviz Kuru (₺)",
+          "TL Üretim Maliyeti (₺)",
+          "Net Kâr Marjı"
+      ],
+      "ornek": [
+          [
+              "Sipariş DE-101 - Almanya",
+              85000,
+              39.5,
+              2450000,
+              "=(B6*C6-D6)/(B6*C6)"
+          ],
+          [
+              "Sipariş US-102 - ABD",
+              120000,
+              36.2,
+              3100000,
+              "=(B7*C7-D7)/(B7*C7)"
+          ],
+          [
+              "Sipariş UK-103 - İngiltere",
+              65000,
+              46.8,
+              2180000,
+              "=(B8*C8-D8)/(B8*C8)"
+          ],
+          [
+              "Sipariş FR-104 - Fransa",
+              94000,
+              39.5,
+              2750000,
+              "=(B9*C9-D9)/(B9*C9)"
+          ],
+          [
+              "Sipariş IT-105 - İtalya",
+              78000,
+              39.5,
+              2300000,
+              "=(B10*C10-D10)/(B10*C10)"
+          ],
+          [
+              "Sipariş ES-106 - İspanya",
+              110000,
+              39.5,
+              3250000,
+              "=(B11*C11-D11)/(B11*C11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam ciro (₺)",
+              "=SUMPRODUCT(DEMO_GIRIS!B6:B25,DEMO_GIRIS!C6:C25)",
+              "para"
+          ],
+          [
+              "Ortalama ihracat marjı",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "Kritik marjlı sipariş (<%20)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<0.20\")",
+              "sayi"
+          ],
+          [
+              "Toplam ihracat geliri (Döviz)",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8>1,\"DURDUR\",IF(B7<0.25,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Kâr marjı %20 altına inen siparişlerde vadeli kur (forward) koruma kontratı yapın.",
+          "Dahilde İşleme İzin Belgesi (DİİB) kapsamında hammadde alımlarını gümrük vergisiz kapatın.",
+          "Tam sürümde döviz açık pozisyon stres testi, navlun optimizasyonu ve ihracat teşvik modülü çalışır."
+      ],
+      "ui": [
+          "İhracat Kârlılık Radarı",
+          "Döviz ve kur marjı",
+          "Kur riski erozyonu"
+      ]
+  },
+  'insaat-hakedis-yonetim-sistemi': {
+      "karar": "İnşaat projelerinde kümülatif imalat, avans, teminat, stopaj kesintileri ve ödenecek net hakedişi hesaplar.",
+      "girisBasliklari": [
+          "Hakediş No",
+          "Dönem İmalat Tutarı (₺)",
+          "Avans Kesintisi (₺)",
+          "Nakit Teminat %5 (₺)",
+          "Ödenecek Net Tutar (₺)"
+      ],
+      "ornek": [
+          [
+              "Hakediş 01",
+              3800000,
+              760000,
+              190000,
+              "=B6-C6-D6-(B6*0.05)"
+          ],
+          [
+              "Hakediş 02",
+              4500000,
+              900000,
+              225000,
+              "=B7-C7-D7-(B7*0.05)"
+          ],
+          [
+              "Hakediş 03",
+              5200000,
+              1040000,
+              260000,
+              "=B8-C8-D8-(B8*0.05)"
+          ],
+          [
+              "Hakediş 04",
+              6100000,
+              1220000,
+              305000,
+              "=B9-C9-D9-(B9*0.05)"
+          ],
+          [
+              "Hakediş 05",
+              5800000,
+              1160000,
+              290000,
+              "=B10-C10-D10-(B10*0.05)"
+          ],
+          [
+              "Hakediş 06",
+              4900000,
+              980000,
+              245000,
+              "=B11-C11-D11-(B11*0.05)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam ödenen net hakediş",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Kümülatif kesinti tutarı",
+              "=SUM(DEMO_GIRIS!B6:B25)-SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Kümülatif brüt imalat",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "para"
+          ],
+          [
+              "Ortalama net ödeme oranı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6<10000000,\"DURDUR\",IF(B9<0.70,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Yıllara sari inşaat stopaj kesintisi (%5) mahsup evraklarını vergi dairesi sisteminden doğrulayın.",
+          "Nakit teminat kesintileri yerine teminat mektubu vererek nakit blokajını kaldırın.",
+          "Tam sürümde yeşil defter, metraj cetveli, fiyat farkı eskalasyonu ve alt yüklenici mutabakatı açılır."
+      ],
+      "ui": [
+          "İnşaat Hakediş Radarı",
+          "Kesinti ve nakit dengesi",
+          "Nakit blokaj riski"
+      ]
+  },
+  'isg-risk-degerlendirme-pro-6331': {
+      "karar": "6331 sayılı Kanun kapsamında işyerindeki tehlikeleri, olasılık-şiddet matrisini ve acil aksiyonları derecelendirir.",
+      "girisBasliklari": [
+          "Bölüm / Tehlike Kaynağı",
+          "Olasılık (1-5)",
+          "Şiddet (1-5)",
+          "Aksiyon Maliyeti (₺)",
+          "Risk Skoru (OxŞ)"
+      ],
+      "ornek": [
+          [
+              "Pres Bölümü - Koruyucu Eksikliği",
+              4,
+              5,
+              24000,
+              "=B6*C6"
+          ],
+          [
+              "Kimyasal Depo - Havalandırma",
+              3,
+              4,
+              38000,
+              "=B7*C7"
+          ],
+          [
+              "Kaynak Atölyesi - Gaz Kaçağı",
+              2,
+              5,
+              18000,
+              "=B8*C8"
+          ],
+          [
+              "Yüksekte Çalışma - İskele Güvenliği",
+              4,
+              4,
+              32000,
+              "=B9*C9"
+          ],
+          [
+              "Elektrik Panosu - Açık İletken",
+              3,
+              5,
+              12000,
+              "=B10*C10"
+          ],
+          [
+              "Forklift Yolu - Yaya Çizgisi",
+              3,
+              3,
+              8500,
+              "=B11*C11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Kritik risk sayısı (Skor >=15)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">=15\")",
+              "sayi"
+          ],
+          [
+              "En yüksek risk skoru",
+              "=MAX(DEMO_GIRIS!E6:E25)",
+              "sayi"
+          ],
+          [
+              "Gerekli önleyici yatırım bütçesi",
+              "=SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Ortalama risk skoru",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6>2,\"DURDUR\",IF(B7>=20,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Risk skoru 15 ve üzeri olan yüksek tehlikeli alanlarda derhal durdurma ve mühendislik önlemi alın.",
+          "İş güvenliği uzmanı ve işyeri hekimi onaylı risk analiz raporunu İSG-KATİP sistemine kaydedin.",
+          "Tam sürümde Fine-Kinney yöntemi, 5x5 L Matrisi, ramak kala bildirim takip ve yasal teftiş denetim listesi bulunur."
+      ],
+      "ui": [
+          "İSG Risk Radarı",
+          "6331 tehlike görünümü",
+          "Yasal teftiş ve kaza riski"
+      ]
+  },
+  'ithalat-landed-cost-motoru': {
+      "karar": "İthalatta FOB bedel, navlun, sigorta, gümrük vergisi, ÖTV ve KKDF sonrası kapı teslim birim maliyeti gösterir.",
+      "girisBasliklari": [
+          "Ürün / GTİP",
+          "FOB Fatura ($)",
+          "Navlun+Sigorta ($)",
+          "Gümrük+ÖTV+KKDF (₺)",
+          "Kapı Teslim Birim (₺)"
+      ],
+      "ornek": [
+          [
+              "Elektronik Kart A - 8534.00",
+              35000,
+              4200,
+              485000,
+              "=((B6+C6)*36.5)+D6"
+          ],
+          [
+              "Hidrolik Pompa B - 8413.60",
+              48000,
+              5800,
+              620000,
+              "=((B7+C7)*36.5)+D7"
+          ],
+          [
+              "Optik Sensör C - 9031.80",
+              22000,
+              2600,
+              295000,
+              "=((B8+C8)*36.5)+D8"
+          ],
+          [
+              "Paslanmaz Çelik D - 7219.33",
+              64000,
+              8900,
+              840000,
+              "=((B9+C9)*36.5)+D9"
+          ],
+          [
+              "Rulman Grubu E - 8482.10",
+              18500,
+              2100,
+              245000,
+              "=((B10+C10)*36.5)+D10"
+          ],
+          [
+              "Pnömatik Valf F - 8481.20",
+              29000,
+              3400,
+              390000,
+              "=((B11+C11)*36.5)+D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam ithalat maliyeti (₺)",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Toplam ödenen vergi (₺)",
+              "=SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Efektif vergi yükü oranı",
+              "=SUM(DEMO_GIRIS!D6:D25)/MAX(1,SUM(DEMO_GIRIS!E6:E25))",
+              "oran"
+          ],
+          [
+              "Toplam FOB bedel ($)",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8>0.35,\"DURDUR\",IF(B6>3000000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Gözetim ve referans fiyat uygulaması olan GTİP kodlarında ek teminat maliyetini hesaba katın.",
+          "Vadeli ithalatta KKDF (%6) doğmaması için peşin akreditif alternatiflerini değerlendirin.",
+          "Tam sürümde antrepo ardiye maliyeti, damping vergisi, ilave gümrük vergisi (İGV) ve koli başı maliyet çalışır."
+      ],
+      "ui": [
+          "İthalat Maliyet Radarı",
+          "Landed cost görünümü",
+          "Vergi ve fon baskısı"
+      ]
+  },
+  'kargo-desi-maliyet-optimizasyonu': {
+      "karar": "E-ticaret ve kargo gönderilerinde faturalanan desi ile gerçek desi farkını, ambalaj kaybını ve maliyet sızıntısını bulur.",
+      "girisBasliklari": [
+          "Paket / Sipariş",
+          "Gerçek Desi",
+          "Faturalanan Desi",
+          "Kargo Fatura Tutarı (₺)",
+          "Desi Fark Maliyeti (₺)"
+      ],
+      "ornek": [
+          [
+              "Sipariş TR-101 - Ayakkabı",
+              3.2,
+              5,
+              78,
+              "=(C6-B6)*14.5"
+          ],
+          [
+              "Sipariş TR-102 - Mont",
+              6.5,
+              9,
+              142,
+              "=(C7-B7)*14.5"
+          ],
+          [
+              "Sipariş TR-103 - Takı Seti",
+              0.8,
+              2,
+              48,
+              "=(C8-B8)*14.5"
+          ],
+          [
+              "Sipariş TR-104 - Küçük Ev Aleti",
+              8.2,
+              12,
+              185,
+              "=(C9-B9)*14.5"
+          ],
+          [
+              "Sipariş TR-105 - Kozmetik Kutu",
+              1.5,
+              3,
+              56,
+              "=(C10-B10)*14.5"
+          ],
+          [
+              "Sipariş TR-106 - Ev Tekstili",
+              5,
+              7.5,
+              118,
+              "=(C11-B11)*14.5"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam desi fark kaybı",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Toplam kargo harcaması",
+              "=SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Desi sızıntı oranı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!D6:D25))",
+              "oran"
+          ],
+          [
+              "Hatalı ölçümlenen paket sayısı",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">20\")",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8>0.20,\"DURDUR\",IF(B6>150,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Desi farkı %20'yi aşan paketlerde kargo şirketiyle şube ölçüm kalibrasyon itirazı başlatın.",
+          "Hacimsel ağırlığı düşürmek için ambalaj kutu ebatlarını optimize edin ve hava yastıklarını küçültün.",
+          "Tam sürümde kargo barem denetimi, tazmin süreci mutabakatı ve çoklu taşıyıcı fiyat kıyaslama motoru açılır."
+      ],
+      "ui": [
+          "Kargo Desi Radarı",
+          "Fatura ve desi dengesi",
+          "Ambalaj maliyet kaybı"
+      ]
+  },
+  'kat-karsiligi-hasilat-paylasimi-simulator': {
+      "karar": "Kentsel dönüşüm ve kat karşılığı projelerde arsa sahibi/müteahhit paylaşım oranını, hasılatı ve inşaat fizibilitesini test eder.",
+      "girisBasliklari": [
+          "Bağımsız Bölüm Grubu",
+          "İnşaat Alanı (m²)",
+          "Satış Değeri (₺/m²)",
+          "İnşaat Maliyeti (₺/m²)",
+          "Müteahhit Brüt Kârı (₺)"
+      ],
+      "ornek": [
+          [
+              "A Blok Konutlar (%50 Pay)",
+              4500,
+              65000,
+              26000,
+              "=B6*(C6*0.50-D6)"
+          ],
+          [
+              "B Blok Konutlar (%50 Pay)",
+              5200,
+              68000,
+              26000,
+              "=B7*(C7*0.50-D7)"
+          ],
+          [
+              "Zemin Cadde Dükkanlar",
+              1800,
+              145000,
+              32000,
+              "=B8*(C8*0.50-D8)"
+          ],
+          [
+              "C Blok Ofis Katları",
+              3200,
+              85000,
+              28000,
+              "=B9*(C9*0.50-D9)"
+          ],
+          [
+              "Kapalı Otopark & Sosyal",
+              2400,
+              25000,
+              18000,
+              "=B10*(C10*0.50-D10)"
+          ],
+          [
+              "Çatı Dubleksler",
+              1600,
+              95000,
+              30000,
+              "=B11*(C11*0.50-D11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam müteahhit brüt kârı",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Toplam proje hasılatı",
+              "=SUMPRODUCT(DEMO_GIRIS!B6:B25,DEMO_GIRIS!C6:C25)",
+              "para"
+          ],
+          [
+              "Toplam inşaat maliyeti",
+              "=SUMPRODUCT(DEMO_GIRIS!B6:B25,DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Proje kâr marjı",
+              "=SUM(DEMO_GIRIS!E6:E25)/(SUMPRODUCT(DEMO_GIRIS!B6:B25,DEMO_GIRIS!C6:C25)*0.5)",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B9<0.15,\"DURDUR\",IF(B6<20000000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Müteahhit payı kâr marjı %20 altına iniyorsa arsa sahibi paylaşım oranını %45 seviyesine çekin.",
+          "Ruhsat ve hafriyat gecikmelerine karşı sözleşmeye mücbir sebep ve eskalasyon maddesi ekleyin.",
+          "Tam sürümde şerefiye puanlama matrisi, nakit hakediş takvimi ve hasılat paylaşımlı gelir dağıtım motoru çalışır."
+      ],
+      "ui": [
+          "Hasılat Paylaşım Radarı",
+          "Arsa ve inşaat dengesi",
+          "Proje kârlılık riski"
+      ]
+  },
+  'kdv-iadesi-tutar-surec-simulasyonu': {
+      "karar": "İhracat ve indirimli oranda KDV iadesi potansiyelini, yüklenim listesi tenzil riskini ve mahsup süresini simüle eder.",
+      "girisBasliklari": [
+          "Dönem / İşlem Türü",
+          "İade Hakkı Doğuran İşlem (₺)",
+          "Yüklenilen KDV (₺)",
+          "Tenzil Edilen KDV (₺)",
+          "Talep Edilen Net İade (₺)"
+      ],
+      "ornek": [
+          [
+              "Ocak - Mal İhracatı",
+              8500000,
+              1150000,
+              45000,
+              "=C6-D6"
+          ],
+          [
+              "Şubat - Mal İhracatı",
+              9200000,
+              1280000,
+              62000,
+              "=C7-D7"
+          ],
+          [
+              "Mart - İndirimli Oran",
+              6400000,
+              780000,
+              38000,
+              "=C8-D8"
+          ],
+          [
+              "Nisan - Mal İhracatı",
+              11000000,
+              1540000,
+              85000,
+              "=C9-D9"
+          ],
+          [
+              "Mayıs - Hizmet İhracatı",
+              4800000,
+              580000,
+              22000,
+              "=C10-D10"
+          ],
+          [
+              "Haziran - Mal İhracatı",
+              12500000,
+              1720000,
+              94000,
+              "=C11-D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam talep edilen KDV iadesi",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Toplam tenzil riski tutarı",
+              "=SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Kümülatif iade matrahı",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "para"
+          ],
+          [
+              "Efektif iade oranı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6<3000000,\"DURDUR\",IF(B7>200000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Tenzil riski %5'i aşan faturalarda alt tedarikçi KDV beyanname ve ödeme teyitlerini yapın.",
+          "YMM KDV İadesi Tasdik Raporunu beyanname verme süresini takip eden ay içinde sisteme yükleyin.",
+          "Tam sürümde GEKSİS hata kontrol simülatörü, yüklenim listesi doğrulama ve vergi borcu mahsup planlayıcı çalışır."
+      ],
+      "ui": [
+          "KDV İadesi Radarı",
+          "Yüklenim ve iade dengesi",
+          "GEKSİS tenzil riski"
+      ]
+  },
+  'kik-asiri-dusuk-savunma-sinir-deger': {
+      "karar": "Kamu ihalelerinde sınır değer hesabını, yaklaşık maliyet katsayısını ve aşırı düşük teklif sorgu riskini gösterir.",
+      "girisBasliklari": [
+          "Teklif Sahibi / Firma",
+          "Teklif Tutarı (₺)",
+          "Yaklaşık Maliyet (₺)",
+          "Sınır Değer (₺)",
+          "Sınır Değer Farkı (₺)"
+      ],
+      "ornek": [
+          [
+              "Bizim Teklifimiz",
+              18500000,
+              24000000,
+              19200000,
+              "=B6-D6"
+          ],
+          [
+              "Rakip Firma A",
+              19800000,
+              24000000,
+              19200000,
+              "=B7-D7"
+          ],
+          [
+              "Rakip Firma B",
+              21200000,
+              24000000,
+              19200000,
+              "=B8-D8"
+          ],
+          [
+              "Rakip Firma C",
+              18900000,
+              24000000,
+              19200000,
+              "=B9-D9"
+          ],
+          [
+              "Rakip Firma D",
+              22500000,
+              24000000,
+              19200000,
+              "=B10-D10"
+          ],
+          [
+              "Rakip Firma E",
+              19100000,
+              24000000,
+              19200000,
+              "=B11-D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Sınır değer altı teklif sayısı",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<0\")",
+              "sayi"
+          ],
+          [
+              "En düşük sınır değer farkı",
+              "=MIN(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Bizim teklif sınır oranı",
+              "=B6/D6",
+              "oran"
+          ],
+          [
+              "Ortalama geçerli teklif",
+              "=AVERAGE(DEMO_GIRIS!B6:B25)",
+              "para"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8<0.98,\"DURDUR\",IF(B6>2,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Teklifiniz sınır değerin altında kalıyorsa analiz formatına uygun aşırı düşük savunma dosyasını 3 gün içinde hazırlayın.",
+          "Çevre ve Şehircilik Bakanlığı pozları ile piyasa proforma faturalarını üçüncü kişi onaylı teyit edin.",
+          "Tam sürümde KİK Tebliği Madde 45/79 şablonları, aritmetik ortalama simülatörü ve analiz savunma robotu bulunur."
+      ],
+      "ui": [
+          "KİK Sınır Değer Radarı",
+          "Aşırı düşük sorgu görünümü",
+          "İhale elenme riski"
+      ]
+  },
+  'kira-portfoyu-getiri-komutasi': {
+      "karar": "Gayrimenkul kira portföyünde tahsilat performansı, boş kalma oranı, işletme masrafı ve net Cap Rate getirisini gösterir.",
+      "girisBasliklari": [
+          "Gayrimenkul / Kiracı",
+          "Ekspertiz Değeri (₺)",
+          "Yıllık Kira Geliri (₺)",
+          "Aidat+Vergi+Bakım (₺)",
+          "Net Getiri (Cap Rate)"
+      ],
+      "ornek": [
+          [
+              "Cadde Mağaza 1 - Banka",
+              35000000,
+              2450000,
+              180000,
+              "=(C6-D6)/B6"
+          ],
+          [
+              "Ofis Katı 2 - Yazılım",
+              18000000,
+              1350000,
+              120000,
+              "=(C7-D7)/B7"
+          ],
+          [
+              "Lojistik Depo 3 - Kargo",
+              48000000,
+              3600000,
+              240000,
+              "=(C8-D8)/B8"
+          ],
+          [
+              "Konut Portföyü 4 - Rezidans",
+              14000000,
+              840000,
+              95000,
+              "=(C9-D9)/B9"
+          ],
+          [
+              "AVM Mağaza 5 - Giyim",
+              22000000,
+              1650000,
+              160000,
+              "=(C10-D10)/B10"
+          ],
+          [
+              "Müstakil Bina 6 - Klinik",
+              28000000,
+              2100000,
+              190000,
+              "=(C11-D11)/B11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Portföy ağırlıklı net getiri",
+              "=SUM(DEMO_GIRIS!C6:C25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Toplam yıllık net kira nakdi",
+              "=SUM(DEMO_GIRIS!C6:C25)-SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Toplam portföy varlık değeri",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "para"
+          ],
+          [
+              "Düşük verimli mülk (<%6)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<0.06\")",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B9>1,\"DURDUR\",IF(B6<0.065,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Cap Rate getirisi %6 altına inen konut ve ofis mülklerinde satış veya kentsel dönüşüm alternatifini inceleyin.",
+          "TÜFE kira artış tavanı ve 5 yıllık kira tespit davası sürelerini portföy takvimine işleyin.",
+          "Tam sürümde tahliye taahhüdü takibi, stopaj/KDV tevkifatı ve portföy getiri maksimizasyon simülatörü çalışır."
+      ],
+      "ui": [
+          "Kira Portföy Radarı",
+          "Cap Rate getiri dengesi",
+          "Boş kalma ve getiri riski"
+      ]
+  },
+  'konkordato-ttk376-kriz-paketi': {
+      "karar": "Şirketin TTK 376 kapsamındaki sermaye kaybı ve borca batıklık derecesini, konkordato ön projeksiyonunu denetler.",
+      "girisBasliklari": [
+          "Dönem",
+          "Ödenmiş Sermaye (₺)",
+          "Geçmiş Yıl Zararları (₺)",
+          "Dönem Net Zararı (₺)",
+          "Sermaye Kayıp Oranı"
+      ],
+      "ornek": [
+          [
+              "2024 Yıl Sonu",
+              15000000,
+              4200000,
+              3100000,
+              "=(C6+D6)/B6"
+          ],
+          [
+              "2025/Q1",
+              15000000,
+              7300000,
+              1800000,
+              "=(C7+D7)/B7"
+          ],
+          [
+              "2025/Q2",
+              15000000,
+              9100000,
+              2400000,
+              "=(C8+D8)/B8"
+          ],
+          [
+              "2025/Q3",
+              15000000,
+              11500000,
+              2900000,
+              "=(C9+D9)/B9"
+          ],
+          [
+              "2025/Q4 Projeksiyon",
+              15000000,
+              14400000,
+              3500000,
+              "=(C10+D10)/B10"
+          ],
+          [
+              "2026/Q1 Stres Test",
+              15000000,
+              17900000,
+              4100000,
+              "=(C11+D11)/B11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "En yüksek sermaye kayıp oranı",
+              "=MAX(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "Borca batıklık (>%100) dönemi",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">1.0\")",
+              "sayi"
+          ],
+          [
+              "Kritik dönem (TTK 376/2 >%66)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">0.66\")",
+              "sayi"
+          ],
+          [
+              "Toplam kümülatif zarar",
+              "=MAX(DEMO_GIRIS!C6:C25)+MAX(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>0,\"DURDUR\",IF(B8>0,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Sermaye kaybı 2/3 eşiğini (%66) aştığında derhal genel kurulu toplayıp sermaye artırımı veya tamamlama kararı alın.",
+          "Yeniden değerleme fonlarını özkaynaklara aktararak bilançoyu yasal olarak güçlendirin.",
+          "Tam sürümde borca batıklık bilançosu, konkordato ön projesi nakit akışı ve alacaklı tenzilat tablosu açılır."
+      ],
+      "ui": [
+          "TTK 376 Kriz Radarı",
+          "Sermaye kaybı görünümü",
+          "Borca batıklık riski"
+      ]
+  },
+  'kvkk-veri-envanteri-verbis-uyum': {
+      "karar": "Kişisel veri envanterini, VERBİS kayıt yükümlülüğünü, saklama sürelerini ve idari para cezası riskini gösterir.",
+      "girisBasliklari": [
+          "Veri Kategorisi / Süreç",
+          "Kayıt Sayısı (Kişi)",
+          "Yurt Dışı Aktarım",
+          "Tedbir Uyum Puanı (1-100)",
+          "Ceza Risk Skoru"
+      ],
+      "ornek": [
+          [
+              "Müşteri Finansal Verisi",
+              45000,
+              1,
+              62,
+              "=(100-D6)*1.5"
+          ],
+          [
+              "Çalışan Özlük Dosyaları",
+              280,
+              0,
+              78,
+              "=(100-D7)*1.0"
+          ],
+          [
+              "Kamera Güvenlik Kayıtları",
+              12000,
+              0,
+              85,
+              "=(100-D8)*0.8"
+          ],
+          [
+              "Pazarlama Çerez & İletişim",
+              185000,
+              1,
+              48,
+              "=(100-D9)*1.8"
+          ],
+          [
+              "Biyometrik Giriş Verisi",
+              350,
+              0,
+              42,
+              "=(100-D10)*2.0"
+          ],
+          [
+              "Tedarikçi Yetkili Verisi",
+              850,
+              0,
+              72,
+              "=(100-D11)*1.0"
+          ]
+      ],
+      "metrikler": [
+          [
+              "En yüksek risk skoru",
+              "=MAX(DEMO_GIRIS!E6:E25)",
+              "sayi"
+          ],
+          [
+              "Yüksek riskli süreç sayısı",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">80\")",
+              "sayi"
+          ],
+          [
+              "Ortalama teknik tedbir puanı",
+              "=AVERAGE(DEMO_GIRIS!D6:D25)",
+              "oran"
+          ],
+          [
+              "Toplam işlenen ilgili kişi sayısı",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>1,\"DURDUR\",IF(B8<70,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Açık rıza ve aydınlatma metni eksik olan süreçlerde kişisel veri işlemeyi derhal durdurun.",
+          "Yurt dışı aktarım yapılan bulut yazılımlarda taahhütname veya standart sözleşme bildirimini yapın.",
+          "Tam sürümde VERBİS kategori eşleştirme, saklama ve imha politikası ve Kurul güncel ceza hesaplayıcı çalışır."
+      ],
+      "ui": [
+          "KVKK Uyum Radarı",
+          "Envanter ve tedbir dengesi",
+          "VERBİS idari para cezası riski"
+      ]
+  },
+  'makine-bakim-kalibrasyon-durus-maliyeti': {
+      "karar": "Üretim tesislerinde plansız makine duruşlarının, kalibrasyon sapmalarının ve kayıp ciro maliyetini hesaplar.",
+      "girisBasliklari": [
+          "Makine / Hat",
+          "Plansız Duruş (Saat)",
+          "Yedek Parça Maliyeti (₺)",
+          "Saatlik Kayıp Ciro (₺)",
+          "Toplam Duruş Kaybı (₺)"
+      ],
+      "ornek": [
+          [
+              "CNC İşleme Merkezi 1",
+              18.5,
+              45000,
+              6500,
+              "=B6*D6+C6"
+          ],
+          [
+              "Enjeksiyon Hattı 2",
+              24,
+              68000,
+              8200,
+              "=B7*D7+C7"
+          ],
+          [
+              "Robotik Kaynak Hücresi 3",
+              12,
+              28000,
+              5400,
+              "=B8*D8+C8"
+          ],
+          [
+              "Otomatik Boya Hattı 4",
+              32.5,
+              95000,
+              9800,
+              "=B9*D9+C9"
+          ],
+          [
+              "Paketleme Konveyörü 5",
+              8,
+              14000,
+              4200,
+              "=B10*D10+C10"
+          ],
+          [
+              "Pres Hattı 6",
+              16,
+              38000,
+              7500,
+              "=B11*D11+C11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam duruş maliyeti",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Toplam kayıp saat",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Kritik duruş sayısı (>20 saat)",
+              "=COUNTIF(DEMO_GIRIS!B6:B25,\">20\")",
+              "sayi"
+          ],
+          [
+              "Ortalama saatlik duruş kaybı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "para"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6>800000,\"DURDUR\",IF(B8>1,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Duruş süresi 20 saati aşan kritik makinelerde kestirimci bakım ve titreşim analizini devreye alın.",
+          "Kritik yedek parça emniyet stoğu seviyelerini tedarik süresine göre revize edin.",
+          "Tam sürümde MTBF (Arızalar Arası Ortalama Süre), MTTR (Ortalama Onarım Süresi) ve OEE entegrasyonu bulunur."
+      ],
+      "ui": [
+          "Bakım & Duruş Radarı",
+          "Duruş maliyet görünümü",
+          "Kayıp üretim riski"
+      ]
+  },
+  'mini-mrp-bom-malzeme-kapasite': {
+      "karar": "Ürün ağacı (BOM), net hammadde ihtiyacı, emniyet stoku ve tedarik sipariş emirlerini otomatik dengeler.",
+      "girisBasliklari": [
+          "Bileşen / Hammadde",
+          "Brüt İhtiyaç (Adet/kg)",
+          "Mevcut Stok",
+          "Emniyet Stoku",
+          "Net Satın Alma Emri"
+      ],
+      "ornek": [
+          [
+              "Alüminyum Profil 6063",
+              4500,
+              1800,
+              500,
+              "=MAX(0,B6-C6+D6)"
+          ],
+          [
+              "Paslanmaz Civata M8",
+              28000,
+              14000,
+              3000,
+              "=MAX(0,B7-C7+D7)"
+          ],
+          [
+              "Elektronik Kart MCU-01",
+              1200,
+              450,
+              200,
+              "=MAX(0,B8-C8+D8)"
+          ],
+          [
+              "Plastik Gövde Enjeksiyon",
+              1850,
+              1900,
+              300,
+              "=MAX(0,B9-C9+D9)"
+          ],
+          [
+              "Güç Kaynağı 24V 5A",
+              950,
+              320,
+              150,
+              "=MAX(0,B10-C10+D10)"
+          ],
+          [
+              "Ambalaj Kolisi Standart",
+              3200,
+              800,
+              600,
+              "=MAX(0,B11-C11+D11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Sipariş verilecek kalem sayısı",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">0\")",
+              "sayi"
+          ],
+          [
+              "Toplam net sipariş adedi",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "sayi"
+          ],
+          [
+              "Stok kapsama yeterliliği",
+              "=SUM(DEMO_GIRIS!C6:C25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Emniyet stoku altı kalem",
+              "=COUNTIF(DEMO_GIRIS!C6:C25,\"<D6\")",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8<0.50,\"DURDUR\",IF(B6>4,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Net satın alma emri çıkan kalemlerde tedarikçi temin sürelerini kontrol ederek acil sipariş açın.",
+          "Tedarik riski yüksek elektronik ve ithal bileşenlerde emniyet stoku gün sayısını artırın.",
+          "Tam sürümde çok seviyeli BOM patlatma, iş merkezi kapasite çizelgeleme ve satın alma bütçe planlayıcı çalışır."
+      ],
+      "ui": [
+          "Mini-MRP Radarı",
+          "Malzeme ihtiyaç dengesi",
+          "Hammadde yok satma riski"
+      ]
+  },
+  'mizan-anomali-denetim-oncesi-kontrol': {
+      "karar": "Geçici ve kesin mizanda ters bakiye veren hesapları, bakiye uyumsuzluklarını ve vergi inceleme risklerini yakalar.",
+      "girisBasliklari": [
+          "Hesap Kodu / Adı",
+          "Borç Toplamı (₺)",
+          "Alacak Toplamı (₺)",
+          "Borç Kalan (₺)",
+          "Anomali Puanı (1-100)"
+      ],
+      "ornek": [
+          [
+              "100 Kasa Hesabı",
+              2450000,
+              2480000,
+              -30000,
+              "=IF(D6<0,100,0)"
+          ],
+          [
+              "102 Bankalar",
+              18500000,
+              18200000,
+              300000,
+              "=IF(D7<0,90,0)"
+          ],
+          [
+              "120 Alıcılar",
+              14200000,
+              14900000,
+              -700000,
+              "=IF(D8<0,85,0)"
+          ],
+          [
+              "320 Satıcılar",
+              11800000,
+              11200000,
+              600000,
+              "=IF(D9>0,85,0)"
+          ],
+          [
+              "331 Ortaklara Borçlar",
+              8500000,
+              8900000,
+              -400000,
+              "=IF(D10<0,60,0)"
+          ],
+          [
+              "391 Hesaplanan KDV",
+              4800000,
+              4800000,
+              0,
+              "=IF(D11<>0,95,0)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Kritik anomali sayısı",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">=80\")",
+              "sayi"
+          ],
+          [
+              "Ters bakiye tutarı toplamı",
+              "=SUMIF(DEMO_GIRIS!E6:E25,\">0\",DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "En yüksek anomali puanı",
+              "=MAX(DEMO_GIRIS!E6:E25)",
+              "sayi"
+          ],
+          [
+              "İncelenen hesap adedi",
+              "=COUNTA(DEMO_GIRIS!A6:A25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6>0,\"DURDUR\",IF(B8>60,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "100 Kasa hesabının alacak bakiyesi vermesi inceleme gerekçesidir; ortaklar cari virmanını düzeltin.",
+          "120 ve 320 ters bakiyelerini fatura veya avans hesaplarına (159/340) aktarın.",
+          "Tam sürümde 100+ otomatik mizan denetim kuralı, KDV-gelir mutabakatı ve VUK ceza risk simülatörü açılır."
+      ],
+      "ui": [
+          "Mizan Denetim Radarı",
+          "Ters bakiye anomali görünümü",
+          "Vergi inceleme riski"
+      ]
+  },
+  'oee-durus-kok-neden-komutasi': {
+      "karar": "Üretim hatlarında OEE (Genel Ekipman Verimliliği), Kullanılabilirlik, Performans ve Kalite kayıplarını kök-nedenle çözer.",
+      "girisBasliklari": [
+          "Hat / Vardiya",
+          "Kullanılabilirlik (A)",
+          "Performans (P)",
+          "Kalite (Q)",
+          "OEE Skoru"
+      ],
+      "ornek": [
+          [
+              "Hat 1 - Sabah Vardiyası",
+              0.88,
+              0.92,
+              0.98,
+              "=B6*C6*D6"
+          ],
+          [
+              "Hat 1 - Akşam Vardiyası",
+              0.78,
+              0.85,
+              0.96,
+              "=B7*C7*D7"
+          ],
+          [
+              "Hat 2 - Sabah Vardiyası",
+              0.92,
+              0.94,
+              0.99,
+              "=B8*C8*D8"
+          ],
+          [
+              "Hat 2 - Akşam Vardiyası",
+              0.82,
+              0.88,
+              0.97,
+              "=B9*C9*D9"
+          ],
+          [
+              "Hat 3 - Montaj Hattı",
+              0.72,
+              0.8,
+              0.95,
+              "=B10*C10*D10"
+          ],
+          [
+              "Hat 4 - Paketleme Hattı",
+              0.85,
+              0.9,
+              0.98,
+              "=B11*C11*D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Tesis ortalama OEE",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "Dünya sınıfı OEE (>%85) hattı",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">0.85\")",
+              "sayi"
+          ],
+          [
+              "Kritik verimsiz hat (<%70)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<0.70\")",
+              "sayi"
+          ],
+          [
+              "En düşük OEE skoru",
+              "=MIN(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8>0,\"DURDUR\",IF(B6<0.80,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "OEE skoru %70 altına inen hatlarda SMED (kalıp değişim hızı) ve küçük duruş analizlerini başlatın.",
+          "Vardiyalar arasındaki %10'u aşan verimlilik farkı için standart iş talimatlarını güncelleyin.",
+          "Tam sürümde 6 büyük kayıp dökümü, Pareto duruş analitiği ve hat bazlı kayıp ciro simülatörü çalışır."
+      ],
+      "ui": [
+          "OEE Verimlilik Radarı",
+          "Hat bazlı APQ dengesi",
+          "Üretim kapasite kayıp riski"
+      ]
+  },
+  'on-uc-haftalik-nakit-odeme-onceligi': {
+      "karar": "Kritik ödemeleri (çek, vergi, SGK, personel, kredi) haftalık serbest nakitle eşleştirerek temerrüt riskini önler.",
+      "girisBasliklari": [
+          "Hafta",
+          "Beklenen Tahsilat (₺)",
+          "Kritik Yasal Ödemeler (₺)",
+          "Tedarikçi Ödemeleri (₺)",
+          "Net Serbest Nakit (₺)"
+      ],
+      "ornek": [
+          [
+              "Hafta 1",
+              850000,
+              420000,
+              380000,
+              "=B6-C6-D6"
+          ],
+          [
+              "Hafta 2",
+              620000,
+              580000,
+              240000,
+              "=B7-C7-D7"
+          ],
+          [
+              "Hafta 3",
+              940000,
+              310000,
+              450000,
+              "=B8-C8-D8"
+          ],
+          [
+              "Hafta 4",
+              510000,
+              680000,
+              190000,
+              "=B9-C9-D9"
+          ],
+          [
+              "Hafta 5",
+              1100000,
+              450000,
+              520000,
+              "=B10-C10-D10"
+          ],
+          [
+              "Hafta 6",
+              750000,
+              390000,
+              410000,
+              "=B11-C11-D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Nakit açığı veren hafta sayısı",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<0\")",
+              "sayi"
+          ],
+          [
+              "En derin haftalık açık",
+              "=MIN(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Dönem toplam serbest nakit",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Yasal ödeme karşılama oranı",
+              "=SUM(DEMO_GIRIS!B6:B25)/MAX(1,SUM(DEMO_GIRIS!C6:C25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6>1,\"DURDUR\",IF(B7<0,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Nakit açığı veren 4. haftadaki tedarikçi vadelerini 5. haftaya öteleyin veya iskonto kredisi kullanın.",
+          "Çek ve vergi gibi yasal öncelikli ödemeleri tahsilat garantili müşterilerle bloke edin.",
+          "Tam sürümde 13 haftalık dinamik kurgu, senaryo stres testi ve otomatik ödeme takvimi raporu çalışır."
+      ],
+      "ui": [
+          "Ödeme Öncelik Radarı",
+          "Haftalık serbest nakit",
+          "Yasal temerrüt riski"
+      ]
+  },
+  'ortulu-sermaye-emsal-faiz-tf-paketi': {
+      "karar": "Ortak ve ilişkili kuruluşlardan kullanılan borçlarda 3 katı eşiğini, örtülü sermaye faizini ve transfer fiyatlandırmasını denetler.",
+      "girisBasliklari": [
+          "İlişkili Kurum / Dönem",
+          "Kullanılan Borç (₺)",
+          "Dönem Başı Öz Sermaye (₺)",
+          "3 Katı Eşiği (₺)",
+          "Örtülü Sermaye Farkı (₺)"
+      ],
+      "ornek": [
+          [
+              "Ortak A - Cari Borç",
+              18500000,
+              5000000,
+              "=C6*3",
+              "=MAX(0,B6-D6)"
+          ],
+          [
+              "Grup Şirketi B - Kredi",
+              24000000,
+              5000000,
+              "=C7*3",
+              "=MAX(0,B7-D7)"
+          ],
+          [
+              "Yurt Dışı İştirak C",
+              32000000,
+              5000000,
+              "=C8*3",
+              "=MAX(0,B8-D8)"
+          ],
+          [
+              "Ortak D - Finansman",
+              14000000,
+              5000000,
+              "=C9*3",
+              "=MAX(0,B9-D9)"
+          ],
+          [
+              "Grup Şirketi E - Cari",
+              16500000,
+              5000000,
+              "=C10*3",
+              "=MAX(0,B10-D10)"
+          ],
+          [
+              "Ortak F - Borç",
+              12000000,
+              5000000,
+              "=C11*3",
+              "=MAX(0,B11-D11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Örtülü sermaye sayılan borç",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Eşiği aşan işlem adedi",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">0\")",
+              "sayi"
+          ],
+          [
+              "Tahmini KKEG faiz tutarı",
+              "=SUM(DEMO_GIRIS!E6:E25)*0.45",
+              "para"
+          ],
+          [
+              "Toplam ilişkili kurum borcu",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "para"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>1,\"DURDUR\",IF(B6>10000000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Öz sermayenin 3 katını aşan borçlanmalarda faiz ve kur farklarını KKEG olarak muhasebeleştirin.",
+          "KKEG faizlerinin dönem sonunda kâr payı dağıtımı (stopaj %10) sayılacağını unutmayın.",
+          "Tam sürümde emsal faiz oranı testi, transfer fiyatlandırması raporu ve örtülü kazanç simülatörü çalışır."
+      ],
+      "ui": [
+          "Örtülü Sermaye Radarı",
+          "Öz sermaye 3 katı görünümü",
+          "KKEG ve stopaj riski"
+      ]
+  },
+  'pazaryeri-hakedis-mutabakat-motoru': {
+      "karar": "Pazaryeri raporlarındaki siparişler, komisyonlar, kargo kesintileri ve cezaları bankaya yatan tutarla kuruşu kuruşuna eşler.",
+      "girisBasliklari": [
+          "Hakediş Dönemi / Sipariş",
+          "Brüt Satış Tutarı (₺)",
+          "Komisyon+Hizmet (₺)",
+          "Kargo+Ceza+İade (₺)",
+          "Net Hakediş (₺)"
+      ],
+      "ornek": [
+          [
+              "Dönem 1 - Trendyol",
+              485000,
+              97000,
+              68000,
+              "=B6-C6-D6"
+          ],
+          [
+              "Dönem 2 - Hepsiburada",
+              320000,
+              57600,
+              44000,
+              "=B7-C7-D7"
+          ],
+          [
+              "Dönem 3 - Amazon TR",
+              240000,
+              36000,
+              31000,
+              "=B8-C8-D8"
+          ],
+          [
+              "Dönem 4 - Trendyol",
+              540000,
+              108000,
+              78000,
+              "=B9-C9-D9"
+          ],
+          [
+              "Dönem 5 - Çiçeksepeti",
+              185000,
+              37000,
+              26000,
+              "=B10-C10-D10"
+          ],
+          [
+              "Dönem 6 - N11",
+              140000,
+              23800,
+              19500,
+              "=B11-C11-D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam net hakediş",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Toplam komisyon ve kesinti",
+              "=SUM(DEMO_GIRIS!C6:C25)+SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Ortalama kesinti oranı",
+              "=(SUM(DEMO_GIRIS!C6:C25)+SUM(DEMO_GIRIS!D6:D25))/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Brüt satış toplamı",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "para"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8>0.35,\"DURDUR\",IF(B6<1000000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Kesinti oranı %35'i aşan dönemlerde pazaryeri faturasındaki ceza ve kargo desilerini tek tek kontrol edin.",
+          "Banka hesabına eksik yatan tutarlar için pazaryeri destek panelinden hakediş itiraz kaydı açın.",
+          "Tam sürümde sipariş bazlı otomatik CSV/Excel eşleştirme, faturası kesilmemiş sipariş avı ve iade takibi çalışır."
+      ],
+      "ui": [
+          "Pazaryeri Mutabakatı",
+          "Brüt ve net hakediş dengesi",
+          "Haksız kesinti ve ceza riski"
+      ]
+  },
+  'proje-finansmani-dscr-llcr-paketi': {
+      "karar": "Büyük ölçekli yatırımlarda DSCR (Borç Servisi Karşılama) ve LLCR (Kredi Ömrü Karşılama) rasyolarını denetler.",
+      "girisBasliklari": [
+          "Yıl / Dönem",
+          "CFADS Nakit Akışı (₺)",
+          "Anapara Borç Servisi (₺)",
+          "Faiz Borç Servisi (₺)",
+          "Dönem DSCR Oranı"
+      ],
+      "ornek": [
+          [
+              "2026/Yıl 1",
+              18500000,
+              8000000,
+              4200000,
+              "=B6/MAX(1,C6+D6)"
+          ],
+          [
+              "2027/Yıl 2",
+              21000000,
+              9000000,
+              3800000,
+              "=B7/MAX(1,C7+D7)"
+          ],
+          [
+              "2028/Yıl 3",
+              24500000,
+              10500000,
+              3200000,
+              "=B8/MAX(1,C8+D8)"
+          ],
+          [
+              "2029/Yıl 4",
+              26000000,
+              12000000,
+              2600000,
+              "=B9/MAX(1,C9+D9)"
+          ],
+          [
+              "2030/Yıl 5",
+              28500000,
+              13500000,
+              1900000,
+              "=B10/MAX(1,C10+D10)"
+          ],
+          [
+              "2031/Yıl 6",
+              31000000,
+              15000000,
+              1100000,
+              "=B11/MAX(1,C11+D11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "En düşük DSCR oranı",
+              "=MIN(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "Kritik DSCR dönemi (<1.25)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<1.25\")",
+              "sayi"
+          ],
+          [
+              "Toplam kümülatif borç servisi",
+              "=SUM(DEMO_GIRIS!C6:C25)+SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Toplam CFADS serbest nakit",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "para"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>0,\"DURDUR\",IF(B6<1.30,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "DSCR 1.25 eşiğinin altına inen dönemlerde borç servisi rezerv hesabı (DSRA) tutarını artırın.",
+          "Kredi sendikasyonuna sunulacak nakit akışı projeksiyonunda duyarlılık stres testlerini tamamlayın.",
+          "Tam sürümde LLCR, PLCR, Proje IRR, Özkaynak IRR ve kademeli faiz swap simülasyonu bulunur."
+      ],
+      "ui": [
+          "Proje Finansman Radarı",
+          "DSCR borç karşılama",
+          "Temerrüt ve kovenant riski"
+      ]
+  },
+  'puantaj-vardiya-fazla-mesai-kanit-sistemi': {
+      "karar": "PDKS verileri, vardiya çizelgesi ve fazla mesai kayıtlarını yasal sınır ve iş mahkemesi ispat gücüyle doğrular.",
+      "girisBasliklari": [
+          "Personel / Sicil",
+          "Normal Çalışma (Saat)",
+          "Fazla Mesai %50 (Saat)",
+          "Tatil Mesaisi %100 (Saat)",
+          "Toplam Mesai Ücreti (₺)"
+      ],
+      "ornek": [
+          [
+              "Ahmet Yılmaz - 1001",
+              180,
+              24,
+              8,
+              "=(24*(35000/225*1.5))+(8*(35000/225*2))"
+          ],
+          [
+              "Mehmet Demir - 1002",
+              180,
+              18,
+              0,
+              "=(18*(32000/225*1.5))+(0*(32000/225*2))"
+          ],
+          [
+              "Ayşe Kaya - 1003",
+              180,
+              32,
+              16,
+              "=(32*(38000/225*1.5))+(16*(38000/225*2))"
+          ],
+          [
+              "Fatma Çelik - 1004",
+              180,
+              12,
+              0,
+              "=(12*(30000/225*1.5))+(0*(30000/225*2))"
+          ],
+          [
+              "Ali Öztürk - 1005",
+              180,
+              42,
+              8,
+              "=(42*(36000/225*1.5))+(8*(36000/225*2))"
+          ],
+          [
+              "Hasan Şahin - 1006",
+              180,
+              20,
+              8,
+              "=(20*(31000/225*1.5))+(8*(31000/225*2))"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam tahakkuk eden mesai",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Yasal sınır aşımı (>40 saat)",
+              "=COUNTIF(DEMO_GIRIS!C6:C25,\">40\")",
+              "sayi"
+          ],
+          [
+              "Toplam fazla mesai saati",
+              "=SUM(DEMO_GIRIS!C6:C25)+SUM(DEMO_GIRIS!D6:D25)",
+              "sayi"
+          ],
+          [
+              "Ortalama kişi başı mesai",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>0,\"DURDUR\",IF(B6>50000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Aylık 40 saat ve yıllık 270 saat yasal fazla mesai sınırını aşan personelde vardiya rotasyonunu düzenleyin.",
+          "İmzalı puantaj föyleri ile banka ödeme açıklamalarının birebir mutabakatını sağlayın.",
+          "Tam sürümde arabuluculuk risk puanı, gece çalışma sınırı denetimi ve otomatik bordro bordro entegrasyonu açılır."
+      ],
+      "ui": [
+          "Puantaj & Mesai Radarı",
+          "Mesai tahakkuk dengesi",
+          "İş mahkemesi dava riski"
+      ]
+  },
+  'recete-maliyeti-menu-muhendisligi': {
+      "karar": "Restoran ve kafelerde porsiyon maliyeti, fire oranı, brüt kâr marjı ve menü mühendisliği sınıflarını (Yıldız/Yük) gösterir.",
+      "girisBasliklari": [
+          "Menü Kalemi / Yemek",
+          "Porsiyon Hammadde (₺)",
+          "Fire & İşçilik (₺)",
+          "Satış Fiyatı (₺)",
+          "Brüt Porsiyon Kârı (₺)"
+      ],
+      "ornek": [
+          [
+              "Dana Antrikot 250g",
+              185,
+              25,
+              420,
+              "=D6-B6-C6"
+          ],
+          [
+              "Kuzu İncik Fırın",
+              160,
+              20,
+              360,
+              "=D7-B7-C7"
+          ],
+          [
+              "Tavuk Şinitzel",
+              48,
+              12,
+              195,
+              "=D8-B8-C8"
+          ],
+          [
+              "Fettuccine Alfredo",
+              32,
+              8,
+              165,
+              "=D9-B9-C9"
+          ],
+          [
+              "Somon Izgara",
+              145,
+              18,
+              380,
+              "=D10-B10-C10"
+          ],
+          [
+              "Tiramisu Porsiyon",
+              28,
+              6,
+              140,
+              "=D11-B11-C11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Ortalama porsiyon kârı",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Düşük marjlı (<%60) kalem",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<100\")",
+              "sayi"
+          ],
+          [
+              "Toplam porsiyon kâr potansiyeli",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Ortalama menü kâr marjı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!D6:D25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>2,\"DURDUR\",IF(B9<0.60,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Hammadde maliyet payı %35'i aşan ürünlerde porsiyon gramajı ve tedarikçi fiyatlarını revize edin.",
+          "Düşük kârlı fakat popüler ürünleri menü mühendisliğinde Yıldız sınıfına taşımak için fiyat ayarlaması yapın.",
+          "Tam sürümde dinamik reçete patlatma, Boston Matrix (Yıldız, At, Soru İşareti, Köpek) ve zam simülatörü çalışır."
+      ],
+      "ui": [
+          "Menü Maliyet Radarı",
+          "Porsiyon kârlılık dengesi",
+          "Hammadde erozyon riski"
+      ]
+  },
+  'sarj-istasyonu-yatirim': {
+      "karar": "Elektrikli araç şarj istasyonu yatırımlarında soket başı günlük şarj süresi, elektrik marjı ve geri dönüşü gösterir.",
+      "girisBasliklari": [
+          "Lokasyon / İstasyon",
+          "Soket Sayısı",
+          "Günlük Şarj Süresi (Saat)",
+          "Elektrik Marjı (₺/kWh)",
+          "Aylık Net Gelir (₺)"
+      ],
+      "ornek": [
+          [
+              "Lokasyon A - AVM Otopark",
+              4,
+              6.5,
+              4.2,
+              "=B6*C6*30*50*D6*0.65"
+          ],
+          [
+              "Lokasyon B - Otoyol Dinlenme",
+              6,
+              9,
+              5.1,
+              "=B7*C7*30*90*D7*0.65"
+          ],
+          [
+              "Lokasyon C - Plaza Önü",
+              2,
+              4.5,
+              3.8,
+              "=B8*C8*30*40*D8*0.65"
+          ],
+          [
+              "Lokasyon D - Otel Otopark",
+              3,
+              5,
+              4,
+              "=B9*C9*30*45*D9*0.65"
+          ],
+          [
+              "Lokasyon E - Akaryakıt İstasyonu",
+              4,
+              8,
+              4.8,
+              "=B10*C10*30*80*D10*0.65"
+          ],
+          [
+              "Lokasyon F - Şehir İçi Cadde",
+              2,
+              5.5,
+              4.1,
+              "=B11*C11*30*45*D11*0.65"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Aylık toplam şarj geliri",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Ortalama soket doluluk saati",
+              "=AVERAGE(DEMO_GIRIS!C6:C25)",
+              "sayi"
+          ],
+          [
+              "Düşük verimli lokasyon (<5 saat)",
+              "=COUNTIF(DEMO_GIRIS!C6:C25,\"<5\")",
+              "sayi"
+          ],
+          [
+              "Toplam şarj soketi sayısı",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8>1,\"DURDUR\",IF(B6<250000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Günlük 5 saatin altında kalan istasyonlarda tarife indirimi ve filo anlaşmalarıyla kullanımı teşvik edin.",
+          "Trafo gücü yetersiz lokasyonlarda EPDK lisans ve kapasite artış maliyetlerini gözden geçirin.",
+          "Tam sürümde DC/AC soket karması, dinamik elektrik fiyatlama algoritması ve 10 yıllık fizibilite çalışır."
+      ],
+      "ui": [
+          "Şarj İstasyonu Radarı",
+          "Soket doluluk ve marj",
+          "Yatırım amortisman riski"
+      ]
+  },
+  'sekiz-d-duzeltici-faaliyet-dosya': {
+      "karar": "Otomotiv ve sanayi üretiminde müşteri şikayetlerini 8D metodolojisiyle (D1-D8), kök-neden ve maliyetle kapatır.",
+      "girisBasliklari": [
+          "Şikayet No / Parça",
+          "Hata Adedi",
+          "Kök Neden Kategorisi",
+          "Düzeltici Önlem Maliyeti (₺)",
+          "Kapatma Skoru (1-100)"
+      ],
+      "ornek": [
+          [
+              "8D-2026-01 - Fren Kaliperi",
+              45,
+              1,
+              18500,
+              "=85"
+          ],
+          [
+              "8D-2026-02 - Direksiyon Mili",
+              12,
+              2,
+              34000,
+              "=65"
+          ],
+          [
+              "8D-2026-03 - Yağ Karteri Sızıntı",
+              85,
+              1,
+              14200,
+              "=90"
+          ],
+          [
+              "8D-2026-04 - Süspansiyon Takozu",
+              120,
+              3,
+              22000,
+              "=55"
+          ],
+          [
+              "8D-2026-05 - Egzoz Bağlantı Braketi",
+              38,
+              2,
+              16000,
+              "=75"
+          ],
+          [
+              "8D-2026-06 - Yakıt Rayı Contası",
+              18,
+              1,
+              42000,
+              "=80"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Açık kritik dosya (Skor <70)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<70\")",
+              "sayi"
+          ],
+          [
+              "Toplam hata maliyeti",
+              "=SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Ortalama 8D kapatma kalitesi",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "sayi"
+          ],
+          [
+              "Toplam hatalı parça sayısı",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6>1,\"DURDUR\",IF(B8<75,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Kapatma skoru 70'in altında olan dosyalarda Ishikawa (Kılçık) ve 5 Neden analizini yeniden yapın.",
+          "Kalıcı önlem doğrulanmadan müşteriye onaylı D8 kapanış raporu göndermeyin.",
+          "Tam sürümde IATF 16949 uyumlu 8D formatı, FMEA entegrasyonu ve kalite maliyeti raporu açılır."
+      ],
+      "ui": [
+          "8D Kalite Radarı",
+          "Kök neden ve kapatma dengesi",
+          "Müşteri iade ve ceza riski"
+      ]
+  },
+  'sera-kurulum-fizibilite': {
+      "karar": "Modern sera yatırımlarında dekar başı kurulum, jeotermal/doğalgaz ısıtma, rekolte projeksiyonu ve kârlılığı gösterir.",
+      "girisBasliklari": [
+          "Yıl / Ürün Türü",
+          "Üretim Alanı (Dekar)",
+          "Yıllık Rekolte (Ton)",
+          "Satış Geliri (₺)",
+          "Net Faaliyet Kârı (₺)"
+      ],
+      "ornek": [
+          [
+              "Yıl 1 - Salkım Domates",
+              50,
+              1800,
+              48500000,
+              "=D6*0.32"
+          ],
+          [
+              "Yıl 2 - Salkım Domates",
+              50,
+              1950,
+              56500000,
+              "=D7*0.34"
+          ],
+          [
+              "Yıl 3 - Kokteyl Domates",
+              50,
+              1750,
+              64200000,
+              "=D8*0.36"
+          ],
+          [
+              "Yıl 4 - Kokteyl Domates",
+              50,
+              1850,
+              72800000,
+              "=D9*0.36"
+          ],
+          [
+              "Yıl 5 - Biber Grubu",
+              50,
+              1600,
+              78500000,
+              "=D10*0.35"
+          ],
+          [
+              "Yıl 6 - Salkım Domates",
+              50,
+              2050,
+              89000000,
+              "=D11*0.37"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Kümülatif net kâr nakdi",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Ortalama dekar başı rekolte",
+              "=AVERAGE(DEMO_GIRIS!C6:C25)/50",
+              "sayi"
+          ],
+          [
+              "Toplam brüt hasılat",
+              "=SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Ortalama faaliyet marjı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!D6:D25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6<35000000,\"DURDUR\",IF(B9<0.30,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Isıtma giderlerinin toplam işletme maliyetinin %40'ını aşmaması için jeotermal kuyu debisini teyit edin.",
+          "Ziraat Bankası sübvansiyonlu yatırım kredisi ve kırsal kalkınma (IPARD) hibe takvimini takip edin.",
+          "Tam sürümde iklimlendirme otomasyonu, gübre/ilaç sarfiyatı, fide döngüsü ve 10 yıllık nakit akışı çalışır."
+      ],
+      "ui": [
+          "Sera Fizibilite Radarı",
+          "Dekar rekolte ve kâr",
+          "Yatırım geri dönüş riski"
+      ]
+  },
+  'sevkiyat-fiyatlama-navlun': {
+      "karar": "Lojistik ve taşımacılıkta rota, araç tipi, mazot, otoyol, köprü ve dönüş yükü sonrası kârlı navlun fiyatını hesaplar.",
+      "girisBasliklari": [
+          "Sevkiyat Rotası",
+          "Mesafe (Km)",
+          "Mazot+Geçiş Gideri (₺)",
+          "Teklif Edilen Navlun (₺)",
+          "Sefer Brüt Kârı (₺)"
+      ],
+      "ornek": [
+          [
+              "İstanbul - İzmir (Tır)",
+              480,
+              11500,
+              18500,
+              "=D6-C6"
+          ],
+          [
+              "İstanbul - Ankara (Kırkayak)",
+              450,
+              9800,
+              15500,
+              "=D7-C7"
+          ],
+          [
+              "Bursa - Adana (Tır)",
+              890,
+              19500,
+              31000,
+              "=D8-C8"
+          ],
+          [
+              "İzmir - Antalya (Kamyonet)",
+              460,
+              8400,
+              13800,
+              "=D9-C9"
+          ],
+          [
+              "Kocaeli - Gaziantep (Tır)",
+              1120,
+              24800,
+              38500,
+              "=D10-C10"
+          ],
+          [
+              "İstanbul - Samsun (Tır)",
+              740,
+              16800,
+              26000,
+              "=D11-C11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam sefer kârı",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Ortalama sefer kâr marjı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!D6:D25))",
+              "oran"
+          ],
+          [
+              "Kritik düşük marjlı sefer (<%25)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<5000\")",
+              "sayi"
+          ],
+          [
+              "Toplam navlun cirosu",
+              "=SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8>1,\"DURDUR\",IF(B7<0.30,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Dönüş yükü garantisi olmayan uzun mesafe rotalarda navlun teklifine boş dönüş amortisman payı ekleyin.",
+          "Otoyol ve köprü maliyetlerinin toplam sefer giderinin %30'unu aştığı güzergahlarda alternatif rotaları kıyaslayın.",
+          "Tam sürümde dinamik mazot zammı yansıtma, ton-km başı taban fiyat ve sürücü prim motoru bulunur."
+      ],
+      "ui": [
+          "Navlun Fiyatlama Radarı",
+          "Sefer kârlılık dengesi",
+          "Dönüş yükü zarar riski"
+      ]
+  },
+  'sgk-prim-tesvikleri-optimizasyon-motoru': {
+      "karar": "Şirket bordrosunda 5510, 6111, 7103, engelli ve genç istihdam teşviklerini eşleştirerek maksimum prim tasarrufunu bulur.",
+      "girisBasliklari": [
+          "Departman / Şube",
+          "Personel Sayısı",
+          "Brüt Bordro Tutarı (₺)",
+          "5 Puan Teşviki (₺)",
+          "Toplam Teşvik Tasarrufu (₺)"
+      ],
+      "ornek": [
+          [
+              "Genel Merkez Bordrosu",
+              85,
+              3400000,
+              170000,
+              "=D6+(B6*1850)"
+          ],
+          [
+              "Üretim Tesisi Bordrosu",
+              140,
+              4900000,
+              245000,
+              "=D7+(B7*2200)"
+          ],
+          [
+              "AR-GE Merkezi",
+              35,
+              2100000,
+              105000,
+              "=D8+(B8*3800)"
+          ],
+          [
+              "Lojistik & Depo",
+              45,
+              1575000,
+              78750,
+              "=D9+(B9*1650)"
+          ],
+          [
+              "Bölge Satış Ofisleri",
+              28,
+              1260000,
+              63000,
+              "=D10+(B10*1900)"
+          ],
+          [
+              "Çağrı Merkezi",
+              60,
+              1950000,
+              97500,
+              "=D11+(B11*2400)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Aylık toplam teşvik tasarrufu",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Yıllık kümülatif tasarruf",
+              "=SUM(DEMO_GIRIS!E6:E25)*12",
+              "para"
+          ],
+          [
+              "Ortalama kişi başı teşvik",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "para"
+          ],
+          [
+              "Toplam istihdam sayısı",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6<500000,\"DURDUR\",IF(B8<2000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Ortalama sigortalı sayısına ilave istihdam edilen personelde 6111 teşvik sürelerini her ay kontrol edin.",
+          "SGK borcu veya gecikme zammı nedeniyle 5 puanlık indirimi (%5) kaybetmemek için ödemeleri otomatik talimata bağlayın.",
+          "Tam sürümde TC kimlik bazlı teşvik sorgu eşleştirme, İŞKUR kayıt entegrasyonu ve geriye dönük teşvik raporu çalışır."
+      ],
+      "ui": [
+          "SGK Teşvik Radarı",
+          "Bordro prim tasarrufu",
+          "Kaçırılan teşvik riski"
+      ]
+  },
+  'site-apartman-yonetim-sistemi': {
+      "karar": "Toplu konut ve sitelerde aidat tahakkuku, ortak gider dağıtımı, gecikme faizi ve işletme bütçe dengesini sağlar.",
+      "girisBasliklari": [
+          "Blok / Daire No",
+          "Aylık Aidat (₺)",
+          "Ödenen Tutar (₺)",
+          "Gecikme Faizi %5 (₺)",
+          "Kalan Bakiye Borç (₺)"
+      ],
+      "ornek": [
+          [
+              "A Blok Daire 01",
+              2400,
+              2400,
+              0,
+              "=B6-C6+D6"
+          ],
+          [
+              "A Blok Daire 02",
+              2400,
+              0,
+              120,
+              "=B7-C7+D7"
+          ],
+          [
+              "A Blok Daire 03",
+              2400,
+              2400,
+              0,
+              "=B8-C8+D8"
+          ],
+          [
+              "B Blok Daire 04",
+              2800,
+              1400,
+              70,
+              "=B9-C9+D9"
+          ],
+          [
+              "B Blok Daire 05",
+              2800,
+              0,
+              140,
+              "=B10-C10+D10"
+          ],
+          [
+              "B Blok Daire 06",
+              2800,
+              2800,
+              0,
+              "=B11-C11+D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam tahsil edilmeyen bakiye",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Borçlu bağımsız bölüm sayısı",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\">0\")",
+              "sayi"
+          ],
+          [
+              "Toplam tahsilat tutarı",
+              "=SUM(DEMO_GIRIS!C6:C25)",
+              "para"
+          ],
+          [
+              "Site tahsilat başarı oranı",
+              "=SUM(DEMO_GIRIS!C6:C25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>2,\"DURDUR\",IF(B9<0.85,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Üst üste 2 ay aidat ödemeyen daireler için Kat Mülkiyeti Kanunu Madde 20 gereği icra takip ihtarı çekin.",
+          "Asansör revizyonu ve dış cephe gibi demirbaş harcamalarını işletme bütçesinden değil yatırım avansından karşılayın.",
+          "Tam sürümde arsa payı bazlı gider dağıtımı, kıdem tazminatı fonu karşılığı ve denetim kurulu raporu açılır."
+      ],
+      "ui": [
+          "Site Yönetim Radarı",
+          "Aidat tahsilat dengesi",
+          "Bütçe açığı ve icra riski"
+      ]
+  },
+  'spc-proses-yetenek-analizi': {
+      "karar": "Seri imalatta ölçüm verilerini, kontrol sınırlarını (UCL/LCL) ve Cp/Cpk yeterlilik katsayılarını denetler.",
+      "girisBasliklari": [
+          "Numune / Parça",
+          "Ölçülen Değer (mm)",
+          "Nominal Değer",
+          "Üst Tolerans (USL)",
+          "Alt Tolerans (LSL)"
+      ],
+      "ornek": [
+          [
+              "Numune Grubu 1",
+              25.04,
+              25,
+              25.1,
+              24.9
+          ],
+          [
+              "Numune Grubu 2",
+              25.02,
+              25,
+              25.1,
+              24.9
+          ],
+          [
+              "Numune Grubu 3",
+              25.07,
+              25,
+              25.1,
+              24.9
+          ],
+          [
+              "Numune Grubu 4",
+              24.96,
+              25,
+              25.1,
+              24.9
+          ],
+          [
+              "Numune Grubu 5",
+              25.03,
+              25,
+              25.1,
+              24.9
+          ],
+          [
+              "Numune Grubu 6",
+              25.08,
+              25,
+              25.1,
+              24.9
+          ]
+      ],
+      "metrikler": [
+          [
+              "Ölçüm ortalaması",
+              "=AVERAGE(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Standart sapma (Sigma)",
+              "=STDEV(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Proses yeterliliği (Cp)",
+              "=(25.10-24.90)/(6*MAX(0.001,STDEV(DEMO_GIRIS!B6:B25)))",
+              "oran"
+          ],
+          [
+              "Proses yetenek indisi (Cpk)",
+              "=MIN((25.10-AVERAGE(DEMO_GIRIS!B6:B25))/(3*MAX(0.001,STDEV(DEMO_GIRIS!B6:B25))),(AVERAGE(DEMO_GIRIS!B6:B25)-24.90)/(3*MAX(0.001,STDEV(DEMO_GIRIS!B6:B25))))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B9<1.0,\"DURDUR\",IF(B9<1.33,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Cpk değeri 1.33 altına inen kritik operasyonlarda takım aşınması ve fikstür boşluklarını sıfırlayın.",
+          "Kontrol sınırları dışına çıkan ölçümlerde partiyi karantinaya alarak %100 ölçüm uygulayın.",
+          "Tam sürümde X-bar R kartları, histogram normal dağılım eğrisi, Ga-R&R ölçüm yeterliliği çalışır."
+      ],
+      "ui": [
+          "SPC Proses Radarı",
+          "Cpk yetenek görünümü",
+          "Hatalı parça fire riski"
+      ]
+  },
+  'stok-optimizasyon-abc-olu-stok-nakit': {
+      "karar": "Stoktaki ürünleri ABC/XYZ sınıflarına ayırarak ölü stokta kilitli kalan nakdi ve sipariş emniyet seviyelerini bulur.",
+      "girisBasliklari": [
+          "Stok Kodu / Ürün",
+          "Yıllık Satış Tutarı (₺)",
+          "Eldeki Stok Değeri (₺)",
+          "Son Hareket Günü",
+          "Ölü Stok Tutarı (₺)"
+      ],
+      "ornek": [
+          [
+              "SKU-1001 - Hidrolik Valf",
+              850000,
+              120000,
+              12,
+              "=IF(D6>90,C6,0)"
+          ],
+          [
+              "SKU-1002 - Bakır Boru",
+              620000,
+              95000,
+              24,
+              "=IF(D7>90,C7,0)"
+          ],
+          [
+              "SKU-1003 - Özel Flanş",
+              45000,
+              185000,
+              140,
+              "=IF(D8>90,C8,0)"
+          ],
+          [
+              "SKU-1004 - Rulman Seri B",
+              1200000,
+              160000,
+              18,
+              "=IF(D9>90,C9,0)"
+          ],
+          [
+              "SKU-1005 - Eski Model Conta",
+              15000,
+              78000,
+              210,
+              "=IF(D10>90,C10,0)"
+          ],
+          [
+              "SKU-1006 - PLC Modülü",
+              420000,
+              65000,
+              45,
+              "=IF(D11>90,C11,0)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam ölü stokta bağlı nakit",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Toplam stok değeri",
+              "=SUM(DEMO_GIRIS!C6:C25)",
+              "para"
+          ],
+          [
+              "Ölü stok oranı",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!C6:C25))",
+              "oran"
+          ],
+          [
+              "90+ gün hareketsiz kalem",
+              "=COUNTIF(DEMO_GIRIS!D6:D25,\">90\")",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8>0.25,\"DURDUR\",IF(B6>150000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "90 günden uzun süredir satılmayan C grubu ürünlerde kampanya veya hurda satışı ile nakde dönün.",
+          "Ciroya katkısı %80 olan A grubu ürünlerde stok tükenmesini önleyecek otomatik sipariş eşiği kurun.",
+          "Tam sürümde Wilson EOQ (Ekonomik Sipariş Miktarı), stok devir hızı ve depo taşıma maliyeti simülatörü çalışır."
+      ],
+      "ui": [
+          "Stok ABC Radarı",
+          "Ölü stok nakit görünümü",
+          "Bağlı sermaye riski"
+      ]
+  },
+  'sut-surusu-yonetim': {
+      "karar": "Süt hayvancılığı işletmelerinde sağmal adet, günlük süt verimi, rasyon gideri ve süt/yem paritesini takip eder.",
+      "girisBasliklari": [
+          "Grup / Padok",
+          "Sağmal Hayvan",
+          "Günlük Süt (Litre)",
+          "Günlük Yem Maliyeti (₺)",
+          "Süt / Yem Paritesi"
+      ],
+      "ornek": [
+          [
+              "Padok A - Yüksek Verim",
+              45,
+              1530,
+              16200,
+              "=(1530*15.5)/MAX(1,D6)"
+          ],
+          [
+              "Padok B - Orta Verim",
+              55,
+              1485,
+              17050,
+              "=(1485*15.5)/MAX(1,D7)"
+          ],
+          [
+              "Padok C - İlk Doğum",
+              35,
+              875,
+              11550,
+              "=(875*15.5)/MAX(1,D8)"
+          ],
+          [
+              "Padok D - Kuru Dönem",
+              25,
+              0,
+              4750,
+              "=0"
+          ],
+          [
+              "Padok E - Tedavi/Revir",
+              12,
+              180,
+              3360,
+              "=(180*15.5)/MAX(1,D10)"
+          ],
+          [
+              "Padok F - Yeni Doğan",
+              28,
+              700,
+              8960,
+              "=(700*15.5)/MAX(1,D11)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Ortalama sürü süt/yem paritesi",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "sayi"
+          ],
+          [
+              "Toplam günlük süt üretimi (L)",
+              "=SUM(DEMO_GIRIS!C6:C25)",
+              "sayi"
+          ],
+          [
+              "Günlük net süt geliri (₺)",
+              "=(SUM(DEMO_GIRIS!C6:C25)*15.5)-SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Kritik düşük parite padoku (<1.3)",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<1.3\")",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B9>2,\"DURDUR\",IF(B6<1.4,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Süt/yem paritesi 1.30 altına inen padoklarda rasyon protein-enerji dengesini revize edin.",
+          "Kuru dönem beslemesi ve laktasyon eğrisi sapmalarını bireysel süt ölçüm kayıtlarıyla izleyin.",
+          "Tam sürümde buzağılama aralığı, tohumlama başarısı, mastitis takip ve 5 yıllık sürü büyüme simülatörü çalışır."
+      ],
+      "ui": [
+          "Süt Sürüsü Radarı",
+          "Süt/yem parite dengesi",
+          "Yem maliyet erozyonu"
+      ]
+  },
+  'tahsilat-riski-vade-komuta-paneli': {
+      "karar": "Müşteri cari hesaplarında vadesi geçen alacakları, gecikme günlerini ve şüpheli alacak karşılık riskini yönetir.",
+      "girisBasliklari": [
+          "Cari Ünvan",
+          "Toplam Açık Bakiye (₺)",
+          "Vadesi Geçen Tutar (₺)",
+          "Ortalama Gecikme (Gün)",
+          "Karşılık Riski (₺)"
+      ],
+      "ornek": [
+          [
+              "Müşteri Alfa Ltd.",
+              850000,
+              420000,
+              45,
+              "=IF(D6>30,C6*0.3,0)"
+          ],
+          [
+              "Müşteri Beta A.Ş.",
+              1450000,
+              1100000,
+              75,
+              "=IF(D7>60,C7*0.5,0)"
+          ],
+          [
+              "Müşteri Gama Ltd.",
+              620000,
+              0,
+              0,
+              "=0"
+          ],
+          [
+              "Müşteri Delta İnşaat",
+              2100000,
+              1850000,
+              120,
+              "=IF(D9>90,C9*1.0,0)"
+          ],
+          [
+              "Müşteri Epsilon Sanayi",
+              940000,
+              310000,
+              20,
+              "=0"
+          ],
+          [
+              "Müşteri Zeta Otomotiv",
+              780000,
+              520000,
+              65,
+              "=IF(D11>60,C11*0.5,0)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam tahsilat risk karşılığı",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Vadesi geçmiş alacak toplamı",
+              "=SUM(DEMO_GIRIS!C6:C25)",
+              "para"
+          ],
+          [
+              "Vadesi geçmiş alacak oranı",
+              "=SUM(DEMO_GIRIS!C6:C25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "60+ gün gecikmiş müşteri",
+              "=COUNTIF(DEMO_GIRIS!D6:D25,\">60\")",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B8>0.50,\"DURDUR\",IF(B6>500000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "60 günü aşan müşterilere derhal sevkiyat blokajı koyun ve teminat çeki/ipotek talep edin.",
+          "Dava ve icra aşamasına gelen alacaklarda VUK 323 şüpheli ticari alacak karşılığı ayırın.",
+          "Tam sürümde dinamik yaşlandırma (Aging 0-30-60-90+), kredi limiti kontrolü ve otomatik mutabakat mektubu çalışır."
+      ],
+      "ui": [
+          "Tahsilat Riski Radarı",
+          "Vade yaşlandırma dengesi",
+          "Şüpheli alacak batık riski"
+      ]
+  },
+  'tarimsal-destek-uygunluk': {
+      "karar": "Tarımsal işletmelerde ÇKS kayıtları, mazot-gübre, prim, organik tarım ve IPARD destek hakedişlerini hesaplar.",
+      "girisBasliklari": [
+          "Ürün / Parsel",
+          "Alan (Dekar)",
+          "Mazot+Gübre Desteği (₺)",
+          "Fark Ödemesi Primi (₺)",
+          "Toplam Devlet Desteği (₺)"
+      ],
+      "ornek": [
+          [
+              "Buğday - Parsel 101",
+              120,
+              22200,
+              18000,
+              "=C6+D6"
+          ],
+          [
+              "Mısır - Parsel 102",
+              85,
+              10200,
+              12750,
+              "=C7+D7"
+          ],
+          [
+              "Ayçiçeği - Parsel 103",
+              95,
+              16340,
+              28500,
+              "=C8+D8"
+          ],
+          [
+              "Pamuk - Parsel 104",
+              60,
+              21000,
+              42000,
+              "=C9+D9"
+          ],
+          [
+              "Arpa - Parsel 105",
+              140,
+              25900,
+              14000,
+              "=C10+D10"
+          ],
+          [
+              "Çeltik - Parsel 106",
+              45,
+              18000,
+              15750,
+              "=C11+D11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam tarımsal destek hakedişi",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Toplam kayıtlı arazi büyüklüğü",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Ortalama dekar başı destek",
+              "=SUM(DEMO_GIRIS!E6:E25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "para"
+          ],
+          [
+              "Yüksek primli ürün parseli",
+              "=COUNTIF(DEMO_GIRIS!D6:D25,\">20000\")",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6<100000,\"DURDUR\",IF(B8<350,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "ÇKS güncelleme ve havza bazlı destekleme son başvuru tarihlerini kaçırmayın.",
+          "Sertifikalı tohum ve organik tarım faturalarını il/ilçe tarım müdürlüğü sistemine zamanında ibraz edin.",
+          "Tam sürümde havza bazlı destek matrisi, TARSİM sigorta prim indirimi ve Ziraat sübvansiyon hesabı çalışır."
+      ],
+      "ui": [
+          "Tarımsal Destek Radarı",
+          "ÇKS prim ve hakediş",
+          "Eksik başvuru hak kaybı"
+      ]
+  },
+  'uretim-kari-125-kv-optimizasyonu': {
+      "karar": "Sanayi sicil belgeli imalatçılarda üretim faaliyetinden elde edilen kazançlara uygulanan 1 puanlık KV indirimini optimize eder.",
+      "girisBasliklari": [
+          "Dönem",
+          "İmalat Satış Hasılatı (₺)",
+          "İmalat Maliyeti (₺)",
+          "Üretim Faaliyeti Kârı (₺)",
+          "1 Puan İndirimli Vergi (₺)"
+      ],
+      "ornek": [
+          [
+              "1. Geçici Vergi",
+              12500000,
+              8900000,
+              3600000,
+              "=D6*0.24"
+          ],
+          [
+              "2. Geçici Vergi",
+              16800000,
+              11800000,
+              5000000,
+              "=D7*0.24"
+          ],
+          [
+              "3. Geçici Vergi",
+              19500000,
+              13700000,
+              5800000,
+              "=D8*0.24"
+          ],
+          [
+              "4. Geçici Vergi",
+              24000000,
+              16900000,
+              7100000,
+              "=D9*0.24"
+          ],
+          [
+              "Yıllık Kurumlar",
+              28500000,
+              19800000,
+              8700000,
+              "=D10*0.24"
+          ],
+          [
+              "Revize Projeksiyon",
+              32000000,
+              22100000,
+              9900000,
+              "=D11*0.24"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam üretim faaliyeti kazancı",
+              "=SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "1 Puan KV tasarruf tutarı",
+              "=SUM(DEMO_GIRIS!D6:D25)*0.01",
+              "para"
+          ],
+          [
+              "Ödenecek indirimli kurumlar vergisi",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Ortalama imalat kâr marjı",
+              "=SUM(DEMO_GIRIS!D6:D25)/MAX(1,SUM(DEMO_GIRIS!B6:B25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7<200000,\"DURDUR\",IF(B9<0.25,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Üretim kazancı ile ticari alım-satım ve finansman kazançlarını muhasebede ayrı alt hesaplarda izleyin.",
+          "Sanayi Sicil Belgesi vize tarihini ve kapasite raporu geçerliliğini kontrol edin.",
+          "Tam sürümde ihracat 5 puan indirimi, Ar-Ge 5746 indirimi ve müşterek genel gider dağıtım anahtarı çalışır."
+      ],
+      "ui": [
+          "Üretim KV İndirim Radarı",
+          "İmalat kazancı görünümü",
+          "Vergi kalkanı tasarrufu"
+      ]
+  },
+  'yem-rasyonu-maliyet': {
+      "karar": "Büyükbaş ve küçükbaş işletmelerinde hammadde fiyat dalgalanmalarına karşı en düşük maliyetli dengeli rasyonu çözer.",
+      "girisBasliklari": [
+          "Hammadde / Yem Türü",
+          "Rasyon Miktarı (kg)",
+          "Birim Fiyat (₺/kg)",
+          "Ham Protein Oranı",
+          "Rasyon Maliyet Payı (₺)"
+      ],
+      "ornek": [
+          [
+              "Mısır Silajı",
+              22,
+              2.8,
+              0.08,
+              "=B6*C6"
+          ],
+          [
+              "Yonca Otu Kuru",
+              4.5,
+              7.5,
+              0.18,
+              "=B7*C7"
+          ],
+          [
+              "Soya Küspesi %46",
+              2.2,
+              18.5,
+              0.46,
+              "=B8*C8"
+          ],
+          [
+              "Arpa Ezme",
+              5,
+              9.2,
+              0.11,
+              "=B9*C9"
+          ],
+          [
+              "Kepek Buğday",
+              2,
+              6.4,
+              0.15,
+              "=B10*C10"
+          ],
+          [
+              "Mineral & Premiks",
+              0.3,
+              45,
+              0,
+              "=B11*C11"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Günlük hayvan başı rasyon maliyeti",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Toplam kuru madde tüketimi (kg)",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Ortalama rasyon ham proteini",
+              "=SUMPRODUCT(DEMO_GIRIS!B6:B25,DEMO_GIRIS!D6:D25)/SUM(DEMO_GIRIS!B6:B25)",
+              "oran"
+          ],
+          [
+              "Konsantre yem maliyet oranı",
+              "=(E8+E9+E10)/MAX(1,SUM(DEMO_GIRIS!E6:E25))",
+              "oran"
+          ],
+          [
+              "Demo karar",
+              "=IF(B6>220,\"DURDUR\",IF(B8<0.15,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Hayvan başı günlük rasyon maliyeti 200 TL'yi aştığında alternatif protein kaynaklarını (kanola/ayçiçeği) formüle edin.",
+          "Kaba yem oranını kuru maddede %45'in altına düşürmeyerek asidoz riskini engelleyin.",
+          "Tam sürümde Linear Programming en düşük maliyet optimizasyonu, süt/besi rasyon motoru ve stok takip bulunur."
+      ],
+      "ui": [
+          "Yem Rasyon Radarı",
+          "Protein ve maliyet dengesi",
+          "Besleme gider baskısı"
+      ]
+  },
+  'yeniden-degerleme-komuta-merkezi': {
+      "karar": "VUK 298/Ç ve Geçici 32 kapsamında amortismana tabi iktisadi kıymetlerin değer artışını ve vergi tasarrufunu yönetir.",
+      "girisBasliklari": [
+          "Varlık Grubu / Sabit Kıymet",
+          "Maliyet Bedeli (₺)",
+          "Birikmiş Amortisman (₺)",
+          "Yİ-ÜFE Endeks Artışı",
+          "Net Değer Artış Fonu (₺)"
+      ],
+      "ornek": [
+          [
+              "Fabrika Binası",
+              45000000,
+              9000000,
+              1.45,
+              "=(B6-C6)*(D6-1)"
+          ],
+          [
+              "Üretim Hattı Makineleri",
+              28000000,
+              14000000,
+              1.45,
+              "=(B7-C7)*(D7-1)"
+          ],
+          [
+              "Nakil Vasıtaları",
+              8500000,
+              4250000,
+              1.45,
+              "=(B8-C8)*(D8-1)"
+          ],
+          [
+              "Depo Tesisleri",
+              16000000,
+              3200000,
+              1.45,
+              "=(B9-C9)*(D9-1)"
+          ],
+          [
+              "Demirbaş ve Laboratuvar",
+              4200000,
+              2100000,
+              1.45,
+              "=(B10-C10)*(D10-1)"
+          ],
+          [
+              "Kalıp ve Aparatlar",
+              6500000,
+              3900000,
+              1.45,
+              "=(B11-C11)*(D11-1)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam net değer artış fonu",
+              "=SUM(DEMO_GIRIS!E6:E25)",
+              "para"
+          ],
+          [
+              "Ek amortisman vergi kalkanı",
+              "=SUM(DEMO_GIRIS!E6:E25)*0.25",
+              "para"
+          ],
+          [
+              "Geçici 32 %2 vergi maliyeti",
+              "=SUM(DEMO_GIRIS!E6:E25)*0.02",
+              "para"
+          ],
+          [
+              "Net vergi avantajı",
+              "=SUM(DEMO_GIRIS!E6:E25)*0.23",
+              "para"
+          ],
+          [
+              "Demo karar",
+              "=IF(B9<0,\"DURDUR\",IF(B6<5000000,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Özkaynaklarda pasif özel fona aktarılan değer artışını 3 yıl boyunca sermayeye ilave dışında çekmeyin.",
+          "Yeniden değerlenmiş tutarlar üzerinden cari yılda amortisman ayırarak kurumlar vergisi matrahını düşürün.",
+          "Tam sürümde Geçici 32 %2 vergi beyannamesi, enflasyon düzeltmesi (VUK Geç.33) geçiş matrisi ve ATİK takip çalışır."
+      ],
+      "ui": [
+          "Yeniden Değerleme Radarı",
+          "ATİK fon artış görünümü",
+          "Amortisman vergi kalkanı"
+      ]
+  },
+  'yurt-disi-yapilanma-vergi-simulatoru': {
+      "karar": "Yurt dışı şirket ve iştiraklerde (İngiltere, Hollanda, Estonya, Dubai) efektif vergi yükünü ve temettü transferini simüle eder.",
+      "girisBasliklari": [
+          "Yargı Bölgesi / Ülke",
+          "Yıllık Ciro (Döviz)",
+          "Yerel Kurumlar Vergisi (₺)",
+          "ÇVÖA Stopaj Vergisi (₺)",
+          "Efektif Konsolide Vergi"
+      ],
+      "ornek": [
+          [
+              "İngiltere (UK Limited)",
+              850000,
+              5312500,
+              0,
+              "=(C6+D6)/(B6*36.5)"
+          ],
+          [
+              "Estonya (OÜ - Dağıtılmayan)",
+              620000,
+              0,
+              0,
+              "=0"
+          ],
+          [
+              "Dubai (BAE Freezone %0/9)",
+              1400000,
+              3066000,
+              0,
+              "=(C8+D8)/(B8*36.5)"
+          ],
+          [
+              "Hollanda (BV Holding)",
+              2100000,
+              19162500,
+              1825000,
+              "=(C9+D9)/(B9*36.5)"
+          ],
+          [
+              "ABD (Delaware C-Corp)",
+              950000,
+              7281750,
+              1733750,
+              "=(C10+D10)/(B10*36.5)"
+          ],
+          [
+              "Almanya (GmbH)",
+              1150000,
+              12592500,
+              1050000,
+              "=(C11+D11)/(B11*36.5)"
+          ]
+      ],
+      "metrikler": [
+          [
+              "Toplam konsolide vergi yükü (₺)",
+              "=SUM(DEMO_GIRIS!C6:C25)+SUM(DEMO_GIRIS!D6:D25)",
+              "para"
+          ],
+          [
+              "Ortalama efektif vergi oranı",
+              "=AVERAGE(DEMO_GIRIS!E6:E25)",
+              "oran"
+          ],
+          [
+              "Vergiden muaf / avantajlı bölge",
+              "=COUNTIF(DEMO_GIRIS!E6:E25,\"<0.15\")",
+              "sayi"
+          ],
+          [
+              "Toplam yurt dışı ciro (Döviz)",
+              "=SUM(DEMO_GIRIS!B6:B25)",
+              "sayi"
+          ],
+          [
+              "Demo karar",
+              "=IF(B7>0.25,\"DURDUR\",IF(B8<2,\"İNCELE\",\"UYGUN\"))",
+              "metin"
+          ]
+      ],
+      "aksiyonlar": [
+          "Kontrol Edilen Yabancı Kurum (KEYK - KVK 7) şartlarının doğmaması için aktif ticari faaliyet ispatlarını oluşturun.",
+          "Çifte Vergilendirmeyi Önleme Anlaşması (ÇVÖA) mukimlik belgesini her mali yıl başında temin edin.",
+          "Tam sürümde Transfer Fiyatlandırması emsal faiz, CFC kuralları, PE işyeri riski ve temettü istisna motoru bulunur."
+      ],
+      "ui": [
+          "Yurt Dışı Vergi Radarı",
+          "Efektif vergi yükü görünümü",
+          "KEYK ve ÇVÖA riski"
+      ]
   }
 });
 
