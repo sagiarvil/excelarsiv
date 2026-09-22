@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import KatalogUrunKarti from '../../components/catalog/KatalogUrunKarti.astro';
 import CellGrid from '../../components/CellGrid.astro';
 import { toTemplateViewModel } from '../../lib/templates';
-import { kapakYolu } from '../../lib/kapak';
+import { kapakYolu, premiumKapakUrl } from '../../lib/kapak';
 import PurchaseBar from '../../components/PurchaseBar.astro';
 import YazarKutusu from '../../components/YazarKutusu.astro';
 import { getCommerceProduct } from '../../lib/shopier';
@@ -32,7 +32,7 @@ interface Props {
 const { template } = Astro.props;
 const t = template.data;
 const commerceProduct = getCommerceProduct(template.id);
-const kapak = kapakYolu(template.id);
+const kapak = premiumKapakUrl(template.id) ?? kapakYolu(template.id);
 const kapakUrl = kapak ? new URL(kapak, Astro.site).href : undefined;
 
 const categoryLabels: Record<string, string> = {

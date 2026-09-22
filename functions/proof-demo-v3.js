@@ -9,8 +9,8 @@ const { getProofDemoSpec } = require('./proof-demo-specs');
 
 const REGION = 'europe-west1';
 const DEMO_TOKEN_TTL_MS = 10 * 60 * 1000;
-const MAX_DEMOS_PER_IP_HOUR = 8;
-const MAX_DEMOS_PER_EMAIL_DAY = 5;
+const MAX_DEMOS_PER_IP_HOUR = 60;
+const MAX_DEMOS_PER_EMAIL_DAY = 30;
 const MAX_DEMO_ROWS = 20;
 const SHEET_PASSWORD_HASH = 'CC3D';
 const VERSION = '3.0';
@@ -60,8 +60,8 @@ function getClientIp(req) { return String(req.headers['x-forwarded-for'] ?? '').
 
 async function enforceDemoRateLimit(req, emailHash) {
   const db = getFirestore(); const now = Date.now(); const hour = Math.floor(now / 3_600_000); const day = Math.floor(now / 86_400_000);
-  const ipRef = db.collection('excelarsiv_demo_rate_limits').doc(`ip_${sha256(`${getClientIp(req)}|${hour}`)}`);
-  const emailRef = db.collection('excelarsiv_demo_rate_limits').doc(`mail_${sha256(`${emailHash}|${day}`)}`);
+  const ipRef = db.collection('excelarsiv_demo_rate_limits').doc(`ip_v2_${sha256(`${getClientIp(req)}|${hour}`)}`);
+  const emailRef = db.collection('excelarsiv_demo_rate_limits').doc(`mail_v2_${sha256(`${emailHash}|${day}`)}`);
   await db.runTransaction(async (tx) => {
     const [ipSnap, emailSnap] = await Promise.all([tx.get(ipRef), tx.get(emailRef)]);
     const ipCount = ipSnap.exists ? Number(ipSnap.data()?.count ?? 0) : 0;

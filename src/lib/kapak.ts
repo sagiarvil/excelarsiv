@@ -13,7 +13,7 @@ const KAPAKLAR: Record<string, string> = {
 };
 
 export function kapakYolu(slug: string): string | undefined {
-  return KAPAKLAR[slug];
+  return premiumKapakUrl(slug) ?? KAPAKLAR[slug] ?? `/images/kapak/${slug}.svg`;
 }
 
 // 50 ürünlük premium katalog kapağı katmanı.
