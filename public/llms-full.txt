@@ -4,7 +4,7 @@ Bu belge canlı build içindeki indexlenebilir ve canonical public sayfalardan t
 
 ## Site kimliği
 
-- Son güncelleme: 2026-09-22
+- Son güncelleme: 2026-09-24
 - Marka: Excel Arşiv
 - Canonical origin: https://excelarsiv.com
 - Dil: Türkçe (tr-TR)
@@ -366,7 +366,7 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 
 ### Referanslar & Sektörel Çözüm Ortaklığı — Excel Arşiv
 - URL: https://excelarsiv.com/referans
-- Açıklama: 24 sektörde 1.000'den fazla işletme ve mali müşavir tarafından aktif olarak kullanılan 51+ hazır Excel karar sistemi referansları.
+- Açıklama: 24 sektörde 500'den fazla işletme ve mali müşavir tarafından aktif olarak kullanılan hazır Excel karar sistemi referansları.
 
 ### Ürün Bulucu: Doğru Excel Sistemini Seçin | Excel Arşiv
 - URL: https://excelarsiv.com/urun-bulucu
@@ -380,10 +380,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 
 ## Ürün kataloğu
 
-### 13 Haftalık Nakit Akışı Excel | Ödeme Planlama
+### 13 Haftalık Nakit Akışı Excel Şablonu | Ödeme Planlama Tablosu
 - URL: https://excelarsiv.com/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi
 - Ürün adı: 13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi
-- Arama açıklaması: 13 haftalık nakit akış tablosunda tahsilat ve ödemeleri haftalık planlayın; nakit açığını, ödeme baskısını ve kasa dengesini önceden görün.
+- Arama açıklaması: 13 haftalık nakit akış tablosunda tahsilat ve ödemeleri haftalık planlayın; nakit açığını, ödeme baskısını ve kasa dengesini formüllü Excel şablonuyla önceden görün.
 - Ürün özeti: 13 haftalık nakit modeliyle giriş-çıkış tahminlerini planlayın; kritik haftaları önceden görüp ödeme önceliği verin.
 - Kategori kodu: nakit-akisi
 - Fiyat: 999 TL (KDV dahil)
@@ -394,10 +394,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi#satin-al
 - Demo açılış: https://excelarsiv.com/demo/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi
 
-### Kasa Defteri Excel | Gelir Gider ve Nakit Takibi
+### Kasa Defteri Excel Şablonu | Günlük Gelir Gider ve Nakit Takibi
 - URL: https://excelarsiv.com/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi
 - Ürün adı: Akıllı Kasa Defteri ve Nakit Kontrol Sistemi
-- Arama açıklaması: Kasa defteri Excel sistemiyle günlük nakit giriş çıkışını, açılış-kapanış bakiyesini ve gelir gider hareketlerini düzenli takip edin.
+- Arama açıklaması: Kasa defteri Excel şablonuyla günlük nakit giriş çıkışını, kasa mevcudunu, açılış-kapanış bakiyesini ve fiili sayım farkını formüllü sistemle takip edin.
 - Ürün özeti: Kasa hareketlerini günlük işleyin, bakiye ile fiili sayım farkını anında görün. Dönem sonu kontrolü için hazır yapı.
 - Kategori kodu: nakit-akisi
 - Fiyat: 499 TL (KDV dahil)
@@ -492,10 +492,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/asiri-dusuk-teklif-savunma-robotu#satin-al
 - Demo açılış: https://excelarsiv.com/demo/asiri-dusuk-teklif-savunma-robotu
 
-### Finans Paneli Satın Al | Aylık Patron Excel Paneli
+### Şirket Finans Takip Tablosu Excel | Aylık Patron Rapor Paneli
 - URL: https://excelarsiv.com/sablon/aylik-patron-finans-paneli
 - Ürün adı: Aylık Patron Finans Paneli
-- Arama açıklaması: Aylık finans panelini satın almadan önce gerçek Excel ekranlarını ve demoyu inceleyin. Ciro, kâr, nakit ve alacak göstergelerini tek ekranda görün.
+- Arama açıklaması: Şirket finans takip tablosu Excel üzerinde ciro, brüt kâr, nakit durumu ve alacak göstergelerini tek ekranda toplar. Yönetici finans panelini inceleyin.
 - Ürün özeti: Ciro, net kâr, nakit, alacak günü ve FAVÖK göstergelerini aylık tek panelde toplayın; trendi yön tablosuyla okuyun.
 - Kategori kodu: finansal-analiz
 - Fiyat: 999 TL (KDV dahil)
@@ -520,10 +520,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/banka-kredi-covenant-erken-uyari#satin-al
 - Demo açılış: https://excelarsiv.com/demo/banka-kredi-covenant-erken-uyari
 
-### Kredi Takip Excel | Banka Kredisi ve Taksit Takibi
+### Kredi Taksit Takip Excel Tablosu | Banka Kredileri ve Ödeme Takvimi
 - URL: https://excelarsiv.com/sablon/banka-kredi-ve-taksit-takip-sistemi
 - Ürün adı: Banka, Kredi ve Taksit Takip Sistemi
-- Arama açıklaması: Banka kredilerini, taksit tarihlerini, kalan borcu ve ödeme yükünü tek Excel sisteminde izleyerek kredi ödeme takviminizi yönetin.
+- Arama açıklaması: Banka kredilerini, aylık taksit tarihlerini, anapara faiz dökümünü ve kalan borcu tek Excel tablosunda izleyerek ödeme takviminizi yönetin.
 - Ürün özeti: Tüm banka hesaplarını, kredi taksitlerini ve ödeme tarihlerini tek sayfada izleyin; yaklaşan taksitleri önceden görün.
 - Kategori kodu: nakit-akisi
 - Fiyat: 799 TL (KDV dahil)
@@ -562,10 +562,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/cari-ba-bs-toplu-mutabakat#satin-al
 - Demo açılış: https://excelarsiv.com/demo/cari-ba-bs-toplu-mutabakat
 
-### Cari Hesap Takip Excel | Tahsilat ve Risk
+### Cari Hesap Takip Excel Şablonu | Müşteri Tahsilat ve Risk Tablosu
 - URL: https://excelarsiv.com/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi
 - Ürün adı: Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi
-- Arama açıklaması: Cari hesap takip Excel sistemiyle tahsilatları, geciken alacakları ve müşteri riskini izleyin; kimin ne kadar borçlu olduğunu net görün.
+- Arama açıklaması: Cari hesap takip Excel şablonuyla müşteri tahsilatlarını, vadesi geçen alacakları ve risk bakiyesini izleyin; kimin ne kadar borçlu olduğunu net görün.
 - Ürün özeti: Fatura, tahsilat ve vade takibini tek yapıda toplayın; vadesi geçen bakiyeleri müşteri risk skoruyla önceliklendirin.
 - Kategori kodu: muhasebe-ve-vergi
 - Fiyat: 799 TL (KDV dahil)
@@ -576,10 +576,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi#satin-al
 - Demo açılış: https://excelarsiv.com/demo/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi
 
-### Çek Senet Takip Excel | Vade ve Risk Kontrolü
+### Çek Senet Takip Excel Tablosu | Vade ve Risk Kontrol Sistemi
 - URL: https://excelarsiv.com/sablon/cek-senet-ve-vade-risk-sistemi
 - Ürün adı: Çek–Senet ve Vade Risk Sistemi
-- Arama açıklaması: Çek ve senetleri vade, tutar, taraf ve tahsilat durumuyla tek Excel sisteminde izleyin; yaklaşan ödeme ve tahsilat yoğunluğunu görün.
+- Arama açıklaması: Çek ve senetleri vade tarihi, tutar, keşideci ve tahsilat durumuyla tek Excel tablosunda izleyin; yaklaşan ödeme ve tahsilat yoğunluğunu önceden görün.
 - Ürün özeti: Çek ve senet portföyünü vade aralıklarıyla izleyin; tahsilat beklentisini ve riskli kalemleri tek bakışta görün.
 - Kategori kodu: nakit-akisi
 - Fiyat: 799 TL (KDV dahil)
@@ -706,7 +706,7 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - URL: https://excelarsiv.com/sablon/e-ticaret-gercek-karlilik-fiyatlama
 - Ürün adı: E-Ticaret Gerçek Kârlılık & Fiyatlama
 - Arama açıklaması: E Ticaret Gercek Karlilik Fiyatlama için kalite kapılarından geçmiş Excel karar, kontrol ve raporlama sistemini inceleyin; gerçek ürün ekranları ve doğrulama kanıtlarıyla değerlendirin.
-- Ürün özeti: E-Ticaret Gerçek Kârlılık & Fiyatlama: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.
+- Ürün özeti: Trendyol, Hepsiburada, Amazon komisyonları, kargo desi maliyeti, iade firesi, reklam payı ve KDV oranlarını ürün bazında modelleyip net cebe kalan kâr...
 - Kategori kodu: satis-ve-fiyatlama
 - Fiyat: 4.900 TL (KDV dahil)
 - Dosya biçimi: xlsx
@@ -926,10 +926,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/gida-lot-maliyet-izlenebilirlik#satin-al
 - Demo açılış: https://excelarsiv.com/demo/gida-lot-maliyet-izlenebilirlik
 
-### Gelir Gider Tablosu Excel | Gerçek Kârlılık
+### Gelir Gider Tablosu Excel | Günlük Kasa ve Kârlılık Takibi
 - URL: https://excelarsiv.com/sablon/gunluk-gelir-gider-ve-gercek-karlilik-sistemi
 - Ürün adı: Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi
-- Arama açıklaması: Günlük gelir gider tablosunu Excel üzerinde yönetin; hareketlerin gerçek kârlılığa etkisini dönem ve kategori bazında takip edin.
+- Arama açıklaması: Günlük gelir gider tablosunu Excel üzerinde yönetin; işletme harcamalarını, net nakit akışını ve gerçek kârlılığı kategori bazında izleyin.
 - Ürün özeti: Günlük gelir ve giderleri kategorilerle işleyin; aylık net kârı ve kategori marjını gerçek veriyle görün.
 - Kategori kodu: satis-ve-fiyatlama
 - Fiyat: 799 TL (KDV dahil)
@@ -1014,7 +1014,7 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - URL: https://excelarsiv.com/sablon/ihracat-siparis-karlilik-kur
 - Ürün adı: İhracat Sipariş Kârlılık & Kur Riski Komutası
 - Arama açıklaması: İhracat Siparis Karlilik Kur için kalite kapılarından geçmiş Excel karar, kontrol ve raporlama sistemini inceleyin; gerçek ürün ekranları ve doğrulama kanıtlarıyla değerlendirin.
-- Ürün özeti: İhracat Sipariş Kârlılık & Kur Riski Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.
+- Ürün özeti: İhracat proforma bedeli, vadeli döviz kuru, döviz cinsi girdi maliyetleri, kur riski payı ve navlun giderlerini sipariş bazında modelleyip net döviz v...
 - Kategori kodu: satis-ve-fiyatlama
 - Fiyat: 9.900 TL (KDV dahil)
 - Dosya biçimi: xlsx
@@ -1042,7 +1042,7 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - URL: https://excelarsiv.com/sablon/insaat-hakedis-yonetim-sistemi
 - Ürün adı: İnşaat Hakediş Yönetim Sistemi
 - Arama açıklaması: İnsaat Hakedis Yonetim Sistemi için kalite kapılarından geçmiş Excel karar, kontrol ve raporlama sistemini inceleyin; gerçek ürün ekranları ve doğrulama kanıtlarıyla değerlendirin.
-- Ürün özeti: İnşaat Hakediş Yönetim Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.
+- Ürün özeti: Şantiye imalat metrajları, birim fiyatlar, avans kesintileri, stopaj ve fiyat farkı katsayılarını dönemsel kümülatif hakediş kapaklarına bağlayıp net ...
 - Kategori kodu: butce-ve-planlama
 - Fiyat: 9.900 TL (KDV dahil)
 - Dosya biçimi: xlsx
@@ -1084,7 +1084,7 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - URL: https://excelarsiv.com/sablon/ithalat-landed-cost-motoru
 - Ürün adı: İthalat Landed Cost Motoru
 - Arama açıklaması: İthalat Landed Cost Motoru için kalite kapılarından geçmiş Excel karar, kontrol ve raporlama sistemini inceleyin; gerçek ürün ekranları ve doğrulama kanıtlarıyla değerlendirin.
-- Ürün özeti: İthalat Landed Cost Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.
+- Ürün özeti: FOB/CIF fatura bedeli, navlun, sigorta, gümrük vergisi, İGV, KKDF, ordino, ardiye ve iç nakliye masraflarını parti bazında ürünlere dağıtarak gerçek b...
 - Kategori kodu: stok-ve-uretim
 - Fiyat: 9.900 TL (KDV dahil)
 - Dosya biçimi: xlsx
@@ -1252,7 +1252,7 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - URL: https://excelarsiv.com/sablon/kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti
 - Ürün adı: KKEG ve Finansman Gider Kısıtlaması Vergi Savunma Seti
 - Arama açıklaması: Yabancı kaynak/öz kaynak farkına göre kısıtlamaya tabi finansman giderini ve KKEG tutarını Excel üzerinde hesaplayın.
-- Ürün özeti: Yabancı kaynak/öz kaynak farkını ve finansman giderlerinin kısıtlama kapsamını hesaplayın; KKEG tutarı, kurumlar vergisi etkisi ve savunma aksiyonunu üretin.
+- Ürün özeti: Yabancı kaynak/öz kaynak farkını ve finansman giderlerinin kısıtlama kapsamını hesaplayın; KKEG tutarı, kurumlar vergisi etkisi ve savunma aksiyonunu ...
 - Kategori kodu: muhasebe-ve-vergi
 - Fiyat: 1.499 TL (KDV dahil)
 - Dosya biçimi: xlsx
@@ -1276,10 +1276,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/klinik-saglik-merkezi-fizibilite-ve-karlilik#satin-al
 - Demo açılış: https://excelarsiv.com/demo/klinik-saglik-merkezi-fizibilite-ve-karlilik
 
-### KOBİ Finans Takip Excel | Nakit, Borç ve Kârlılık
+### KOBİ Finans Yönetimi Excel Şablonu | Nakit, Borç ve Kârlılık Tablosu
 - URL: https://excelarsiv.com/sablon/kobi-finans-yonetim-paketi
 - Ürün adı: KOBİ Finans Yönetim Paketi
-- Arama açıklaması: KOBİ nakit akışı, cari hesap, borç, stok ve kârlılık takibini tek pakette birleştiren Excel finans yönetim sistemini inceleyin.
+- Arama açıklaması: KOBİ nakit akışı, cari hesap, kredi borcu, stok ve kârlılık takibini tek yapıda birleştiren profesyonel Excel finans yönetim şablonunu inceleyin.
 - Ürün özeti: Kasa, banka, cari ve POS bakiyeleri ile stok alışı, operasyon, maaş ve kredi kalemlerini tek dosyada konsolide edin; kâr tahmini ve risk skorunu görün.
 - Kategori kodu: butce-ve-planlama
 - Fiyat: 1.499 TL (KDV dahil)
@@ -1542,10 +1542,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/perakende-magaza-acilis-fizibilite#satin-al
 - Demo açılış: https://excelarsiv.com/demo/perakende-magaza-acilis-fizibilite
 
-### POS Komisyon Hesaplama Excel | Net Tahsilat
+### POS Komisyon Hesaplama Excel | Banka Kesintisi ve Net Tahsilat
 - URL: https://excelarsiv.com/sablon/pos-komisyon-ve-net-tahsilat-kontrol-sistemi
 - Ürün adı: POS, Komisyon ve Net Tahsilat Kontrol Sistemi
-- Arama açıklaması: POS satışlarını, banka komisyonlarını ve hesaba geçecek net tahsilatı Excel üzerinde karşılaştırın; kesinti ve vade farkını görün.
+- Arama açıklaması: POS satışlarını, banka komisyon oranlarını ve hesaba geçecek net tahsilatı Excel tablosunda karşılaştırın; erken bloke ve kesinti farkını görün.
 - Ürün özeti: POS kanallarının brüt satışını, komisyon ve iade düşüldükten sonraki net tahsilatını karşılaştırın; kanal maliyetini görün.
 - Kategori kodu: satis-ve-fiyatlama
 - Fiyat: 499 TL (KDV dahil)
@@ -1584,10 +1584,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/proje-finansmani-dscr-llcr-paketi#satin-al
 - Demo açılış: https://excelarsiv.com/demo/proje-finansmani-dscr-llcr-paketi
 
-### Proje Maliyet Takip Excel | Gerçek Kârlılık
+### Proje Maliyet Takip Excel Şablonu | İş Bazında Gerçek Kârlılık
 - URL: https://excelarsiv.com/sablon/proje-ve-is-bazinda-gercek-karlilik-sistemi
 - Ürün adı: Proje ve İş Bazında Gerçek Kârlılık Sistemi
-- Arama açıklaması: Proje gelirini, doğrudan giderleri ve iş bazında gerçek kârlılığı Excel üzerinde takip ederek hangi işin ne kadar kazandırdığını görün.
+- Arama açıklaması: Proje gelirini, malzeme ve işçilik giderlerini iş bazında Excel üzerinde takip ederek hangi projenin ne kadar kâr getirdiğini net görün.
 - Ürün özeti: Her işin gelirini direkt giderlerle eşleştirin; iş bazında gerçek kâr ve marjı çıkarın, kaynakları kârlı işlere yönlendirin.
 - Kategori kodu: satis-ve-fiyatlama
 - Fiyat: 999 TL (KDV dahil)
@@ -1616,7 +1616,7 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - URL: https://excelarsiv.com/sablon/recete-maliyeti-menu-muhendisligi
 - Ürün adı: Reçete Maliyeti & Menü Mühendisliği
 - Arama açıklaması: Recete Maliyeti Menu Muhendisligi için kalite kapılarından geçmiş Excel karar, kontrol ve raporlama sistemini inceleyin; gerçek ürün ekranları ve doğrulama kanıtlarıyla değerlendirin.
-- Ürün özeti: Reçete Maliyeti & Menü Mühendisliği: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.
+- Ürün özeti: Porsiyon gramajı, hammadde birim fiyatı, fire payı ve satış kanal komisyonlarını reçete bazında modelleyip tabağın brüt kâr marjını ve menü mühendisli...
 - Kategori kodu: stok-ve-uretim
 - Fiyat: 9.900 TL (KDV dahil)
 - Dosya biçimi: xlsx
@@ -1812,7 +1812,7 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - URL: https://excelarsiv.com/sablon/stok-optimizasyon-abc-olu-stok-nakit
 - Ürün adı: Stok Optimizasyon + ABC + Ölü Stok Nakit
 - Arama açıklaması: Stok Optimizasyon Abc Olu Stok Nakit için kalite kapılarından geçmiş Excel karar, kontrol ve raporlama sistemini inceleyin; gerçek ürün ekranları ve doğrulama kanıtlarıyla değerlendirin.
-- Ürün özeti: Stok Optimizasyon + ABC + Ölü Stok Nakit: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.
+- Ürün özeti: Stok devir hızı, ABC sınıflandırması, emniyet stoğu, yeniden sipariş noktası ve atıl/ölü stokta kilitli kalan işletme sermayesini SKU bazında analiz edin.
 - Kategori kodu: stok-ve-uretim
 - Fiyat: 7.900 TL (KDV dahil)
 - Dosya biçimi: xlsx
@@ -1822,10 +1822,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - Satın alma: https://excelarsiv.com/sablon/stok-optimizasyon-abc-olu-stok-nakit#satin-al
 - Demo açılış: https://excelarsiv.com/demo/stok-optimizasyon-abc-olu-stok-nakit
 
-### Stok Takip Excel Şablonu | Satış ve Nakit
+### Stok Takip Excel Şablonu | Giriş Çıkış, Satış ve Maliyet Tablosu
 - URL: https://excelarsiv.com/sablon/stok-satis-ve-nakit-baglanma-sistemi
 - Ürün adı: Stok, Satış ve Nakit Bağlanma Sistemi
-- Arama açıklaması: Stok takip Excel şablonuyla giriş çıkışı, satışları, ürün bazlı kârlılığı ve stokta bağlı nakdi tek sistem üzerinden izleyin.
+- Arama açıklaması: Stok takip Excel şablonuyla ürün giriş çıkışını, kritik stok uyarılarını, ortalama maliyeti ve stoğa bağlanan nakdi tek sistem üzerinden izleyin.
 - Ürün özeti: Stok giriş-çıkışını ortalama maliyetle işleyin; stoğa bağlanan nakdi ve devir hızını dönem sonunda görün.
 - Kategori kodu: stok-ve-uretim
 - Fiyat: 799 TL (KDV dahil)
@@ -1868,7 +1868,7 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - URL: https://excelarsiv.com/sablon/tahsilat-riski-vade-komuta-paneli
 - Ürün adı: Tahsilat Riski & Vade Komuta Paneli
 - Arama açıklaması: Tahsilat Riski Vade Komuta Paneli için kalite kapılarından geçmiş Excel karar, kontrol ve raporlama sistemini inceleyin; gerçek ürün ekranları ve doğrulama kanıtlarıyla değerlendirin.
-- Ürün özeti: Tahsilat Riski & Vade Komuta Paneli: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.
+- Ürün özeti: Müşteri bazlı açık hesap alacakları, vade gecikme günlerini, tahsilat olasılık skorunu ve alacak risk provizyonunu tek ekranda izleyin.
 - Kategori kodu: nakit-akisi
 - Fiyat: 7.900 TL (KDV dahil)
 - Dosya biçimi: xlsx

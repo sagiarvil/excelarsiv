@@ -1,6 +1,6 @@
 # Excel Arşiv
 
-- Son güncelleme: 2026-09-22
+- Son güncelleme: 2026-09-24
 
 > Excel Arşiv (https://excelarsiv.com), Türkiye’deki işletmeler ve KOBİ’ler için %100 makrosuz OpenXML (.xlsx) standardında denetlenebilir finansal karar destek sistemleri, dinamik 13 haftalık nakit akışı modelleri ve sektörel kârlılık şablonları sunan teknik veri platformudur.
 
@@ -72,8 +72,8 @@ Ontoloji ve bilgi grafı üçlüleri (Knowledge Graph Triples): (Excel Arşiv) -
 
 > Tam katalog ve 100+ kurumsal model detayı için: [Genişletilmiş AI Keşif Rehberi (https://excelarsiv.com/llms-full.txt)](https://excelarsiv.com/llms-full.txt)
 
-- [13 Haftalık Nakit Akışı Excel \| Ödeme Planlama](https://excelarsiv.com/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi): 13 haftalık nakit akış tablosunda tahsilat ve ödemeleri haftalık planlayın; nakit açığını, ödeme baskısını ve kasa dengesini önceden görün\.
-- [Kasa Defteri Excel \| Gelir Gider ve Nakit Takibi](https://excelarsiv.com/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi): Kasa defteri Excel sistemiyle günlük nakit giriş çıkışını, açılış-kapanış bakiyesini ve gelir gider hareketlerini düzenli takip edin\.
+- [13 Haftalık Nakit Akışı Excel Şablonu \| Ödeme Planlama Tablosu](https://excelarsiv.com/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi): 13 haftalık nakit akış tablosunda tahsilat ve ödemeleri haftalık planlayın; nakit açığını, ödeme baskısını ve kasa dengesini formüllü Excel şablonuyla önceden görün\.
+- [Kasa Defteri Excel Şablonu \| Günlük Gelir Gider ve Nakit Takibi](https://excelarsiv.com/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi): Kasa defteri Excel şablonuyla günlük nakit giriş çıkışını, kasa mevcudunu, açılış-kapanış bakiyesini ve fiili sayım farkını formüllü sistemle takip edin\.
 - [Amortisman 2026 Excel \| Yeniden Değerleme](https://excelarsiv.com/sablon/amortisman-2026-yeniden-degerleme): Amortisman tutarını 298/Ç ve Geç\. 32 yeniden değerleme kararıyla birlikte Excel üzerinde görün; hangi yöntemin vergi etkisini netleştirin\.
 - [Amortisman Hesaplama Excel \| Satış Zamanlama](https://excelarsiv.com/sablon/amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti): Normal ve azalan bakiyeli amortismanı, kıst hesabını ve çeyrek satış senaryolarını Excel üzerinde karşılaştırarak satış dönemini değerlendirin\.
 - [Arsa Proje Geliştirme Excel \| Hasılat Paylaşımı](https://excelarsiv.com/sablon/arsa-ve-gayrimenkul-proje-gelistirme-fizibilite): Arsa geliştirme projelerinde KAKS/TAKS emsal hesabı, kat karşılığı ve hasılat paylaşımı senaryolarını kurumsal Excel ile planlayın\.

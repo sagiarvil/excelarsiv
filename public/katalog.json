@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T15:52:20.000Z",
+  "generatedAt": "2026-09-24T17:29:05.000Z",
   "site": "https://excelarsiv.com",
   "currency": "TRY",
   "language": "tr-TR",
@@ -453,7 +453,7 @@
     {
       "slug": "e-ticaret-gercek-karlilik-fiyatlama",
       "name": "E-Ticaret Gerçek Kârlılık & Fiyatlama",
-      "summary": "E-Ticaret Gerçek Kârlılık & Fiyatlama: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Trendyol, Hepsiburada, Amazon komisyonları, kargo desi maliyeti, iade firesi, reklam payı ve KDV oranlarını ürün bazında modelleyip net cebe kalan kâr...",
       "category": "satis-ve-fiyatlama",
       "priceTL": 4900,
       "vatIncluded": true,
@@ -783,7 +783,7 @@
     {
       "slug": "ihracat-siparis-karlilik-kur",
       "name": "İhracat Sipariş Kârlılık & Kur Riski Komutası",
-      "summary": "İhracat Sipariş Kârlılık & Kur Riski Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "İhracat proforma bedeli, vadeli döviz kuru, döviz cinsi girdi maliyetleri, kur riski payı ve navlun giderlerini sipariş bazında modelleyip net döviz v...",
       "category": "satis-ve-fiyatlama",
       "priceTL": 9900,
       "vatIncluded": true,
@@ -813,7 +813,7 @@
     {
       "slug": "insaat-hakedis-yonetim-sistemi",
       "name": "İnşaat Hakediş Yönetim Sistemi",
-      "summary": "İnşaat Hakediş Yönetim Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Şantiye imalat metrajları, birim fiyatlar, avans kesintileri, stopaj ve fiyat farkı katsayılarını dönemsel kümülatif hakediş kapaklarına bağlayıp net ...",
       "category": "butce-ve-planlama",
       "priceTL": 9900,
       "vatIncluded": true,
@@ -858,7 +858,7 @@
     {
       "slug": "ithalat-landed-cost-motoru",
       "name": "İthalat Landed Cost Motoru",
-      "summary": "İthalat Landed Cost Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "FOB/CIF fatura bedeli, navlun, sigorta, gümrük vergisi, İGV, KKDF, ordino, ardiye ve iç nakliye masraflarını parti bazında ürünlere dağıtarak gerçek b...",
       "category": "stok-ve-uretim",
       "priceTL": 9900,
       "vatIncluded": true,
@@ -1038,7 +1038,7 @@
     {
       "slug": "kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti",
       "name": "KKEG ve Finansman Gider Kısıtlaması Vergi Savunma Seti",
-      "summary": "Yabancı kaynak/öz kaynak farkını ve finansman giderlerinin kısıtlama kapsamını hesaplayın; KKEG tutarı, kurumlar vergisi etkisi ve savunma aksiyonunu üretin.",
+      "summary": "Yabancı kaynak/öz kaynak farkını ve finansman giderlerinin kısıtlama kapsamını hesaplayın; KKEG tutarı, kurumlar vergisi etkisi ve savunma aksiyonunu ...",
       "category": "muhasebe-ve-vergi",
       "priceTL": 1499,
       "vatIncluded": true,
@@ -1428,7 +1428,7 @@
     {
       "slug": "recete-maliyeti-menu-muhendisligi",
       "name": "Reçete Maliyeti & Menü Mühendisliği",
-      "summary": "Reçete Maliyeti & Menü Mühendisliği: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Porsiyon gramajı, hammadde birim fiyatı, fire payı ve satış kanal komisyonlarını reçete bazında modelleyip tabağın brüt kâr marjını ve menü mühendisli...",
       "category": "stok-ve-uretim",
       "priceTL": 9900,
       "vatIncluded": true,
@@ -1638,7 +1638,7 @@
     {
       "slug": "stok-optimizasyon-abc-olu-stok-nakit",
       "name": "Stok Optimizasyon + ABC + Ölü Stok Nakit",
-      "summary": "Stok Optimizasyon + ABC + Ölü Stok Nakit: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Stok devir hızı, ABC sınıflandırması, emniyet stoğu, yeniden sipariş noktası ve atıl/ölü stokta kilitli kalan işletme sermayesini SKU bazında analiz edin.",
       "category": "stok-ve-uretim",
       "priceTL": 7900,
       "vatIncluded": true,
@@ -1698,7 +1698,7 @@
     {
       "slug": "tahsilat-riski-vade-komuta-paneli",
       "name": "Tahsilat Riski & Vade Komuta Paneli",
-      "summary": "Tahsilat Riski & Vade Komuta Paneli: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Müşteri bazlı açık hesap alacakları, vade gecikme günlerini, tahsilat olasılık skorunu ve alacak risk provizyonunu tek ekranda izleyin.",
       "category": "nakit-akisi",
       "priceTL": 7900,
       "vatIncluded": true,
