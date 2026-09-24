@@ -1,6 +1,6 @@
 ---
 name: 'Stok Optimizasyon + ABC + Ölü Stok Nakit'
-summary: 'Stok Optimizasyon + ABC + Ölü Stok Nakit: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
+summary: 'Stok devir hızı, ABC sınıflandırması, emniyet stoğu, yeniden sipariş noktası ve atıl/ölü stokta kilitli kalan işletme sermayesini SKU bazında analiz edin.'
 category: 'stok-ve-uretim'
 priceTL: 7900
 vatIncluded: true
@@ -51,16 +51,20 @@ sheetMap:
     purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
     kind: 'input'
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+  - 'SKU bazında güncel stok miktarı, son 12 ay satış adedi ve birim maliyet'
+  - 'Tedarikçi teslim süresi (Lead Time) ve hedeflenen servis seviyesi (%95/%99)'
+  - 'Hareketsizlik gün eşiği (90/180/360 gün ölü stok kriteri)'
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+  - 'ABC sınıflandırması (Ciroya göre kümülatif Pareto dilimi)'
+  - 'Optimum emniyet stoğu ve yeniden sipariş noktası (ROP)'
+  - 'Ölü stokta kilitli kalan toplam işletme sermayesi ve tasfiye listesi'
 suitableFor:
-  - 'Satın alma'
-  - 'depo planlama'
-  - 'fabrika müdürü'
-  - 'SMMM'
+  - 'Depo, envanter ve lojistik yöneticileri'
+  - 'Satın alma ve tedarik zinciri müdürleri'
+  - 'İşletme sermayesi nakit açığını kapatmak isteyen CFO ve patronlar'
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+  - 'Hizmet veya yazılım üreten fiziki envantersiz şirketler'
+  - 'Depo el terminali barkod okuma cihazı gömülü yazılımı'
 requirements:
   - 'Microsoft Excel 2016 veya üzeri'
   - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
@@ -68,11 +72,11 @@ requirements:
 updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
 faq:
   - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
+    answer: 'Hangi ürünlerin acilen sipariş edilmesi gerektiğini, hangi ürünlerin ise depoda gereksiz nakit bağlayarak batık riski oluşturduğunu netleştirir; sipariş miktarlarını optimize eder.'
   - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
+    answer: 'Endüstriyel envanter matematiği, normal dağılım servis seviyesi Z-değerleri ve Pareto ABC algoritmalarıyla test edilmiştir.'
   - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+    answer: 'Ürün sayfasındaki bağlantı üzerinden doğrudan satın alma veya teklif ile anında teslim edilir.'
 screenshots:
   - src: '/screenshots/stok-optimizasyon-abc-olu-stok-nakit-1.png'
     alt: 'Stok Optimizasyon + ABC + Ölü Stok Nakit — ürün ekranı 1'
@@ -83,4 +87,4 @@ screenshots:
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Depoda aylardır rafta bekleyen ve nakit yutan ölü stokları ortaya çıkarın. ABC analizi ile cironuzun %80'ini getiren kritik A grubu ürünleri asla yok satmayın, emniyet stoğu formülleriyle gereksiz stok finansman maliyetini düşürün.

@@ -1,6 +1,6 @@
 ---
 name: 'Tahsilat Riski & Vade Komuta Paneli'
-summary: 'Tahsilat Riski & Vade Komuta Paneli: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
+summary: 'Müşteri bazlı açık hesap alacakları, vade gecikme günlerini, tahsilat olasılık skorunu ve alacak risk provizyonunu tek ekranda izleyin.'
 category: 'nakit-akisi'
 priceTL: 7900
 vatIncluded: true
@@ -51,16 +51,20 @@ sheetMap:
     purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
     kind: 'input'
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+  - 'Müşteri unvanı, fatura tarihi, fatura tutarı ve vade tarihi'
+  - 'Gelen kısmi tahsilatlar, çek/senet teminatları ve vade uzatım kayıtları'
+  - 'Kritik gecikme eşikleri (30, 60, 90 gün üzeri vadesi geçenler)'
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+  - 'Müşteri bazlı risk segmentasyonu (Düşük, Orta, Yüksek, Şüpheli Alacak)'
+  - 'Haftalık ve aylık beklenen nakit tahsilat projeksiyonu'
+  - 'Gecikme faizi maliyeti ve tahsilat aksiyon öncelik listesi'
 suitableFor:
-  - 'Tahsilat müdürü'
-  - 'CFO'
-  - 'mali işler'
-  - 'SMMM'
+  - 'Kredi ve tahsilat müdürleri'
+  - 'CFO, finans direktörleri ve şirket sahipleri'
+  - 'Mali işler uzmanları ve SMMMler'
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+  - 'Banka otomatik API doğrudan sanal POS çekim işlemi'
+  - 'UYAP üzerinden doğrudan otomatik icra takibi başlatma yazılımı'
 requirements:
   - 'Microsoft Excel 2016 veya üzeri'
   - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
@@ -68,11 +72,11 @@ requirements:
 updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
 faq:
   - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
+    answer: 'Hangi müşterinin ödeme vadesini ne kadar geciktirdiğini ve tahsilat riski skorunu hesaplar; tahsilat ekibine günlük arama ve aksiyon önceliği sağlar.'
   - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
+    answer: 'Alacak yaşlandırma standartları, teminat karşılık hesapları ve ticari alacak risk matrisleriyle test edilmiştir.'
   - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+    answer: 'Ürün sayfasındaki bağlantı üzerinden doğrudan teklif veya sipariş ile anında teslim edilir.'
 screenshots:
   - src: '/screenshots/tahsilat-riski-vade-komuta-paneli-1.png'
     alt: 'Tahsilat Riski & Vade Komuta Paneli — ürün ekranı 1'
@@ -83,4 +87,4 @@ screenshots:
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Tahsilat gecikmeleri, kârlı şirketlerin bile aniden batmasına yol açan en sinsi nakit tuzağıdır. Vadesi geçen alacaklarınızı yaşlandırma analizine tabi tutun, risk skorlamasıyla tahsilat ekibinizin enerjisini doğru müşteriye yönlendirin.

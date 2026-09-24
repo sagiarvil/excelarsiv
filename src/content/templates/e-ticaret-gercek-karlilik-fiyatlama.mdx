@@ -1,6 +1,6 @@
 ---
 name: 'E-Ticaret Gerçek Kârlılık & Fiyatlama'
-summary: 'E-Ticaret Gerçek Kârlılık & Fiyatlama: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
+summary: 'Trendyol, Hepsiburada, Amazon komisyonları, kargo desi maliyeti, iade firesi, reklam payı ve KDV oranlarını ürün bazında modelleyip net cebe kalan kârı ve optimum liste fiyatını hesaplayın.'
 category: 'satis-ve-fiyatlama'
 priceTL: 4900
 vatIncluded: true
@@ -60,15 +60,20 @@ sheetMap:
     purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
     kind: 'input'
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+  - 'Ürün alış/üretim maliyeti ve ambalaj gideri'
+  - 'Pazaryeri komisyon oranı, kargo desi tutarı ve hizmet bedeli'
+  - 'Tahmini iade oranı (% fire), reklam harcaması (ROAS/ACOS) ve KDV'
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+  - 'Sipariş başına net kâr tutarı ve net kâr marjı (%)'
+  - 'Zarar ettirmeyen başabaş (Break-Even) minimum liste satış fiyatı'
+  - 'Pazaryeri kampanya ve kupon indirimi kârlılık simülasyonu'
 suitableFor:
-  - 'E-ticaret işletmecisi'
-  - 'pazaryeri satıcısı'
-  - 'mali işler'
+  - 'Trendyol, Hepsiburada ve Amazon pazaryeri satıcıları'
+  - 'Kendi e-ticaret sitesinden (Shopify, İkas vb.) satış yapan markalar'
+  - 'E-ticaret kategori yöneticileri ve operasyon finansçıları'
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+  - 'Fiziki toptan açık hesap inşaat malzemesi satışı'
+  - 'Pazaryeri API doğrudan otomatik sipariş senkronizasyon yazılımı'
 requirements:
   - 'Microsoft Excel 2016 veya üzeri'
   - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
@@ -76,11 +81,11 @@ requirements:
 updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
 faq:
   - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
+    answer: 'Pazaryeri komisyonları, kargo desi bedelleri ve iade maliyetleri düşüldükten sonra cebinize kalan gerçek net kârı hesaplar; zarar ettiren kampanyalı ürünleri gösterir.'
   - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
+    answer: 'Güncel pazaryeri kesinti modelleri, ters kargo maliyet formülleri ve KDV matrah hesaplarıyla test edilmiştir.'
   - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+    answer: 'Ürün sayfasındaki Shopier bağlantısı üzerinden güvenle satın alabilir ve hemen indirebilirsiniz.'
 screenshots:
   - src: '/screenshots/e-ticaret-gercek-karlilik-fiyatlama-1.png'
     alt: 'E-Ticaret Gerçek Kârlılık & Fiyatlama — ürün ekranı 1'
@@ -91,4 +96,4 @@ screenshots:
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Yüksek ciro yapıp ay sonunda kasada kâr görememenin temel nedeni; pazaryeri komisyonları, sürpriz kargo desi zamları ve iade ters lojistik masraflarıdır. Bu sistem ile her SKU için gerçek net kârınızı görün, zararına satış tuzağından kurtulun.

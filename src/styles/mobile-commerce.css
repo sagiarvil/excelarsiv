@@ -290,11 +290,93 @@ body.ea-menu-active {
   }
 }
 
-/* Mobile Commerce Bar Touch Optimization */
+/* Mobile Commerce Bar Touch & Conversion Optimization */
 @media (max-width: 720px) {
   nav.mobile-commerce-bar {
     touch-action: manipulation;
     -webkit-user-select: none;
     user-select: none;
+    box-shadow: 0 16px 40px -8px rgba(11, 116, 64, 0.28), 0 4px 16px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+  }
+
+  /* Conversion-First Primary CTA Pulsing Glow */
+  .mobile-commerce-bar__custom {
+    background: linear-gradient(135deg, #059669 0%, #047857 50%, #065f46 100%) !important;
+    box-shadow: 0 8px 22px -3px rgba(5, 150, 105, 0.45) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.01em;
+  }
+
+  /* Fast-Action Secondary Tap Target */
+  .mobile-commerce-bar__ready {
+    border: 1px solid #bbf7d0 !important;
+    background: #f0fdf4 !important;
+    color: #166534 !important;
+    font-weight: 750 !important;
+  }
+
+  /* Sticky Product Action Anchor - Smooth Scroll Offset */
+  #demo,
+  #demo-indir,
+  #siparis,
+  #hizli-satin-al {
+    scroll-margin-top: 84px;
+  }
+
+  /* Mobile Tabs Smooth Rail */
+  .tabs-nav,
+  .product-tabs-header,
+  .someka-tabs-nav {
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 8px !important;
+    padding-bottom: 6px !important;
+  }
+  .tabs-nav::-webkit-scrollbar,
+  .product-tabs-header::-webkit-scrollbar,
+  .someka-tabs-nav::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Mobile Product Header & Price Contrast */
+  .product-header h1 {
+    font-size: clamp(22px, 6.2vw, 28px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  .product-price-box,
+  .product-hero-price {
+    font-size: 26px !important;
+    font-weight: 900 !important;
+    color: #0f172a !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  /* Mobile Trust Badges & Micro-Copy */
+  .mobile-trust-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 600;
+  }
+  .mobile-trust-strip span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* Mobile Gallery Visual Quality */
+  .product-gallery,
+  .product-screenshot-slider {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08) !important;
   }
 }

@@ -1,6 +1,6 @@
 # EXCELARŞİV DECISION OS MASTER MANDATE — v14.0
 ## Evidence-Based Enterprise Financial Modeling + Software Reliability + Decision Intelligence Constitution
-## Hedef: Ölçülmüş iş değeriyle minimum 500 USD fiyatı savunulabilir hale getirebilen; finansal olarak doğru, yazılım-mühendisliği disiplininde denetlenebilir ve karar üreten Excel tabanlı sistem
+## Hedef: Ölçülmüş iş değeriyle minimum 1.000 USD (35.000 TL+) kurumsal satış fiyatını fiziksel olarak savunan; Bento-Grid Yönetici Kokpiti, 3-Sayfa İzolasyonu, finansal doğruluk ve yazılım güvenilirliği disiplininde C-Level karar üreten Excel Karar İşletim Sistemi (Decision OS)
 
 > BU METİN ÜRETİM SÖZLEŞMESİDİR.
 > Görev; açıklama, taslak, örnek formül veya pseudo-code üretmek değil, kullanıcının belirttiği iş problemi için çalışan, hesaplayan, hata yakalayan, karar üreten, kullanıcıyı yönlendiren ve ticari olarak satılabilir bir `.xlsx` sistemini fiilen üretmektir.
@@ -28,6 +28,39 @@ Onlardan yalnız mekanizma, model disiplini, kontrol mantığı, kullanıcı den
 
 Kullanıcının verdiği örnek dosyalar "minimum referans seviyesidir".
 Hedef: örneklerin toplamından daha profesyonel, daha güvenli, daha kolay kullanılan ve daha yüksek ödeme isteği yaratan sistem üretmek.
+
+---
+
+
+---
+
+# 2.9 — 1.000 USD ENTERPRISE ELITE UI/UX & KOKPİT PROTOKOLÜ (ZORUNLU)
+
+Bir workbook'un 1.000 USD (35.000 TL+) değerinde kabul edilmesi için yalnızca arkadaki 100.000 formüllü mühendislik yetmez; müşterinin ilk 3 saniyede 'Bu bir yazılım, basit bir Excel değil' demesini sağlayan şu 5 görsel ve yapısal kural ZORUNLUDUR:
+
+1. **3-Sayfa Müşteri İzolasyonu (The 3-Sheet Law):**
+   - Müşteri dosyayı açtığında 34 sayfalık teknik karmaşayı ASLA görmez.
+   - Yalnızca 3 sayfa görünür ve etkindir:
+     *  (Bento-Grid Yönetici Karar Paneli)
+     *  (Akıllı Renk Kodlu Veri Giriş Alanı)
+     *  (Yönetim Kurulu / Banka / Ortak Sunum Çıktısı)
+   - Diğer 30+ teknik sayfa (Oracle, Metamorphic, Veri Sözleşmeleri, Invariants) 'Çok Gizli / Sistem Motoru' olarak arkada kilitli kalır.
+
+2. **Bento-Grid Yönetici Kokpiti (Executive Bento Cockpit):**
+   -  sayfası modern SaaS panelleri gibi 4 ana Bento kartından oluşur:
+     * **Kart 1: Likidite & Nakit Durumu** (Anlık net bakiye, kritik eşik uyarısı).
+     * **Kart 2: Karlılık & Operasyonel Marj** (Brüt/Net marj, hedef sapması).
+     * **Kart 3: Erken Uyarı & Risk Radarı** (0-100 Güven skoru, acil risk).
+     * **Kart 4: Tavsiye Edilen C-Level Aksiyon** ('Bu ay 250.000 TL stok eritilmeli').
+
+3. **Hücre İçi Mikro-Grafikler (In-Cell Sparklines):**
+   - Hantal ve göz yoran büyük grafikler yerine, tablonun yanındaki tek bir hücrede 12 aylık finansal eğilimi gösteren minimalist  kullanılır.
+
+4. **İnteraktif Dilimleyiciler (Dynamic Slicers):**
+   - Kullanıcı filtre düğmelerine veya formüllere boğulmaz; modern Excel Dilimleyicileri (Slicers) ile Şube, Ürün Grubu veya Yıl tek tıkla filtrelenir ve tüm kokpit anında güncellenir.
+
+5. **Mikro İlerleme ve Veri Çubukları (In-Cell Data Bars):**
+   - Bütçe ve hedef gerçekleşme oranları hücre içinde soft kurumsal renkli (derin lacivert / zümrüt) mikro veri çubuklarıyla gösterilir.
 
 ---
 

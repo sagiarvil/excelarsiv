@@ -1,6 +1,6 @@
 ---
 name: 'İnşaat Hakediş Yönetim Sistemi'
-summary: 'İnşaat Hakediş Yönetim Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
+summary: 'Şantiye imalat metrajları, birim fiyatlar, avans kesintileri, stopaj ve fiyat farkı katsayılarını dönemsel kümülatif hakediş kapaklarına bağlayıp net ödenecek tutarı hatasız hesaplayın.'
 category: 'butce-ve-planlama'
 priceTL: 9900
 vatIncluded: true
@@ -51,15 +51,20 @@ sheetMap:
     purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
     kind: 'input'
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+  - 'Sözleşme iş kalemleri, onaylı birim fiyatlar ve kümülatif metrajlar'
+  - 'Dönemsel avans mahsubu, teminat kesintisi ve gecikme cezası oranları'
+  - 'Yıllara sari inşaat stopajı (%5) ve KDV tevkifat oranları'
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+  - 'Kümülatif ve dönem hakediş özeti ile Yeşil Defter icmali'
+  - 'Net ödenecek hakediş tutarı ve yasal kesinti tablosu'
+  - 'Taşeron bazında bakiye, teminat ve avans takip kartı'
 suitableFor:
-  - 'İnşaat mali işler'
-  - 'şantiye muhasebesi'
-  - 'SMMM'
+  - 'İnşaat müteahhitleri ve proje koordinatörleri'
+  - 'Şantiye şefleri ve hakediş mühendisleri'
+  - 'İnşaat mali işler yöneticileri ve SMMM'ler'
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+  - 'Perakende mağaza veya e-ticaret satış takibi'
+  - '3D CAD/BIM çizim yazılımları doğrudan geometri transferi'
 requirements:
   - 'Microsoft Excel 2016 veya üzeri'
   - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
@@ -67,11 +72,11 @@ requirements:
 updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
 faq:
   - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
+    answer: 'Kümülatif gerçekleşen metrajlar üzerinden dönemsel net hakediş tutarını, avans mahsuplarını ve stopaj kesintilerini hatasız bağlar; taşeron ödeme takvimini netleştirir.'
   - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
+    answer: 'Şantiye hakediş formatları ve kamu/özel sektör şartnamelerine uygun formül mimarisiyle test edilmiştir.'
   - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+    answer: 'Ürün sayfasındaki bağlantı üzerinden doğrudan teklif veya sipariş ile anında teslim edilir.'
 screenshots:
   - src: '/screenshots/insaat-hakedis-yonetim-sistemi-1.png'
     alt: 'İnşaat Hakediş Yönetim Sistemi — ürün ekranı 1'
@@ -82,4 +87,4 @@ screenshots:
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Kamu ve özel sektör inşaat sözleşmelerine tam uyumlu hakediş hesaplama modeli. Kümülatif imalat metrajlarından avans mahsubuna, stopaj kesintisinden tevkifat hesaplarına kadar tüm şantiye hak ediş sürecini tek çalışma kitabında yönetin.

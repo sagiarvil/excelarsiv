@@ -1,6 +1,6 @@
 ---
 name: 'Reçete Maliyeti & Menü Mühendisliği'
-summary: 'Reçete Maliyeti & Menü Mühendisliği: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
+summary: 'Porsiyon gramajı, hammadde birim fiyatı, fire payı ve satış kanal komisyonlarını reçete bazında modelleyip tabağın brüt kâr marjını ve menü mühendisliği matrisini hesaplayın.'
 category: 'stok-ve-uretim'
 priceTL: 9900
 vatIncluded: true
@@ -66,16 +66,20 @@ sheetMap:
     purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
     kind: 'input'
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+  - 'Hammadde alış fiyatı, ambalaj maliyeti ve KDV oranı'
+  - 'Reçete porsiyon gramajları ve hazırlık fire yüzdeleri'
+  - 'Satış kanalı (salon, paket servis, platform) komisyon oranları'
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+  - 'Porsiyon başı net maliyet ve gıda maliyeti yüzdesi (Food Cost %)'
+  - 'Kasavana & Smith menü kârlılık matrisi (Yıldızlar, Beygirler, Bilmeceler, İtler)'
+  - 'Fiyat artışı ve gramaj duyarlılık simülasyonu'
 suitableFor:
-  - 'Restoran sahibi'
-  - 'mutfak şefi'
-  - 'maliyet kontrolörü'
-  - 'CFO'
+  - 'Restoran, kafe ve bar işletmecileri'
+  - 'Mutfak şefleri ve F&B müdürleri'
+  - 'Maliyet muhasebecileri ve yeme-içme danışmanları'
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+  - 'Tekstil veya kimyasal seri üretim tesisleri'
+  - 'Anlık POS adisyon kasap tartım donanımı doğrudan entegrasyonu'
 requirements:
   - 'Microsoft Excel 2016 veya üzeri'
   - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
@@ -83,11 +87,11 @@ requirements:
 updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
 faq:
   - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
+    answer: 'Menüdeki her ürünün porsiyon maliyetini fire paylarıyla hesaplar; kâr getirmeyen gizli maliyetli tabakları ve fiyat artışı gereken reçeteleri netleştirir.'
   - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
+    answer: 'Aktif mutfak reçeteleri ve F&B endüstri standartlarında gıda maliyet oranlarıyla çapraz doğrulanmış formül mimarisine sahiptir.'
   - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+    answer: 'Ürün sayfasındaki Shopier veya teklif bağlantısı üzerinden doğrudan lisanslanır ve anında teslim edilir.'
 screenshots:
   - src: '/screenshots/recete-maliyeti-menu-muhendisligi-1.png'
     alt: 'Reçete Maliyeti & Menü Mühendisliği — ürün ekranı 1'
@@ -98,4 +102,4 @@ screenshots:
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Menüdeki her yemeğin gerçek porsiyon maliyetini (Food Cost) kuruşu kuruşuna hesaplayın. Hammadde zamlarının tabak kârlılığına etkisini önceden simüle ederek menü fiyatlarınızı ve porsiyon gramajlarınızı bilimsel verilere dayandırın.

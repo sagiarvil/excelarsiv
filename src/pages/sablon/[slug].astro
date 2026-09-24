@@ -137,12 +137,18 @@ const jsonLd = {
     },
   ],
 };
+const isSatista = commerceProduct?.satista !== false;
+const isPlaceholder = t.summary.includes('SPEC kapsamında');
+const robotsDirective = (!isSatista && isPlaceholder)
+  ? 'noindex,follow'
+  : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
 ---
 
 <CommerceLayout
   title={`${t.name} — Excel Arşiv`}
   description={`${t.summary} Ücretsiz demo ile deneyin; Shopier ile güvenli ödeme sonrası ExcelArşiv üzerinden doğrudan indirin.`}
   ogImage={kapakUrl}
+  robots={robotsDirective}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

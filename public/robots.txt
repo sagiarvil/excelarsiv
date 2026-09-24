@@ -4,10 +4,14 @@
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
+Disallow: /*?*
+Disallow: /*?q=*
 
 User-agent: Bingbot
 Allow: /
 Disallow: /api/
+Disallow: /*?*
+Disallow: /*?q=*
 
 # --- Search / retrieval crawlers ---
 User-agent: OAI-SearchBot
@@ -70,6 +74,8 @@ Disallow: /
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /*?*
+Disallow: /*?q=*
 
 Sitemap: https://excelarsiv.com/sitemap.xml
 # LLM Knowledge Graph & Discovery Layer: https://excelarsiv.com/llms.txt

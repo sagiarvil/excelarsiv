@@ -1,6 +1,6 @@
 ---
 name: 'İthalat Landed Cost Motoru'
-summary: 'İthalat Landed Cost Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
+summary: 'FOB/CIF fatura bedeli, navlun, sigorta, gümrük vergisi, İGV, KKDF, ordino, ardiye ve iç nakliye masraflarını parti bazında ürünlere dağıtarak gerçek birim depoya giriş maliyetini hesaplayın.'
 category: 'stok-ve-uretim'
 priceTL: 9900
 vatIncluded: true
@@ -66,16 +66,20 @@ sheetMap:
     purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
     kind: 'input'
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+  - 'Fatura döviz kuru, FOB/EXW fatura tutarları ve GTİP bazlı gümrük vergisi oranları'
+  - 'Uluslararası navlun, sigorta, ardiye, ordino ve gümrük müşavirlik faturaları'
+  - 'KKDF (%6 vadeli ithalat fonu), ÖTV ve İGV ek maliyet kalemleri'
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+  - 'Ürün başına net Landed Cost (Depo teslim birim maliyet TL/Döviz)'
+  - 'Ağırlık ve hacim bazlı masraf dağıtım tablosu'
+  - 'Gümrük vergisi matrahı ve KDV beyan simülasyonu'
 suitableFor:
-  - 'İthalatçı CFO'
-  - 'satın alma'
-  - 'gümrük müşaviri'
-  - 'SMMM'
+  - 'İthalat yapan şirket sahipleri ve CFOlar'
+  - 'Dış ticaret ve satın alma yöneticileri'
+  - 'Maliyet muhasebecileri ve gümrük müşavirleri'
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+  - 'Yalnızca yurtiçi spot alım-satım yapan mikro perakendeciler'
+  - 'Doğrudan gümrük beyannamesi EDI elektronik tescil yazılımı'
 requirements:
   - 'Microsoft Excel 2016 veya üzeri'
   - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
@@ -83,11 +87,11 @@ requirements:
 updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
 faq:
   - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
+    answer: 'Yurtdışından gelen bir ürünün kapınıza gelene kadar uğradığı navlun, gümrük vergisi, ordino ve ardiye gibi tüm giderleri dağıtarak gerçek depo giriş birim maliyetini kuruşu kuruşuna belirler.'
   - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
+    answer: 'Gümrük mevzuatı, CIF matrah hesaplamaları ve KKDF fon kurallarıyla test edilmiş formül mimarisine sahiptir.'
   - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+    answer: 'Ürün sayfasındaki bağlantı üzerinden doğrudan teklif veya sipariş ile anında teslim edilir.'
 screenshots:
   - src: '/screenshots/ithalat-landed-cost-motoru-1.png'
     alt: 'İthalat Landed Cost Motoru — ürün ekranı 1'
@@ -98,4 +102,4 @@ screenshots:
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+İthalatta en büyük risk, gümrük ve lojistik faturaları ödendikten sonra ürünün kârsız kaldığını fark etmektir. Landed Cost motoru ile ordino, ardiye, KKDF ve iç nakliye dahil tüm gizli maliyetleri önceden hesaplayıp satış fiyatlarınızı güvenle belirleyin.

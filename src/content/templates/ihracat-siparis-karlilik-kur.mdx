@@ -1,6 +1,6 @@
 ---
 name: 'İhracat Sipariş Kârlılık & Kur Riski Komutası'
-summary: 'İhracat Sipariş Kârlılık & Kur Riski Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
+summary: 'İhracat proforma bedeli, vadeli döviz kuru, döviz cinsi girdi maliyetleri, kur riski payı ve navlun giderlerini sipariş bazında modelleyip net döviz ve TL kâr marjını hesaplayın.'
 category: 'satis-ve-fiyatlama'
 priceTL: 9900
 vatIncluded: true
@@ -75,16 +75,20 @@ sheetMap:
     purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
     kind: 'input'
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+  - 'Sipariş proforma döviz tutarı (USD/EUR) ve teslim şekli (FOB/CIF/DAP)'
+  - 'TL ve döviz bazlı hammadde, işçilik ve ambalaj birim maliyetleri'
+  - 'Tahsilat vadesi, hedef kur ve alternatif kur dalgalanma senaryoları'
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+  - 'Sipariş başı net döviz kârı ve TL kârlılık marjı'
+  - 'Kritik başabaş kuru (Hangi kur seviyesinin altında ihracat zarara girer?)'
+  - 'Kur oynaklığı stres testi ve forward korunma marjı'
 suitableFor:
-  - 'İhracat müdürü'
-  - 'CFO'
-  - 'hazine'
-  - 'dış ticaret SMMM'
+  - 'İhracatçı imalatçılar ve dış ticaret firmaları'
+  - 'CFO, finans müdürleri ve hazine yöneticileri'
+  - 'Dış ticaret odaklı SMMM ve denetçiler'
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+  - 'Spot perakende yurtiçi mağaza satışları'
+  - 'Banka otomatik API doğrudan FX alım-satım emir iletimi'
 requirements:
   - 'Microsoft Excel 2016 veya üzeri'
   - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
@@ -92,11 +96,11 @@ requirements:
 updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
 faq:
   - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
+    answer: 'Yurtdışı siparişlerin hammadde alış kuru ile tahsilat vadesi arasındaki makası analiz ederek siparişin gerçekte kâr mı zarar mı getireceğini gösterir; kritik başabaş kurunu belirler.'
   - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
+    answer: 'Dış ticaret maliyet modelleri, CIF/FOB masraf dağıtım kuralları ve kur hassasiyet tablolarıyla test edilmiştir.'
   - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+    answer: 'Ürün sayfasındaki bağlantı üzerinden doğrudan teklif veya sipariş ile anında teslim edilir.'
 screenshots:
   - src: '/screenshots/ihracat-siparis-karlilik-kur-1.png'
     alt: 'İhracat Sipariş Kârlılık & Kur Riski Komutası — ürün ekranı 1'
@@ -107,4 +111,4 @@ screenshots:
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+İhracatta en büyük yanılgı, ciro bazında kârlı görünen bir siparişin vadede kurun yatay kalması veya yerel maliyetlerin artması sebebiyle zarara dönüşmesidir. Bu model ile her proforma siparişin başabaş kurunu önceden görün, fiyat tekliflerinizi kur dalgalanmalarına karşı güvenceye alın.

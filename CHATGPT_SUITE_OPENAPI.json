@@ -1,0 +1,177 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Master Suite & GoT / n8n Gateway",
+    "version": "1.0.0",
+    "description": "ChatGPT için /suite, ETH Zurich Graph of Thoughts ve resmî n8n entegrasyonu."
+  },
+  "servers": [
+    {
+      "url": "https://suite.htmlandhtml.com"
+    }
+  ],
+  "paths": {
+    "/api/v1/suite/execute": {
+      "post": {
+        "operationId": "executeSuiteCommand",
+        "summary": "Master Suite /suite komutu icra et",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "command": {
+                    "type": "string",
+                    "description": "İcra edilecek slash komut (/suite)"
+                  },
+                  "task": {
+                    "type": "string",
+                    "description": "Görevin detaylı açıklaması"
+                  }
+                },
+                "required": [
+                  "command"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Başarılı icra kanıtı",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "İşlem durumu"
+                    },
+                    "engine": {
+                      "type": "string",
+                      "description": "Çalışan motor"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Sonuç mesajı"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/got/deliberate": {
+      "post": {
+        "operationId": "runGraphOfThoughts",
+        "summary": "ETH Zurich Graph of Thoughts akıl yürütme motorunu koştur",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "problem": {
+                    "type": "string",
+                    "description": "Akıl yürütülecek iş problemi veya mimari karar"
+                  }
+                },
+                "required": [
+                  "problem"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "GoT Düşünce Çizgesi Kararı",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "GoT durumu"
+                    },
+                    "author": {
+                      "type": "string",
+                      "description": "ETH Zurich"
+                    },
+                    "runExecuted": {
+                      "type": "boolean",
+                      "description": "Controller.run icra edildi mi"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/n8n/trigger": {
+      "post": {
+        "operationId": "triggerOfficialN8nWorkflow",
+        "summary": "Resmî n8n Webhook ve İş Akışını Tetikle",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "webhookPath": {
+                    "type": "string",
+                    "description": "Tetiklenecek webhook yolu (örn: skdm-audit)"
+                  }
+                },
+                "required": [
+                  "webhookPath"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "n8n Canlı İcra Sonucu",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "engineExecutionStatus": {
+                      "type": "string",
+                      "description": "n8n icra durumu"
+                    },
+                    "officialN8nEngineVersion": {
+                      "type": "string",
+                      "description": "2.35.7"
+                    }
+                  },
+                  "required": [
+                    "engineExecutionStatus"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
