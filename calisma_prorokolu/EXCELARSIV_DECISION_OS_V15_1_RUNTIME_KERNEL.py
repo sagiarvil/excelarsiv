@@ -6408,6 +6408,53 @@ downstream PASS üretmez.
 
 ---
 
+
+---
+
+# 249 — GOLDEN RATIO UI, SİMETRİ VE 5 AŞAMALI CFO SÜREÇ PROTOKOLÜ (v15.2 ANAYASASI)
+
+Bu bölüm, her ExcelArşiv şablonunun en az $1,000 ticari değer yaratması ve insan-bilgisayar etkileşimi (HCI) standartlarında kusursuz olması için bağlayıcı kurallardır:
+
+## 249.1 Sıfır Metin Kırılması Kuralı (Zero Text-Wrap & Single-Line Header)
+- Tablo üst başlıkları ve alt açıklamalar (`TAKSİT PLANI — dönem bazında...`) asla dar hücreye hapsedilip 4-6 satıra bölünemez (`wrap_text=False`).
+- Başlıklar sol kenar payıyla (Row 1: 34pt yükseklik, Montserrat 15pt Bold) saf zemin üzerinde zarif bir kurumsal antet olarak yer alır.
+- Açıklama satırı (Row 3: 20pt yükseklik, Segoe UI 9.5pt Italic) tek satırda rahatça okunur.
+
+## 249.2 Terzi Usulü Kolon Genişliği ve Dikey Ritim (Bespoke Proportions & Vertical Rhythm)
+- Rastgele sütun genişliği yasaktır:
+  - Kod / ID Kolonları: 13.0 - 14.0 pt (Ortalı)
+  - Banka / Firma / Cari Adları: 24.0 - 28.0 pt (Sola dayalı, ferah)
+  - Açıklama ve Kredi / Ürün Türleri: 22.0 - 32.0 pt
+  - Finansal Tutar / Para Kolonları: 18.0 - 22.0 pt (Sağa dayalı, ₺#,##0 formatında)
+  - Tarihler ve Durum Rozetleri: 14.0 - 18.0 pt (Ortalı)
+- Dikey Ritim Standartları:
+  - Satır 1 (Sayfa Başlığı): 34.0 pt
+  - Satır 2 (Boşluk/Nefes): 6.0 pt
+  - Satır 3 (Alt Açıklama): 20.0 pt
+  - Satır 4 (Boşluk): 10.0 pt
+  - Satır 5 (Tablo Başlıkları): 28.0 pt (Slate 800 #1E293B dolgu, beyaz kalın yazı)
+  - Satır 6–35 (Zebra Tablo Satırları): Düzenli ve standart 22.0 pt
+
+## 249.3 5 Aşamalı Mantıksal CFO İş Akışı Sıralaması (Process Ordering)
+Her çalışma kitabında sekmeler kullanıcının zihnini yormayan, işi yapış mantığına göre sıralanır:
+1. `AŞAMA 1: GİRİŞ & YOL HARİTASI` -> KILAVUZ (Zümrüt Yeşil - #059669)
+2. `AŞAMA 2: STRATEJİK YÖNETİM KOKPİTİ` -> PANO (Koyu Lacivert - #1E293B)
+3. `AŞAMA 3: GÜNLÜK İŞLEM & VERİ HAVUZU` -> GİRDİLER (Kehribar Sarı - #D97706), BANKALAR, LIMITLER, KREDILER, TAKSIT_PLANI, ODEME_TAKVIMI (Açık Mavi - #60A5FA)
+4. `AŞAMA 4: ARBİTRAJ, STRES TESTİ VE RAPORLAMA` -> REFINANSMAN, YÖNETİM_RAPORU, RAPOR (Mor - #7C3AED)
+5. `AŞAMA 5: ARKA ALGORİTMA, MOTOR VE YÖNETİŞİM` -> KARAR_MOTORU, MOTOR, SENARYO_DUYARLILIK, AYARLAR, LISTELER (Koyu Gri - #475569) + 00_BASLANGIC...05_KARAR_SATIS
+
+## 249.4 Referans Kart Mimarisi (KILAVUZ 1:1 Geometrisi)
+- KILAVUZ sayfası 3 geniş simetrik karttan (her biri 43.8 pt genişliğinde [B..F], [H..L], [N..R]) oluşur.
+- Dış çerçeve: #F2F2F2 platin gri; iç metin alanı saf beyaz (#FFFFFF); butonlar #1B365D kurumsal lacivert.
+- Kartların altında mutlaka doğrudan ilgili sekmelere zıplayan (`#PANO!A1`, `#GİRDİLER!A1`, vb.) 5 Aşamalı Proses Tablosu yer alır.
+
+## 249.5 $1,000 Değer Kriterleri (CFO Karar Gücü)
+Şablon yalnızca veri kaydetmez; şu 3 stratejik kararı canlı üretir:
+1. `Efektif Faiz & Gizli Masraf Tespiti (XIRR):` Dosya masrafları ve komisyonlar dahil gerçek maliyet.
+2. `Refinansman Arbitrajı:` Krediyi başka bankaya taşıma durumunda erken kapama cezası düşülmüş net TL kazancı.
+3. `Likidite Stres Radarı:` -%20 nakit daralmasında 30/60/90 gün temerrüt ve nakit açığı erken uyarı sinyali.
+
+
 # 248 — $1,000 SORUMLULUK CÜMLESİ
 
 Bu mandate hiçbir ürüne otomatik "$1,000 değerinde" demez.
