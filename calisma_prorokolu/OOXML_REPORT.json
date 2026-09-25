@@ -8,7 +8,7 @@
     "sheet_xml_count": 37,
     "formula_count": 14,
     "calc_mode": null,
-    "full_calc_on_load": null,
+    "full_calc_on_load": "1",
     "force_full_calc": null
   }
 }
