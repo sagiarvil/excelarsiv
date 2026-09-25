@@ -1,0 +1,5 @@
+﻿type,id,display_name,key_properties,owner,state
+HESAP,HSP_01,Vadesiz Ticari Mevduat,TRY;Banka;Likit,CFO,AKTIF
+GIDER,GDR_01,Sabit Genel Yönetim Gideri,Bordro;Kira;Operasyon,Muhasebe,AKTIF
+ALACAK,ALC_01,Ticari Alacak Portföyü,DSO;Vade;Fatura,Finans,AKTIF
+BORC,BRC_01,Banka Kredi ve Rotatif Borç,DSCR;Taksit;Faiz,Hazine,AKTIF

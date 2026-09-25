@@ -1,0 +1,4 @@
+﻿TestID,Engine,Case,Expected,Actual,Difference,Tolerance,Result
+ORC_01,CashFlow,Cumulative Inflow,9247100.00,9247100.00,0.00,0.01,PASS
+ORC_02,NetMargin,Gross minus Cost,7212738.00,7212738.00,0.00,0.01,PASS
+ORC_03,DSCR,Coverage Ratio,4.55,4.55,0.00,0.01,PASS

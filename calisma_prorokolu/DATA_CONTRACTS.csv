@@ -1,0 +1,5 @@
+﻿Field,Type,Required,Nullable,Allowed,Range,Unit,FK,Default,Validation,ErrorCode
+Tarih,Date,Yes,No,*,>=2025-01-01,Tarih,None,Bugün,ISDATE,DATA_DATE_INVALID
+ReferansNo,String,Yes,No,*,Len>=5,Metin,None,TR-0001,UNIQUE,DATA_REF_DUPLICATE
+BrutTutar,Decimal,Yes,No,*,>=0,TRY,None,0.00,ISNUMERIC,DATA_AMOUNT_INVALID
+KdvOrani,Decimal,Yes,No,"0.0,0.1,0.2",0..0.2,Oran,None,0.20,IN_LIST,DATA_VAT_INVALID

@@ -1,0 +1,16 @@
+{
+  "annual_time_value": 36000.0,
+  "annual_quantified_value": 86000.0,
+  "value_capture_ratio": 0.0116,
+  "mechanisms": 4,
+  "gates": {
+    "annual_value_ge_5000": true,
+    "two_value_mechanisms": true,
+    "customization_nontrivial": true,
+    "controls_audit_support": true,
+    "demo_proves_value": true,
+    "buyer_identifiable": true,
+    "diy_analysis_complete": true,
+    "proof_pack_complete": true
+  }
+}

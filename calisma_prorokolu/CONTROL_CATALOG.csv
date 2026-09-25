@@ -1,0 +1,5 @@
+﻿ControlID,Category,Description,Severity,TargetSheet,Status
+CTRL_01,DATA_INTEGRITY,Sıfır Döngüsel Başvuru (Zero Circular References),P0,All,PASS
+CTRL_02,ACCOUNTING,Nakit ve Alacak Roll-Forward Eşitliği,P0,04_MUHASEBE_THP,PASS
+CTRL_03,FORMULA,"Sıfır Formül Hatası (#REF, #VALUE, #DIV/0)",P0,All,PASS
+CTRL_04,UI_STANDARDS,Aptos/Segoe UI Tek Font & Kılavuz Çizgileri Kapalı,P1,All,PASS

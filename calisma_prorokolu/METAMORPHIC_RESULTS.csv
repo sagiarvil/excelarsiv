@@ -1,0 +1,3 @@
+﻿TestID,Rule,Expected,Actual,Result
+MET_01,Row Permutation Preserves Sum,9247100.00,9247100.00,PASS
+MET_02,Note Text Edit Preserves Numeric Outputs,Unchanged,Unchanged,PASS

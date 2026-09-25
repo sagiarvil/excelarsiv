@@ -1,0 +1,6 @@
+﻿From,To,Type,Rule
+GİRDİLER!E6:E15,GİRDİLER!E17,Aggregation,SUM
+GİRDİLER!E17,PANO!B7,DirectLink,Reference
+PANO!B7,PANO!E7,Calculation,Multiply(0.22)
+PANO!B7,PANO!H7,Calculation,Subtract(E7)
+PANO!H7,YÖNETİM_RAPORU!K9,Reporting,Reference

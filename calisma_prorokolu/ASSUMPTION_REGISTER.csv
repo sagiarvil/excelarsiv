@@ -1,0 +1,4 @@
+﻿ID,Name,Value,Unit,Source,SourceDate,Owner,Confidence,Materiality,Sensitivity,ReviewDue,KillThreshold,Downstream
+ASM_01,Enflasyon Oranı,0.35,%,TCMB,2026-01-01,CFO,4,5,4,2026-12-31,>0.50,Fiyatlama
+ASM_02,Borçlanma Faiz Oranı,0.42,%,Banka Konsorsiyumu,2026-01-01,Hazine,5,5,5,2026-12-31,>0.55,Kredi Takip
+ASM_03,Hedef DSO Vadesi,45,Gün,Yönetim Kurulu Kararı,2026-01-01,Satış,5,4,3,2026-12-31,>75,Nakit Akışı

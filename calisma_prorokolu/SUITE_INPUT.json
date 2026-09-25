@@ -1,0 +1,57 @@
+{
+  "product": "EXCELARSIV_DECISION_OS_V15_1_MASTER_STANDART_UI_LOCKED",
+  "version": "15.1.0",
+  "build_id": "BUILD_2026_Q3_ENTERPRISE",
+  "compatibility_profile": "PROFILE-M",
+  "financial_model": true,
+  "scenario_required": true,
+  "onboarding_required": true,
+  "workbook_path": "EXCELARSIV_DECISION_OS_V15_1_MASTER_STANDART_UI_LOCKED.xlsx",
+  "suitability": {
+    "users": 1,
+    "rows": 25000,
+    "transactions": 25000,
+    "heavy_financial_modeling": true,
+    "scenario_planning_valuation": true,
+    "offline_required": true,
+    "excel_native_users": true,
+    "concurrent_multi_write": false,
+    "row_level_security": false,
+    "immutable_enterprise_audit_log": false,
+    "realtime_streaming": false,
+    "api_orchestration_heavy": false,
+    "mission_critical_multi_user_sor": false
+  },
+  "governance": {
+    "FinancialImpact": 4,
+    "ExternalUse": 4,
+    "DecisionCriticality": 4,
+    "RegulatoryExposure": 2,
+    "Irreversibility": 3,
+    "DataSensitivity": 2
+  },
+  "confidence": {
+    "SourceQuality": 98,
+    "Completeness": 99,
+    "Freshness": 96,
+    "Reconciliation": 100,
+    "ModelStability": 98,
+    "missing_material_source": false,
+    "failed_reconciliation": false,
+    "stale_critical_source": false
+  },
+  "commercial_value": {
+    "HoursSavedPerMonth": 40,
+    "LoadedHourlyCost": 75,
+    "ErrorCostAvoidedPerYear": 15000,
+    "CashBenefitPerYear": 25000,
+    "DecisionBenefitPerYear": 10000,
+    "Price": 1000,
+    "CustomizationNonTrivial": true,
+    "ControlsAuditSupport": true,
+    "DemoProvesValue": true,
+    "BuyerIdentifiable": true,
+    "DIYAnalysisComplete": true,
+    "ProofPackComplete": true
+  }
+}

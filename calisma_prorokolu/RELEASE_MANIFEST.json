@@ -1,0 +1,278 @@
+{
+  "schema_version": "15.1",
+  "suite_version": "15.1.0",
+  "kernel": "EXCELARSIV_DECISION_OS_HARDENED_KERNEL",
+  "product": "EXCELARSIV_DECISION_OS_V15_1_MASTER_STANDART_UI_LOCKED",
+  "version": "15.1.0",
+  "build_id": "BUILD_2026_Q3_ENTERPRISE",
+  "generated_at_utc": "2026-09-25T15:15:53+00:00",
+  "governance_tier": "T4",
+  "compatibility_profile": "PROFILE-M",
+  "modules": {
+    "suitability": {
+      "status": "PASS",
+      "evidence": "SUITABILITY_DECISION.md",
+      "reason": "EXCEL_PRIMARY",
+      "metrics": {
+        "score": 9,
+        "decision": "EXCEL_PRIMARY",
+        "signals": [
+          "few_users:+2",
+          "financial_modeling:+2",
+          "scenario_planning:+2",
+          "offline:+1",
+          "excel_native:+1",
+          "rows_lt_100k:+1"
+        ]
+      }
+    },
+    "governance": {
+      "status": "PASS",
+      "evidence": "SPEC.md",
+      "reason": "RiskScore=19;Tier=T4",
+      "metrics": {
+        "risk_score": 19,
+        "tier": "T4",
+        "FinancialImpact": 4,
+        "ExternalUse": 4,
+        "DecisionCriticality": 4,
+        "RegulatoryExposure": 2,
+        "Irreversibility": 3,
+        "DataSensitivity": 2
+      }
+    },
+    "confidence": {
+      "status": "PASS",
+      "evidence": "CONFIDENCE_RESULTS.json",
+      "reason": "HIGH",
+      "metrics": {
+        "score": 98.2,
+        "band": "HIGH",
+        "caps": []
+      }
+    },
+    "commercial_value": {
+      "status": "PASS",
+      "evidence": "COMMERCIAL_VALUE.json",
+      "reason": "ECONOMICALLY_DEFENSIBLE_AT_GE_1000",
+      "metrics": {
+        "annual_time_value": 36000.0,
+        "annual_quantified_value": 86000.0,
+        "value_capture_ratio": 0.0116,
+        "mechanisms": 4,
+        "gates": {
+          "annual_value_ge_5000": true,
+          "two_value_mechanisms": true,
+          "customization_nontrivial": true,
+          "controls_audit_support": true,
+          "demo_proves_value": true,
+          "buyer_identifiable": true,
+          "diy_analysis_complete": true,
+          "proof_pack_complete": true
+        }
+      }
+    },
+    "ooxml_integrity": {
+      "status": "PASS",
+      "evidence": "OOXML_REPORT.json",
+      "metrics": {
+        "path": "/Users/macair1/projects/excel-arsiv/calisma_prorokolu/EXCELARSIV_DECISION_OS_V15_1_MASTER_STANDART_UI_LOCKED.xlsx",
+        "zip_ok": true,
+        "xml_parse_errors": 0,
+        "external_links": 0,
+        "sheet_xml_count": 37,
+        "formula_count": 14,
+        "calc_mode": null,
+        "full_calc_on_load": null,
+        "force_full_calc": null
+      }
+    },
+    "blast_radius": {
+      "status": "PASS",
+      "evidence": "CHECKER_REPORT.md",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "chaos": {
+      "status": "PASS",
+      "evidence": "CHECKER_REPORT.md",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "data_contracts": {
+      "status": "PASS",
+      "evidence": "DATA_CONTRACTS.csv",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "data_observability": {
+      "status": "PASS",
+      "evidence": "CHECKER_REPORT.md",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "decision_engine": {
+      "status": "PASS",
+      "evidence": "SPEC.md",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "dependency_graph": {
+      "status": "PASS",
+      "evidence": "DEPENDENCY_GRAPH.csv",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "financial_identities": {
+      "status": "PASS",
+      "evidence": "INVARIANT_RESULTS.csv",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "golden_dataset": {
+      "status": "PASS",
+      "evidence": "GOLDEN_DATASET_RESULTS.csv",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "human_approval": {
+      "status": "PASS",
+      "evidence": "CHECKER_REPORT.md",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "k3": {
+      "status": "PASS",
+      "evidence": "CHECKER_REPORT.md",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "maker_checker": {
+      "status": "PASS",
+      "evidence": "CHECKER_REPORT.md",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "market_validation": {
+      "status": "PASS",
+      "evidence": "VALUE_MAP.md",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "metamorphic": {
+      "status": "PASS",
+      "evidence": "METAMORPHIC_RESULTS.csv",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "model_observability": {
+      "status": "PASS",
+      "evidence": "CHECKER_REPORT.md",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "onboarding": {
+      "status": "PASS",
+      "evidence": "SPEC.md",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "ontology": {
+      "status": "PASS",
+      "evidence": "ONTOLOGY.csv",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "oracle": {
+      "status": "PASS",
+      "evidence": "ORACLE_RESULTS.csv",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "playbooks": {
+      "status": "PASS",
+      "evidence": "VALUE_MAP.md",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "reverse_stress": {
+      "status": "PASS",
+      "evidence": "INVARIANT_RESULTS.csv",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "scenario": {
+      "status": "PASS",
+      "evidence": "SPEC.md",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    },
+    "semantic_contracts": {
+      "status": "PASS",
+      "evidence": "SEMANTIC_CONTRACTS.csv",
+      "reason": "Verified against Mandate v15.1 criteria",
+      "metrics": {
+        "verified": true
+      }
+    }
+  },
+  "hard_failures": [],
+  "evidence_hashes": {
+    "ASSUMPTION_REGISTER.csv": "0795e000e0b85479c064182111a3e61fea6cdebe66e12cf5f75e5ccf232aa32a",
+    "CHANGELOG.md": "d72f8f0853f33db2c3eb159f7c871bcc052c22b8be1d9f052af68402ba2f338f",
+    "CONTROL_CATALOG.csv": "d2d3fd53a39fc3da127e90327b83b46e0a2096e6e2456a4db7910183d8c949fa",
+    "DATA_CONTRACTS.csv": "4412525ff49900c473a4532011fbfcc2a5d688d591d385f269c1050acfd23c46",
+    "DEPENDENCY_GRAPH.csv": "4eae3509e65e793cd6717b4f59fc8afdf5a6f873e798e7fdde1a33217231b3a3",
+    "GOLDEN_DATASET_RESULTS.csv": "71994046ab25ab14c1fd790580340154f1d876594c73ed8f4fc470b629d0f789",
+    "INVARIANT_RESULTS.csv": "8cfa96c2f9b0f1e5e3780e03c9c893395fa2d8aab8576ba90975fa4cb3d2f457",
+    "ONTOLOGY.csv": "2ca72ea004c8151973d5614a15b43936b96eb36bd2abbe3cdfe073b44078fc56",
+    "ORACLE_RESULTS.csv": "caea00ec3d1983f905cbebee9869817f7cf2abe92f213382c32c5e14ebb76fb0",
+    "RELEASE_REPORT.md": "2c609669ff160a050340254a4475b5504abb371209ea40e1ef5a7da787f176ad",
+    "ROLLBACK_PLAN.md": "43a40200da974c2e1e88e5e7690dd551eaa600d07934068282cc0502909941a9",
+    "SEMANTIC_CONTRACTS.csv": "ed6092bb56a0de7c8b50276a445da92e1ad66eaf5c486971081d9d59b164625f",
+    "SPEC.md": "a14cffa27d08a64b168669ced34fa72a852daf053c70b97348e207c2a1382a34",
+    "TEST_MATRIX.csv": "3d73eab05bfb2bff5fe050af718a30d656a91a2afac210112422c76d43c88c2d",
+    "VALUE_MAP.md": "1070ee040fa082baa2df277d3aa2164279e4a6f677c5e91231d8a3eb32e2a86a"
+  },
+  "release_status": "FINAL_RELEASE"
+}

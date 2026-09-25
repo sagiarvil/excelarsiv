@@ -1,0 +1,5 @@
+﻿TestID,Case,Expected,Actual,Result
+GLD_01,Normal Flow,Valid Decision,Valid Decision,PASS
+GLD_02,Zero Sales Flow,Zero Cash Warning,Zero Cash Warning,PASS
+GLD_03,Extreme Stress (-30%),Stress Resistant,Stress Resistant,PASS
+GLD_04,Boundary Capacity,No Overflow,No Overflow,PASS

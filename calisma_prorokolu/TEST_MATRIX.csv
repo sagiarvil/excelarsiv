@@ -1,0 +1,5 @@
+﻿TestID,Type,Scope,Result,Evidence
+TST_01,Static Scan,OOXML & ZIP Integrity,PASS,scan_ooxml = 0 error
+TST_02,Formula Integrity,All Cells,PASS,0 syntax error
+TST_03,Reconciliation,SSOT to Reports,PASS,GİRDİLER!E17 == PANO!B7
+TST_04,K3 Acceptance,User Workflow,PASS,All navigation and active sheets verified

@@ -1,0 +1,3 @@
+﻿TestID,Identity,Expected,Actual,Difference,Tolerance,Result
+INV_01,OpeningCash + In - Out == ClosingCash,18420000.00,18420000.00,0.00,0.01,PASS
+INV_02,Assets == Liabilities + Equity,34850000.00,34850000.00,0.00,0.01,PASS

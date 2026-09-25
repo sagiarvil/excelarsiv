@@ -1,0 +1,5 @@
+﻿KPI,BusinessMeaning,SSOT,FormulaOwner,Unit,Period,Sign,Denominator,ZeroBehavior,NegativeBehavior,Invariant,DownstreamDecision
+TOPLAM_NAKIT,Konsolide Serbest Likidite,GİRDİLER!E17,PANO!B7,TRY,Anlık,+,None,0.00 TL,Uyarı,Cash>=0,Yatırım/Fonlama
+ODENECEK_CIKIS,Vadesi Gelen Kısa Vadeli Yükümlülük,GİRDİLER!E17*0.22,PANO!E7,TRY,30 Gün,+,None,0.00 TL,Hata,Payable>=0,Nakit Blokajı
+NET_LİKİDİTE,Serbest Net Likidite Tamponu,PANO!B7-E7,PANO!H7,TRY,Anlık,±,None,0.00 TL,Kriz Eşiği,B7>=E7,Temettü/Rezerv
+DSCR_RASYOSU,Borç Servis Karşılama Oranı,PANO!B7/E7,PANO!K7,x,Yıllık,+,E7,0.00x,Hata,DSCR>=1.25,Kredi Uygunluğu
