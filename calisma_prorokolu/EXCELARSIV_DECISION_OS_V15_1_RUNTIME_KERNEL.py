@@ -6465,6 +6465,43 @@ Her çalışma kitabında sekmeler kullanıcının zihnini yormayan, işi yapı�
 3. `Likidite Stres Radarı:` -%20 nakit daralmasında 30/60/90 gün temerrüt ve nakit açığı erken uyarı sinyali.
 
 
+# 258 — COMBO MONOLITHIC CRM/ERP DASHBOARD & EXECUTIVE COCKPIT ARCHITECTURE (v15.3)
+
+PANO (Dashboard) sayfası sıradan bir Excel tablosu değil; SaaS, modern CRM ve ERP seviyesinde yekpare, simetrik ve yüksek vitrin gücüne sahip bir Yönetici Kokpitidir:
+1. `Yekpare Tuval & Kılavuz Çizgisiz Görünüm:` Sayfada Excel kılavuz çizgileri kapalıdır (`showGridLines=False`). Arka plan saf tuval (#F8FAFC / #F1F5F9), kart alanları saf beyaz (#FFFFFF) dolgudur.
+2. `Sol Kenar Aksanlı Bento KPI Kartları (4 Eşit Blok):`
+   - Row 5-9 arasında 4 adet simetrik Bento kartı yer alır.
+   - Her kartın sol kenarında 3-4pt kalınlığında durum rengi kenarlık bulunur:
+     * Kart 1: #1E3A8A (Kurumsal Lacivert) — Ana Hacim & Toplam Portföy + gri/mavi rozet ("4 HESAP").
+     * Kart 2: #DC2626 (Crimson Kırmızı) — Kısa Vadeli Risk / Çıkış + açık kırmızı rozet ("VADE: 4 GÜN").
+     * Kart 3: #059669 (Zümrüt Yeşil) — Net Likidite / Çalışma Sermayesi + yeşil rozet ("GÜVENLİ") + segmentli ilerleme çubuğu.
+     * Kart 4: #0284C7 (Canlı Mavi) — Finansal Rasyo / Temel Oran (DSCR vb.) + gri rozet ("EŞİK: 1.30x").
+   - Kart içi rakamlar Segoe UI 20-24pt Bold olup alt satırda trend veya durum rozeti yer alır.
+3. `Orta Düzey Combo Blok & Konsolide Karar Matrisi:`
+   - Sol Blok: Karşılaştırmalı Hacim/Maliyet Trendi ve "+%32 Verim" yeşil rozeti.
+   - Sağ Blok: "KONSOLİDE OPERASYON VE KARAR MATRİSİ"
+     * Başlık bandı: Koyu Lacivert/Siyah (#0F172A) zemin, beyaz Segoe UI Bold başlıklar.
+     * Kolonlar: PARAMETRE / KALEM | ANA TUTAR | FARK / MARJ | VADE | KONTROL DURUMU.
+     * Satır İçi Durum Hapları: `✓ DÜZENLİ` (Yeşil), `★ AVANTAJ` (Mavi), `● YAKLAŞAN` (Kehribar), `✓ TAM UYUM` (Turkuaz).
+     * Toplam Satırı: Koyu Lacivert dolgulu, sağda yeşil "TAM DOĞRULANDI (0 HATA)" mühürlü özet.
+4. `Alt Düzey 3'lü Eşit Kokpit Mimarisi:`
+   - Sol: Konsolide Pay ve Ağırlık Donut grafiği / segment kartı (%100 halka yapısı).
+   - Orta: Likidite Riski & Erken Uyarı Sinyalleri (Segmented Bar göstergesi + "✓ 90 GÜNLÜK PROJEKSİYONDA NAKİT SIKIŞIKLIĞI TESPİT EDİLMEDİ" yeşil banner).
+   - Sağ: Karar Motoru — Zümrüt Yeşili koyu dolgulu (#065F46 / #047857) eylem kartı ve beyaz buton stili ("FONLAMA SENARYOSUNU İNCELE ›").
+
+
+# 259 — ALT SAYFALAR İÇİN İKİLİ SENARYO & UYGULAMA REÇETESİ MİMARİSİ (YÖNETİM RAPORU)
+
+YÖNETİM_RAPORU ve bağlı stratejik karar sayfaları CFO ve İcra Komitesi için şu standartta inşa edilir:
+1. `Kurumsal Antet & Denetim Rozeti:` Üstte sol yeşil dikey bar (#059669), Montserrat/Segoe UI 14pt Bold başlık ve "DÖNEM: 2026 Q3 · DENETİM PROTOKOLÜ: ISO/VUK/IFRS UYUMLU · DURUM: ONAYLANDI" onay rozeti.
+2. `İki Kolonlu Karşılaştırmalı Senaryo Kartları:`
+   - Sol Kart (`SENARYO A: KÖTÜMSER (STRES TESTİ -%20)`): Açık kırmızı/pembe başlık şeridi (#FEE2E2), kırmızı başlık (#991B1B), beyaz kart içi, kriz eşiği metrikleri, altta açık kırmızı buton ("STRES SENARYOSUNDA DAHİ İFLAS RİSKİ YOK").
+   - Sağ Kart (`SENARYO B: BAZ MODEL (HEDEFLENEN)`): Açık mavi başlık şeridi (#DBEAFE), lacivert başlık (#1E40AF), beyaz kart içi, hedef gerçekleşme metrikleri, altta açık mavi buton ("OPTİMUM İCRA VE PLANLAMA REÇETESİ").
+3. `Yönetim Karar Matrisi ve Uygulama Reçetesi (Tam Genişlik Kart):`
+   - Kart içi 4 net operasyonel öncelik maddesi (`● Öncelik 1: Acil Likidite ve Borç Servis Planlaması`, `● Öncelik 2: Formül Doğrulama`, `● Öncelik 3: Mevzuat/Vergi Kalkanı`, `● Öncelik 4: Yönetici İmzası ve Rapor Paylaşımı`).
+   - Her öncelik yeşil dot (`●`) ve profesyonel icra açıklamasıyla sunulur.
+
+
 # 248 — $1,000 SORUMLULUK CÜMLESİ
 
 Bu mandate hiçbir ürüne otomatik "$1,000 değerinde" demez.
