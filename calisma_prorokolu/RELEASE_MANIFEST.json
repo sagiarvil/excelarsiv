@@ -5,7 +5,7 @@
   "product": "EXCELARSIV_DECISION_OS_V15_1_MASTER_STANDART_UI_LOCKED",
   "version": "15.1.0",
   "build_id": "BUILD_2026_Q3_ENTERPRISE",
-  "generated_at_utc": "2026-09-25T19:28:02+00:00",
+  "generated_at_utc": "2026-09-25T20:48:35+00:00",
   "governance_tier": "T4",
   "compatibility_profile": "PROFILE-M",
   "modules": {
@@ -80,7 +80,7 @@
         "zip_ok": true,
         "xml_parse_errors": 0,
         "external_links": 0,
-        "sheet_xml_count": 37,
+        "sheet_xml_count": 38,
         "formula_count": 14,
         "calc_mode": null,
         "full_calc_on_load": "1",
