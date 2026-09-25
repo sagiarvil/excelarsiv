@@ -109,7 +109,7 @@ for (const page of pages) {
       // Kart sözleşmesi görsel sınıf adına değil gerçek kullanıcı aksiyonuna bağlıdır.
       // Her ürün kartında:
       // 1) ürün detayına giden /sablon/... bağlantısı,
-      // 2) Shopier satın alma veya fail-closed /iletisim teklif aksiyonu,
+      // 2) Shopier satın alma, doğrulanmış WhatsApp veya fail-closed /iletisim teklif aksiyonu,
       // 3) gerçek ürün görseli bulunmalıdır.
       const articleBlocks = [...html.matchAll(/<article\b[^>]*\bdata-template-card\b[^>]*>[\s\S]*?<\/article>/g)]
         .map((match) => match[0]);
@@ -122,7 +122,7 @@ for (const page of pages) {
         const hrefs = [...block.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
         const detailLinks = hrefs.filter((href) => href.startsWith('/sablon/'));
         const actionLinks = hrefs.filter((href) =>
-          /^https:\/\/www\.shopier\.com\/\d+$/.test(href) || href === '/iletisim' || href.startsWith('/iletisim?')
+          /^https:\/\/www\.shopier\.com\/\d+$/.test(href) || href.startsWith(VERIFIED_WHATSAPP_PREFIX) || href === '/iletisim' || href.startsWith('/iletisim?')
         );
 
         if (detailLinks.length < 1) {

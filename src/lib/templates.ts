@@ -3,6 +3,7 @@ import { pickCatalogScreenshot, screenshotSlug } from './catalog-screenshot';
 import { kapakYolu, premiumKapakUrl } from './kapak';
 import { categories, getCategoryName, type CategorySlug } from './categories';
 import { getTierForPrice } from './shopier';
+import { teklifVerUrl } from './teklif';
 import type { SearchItem } from './search';
 
 export interface TemplateSheetMap {
@@ -56,7 +57,7 @@ export function toTemplateViewModel(entry: TemplateEntry): TemplateViewModel {
     kapak: premiumKapakUrl(entry.id) ?? kapakYolu(entry.id),
     screenshotFocus: 'result',
     url: `/sablon/${entry.id}`,
-    shopierUrl: `https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${data.name} Excel sistemi için teklif almak istiyorum.`)}`,
+    shopierUrl: teklifVerUrl(data.name),
   };
 }
 

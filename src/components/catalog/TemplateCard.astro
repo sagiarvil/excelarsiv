@@ -1,6 +1,7 @@
 ---
 import CatalogProductVisual from './CatalogProductVisual.astro';
 import { getTierForPrice } from '../../lib/shopier';
+import { teklifVerUrl } from '../../lib/teklif';
 
 interface Preview {
   src: string;
@@ -39,7 +40,7 @@ const {
   priority = false,
 } = Astro.props;
 
-const waOrderUrl = `https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${name} Excel sistemi için teklif vermek istiyorum.`)}`;
+const waOrderUrl = teklifVerUrl(name);
 const orderUrl = waOrderUrl;
 const orderLabel = 'Teklif Ver';
 const benefitItems = outputs.slice(0, 3);

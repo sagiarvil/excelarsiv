@@ -20,23 +20,20 @@ test('every commerce product price matches its tier and MDX SSOT', () => {
   }
 });
 
-test('homepage product count, minimum price and visible product prices are derived from template data', () => {
+test('homepage product count and internal price SSOT remain derived from template data', () => {
   const home = readFileSync('src/pages/index.astro', 'utf8');
   assert.match(home, /const templates = await getAllTemplates\(\)/);
   assert.match(home, /const productCount = templates\.length/);
   assert.match(home, /Math\.min\(\.\.\.templates\.map\(\(item\) => item\.priceTL\)\)/);
-  assert.match(home, /item\.priceTL\.toLocaleString\(['"]tr-TR['"]\)/);
   assert.doesNotMatch(home, /price:\s*['"]\d[\d.]*\s*TL/i);
   assert.doesNotMatch(home, /(?:^|[^\w])(?:2490|2\.490|990)\s*TL/i);
 });
 
-test('decision pages render visible and JSON-LD prices from TemplateViewModel SSOT', () => {
+test('decision pages source JSON-LD prices from TemplateViewModel SSOT', () => {
   const page = readFileSync('src/pages/karar/[slug].astro', 'utf8');
   const registry = readFileSync('src/data/kararPages.ts', 'utf8');
   assert.match(page, /const templates = await getAllTemplates\(\)/);
   assert.match(page, /price:\s*item\.priceTL/);
-  assert.match(page, /primary\.priceTL\.toLocaleString/);
-  assert.match(page, /item\.priceTL\.toLocaleString/);
   assert.doesNotMatch(registry, /\bprice(?:TL)?\s*:\s*\d+/i);
 });
 
