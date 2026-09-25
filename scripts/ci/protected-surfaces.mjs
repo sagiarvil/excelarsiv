@@ -7,7 +7,7 @@ const PROTECTED = Object.freeze({
   'src/pages/sablonlar.astro': '3c3042f2d6b5c304cfb464816021356906dbb4f3',
   'src/components/SiteHeader.astro': '13602eef01a16b77e57d817583db4495905c4669',
   'src/components/SiteFooter.astro': '8d87389b9f8c83e14c5d75cce37602a93eebc971',
-  'src/layouts/CommerceLayout.astro': 'babd50f8021082e5e577f255c723f11c08e82e2a',
+  'src/layouts/CommerceLayout.astro': '1eed2e864a20f8919f87170346f6cdec4a9f471a',
   'src/layouts/WorkbookLayout.astro': '4a77c4e32333543c1361bc1b1ad6b3e546d54b47',
   'src/styles/global.css': '1d8b5673d8f77ba3e8a29446ec884d0fc91b2569',
   'src/styles/home-native-info-hard-color-v33.css': 'd739fd58e4da62ca4f31f1f1327b6206ee9c21da',
