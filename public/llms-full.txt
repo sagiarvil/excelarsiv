@@ -208,6 +208,10 @@ Excel Arşiv, Barış Bağırlar (Finansal Karar Sistemleri, VKN: 25403091318 �
 - URL: https://excelarsiv.com/hesaplayici/freelancer-gelir-gider-kdv-vergi-hesaplayici
 - Açıklama: Fatura geliriniz, KDV tahakkuku, stopaj, Bağkur ve gelir vergisi dilimleri sonrası elinize net ne kadar para kaldığını kuruşu kuruşuna hesaplayın.
 
+### Nakit Akışı, Nakit Dönüşüm Süresi (CCC) ve Başa Baş Karar Konsolu — Excel Arşiv
+- URL: https://excelarsiv.com/hesaplayici/nakit-akisi-ve-basabas-hesaplayici
+- Açıklama: DSO, DPO, DIO vadeleri ve sabit maliyetlerinizle şirketin nakit dönüşüm süresini, kritik nakit tamponunu ve başa baş ciro noktasını simüle edin.
+
 ### Pazaryeri Komisyon ve Net Kâr Hesaplayıcı (Trendyol, Hepsiburada, Amazon) — Excel Arşiv
 - URL: https://excelarsiv.com/hesaplayici/pazaryeri-komisyon-kar-hesaplama
 - Açıklama: Pazaryeri komisyon oranı, kargo baremi, hizmet bedeli ve KDV tevkifatı sonrası gerçek net kârınızı ve başa baş satış fiyatınızı anında hesaplayın.

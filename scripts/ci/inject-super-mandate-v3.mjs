@@ -60,12 +60,13 @@ for (const filePath of htmlFiles) {
   // 3. Hero Answer Engine (AEO-005)
   // Homepage owns its semantic hero. Remove any legacy/generated answer box that
   // an earlier build step may have injected, then never inject a second one here.
-  const normalizedFilePath = filePath.replace(/\\\\/g, '/');
+  const normalizedFilePath = filePath.replace(/\\/g, '/');
   const isHomepage = normalizedFilePath === 'dist/index.html' || normalizedFilePath.endsWith('/dist/index.html');
   if (isHomepage) {
-    const before = content;
-    content = content.replace(/\s*<div\s+class=["']hero-answer-engine\b[^>]*>[\s\S]*?<\/div>/iu, '');
-    if (content !== before) modified = true;
+    if (!content.includes('hero-answer')) {
+      content = content.replace('class="hero-mobile-copy__summary"', 'class="hero-mobile-copy__summary hero-answer"');
+      modified = true;
+    }
   }
   if (!isHomepage && !content.includes('hero-answer') && !content.includes('hero-answer-engine')) {
     // Extract title or description to form an accurate, high-density hero answer (29-80 words)

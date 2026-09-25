@@ -53,6 +53,8 @@
     "seo:programmatic": "node --experimental-strip-types scripts/seo/programmatic-contract.ts --site excelarsiv",
     "seo:valuation": "node --experimental-strip-types scripts/seo/valuation.ts --site excelarsiv",
     "seo:board": "node --experimental-strip-types scripts/seo/board-report.ts --site excelarsiv",
+    "mcp:start": "node tools/excelarsiv-mcp.mjs",
+    "mcp:test": "node tools/test-mcp-server.mjs",
     "test": "node scripts/validate-commerce.mjs && npm run build && node scripts/smoke-test.mjs && npm run seo:link-graph -- --check"
   },
   "dependencies": {

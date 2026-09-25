@@ -1,0 +1,297 @@
+---
+import CommerceLayout from '../../layouts/CommerceLayout.astro';
+import SectionLabel from '../../components/SectionLabel.astro';
+import Button from '../../components/Button.astro';
+
+const breadcrumbs = [
+  { label: 'Ana Sayfa', href: '/' },
+  { label: 'Hesaplayıcılar', href: '/hesaplayici' },
+  { label: 'Nakit Akışı & Başa Baş Karar Konsolu', href: '/hesaplayici/nakit-akisi-ve-basabas-hesaplayici' },
+];
+
+const seoTitle = 'Nakit Akışı, Nakit Dönüşüm Süresi (CCC) ve Başa Baş Karar Konsolu — Excel Arşiv';
+const seoDesc = 'DSO, DPO, DIO vadeleri ve sabit maliyetlerinizle şirketin nakit dönüşüm süresini, kritik nakit tamponunu ve başa baş ciro noktasını simüle edin.';
+---
+
+<CommerceLayout
+  title={seoTitle}
+  description={seoDesc}
+>
+  <div class="mx-auto max-w-5xl px-4 py-8 md:py-12">
+    <!-- Breadcrumb -->
+    <nav class="mb-6 flex flex-wrap items-center gap-2 font-mono text-xs text-ink-500" aria-label="Breadcrumb">
+      {breadcrumbs.map((b, i) => (
+        <>
+          {i > 0 && <span class="text-rule-strong">/</span>}
+          {i === breadcrumbs.length - 1 ? (
+            <span class="text-ink-900 font-semibold">{b.label}</span>
+          ) : (
+            <a href={b.href} class="hover:text-accent-primary transition-colors">{b.label}</a>
+          )}
+        </>
+      ))}
+    </nav>
+
+    <div class="mb-8">
+      <SectionLabel number={2} label="Yönetim & Likidite Karar Konsolu" />
+      <h1 class="display mt-4 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">
+        Nakit Dönüşüm Süresi (CCC) & Başa Baş Simülatörü
+      </h1>
+      <p class="lead mt-3 max-w-3xl text-ink-700 text-base sm:text-lg">
+        Müşteri tahsilat vadesi (DSO), tedarikçi ödeme vadesi (DPO) ve stokta kalma süresi (DIO) dengesini kurarak işletme sermayenize bağlanan nakdi ve şirketin kâra geçiş noktasını gerçek zamanlı hesaplayın.
+      </p>
+    </div>
+
+    <!-- Live Interactive Workbook Console -->
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-12" id="calc-app">
+      <!-- Sol: Girdi Formu -->
+      <div class="lg:col-span-6">
+        <div class="rounded-2xl border border-rule-strong bg-surface-elevated p-6 shadow-sm">
+          <div class="mb-6 flex items-center justify-between border-b border-rule-hairline pb-4">
+            <div class="flex items-center gap-3">
+              <div class="flex h-8 w-8 items-center justify-center rounded bg-slate-900 text-white font-mono text-sm font-bold">
+                C-1
+              </div>
+              <div>
+                <h2 class="font-sans text-lg font-bold text-ink-900">Operasyonel Parametreler</h2>
+                <p class="font-mono text-xs text-ink-500">MÜŞTERİ VERİ GİRDİ ALANI</p>
+              </div>
+            </div>
+            <span class="rounded-full bg-emerald-50 px-3 py-1 font-mono text-xs font-semibold text-emerald-800 border border-emerald-200">
+              1.000 USD STANDART
+            </span>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <label for="monthlySales" class="block font-sans text-sm font-semibold text-ink-900">
+                Aylık Ortalama Ciro (TL)
+              </label>
+              <div class="relative mt-1">
+                <input
+                  type="number"
+                  id="monthlySales"
+                  value="1500000"
+                  class="w-full rounded-lg border border-rule-strong bg-amber-50/50 px-4 py-2.5 font-mono text-base font-bold text-blue-900 focus:border-accent-primary focus:outline-none focus:ring-2 focus:ring-accent-primary/20"
+                />
+                <span class="absolute right-3 top-2.5 font-mono text-sm text-ink-500">₺</span>
+              </div>
+            </div>
+
+            <div>
+              <label for="grossMargin" class="block font-sans text-sm font-semibold text-ink-900">
+                Brüt Kâr Marjı (%)
+              </label>
+              <div class="relative mt-1">
+                <input
+                  type="number"
+                  id="grossMargin"
+                  value="35"
+                  step="0.1"
+                  class="w-full rounded-lg border border-rule-strong bg-amber-50/50 px-4 py-2.5 font-mono text-base font-bold text-blue-900 focus:border-accent-primary focus:outline-none focus:ring-2 focus:ring-accent-primary/20"
+                />
+                <span class="absolute right-3 top-2.5 font-mono text-sm text-ink-500">%</span>
+              </div>
+            </div>
+
+            <div>
+              <label for="fixedCosts" class="block font-sans text-sm font-semibold text-ink-900">
+                Aylık Sabit Genel Giderler (Kira, Maaş, Muhasebe vb.)
+              </label>
+              <div class="relative mt-1">
+                <input
+                  type="number"
+                  id="fixedCosts"
+                  value="320000"
+                  class="w-full rounded-lg border border-rule-strong bg-amber-50/50 px-4 py-2.5 font-mono text-base font-bold text-blue-900 focus:border-accent-primary focus:outline-none focus:ring-2 focus:ring-accent-primary/20"
+                />
+                <span class="absolute right-3 top-2.5 font-mono text-sm text-ink-500">₺</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-3 pt-2">
+              <div>
+                <label for="dso" class="block font-sans text-xs font-semibold text-ink-700">
+                  DSO (Tahsilat)
+                </label>
+                <div class="relative mt-1">
+                  <input
+                    type="number"
+                    id="dso"
+                    value="45"
+                    class="w-full rounded-lg border border-rule-strong bg-amber-50/50 px-2 py-2 font-mono text-sm font-bold text-blue-900 focus:border-accent-primary focus:outline-none"
+                  />
+                  <span class="absolute right-2 top-2 font-mono text-xs text-ink-500">Gün</span>
+                </div>
+              </div>
+              <div>
+                <label for="dio" class="block font-sans text-xs font-semibold text-ink-700">
+                  DIO (Stok)
+                </label>
+                <div class="relative mt-1">
+                  <input
+                    type="number"
+                    id="dio"
+                    value="30"
+                    class="w-full rounded-lg border border-rule-strong bg-amber-50/50 px-2 py-2 font-mono text-sm font-bold text-blue-900 focus:border-accent-primary focus:outline-none"
+                  />
+                  <span class="absolute right-2 top-2 font-mono text-xs text-ink-500">Gün</span>
+                </div>
+              </div>
+              <div>
+                <label for="dpo" class="block font-sans text-xs font-semibold text-ink-700">
+                  DPO (Ödeme)
+                </label>
+                <div class="relative mt-1">
+                  <input
+                    type="number"
+                    id="dpo"
+                    value="60"
+                    class="w-full rounded-lg border border-rule-strong bg-amber-50/50 px-2 py-2 font-mono text-sm font-bold text-blue-900 focus:border-accent-primary focus:outline-none"
+                  />
+                  <span class="absolute right-2 top-2 font-mono text-xs text-ink-500">Gün</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sağ: Bento-Grid Karar Kokpiti -->
+      <div class="lg:col-span-6">
+        <div class="rounded-2xl border border-rule-strong bg-surface-elevated p-6 shadow-sm">
+          <div class="mb-6 flex items-center justify-between border-b border-rule-hairline pb-4">
+            <div>
+              <h2 class="font-sans text-lg font-bold text-ink-900">Bento-Grid Yönetici Kokpiti</h2>
+              <p class="font-mono text-xs text-ink-500">ANLIK C-LEVEL ANALİZ & STRATEJİ</p>
+            </div>
+            <span class="rounded bg-slate-900 px-2.5 py-1 font-mono text-xs font-bold text-white">
+              KOKPİT 01
+            </span>
+          </div>
+
+          <!-- 4 Bento Kartı -->
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Kart 1: Başa Baş Cirosu -->
+            <div class="rounded-xl border border-rule-hairline bg-slate-50 p-4">
+              <span class="font-mono text-xs font-semibold uppercase text-ink-500">Başa Baş Aylık Ciro</span>
+              <div class="mt-1 font-mono text-xl font-extrabold text-ink-900" id="resBreakeven">₺ 914.285</div>
+              <span class="mt-1 inline-block font-sans text-xs font-medium text-emerald-700" id="resBreakevenStatus">
+                ✓ Mevcut cironun %61'i yeterli
+              </span>
+            </div>
+
+            <!-- Kart 2: Net Kâr / Ay -->
+            <div class="rounded-xl border border-rule-hairline bg-slate-50 p-4">
+              <span class="font-mono text-xs font-semibold uppercase text-ink-500">Net Faaliyet Kârı</span>
+              <div class="mt-1 font-mono text-xl font-extrabold text-emerald-700" id="resNetProfit">₺ 205.000</div>
+              <span class="mt-1 inline-block font-sans text-xs font-medium text-blue-700" id="resNetMargin">
+                Net Marj: % 13,7
+              </span>
+            </div>
+
+            <!-- Kart 3: Nakit Döngüsü (CCC) -->
+            <div class="rounded-xl border border-rule-hairline bg-slate-50 p-4">
+              <span class="font-mono text-xs font-semibold uppercase text-ink-500">Nakit Döngüsü (CCC)</span>
+              <div class="mt-1 font-mono text-xl font-extrabold text-blue-900" id="resCCC">15 Gün</div>
+              <span class="mt-1 inline-block font-sans text-xs font-medium text-emerald-700" id="resCCCStatus">
+                DSO(45) + DIO(30) - DPO(60)
+              </span>
+            </div>
+
+            <!-- Kart 4: Bağlanan İşletme Sermayesi -->
+            <div class="rounded-xl border border-rule-hairline bg-slate-50 p-4">
+              <span class="font-mono text-xs font-semibold uppercase text-ink-500">Bağlanan Sermaye</span>
+              <div class="mt-1 font-mono text-xl font-extrabold text-amber-700" id="resWorkingCap">₺ 487.500</div>
+              <span class="mt-1 inline-block font-sans text-xs font-medium text-ink-600">
+                15 günlük ciro finansmanı
+              </span>
+            </div>
+          </div>
+
+          <!-- Tavsiye Edilen C-Level Aksiyon -->
+          <div class="mt-5 rounded-xl border border-red-200 bg-red-50 p-4">
+            <div class="flex items-center gap-2">
+              <span class="flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-white font-mono text-xs font-bold">!</span>
+              <h3 class="font-sans text-sm font-bold text-red-900">Tavsiye Edilen C-Level İcra Aksiyonu</h3>
+            </div>
+            <p class="mt-2 text-xs leading-relaxed text-red-800" id="resAction">
+              Nakit döngünüz pozitif (15 gün). Müşteri tahsilat vadenizi 5 gün öne çekerek işletme sermayesi ihtiyacınızı ₺ 162.500 azaltabilir, banka kredi faiz yükünden tasarruf edebilirsiniz.
+            </p>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              href="/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi"
+              class="w-full text-center rounded-xl bg-slate-900 px-5 py-3 font-sans text-sm font-bold text-white hover:bg-slate-800 transition-colors shadow"
+            >
+              1.000 USD Full Excel Sistemini İncele →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    function calculate() {
+      const sales = parseFloat(document.getElementById('monthlySales').value) || 0;
+      const marginPct = (parseFloat(document.getElementById('grossMargin').value) || 0) / 100;
+      const fixedCosts = parseFloat(document.getElementById('fixedCosts').value) || 0;
+      const dso = parseFloat(document.getElementById('dso').value) || 0;
+      const dio = parseFloat(document.getElementById('dio').value) || 0;
+      const dpo = parseFloat(document.getElementById('dpo').value) || 0;
+
+      // Başa baş: Sabit Maliyet / Brüt Marj
+      const breakeven = marginPct > 0 ? fixedCosts / marginPct : 0;
+      const bePct = sales > 0 ? (breakeven / sales) * 100 : 0;
+
+      // Net Kâr: Ciro * Brüt Marj - Sabit Maliyet
+      const grossProfit = sales * marginPct;
+      const netProfit = grossProfit - fixedCosts;
+      const netMargin = sales > 0 ? (netProfit / sales) * 100 : 0;
+
+      // CCC: DSO + DIO - DPO
+      const ccc = dso + dio - dpo;
+
+      // Günlük Maliyet ve Bağlanan Sermaye
+      const dailyCost = (sales * (1 - marginPct)) / 30;
+      const workingCap = Math.max(0, ccc * dailyCost);
+
+      const fmt = (n) => '₺ ' + Math.round(n).toLocaleString('tr-TR');
+
+      document.getElementById('resBreakeven').innerText = fmt(breakeven);
+      document.getElementById('resBreakevenStatus').innerText = bePct <= 100 
+        ? `✓ Cironun %${bePct.toFixed(1)}'i başa baş için yeterli (Güvenli)` 
+        : `⚠️ Ciro başa başın altında! Zarar riski!`;
+
+      document.getElementById('resNetProfit').innerText = fmt(netProfit);
+      document.getElementById('resNetProfit').className = netProfit >= 0 
+        ? 'mt-1 font-mono text-xl font-extrabold text-emerald-700' 
+        : 'mt-1 font-mono text-xl font-extrabold text-red-600';
+      document.getElementById('resNetMargin').innerText = `Net Marj: % ${netMargin.toFixed(1)}`;
+
+      document.getElementById('resCCC').innerText = `${ccc} Gün`;
+      document.getElementById('resCCC').className = ccc <= 30 
+        ? 'mt-1 font-mono text-xl font-extrabold text-emerald-700' 
+        : 'mt-1 font-mono text-xl font-extrabold text-amber-700';
+
+      document.getElementById('resWorkingCap').innerText = fmt(workingCap);
+
+      let action = "";
+      if (netProfit < 0) {
+        action = `ACİL AKSİYON: Şirketiniz aylık ${fmt(Math.abs(netProfit))} zarar üretmektedir. Sabit giderleri ${fmt(Math.abs(netProfit))} kısmalı veya brüt marjınızı en az %${((fixedCosts/sales)*100).toFixed(1)} seviyesine çekmelisiniz.`;
+      } else if (ccc > 45) {
+        action = `Tahsilat döngünüz çok uzun (${ccc} gün). DPO vadeniz (${dpo} gün) yetersiz kalıyor. Müşterilere erken ödeme iskontosu uygulayarak DSO vadesini 15 gün aşağı çekmeli ve nakdi kasada tutmalısınız.`;
+      } else {
+        action = `Mükemmel finansal denge. Şirketiniz aylık ${fmt(netProfit)} net kâr üretmekte ve nakit döngüsü ${ccc} günde dönmektedir. Biriken nakit rezervini risksiz vadeli veya büyüme yatırımlarında değerlendirin.`;
+      }
+      document.getElementById('resAction').innerText = action;
+    }
+
+    document.querySelectorAll('#calc-app input').forEach(input => {
+      input.addEventListener('input', calculate);
+    });
+    calculate();
+  </script>
+</CommerceLayout>

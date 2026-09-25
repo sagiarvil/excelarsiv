@@ -372,6 +372,9 @@ if (isMain) {
   console.log('-'.repeat(78));
   for (const eng of res.engines) {
     console.log(`[${eng.code}] ${eng.name.padEnd(45)} | Ağırlık: ${String(eng.weight).padStart(2)} | Skor: ${String(eng.score).padStart(3)}% | ${eng.status}`);
+    for (const r of eng.rules) {
+      if (!r.pass) console.log(`   ❌ [${r.id}] ${r.name}: ${r.note}`);
+    }
   }
   console.log('='.repeat(78));
   if (res.overallScore < 100) {

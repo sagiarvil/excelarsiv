@@ -50,6 +50,20 @@ for (const sid of targetIds) {
   }
 }
 
+// Extract any remaining inline <style> tags to further reduce HTML payload
+const genericStyleRegex = /<style\b[^>]*>([\s\S]*?)<\/style>/gi;
+let sm;
+while ((sm = genericStyleRegex.exec(html)) !== null) {
+  const css = sm[1].trim();
+  if (css.length > 0) {
+    extractedCss.push(`/* inlined-style */\n${css}`);
+  }
+}
+html = html.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '');
+
+// Collapse redundant indentation whitespace between tags to stay strictly under the 250KB ceiling
+html = html.replace(/>\s{2,}</g, '> <');
+
 if (extractedCss.length > 0) {
   const combinedCss = extractedCss.join('\n\n');
   const bundleHash = crypto.createHash('md5').update(combinedCss).digest('hex').slice(0, 8);

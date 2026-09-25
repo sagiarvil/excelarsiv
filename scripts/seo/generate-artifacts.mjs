@@ -16,7 +16,7 @@ import { EEAT, buildAiTxt, buildEeatMarkdownSection } from './eeat-ssot.mjs';
 const MAX_URLS_PER_SITEMAP = 40_000;
 const MAX_UNCOMPRESSED_BYTES = 45 * 1024 * 1024;
 const SCREENSHOTS_DIR = resolve(process.cwd(), 'public/screenshots');
-const artifacts = new Set(['sitemap.xml', 'llms.txt', 'llms-full.txt', 'ai.txt']);
+const artifacts = new Set(['sitemap.xml', 'llms.txt', 'llms-full.txt', 'ai.txt', 'rss.xml', 'atom.xml']);
 
 function atomicWrite(name, content) {
   const target = join(DIST_DIR, name);
@@ -411,6 +411,119 @@ function buildLlmsFull(indexablePages, templateRecords) {
   return lines.join('\n');
 }
 
+function buildRssDocument(indexablePages, templates, entries) {
+  const lastUpdated = latestContentDate(indexablePages, templates);
+  const buildDateStr = (lastUpdated || new Date()).toUTCString();
+
+  const itemEntries = indexablePages.map((page) => {
+    const entry = entries.find((e) => e.loc === page.canonical);
+    const slug = page.pathname.split('/').filter(Boolean).at(-1);
+    const product = templates.get(slug);
+    const pubDateObj = entry?.lastmod ? new Date(entry.lastmod) : (lastUpdated || new Date());
+    const title = product?.name || page.title || 'Excel Arşiv Şablonu';
+    const desc = page.description || product?.summary || 'İşletmeler için hazır kurumsal Excel karar sistemi.';
+    const category = product?.category || pageKind(page.pathname);
+
+    return {
+      title,
+      link: page.canonical,
+      guid: page.canonical,
+      description: desc,
+      category,
+      pubDate: pubDateObj.toUTCString(),
+      pubDateTimestamp: pubDateObj.getTime(),
+    };
+  }).sort((a, b) => b.pubDateTimestamp - a.pubDateTimestamp || a.link.localeCompare(b.link, 'tr'));
+
+  const itemsXml = itemEntries.map((item) => `    <item>
+      <title>${xmlEscape(item.title)}</title>
+      <link>${xmlEscape(item.link)}</link>
+      <guid isPermaLink="true">${xmlEscape(item.guid)}</guid>
+      <description>${xmlEscape(item.description)}</description>
+      <category>${xmlEscape(item.category)}</category>
+      <dc:creator>Barış Bağırlar</dc:creator>
+      <pubDate>${item.pubDate}</pubDate>
+    </item>`).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Excel Arşiv — İşletmeler İçin Hazır Excel Karar Sistemleri</title>
+    <link>${SITE_ORIGIN}</link>
+    <description>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</description>
+    <language>tr-TR</language>
+    <lastBuildDate>${buildDateStr}</lastBuildDate>
+    <pubDate>${buildDateStr}</pubDate>
+    <atom:link href="${SITE_ORIGIN}/rss.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>barisbagirlar@gmail.com (Barış Bağırlar)</managingEditor>
+    <webMaster>barisbagirlar@gmail.com (Barış Bağırlar)</webMaster>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <generator>Excel Arşiv Feed Engine v3.0</generator>
+${itemsXml}
+  </channel>
+</rss>
+`;
+}
+
+function buildAtomDocument(indexablePages, templates, entries) {
+  const lastUpdated = latestContentDate(indexablePages, templates);
+  const updatedIso = (lastUpdated || new Date()).toISOString();
+
+  const itemEntries = indexablePages.map((page) => {
+    const entry = entries.find((e) => e.loc === page.canonical);
+    const slug = page.pathname.split('/').filter(Boolean).at(-1);
+    const product = templates.get(slug);
+    const dateObj = entry?.lastmod ? new Date(entry.lastmod) : (lastUpdated || new Date());
+    const isoDate = dateObj.toISOString();
+    const title = product?.name || page.title || 'Excel Arşiv Şablonu';
+    const desc = page.description || product?.summary || 'İşletmeler için hazır kurumsal Excel karar sistemi.';
+    const category = product?.category || pageKind(page.pathname);
+
+    return {
+      title,
+      link: page.canonical,
+      id: page.canonical,
+      summary: desc,
+      category,
+      updated: isoDate,
+      published: isoDate,
+      timestamp: dateObj.getTime(),
+    };
+  }).sort((a, b) => b.timestamp - a.timestamp || a.link.localeCompare(b.link, 'tr'));
+
+  const entriesXml = itemEntries.map((item) => `  <entry>
+    <id>${xmlEscape(item.id)}</id>
+    <title>${xmlEscape(item.title)}</title>
+    <link rel="alternate" type="text/html" href="${xmlEscape(item.link)}" />
+    <updated>${item.updated}</updated>
+    <published>${item.published}</published>
+    <summary>${xmlEscape(item.summary)}</summary>
+    <category term="${xmlEscape(item.category)}" label="${xmlEscape(item.category)}" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>${SITE_ORIGIN}/hakkinda</uri>
+    </author>
+  </entry>`).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>${SITE_ORIGIN}/</id>
+  <title>Excel Arşiv — İşletmeler İçin Hazır Excel Karar Sistemleri</title>
+  <subtitle>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</subtitle>
+  <link rel="self" type="application/atom+xml" href="${SITE_ORIGIN}/atom.xml" />
+  <link rel="alternate" type="text/html" href="${SITE_ORIGIN}/" />
+  <updated>${updatedIso}</updated>
+  <generator uri="https://excelarsiv.com/" version="3.0">Excel Arşiv Feed Engine</generator>
+  <author>
+    <name>Barış Bağırlar</name>
+    <email>barisbagirlar@gmail.com</email>
+    <uri>${SITE_ORIGIN}/hakkinda</uri>
+  </author>
+${entriesXml}
+</feed>
+`;
+}
+
 cleanLegacyArtifacts();
 
 const pages = discoverBuiltPages();
@@ -464,6 +577,19 @@ if (existsSync(resolve('public/llms-full.txt'))) {
   if (existsSync(resolve('public/ai.txt'))) {
     writeFileSync(resolve('public/ai.txt'), aiTxtContent, 'utf8');
   }
+}
+
+// RSS 2.0 & Atom 1.0 Feed Altyapısı (Sitemap ile %100 Senkron ve Kayıpsız)
+const rssContent = buildRssDocument(indexablePages, templates, entries);
+atomicWrite('rss.xml', rssContent);
+if (existsSync(resolve('public/rss.xml'))) {
+  writeFileSync(resolve('public/rss.xml'), rssContent, 'utf8');
+}
+
+const atomContent = buildAtomDocument(indexablePages, templates, entries);
+atomicWrite('atom.xml', atomContent);
+if (existsSync(resolve('public/atom.xml'))) {
+  writeFileSync(resolve('public/atom.xml'), atomContent, 'utf8');
 }
 
 const lastUpdatedDate = latestContentDate(indexablePages, templates);
