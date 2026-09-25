@@ -1,3 +1,13 @@
+
+# ==============================================================================
+# EVRENSEL KURAL: DAİMİ PROTOKOL VE ÇEKİRDEK SENKRONİZASYONU (AUTO-SYNC MANDATE)
+# KULLANICI AÇIKÇA BELİRTMESE DAHİ, PROJEDEKİ HERHANGİ BİR ÇALIŞMADA YAPILAN HER YENİ
+# TASARIM, FORMÜL, MİMARİ VEYA GÖRSEL İYİLEŞTİRME; DERHAL VE AYNI ANDA
+# 1) calisma_prorokolu/EXCELARSIV_DECISION_OS_V15_1_RUNTIME_KERNEL.py DOSYASINA YENİ KURAL OLARAK,
+# 2) calisma_prorokolu/EXCELARSIV_DECISION_OS_V15_1_MASTER_STANDART_UI_LOCKED.xlsx DOSYASINA KİLİTLİ STANDART OLARAK
+# İŞLENMEK ZORUNDADIR. BU İKİ DOSYA TÜM GELECEK ÇALIŞMALARIN TEK DOĞRULUK KAYNAĞIDIR (SSOT).
+# ==============================================================================
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
