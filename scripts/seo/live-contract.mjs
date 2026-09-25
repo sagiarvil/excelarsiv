@@ -41,6 +41,7 @@ async function get(url, { redirect = 'follow' } = {}) {
         status: res.status,
         location: res.headers.get('location') ?? '',
         contentType: res.headers.get('content-type') ?? '',
+        strictTransportSecurity: res.headers.get('strict-transport-security') ?? '',
         text: await res.text(),
         error: '',
       };
@@ -51,7 +52,7 @@ async function get(url, { redirect = 'follow' } = {}) {
       return payload;
     } catch (error) {
       lastError = errorLabel(error);
-      if (attempt === RETRY) return { status: 0, location: '', contentType: '', text: '', error: lastError };
+      if (attempt === RETRY) return { status: 0, location: '', contentType: '', strictTransportSecurity: '', text: '', error: lastError };
       await sleep(RETRY_DELAY_MS * attempt);
     } finally {
       clearTimeout(timer);
@@ -83,7 +84,43 @@ function parseUrls(xml) {
 const robots = await get(`${BASE}/robots.txt`);
 check(robots.status === 200, `robots.txt HTTP ${robots.status}`);
 check(robots.text.includes(`Sitemap: ${BASE}/sitemap.xml`), 'robots.txt sitemap.xml bildirmiyor');
+
 check(/User-agent:\s*OAI-SearchBot[\s\S]*?Allow:\s*\//i.test(robots.text), 'robots.txt OAI-SearchBot için Allow: / içermiyor');
+
+const reportAliases = new Map([
+  ['/about', '/hakkinda'],
+  ['/hakkimizda', '/hakkinda'],
+  ['/privacy', '/gizlilik-politikasi'],
+  ['/privacy-policy', '/gizlilik-politikasi'],
+]);
+for (const [route, destination] of reportAliases) {
+  const alias = await get(`${BASE}${route}`, { redirect: 'manual' });
+  check(alias.status === 301, `report alias 301 dönmüyor: ${route} (HTTP ${alias.status})`);
+  const expectedLocation = new URL(destination, BASE).href;
+  const actualLocation = alias.location ? new URL(alias.location, BASE).href : '';
+  check(actualLocation === expectedLocation, `report alias yanlış hedef: ${route} -> ${alias.location || 'Location yok'}`);
+}
+
+for (const route of ['/hakkinda', '/gizlilik-politikasi']) {
+  const surface = await get(`${BASE}${route}`);
+  check(surface.status === 200, `trust surface HTTP ${surface.status}: ${route}`);
+}
+
+const llms = await get(`${BASE}/llms.txt`);
+check(llms.status === 200, `llms.txt HTTP ${llms.status}`);
+check(Buffer.byteLength(llms.text, 'utf8') > 500, 'llms.txt içerik eşiğinin altında');
+
+const llmsFull = await get(`${BASE}/llms-full.txt`);
+check(llmsFull.status === 200, `llms-full.txt HTTP ${llmsFull.status}`);
+check(Buffer.byteLength(llmsFull.text, 'utf8') > 5000, 'llms-full.txt içerik eşiğinin altında');
+
+for (const route of ['/.well-known/agent-card.json', '/.well-known/mcp.json', '/mcp.json', '/mcp']) {
+  const surface = await get(`${BASE}${route}`);
+  check(surface.status === 200, `machine surface HTTP ${surface.status}: ${route}`);
+  if (surface.status === 200) {
+    try { JSON.parse(surface.text); } catch { check(false, `machine surface JSON geçersiz: ${route}`); }
+  }
+}
 
 for (const [route, destination] of RETIRED_ROUTES) {
   const retired = await get(`${BASE}${route}`, { redirect: 'manual' });
@@ -143,6 +180,10 @@ for (const route of RETIRED_ROUTES.keys()) check(!allUrls.has(`${BASE}${route}`)
 
 const homepage = await get(`${BASE}/`);
 check(homepage.status === 200, `homepage HTTP ${homepage.status}`);
+const hsts = homepage.strictTransportSecurity;
+check(/max-age=63072000/i.test(hsts), `HSTS max-age eksik/yanlış: ${hsts || 'yok'}`);
+check(/includeSubDomains/i.test(hsts), `HSTS includeSubDomains eksik: ${hsts || 'yok'}`);
+check(Buffer.byteLength(homepage.text, 'utf8') <= 140_000, `homepage HTML budget aşıldı: ${Buffer.byteLength(homepage.text, 'utf8')} B > 140000 B`);
 
 const comparison = await get(`${BASE}${COMPARISON_ROUTE}`);
 check(comparison.status === 200, `karşılaştırma otorite sayfası HTTP ${comparison.status}`);

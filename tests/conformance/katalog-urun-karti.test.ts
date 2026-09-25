@@ -71,8 +71,8 @@ test('listeleme ve sızıntı yüzeyleri tek kart bileşenine bağlı', () => {
   assert.match(grid, /data-template-grid-wrap/);
   assert.match(grid, /KatalogUrunKarti/);
   assert.equal(/wa\.me/.test(grid), false);
-  assert.match(card, /href=\{template\.shopierUrl\}/);
-  assert.equal(/wa\.me/.test(card), false);
+  assert.match(card, /wa\.me\/905393333303/);
+  assert.match(card, /Teklif Ver/);
   assert.equal(/wa\.me/.test(visual), false);
   assert.match(product, /KatalogUrunKarti/);
   assert.equal(/TemplateCard/.test(product), false);
@@ -80,8 +80,8 @@ test('listeleme ve sızıntı yüzeyleri tek kart bileşenine bağlı', () => {
   assert.equal(/TemplateCard/.test(notFound), false);
   assert.match(home, /premium-card__shot/);
   assert.equal(/CatalogProductVisual/.test(home), false);
-  assert.match(visual, /aspect-ratio:\s*4\s*\/\s*3/);
-  assert.match(visual, /object-fit:\s*cover/);
+  assert.match(visual, /aspect-ratio:\s*16\s*\/\s*10/);
+  assert.match(visual, /object-fit:\s*contain/);
   assert.match(visual, /catalogShotOdak/);
   assert.match(visual, /transform:\s*scale/);
   assert.match(visual, /card__workbook/);
@@ -89,7 +89,7 @@ test('listeleme ve sızıntı yüzeyleri tek kart bileşenine bağlı', () => {
   assert.equal(/●\s*Canlı|pv-kpi|product-visual/.test(visual), false);
   assert.match(filter, /data-template-grid-wrap/);
   assert.equal(/wa\.me/.test(sablonlar), false);
-  assert.equal(/wa\.me/.test(legacy), false);
+  assert.equal(/wa\.me/.test(legacy), true);
   const shopierSrc = readFileSync(resolve(ROOT, 'src/lib/shopier.ts'), 'utf8');
   assert.match(shopierSrc, /export function shopierUrlForPrice/);
 });

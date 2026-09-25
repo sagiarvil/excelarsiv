@@ -26,7 +26,6 @@ const corePages: SeoPageRecord[] = [
       name: 'Excel Arşiv',
       type: 'Organization',
       sameAs: [
-        'https://www.wikidata.org/wiki/Q11589432',
         'https://linkedin.com/company/excelarsiv',
         'https://x.com/excelarsiv'
       ]
@@ -56,7 +55,7 @@ const corePages: SeoPageRecord[] = [
       id: `${ORIGIN}/ozel-excel-sistemleri#service`,
       name: 'İşletmeye Özel Excel Sistemleri Tasarımı',
       type: 'Service',
-      sameAs: ['https://www.wikidata.org/wiki/Q11589432']
+      sameAs: []
     },
     semanticTriples: [
       { subject: 'Excel Arşiv', predicate: 'providesSolution', object: 'İşletmeye Özel Terzi Usulü Finans ve Karar Mimarisi' },

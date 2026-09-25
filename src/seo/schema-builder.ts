@@ -4,6 +4,8 @@
  */
 
 import type { SeoPageRecord } from './registry.types.ts';
+import { YAZAR, yazarPersonId, yazarPersonLd } from '../data/yazar.ts';
+import { SATICI } from '../data/satici.ts';
 
 export function buildCompleteJsonLdGraph(page: SeoPageRecord, domain: string = 'excelarsiv.com'): string {
   const origin = `https://${domain}`;
@@ -26,19 +28,9 @@ export function buildCompleteJsonLdGraph(page: SeoPageRecord, domain: string = '
         caption: 'Excel Arşiv Kurumsal Logo'
       },
       description: 'Türkiye\'deki işletmeler, finans yöneticileri ve KOBİ\'ler için kurumsal Excel çalışma sistemleri, nakit akışı modelleri ve terzi usulü karar mimarileri.',
-      email: 'bilgi@excelarsiv.com',
-      taxID: '2230353841',
-      founder: {
-        '@type': 'Person',
-        '@id': `${origin}/#founder`,
-        name: 'Doğan Aydın',
-        jobTitle: 'Kurucu, Kıdemli Finansal Model ve Karar Destek Mimarı',
-        sameAs: [
-          'https://www.wikidata.org/wiki/Q11589432',
-          'https://linkedin.com/in/doganaydin',
-          'https://x.com/excelarsiv'
-        ]
-      },
+      email: SATICI.eposta,
+      taxID: SATICI.vkn,
+      founder: { '@id': yazarPersonId(origin) },
       address: {
         '@type': 'PostalAddress',
         addressCountry: 'TR'
@@ -46,17 +38,14 @@ export function buildCompleteJsonLdGraph(page: SeoPageRecord, domain: string = '
       contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'customer support',
-        email: 'bilgi@excelarsiv.com',
+        email: SATICI.eposta,
+        telephone: SATICI.telefonE164,
         availableLanguage: 'tr-TR',
         areaServed: 'TR'
       },
-      sameAs: [
-        'https://www.wikidata.org/wiki/Q11589432',
-        'https://twitter.com/excelarsiv',
-        'https://www.linkedin.com/company/excelarsiv',
-        'https://github.com/excelarsiv'
-      ]
+      sameAs: [...YAZAR.sameAs]
     },
+    yazarPersonLd(origin),
 
     // 2. WebSite Düğümü (WebSite Node)
     {

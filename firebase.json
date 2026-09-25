@@ -34,9 +34,33 @@
           "source": "/paketler",
           "destination": "/sablon/kobi-finans-yonetim-paketi",
           "type": 301
+        },
+        {
+          "source": "/about",
+          "destination": "/hakkinda",
+          "type": 301
+        },
+        {
+          "source": "/hakkimizda",
+          "destination": "/hakkinda",
+          "type": 301
+        },
+        {
+          "source": "/privacy",
+          "destination": "/gizlilik-politikasi",
+          "type": 301
+        },
+        {
+          "source": "/privacy-policy",
+          "destination": "/gizlilik-politikasi",
+          "type": 301
         }
       ],
       "rewrites": [
+        {
+          "source": "/mcp",
+          "destination": "/mcp.json"
+        },
         {
           "source": "/api/checkout",
           "function": {
@@ -341,23 +365,6 @@
         },
         {
           "source": "/.well-known/mcp.json",
-          "headers": [
-            {
-              "key": "Content-Type",
-              "value": "application/json; charset=utf-8"
-            },
-            {
-              "key": "Access-Control-Allow-Origin",
-              "value": "*"
-            },
-            {
-              "key": "Cache-Control",
-              "value": "public, max-age=300"
-            }
-          ]
-        },
-        {
-          "source": "/.well-known/agent-card.json",
           "headers": [
             {
               "key": "Content-Type",
