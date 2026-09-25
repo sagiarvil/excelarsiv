@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "web": "https://excelarsiv.com",
+  "app": {
+    "android": {
+      "package": "com.excelarsiv.app",
+      "url_scheme": "excelarsiv://"
+    },
+    "ios": {
+      "bundle_id": "com.excelarsiv.app",
+      "app_store_id": "0000000000",
+      "url_scheme": "excelarsiv://"
+    }
+  },
+  "routes": [
+    {
+      "web_path": "/sablon/:slug",
+      "app_path": "template/:slug"
+    },
+    {
+      "web_path": "/demo/:slug",
+      "app_path": "demo/:slug"
+    },
+    {
+      "web_path": "/sablonlar",
+      "app_path": "catalog"
+    }
+  ]
+}

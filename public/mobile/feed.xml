@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Excel Arşiv — Mobil ve Sesli Arama Beslemesi</title>
+    <link>https://excelarsiv.com</link>
+    <description>Mobil cihazlar, AI asistanlar ve sesli arama sorguları için optimize edilmiş Excel finans ve yönetim sistemleri akışı.</description>
+    <language>tr</language>
+    <atom:link href="https://excelarsiv.com/mobile/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <lastBuildDate>Fri, 25 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi]]></title>
+      <link>https://excelarsiv.com/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi</link>
+      <guid isPermaLink="true">https://excelarsiv.com/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi</guid>
+      <description><![CDATA[Nakit girişlerini, çıkışlarını ve vadeleri takip ederek nakit sıkışıklıklarını önceden gösteren hazır Excel şablonu.]]></description>
+      <content:encoded><![CDATA[İşletmeler için 13 haftalık nakit akışı ve ödeme planlama sistemi. Vade kırılımları, haftalık net nakit pozisyonu ve acil ödeme takvimini tek ekranda sunar.]]></content:encoded>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
+      <category>nakit-akisi</category>
+    </item>
+    <item>
+      <title><![CDATA[KOBİ Finans Yönetim Paketi]]></title>
+      <link>https://excelarsiv.com/sablon/kobi-finans-yonetim-paketi</link>
+      <guid isPermaLink="true">https://excelarsiv.com/sablon/kobi-finans-yonetim-paketi</guid>
+      <description><![CDATA[Gelir tablosu, bilanço, nakit akışı ve kârlılık analizini bir araya getiren kurumsal yönetim paketi.]]></description>
+      <content:encoded><![CDATA[KOBİ'lerin tüm finansal tablolarını tek merkezde konsolide eden, yönetici kokpiti ve rapor çıktıları içeren kapsamlı Excel yönetim sistemi.]]></content:encoded>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
+      <category>finansal-analiz</category>
+    </item>
+  </channel>
+</rss>

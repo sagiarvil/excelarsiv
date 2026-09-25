@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.excelarsiv.app",
+      "sha256_cert_fingerprints": [
+        "14:6D:E9:7F:0E:52:D7:1E:84:53:98:23:49:AE:92:AA:E1:21:40:AE:4F:92:23:B2:17:89:12:34:56:78:90:AB"
+      ]
+    }
+  }
+]

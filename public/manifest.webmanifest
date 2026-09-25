@@ -1,0 +1,54 @@
+{
+  "name": "Excel Arşiv — Finansal Karar ve Yönetim Sistemleri",
+  "short_name": "ExcelArşiv",
+  "description": "Türkiye'deki işletmeler için finans, muhasebe ve operasyon odaklı hazır Excel çalışma sistemleri.",
+  "start_url": "/?utm_source=pwa",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#107c41",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "tr-TR",
+  "icons": [
+    {
+      "src": "/images/brand/excelarsiv-header-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/brand/excelarsiv-header-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/brand/excelarsiv-header-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Tüm Şablonlar",
+      "url": "/sablonlar",
+      "icons": [
+        {
+          "src": "/images/brand/excelarsiv-header-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "İşletmeye Özel Excel",
+      "url": "/ozel-excel-sistemleri",
+      "icons": [
+        {
+          "src": "/images/brand/excelarsiv-header-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

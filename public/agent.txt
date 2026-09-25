@@ -1,0 +1,39 @@
+# https://excelarsiv.com/agent.txt
+# AI Agent Manifest v1.0 — MANDATE-SEO-GEO-MOBILE-FIRST-2026-V8 Uyumlu
+
+[identity]
+name: Excel Arşiv
+type: Organization
+canonical: https://excelarsiv.com
+mobile_app_android: com.excelarsiv.app
+mobile_app_ios: com.excelarsiv.app
+
+[capabilities]
+read: true
+cite: true
+transact: true
+schedule: false
+verify: true
+mobile_deep_link: true
+
+[protocols]
+mcp: https://excelarsiv.com/mcp
+mcp_mobile: https://excelarsiv.com/mcp/mobile
+openapi: https://excelarsiv.com/api/openapi.json
+app_links_android: https://excelarsiv.com/.well-known/assetlinks.json
+app_links_ios: https://excelarsiv.com/.well-known/apple-app-site-association
+
+[preferred_content]
+markdown_root: https://excelarsiv.com/llms.txt
+deep_graphs: https://excelarsiv.com/llms/pages/
+mobile_deep_graphs: https://excelarsiv.com/llms/mobile/
+rss: https://excelarsiv.com/rss.xml
+atom: https://excelarsiv.com/atom.xml
+mobile_rss: https://excelarsiv.com/mobile/feed.xml
+sitemap: https://excelarsiv.com/sitemap.xml
+mobile_sitemap: https://excelarsiv.com/sitemap-mobile.xml
+
+[contact]
+email: official@excelarsiv.com
+human: https://excelarsiv.com/iletisim
+phone: tel:+905393333303

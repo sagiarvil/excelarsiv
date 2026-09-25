@@ -107,7 +107,13 @@ const orgLd = JSON.stringify({
 <html lang="tr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, minimum-scale=1, maximum-scale=5" />
+    <meta name="theme-color" content="#107c41" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Excel Arşiv" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=yes,address=yes,email=yes" />
     <meta name="generator" content={Astro.generator} />
     <title>{resolvedTitle}</title>
     <meta name="description" content={resolvedDescription} />
@@ -116,6 +122,8 @@ const orgLd = JSON.stringify({
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="tr" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/images/brand/excelarsiv-header-logo.png" />
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="Excel Arşiv" />
     <meta property="og:title" content={resolvedTitle} />
@@ -137,7 +145,15 @@ const orgLd = JSON.stringify({
     <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
     <link rel="alternate" type="text/markdown" href="/llms/core.md" title="LLMS Core Knowledge" />
     <link rel="alternate" type="text/markdown" href="/llms.txt" title="llms.txt (Markdown)" />
+    <link rel="alternate" type="application/rss+xml" title="Excel Arşiv Mobil Beslemesi" href="/mobile/feed.xml" />
     <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
     <script type="application/ld+json" set:html={orgLd} />
     <slot name="head" />
   </head>

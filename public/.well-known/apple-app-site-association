@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "9A8B7C6D5E.com.excelarsiv.app",
+        "paths": [
+          "/sablon/*",
+          "/sablonlar/*",
+          "/demo/*",
+          "/karar/*",
+          "/ozel-excel-sistemleri"
+        ]
+      }
+    ]
+  }
+}
