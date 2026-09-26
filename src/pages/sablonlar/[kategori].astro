@@ -4,7 +4,7 @@ import '../../styles/appstore-theme.css';
 import AppStoreSidebar from '../../components/appstore/AppStoreSidebar.astro';
 import TemplateGrid from '../../components/catalog/TemplateGrid.astro';
 import { getCollection } from 'astro:content';
-import { getTemplatesByCategory } from '../../lib/templates';
+import { getTemplatesByCategory, getAllTemplates } from '../../lib/templates';
 import { categories, getCategoryName } from '../../lib/categories';
 import { kategoriKarar } from '../../data/kategori-karar';
 
@@ -21,7 +21,8 @@ interface Props {
 
 const { categoryName } = Astro.props;
 const categorySlug = Astro.params.kategori!;
-const templates = await getTemplatesByCategory(categorySlug);
+const allTemplates = await getAllTemplates();
+const templates = allTemplates.filter((t) => t.categorySlug === categorySlug);
 const categoryLabel = getCategoryName(categorySlug);
 const category = categories.find((item) => item.slug === categorySlug);
 const karar = kategoriKarar[categorySlug as keyof typeof kategoriKarar];
@@ -121,7 +122,7 @@ const categoryBreadcrumbLd = JSON.stringify({
             <h2 id="category-pick-title">Bu kategoride hangi sistemi seçmeliyim?</h2>
             <ol class="as-category-decision-grid">
               {karar.secim.map((item) => {
-                const match = templates.find((template) => template.slug === item.slug);
+                const match = allTemplates.find((template) => template.slug === item.slug);
                 return (
                   <li>
                     <a href={`/sablon/${item.slug}`} class="as-decision-card">
@@ -146,7 +147,12 @@ const categoryBreadcrumbLd = JSON.stringify({
             </h2>
           </div>
 
-          <TemplateGrid templates={templates} />
+          <TemplateGrid
+            templates={templates}
+            allTemplates={allTemplates}
+            activeCategory={categorySlug}
+            isCategoryPage={true}
+          />
         </section>
 
         <!-- 4. Uygulama Rehberleri (Varsa) -->

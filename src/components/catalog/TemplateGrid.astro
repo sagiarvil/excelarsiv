@@ -1,26 +1,54 @@
 ---
 import KatalogUrunKarti from './KatalogUrunKarti.astro';
 import { categories } from '../../lib/categories';
-import type { TemplateViewModel } from '../../lib/templates';
+import { getAllTemplates, type TemplateViewModel } from '../../lib/templates';
 
 interface Props {
   templates: TemplateViewModel[];
+  allTemplates?: TemplateViewModel[];
+  activeCategory?: string;
+  isCategoryPage?: boolean;
 }
 
-const { templates } = Astro.props;
+const { templates, activeCategory = 'all', isCategoryPage = false } = Astro.props;
+const baseTemplates = Astro.props.allTemplates ?? (isCategoryPage || templates.length < 124 ? await getAllTemplates() : templates);
+const totalAllCount = baseTemplates.length;
+
+const categoryCounts = categories.reduce((acc, cat) => {
+  acc[cat.slug] = baseTemplates.filter((t) => t.categorySlug === cat.slug).length;
+  return acc;
+}, {} as Record<string, number>);
 ---
 
 <div class="template-grid-wrap" data-template-grid-wrap>
   <!-- KATEGORİ FİLTRELEME SEKMELERİ (Someka Tabbed Filter Bar) -->
   <div class="catalog-category-filter-bar" aria-label="Şablon Kategorileri">
     <div class="soho-tabs-nav" role="tablist">
-      <button type="button" class="soho-tab-btn is-active" data-cat-filter="all">
-        Tüm Şablonlar <span class="tab-count">({templates.length})</span>
-      </button>
+      {isCategoryPage ? (
+        <a href="/sablonlar" class={`soho-tab-btn ${activeCategory === 'all' ? 'is-active' : ''}`}>
+          Tüm Şablonlar <span class="tab-count">({totalAllCount})</span>
+        </a>
+      ) : (
+        <button type="button" class={`soho-tab-btn ${activeCategory === 'all' ? 'is-active' : ''}`} data-cat-filter="all">
+          Tüm Şablonlar <span class="tab-count">({totalAllCount})</span>
+        </button>
+      )}
       {categories.map((cat) => {
-        const count = templates.filter((t) => t.categorySlug === cat.slug).length;
-        return (
-          <button type="button" class="soho-tab-btn" data-cat-filter={cat.slug}>
+        const count = categoryCounts[cat.slug] ?? 0;
+        const isActive = activeCategory === cat.slug;
+        return isCategoryPage ? (
+          <a
+            href={`/sablonlar/${cat.slug}`}
+            class={`soho-tab-btn ${isActive ? 'is-active' : ''}`}
+          >
+            {cat.name} <span class="tab-count">({count})</span>
+          </a>
+        ) : (
+          <button
+            type="button"
+            class={`soho-tab-btn ${isActive ? 'is-active' : ''}`}
+            data-cat-filter={cat.slug}
+          >
             {cat.name} <span class="tab-count">({count})</span>
           </button>
         );
@@ -177,6 +205,7 @@ const { templates } = Astro.props;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     white-space: nowrap;
     user-select: none;
+    text-decoration: none;
   }
   .soho-tab-btn:hover {
     background: #f1f5f9;
