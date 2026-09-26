@@ -1794,8 +1794,83 @@ a.as-meta-col:focus-visible {
 
 /* ==========================================================================
    Apple iOS App Store Mobile Layout Enhancements (< 900px)
+   Birebir Apple App Store iOS Referansı (media_1790457832172/173/178/180)
    ========================================================================== */
 @media (max-width: 900px) {
+  /* Ana sayfa Hero Afişi -> Tam App Store Today Kartı */
+  .as-hero-banner {
+    grid-template-columns: 1fr !important;
+    padding: 20px 18px 24px !important;
+    border-radius: 18px !important;
+    gap: 16px !important;
+    margin-bottom: 24px !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #e5e5ea !important;
+  }
+
+  .as-hero-mockup-scene {
+    display: none !important; /* Mobilde masaüstü MacBook çerçevesi gizlenir */
+  }
+
+  .as-floating-excel-cube {
+    display: none !important;
+  }
+
+  /* Yatay Metadata Çubuğu -> Tek Satır Kaydırılabilir Şerit */
+  .as-meta-bar {
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 8px !important;
+    padding: 12px 4px !important;
+    margin-bottom: 20px !important;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1) !important;
+  }
+  .as-meta-bar::-webkit-scrollbar {
+    display: none !important;
+  }
+  .as-meta-col {
+    flex: 0 0 auto !important;
+    min-width: 105px !important;
+    padding: 6px 10px !important;
+  }
+
+  /* 5 Kolonlu Popüler Kartlar -> Mobilde Yatay Akıcı Kaydırma */
+  .as-five-cards-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 12px !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 28px !important;
+  }
+  .as-five-cards-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+  .as-app-card {
+    flex: 0 0 160px !important;
+    width: 160px !important;
+  }
+
+  /* 2 Kolonlu Grid -> Mobilde Tek Kolon */
+  .as-two-col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-bottom: 28px !important;
+  }
+
+  /* Liste Satırları (More Grid) */
+  .as-more-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .as-more-item {
+    padding: 10px 12px !important;
+  }
+
   /* Yatay kaydırma çubuklarını gizle ve pürüzsüz yap */
   .as-meta-scroll,
   .as-category-scroll-pills,
@@ -1811,21 +1886,11 @@ a.as-meta-col:focus-visible {
     display: none;
   }
 
-  /* Kartlarda ve listelerde dokunma alanını optimize et */
-  .as-pill-btn,
-  .as-cta-btn,
-  .as-action-link {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   /* iOS App Store tarzı görsel squircle ikonlar */
   .as-app-icon,
   .as-feature-icon {
-    border-radius: 22.5%;
-    flex-shrink: 0;
+    border-radius: 22.5% !important;
+    flex-shrink: 0 !important;
   }
 
   /* Sayfa sonu boşluğu: alt tabbar'ın arkasında kalmayı önler */
@@ -1834,5 +1899,30 @@ a.as-meta-col:focus-visible {
   footer {
     padding-bottom: max(32px, env(safe-area-inset-bottom, 24px));
   }
+}
+
+/* Apple App Store İndir / İncele Hap Butonları (Pill Buttons) */
+.as-btn-view-pill,
+.as-pill-btn {
+  background: #edf1f9 !important;
+  color: #0071e3 !important;
+  border-radius: 980px !important;
+  font-weight: 700 !important;
+  font-size: 11.5px !important;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+  padding: 6px 14px !important;
+  border: none !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 28px !important;
+  transition: all 0.15s ease !important;
+}
+.as-btn-view-pill:hover,
+.as-pill-btn:hover {
+  background: #e2e8f4 !important;
+  color: #0077ed !important;
 }
 

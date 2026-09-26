@@ -109,72 +109,6 @@ const categories = [
       </a>
     ))}
   </nav>
-
-  <!-- Ayırıcı Çizgi -->
-  <div class="appstore-nav-divider"></div>
-
-  <!-- Kategoriler -->
-  <div class="appstore-categories-section">
-    <div class="appstore-categories-header">Kategoriler</div>
-    <nav class="appstore-categories-menu" aria-label="Kategoriler">
-      {categories.map((cat) => (
-        <a href={cat.href} class="appstore-category-item">
-          <span class="cat-item-icon" aria-hidden="true">
-            {cat.icon === 'chart' && (
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
-            )}
-            {cat.icon === 'cash' && (
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="6" width="20" height="12" rx="2"></rect>
-                <circle cx="12" cy="12" r="2"></circle>
-                <path d="M6 12h.01M18 12h.01"></path>
-              </svg>
-            )}
-            {cat.icon === 'calc' && (
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="2" width="16" height="20" rx="2"></rect>
-                <line x1="8" y1="6" x2="16" y2="6"></line>
-                <line x1="16" y1="14" x2="16" y2="18"></line>
-                <path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"></path>
-              </svg>
-            )}
-            {cat.icon === 'box' && (
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="21 8 21 21 3 21 3 8"></polyline>
-                <rect x="1" y="3" width="22" height="5"></rect>
-                <line x1="10" y1="12" x2="14" y2="12"></line>
-              </svg>
-            )}
-            {cat.icon === 'trend' && (
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                <polyline points="17 6 23 6 23 12"></polyline>
-              </svg>
-            )}
-            {cat.icon === 'tag' && (
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-                <line x1="7" y1="7" x2="7.01" y2="7"></line>
-              </svg>
-            )}
-            {cat.icon === 'users' && (
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            )}
-          </span>
-          <span class="cat-item-title">{cat.name}</span>
-        </a>
-      ))}
-    </nav>
-  </div>
 </aside>
 
 <!-- iOS Mobil Üst Başlık (Apple App Store Large Title Header) -->
@@ -413,50 +347,7 @@ const categories = [
 
   /* Ayırıcı */
   .appstore-nav-divider {
-    height: 1px;
-    background: #dbe3ee;
-    margin: 14px 4px;
-  }
 
-  /* Kategoriler */
-  .appstore-categories-section {
-    display: flex;
-    flex-direction: column;
-  }
-  .appstore-categories-header {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #8493a5;
-    padding: 4px 10px 8px;
-  }
-  .appstore-categories-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .appstore-category-item {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 13px;
-    color: #56687f;
-    text-decoration: none;
-    transition: all 0.12s ease;
-  }
-  .appstore-category-item:hover {
-    background: #edf1f9;
-    color: #1d1d1f;
-  }
-  .cat-item-icon {
-    color: #4b97c3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
   /* Masaüstünde mobil öğeleri gizle */
   .as-ios-topbar,
