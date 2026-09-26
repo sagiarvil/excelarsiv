@@ -5,6 +5,7 @@ interface Props {
   templateCount?: number;
   categoryCount?: number;
   minPriceTL?: number;
+  categorySlug?: string;
 }
 
 const {
@@ -13,16 +14,173 @@ const {
   templateCount = 0,
   categoryCount = 0,
   minPriceTL,
+  categorySlug = 'all',
 } = Astro.props;
 
-const minPrice = typeof minPriceTL === 'number' ? minPriceTL.toLocaleString('tr-TR') : null;
+// Kategori Bazlı Çok Renkli Profesyonel Grafik & Kokpit Konfigürasyonu
+const categoryConfigs: Record<string, {
+  fileName: string;
+  kicker: string;
+  kpis: { label: string; val: string; desc: string; color: string; bg: string }[];
+  chartTitle: string;
+  chartType: string;
+  badge: string;
+  decisions: { iconClass: string; title: string; desc: string }[];
+  tabs: string[];
+}> = {
+  'finansal-analiz': {
+    fileName: 'Finansal_Analiz_Kokpiti.xlsx',
+    kicker: 'EBITDA & KÂRLILIK ANALİZİ',
+    kpis: [
+      { label: 'FAVÖK', val: '₺1.420.000', desc: '+18.4% Yıllık', color: '#0284c7', bg: '#f0f9ff' }, // Mavi
+      { label: 'NET KÂR', val: '%28.5', desc: 'Sektör Üstü', color: '#107c41', bg: '#f0fdf4' }, // Yeşil
+      { label: 'CARİ ORAN', val: '2.14', desc: 'Güvenli Eşik', color: '#d97706', bg: '#fffbeb' } // Sarı
+    ],
+    chartTitle: '12 AYLIK FAVÖK & GELİR TRENDİ',
+    chartType: 'finance-trend',
+    badge: '3+ Ön İzleme Ekranı',
+    decisions: [
+      { iconClass: 'good', title: 'Likidite', desc: 'Güçlü ve stabil' },
+      { iconClass: 'info', title: 'Borçluluk', desc: 'Kaldıraç %32' },
+      { iconClass: 'good', title: 'Karar', desc: 'Yatırıma uygun' }
+    ],
+    tabs: ['PANO', 'FAVÖK', 'KÂRLILIK', 'ORANLAR']
+  },
+  'nakit-akisi': {
+    fileName: '13_Haftalik_Nakit_Akisi.xlsx',
+    kicker: 'LİKİDİTE & KASA YÖNETİMİ',
+    kpis: [
+      { label: 'KASA / BANKA', val: '₺845.000', desc: 'Aktif Bakiye', color: '#107c41', bg: '#f0fdf4' }, // Yeşil
+      { label: 'GİRİŞLER', val: '₺410.000', desc: 'Bu Hafta', color: '#0284c7', bg: '#f0f9ff' }, // Mavi
+      { label: 'KRİTİK ÇIKIŞ', val: '₺320.000', desc: 'Ödeme Vadesi', color: '#e11d48', bg: '#fff1f2' } // Kırmızı
+    ],
+    chartTitle: 'HAFTALIK NAKİT GİRİŞ / ÇIKIŞ & BAKİYE',
+    chartType: 'cash-flow',
+    badge: '13 Haftalık Simülasyon',
+    decisions: [
+      { iconClass: 'good', title: 'Tahsilat', desc: 'Zamanında %94' },
+      { iconClass: 'danger', title: 'Vade 23.Gün', desc: 'Kasa açığı riski' },
+      { iconClass: 'good', title: 'Karar', desc: 'Avans tetiklendi' }
+    ],
+    tabs: ['PANO', 'KASA', 'TAHSİLAT', 'ÖDEME']
+  },
+  'muhasebe-ve-vergi': {
+    fileName: 'Vergi_SGK_Mutabakat_Robotu.xlsx',
+    kicker: 'MEVZUAT & VERGİ YÜKÜMLÜLÜĞÜ',
+    kpis: [
+      { label: 'ÖDENECEK KDV', val: '₺168.400', desc: 'Beyan Hazır', color: '#e11d48', bg: '#fff1f2' }, // Kırmızı
+      { label: 'SGK TEŞVİK', val: '₺42.850', desc: 'Net Kazanç', color: '#107c41', bg: '#f0fdf4' }, // Yeşil
+      { label: 'GEÇİCİ VERGİ', val: '₺112.000', desc: '2. Dönem', color: '#d97706', bg: '#fffbeb' } // Sarı
+    ],
+    chartTitle: 'VERGİ & SGK YÜKÜMLÜLÜK DAĞILIMI',
+    chartType: 'tax-breakdown',
+    badge: 'Mevzuata Tam Uyumlu',
+    decisions: [
+      { iconClass: 'good', title: 'KDV-1', desc: 'Matrah mutabık' },
+      { iconClass: 'warn', title: 'Stopaj', desc: 'Kira tevkifatı' },
+      { iconClass: 'good', title: 'Karar', desc: 'Tahakkuk onaylandı' }
+    ],
+    tabs: ['PANO', 'KDV', 'SGK', 'GEÇİCİ']
+  },
+  'butce-ve-planlama': {
+    fileName: 'Yillik_Butce_Simulasyonu.xlsx',
+    kicker: 'HEDEF VS GERÇEKLEŞEN SAPMA',
+    kpis: [
+      { label: 'BÜTÇE', val: '₺4.200.000', desc: 'Yıllık Hedef', color: '#4f46e5', bg: '#eef2ff' }, // İndigo/Mavi
+      { label: 'GERÇEKLEŞEN', val: '₺4.050.000', desc: '%96.4 Uyum', color: '#0284c7', bg: '#f0f9ff' }, // Mavi
+      { label: 'SAPMA', val: '-%3.6', desc: 'Tolerans İçi', color: '#d97706', bg: '#fffbeb' } // Sarı
+    ],
+    chartTitle: 'ÇEYREKLİK BÜTÇE GERÇEKLEŞME PERFORMANSI',
+    chartType: 'budget-variance',
+    badge: 'Dinamik Senaryo Analizi',
+    decisions: [
+      { iconClass: 'good', title: 'Gelir Bütçesi', desc: 'Hedef aşıldı +%4' },
+      { iconClass: 'warn', title: 'Gider Kalemi', desc: 'Pazarlama aşımı' },
+      { iconClass: 'good', title: 'Karar', desc: 'Bütçe revizesi OK' }
+    ],
+    tabs: ['PANO', 'GELİR', 'GİDER', 'REVİZE']
+  },
+  'stok-ve-uretim': {
+    fileName: 'Stok_Envanter_ve_Maliyet.xlsx',
+    kicker: 'ENVANTER & DEPO KONTROLÜ',
+    kpis: [
+      { label: 'TOPLAM STOK', val: '₺2.180.000', desc: '142 Kalem', color: '#d97706', bg: '#fffbeb' }, // Sarı
+      { label: 'KRİTİK EŞİK', val: '4 Kalem', desc: 'Sipariş Gerekli', color: '#e11d48', bg: '#fff1f2' }, // Kırmızı
+      { label: 'DEVİR HIZI', val: '38 Gün', desc: 'Optimum Döngü', color: '#107c41', bg: '#f0fdf4' } // Yeşil
+    ],
+    chartTitle: 'DEPO DOLULUK & KRİTİK EŞİK SEVİYELERİ',
+    chartType: 'stock-levels',
+    badge: 'Kritik Stok Uyarısı',
+    decisions: [
+      { iconClass: 'danger', title: 'Hammadde B', desc: 'Kritik eşiğin altında' },
+      { iconClass: 'good', title: 'Bitmiş Ürün', desc: 'Yeterli stok var' },
+      { iconClass: 'info', title: 'Karar', desc: 'Tedarik emri verildi' }
+    ],
+    tabs: ['PANO', 'DEPO', 'REÇETE', 'SİPARİŞ']
+  },
+  'satis-ve-fiyatlama': {
+    fileName: 'Satis_Hedef_ve_Prim_Modeli.xlsx',
+    kicker: 'CİRO KÂRLILIK & PRİM DAĞILIMI',
+    kpis: [
+      { label: 'BRÜT SATIŞ', val: '₺1.890.000', desc: 'Aylık Ciro', color: '#0284c7', bg: '#f0f9ff' }, // Mavi
+      { label: 'NET MARJ', val: '%34.2', desc: 'Fiyat Dengesi', color: '#107c41', bg: '#f0fdf4' }, // Yeşil
+      { label: 'PRİM HAVUZU', val: '₺84.500', desc: 'Performans Primi', color: '#e11d48', bg: '#fff1f2' } // Kırmızı
+    ],
+    chartTitle: 'SATIŞ DÖNÜŞÜM & PRİM İLERLEMESİ',
+    chartType: 'sales-funnel',
+    badge: 'Kademeli Prim Hesaplayıcı',
+    decisions: [
+      { iconClass: 'good', title: 'Dönüşüm Oranı', desc: '%18.6 kapama' },
+      { iconClass: 'good', title: 'İskonto Sınırı', desc: 'Marj korundu' },
+      { iconClass: 'warn', title: 'Karar', desc: 'Kademeli prim aktif' }
+    ],
+    tabs: ['PANO', 'CİRO', 'PRİM', 'FİYAT']
+  },
+  'personel-ve-bordro': {
+    fileName: 'Bordro_ve_Isveren_Maliyeti.xlsx',
+    kicker: 'İŞGÜCÜ MALİYETİ & KIDEM TAZMİNATI',
+    kpis: [
+      { label: 'TOPLAM MALİYET', val: '₺640.000', desc: '24 Çalışan', color: '#0284c7', bg: '#f0f9ff' }, // Mavi
+      { label: 'TEŞVİK KAZANCI', val: '₺38.400', desc: 'SGK İndirimi', color: '#107c41', bg: '#f0fdf4' }, // Yeşil
+      { label: 'KIDEM KARŞILIĞI', val: '₺215.000', desc: 'Fon Ayrıldı', color: '#d97706', bg: '#fffbeb' } // Sarı
+    ],
+    chartTitle: 'İŞVEREN MALİYETİ & BORDRO BİLEŞENLERİ',
+    chartType: 'payroll-dist',
+    badge: '5510 Teşvik Algoritması',
+    decisions: [
+      { iconClass: 'good', title: '5510 Teşviki', desc: 'Uygulandı' },
+      { iconClass: 'info', title: 'Fazla Mesai', desc: 'Bütçe sınırında' },
+      { iconClass: 'good', title: 'Karar', desc: 'Bordro onaylandı' }
+    ],
+    tabs: ['PANO', 'MAAŞ', 'SGK', 'KIDEM']
+  }
+};
+
+const activeConfig = categoryConfigs[categorySlug] ?? {
+  fileName: 'Yonetim_Panosu.xlsx',
+  kicker: 'EXCEL ARŞİV · İŞLETME KARAR SİSTEMLERİ',
+  kpis: [
+    { label: 'NAKİT', val: '₺920.000', desc: 'Giriş / Çıkış', color: '#107c41', bg: '#f0fdf4' }, // Yeşil
+    { label: 'KÂRLILIK', val: '%31.4', desc: 'Net Sonuç', color: '#0284c7', bg: '#f0f9ff' }, // Mavi
+    { label: 'RİSK', val: 'KONTROL', desc: 'Vade Takibi', color: '#d97706', bg: '#fffbeb' } // Sarı
+  ],
+  chartTitle: '12 HAFTALIK İŞLETME PERFORMANS GÖRÜNÜMÜ',
+  chartType: 'finance-trend',
+  badge: 'Gerçek Ekranlarla İnceleyin',
+  decisions: [
+    { iconClass: 'good', title: 'Veri', desc: 'Girildi' },
+    { iconClass: 'good', title: 'Kontrol', desc: 'Çalıştı' },
+    { iconClass: 'warn', title: 'Karar', desc: 'Görünür' }
+  ],
+  tabs: ['PANO', 'GİRDİLER', 'KONTROL', 'RAPOR']
+};
 ---
 
 <section class="catalog-hero" aria-labelledby="catalog-title">
   <div class="catalog-hero__glow" aria-hidden="true"></div>
   <div class="site-container catalog-hero__grid">
     <div class="catalog-hero__copy">
-      <div class="catalog-hero__kicker"><span></span> EXCEL ARŞİV · İŞLETME KARAR ARAÇLARI</div>
+      <div class="catalog-hero__kicker"><span></span> {activeConfig.kicker}</div>
       <h1 id="catalog-title" class="catalog-hero__title">{title}</h1>
       <p class="catalog-hero__lead">{description}</p>
 
@@ -42,46 +200,212 @@ const minPrice = typeof minPriceTL === 'number' ? minPriceTL.toLocaleString('tr-
       <div class="workbook">
         <div class="workbook__topbar">
           <div class="workbook__dots"><i></i><i></i><i></i></div>
-          <span>Yönetim_Panosu.xlsx</span>
+          <span>{activeConfig.fileName}</span>
           <b>Excel Arşiv</b>
         </div>
         <div class="workbook__ribbon">
-          <span class="is-active">PANO</span><span>GİRDİLER</span><span>KONTROL</span><span>RAPOR</span>
+          {activeConfig.tabs.map((tab, idx) => (
+            <span class={idx === 0 ? 'is-active' : ''}>{tab}</span>
+          ))}
         </div>
         <div class="workbook__canvas">
-          <div class="workbook__title"><span>YÖNETİM ÖZETİ</span><b>Karar için tek ekran</b></div>
+          <div class="workbook__title">
+            <span>{activeConfig.kicker}</span>
+            <b>Karar için tek ekran</b>
+          </div>
           <div class="workbook__kpis">
-            <div><small>NAKİT</small><strong>GÖRÜNÜR</strong><span>Giriş / çıkış dengesi</span></div>
-            <div><small>RİSK</small><strong>KONTROL</strong><span>Vade / tahsilat görünümü</span></div>
-            <div><small>KÂRLILIK</small><strong>KARAR</strong><span>Gerçek sonuç takibi</span></div>
+            {activeConfig.kpis.map((kpi) => (
+              <div style={`background:${kpi.bg}; border-color:${kpi.color}25;`}>
+                <small style={`color:${kpi.color}; font-weight:800;`}>{kpi.label}</small>
+                <strong style={`color:${kpi.color};`}>{kpi.val}</strong>
+                <span>{kpi.desc}</span>
+              </div>
+            ))}
           </div>
           <div class="workbook__body">
             <div class="workbook__chart">
-              <div class="workbook__chart-head"><span>12 HAFTALIK GÖRÜNÜM</span><i></i></div>
-              <svg viewBox="0 0 320 128" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="areaFill" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stop-color="#107c41" stop-opacity=".22" />
-                    <stop offset="100%" stop-color="#107c41" stop-opacity="0" />
-                  </linearGradient>
-                </defs>
-                <path d="M0 105 L38 92 L76 98 L114 69 L152 78 L190 48 L228 58 L266 31 L320 20 L320 128 L0 128 Z" fill="url(#areaFill)" />
-                <polyline points="0,105 38,92 76,98 114,69 152,78 190,48 228,58 266,31 320,20" fill="none" stroke="#107c41" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+              <div class="workbook__chart-head">
+                <span>{activeConfig.chartTitle}</span>
+                <div class="workbook__chart-legend">
+                  <span class="dot-blue"></span>
+                  <span class="dot-green"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-red"></span>
+                </div>
+              </div>
+
+              <!-- Dinamik ve Renkli Grafik Türleri (Kırmızı, Mavi, Sarı, Yeşil) -->
+              {activeConfig.chartType === 'cash-flow' && (
+                <svg viewBox="0 0 320 85" preserveAspectRatio="none">
+                  <!-- Nakit Akışı: Yeşil Giriş, Kırmızı Çıkış Barları ve Mavi Bakiye Eğrisi -->
+                  <defs>
+                    <linearGradient id="cfBlue" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.3" />
+                      <stop offset="100%" stop-color="#0284c7" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <!-- Kılavuz çizgileri -->
+                  <line x1="0" y1="42" x2="320" y2="42" stroke="#e2e8f0" stroke-dasharray="3,3" />
+                  <!-- Giriş Barları (Yeşil) -->
+                  <rect x="20" y="20" width="10" height="22" rx="2" fill="#107c41" />
+                  <rect x="60" y="12" width="10" height="30" rx="2" fill="#107c41" />
+                  <rect x="100" y="8" width="10" height="34" rx="2" fill="#107c41" />
+                  <rect x="140" y="15" width="10" height="27" rx="2" fill="#107c41" />
+                  <rect x="180" y="10" width="10" height="32" rx="2" fill="#107c41" />
+                  <rect x="220" y="6" width="10" height="36" rx="2" fill="#107c41" />
+                  <rect x="260" y="14" width="10" height="28" rx="2" fill="#107c41" />
+                  <!-- Çıkış Barları (Kırmızı) -->
+                  <rect x="33" y="42" width="10" height="26" rx="2" fill="#e11d48" />
+                  <rect x="73" y="42" width="10" height="18" rx="2" fill="#e11d48" />
+                  <rect x="113" y="42" width="10" height="32" rx="2" fill="#e11d48" />
+                  <rect x="153" y="42" width="10" height="20" rx="2" fill="#e11d48" />
+                  <rect x="193" y="42" width="10" height="36" rx="2" fill="#e11d48" />
+                  <rect x="233" y="42" width="10" height="16" rx="2" fill="#e11d48" />
+                  <rect x="273" y="42" width="10" height="22" rx="2" fill="#e11d48" />
+                  <!-- Kümülatif Bakiye Eğrisi (Mavi) -->
+                  <polyline points="25,35 65,28 105,20 145,26 185,18 225,12 265,16 300,10" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" />
+                  <!-- Kritik Risk Noktası (Sarı) -->
+                  <circle cx="185" cy="18" r="4" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+                </svg>
+              )}
+
+              {activeConfig.chartType === 'tax-breakdown' && (
+                <svg viewBox="0 0 320 85" preserveAspectRatio="none">
+                  <!-- Vergi Dağılımı: Kırmızı KDV, Sarı Muhtasar, Mavi Kurumlar/Geçici, Yeşil SGK Teşvik -->
+                  <!-- 1. KDV Barı (Kırmızı) -->
+                  <text x="5" y="18" font-size="7" fill="#64748b" font-family="monospace">KDV</text>
+                  <rect x="42" y="10" width="170" height="11" rx="3" fill="#e11d48" />
+                  <rect x="215" y="10" width="45" height="11" rx="3" fill="#fda4af" />
+                  <!-- 2. Muhtasar Barı (Sarı) -->
+                  <text x="5" y="36" font-size="7" fill="#64748b" font-family="monospace">MUHT</text>
+                  <rect x="42" y="28" width="130" height="11" rx="3" fill="#d97706" />
+                  <rect x="175" y="28" width="55" height="11" rx="3" fill="#fde68a" />
+                  <!-- 3. Geçici Vergi (Mavi) -->
+                  <text x="5" y="54" font-size="7" fill="#64748b" font-family="monospace">GEÇİCİ</text>
+                  <rect x="42" y="46" width="195" height="11" rx="3" fill="#0284c7" />
+                  <rect x="240" y="46" width="35" height="11" rx="3" fill="#bae6fd" />
+                  <!-- 4. SGK Teşvik Avantajı (Yeşil) -->
+                  <text x="5" y="72" font-size="7" fill="#107c41" font-weight="bold" font-family="monospace">TEŞVİK</text>
+                  <rect x="42" y="64" width="85" height="11" rx="3" fill="#107c41" />
+                  <text x="135" y="73" font-size="7.5" fill="#107c41" font-weight="bold">+₺42.850 İndirim</text>
+                </svg>
+              )}
+
+              {activeConfig.chartType === 'stock-levels' && (
+                <svg viewBox="0 0 320 85" preserveAspectRatio="none">
+                  <!-- Stok & Depo: Amber barlar, Kırmızı Kritik Eşik çizgisi, Mavi devir hızı -->
+                  <line x1="0" y1="35" x2="320" y2="35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3" />
+                  <text x="250" y="32" font-size="6.5" fill="#ef4444" font-weight="bold">KRİTİK EŞİK</text>
+                  <!-- Stok Barları (Sarı & Yeşil & Kırmızı) -->
+                  <rect x="20" y="40" width="18" height="40" rx="3" fill="#f59e0b" />
+                  <rect x="55" y="22" width="18" height="58" rx="3" fill="#107c41" />
+                  <rect x="90" y="50" width="18" height="30" rx="3" fill="#e11d48" /> <!-- Kritik! -->
+                  <rect x="125" y="15" width="18" height="65" rx="3" fill="#107c41" />
+                  <rect x="160" y="48" width="18" height="32" rx="3" fill="#e11d48" /> <!-- Kritik! -->
+                  <rect x="195" y="28" width="18" height="52" rx="3" fill="#0284c7" />
+                  <rect x="230" y="18" width="18" height="62" rx="3" fill="#107c41" />
+                  <!-- Trend Eğrisi (Mavi) -->
+                  <polyline points="29,38 64,20 99,48 134,14 169,46 204,26 239,16 270,22" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              )}
+
+              {activeConfig.chartType === 'budget-variance' && (
+                <svg viewBox="0 0 320 85" preserveAspectRatio="none">
+                  <!-- Bütçe vs Gerçekleşen: İndigo Bütçe, Mavi Gerçekleşen, Sarı Sapma -->
+                  <rect x="25" y="15" width="14" height="60" rx="3" fill="#4f46e5" />
+                  <rect x="42" y="20" width="14" height="55" rx="3" fill="#0284c7" />
+                  <rect x="85" y="10" width="14" height="65" rx="3" fill="#4f46e5" />
+                  <rect x="102" y="8" width="14" height="67" rx="3" fill="#107c41" />
+                  <rect x="145" y="18" width="14" height="57" rx="3" fill="#4f46e5" />
+                  <rect x="162" y="30" width="14" height="45" rx="3" fill="#f59e0b" /> <!-- Sapma -->
+                  <rect x="205" y="12" width="14" height="63" rx="3" fill="#4f46e5" />
+                  <rect x="222" y="16" width="14" height="59" rx="3" fill="#0284c7" />
+                  <!-- Hedef İlerleme Çizgisi (Kırmızı & Yeşil) -->
+                  <polyline points="33,12 93,6 153,16 213,10 260,8" fill="none" stroke="#107c41" stroke-width="2" stroke-linecap="round" />
+                  <circle cx="153" cy="16" r="3.5" fill="#e11d48" stroke="#fff" stroke-width="1.5" />
+                </svg>
+              )}
+
+              {activeConfig.chartType === 'sales-funnel' && (
+                <svg viewBox="0 0 320 85" preserveAspectRatio="none">
+                  <!-- Satış Hunisi & Ciro: Mavi Lead, Sarı Teklif, Yeşil Satış, Kırmızı Komisyon -->
+                  <polygon points="20,10 130,10 110,26 40,26" fill="#0284c7" />
+                  <text x="140" y="20" font-size="7" fill="#0284c7" font-weight="bold">Teklif Aşaması (₺1.8M)</text>
+                  <polygon points="40,29 110,29 95,45 55,45" fill="#f59e0b" />
+                  <text x="125" y="39" font-size="7" fill="#d97706" font-weight="bold">Müzakere (%65)</text>
+                  <polygon points="55,48 95,48 85,64 65,64" fill="#107c41" />
+                  <text x="110" y="58" font-size="7" fill="#107c41" font-weight="bold">Kapanan Satış (₺840K)</text>
+                  <rect x="65" y="67" width="20" height="12" rx="2" fill="#e11d48" />
+                  <text x="95" y="76" font-size="7" fill="#e11d48" font-weight="bold">Prim Havuzu (₺84.5K)</text>
+                </svg>
+              )}
+
+              {activeConfig.chartType === 'payroll-dist' && (
+                <svg viewBox="0 0 320 85" preserveAspectRatio="none">
+                  <!-- Bordro Maliyet Dilimleri: Mavi Net, Sarı SGK, Kırmızı Vergi, Yeşil Teşvik -->
+                  <rect x="25" y="12" width="220" height="14" rx="4" fill="#0284c7" />
+                  <text x="255" y="23" font-size="7.5" fill="#0284c7" font-weight="bold">Net Ücret %52</text>
+                  <rect x="25" y="30" width="160" height="14" rx="4" fill="#f59e0b" />
+                  <text x="195" y="41" font-size="7.5" fill="#d97706" font-weight="bold">SGK Primi %22.5</text>
+                  <rect x="25" y="48" width="110" height="14" rx="4" fill="#e11d48" />
+                  <text x="145" y="59" font-size="7.5" fill="#e11d48" font-weight="bold">Gelir/Damga %15</text>
+                  <rect x="25" y="66" width="60" height="14" rx="4" fill="#107c41" />
+                  <text x="95" y="77" font-size="7.5" fill="#107c41" font-weight="bold">5510 Teşviki -%5</text>
+                </svg>
+              )}
+
+              {activeConfig.chartType === 'finance-trend' && (
+                <svg viewBox="0 0 320 85" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="areaFillBlue" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#0284c7" stop-opacity=".25" />
+                      <stop offset="100%" stop-color="#0284c7" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <!-- Kılavuz -->
+                  <line x1="0" y1="60" x2="320" y2="60" stroke="#f1f5f9" stroke-width="1" />
+                  <line x1="0" y1="35" x2="320" y2="35" stroke="#f1f5f9" stroke-width="1" />
+                  <!-- Mavi FAVÖK Alanı -->
+                  <path d="M0 65 L40 54 L80 58 L120 40 L160 46 L200 28 L240 34 L280 18 L320 12 L320 85 L0 85 Z" fill="url(#areaFillBlue)" />
+                  <polyline points="0,65 40,54 80,58 120,40 160,46 200,28 240,34 280,18 320,12" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <!-- Yeşil Net Kâr Çizgisi -->
+                  <polyline points="0,75 40,68 80,72 120,55 160,60 200,44 240,48 280,32 320,24" fill="none" stroke="#107c41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <!-- Sarı ve Kırmızı Noktalar -->
+                  <circle cx="200" cy="28" r="3.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+                  <circle cx="280" cy="18" r="3.5" fill="#e11d48" stroke="#ffffff" stroke-width="1.5" />
+                  <circle cx="320" cy="12" r="4" fill="#107c41" stroke="#ffffff" stroke-width="1.5" />
+                </svg>
+              )}
             </div>
+
             <div class="workbook__decisions">
               <span>KARAR AKIŞI</span>
               <ul>
-                <li><i class="good"></i><b>Veri</b><em>girildi</em></li>
-                <li><i class="good"></i><b>Kontrol</b><em>çalıştı</em></li>
-                <li><i class="warn"></i><b>Karar</b><em>görünür</em></li>
+                {activeConfig.decisions.map((dec) => (
+                  <li>
+                    <i class={dec.iconClass}></i>
+                    <b>{dec.title}</b>
+                    <em>{dec.desc}</em>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
-        <div class="workbook__tabs"><span class="is-active">PANO</span><span>NAKİT</span><span>KÂRLILIK</span><span>RAPOR</span><b>+</b></div>
+        <div class="workbook__tabs">
+          {activeConfig.tabs.map((tab, idx) => (
+            <span class={idx === 0 ? 'is-active' : ''}>{tab}</span>
+          ))}
+          <b>+</b>
+        </div>
       </div>
-      <div class="catalog-hero__badge"><span>✓</span><div><b>Gerçek ekranlarla inceleyin</b><small>Ürün sayfalarında 3+ ön izleme</small></div></div>
+      <div class="catalog-hero__badge">
+        <span>✓</span>
+        <div>
+          <b>{activeConfig.badge}</b>
+          <small>Ürün sayfalarında anında inceleyin</small>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -208,6 +532,11 @@ const minPrice = typeof minPriceTL === 'number' ? minPriceTL.toLocaleString('tr-
   .workbook__chart { padding: 8px 8px 4px; }
   .workbook__chart-head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 4px; font-family: var(--font-mono); font-size: 6px; font-weight: 800; color: #6e7c74; }
   .workbook__chart-head i { width: 28px; height: 4px; border-radius: 999px; background: #d8eee1; }
+  .workbook__chart-legend { display: flex; align-items: center; gap: 4px; }
+  .dot-blue { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #0284c7; }
+  .dot-green { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #107c41; }
+  .dot-yellow { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #f59e0b; }
+  .dot-red { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #e11d48; }
   .workbook__chart svg { display: block; width: 100%; height: 75px; }
   .workbook__decisions { padding: 8px; }
   .workbook__decisions > span { font-family: var(--font-mono); font-size: 6px; font-weight: 800; letter-spacing: .06em; color: #6e7c74; }

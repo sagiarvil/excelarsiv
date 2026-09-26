@@ -109,53 +109,79 @@ const homeJsonLd = {
             <div class="as-macbook-frame">
               <div class="as-macbook-notch"></div>
               <div class="as-macbook-screen">
-                <!-- Mini KPI'lar -->
+                <!-- Mini KPI'lar (4 Renkli Karar Matrisi) -->
                 <div class="as-mini-kpi-grid">
-                  <div class="as-mini-kpi">
-                    <small>Toplam Gelir</small>
-                    <strong>₺1.250.000</strong><span>+12%</span>
+                  <div class="as-mini-kpi" style="border-left: 2px solid #107c41;">
+                    <small style="color:#107c41;font-weight:700;">Gelir Akışı</small>
+                    <strong>₺1.420.000</strong><span style="color:#107c41;background:#e6f4ea;padding:1px 3px;border-radius:3px;">+18%</span>
                   </div>
-                  <div class="as-mini-kpi">
-                    <small>Toplam Gider</small>
-                    <strong>₺820.000</strong><span style="color:#e11d48">-8%</span>
+                  <div class="as-mini-kpi" style="border-left: 2px solid #0071e3;">
+                    <small style="color:#0071e3;font-weight:700;">Net Nakit</small>
+                    <strong>₺840.000</strong><span style="color:#0071e3;background:#e1f0fe;padding:1px 3px;border-radius:3px;">+24%</span>
                   </div>
-                  <div class="as-mini-kpi">
-                    <small>Net Kâr</small>
-                    <strong>₺430.000</strong><span>+24%</span>
+                  <div class="as-mini-kpi" style="border-left: 2px solid #f59e0b;">
+                    <small style="color:#d97706;font-weight:700;">Vergi & Fon</small>
+                    <strong>₺165.000</strong><span style="color:#d97706;background:#fef3c7;padding:1px 3px;border-radius:3px;">Optimum</span>
                   </div>
-                  <div class="as-mini-kpi">
-                    <small>Nakit Bakiye</small>
-                    <strong>₺690.000</strong><span>+15%</span>
+                  <div class="as-mini-kpi" style="border-left: 2px solid #e11d48;">
+                    <small style="color:#e11d48;font-weight:700;">Risk & Gider</small>
+                    <strong>₺415.000</strong><span style="color:#e11d48;background:#ffe4e6;padding:1px 3px;border-radius:3px;">-9%</span>
                   </div>
                 </div>
 
-                <!-- Mini Grafikler -->
+                <!-- Mini Grafikler (Kırmızı, Mavi, Sarı, Yeşil) -->
                 <div class="as-mini-charts-row">
                   <div class="as-mini-chart-card">
-                    <div class="as-chart-title">Aylık Gelir - Gider - Net Kâr</div>
+                    <div class="as-chart-title" style="display:flex;justify-content:space-between;align-items:center;">
+                      <span>Gelir / Gider & Nakit Trendi</span>
+                      <div style="display:flex;gap:4px;align-items:center;font-size:7px;">
+                        <span style="display:inline-block;width:5px;height:5px;background:#0071e3;border-radius:50%;"></span>
+                        <span style="display:inline-block;width:5px;height:5px;background:#e11d48;border-radius:50%;"></span>
+                        <span style="display:inline-block;width:5px;height:5px;background:#107c41;border-radius:50%;"></span>
+                      </div>
+                    </div>
                     <svg viewBox="0 0 200 65" width="100%" height="45" fill="none" aria-hidden="true">
-                      <rect x="10" y="25" width="8" height="35" fill="#107c41" rx="2" />
-                      <rect x="25" y="15" width="8" height="45" fill="#107c41" rx="2" />
-                      <rect x="40" y="20" width="8" height="40" fill="#107c41" rx="2" />
-                      <rect x="55" y="10" width="8" height="50" fill="#107c41" rx="2" />
-                      <rect x="70" y="8" width="8" height="52" fill="#107c41" rx="2" />
-                      <rect x="85" y="5" width="8" height="55" fill="#107c41" rx="2" />
-                      <path d="M10 30 Q 50 15, 95 10 T 180 5" stroke="#0071e3" stroke-width="2.5" fill="none" />
-                      <circle cx="180" cy="5" r="3.5" fill="#0071e3" />
+                      <!-- Grid çizgileri -->
+                      <line x1="0" y1="55" x2="200" y2="55" stroke="#f1f5f9" stroke-width="1" />
+                      <line x1="0" y1="35" x2="200" y2="35" stroke="#f1f5f9" stroke-width="1" />
+                      <line x1="0" y1="15" x2="200" y2="15" stroke="#f1f5f9" stroke-width="1" />
+                      <!-- Çok Renkli Barlar: Mavi Gelir, Kırmızı Gider -->
+                      <rect x="12" y="24" width="7" height="31" fill="#0071e3" rx="1.5" />
+                      <rect x="21" y="38" width="7" height="17" fill="#e11d48" rx="1.5" />
+                      <rect x="38" y="18" width="7" height="37" fill="#0071e3" rx="1.5" />
+                      <rect x="47" y="34" width="7" height="21" fill="#e11d48" rx="1.5" />
+                      <rect x="64" y="14" width="7" height="41" fill="#0071e3" rx="1.5" />
+                      <rect x="73" y="30" width="7" height="25" fill="#e11d48" rx="1.5" />
+                      <rect x="90" y="8" width="7" height="47" fill="#0071e3" rx="1.5" />
+                      <rect x="99" y="26" width="7" height="29" fill="#e11d48" rx="1.5" />
+                      <rect x="116" y="6" width="7" height="49" fill="#0071e3" rx="1.5" />
+                      <rect x="125" y="22" width="7" height="33" fill="#e11d48" rx="1.5" />
+                      <!-- Yeşil Net Bakiye Çizgisi -->
+                      <path d="M15 42 Q 50 32, 85 20 T 145 10 T 195 5" stroke="#107c41" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                      <circle cx="195" cy="5" r="3.5" fill="#107c41" />
+                      <!-- Sarı Kritik Eşik -->
+                      <line x1="140" y1="20" x2="200" y2="20" stroke="#f59e0b" stroke-dasharray="2 2" stroke-width="1.5" />
                     </svg>
                   </div>
                   <div class="as-mini-chart-card">
-                    <div class="as-chart-title">Gelir Dağılımı</div>
+                    <div class="as-chart-title">Portföy Dağılımı</div>
                     <div style="display:flex;align-items:center;gap:8px;">
                       <svg viewBox="0 0 36 36" width="42" height="42" aria-hidden="true">
-                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e2e8f0" stroke-width="6"/>
-                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 15.1 11.2" fill="none" stroke="#107c41" stroke-width="6" stroke-dasharray="60, 100"/>
-                        <path d="M33.1 13.2845 a 15.9155 15.9155 0 0 1 -7.1 18.2" fill="none" stroke="#0071e3" stroke-width="6" stroke-dasharray="25, 100"/>
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f1f5f9" stroke-width="5.5"/>
+                        <!-- Yeşil (%45 Satış) -->
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#107c41" stroke-width="5.5" stroke-dasharray="45 55" stroke-dashoffset="25"/>
+                        <!-- Mavi (%30 Hizmet) -->
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#0071e3" stroke-width="5.5" stroke-dasharray="30 70" stroke-dashoffset="80"/>
+                        <!-- Sarı (%15 Tahsilat) -->
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f59e0b" stroke-width="5.5" stroke-dasharray="15 85" stroke-dashoffset="50"/>
+                        <!-- Kırmızı (%10 Kesinti) -->
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#e11d48" stroke-width="5.5" stroke-dasharray="10 90" stroke-dashoffset="35"/>
                       </svg>
-                      <div style="font-size:8.5px;color:#64748b;line-height:1.3;">
-                        <div>• Satış: %58</div>
-                        <div>• Hizmet: %24</div>
-                        <div>• Diğer: %18</div>
+                      <div style="font-size:7.5px;color:#475569;line-height:1.35;font-weight:600;">
+                        <div style="color:#107c41;">● Satış %45</div>
+                        <div style="color:#0071e3;">● Nakit %30</div>
+                        <div style="color:#d97706;">● Vade %15</div>
+                        <div style="color:#e11d48;">● Risk %10</div>
                       </div>
                     </div>
                   </div>

@@ -113,45 +113,72 @@ const catalogBreadcrumbLd = JSON.stringify({
             <div class="as-macbook-frame">
               <div class="as-macbook-notch"></div>
               <div class="as-macbook-screen">
-                <!-- Dashboard İçeriği -->
+                <!-- Dashboard İçeriği (4 Renkli Karar Kokpiti) -->
                 <div class="as-mini-charts-row" style="margin-bottom:8px;">
                   <div class="as-mini-chart-card">
-                    <div class="as-chart-title">Nakit Akışı Tablosu</div>
+                    <div class="as-chart-title" style="display:flex;justify-content:space-between;align-items:center;">
+                      <span>Haftalık Nakit Akışı & Likidite</span>
+                      <div style="display:flex;gap:3px;align-items:center;">
+                        <span style="display:inline-block;width:5px;height:5px;background:#107c41;border-radius:50%;"></span>
+                        <span style="display:inline-block;width:5px;height:5px;background:#0071e3;border-radius:50%;"></span>
+                        <span style="display:inline-block;width:5px;height:5px;background:#e11d48;border-radius:50%;"></span>
+                      </div>
+                    </div>
                     <svg viewBox="0 0 160 50" width="100%" height="40" fill="none" aria-hidden="true">
-                      <rect x="5" y="25" width="8" height="25" fill="#107c41" rx="2" />
-                      <rect x="20" y="18" width="8" height="32" fill="#107c41" rx="2" />
-                      <rect x="35" y="12" width="8" height="38" fill="#107c41" rx="2" />
-                      <rect x="50" y="8" width="8" height="42" fill="#107c41" rx="2" />
-                      <rect x="65" y="15" width="8" height="35" fill="#107c41" rx="2" />
-                      <rect x="80" y="5" width="8" height="45" fill="#107c41" rx="2" />
-                      <rect x="95" y="10" width="8" height="40" fill="#107c41" rx="2" />
-                      <rect x="110" y="4" width="8" height="46" fill="#107c41" rx="2" />
+                      <!-- Grid çizgisi -->
+                      <line x1="0" y1="42" x2="160" y2="42" stroke="#f1f5f9" stroke-width="1" />
+                      <line x1="0" y1="24" x2="160" y2="24" stroke="#f1f5f9" stroke-width="1" />
+                      <!-- Çok Renkli Barlar: Yeşil Giriş, Mavi Tahvil/Yatırım, Kırmızı Çıkış -->
+                      <rect x="6" y="24" width="7" height="18" fill="#107c41" rx="1.5" />
+                      <rect x="15" y="32" width="7" height="10" fill="#e11d48" rx="1.5" />
+                      <rect x="28" y="16" width="7" height="26" fill="#107c41" rx="1.5" />
+                      <rect x="37" y="28" width="7" height="14" fill="#e11d48" rx="1.5" />
+                      <rect x="50" y="10" width="7" height="32" fill="#107c41" rx="1.5" />
+                      <rect x="59" y="22" width="7" height="20" fill="#e11d48" rx="1.5" />
+                      <rect x="72" y="8" width="7" height="34" fill="#0071e3" rx="1.5" />
+                      <rect x="81" y="25" width="7" height="17" fill="#e11d48" rx="1.5" />
+                      <rect x="94" y="6" width="7" height="36" fill="#107c41" rx="1.5" />
+                      <rect x="103" y="20" width="7" height="22" fill="#e11d48" rx="1.5" />
+                      <!-- Sarı Tahmin & Güvenli Aralık Çizgisi -->
+                      <path d="M8 20 Q 55 12, 100 8 T 155 4" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" fill="none" />
+                      <circle cx="155" cy="4" r="3" fill="#f59e0b" />
                     </svg>
                   </div>
                   <div class="as-mini-chart-card">
-                    <div class="as-chart-title">Gelir Dağılımı</div>
+                    <div class="as-chart-title">Bütçe / Harcama Sapması</div>
                     <div style="display:flex;align-items:center;gap:6px;">
                       <svg viewBox="0 0 36 36" width="38" height="38" aria-hidden="true">
-                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e2e8f0" stroke-width="6"/>
-                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 15.1 11.2" fill="none" stroke="#107c41" stroke-width="6" stroke-dasharray="65, 100"/>
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f1f5f9" stroke-width="5.5"/>
+                        <!-- Yeşil (%52 Plan İçi) -->
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#107c41" stroke-width="5.5" stroke-dasharray="52 48" stroke-dashoffset="25"/>
+                        <!-- Mavi (%26 Genişleme) -->
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#0071e3" stroke-width="5.5" stroke-dasharray="26 74" stroke-dashoffset="73"/>
+                        <!-- Sarı (%14 Yakın İzleme) -->
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f59e0b" stroke-width="5.5" stroke-dasharray="14 86" stroke-dashoffset="47"/>
+                        <!-- Kırmızı (%8 Limit Aşımı) -->
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#e11d48" stroke-width="5.5" stroke-dasharray="8 92" stroke-dashoffset="33"/>
                       </svg>
-                      <div style="font-size:8px;color:#64748b;line-height:1.2;">
-                        <div>• Satışlar</div>
-                        <div>• Diğer Gelirler</div>
-                        <div>• Finansal</div>
+                      <div style="font-size:7px;color:#475569;line-height:1.3;font-weight:600;">
+                        <div style="color:#107c41;">● Bütçe İçi %52</div>
+                        <div style="color:#0071e3;">● Geliştirme %26</div>
+                        <div style="color:#d97706;">● Eşik Yakın %14</div>
+                        <div style="color:#e11d48;">● Limit Aşımı %8</div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Alt Tablo Bilgileri -->
-                <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:6px 8px;font-size:9px;">
-                  <div style="font-weight:700;margin-bottom:4px;color:#334155;">Tahsilat Takip</div>
-                  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;color:#64748b;">
-                    <div>Bekleyen: <b style="color:#1e293b;">₺125.000</b></div>
-                    <div>Vadesi Gelen: <b style="color:#1e293b;">₺68.000</b></div>
-                    <div>Tahsil Edilen: <b style="color:#107c41;">₺420.000</b></div>
-                    <div>Toplam: <b style="color:#0071e3;">₺613.000</b></div>
+                <!-- Alt Tablo Bilgileri (4 Renkli Durum Sinyalleri) -->
+                <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:6px 8px;font-size:8.5px;">
+                  <div style="font-weight:700;margin-bottom:4px;color:#1e293b;display:flex;justify-content:space-between;align-items:center;">
+                    <span>Tahsilat & Nakit Pozisyonu</span>
+                    <span style="font-size:7.5px;color:#107c41;background:#e6f4ea;padding:1px 5px;border-radius:4px;font-weight:700;">DENGELİ</span>
+                  </div>
+                  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;font-size:8px;">
+                    <div style="border-left:2px solid #0071e3;padding-left:4px;">Toplam: <b style="color:#0071e3;display:block;">₺613.000</b></div>
+                    <div style="border-left:2px solid #107c41;padding-left:4px;">Tahsilat: <b style="color:#107c41;display:block;">₺420.000</b></div>
+                    <div style="border-left:2px solid #f59e0b;padding-left:4px;">Vadesi Gelen: <b style="color:#d97706;display:block;">₺68.000</b></div>
+                    <div style="border-left:2px solid #e11d48;padding-left:4px;">Geciken: <b style="color:#e11d48;display:block;">₺12.500</b></div>
                   </div>
                 </div>
               </div>
