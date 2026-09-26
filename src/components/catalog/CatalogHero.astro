@@ -414,7 +414,7 @@ const activeConfig = categoryConfigs[categorySlug] ?? {
   .catalog-hero {
     position: relative;
     overflow: hidden;
-    padding-block: 28px 24px;
+    padding-block: 20px 18px;
     border-bottom: 1px solid var(--xl-grid);
     background:
       linear-gradient(rgba(16,124,65,.03) 1px, transparent 1px),
@@ -423,14 +423,14 @@ const activeConfig = categoryConfigs[categorySlug] ?? {
     background-size: 28px 28px, 28px 28px, auto;
   }
   .catalog-hero__glow {
-    position: absolute;
+    position: absolute !important;
     width: 420px;
     height: 420px;
     right: -120px;
     top: -180px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(16,124,65,.12), rgba(16,124,65,0) 68%);
-    pointer-events: none;
+    pointer-events: none !important;
   }
   .catalog-hero__grid {
     position: relative;
