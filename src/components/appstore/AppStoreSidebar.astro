@@ -192,10 +192,10 @@ const categories = [
 
 <style>
   .appstore-sidebar {
-    width: 236px;
+    width: 240px;
     flex-shrink: 0;
-    background: #fbfbfd;
-    border-right: 1px solid #e5e5ea;
+    background: #f8fafc;
+    border-right: 1.5px solid #cbd5e1;
     padding: 16px 14px 28px;
     display: flex;
     flex-direction: column;
@@ -233,62 +233,62 @@ const categories = [
     gap: 10px;
     padding: 4px 6px 14px;
     text-decoration: none;
-    color: #1d1d1f;
+    color: #0f172a;
   }
   .appstore-logo-box {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     border-radius: 8px;
     background: linear-gradient(135deg, #107c41 0%, #0a5a2f 100%);
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 6px rgba(16, 124, 65, 0.28);
+    box-shadow: 0 2px 8px rgba(16, 124, 65, 0.32);
   }
   .appstore-brand-text {
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 17.5px;
+    font-weight: 800;
     letter-spacing: -0.025em;
-    color: #1d1d1f;
+    color: #0f172a;
   }
 
   /* Arama (Someka Paleti: Beyaz Input + Okyanus Mavisi #4b97c3 Buton) */
   .appstore-search-box {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
   .appstore-search-form {
     position: relative;
     display: flex;
     align-items: center;
     background: #ffffff;
-    border: 1px solid #d0d9e5;
+    border: 1.5px solid #cbd5e1;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(68, 85, 106, 0.08);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   .appstore-search-form:focus-within {
-    border-color: #4b97c3;
-    box-shadow: 0 0 0 3px rgba(75, 151, 195, 0.2);
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
   }
   .appstore-search-form input {
     flex: 1;
-    height: 32px;
+    height: 34px;
     padding: 0 10px 0 12px;
     border: none;
     background: transparent;
-    font-size: 13px;
-    color: #1d1d1f;
+    font-size: 13.5px;
+    color: #0f172a;
     outline: none;
   }
   .appstore-search-form input::placeholder {
-    color: #8493a5;
+    color: #64748b;
   }
   .appstore-search-btn {
     width: 36px;
-    height: 32px;
-    background: #4b97c3;
+    height: 34px;
+    background: #0284c7;
     color: #ffffff;
     border: none;
     display: flex;
@@ -299,56 +299,56 @@ const categories = [
     flex-shrink: 0;
   }
   .appstore-search-btn:hover {
-    background: #3d83ab;
+    background: #0369a1;
   }
 
   /* Ana Menü */
   .appstore-nav-menu {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 4px;
   }
   .appstore-nav-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 7px 10px;
-    border-radius: 8px;
-    font-size: 13.5px;
-    font-weight: 500;
-    color: #44556a;
+    gap: 11px;
+    padding: 9px 12px;
+    border-radius: 9px;
+    font-size: 14.5px;
+    font-weight: 650;
+    color: #1e293b;
     text-decoration: none;
-    transition: all 0.12s ease;
+    transition: all 0.15s ease;
   }
   .appstore-nav-item:hover {
-    background: #edf1f9;
-    color: #1d1d1f;
+    background: #e2e8f0;
+    color: #0f172a;
   }
   .appstore-nav-item.is-active {
-    background: #edf1f9;
-    color: #44556a;
-    font-weight: 700;
-    border-left: 3px solid #4b97c3;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 800;
+    border-left: 3.5px solid #0284c7;
   }
   .nav-item-icon {
-    width: 20px;
-    height: 20px;
+    width: 21px;
+    height: 21px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #56687f;
+    color: #475569;
   }
   .appstore-nav-item.is-active .nav-item-icon {
-    color: #4b97c3;
+    color: #0284c7;
   }
   .appstore-nav-item:hover .nav-item-icon {
-    color: #4b97c3;
+    color: #0f172a;
   }
 
   /* Ayırıcı */
   .appstore-nav-divider {
     height: 1px;
-    background: #e5e5ea;
+    background: #cbd5e1;
     margin: 12px 6px;
   }
 
@@ -368,14 +368,13 @@ const categories = [
       display: flex;
       flex-direction: column;
       gap: 10px;
-      padding: 12px 16px 10px;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+      padding: 14px 16px 12px;
+      background: #ffffff;
+      border-bottom: 1.5px solid #e2e8f0;
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
     }
 
     .as-ios-topbar-header {
@@ -391,19 +390,19 @@ const categories = [
     }
 
     .as-ios-date {
-      font-size: 11px;
-      font-weight: 700;
+      font-size: 11.5px;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #8e8e93;
+      letter-spacing: 0.07em;
+      color: #64748b;
       margin-bottom: 2px;
     }
 
     .as-ios-large-title {
       font-size: 30px;
-      font-weight: 800;
+      font-weight: 850;
       letter-spacing: -0.03em;
-      color: #1d1d1f;
+      color: #0f172a;
       margin: 0;
       line-height: 1.1;
     }
@@ -417,13 +416,13 @@ const categories = [
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #44556a 0%, #17324d 100%);
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
       color: #ffffff;
       font-size: 13px;
       font-weight: 800;
       display: grid;
       place-items: center;
-      box-shadow: 0 2px 8px rgba(23, 50, 77, 0.25);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
     }
 
     /* iOS Arama Girişi */
@@ -435,18 +434,21 @@ const categories = [
       display: flex;
       align-items: center;
       gap: 8px;
-      background: #e8e8ed;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
       border-radius: 10px;
-      padding: 7px 12px;
-      transition: background 0.15s ease;
+      padding: 8px 12px;
+      transition: all 0.15s ease;
     }
 
     .as-ios-search-form:focus-within {
-      background: #dedee3;
+      background: #ffffff;
+      border-color: #0284c7;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
     }
 
     .as-ios-search-svg {
-      color: #8e8e93;
+      color: #64748b;
       flex-shrink: 0;
     }
 
@@ -454,18 +456,18 @@ const categories = [
       border: none;
       background: transparent;
       outline: none;
-      font-size: 14px;
-      color: #1d1d1f;
+      font-size: 14.5px;
+      color: #0f172a;
       width: 100%;
       font-family: inherit;
       -webkit-appearance: none;
     }
 
     .as-ios-search-form input::placeholder {
-      color: #8e8e93;
+      color: #64748b;
     }
 
-    /* iOS Mobil Alt Sekme Çubuğu (Bottom Navigation Bar — 5 Sekme) */
+    /* iOS Mobil Alt Sekme Çubuğu (Yüksek Kontrast & Belirgin Tab Bar) */
     .as-ios-tabbar {
       display: flex;
       align-items: center;
@@ -474,14 +476,12 @@ const categories = [
       bottom: 0;
       left: 0;
       right: 0;
-      height: 60px;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(25px) saturate(180%);
-      -webkit-backdrop-filter: blur(25px) saturate(180%);
-      border-top: 0.5px solid rgba(0, 0, 0, 0.16);
+      height: 64px;
+      background: #ffffff;
+      border-top: 1.5px solid #cbd5e1;
       z-index: 9999;
       padding-bottom: max(6px, env(safe-area-inset-bottom, 8px));
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 -6px 20px rgba(15, 23, 42, 0.12), 0 -1px 3px rgba(15, 23, 42, 0.08);
     }
 
     .as-tab-link {
@@ -491,28 +491,35 @@ const categories = [
       justify-content: center;
       gap: 3px;
       text-decoration: none;
-      color: #8e8e93;
-      font-size: 10.5px;
-      font-weight: 500;
+      color: #334155;
+      font-size: 11.5px;
+      font-weight: 700;
       padding: 6px 4px;
-      transition: color 0.12s ease, transform 0.12s ease;
+      transition: all 0.15s ease;
       flex: 1;
-      max-width: 72px;
-      min-height: 48px;
+      max-width: 76px;
+      min-height: 50px;
+      border-radius: 9px;
     }
 
     .as-tab-link svg {
+      width: 23px;
+      height: 23px;
+      color: #475569;
       transition: transform 0.15s ease, stroke 0.15s ease;
     }
 
     .as-tab-link.is-active {
-      color: #0071e3;
-      font-weight: 700;
+      color: #0284c7;
+      font-weight: 850;
+      background: #eff6ff;
     }
 
     .as-tab-link.is-active svg {
-      stroke: #0071e3;
-      transform: scale(1.08);
+      stroke: #0284c7;
+      color: #0284c7;
+      transform: scale(1.1);
     }
+  }
   }
 </style>
