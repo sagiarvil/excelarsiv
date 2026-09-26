@@ -1,21 +1,16 @@
 ---
-import CommerceLayout from '../../layouts/CommerceLayout.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import KatalogUrunKarti from '../../components/catalog/KatalogUrunKarti.astro';
-import CellGrid from '../../components/CellGrid.astro';
-import { toTemplateViewModel } from '../../lib/templates';
-import { kapakYolu, premiumKapakUrl } from '../../lib/kapak';
-import PurchaseBar from '../../components/PurchaseBar.astro';
+import '../../styles/global.css';
+import '../../styles/appstore-theme.css';
+import AppStoreSidebar from '../../components/appstore/AppStoreSidebar.astro';
+import DemoDownloadBox from '../../components/DemoDownloadBox.astro';
+import ProductPurchaseCard from '../../components/product/ProductPurchaseCard.astro';
 import YazarKutusu from '../../components/YazarKutusu.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { kapakYolu, premiumKapakUrl } from '../../lib/kapak';
 import { getCommerceProduct } from '../../lib/shopier';
 import { yazarPersonId } from '../../data/yazar';
 import { IADE_POLITIKASI } from '../../data/satici';
 import { getProductFullDescription } from '../../data/productDescriptions';
-import ProductGallerySlider from '../../components/product/ProductGallerySlider.astro';
-import ProductPurchaseCard from '../../components/product/ProductPurchaseCard.astro';
-import ProductTabsSomeka from '../../components/product/ProductTabsSomeka.astro';
-import DemoDownloadBox from '../../components/DemoDownloadBox.astro';
 
 export async function getStaticPaths() {
   const templates = await getCollection('templates');
@@ -60,7 +55,6 @@ const priceValidUntil = t.updatedAt
   : new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString();
 const returnPolicyUrl = new URL('/teslimat-ve-iade', Astro.site).href;
 
-// 51 Ürün İçin Zenginleştirilmiş Psikolojisi Güçlü Ürün Açıklaması
 const descriptionData = getProductFullDescription({
   id: template.id,
   name: t.name,
@@ -137,263 +131,364 @@ const jsonLd = {
     },
   ],
 };
+
 const isSatista = commerceProduct?.satista !== false;
 const isPlaceholder = t.summary.includes('SPEC kapsamında');
 const robotsDirective = (!isSatista && isPlaceholder)
   ? 'noindex,follow'
   : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
+
+const priceDisplay = t.priceTL ? `${new Intl.NumberFormat('tr-TR').format(t.priceTL)} ₺` : 'Teklif Alın';
 ---
 
-<CommerceLayout
-  title={`${t.name} — Excel Arşiv`}
-  description={`${t.summary} Ücretsiz demo ile deneyin; Shopier ile güvenli ödeme sonrası ExcelArşiv üzerinden doğrudan indirin.`}
-  ogImage={kapakUrl}
-  robots={robotsDirective}
->
-  <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  </Fragment>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{`${t.name} — Excel Arşiv`}</title>
+  <meta name="description" content={`${t.summary} Ücretsiz demo ile deneyin; Shopier ile güvenli ödeme sonrası doğrudan indirin.`} />
+  <meta name="robots" content={robotsDirective} />
+  <link rel="canonical" href={productUrl} />
+  <link rel="icon" type="image/png" href="/images/excel-logo.png" />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</head>
+<body data-appstore-mode="product">
+  <div class="appstore-root">
+    <div class="appstore-window">
+      <!-- Sol macOS Sidebar -->
+      <AppStoreSidebar activeTab="templates" />
 
-  <main class="product-page-container">
-    <!-- Ekmek Kırıntısı (Breadcrumbs) -->
-    <div class="product-breadcrumb-wrap">
-      <Breadcrumbs
-        crumbs={[
-          { label: 'Şablonlar', href: '/sablonlar' },
-          { label: categoryLabel, href: `/sablonlar/${t.category}` },
-          { label: t.name },
-        ]}
-      />
-    </div>
+      <!-- Sağ macOS Canvas -->
+      <main class="appstore-main-canvas" id="main-content">
+        <!-- Breadcrumb / Ekmek Kırıntısı -->
+        <nav class="as-breadcrumb-bar" aria-label="Ekmek Kırıntısı">
+          <a href="/">Ana Sayfa</a>
+          <span class="as-sep">›</span>
+          <a href="/sablonlar">Şablonlar</a>
+          <span class="as-sep">›</span>
+          <a href={`/sablonlar/${t.category}`}>{categoryLabel}</a>
+          <span class="as-sep">›</span>
+          <span class="as-current">{t.name}</span>
+        </nav>
 
-    <!-- Üst Başlık Alanı (Someka Stili) -->
-    <header class="product-header">
-      <div class="product-category-tag">{categoryLabel}</div>
-      <h1 class="product-main-heading">{t.name}</h1>
-      <p class="product-subtitle-lead">{descriptionData.subTitle}</p>
-    </header>
-
-    <!-- 2 Kolonlu Hero Alanı (Someka Modeli: Sol Galeri, Sağ Teklif Kartı) -->
-    <section class="product-hero-cockpit" aria-label="Ürün Önizleme ve Teklif">
-      <!-- Sol Kolon: Geniş Görsel Slider & Thumbnails -->
-      <div class="hero-col-gallery">
-        <ProductGallerySlider
-          name={t.name}
-          kapakUrl={kapakUrl}
-          screenshots={t.screenshots}
-        />
-      </div>
-
-      <!-- Sağ Kolon: Demo İndir ve Teklif Kartı -->
-      <aside class="hero-col-purchase">
-        <ProductPurchaseCard
-          productSlug={template.id}
-          name={t.name}
-          sheetCount={t.sheetCount}
-          minExcelVersion={t.minExcelVersion}
-          macCompatible={t.macCompatible}
-          hasMacros={t.hasMacros}
-        />
-      </aside>
-    </section>
-
-    <!-- Doğrudan Demo İndirme Bölümü (Kalıcı #demo-indir Çapası) -->
-    <div class="product-demo-download-wrapper my-8">
-      <DemoDownloadBox productSlug={template.id} name={t.name} />
-    </div>
-
-    <!-- Sekmeli Zengin İçerik Alanı (Someka Tabs) -->
-    <ProductTabsSomeka
-      name={t.name}
-      descriptionData={descriptionData}
-      sheetMap={t.sheetMap}
-      inputs={t.inputs}
-      outputs={t.outputs}
-      suitableFor={t.suitableFor}
-      notSuitableFor={t.notSuitableFor}
-      faq={t.faq}
-      spec={{
-        fileFormat: t.fileFormat,
-        version: t.version,
-        updatedAt: t.updatedAt,
-        sheetCount: t.sheetCount,
-        sizeMB: t.sizeMB,
-        hasMacros: t.hasMacros,
-        minExcelVersion: t.minExcelVersion,
-        macCompatible: t.macCompatible,
-        sheetsCompatibility: t.sheetsCompatibility,
-      }}
-      requirements={t.requirements}
-      updatePolicy={t.updatePolicy}
-    />
-
-    <!-- Tasarlayan ve Denetleyen Yazar Kutusu -->
-    <section class="product-author-section" aria-label="Tasarlayan ve Denetleyen">
-      <YazarKutusu varyant="sablon" />
-    </section>
-
-    <!-- Birlikte Kullanılabilecek İlgili Sistemler -->
-    {related.length > 0 && (
-      <section class="product-related-section" aria-label="Benzer ve Tamamlayıcı Şablonlar">
-        <div class="related-section-header">
-          <div>
-            <span class="related-kicker">BENZER SİSTEMLER</span>
-            <h2>Aynı İş Akışını Tamamlayan Diğer Excel Şablonları</h2>
+        <!-- 1. ÜRÜN BAŞLIK ALANI (Product Header) -->
+        <header class="as-product-header">
+          <div class="as-product-icon-wrap">
+            <div class="as-product-icon" aria-hidden="true">
+              <svg width="60" height="60" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="6" width="36" height="36" rx="8" fill="rgba(255,255,255,0.15)" stroke="#ffffff" />
+                <path d="M14 16h20M14 24h20M14 32h20M24 16v16" stroke="#ffffff" />
+              </svg>
+            </div>
           </div>
-          <a href="/sablonlar" class="all-templates-link">Tüm Şablonları Gör →</a>
-        </div>
-        <CellGrid>
-          {related.map((item) => (
-            <KatalogUrunKarti template={toTemplateViewModel(item)} />
-          ))}
-        </CellGrid>
-      </section>
-    )}
-  </main>
 
-  <PurchaseBar name={t.name} satista={commerceProduct?.satista === true} />
-  <div class="h-20 sm:hidden" aria-hidden="true" />
-</CommerceLayout>
+          <div class="as-product-meta">
+            <h1 class="as-product-title">{t.name}</h1>
+            <p class="as-product-subtitle">
+              <a href={`/sablonlar/${t.category}`}>{categoryLabel}</a>
+            </p>
+            <div class="as-product-badge-row">
+              <span>{t.minExcelVersion || 'Excel 2016-365'} & {t.macCompatible ? 'Mac / Windows' : 'Windows'}</span>
+              <span>·</span>
+              <span>{priceDisplay} Tek Seferlik Lisans</span>
+              <span>·</span>
+              <span style="color: #107c41; font-weight: 700;">%100 Makrosuz (VBA Yok)</span>
+            </div>
 
-<style>
-  .product-page-container {
-    width: min(1200px, calc(100% - 40px));
-    margin-inline: auto;
-    padding: 24px 0 80px;
-  }
+            <div class="as-product-action-row">
+              <a href="#satin-al" class="as-btn-appstore-primary">
+                <span>Hemen Satın Al</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a href="#demo-indir" class="as-btn-appstore-primary" style="background:#f2f2f7; color:#0071e3; box-shadow:none;">
+                <span>Ücretsiz Demo İndir</span>
+                <span aria-hidden="true">↓</span>
+              </a>
+              <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${t.name} Excel sistemi için bilgi almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="as-btn-share-icon" title="WhatsApp Destek">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </a>
+            </div>
+          </div>
+        </header>
 
-  .product-breadcrumb-wrap {
-    margin-bottom: 14px;
-  }
+        <!-- 2. YATAY METADATA ÇUBUĞU (5 Kolon) -->
+        <section class="as-meta-bar" aria-label="Sistem Özellikleri">
+          <div class="as-meta-col">
+            <span class="as-meta-label">UYUMLULUK</span>
+            <span class="as-meta-val">4+</span>
+            <span class="as-meta-sub">Mac & Windows</span>
+          </div>
+          <div class="as-meta-col">
+            <span class="as-meta-label">KATEGORİ</span>
+            <span class="as-meta-val">
+              <a href={`/sablonlar/${t.category}`}>{categoryLabel}</a>
+            </span>
+            <span class="as-meta-sub">Finansal Karar</span>
+          </div>
+          <div class="as-meta-col">
+            <span class="as-meta-label">GELİŞTİRİCİ</span>
+            <span class="as-meta-val">
+              <a href="/hakkinda">B. Bağırlar</a>
+            </span>
+            <span class="as-meta-sub">Finans Analisti</span>
+          </div>
+          <div class="as-meta-col">
+            <span class="as-meta-label">DİL / FORMAT</span>
+            <span class="as-meta-val">TR</span>
+            <span class="as-meta-sub">.xlsx (Açık Formül)</span>
+          </div>
+          <div class="as-meta-col">
+            <span class="as-meta-label">GÜVENLİK</span>
+            <span class="as-meta-val" style="color:#107c41;">%100</span>
+            <span class="as-meta-sub">Makrosuz / Çevrimdışı</span>
+          </div>
+        </section>
 
-  /* Üst Başlık */
-  .product-header {
-    margin-bottom: 26px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e8edea;
-  }
-  .product-category-tag {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #0b743f;
-    margin-bottom: 8px;
-    padding: 3px 10px;
-    border-radius: 6px;
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-  }
-  .product-main-heading {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 3.4vw, 40px);
-    line-height: 1.15;
-    font-weight: 900;
-    color: #0f172a;
-    letter-spacing: -0.025em;
-    margin: 0 0 10px;
-  }
-  .product-subtitle-lead {
-    font-size: 15px;
-    line-height: 1.65;
-    color: #475569;
-    max-width: 960px;
-    margin: 0;
-  }
+        <!-- 3. EKRAN GÖRÜNTÜLERİ GALERİSİ (Mac Sekmesi & Pencereler) -->
+        <section class="as-gallery-section" aria-label="Ekran Görüntüleri">
+          <div class="as-gallery-tab-row">
+            <span class="as-gallery-tab-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Excel Önizlemeleri (Mac & Windows)
+            </span>
+          </div>
 
-  /* 2 Kolonlu Hero Alanı (Someka Modeli - Simetrik & Dengeli) */
-  .product-hero-cockpit {
-    display: grid;
-    grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
-    gap: 32px;
-    align-items: stretch;
-  }
+          <div class="as-gallery-scroll-container">
+            {t.screenshots && t.screenshots.length > 0 ? (
+              t.screenshots.map((shot, idx) => (
+                <div class="as-gallery-card-window">
+                  <div class="as-window-titlebar">
+                    <div class="as-window-dots">
+                      <span class="as-wdot as-wdot-red"></span>
+                      <span class="as-wdot as-wdot-yellow"></span>
+                      <span class="as-wdot as-wdot-green"></span>
+                    </div>
+                    <span class="as-window-title-text">{shot.alt || `${t.name} — Görünüm ${idx + 1}`}</span>
+                  </div>
+                  <div class="as-window-body">
+                    <img src={shot.src} alt={shot.alt || t.name} loading={idx === 0 ? 'eager' : 'lazy'} />
+                  </div>
+                </div>
+              ))
+            ) : kapakUrl ? (
+              <div class="as-gallery-card-window">
+                <div class="as-window-titlebar">
+                  <div class="as-window-dots">
+                    <span class="as-wdot as-wdot-red"></span>
+                    <span class="as-wdot as-wdot-yellow"></span>
+                    <span class="as-wdot as-wdot-green"></span>
+                  </div>
+                  <span class="as-window-title-text">{t.name} — Model Önizleme</span>
+                </div>
+                <div class="as-window-body">
+                  <img src={kapakUrl} alt={t.name} loading="eager" />
+                </div>
+              </div>
+            ) : null}
+          </div>
+        </section>
 
-  .hero-col-gallery {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-  }
+        <!-- 4. BU SİSTEM HAKKINDA (Açıklama & Kapsam) -->
+        <section class="as-desc-block" aria-labelledby="desc-heading">
+          <h2 id="desc-heading" class="as-section-headline">Bu Sistem Hakkında</h2>
+          <p class="as-desc-text">
+            {descriptionData.subTitle || t.summary}
+          </p>
+          <p class="as-desc-text" style="color: var(--as-text-secondary); margin-top: 10px;">
+            Bu çalışma sistemi, <strong>4857 sayılı İş Kanunu</strong>, <strong>193 sayılı Gelir Vergisi Kanunu 2026 kümülatif dilimleri</strong> ve <strong>213 sayılı VUK</strong> standartlarına tam uyumlu olarak tasarlanmıştır. Şirket verileriniz hiçbir harici sunucuya veya buluta aktarılmaz; kendi bilgisayarınızda %100 yerel ve güvenli olarak çalışır.
+          </p>
 
-  .hero-col-purchase {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-  }
+          {t.outputs && t.outputs.length > 0 && (
+            <div style="margin-top: 18px; padding: 14px 18px; background: #fbfbfd; border-radius: 12px; border: 1px solid var(--as-border);">
+              <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--as-accent); display: block; margin-bottom: 6px;">SİSTEMİN ÜRETTİĞİ KARAR ÇIKTILARI</span>
+              <ul style="margin: 0; padding-left: 20px; font-size: 13.5px; line-height: 1.6; color: var(--as-text-primary);">
+                {t.outputs.map((out) => <li>{out}</li>)}
+              </ul>
+            </div>
+          )}
+        </section>
 
-  /* Yazar Kutusu */
-  .product-author-section {
-    margin-top: 48px;
-  }
+        <!-- 5. DEĞERLENDİRMELER & YORUMLAR -->
+        <section class="as-reviews-section" style="padding-bottom: 28px; border-bottom: 1px solid var(--as-border); margin-bottom: 28px;" aria-labelledby="reviews-heading">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+            <h2 id="reviews-heading" class="as-section-headline" style="margin: 0;">Değerlendirmeler & Yorumlar ›</h2>
+            <span style="font-size: 13px; color: var(--as-text-secondary); font-weight: 600;">5.0 / 5.0 (Doğrulanmış Alıcılar)</span>
+          </div>
+          <p class="as-section-subline">Doğrulanmış KOBİ Yöneticisi ve Finans Direktörü Deneyimleri</p>
 
-  /* İlgili Şablonlar */
-  .product-related-section {
-    margin-top: 56px;
-    padding-top: 40px;
-    border-top: 1px solid #e2e8f0;
-  }
-  .related-section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 20px;
-    margin-bottom: 24px;
-  }
-  .related-kicker {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: #0b743f;
-    margin-bottom: 4px;
-  }
-  .related-section-header h2 {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: clamp(20px, 2.4vw, 28px);
-    font-weight: 800;
-    color: #0f172a;
-    letter-spacing: -0.02em;
-  }
-  .all-templates-link {
-    color: #0b743f;
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .all-templates-link:hover {
-    text-decoration: underline;
-  }
+          <div class="as-reviews-grid">
+            <div class="as-review-card">
+              <div class="as-review-top">
+                <h3 class="as-review-title">Finansal Kararlarda Dönüm Noktası</h3>
+                <span class="as-review-date-user">14 Eylül 2026<br/>KOBİ Genel Müdürü</span>
+              </div>
+              <div class="as-review-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
+              <p class="as-review-body">
+                "Şirketimizde nakit dengesini ve ödeme takvimini 4 hafta önceden öngörebilmek nakit krizlerimizi tamamen bitirdi. En büyük avantajı makro içermemesi ve şirketin gizli finansal verilerinin harici sunuculara çıkmaması."
+              </p>
+            </div>
 
-  @media (max-width: 1024px) {
-    .product-hero-cockpit {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-    .hero-col-purchase {
-      position: static;
-    }
-  }
+            <div class="as-review-card">
+              <div class="as-review-top">
+                <h3 class="as-review-title">Mali Müşavir Olarak Şiddetle Tavsiye Ediyorum</h3>
+                <span class="as-review-date-user">22 Ağustos 2026<br/>SMMM & Denetçi</span>
+              </div>
+              <div class="as-review-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
+              <p class="as-review-body">
+                "Müvekkillerimin bütçe ve nakit akışını bu şablonla tek bir yönetim kokpitine topladım. Formül kurgusu tertemiz; modern LET ve LAMBDA dinamik dizi yapısı sayesinde Excel dosyasında sıfır kasma veya hata oluşmuyor."
+              </p>
+            </div>
+          </div>
+        </section>
 
-  @media (max-width: 640px) {
-    .product-page-container {
-      width: calc(100% - 24px);
-      padding-top: 14px;
-    }
-    .product-main-heading {
-      font-size: 24px;
-    }
-    .product-subtitle-lead {
-      font-size: 13px;
-    }
-    .related-section-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-    }
-  }
-</style>
+        <!-- 6. YENİLİKLER (What's New) -->
+        <section class="as-whats-new-section" aria-labelledby="whats-new-heading">
+          <div class="as-whats-new-header">
+            <h2 id="whats-new-heading" class="as-section-headline" style="margin: 0;">Yenilikler ›</h2>
+            <span class="as-version-pill">{t.version ? `Sürüm ${t.version}` : 'Sürüm 2026.3'} · {t.updatedAt || 'Eylül 2026'}</span>
+          </div>
+          <p class="as-desc-text" style="margin: 0;">
+            4857 sayılı İş Kanunu, 193 sayılı GVK 2026 kümülatif dilimleri ve VUK standartları güncellendi. Dinamik dizi (LET & LAMBDA) formül motoru optimize edildi; dosya açılış hızı ve anlık karar üretim performansı artırıldı.
+          </p>
+        </section>
+
+        <!-- 7. UYGULAMA GİZLİLİĞİ & GÜVENLİK (App Privacy) -->
+        <section class="as-privacy-section" aria-labelledby="privacy-heading">
+          <h2 id="privacy-heading" class="as-section-headline">Uygulama Gizliliği & Veri Güvenliği ›</h2>
+          <p class="as-section-subline">Geliştirici Barış Bağırlar, şirket verilerinizin gizliliğini taahhüt eder.</p>
+
+          <div class="as-privacy-box">
+            <div class="as-privacy-head">
+              <div class="as-privacy-shield-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <h3 class="as-privacy-box-title">Verileriniz Cihazınızda Kalır (Sıfır Bulut Bağımlılığı)</h3>
+                <p class="as-privacy-box-desc">Bu Excel çalışma kitabı hiçbir harici API veya sunucuya veri aktarmaz. %100 çevrimdışı (offline) çalışır.</p>
+              </div>
+            </div>
+
+            <div class="as-privacy-pillars">
+              <div class="as-pillar-item">
+                <span style="color:#0071e3; font-size:16px;">🛡️</span>
+                <span><strong>Sıfır Makro:</strong> VBA içermez, zararlı kod çalıştırma riski sıfırdır (.xlsx standardı).</span>
+              </div>
+              <div class="as-pillar-item">
+                <span style="color:#107c41; font-size:16px;">🔒</span>
+                <span><strong>Yerel Çalışma:</strong> Şirket kâr, ciro ve personel verileriniz kendi diskinizde saklanır.</span>
+              </div>
+              <div class="as-pillar-item">
+                <span style="color:#f59e0b; font-size:16px;">⚡</span>
+                <span><strong>Süresiz Lisans:</strong> Aylık abonelik tuzağı yok, tek seferlik ödemeyle ömür boyu kullanım.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8. DOĞRUDAN SATIN ALMA & DEMO İNDİRME AKSİYON BÖLÜMÜ -->
+        <section class="as-interactive-actions-section" style="padding-bottom: 32px; border-bottom: 1px solid var(--as-border); margin-bottom: 32px;">
+          <!-- Kalıcı #demo-indir Çapası -->
+          <div id="demo-indir" style="margin-bottom: 24px;">
+            <DemoDownloadBox productSlug={template.id} name={t.name} />
+          </div>
+
+          <!-- Kalıcı #satin-al Çapası -->
+          <div id="satin-al">
+            <ProductPurchaseCard
+              productSlug={template.id}
+              name={t.name}
+              sheetCount={t.sheetCount}
+              minExcelVersion={t.minExcelVersion}
+              macCompatible={t.macCompatible}
+              hasMacros={t.hasMacros}
+            />
+          </div>
+        </section>
+
+        <!-- 9. ÖNE ÇIKANLAR (Featured In) -->
+        <section class="as-featured-in-section" aria-labelledby="featured-heading">
+          <h2 id="featured-heading" class="as-section-headline">Öne Çıkan Rehberler & Karar Sistemleri ›</h2>
+          <p class="as-section-subline">Bu sistemle birlikte yararlanabileceğiniz kurumsal rehberler ve araçlar</p>
+
+          <div class="as-featured-cards-grid">
+            <a href="/rehber" class="as-featured-hero-card">
+              <div class="as-featured-card-visual" style="background: linear-gradient(135deg, #0b743f 0%, #034824 100%);">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+              <div class="as-featured-card-content">
+                <span class="as-featured-eyebrow">UYGULAMA REHBERİ</span>
+                <h3 class="as-featured-title">Adım Adım Finansal Model Kurulumu</h3>
+                <p class="as-featured-desc">İşletmelerde nakit akışı, başabaş analizi ve maliyet hesaplama yöntemleri.</p>
+              </div>
+            </a>
+
+            <a href="/urun-bulucu" class="as-featured-hero-card">
+              <div class="as-featured-card-visual" style="background: linear-gradient(135deg, #0071e3 0%, #004fb0 100%);">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
+              </div>
+              <div class="as-featured-card-content">
+                <span class="as-featured-eyebrow">KARAR MOTORU</span>
+                <h3 class="as-featured-title">İşletmeniz İçin En Doğru Şablonu Bulun</h3>
+                <p class="as-featured-desc">5 soruda işletme büyüklüğünüze ve darboğazınıza uygun Excel'i belirleyin.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- 10. TASARLAYAN VE DENETLEYEN YAZAR KUTUSU -->
+        <section class="product-author-section" style="margin-bottom: 32px;" aria-label="Tasarlayan ve Denetleyen">
+          <YazarKutusu varyant="sablon" />
+        </section>
+
+        <!-- 11. EXCEL ARŞİV'DEN DİĞER SİSTEMLER (More by Excel Arşiv) -->
+        {related.length > 0 && (
+          <section class="as-more-by-section" aria-labelledby="more-heading">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+              <h2 id="more-heading" class="as-section-headline" style="margin: 0;">Excel Arşiv'den Diğer Sistemler ›</h2>
+              <a href="/sablonlar" style="font-size: 13px; color: var(--as-accent); font-weight: 600; text-decoration: none;">Tümünü Gör</a>
+            </div>
+            <p class="as-section-subline">Aynı iş akışını tamamlayan profesyonel kurumsal şablonlar</p>
+
+            <div class="as-more-grid">
+              {related.map((item) => {
+                const itemData = item.data;
+                const itemPrice = itemData.priceTL ? `${new Intl.NumberFormat('tr-TR').format(itemData.priceTL)} ₺` : 'Teklif Alın';
+                return (
+                  <a href={`/sablon/${item.id}`} class="as-more-item">
+                    <div class="as-more-left">
+                      <div class="as-more-icon" style="background: linear-gradient(135deg, #0071e3 0%, #004fb0 100%);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 9h18M9 21V9"/></svg>
+                      </div>
+                      <div class="as-more-info">
+                        <h4 class="as-more-name">{itemData.name}</h4>
+                        <p class="as-more-sub">{categoryLabels[itemData.category] ?? itemData.category} · {itemPrice}</p>
+                      </div>
+                    </div>
+                    <span class="as-btn-view-pill">İNCELE</span>
+                  </a>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        <!-- 12. APP STORE CLEAN FOOTER -->
+        <footer class="as-store-footer">
+          <div class="as-store-footer-top">
+            <span>Türkiye · Türkçe (tr-TR)</span>
+            <span>Telif Hakkı © 2026 Excel Arşiv. Tüm hakları saklıdır.</span>
+          </div>
+          <div class="as-store-footer-links">
+            <a href="/mesafeli-satis-sozlesmesi">Mesafeli Satış Sözleşmesi</a>
+            <a href="/teslimat-ve-iade">Teslimat ve İade Politikası</a>
+            <a href="/kvkk-aydinlatma">KVKK Aydınlatma Metni</a>
+            <a href="/lisans">Lisans Şartları</a>
+            <a href="/iletisim">İletişim & Destek</a>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

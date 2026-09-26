@@ -1005,6 +1005,46 @@ body {
   background: #ffffff;
 }
 
+.as-window-body img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid #e5e5ea;
+}
+
+.as-breadcrumb-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--as-text-tertiary);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.as-breadcrumb-bar a {
+  color: var(--as-text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.as-breadcrumb-bar a:hover {
+  color: var(--as-accent);
+}
+
+.as-breadcrumb-bar .as-sep {
+  color: var(--as-text-tertiary);
+  font-size: 14px;
+}
+
+.as-breadcrumb-bar .as-current {
+  color: var(--as-text-primary);
+  font-weight: 600;
+}
+
+
 /* 4. Açıklama Bölümü */
 .as-desc-block {
   padding: 18px 0 28px;
