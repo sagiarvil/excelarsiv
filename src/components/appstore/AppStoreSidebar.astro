@@ -242,6 +242,13 @@ const categories = [
     padding: 16px 14px 28px;
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 16px;
+    height: calc(100vh - 32px);
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    border-top-left-radius: var(--as-radius-window, 18px);
+    border-bottom-left-radius: var(--as-radius-window, 18px);
   }
 
   /* macOS Pencere Düğmeleri */

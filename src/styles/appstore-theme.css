@@ -30,7 +30,14 @@
   --as-radius-pill: 980px;
 }
 
-/* Sayfa Kök Taşıyıcısı */
+/* Sayfa Kök Taşıyıcısı & Global Akıcı Scroll */
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
 .appstore-root {
   min-height: 100vh;
   background: var(--as-bg);
@@ -54,8 +61,8 @@
   border: 1px solid #e2e2e8;
   box-shadow: var(--as-shadow-window);
   display: flex;
-  overflow: hidden;
   min-height: calc(100vh - 32px);
+  position: relative;
 }
 
 @media (max-width: 900px) {
@@ -68,13 +75,12 @@
   }
 }
 
-/* Sağ Ana Canvas */
+/* Sağ Ana Canvas — Doğal ve Kesintisiz Sayfa Scroll'u */
 .appstore-main-canvas {
   flex: 1;
   min-width: 0;
   background: #ffffff;
   padding: 24px 36px 60px;
-  overflow-y: auto;
 }
 
 @media (max-width: 768px) {
