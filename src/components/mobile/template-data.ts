@@ -39,7 +39,7 @@ export const TEMPLATE_DATA: TemplateItem[] = [
   {
     id: 'kobi-gelir-gider-dashboard',
     slug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi',
-    title: 'KOBİ Otomatik Finansal Kontrol & Dashboard',
+    title: 'Akıllı Kasa Defteri ve Nakit Kontrol Sistemi',
     category: 'Yönetim Raporlaması',
     badgeColor: 'bg-emerald-600 text-white',
     authorityBadge: 'Patron & Yönetici Formatı',
@@ -55,7 +55,7 @@ export const TEMPLATE_DATA: TemplateItem[] = [
   {
     id: 'uretim-maliyet-hesaplama',
     slug: 'uretim-recetesi-ve-zam-yansitma-hesaplayici',
-    title: 'Birim Maliyet & SKDM Karbon Uyumlu Üretim Matrisi',
+    title: 'Üretim Reçetesi & Zam Yansıtma Hesaplayıcı',
     category: 'Maliyet & Operasyon',
     badgeColor: 'bg-amber-600 text-white',
     authorityBadge: 'Sanayi & İhracat Standardı',
