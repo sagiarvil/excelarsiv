@@ -89,9 +89,12 @@ body {
   padding: 24px 36px 60px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .appstore-main-canvas {
-    padding: 12px 14px 88px;
+    padding: 12px 14px 108px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
   }
 }
 
@@ -1757,5 +1760,49 @@ a.as-meta-col:focus-visible {
   font-size: 12px;
   font-weight: 700;
   color: var(--as-accent);
+}
+
+/* ==========================================================================
+   Apple iOS App Store Mobile Layout Enhancements (< 900px)
+   ========================================================================== */
+@media (max-width: 900px) {
+  /* Yatay kaydırma çubuklarını gizle ve pürüzsüz yap */
+  .as-meta-scroll,
+  .as-category-scroll-pills,
+  .as-mobile-scroll-row {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .as-meta-scroll::-webkit-scrollbar,
+  .as-category-scroll-pills::-webkit-scrollbar,
+  .as-mobile-scroll-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Kartlarda ve listelerde dokunma alanını optimize et */
+  .as-pill-btn,
+  .as-cta-btn,
+  .as-action-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* iOS App Store tarzı görsel squircle ikonlar */
+  .as-app-icon,
+  .as-feature-icon {
+    border-radius: 22.5%;
+    flex-shrink: 0;
+  }
+
+  /* Sayfa sonu boşluğu: alt tabbar'ın arkasında kalmayı önler */
+  .as-footer-wrapper,
+  .appstore-footer,
+  footer {
+    padding-bottom: max(32px, env(safe-area-inset-bottom, 24px));
+  }
 }
 
