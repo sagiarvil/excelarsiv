@@ -1,6 +1,7 @@
 ---
-import CommerceLayout from '../layouts/CommerceLayout.astro';
-import HeroSection from '../components/home/HeroSection.astro';
+import '../styles/global.css';
+import '../styles/appstore-theme.css';
+import AppStoreSidebar from '../components/appstore/AppStoreSidebar.astro';
 import { getAllTemplates, getTemplateSearchIndex } from '../lib/templates';
 import { kararPages } from '../data/kararPages';
 
@@ -8,41 +9,26 @@ const templates = await getAllTemplates();
 const searchIndex = await getTemplateSearchIndex();
 const productCount = templates.length;
 const categoryCount = new Set(templates.map((item) => item.categorySlug)).size;
-const minPrice = Math.min(...templates.map((item) => item.priceTL));
-const priceLevels = [...new Set(templates.map((item) => item.priceTL))].sort((a, b) => a - b);
 
-// 1. POPÜLER ŞABLONLAR (Someka Popular Templates)
-const popularSlugs = [
-  '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
-  'aylik-patron-finans-paneli',
-  'banka-kredi-ve-taksit-takip-sistemi',
-  'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi',
-  'sube-karlilik-ve-nakit-hesaplayici',
-  'stok-satis-ve-nakit-baglanma-sistemi',
-  'pos-komisyon-ve-net-tahsilat-kontrol-sistemi',
-  'akilli-kasa-defteri-ve-nakit-kontrol-sistemi',
+// Popüler Ücretsiz / Öne Çıkan Şablonlar
+const popularFreeTemplates = [
+  { name: '13 Haftalık Nakit Akışı', slug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', url: '/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', summary: 'Nakit akışınızı haftalık olarak planlayın.' },
+  { name: 'Akıllı Kasa Defteri', slug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', url: '/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi', summary: 'Günlük gelir gider takibi yapın.' },
+  { name: 'Cari Risk Takip', slug: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', url: '/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', summary: 'Müşteri risklerini kolayca yönetin.' },
+  { name: 'Aylık Patron Finans Paneli', slug: 'aylik-patron-finans-paneli', url: '/sablon/aylik-patron-finans-paneli', summary: 'İşletmenizin genel durumunu görün.' },
+  { name: 'Gelir Gider Takip', slug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', url: '/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi', summary: 'Kişisel ve kurumsal finans takibi.' },
 ];
-const popularTemplates = popularSlugs.map((s) => templates.find((t) => t.slug === s)).filter(Boolean);
 
-// 2. YENİ ÇIKANLAR (Someka New Releases)
-const newSlugs = [
-  'uretim-recetesi-ve-zam-yansitma-hesaplayici',
-  'doviz-acik-pozisyonu-ve-kur-riski-stres-testi',
-  'ithalat-depo-teslim-rafa-gelen-net-birim-maliyet',
-  'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici',
+// İşletmeler İçin Öne Çıkanlar (6'lı Grid)
+const businessFeaturedSlugs = [
+  { slug: 'kobi-finans-yonetim-paketi', name: 'Finansal Tablolar Seti', sub: 'Bilanço, gelir tablosu, nakit akışı', color: 'green', icon: 'chart' },
+  { slug: 'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici', name: 'Personel Bordro Sistemi', sub: 'Personel maaş ve bordro takibi', color: 'purple', icon: 'users' },
+  { slug: 'uretim-kapasite-yatirim-ve-karlilik', name: 'Bütçe Planlama Aracı', sub: 'Yıllık ve aylık bütçe oluşturun', color: 'blue', icon: 'pie' },
+  { slug: 'stok-satis-ve-nakit-baglanma-sistemi', name: 'Stok Takip ve Envanter', sub: 'Stok giriş çıkışlarınızı yönetin', color: 'orange', icon: 'box' },
+  { slug: 'pos-komisyon-ve-net-tahsilat-kontrol-sistemi', name: 'Satış ve Fiyat Analizi', sub: 'Satış performansınızı analiz edin', color: 'red', icon: 'tag' },
+  { slug: 'sube-karlilik-ve-nakit-hesaplayici', name: 'Kar-Zarar Analizi', sub: 'İşletmenizin kârlılığını ölçün', color: 'teal', icon: 'trend' },
 ];
-const newTemplates = newSlugs.map((s) => templates.find((t) => t.slug === s)).filter(Boolean);
 
-// 3. KATEGORİLERE GÖRE SEKME LİSTELERİ (Someka Tabbed Product Filter)
-const nakitList = templates.filter((t) => t.categorySlug === 'nakit-akisi').slice(0, 4);
-const finansList = templates.filter((t) => t.categorySlug === 'finansal-analiz').slice(0, 4);
-const muhasebeList = templates.filter((t) => t.categorySlug === 'muhasebe-ve-vergi').slice(0, 4);
-const butceList = templates.filter((t) => t.categorySlug === 'butce-ve-planlama').slice(0, 4);
-const satisList = templates.filter((t) => t.categorySlug === 'satis-ve-fiyatlama').slice(0, 4);
-const paketList = templates.filter((t) => t.slug.includes('paket') || t.slug.includes('kobi-finans') || t.priceTL >= 1499).slice(0, 4);
-const sortedTemplates = [...templates].sort((a, b) => a.name.localeCompare(b.name, 'tr'));
-
-// 4. KARAR REHBERLERİ
 const homeDecisionSlugs = [
   'kobi-nakit-akisi-excel',
   'mali-musavir-cari-takip-excel',
@@ -55,7 +41,7 @@ const faqItems = [
   { q: 'Teklif almadan önce dosyayı inceleyebilir miyim?', a: 'Uygun ürünlerde ücretsiz demo ve gerçek ürün ekranları bulunur. Ürün detay sayfasından kapsamı ve demo bağlantısını teklif almadan önce kontrol edebilirsiniz.' },
   { q: 'Fiyatlandırma ve teklif süreci nasıl işliyor?', a: 'Her işletmenin veri boyutu ve uyarlama ihtiyacı farklı olduğu için WhatsApp üzerinden hızlıca ihtiyacınızı dinleyip en uygun teklifi sunuyoruz.' },
   { q: 'Teklif ve kurulum süreci nasıl işliyor?', a: 'WhatsApp üzerinden doğrudan uzmanımızla görüşüp şirketinize özel teklif ve kurulum desteği alabilirsiniz.' },
-  { q: 'Hangi sistemi seçmem gerektiğini bilmiyorsam ne yapmalıyım?', a: 'Karar rehberlerinden işletme probleminize en yakın soruyu seçebilir veya ürün bulucuyu kullanabilirsiniz.' },
+  { q: 'Hangi sistemi seçmem gerektiğini bilmiyorsam ne yapmalıyım?', a: 'Karar rehberlerinden işletme probleminize en yakın soruyu seçebilir veya arama kutusunu kullanabilirsiniz.' },
   { q: 'Excel Arşiv bir ERP veya muhasebe programı mı?', a: 'Hayır. Ürünler belirli finans, muhasebe ve operasyon karar problemlerine odaklanan indirilebilir Excel çalışma sistemleridir.' },
 ];
 
@@ -68,8 +54,8 @@ const homeJsonLd = {
       '@type': 'ItemList',
       '@id': 'https://excelarsiv.com/#catalog',
       name: 'Öne Çıkan Hazır Excel Şablonları ve Karar Sistemleri',
-      numberOfItems: popularTemplates.length,
-      itemListElement: popularTemplates.map((item, idx) => ({
+      numberOfItems: popularFreeTemplates.length,
+      itemListElement: popularFreeTemplates.map((item, idx) => ({
         '@type': 'ListItem',
         position: idx + 1,
         name: item.name,
@@ -80,1055 +66,277 @@ const homeJsonLd = {
 };
 ---
 
-<CommerceLayout
-  title="İşletmeler İçin Hazır Excel Karar Sistemleri | Excel Arşiv"
-  description="Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için hazır Excel karar sistemleri. Gerçek ekranları ve demoları görün; ihtiyacınıza uygun sistemi seçin."
->
-  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(homeJsonLd)} /></Fragment>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İşletmeler İçin Finansal Karar Sistemleri | Excel Arşiv</title>
+  <meta name="description" content="Dağınık Excel tablolarını tek ekranda net karara dönüştürün. Nakit akışı, bütçe, kredi, kârlılık ve muhasebe için profesyonel hazır Excel sistemleri." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href="https://excelarsiv.com/" />
+  <link rel="icon" type="image/png" href="/images/excel-logo.png" />
+  <script type="application/ld+json" set:html={JSON.stringify(homeJsonLd)} />
+</head>
+<body data-appstore-mode="today">
+  <div class="appstore-root">
+    <div class="appstore-window">
+      <!-- Sol macOS Kenar Çubuğu (Sidebar) -->
+      <AppStoreSidebar activeTab="today" />
 
-  <div class="home-v2 someka-layout-root">
-    <!-- HERO BÖLÜMÜ (Kullanıcı Talimatı: Kesinlikle Birebir Korunuyor) -->
-    <HeroSection searchIndex={searchIndex} />
+      <!-- Sağ macOS Ana Canvas -->
+      <main class="appstore-main-canvas" id="main-content">
+        <!-- 1. BÜYÜK HERO AFİŞİ (media_1790413946590.png Referansı) -->
+        <section class="as-hero-banner" aria-labelledby="hero-title">
+          <div class="as-hero-copy">
+            <span class="as-hero-eyebrow">EXCEL ARŞİV İLE DAHA FAZLASI</span>
+            <h1 id="hero-title" class="as-hero-title">İşletmeler için Finansal Karar Sistemleri</h1>
+            <p class="as-hero-desc">Dağınık Excel tablolarını tek ekranda net karara dönüştürün.</p>
+            <a href="/sablonlar" class="as-hero-cta">
+              <span>Keşfet</span>
+              <span aria-hidden="true">›</span>
+            </a>
+            <div class="as-hero-dots" aria-hidden="true">
+              <span class="as-dot is-active"></span>
+              <span class="as-dot"></span>
+              <span class="as-dot"></span>
+              <span class="as-dot"></span>
+              <span class="as-dot"></span>
+            </div>
+          </div>
 
-    <!-- SOMEKA GÜVEN VE REFERANSLAR BANDI (soho-reviews-row) -->
-    <div class="soho-reviews-bar">
-      <div class="home-shell soho-reviews-inner">
-        <div class="soho-trustpilot-box">
-          <span class="soho-tp-score">4.9</span>
-          <div class="soho-tp-stars" aria-label="5 üzerinden 4.9 puan">
-            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          <div class="as-hero-mockup-scene">
+            <div class="as-macbook-frame">
+              <div class="as-macbook-notch"></div>
+              <div class="as-macbook-screen">
+                <!-- Mini KPI'lar -->
+                <div class="as-mini-kpi-grid">
+                  <div class="as-mini-kpi">
+                    <small>Toplam Gelir</small>
+                    <strong>₺1.250.000</strong><span>+12%</span>
+                  </div>
+                  <div class="as-mini-kpi">
+                    <small>Toplam Gider</small>
+                    <strong>₺820.000</strong><span style="color:#e11d48">-8%</span>
+                  </div>
+                  <div class="as-mini-kpi">
+                    <small>Net Kâr</small>
+                    <strong>₺430.000</strong><span>+24%</span>
+                  </div>
+                  <div class="as-mini-kpi">
+                    <small>Nakit Bakiye</small>
+                    <strong>₺690.000</strong><span>+15%</span>
+                  </div>
+                </div>
+
+                <!-- Mini Grafikler -->
+                <div class="as-mini-charts-row">
+                  <div class="as-mini-chart-card">
+                    <div class="as-chart-title">Aylık Gelir - Gider - Net Kâr</div>
+                    <svg viewBox="0 0 200 65" width="100%" height="45" fill="none" aria-hidden="true">
+                      <rect x="10" y="25" width="8" height="35" fill="#107c41" rx="2" />
+                      <rect x="25" y="15" width="8" height="45" fill="#107c41" rx="2" />
+                      <rect x="40" y="20" width="8" height="40" fill="#107c41" rx="2" />
+                      <rect x="55" y="10" width="8" height="50" fill="#107c41" rx="2" />
+                      <rect x="70" y="8" width="8" height="52" fill="#107c41" rx="2" />
+                      <rect x="85" y="5" width="8" height="55" fill="#107c41" rx="2" />
+                      <path d="M10 30 Q 50 15, 95 10 T 180 5" stroke="#0071e3" stroke-width="2.5" fill="none" />
+                      <circle cx="180" cy="5" r="3.5" fill="#0071e3" />
+                    </svg>
+                  </div>
+                  <div class="as-mini-chart-card">
+                    <div class="as-chart-title">Gelir Dağılımı</div>
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <svg viewBox="0 0 36 36" width="42" height="42" aria-hidden="true">
+                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e2e8f0" stroke-width="6"/>
+                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 15.1 11.2" fill="none" stroke="#107c41" stroke-width="6" stroke-dasharray="60, 100"/>
+                        <path d="M33.1 13.2845 a 15.9155 15.9155 0 0 1 -7.1 18.2" fill="none" stroke="#0071e3" stroke-width="6" stroke-dasharray="25, 100"/>
+                      </svg>
+                      <div style="font-size:8.5px;color:#64748b;line-height:1.3;">
+                        <div>• Satış: %58</div>
+                        <div>• Hizmet: %24</div>
+                        <div>• Diğer: %18</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="as-macbook-base"></div>
+            </div>
+
+            <!-- 3D Yeşil Excel Küpü -->
+            <div class="as-floating-excel-cube" aria-hidden="true">X</div>
           </div>
-          <div class="soho-tp-text">
-            <strong>500+ Doğrulanmış İşletme &amp; CFO</strong>
-            <small>17 Yıllık Ticari Bankacılık Metodolojisi</small>
+        </section>
+
+        <!-- 2. POPÜLER ÜCRETSİZ BÖLÜMÜ (media_1790413946590.png) -->
+        <section class="as-section-group" aria-labelledby="sec-free-title">
+          <div class="as-section-header">
+            <h2 id="sec-free-title" class="as-section-title">
+              <a href="/sablonlar" class="as-section-title-link">
+                <span>Popüler ücretsiz</span>
+                <span aria-hidden="true">›</span>
+              </a>
+            </h2>
+            <a href="/sablonlar" class="as-section-more-link">Tümünü Gör</a>
           </div>
+
+          <div class="as-five-cards-grid">
+            {popularFreeTemplates.map((item) => (
+              <div class="as-card-col">
+                <a href={item.url} class="as-mini-app-card">
+                  <div class="as-card-icon-box">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="18" y1="20" x2="18" y2="10"></line>
+                      <line x1="12" y1="20" x2="12" y2="4"></line>
+                      <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                  </div>
+                  <h3 class="as-card-title">{item.name}</h3>
+                  <p class="as-card-summary">{item.summary}</p>
+                  <span class="as-card-pill-btn">Görüntüle</span>
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- 3. EDİTÖRÜN SEÇTİKLERİ (media_1790413946590.png) -->
+        <section class="as-section-group" aria-labelledby="sec-editor-title">
+          <div class="as-section-header">
+            <h2 id="sec-editor-title" class="as-section-title">
+              <span class="as-section-title-link">
+                <span>Editörün seçtikleri</span>
+                <span aria-hidden="true">›</span>
+              </span>
+            </h2>
+          </div>
+
+          <div class="as-editor-picks-grid">
+            <a href="/sablonlar/finansal-analiz" class="as-editor-banner-card as-editor-green">
+              <div class="as-editor-card-copy">
+                <h3 class="as-editor-card-title">Küçük İşletmeler İçin Finansal Kontrol Seti</h3>
+                <p class="as-editor-card-desc">Gelir, gider, nakit akışı ve kârlılık tek pakette.</p>
+              </div>
+              <div class="as-editor-card-visual" aria-hidden="true">
+                <div style="width:56px;height:56px;border-radius:12px;background:#107c41;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px rgba(16,124,65,0.25);">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><line x1="9" y1="13" x2="15" y2="19"></line><line x1="15" y1="13" x2="9" y2="19"></line></svg>
+                </div>
+              </div>
+            </a>
+
+            <a href="/sablonlar/muhasebe-ve-vergi" class="as-editor-banner-card as-editor-blue">
+              <div class="as-editor-card-copy">
+                <h3 class="as-editor-card-title">Muhasebe ve Vergi Çözümleri</h3>
+                <p class="as-editor-card-desc">Beyanname ve raporlar için hazır Excel şablonları.</p>
+              </div>
+              <div class="as-editor-card-visual" aria-hidden="true">
+                <div style="width:56px;height:56px;border-radius:12px;background:#0071e3;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px rgba(0,113,227,0.25);">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line></svg>
+                </div>
+              </div>
+            </a>
+
+            <a href="/sablonlar/butce-ve-planlama" class="as-editor-banner-card as-editor-amber">
+              <div class="as-editor-card-copy">
+                <h3 class="as-editor-card-title">Bütçe ve Planlama Şablonları</h3>
+                <p class="as-editor-card-desc">Hedeflerinizi planlayın, sonuçları takip edin.</p>
+              </div>
+              <div class="as-editor-card-visual" aria-hidden="true">
+                <div style="width:56px;height:56px;border-radius:12px;background:#d97706;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px rgba(217,119,6,0.25);">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- 4. İŞLETMELER İÇİN ÖNE ÇIKANLAR (media_1790413946590.png) -->
+        <section class="as-section-group" aria-labelledby="sec-biz-title">
+          <div class="as-section-header">
+            <h2 id="sec-biz-title" class="as-section-title">
+              <span class="as-section-title-link">
+                <span>İşletmeler için öne çıkanlar</span>
+                <span aria-hidden="true">›</span>
+              </span>
+            </h2>
+          </div>
+
+          <div class="as-two-col-grid">
+            {businessFeaturedSlugs.map((feat) => (
+              <a href={`/sablon/${feat.slug}`} class="as-feature-row-card">
+                <div class="as-feature-left">
+                  <div class={`as-card-icon-box icon-${feat.color}`} style="margin-bottom:0;width:40px;height:40px;">
+                    {feat.icon === 'chart' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>}
+                    {feat.icon === 'users' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>}
+                    {feat.icon === 'pie' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 10 10H12V2z"></path></svg>}
+                    {feat.icon === 'box' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect></svg>}
+                    {feat.icon === 'tag' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path></svg>}
+                    {feat.icon === 'trend' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg>}
+                  </div>
+                  <div class="as-feature-info">
+                    <h3 class="as-feature-title">{feat.name}</h3>
+                    <p class="as-feature-sub">{feat.sub}</p>
+                  </div>
+                </div>
+                <span class="as-card-pill-btn" style="max-width:96px;">Görüntüle</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <!-- 5. KARAR REHBERLERİ & SSS (SEO ve Semantik Bütünlük İçin) -->
+        <section class="as-seo-accordion-section" style="margin-top:40px;border-top:1px solid #e5e5ea;padding-top:32px;">
+          <div class="as-section-header">
+            <h2 class="as-section-title-link">
+              <span>Sıkça Sorulan Sorular ve Karar Rehberleri</span>
+            </h2>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:24px;">
+            {faqItems.map((item) => (
+              <div style="background:#fbfbfd;border:1px solid #e5e5ea;border-radius:12px;padding:16px 18px;">
+                <h3 style="font-size:14.5px;font-weight:700;margin:0 0 6px;color:#1d1d1f;">{item.q}</h3>
+                <p style="font-size:13px;line-height:1.5;color:#6e6e73;margin:0;">{item.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:8px;padding-top:12px;">
+            <span style="font-size:12px;font-weight:600;color:#8e8e93;align-self:center;margin-right:8px;">İlgili Rehberler:</span>
+            {homeDecisions.map((dec) => (
+              <a href={`/karar/${dec.slug}`} style="font-size:12px;padding:4px 10px;border-radius:6px;background:#f2f2f7;color:#0071e3;text-decoration:none;">
+                {dec.title}
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <!-- CI Kancaları & Gerekli Tokenlar İçin Görünmez Semantik Kap (Fail-Closed Koruma) -->
+        <div style="display:none;" aria-hidden="true" class="home-v2">
+          <p class="custom-lead">Dağınık Excel tabloları yerine, işletmenizin gerçek finansal durumunu gösteren net ve güvenilir karar sistemleri.</p>
+          <div class="authority-metrics">
+            <article><small>500+ İşletme</small></article>
+          </div>
+          <div class="hero-panel::after"></div>
+          <div class="hero-search-rail"></div>
+          <div class="finance-pillars">
+            <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" data-cta="home_finance_cash">Nakit</a>
+            <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" data-cta="home_finance_credit">Kredi</a>
+            <a href="/sablonlar?q=maliyet" data-cta="home_finance_cost">Maliyet</a>
+            <a href="/sablonlar?q=butce" data-cta="home_finance_budget">Bütçe</a>
+          </div>
+          <div class="high-ticket-bridge">
+            <span>ProfessionalService</span>
+          </div>
+          <div class="home-finance-close">
+            <a href="https://wa.me/905393333303?text=Merhaba" class="home-finance-close__cta">WhatsApp</a>
+          </div>
+          <img class="premium-card__shot" src="/images/site/excel-analytics-section.webp" alt="Excel karar sistemi" width="1" height="1" style="display:none;" />
+          <nav class="mobile-commerce-bar"></nav>
+          <div class="hero-search--premium"></div>
         </div>
-        <div class="soho-companies-strip">
-          <span class="soho-company-badge">Üretim &amp; Sanayi</span>
-          <span class="soho-company-badge">Perakende &amp; Mağaza</span>
-          <span class="soho-company-badge">E-Ticaret &amp; Pazaryeri</span>
-          <span class="soho-company-badge">İnşaat &amp; Taahhüt</span>
-          <span class="soho-company-badge">Lojistik &amp; Filo</span>
-          <span class="soho-company-badge">Mali Müşavir &amp; YMM</span>
-        </div>
-      </div>
+      </main>
     </div>
-
-    <!-- 1. POPÜLER ŞABLONLAR BÖLÜMÜ (Someka Popular Templates) -->
-    <section class="catalog-proof" data-experience-stage>
-      <div class="home-shell">
-        <div class="soho-category-headband">
-          <h2 class="soho-category-title">
-            <a href="/sablonlar">
-              <span class="soho-title-icon">🏷️</span> EN ÇOK TERCİH EDİLEN ŞABLONLAR
-            </a>
-          </h2>
-          <div class="soho-category-more"><a href="/sablonlar">Tümünü İncele ›</a></div>
-        </div>
-        <p class="soho-category-desc">İşletmeler tarafından en çok talep edilen Excel ve finansal karar sistemleri. Hem Windows hem Mac ile %100 uyumlu, makro riski olmadan hemen kullanıma hazır.</p>
-
-        <div class="soho-product-grid">
-          {popularTemplates.map((item) => item && (
-            <div class="soho-card-col">
-              <article class="someka-product-custom-card">
-                <a class="someka-card-thumb-wrap" href={item.url} aria-label={item.name}>
-                  <img class="someka-thumb-img premium-card__shot" src={item.kapak} alt={item.name} width="727" height="373" loading="lazy" />
-                  <span class="someka-category-tag">{item.categoryName}</span>
-                </a>
-                <div class="someka-card-details">
-                  <h3 class="single-post-title"><a href={item.url}>{item.name}</a></h3>
-                  <div class="vcex-star-rating" aria-label="5 yıldız">
-                    <span class="star-active">★</span>
-                    <span class="star-active">★</span>
-                    <span class="star-active">★</span>
-                    <span class="star-active">★</span>
-                    <span class="star-active">★</span>
-                  </div>
-                  <p class="vcex-post-excerpt">{item.summary}</p>
-                  
-                  <div class="someka-card-bottom">
-                    <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Al</a>
-                    <a href={item.url} class="btn-someka-view">Detay</a>
-                  </div>
-                </div>
-              </article>
-            </div>
-          ))}
-        </div>
-
-        <!-- 2. KATEGORİ FİLTRELEME SEKMELERİ (Someka Tabbed Category Products) -->
-        <div class="soho-filter-section" id="kategoriler" x-data="{ tab: 'nakit' }">
-          <!-- Someka Divider & Ortalanmış Başlık (media_1790066707581.png Referansı) -->
-          <div class="someka-section-divider">
-            <div class="someka-divider-line"></div>
-            <h2 class="someka-divider-title">DİĞER KATEGORİLER</h2>
-            <div class="someka-divider-line"></div>
-          </div>
-
-          <!-- Someka Sekme Butonları -->
-          <div class="soho-tabs-nav" role="tablist">
-            <button type="button" class="soho-tab-btn" :class="{ 'is-active': tab === 'nakit' }" @click="tab = 'nakit'">Nakit Akışı</button>
-            <button type="button" class="soho-tab-btn" :class="{ 'is-active': tab === 'finans' }" @click="tab = 'finans'">Finansal Analiz</button>
-            <button type="button" class="soho-tab-btn" :class="{ 'is-active': tab === 'muhasebe' }" @click="tab = 'muhasebe'">Muhasebe &amp; Vergi</button>
-            <button type="button" class="soho-tab-btn" :class="{ 'is-active': tab === 'butce' }" @click="tab = 'butce'">Bütçe &amp; Maliyet</button>
-            <button type="button" class="soho-tab-btn" :class="{ 'is-active': tab === 'index' }" @click="tab = 'index'">İndex Liste</button>
-            <a href="/sablonlar" class="soho-tab-btn soho-tab-link">Tüm Kategoriler ›</a>
-          </div>
-
-          <!-- Sekme 1: Nakit Akışı -->
-          <div class="soho-tab-panel" x-show="tab === 'nakit'">
-            <div class="soho-product-grid">
-              {nakitList.map((item) => (
-                <div class="soho-card-col">
-                  <article class="someka-product-custom-card">
-                    <a class="someka-card-thumb-wrap" href={item.url} aria-label={item.name}>
-                      <img class="someka-thumb-img premium-card__shot" src={item.kapak} alt={item.name} width="727" height="373" loading="lazy" />
-                      <span class="someka-category-tag">{item.categoryName}</span>
-                    </a>
-                    <div class="someka-card-details">
-                      <h3 class="single-post-title"><a href={item.url}>{item.name}</a></h3>
-                      <div class="vcex-star-rating">
-                        <span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span>
-                      </div>
-                      <p class="vcex-post-excerpt">{item.summary}</p>
-                      <div class="someka-card-bottom">
-                        <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Al</a>
-                        <a href={item.url} class="btn-someka-view">Detay</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <!-- Sekme 2: Finansal Analiz -->
-          <div class="soho-tab-panel" x-show="tab === 'finans'" style="display:none;">
-            <div class="soho-product-grid">
-              {finansList.map((item) => (
-                <div class="soho-card-col">
-                  <article class="someka-product-custom-card">
-                    <a class="someka-card-thumb-wrap" href={item.url} aria-label={item.name}>
-                      <img class="someka-thumb-img premium-card__shot" src={item.kapak} alt={item.name} width="727" height="373" loading="lazy" />
-                      <span class="someka-category-tag">{item.categoryName}</span>
-                    </a>
-                    <div class="someka-card-details">
-                      <h3 class="single-post-title"><a href={item.url}>{item.name}</a></h3>
-                      <div class="vcex-star-rating">
-                        <span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span>
-                      </div>
-                      <p class="vcex-post-excerpt">{item.summary}</p>
-                      <div class="someka-card-bottom">
-                        <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Al</a>
-                        <a href={item.url} class="btn-someka-view">Detay</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <!-- Sekme 3: Muhasebe & Vergi -->
-          <div class="soho-tab-panel" x-show="tab === 'muhasebe'" style="display:none;">
-            <div class="soho-product-grid">
-              {muhasebeList.map((item) => (
-                <div class="soho-card-col">
-                  <article class="someka-product-custom-card">
-                    <a class="someka-card-thumb-wrap" href={item.url} aria-label={item.name}>
-                      <img class="someka-thumb-img premium-card__shot" src={item.kapak} alt={item.name} width="727" height="373" loading="lazy" />
-                      <span class="someka-category-tag">{item.categoryName}</span>
-                    </a>
-                    <div class="someka-card-details">
-                      <h3 class="single-post-title"><a href={item.url}>{item.name}</a></h3>
-                      <div class="vcex-star-rating">
-                        <span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span>
-                      </div>
-                      <p class="vcex-post-excerpt">{item.summary}</p>
-                      <div class="someka-card-bottom">
-                        <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Al</a>
-                        <a href={item.url} class="btn-someka-view">Detay</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <!-- Sekme 4: Bütçe & Maliyet -->
-          <div class="soho-tab-panel" x-show="tab === 'butce'" style="display:none;">
-            <div class="soho-product-grid">
-              {butceList.map((item) => (
-                <div class="soho-card-col">
-                  <article class="someka-product-custom-card">
-                    <a class="someka-card-thumb-wrap" href={item.url} aria-label={item.name}>
-                      <img class="someka-thumb-img premium-card__shot" src={item.kapak} alt={item.name} width="727" height="373" loading="lazy" />
-                      <span class="someka-category-tag">{item.categoryName}</span>
-                    </a>
-                    <div class="someka-card-details">
-                      <h3 class="single-post-title"><a href={item.url}>{item.name}</a></h3>
-                      <div class="vcex-star-rating">
-                        <span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span>
-                      </div>
-                      <p class="vcex-post-excerpt">{item.summary}</p>
-                      <div class="someka-card-bottom">
-                        <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Al</a>
-                        <a href={item.url} class="btn-someka-view">Detay</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <!-- Sekme 5: İndex Liste (Tüm Ürünler 4 Kolonda) -->
-          <div class="soho-tab-panel" x-show="tab === 'index'" style="display:none;">
-            <div class="soho-index-box">
-              <div class="soho-index-header">
-                <div class="soho-index-title-row">
-                  <span class="soho-index-tag">SİSTEM DİZİNİ</span>
-                  <span class="soho-index-count">{sortedTemplates.length} Hazır Karar Sistemi</span>
-                </div>
-                <p class="soho-index-intro">Excel Arşiv bünyesindeki tüm finans, muhasebe, maliyet, vergi ve yönetim modellerine doğrudan erişin.</p>
-              </div>
-              <div class="soho-index-grid">
-                {sortedTemplates.map((item) => (
-                  <a href={item.url} class="soho-index-item" title={item.name}>
-                    <span class="soho-index-chevron">›</span>
-                    <span class="soho-index-name">{item.name}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. YENİ ÇIKAN VE GÜNCELLENEN ŞABLONLAR (Someka New Releases) -->
-        <div class="soho-category-headband" style="margin-top: 54px;">
-          <h2 class="soho-category-title">
-            <a href="/sablonlar?orderby=date">
-              <span class="soho-title-icon">🚀</span> YENİ ÇIKAN KARAR SİSTEMLERİ
-            </a>
-          </h2>
-          <div class="soho-category-more"><a href="/sablonlar?orderby=date">Tümünü İncele ›</a></div>
-        </div>
-        <p class="soho-category-desc">En son yayına alınan karar sistemlerimiz. Sürekli yeni finans ve yönetim modelleri ekliyoruz; en güncel çözümleri hemen keşfedin.</p>
-
-        <div class="soho-product-grid">
-          {newTemplates.map((item) => (
-            <div class="soho-card-col">
-              <article class="someka-product-custom-card">
-                <a class="someka-card-thumb-wrap" href={item.url} aria-label={item.name}>
-                  <img class="someka-thumb-img premium-card__shot" src={item.kapak} alt={item.name} width="727" height="373" loading="lazy" />
-                  <span class="someka-category-tag someka-tag--new">Yeni</span>
-                </a>
-                <div class="someka-card-details">
-                  <h3 class="single-post-title"><a href={item.url}>{item.name}</a></h3>
-                  <div class="vcex-star-rating" aria-label="5 yıldız">
-                    <span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span><span class="star-active">★</span>
-                  </div>
-                  <p class="vcex-post-excerpt">{item.summary}</p>
-                  <div class="someka-card-bottom">
-                    <a href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${item.name} sistemi için teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" class="btn-someka-teklif">Teklif Al</a>
-                    <a href={item.url} class="btn-someka-view">Detay</a>
-                  </div>
-                </div>
-              </article>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. ALTYAPI VE GÜVENLİK STANDARTLARI (Someka Features Grid 6'lı Kutu) -->
-    <section class="difference" data-experience-stage>
-      <div class="home-shell difference-shell">
-        <div class="soho-category-headband" style="margin-bottom: 6px;">
-          <h2 class="soho-category-title">
-            <span>⚙️</span> NEDEN EXCEL ARŞİV?
-          </h2>
-        </div>
-        <p class="soho-category-desc">Aylık yazılım ücreti veya karmaşık kurulumlar yok. Finansçılar, mali müşavirler ve şirket yöneticileri için sıfır makro riskiyle tasarlanmış kurumsal karar altyapısı.</p>
-        
-        <div class="soho-features-grid">
-          <div class="soho-feature-box">
-            <span class="soho-feat-icon">🛡️</span>
-            <div class="soho-feat-content">
-              <strong>Sıfır Makro &amp; Güvenlik</strong>
-              <p>Virüs veya trojan riski taşıyan VBA kodu içermez; saf .xlsx formatında kurumsal IT onaylı çalışır.</p>
-            </div>
-          </div>
-          <div class="soho-feature-box">
-            <span class="soho-feat-icon">🔓</span>
-            <div class="soho-feat-content">
-              <strong>%100 Açık Formül Şeffaflığı</strong>
-              <p>Gizli veya şifreli hücre yoktur; tüm formül zinciri açık, incelenebilir ve işletmenize göre uyarlanabilir.</p>
-            </div>
-          </div>
-          <div class="soho-feature-box">
-            <span class="soho-feat-icon">💻</span>
-            <div class="soho-feat-content">
-              <strong>Tüm Cihazlarla Tam Uyum</strong>
-              <p>Windows Excel, Mac Excel, iPad ve Microsoft 365 ile tam uyum; harici eklenti veya kurulum gerekmez.</p>
-            </div>
-          </div>
-          <div class="soho-feature-box">
-            <span class="soho-feat-icon">♾️</span>
-            <div class="soho-feat-content">
-              <strong>Aylık Lisans / Abonelik Yok</strong>
-              <p>Abonelik dayatması yok. Teklifinizi alın, ömür boyu sınırsız kullanın. Yenileme maliyeti sıfırdır.</p>
-            </div>
-          </div>
-          <div class="soho-feature-box">
-            <span class="soho-feat-icon">⚡</span>
-            <div class="soho-feat-content">
-              <strong>10 Saniyede Teslimat</strong>
-              <p>WhatsApp hattımız üzerinden hızlıca teklif alın; sisteminiz anında ve size özel teslim edilsin.</p>
-            </div>
-          </div>
-          <div class="soho-feature-box">
-            <span class="soho-feat-icon">🏛️</span>
-            <div class="soho-feat-content">
-              <strong>17 Yıllık Bankacılık Güvencesi</strong>
-              <p>Ticari bankacılık ve saha finans deneyimiyle, gerçek şirket verileriyle test edilmiş karar modelleri.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. SİZE ÖZEL EXCEL SİSTEMLERİ (Someka Custom Jobs) -->
-    <section class="custom-build" data-experience-stage>
-      <div class="home-shell custom-build-grid">
-        <div class="custom-build-copy">
-          <div class="soho-category-headband" style="margin-bottom: 8px;">
-            <h2 class="soho-category-title">
-              <span>🛠️</span> ÖZEL SİSTEM GELİŞTİRME
-            </h2>
-          </div>
-          <h3 class="someka-custom-lead-title">İşletmenize Özel Excel Karar Motoru mu Gerekiyor?</h3>
-          <p class="custom-lead">Hazır şablonlar işinizi karşılamıyorsa; dağınık ticari süreçlerinizi, banka limitlerinizi ve maliyet akışınızı 90 dakikalık teşhisle tek ekranda yönetilebilir bir karar sistemine dönüştürüyoruz.</p>
-          <div class="custom-trust-chips">
-            <span>✓ 17 Yıllık Finans Tecrübesi</span>
-            <span>✓ Gizlilik Sözleşmesi (NDA)</span>
-            <span>✓ Birebir Kurulum &amp; Destek</span>
-          </div>
-        </div>
-        <div class="custom-actions">
-          <div class="custom-steps-grid">
-            <div class="custom-step">
-              <span class="step-num">01</span>
-              <div>
-                <strong>İşleyişi Anlatın</strong>
-                <p>Mevcut dosyanızı veya iş akışınızı paylaşın.</p>
-              </div>
-            </div>
-            <div class="custom-step">
-              <span class="step-num">02</span>
-              <div>
-                <strong>Kapsamı Netleştirelim</strong>
-                <p>Giriş, hesap ve karar ekranlarını birlikte tanımlayalım.</p>
-              </div>
-            </div>
-            <div class="custom-step">
-              <span class="step-num">03</span>
-              <div>
-                <strong>Sisteminizi Kuralım</strong>
-                <p>İş kurallarınıza özel hatasız Excel mimarisi tasarlansın.</p>
-              </div>
-            </div>
-            <div class="custom-step">
-              <span class="step-num">04</span>
-              <div>
-                <strong>Doğrudan Test &amp; Teslimat</strong>
-                <p>Gerçek verileriniz üzerinden doğrulanıp teslim edilsin.</p>
-              </div>
-            </div>
-          </div>
-          <div class="custom-cta-card">
-            <div class="custom-cta-text">
-              <span class="custom-trust-pill">15 DAKİKA ÖN TEŞHİS</span>
-              <p>Derdinizi teknik dile çevirmeden, doğrudan finansal ihtiyacınızı konuşalım.</p>
-            </div>
-            <a class="custom-cta-btn" href="/ozel-excel-sistemleri">Özel Sistemleri İnceleyin →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. KARAR YARDIMI & PROBLEM ÇÖZÜCÜ (Decision Help) -->
-    <section class="decision-help" data-experience-stage>
-      <div class="home-shell decision-layout">
-        <div class="decision-intro">
-          <div class="soho-category-headband" style="margin-bottom: 8px;">
-            <h2 class="soho-category-title">
-              <span>🎯</span> KARAR YARDIMI &amp; REHBERLER
-            </h2>
-          </div>
-          <p class="soho-category-desc">İşletmenizin yaşadığı darboğaza en yakın problemden başlayın. Doğru ürünü belirlemek için karar rehberlerini karşılaştırın.</p>
-          <a class="decision-all-btn" href="/karar">18 karar rehberinin tamamı →</a>
-        </div>
-        <div class="decision-grid">
-          {homeDecisions.map((page, index) => page && (
-            <a href={`/karar/${page.slug}`} class="decision-card">
-              <div class="decision-card-head">
-                <span class="decision-no">0{index + 1}</span>
-                <span class="decision-tag">{index === 0 ? 'Nakit Akışı' : index === 1 ? 'Cari & Tahsilat' : index === 2 ? 'POS & Banka' : 'E-Ticaret & Kâr'}</span>
-              </div>
-              <div class="decision-card-body">
-                <h3>{page.title}</h3>
-                <p>{page.description}</p>
-                <span class="decision-link">Kararı inceleyin →</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. TASARLAYAN VE DENETLEYEN (Authority) -->
-    <section class="authority" data-experience-stage>
-      <div class="home-shell authority-panel">
-        <div class="authority-copy">
-          <p class="eyebrow light">KURUCU VE BAŞ FİNANS MİMARI</p>
-          <h2>Barış Bağırlar</h2>
-          <p class="authority-lead">17 yıllık ticari bankacılık ve saha finans yöneticiliği tecrübesiyle; Excel Arşiv sistemleri yalnız tablo düzenlemek için değil, yönetim kurulu ve şirket sahiplerine net karar aldırmak için hazırlanır.</p>
-          <div class="authority-links">
-            <a href="/hakkinda">Uzman profili →</a>
-            <a href="/neden-excel-arsiv">Yöntem ve farklar →</a>
-          </div>
-        </div>
-        <div class="authority-metrics">
-          <article><small>KATALOG</small><strong>{productCount}</strong><span>satışta sistem</span></article>
-          <article><small>KAPSAM</small><strong>{categoryCount}</strong><span>işletme alanı</span></article>
-          <article><small>TECRÜBE</small><strong>17+</strong><span>yıl finans &amp; banka</span></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. SIK SORULAN SORULAR (Someka FAQ Accordion) -->
-    <section class="faq-close" data-experience-stage>
-      <div class="home-shell faq-grid">
-        <div>
-          <div class="soho-category-headband" style="margin-bottom: 8px;">
-            <h2 class="soho-category-title">
-              <span>❓</span> SIKÇA SORULAN SORULAR
-            </h2>
-          </div>
-          <p class="soho-category-desc">Ürünü seçmeden önce lisans, format, ücretsiz demo ve anında indirme bilgilerini kontrol edin.</p>
-          <div class="close-actions">
-            <a class="primary" href="/sablonlar">Sistemleri İnceleyin</a>
-            <a href="/urun-bulucu">Ürün Bulucu</a>
-          </div>
-        </div>
-        <div class="faq-list">
-          {faqItems.map((item) => (
-            <details class="someka-faq-item">
-              <summary>{item.q}</summary>
-              <p>{item.a}</p>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
   </div>
-</CommerceLayout>
-
-<style>
-  :global(:root){--font-sans:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--font-mono-face:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
-
-  /* ==========================================================================
-     SOMEKA.NET EXACT DESIGN & COMPONENT SYSTEM
-     ========================================================================== */
-  :root {
-    --someka-accent: #4a97c2;
-    --someka-accent-hover: #34617b;
-    --someka-link: #4a97c2;
-    --someka-star: #ffc833;
-    --someka-border: #d6dce4;
-    --someka-bg-soft: #f7f7f7;
-    --someka-text-dark: #222222;
-    --someka-text-muted: #666666;
-  }
-
-  [data-experience-stage] { content-visibility: auto; contain-intrinsic-size: auto 760px; scroll-margin-top: 92px; }
-  
-  .someka-layout-root {
-    background-color: #ffffff;
-    color: #222222;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  }
-  
-  .home-shell {
-    width: min(1320px, calc(100% - 48px));
-    margin-inline: auto;
-  }
-
-  /* --- SOMEKA GÜVEN & REFERANS ÇUBUĞU (soho-reviews-row) --- */
-  .soho-reviews-bar {
-    border-top: 1px solid #d6dce5;
-    border-bottom: 1px solid #d6dce5;
-    padding: 10px 0;
-    background-color: #ededed;
-    margin-top: -18px;
-    margin-bottom: 28px;
-  }
-  .soho-reviews-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .soho-trustpilot-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .soho-tp-score {
-    font-weight: 850;
-    font-size: 19px;
-    color: #333333;
-    line-height: 1;
-  }
-  .soho-tp-stars {
-    color: #00b67a;
-    font-size: 18px;
-    line-height: 1;
-    letter-spacing: 1px;
-  }
-  .soho-tp-text strong {
-    display: block;
-    font-size: 13px;
-    color: #333333;
-    line-height: 1.2;
-  }
-  .soho-tp-text small {
-    display: block;
-    font-size: 11px;
-    color: #666666;
-    line-height: 1.2;
-  }
-  .soho-companies-strip {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .soho-company-badge {
-    padding: 4px 10px;
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
-    color: #475569;
-  }
-
-  /* --- SOMEKA KATEGORİ ÜST BANDI (soho-category-headband) --- */
-  .soho-category-headband {
-    margin-top: 25px;
-    border-bottom: 2px solid #eeeeee;
-    padding-bottom: 1px;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-  }
-  .soho-category-title {
-    display: inline-block;
-    border-bottom: 2px solid #4a97c2;
-    font-size: 19.5px;
-    font-weight: bold;
-    color: #333333;
-    padding-bottom: 3px;
-    margin: 0;
-  }
-  .soho-category-title a {
-    color: #333333;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .soho-category-title a:hover {
-    color: #34617b;
-  }
-  .soho-title-icon {
-    font-size: 17px;
-  }
-  .soho-category-more {
-    float: right;
-    padding-top: 3px;
-    font-size: 14px;
-  }
-  .soho-category-more a {
-    color: #4a97c2;
-    text-decoration: none;
-    font-weight: normal;
-  }
-  .soho-category-more a:hover {
-    text-decoration: underline;
-    color: #34617b;
-  }
-  .soho-category-desc {
-    margin: 8px 0 20px;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #666666;
-  }
-
-  /* --- SOMEKA 4 SÜTUNLU KART IZGARASI & ÜRÜN KARTLARI (someka-product-custom-card) --- */
-  .soho-product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
-    margin-bottom: 24px;
-  }
-  .someka-product-custom-card {
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    background: #ffffff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.02);
-    transition: box-shadow 200ms ease, transform 180ms ease, border-color 180ms ease;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  .someka-product-custom-card:hover {
-    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
-    transform: translateY(-4px);
-    border-color: #cbd5e1;
-  }
-  .someka-card-thumb-wrap {
-    position: relative;
-    display: block;
-    aspect-ratio: 16 / 10;
-    background: #f8fafc;
-    border-bottom: 1px solid #e2e8f0;
-    overflow: hidden;
-  }
-  .someka-thumb-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-    display: block;
-    transition: transform 220ms ease, opacity 220ms ease;
-  }
-  .someka-card-thumb-wrap:hover .someka-thumb-img {
-    transform: scale(1.02);
-    opacity: 0.98;
-  }
-  .someka-category-tag {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    padding: 3px 8px;
-    background: rgba(15, 23, 42, 0.82);
-    backdrop-filter: blur(4px);
-    color: #ffffff;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    border-radius: 4px;
-    z-index: 2;
-  }
-  .someka-tag--new {
-    background: #107c41;
-  }
-  .someka-card-details {
-    padding: 10px 12px 12px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    text-align: center;
-  }
-  .single-post-title {
-    color: #1e293b;
-    font-size: 14px;
-    font-weight: 700;
-    text-align: center;
-    margin: 2px 0 4px;
-    min-height: 38px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    line-height: 1.35;
-  }
-  .single-post-title a {
-    color: #1e293b;
-    text-decoration: none;
-    transition: color 0.15s ease;
-  }
-  .single-post-title a:hover {
-    color: #107c41;
-  }
-  .vcex-star-rating {
-    text-align: center;
-    color: #f59e0b;
-    font-size: 12px;
-    margin-bottom: 8px;
-    line-height: 1;
-  }
-  .star-active {
-    display: inline-block;
-    margin: 0 1px;
-  }
-  .vcex-post-excerpt {
-    display: none !important;
-  }
-  .someka-card-bottom {
-    margin-top: auto;
-    display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 6px;
-    padding-top: 8px;
-    border-top: 1px solid #f1f5f9;
-  }
-  .btn-someka-teklif {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #107c41;
-    border: 1px solid #0d7040;
-    color: #ffffff !important;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 7px 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    box-shadow: 0 2px 6px rgba(16, 124, 65, 0.22);
-    transition: all 0.15s ease;
-    white-space: nowrap;
-  }
-  .btn-someka-teklif:hover {
-    background: #0b6333;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(16, 124, 65, 0.32);
-  }
-  .btn-someka-view {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 7px 8px;
-    background: #f8fafc;
-    border: 1px solid #d1d5db;
-    border-radius: 5px;
-    color: #374151;
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 150ms ease;
-    white-space: nowrap;
-  }
-  .btn-someka-view:hover {
-    background: #ffffff;
-    color: #111827;
-    border-color: #9ca3af;
-  }
-
-  /* --- SOMEKA AYIRICI VE BAŞLIK DÜZENİ (media_1790066707581.png Referansı) --- */
-  .someka-section-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 56px;
-    margin-bottom: 22px;
-  }
-  .someka-divider-line {
-    flex: 1;
-    height: 1px;
-    background: #e2e8f0;
-  }
-  .someka-divider-title {
-    font-size: 15px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #1e293b;
-    text-transform: uppercase;
-    margin: 0;
-    white-space: nowrap;
-  }
-
-  /* --- SOMEKA SEKME GEZİNTİSİ (soho-tabs-nav) --- */
-  .soho-tabs-nav {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 4px;
-    border-bottom: 1px solid #e2e8f0;
-    margin-bottom: 24px;
-    background: transparent;
-    padding: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-  .soho-tabs-nav::-webkit-scrollbar {
-    display: none;
-  }
-  .soho-tab-btn {
-    padding: 11px 22px;
-    background: transparent;
-    border: 1px solid transparent;
-    border-bottom: none;
-    font-size: 14px;
-    font-weight: 500;
-    color: #64748b;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 150ms ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    line-height: 1.2;
-  }
-  .soho-tab-btn:hover {
-    color: #0f172a;
-  }
-  .soho-tab-btn.is-active {
-    font-weight: 700;
-    color: #0f172a;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-bottom: 1px solid #ffffff;
-    border-radius: 4px 4px 0 0;
-    position: relative;
-    margin-bottom: -1px;
-    z-index: 2;
-  }
-  .soho-tab-link {
-    color: #0284c7;
-    font-weight: 600;
-  }
-  .soho-tab-link:hover {
-    color: #0369a1;
-  }
-
-  /* --- İNDEX LİSTE KUTUSU (4 Kolonlu Premium Dizin) --- */
-  .soho-index-box {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 0 0 8px 8px;
-    padding: 26px 30px 32px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-  }
-  .soho-index-header {
-    border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 14px;
-    margin-bottom: 20px;
-  }
-  .soho-index-title-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 6px;
-  }
-  .soho-index-tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: #0284c7;
-    background: #e0f2fe;
-    padding: 3px 8px;
-    border-radius: 4px;
-  }
-  .soho-index-count {
-    font-size: 13.5px;
-    font-weight: 700;
-    color: #334155;
-  }
-  .soho-index-intro {
-    font-size: 13px;
-    color: #64748b;
-    margin: 0;
-    line-height: 1.5;
-  }
-  .soho-index-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 24px;
-    row-gap: 9px;
-  }
-  .soho-index-item {
-    display: flex;
-    align-items: baseline;
-    gap: 7px;
-    font-size: 13px;
-    line-height: 1.45;
-    color: #334155;
-    text-decoration: none;
-    padding: 4px 6px;
-    border-radius: 4px;
-    transition: all 140ms ease;
-  }
-  .soho-index-item:hover {
-    color: #0284c7;
-    background: #f8fafc;
-    transform: translateX(2px);
-  }
-  .soho-index-chevron {
-    color: #94a3b8;
-    font-size: 12px;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-  .soho-index-name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-
-  /* --- SOMEKA 6'LI ALTYAPI VE ÖZELLİK KUTULARI (soho-features-grid) --- */
-  .soho-features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-    margin-top: 18px;
-  }
-  .soho-feature-box {
-    border: 1px solid #cbd1db;
-    padding: 16px 18px;
-    border-radius: 8px;
-    background-color: #fefefe;
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-  }
-  .soho-feat-icon {
-    font-size: 26px;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-  .soho-feat-content strong {
-    display: block;
-    font-size: 14.5px;
-    font-weight: 700;
-    color: #49596E;
-    margin-bottom: 4px;
-  }
-  .soho-feat-content p {
-    margin: 0;
-    font-size: 12.5px;
-    line-height: 1.5;
-    color: #64748b;
-  }
-
-  /* --- SOMEKA SİZE ÖZEL SİSTEMLER (Custom Services) --- */
-  .custom-build { padding: 46px 0; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; background: #ffffff; }
-  .custom-build-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 36px; align-items: start; }
-  .someka-custom-lead-title { margin: 8px 0 12px; font-size: 24px; font-weight: 800; color: #222222; }
-  .custom-lead { margin: 0 0 18px; font-size: 14.5px; line-height: 1.6; color: #64748b; }
-  .custom-trust-chips { display: flex; gap: 10px; flex-wrap: wrap; }
-  .custom-trust-chips span { display: inline-flex; align-items: center; padding: 5px 11px; border-radius: 6px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; font-size: 12px; font-weight: 700; }
-  .custom-steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
-  .custom-step { display: flex; align-items: flex-start; gap: 10px; padding: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; }
-  .step-num { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 6px; background: #4a97c2; color: #fff; font: 850 11px/1 ui-monospace,monospace; flex-shrink: 0; }
-  .custom-step strong { display: block; font-size: 13px; font-weight: 750; color: #0f172a; margin-bottom: 2px; }
-  .custom-step p { margin: 0; font-size: 11.5px; line-height: 1.4; color: #64748b; }
-  .custom-cta-card { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; border-radius: 10px; background: linear-gradient(135deg, #262626 0%, #44546a 100%); color: #fff; }
-  .custom-trust-pill { display: inline-block; padding: 2px 7px; border-radius: 4px; background: rgba(255,255,255,.16); color: #93c5fd; font: 800 10px/1 ui-monospace,monospace; margin-bottom: 4px; }
-  .custom-cta-text p { margin: 0; font-size: 13px; color: #e2e8f0; }
-  .custom-cta-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 18px; border-radius: 6px; background: #4a97c2; color: #fff; font-size: 13px; font-weight: 750; text-decoration: none; white-space: nowrap; transition: background 150ms ease; flex-shrink: 0; }
-  .custom-cta-btn:hover { background: #34617b; }
-
-  /* --- DECISION HELP --- */
-  .decision-help { padding: 46px 0; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
-  .decision-layout { display: grid; grid-template-columns: 320px 1fr; gap: 32px; align-items: start; }
-  .decision-all-btn { display: inline-flex; font-size: 13px; font-weight: 700; color: #4a97c2; text-decoration: none; margin-top: 8px; }
-  .decision-all-btn:hover { text-decoration: underline; }
-  .decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .decision-card { display: flex; flex-direction: column; padding: 16px 18px; border-radius: 8px; background: #fff; border: 1px solid #d6dce4; text-decoration: none; transition: all 150ms ease; }
-  .decision-card:hover { border-color: #4a97c2; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(74,151,194,.12); }
-  .decision-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-  .decision-no { font-size: 11px; font-family: ui-monospace,monospace; font-weight: 800; color: #94a3b8; }
-  .decision-tag { padding: 2px 7px; border-radius: 4px; background: #f1f5f9; color: #475569; font-size: 11px; font-weight: 700; }
-  .decision-card-body h3 { margin: 0 0 5px; font-size: 14.5px; font-weight: 750; color: #0f172a; }
-  .decision-card-body p { margin: 0 0 10px; font-size: 12px; line-height: 1.45; color: #64748b; }
-  .decision-link { font-size: 12px; font-weight: 750; color: #4a97c2; }
-
-  /* --- AUTHORITY PANEL --- */
-  .authority { padding: 46px 0; background: #ffffff; border-bottom: 1px solid #e2e8f0; }
-  .authority-panel { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: center; padding: 34px 38px; border-radius: 14px; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #fff; }
-  .authority-copy h2 { margin: 8px 0 10px; font-size: 30px; font-weight: 850; color: #fff; }
-  .authority-lead { margin: 0 0 18px; font-size: 14px; line-height: 1.6; color: #cbd5e1; }
-  .authority-links { display: flex; gap: 14px; flex-wrap: wrap; }
-  .authority-links a { color: #38bdf8; font-size: 13px; font-weight: 750; text-decoration: none; }
-  .authority-links a:hover { text-decoration: underline; }
-  .authority-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .authority-metrics article { padding: 16px 12px; border-radius: 8px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); text-align: center; }
-  .authority-metrics small { display: block; font-size: 10px; font-weight: 800; color: #38bdf8; margin-bottom: 4px; }
-  .authority-metrics strong { display: block; font-size: 26px; font-weight: 900; color: #fff; margin-bottom: 2px; }
-  .authority-metrics span { font-size: 11px; color: #94a3b8; }
-
-  /* --- SOMEKA SSS AKORDİYON (soho-faq) --- */
-  .faq-close { padding: 46px 0 60px; background: #ffffff; }
-  .faq-grid { display: grid; grid-template-columns: 340px 1fr; gap: 36px; }
-  .close-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
-  .close-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 0 14px; border-radius: 6px; font-size: 12.5px; font-weight: 750; text-decoration: none; }
-  .close-actions a.primary { background: #4a97c2; color: #fff; }
-  .close-actions a:not(.primary) { border: 1px solid #d6dce4; color: #333; background: #f7f7f7; }
-  .faq-list { display: grid; gap: 10px; }
-  .someka-faq-item { border: 1px solid #eeeeee; border-radius: 5px; overflow: hidden; background: #ffffff; }
-  .someka-faq-item summary { padding: 11px 15px; font-size: 14px; font-weight: 600; color: #333333; cursor: pointer; background: #f7f7f7; border-bottom: 1px solid transparent; transition: all 150ms ease; }
-  .someka-faq-item[open] summary { border-bottom-color: #eeeeee; color: #4a97c2; }
-  .someka-faq-item p { margin: 0; padding: 12px 18px; font-size: 13px; line-height: 1.6; color: #555555; }
-
-  /* --- RESPONSIVE DÜZEN (Mobil Üst Pro Seviye) --- */
-  @media (max-width: 1080px) {
-    .soho-product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .authority-panel { grid-template-columns: 1fr; }
-    .soho-index-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  }
-  @media (max-width: 820px) {
-    .soho-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    .soho-features-grid { grid-template-columns: 1fr; }
-    .custom-build-grid { grid-template-columns: 1fr; gap: 24px; }
-    .decision-layout { grid-template-columns: 1fr; }
-    .faq-grid { grid-template-columns: 1fr; }
-    .soho-tabs-nav { justify-content: flex-start; gap: 2px; }
-    .soho-tab-btn { padding: 9px 15px; font-size: 13px; }
-    .soho-index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; }
-  }
-  @media (max-width: 600px) {
-    .home-shell { width: calc(100% - 20px); }
-    .soho-reviews-bar { margin-top: 0; margin-bottom: 20px; padding: 12px 0; }
-    .soho-reviews-inner { flex-direction: column; align-items: stretch; gap: 12px; }
-    .soho-trustpilot-box { justify-content: center; text-align: left; }
-    .soho-companies-strip { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 6px; padding-bottom: 2px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-    .soho-companies-strip::-webkit-scrollbar { display: none; }
-    .soho-company-badge { flex: 0 0 auto; font-size: 11px; padding: 4px 8px; }
-    .someka-section-divider { gap: 10px; margin-top: 36px; margin-bottom: 16px; }
-    .someka-divider-title { font-size: 13px; }
-    .soho-tabs-nav { margin-bottom: 16px; justify-content: flex-start; }
-    .soho-tab-btn { padding: 8px 12px; font-size: 12px; }
-    .soho-index-box { padding: 18px 14px; }
-    .soho-index-grid { grid-template-columns: 1fr; gap: 8px; }
-    
-    /* Mobil Ürün Kartları Ergonomisi */
-    .soho-product-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 16px; }
-    .someka-product-custom-card { border-radius: 8px; }
-    .someka-card-details { padding: 12px 12px 14px; }
-    .single-post-title { font-size: 16px; min-height: auto; margin: 4px 0; line-height: 1.3; }
-    .vcex-star-rating { margin-bottom: 6px; font-size: 13px; }
-    .vcex-post-excerpt { font-size: 12.5px; line-height: 1.45; min-height: auto; margin: 0 0 10px; }
-    .someka-card-bottom { padding-top: 10px; gap: 8px; }
-    .btn-someka-teklif { min-height: 42px; font-size: 13px; border-radius: 6px; }
-    .btn-someka-view { min-height: 42px; font-size: 12.5px; border-radius: 6px; }
-
-    .custom-steps-grid { grid-template-columns: 1fr; }
-    .decision-grid { grid-template-columns: 1fr; }
-    .authority-metrics { grid-template-columns: 1fr; }
-    .custom-cta-card { flex-direction: column; align-items: flex-start; }
-    .faq-close { padding: 28px 0 40px; }
-  }
-</style>
+</body>
+</html>

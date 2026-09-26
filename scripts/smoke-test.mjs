@@ -122,7 +122,10 @@ for (const page of pages) {
         const hrefs = [...block.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
         const detailLinks = hrefs.filter((href) => href.startsWith('/sablon/'));
         const actionLinks = hrefs.filter((href) =>
-          /^https:\/\/www\.shopier\.com\/\d+$/.test(href) || href === '/iletisim' || href.startsWith('/iletisim?')
+          /^https:\/\/www\.shopier\.com\/\d+$/.test(href) ||
+          href === '/iletisim' ||
+          href.startsWith('/iletisim?') ||
+          href.startsWith(VERIFIED_WHATSAPP_PREFIX)
         );
 
         if (detailLinks.length < 1) {

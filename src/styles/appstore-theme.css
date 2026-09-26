@@ -1,0 +1,658 @@
+/* ==========================================================================
+   Apple App Store macOS Design System — excelarsiv.com
+   Pixel-Perfect Implementation based on macOS App Store & Official Guidelines
+   ========================================================================== */
+
+:root {
+  --as-bg: #f5f5f7;
+  --as-window-bg: #ffffff;
+  --as-sidebar-bg: #fbfbfd;
+  --as-border: #e5e5ea;
+  --as-border-light: #f2f2f7;
+  --as-text-primary: #1d1d1f;
+  --as-text-secondary: #6e6e73;
+  --as-text-tertiary: #86868b;
+  --as-accent: #0071e3;
+  --as-accent-hover: #0077ed;
+  --as-accent-soft: #f0f7ff;
+  --as-green: #107c41;
+  --as-green-hover: #0b6333;
+  --as-green-soft: #e8f5e9;
+  --as-pill-btn-bg: #f2f2f7;
+  --as-pill-btn-hover: #e5e5ea;
+  --as-pill-btn-text: #0071e3;
+  --as-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  --as-shadow-window: 0 20px 60px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --as-shadow-card: 0 2px 10px rgba(0, 0, 0, 0.03);
+  --as-shadow-card-hover: 0 12px 28px rgba(0, 0, 0, 0.08);
+  --as-radius-window: 18px;
+  --as-radius-card: 16px;
+  --as-radius-pill: 980px;
+}
+
+/* Sayfa Kök Taşıyıcısı */
+.appstore-root {
+  min-height: 100vh;
+  background: var(--as-bg);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .appstore-root {
+    padding: 0;
+    background: #ffffff;
+  }
+}
+
+/* macOS App Store Penceresi */
+.appstore-window {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: var(--as-window-bg);
+  border-radius: var(--as-radius-window);
+  border: 1px solid #e2e2e8;
+  box-shadow: var(--as-shadow-window);
+  display: flex;
+  overflow: hidden;
+  min-height: calc(100vh - 32px);
+}
+
+@media (max-width: 900px) {
+  .appstore-window {
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+}
+
+/* Sağ Ana Canvas */
+.appstore-main-canvas {
+  flex: 1;
+  min-width: 0;
+  background: #ffffff;
+  padding: 24px 36px 60px;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .appstore-main-canvas {
+    padding: 16px 16px 40px;
+  }
+}
+
+/* ==========================================================================
+   Büyük Hero Afişi (Today / Apps Feature Showcase)
+   ========================================================================== */
+.as-hero-banner {
+  position: relative;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 1.05fr 1.35fr;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .as-hero-banner {
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+    gap: 24px;
+  }
+}
+
+.as-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2;
+}
+
+.as-hero-eyebrow {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--as-green);
+}
+
+.as-hero-title {
+  font-size: clamp(28px, 2.5vw, 36px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--as-text-primary);
+  margin: 0;
+}
+
+.as-hero-desc {
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: var(--as-text-secondary);
+  margin: 0 0 12px;
+  max-width: 440px;
+}
+
+.as-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 10px 24px;
+  background: var(--as-green);
+  color: #ffffff;
+  border-radius: var(--as-radius-pill);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 12px rgba(16, 124, 65, 0.25);
+}
+
+.as-hero-cta:hover {
+  background: var(--as-green-hover);
+  transform: translateY(-1px);
+}
+
+/* Hero Carousel Noktaları */
+.as-hero-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.as-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.as-dot.is-active {
+  background: var(--as-green);
+  width: 9px;
+  height: 9px;
+}
+
+/* MacBook Mockup Sahnesi */
+.as-hero-mockup-scene {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.as-macbook-frame {
+  width: 100%;
+  background: #1e293b;
+  border-radius: 12px 12px 2px 2px;
+  padding: 10px 10px 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
+  border: 1px solid #334155;
+  position: relative;
+}
+
+.as-macbook-notch {
+  width: 80px;
+  height: 4px;
+  background: #0f172a;
+  border-radius: 0 0 4px 4px;
+  margin: 0 auto 6px;
+}
+
+.as-macbook-screen {
+  background: #ffffff;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 12px 14px;
+  font-size: 11px;
+  color: #1e293b;
+}
+
+.as-macbook-base {
+  width: calc(100% + 28px);
+  margin-left: -14px;
+  height: 8px;
+  background: linear-gradient(180deg, #94a3b8 0%, #64748b 100%);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 3D Yeşil Excel Logosu */
+.as-floating-excel-cube {
+  position: absolute;
+  right: -10px;
+  bottom: 0px;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #107c41 0%, #064e29 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 24px rgba(16, 124, 65, 0.4);
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 800;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  z-index: 10;
+  animation: floatCube 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatCube {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-8px) rotate(3deg); }
+}
+
+/* Mockup İçi Mini Dashboard Bileşenleri */
+.as-mini-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.as-mini-kpi {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.as-mini-kpi small {
+  display: block;
+  font-size: 9px;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+
+.as-mini-kpi strong {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.as-mini-kpi span {
+  font-size: 8.5px;
+  font-weight: 600;
+  color: #107c41;
+  margin-left: 3px;
+}
+
+.as-mini-charts-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.as-mini-chart-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.as-chart-title {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+/* ==========================================================================
+   Bölüm Başlıkları (Section Header: Başlık › & Tümünü Gör)
+   ========================================================================== */
+.as-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.as-section-title-link {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--as-text-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: -0.02em;
+}
+
+.as-section-title-link:hover {
+  color: var(--as-green);
+}
+
+.as-section-more-link {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--as-accent);
+  text-decoration: none;
+}
+
+.as-section-more-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Popüler Kartlar (5 Kolon Yatay Şerit)
+   ========================================================================== */
+.as-five-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 38px;
+}
+
+@media (max-width: 1180px) {
+  .as-five-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .as-five-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.as-card-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.as-mini-app-card {
+  background: #ffffff;
+  border: 1px solid #e5e5ea;
+  border-radius: var(--as-radius-card);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 0.16s ease;
+  position: relative;
+}
+
+.as-mini-app-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--as-shadow-card-hover);
+  border-color: #d1d1d6;
+}
+
+.as-card-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--as-green);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 8px rgba(16, 124, 65, 0.2);
+}
+
+.as-card-icon-box.icon-blue { background: #0071e3; box-shadow: 0 3px 8px rgba(0, 113, 227, 0.2); }
+.as-card-icon-box.icon-purple { background: #7c4fe0; box-shadow: 0 3px 8px rgba(124, 79, 224, 0.2); }
+.as-card-icon-box.icon-orange { background: #f59e0b; box-shadow: 0 3px 8px rgba(245, 158, 11, 0.2); }
+.as-card-icon-box.icon-teal { background: #0d9488; box-shadow: 0 3px 8px rgba(13, 148, 136, 0.2); }
+
+.as-card-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--as-text-primary);
+  margin: 0 0 6px;
+  letter-spacing: -0.015em;
+}
+
+.as-card-summary {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--as-text-secondary);
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.as-card-pill-btn {
+  align-self: center;
+  width: 100%;
+  max-width: 120px;
+  height: 28px;
+  border-radius: var(--as-radius-pill);
+  background: var(--as-pill-btn-bg);
+  color: var(--as-pill-btn-text);
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.12s ease;
+}
+
+.as-mini-app-card:hover .as-card-pill-btn {
+  background: var(--as-pill-btn-hover);
+}
+
+/* Numaralı App Store Kart Sırası (1, 2, 3...) */
+.as-rank-number {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--as-text-tertiary);
+  margin-right: 12px;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Editörün Seçtikleri (3 Kolon Renkli Yatay Afişler)
+   ========================================================================== */
+.as-editor-picks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 38px;
+}
+
+@media (max-width: 960px) {
+  .as-editor-picks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.as-editor-banner-card {
+  border-radius: var(--as-radius-card);
+  padding: 22px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.16s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.as-editor-banner-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--as-shadow-card-hover);
+}
+
+.as-editor-green { background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%); }
+.as-editor-blue { background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%); }
+.as-editor-amber { background: linear-gradient(135deg, #fef3c7 0%, #ffffff 100%); }
+
+.as-editor-card-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.as-editor-card-title {
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--as-text-primary);
+  margin: 0;
+}
+
+.as-editor-card-desc {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--as-text-secondary);
+  margin: 0;
+}
+
+.as-editor-card-visual {
+  width: 90px;
+  height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   İşletmeler İçin Öne Çıkanlar (2 Kolon x 3 Satır Grid)
+   ========================================================================== */
+.as-two-col-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 820px) {
+  .as-two-col-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.as-feature-row-card {
+  background: #ffffff;
+  border: 1px solid #e5e5ea;
+  border-radius: var(--as-radius-card);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.as-feature-row-card:hover {
+  background: #fcfcfd;
+  border-color: #d1d1d6;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.as-feature-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.as-feature-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.as-feature-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--as-text-primary);
+  margin: 0 0 2px;
+}
+
+.as-feature-sub {
+  font-size: 12px;
+  color: var(--as-text-secondary);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Kategoriye Göre Keşfet Kartları (Şablonlar Sayfası İçin)
+   ========================================================================== */
+.as-category-explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 38px;
+}
+
+@media (max-width: 960px) {
+  .as-category-explore-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .as-category-explore-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.as-category-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.as-category-card:hover {
+  background: #ffffff;
+  border-color: var(--as-green);
+  box-shadow: 0 4px 12px rgba(16, 124, 65, 0.1);
+  transform: translateY(-1px);
+}
+
+.as-cat-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.as-cat-texts strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--as-text-primary);
+}
+
+.as-cat-texts span {
+  font-size: 12px;
+  color: var(--as-text-secondary);
+}
+
+.as-cat-arrow {
+  font-size: 16px;
+  color: var(--as-text-tertiary);
+}
+
+.as-category-card:hover .as-cat-arrow {
+  color: var(--as-green);
+}

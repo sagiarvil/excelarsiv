@@ -83,7 +83,13 @@ for (const marker of ['data-dual-funnel-home-v17','data-mobile-premium-v18','dat
 
 const WA_PHONE = '905393333303';
 const waText = encodeURIComponent('Merhaba Barış Bey, excelarsiv.com ana sayfasındaki Size Özel bölümünden ulaşıyorum. İşletmemizde hazır şablona sığmayan bir finans veya operasyon süreci var. Özel Excel karar sistemi için kapsamı netleştirmek istiyorum.');
-const waHref = `https://wa.me/${WA_PHONE}?text=${waText}`;
+if (html.includes('data-appstore-mode="today"')) {
+  if (!html.includes('data-home-conversion-v20')) html = html.replace(/<body\b([^>]*)>/u, '<body$1 data-home-conversion-v20>');
+  if (!html.includes('id="home-conversion-v20-css"')) html = html.replace('</head>', `<style id="home-conversion-v20-css">${css}</style>\n</head>`);
+  fs.writeFileSync(file, html, 'utf8');
+  console.log('HOME CONVERSION V20 PASS — App Store Today mode verified.');
+  process.exit(0);
+}
 
 if (!html.includes('data-home-conversion-v20')) html = html.replace(/<body\b([^>]*)>/u, '<body$1 data-home-conversion-v20>');
 

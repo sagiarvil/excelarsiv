@@ -32,6 +32,7 @@
     {"pageId":"excelarsiv:hesaplayici:freelancer-gelir-gider-kdv-vergi-hesaplayici","route":"/hesaplayici/freelancer-gelir-gider-kdv-vergi-hesaplayici","type":"tool","status":"live"},
     {"pageId":"excelarsiv:hesaplayici:pazaryeri-komisyon-kar-hesaplama","route":"/hesaplayici/pazaryeri-komisyon-kar-hesaplama","type":"tool","status":"live"},
     {"pageId":"excelarsiv:hesaplayici:whatsapp-link-ve-telefon-formatlayici","route":"/hesaplayici/whatsapp-link-ve-telefon-formatlayici","type":"tool","status":"live"},
+    {"pageId":"excelarsiv:hesaplayici:nakit-akisi-ve-basabas-hesaplayici","route":"/hesaplayici/nakit-akisi-ve-basabas-hesaplayici","type":"tool","status":"live"},
     {"pageId":"excelarsiv:ortaklik-mali-musavir","route":"/ortaklik-mali-musavir","type":"landing","status":"live"},
     {"pageId":"excelarsiv:referans","route":"/referans","type":"landing","status":"live"}
   ]

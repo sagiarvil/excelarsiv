@@ -1,0 +1,358 @@
+---
+interface Props {
+  activeTab?: 'today' | 'templates' | 'custom' | 'demo' | 'guide' | 'contact';
+}
+
+const { activeTab = 'today' } = Astro.props;
+
+const navItems = [
+  { id: 'today', name: 'Bugün', href: '/', icon: 'today' },
+  { id: 'templates', name: 'Şablonlar', href: '/sablonlar', icon: 'templates' },
+  { id: 'custom', name: 'Size Özel', href: '/ozel-excel-sistemleri', icon: 'custom' },
+  { id: 'demo', name: 'Ücretsiz Demo', href: '/urun-bulucu', icon: 'demo' },
+  { id: 'guide', name: 'Rehber', href: '/rehber', icon: 'guide' },
+  { id: 'contact', name: 'İletişim', href: '/iletisim', icon: 'contact' },
+];
+
+const categories = [
+  { name: 'Finansal Analiz', href: '/sablonlar/finansal-analiz', icon: 'chart' },
+  { name: 'Nakit Akışı', href: '/sablonlar/nakit-akisi', icon: 'cash' },
+  { name: 'Muhasebe ve Vergi', href: '/sablonlar/muhasebe-ve-vergi', icon: 'calc' },
+  { name: 'Stok ve Üretim', href: '/sablonlar/stok-ve-uretim', icon: 'box' },
+  { name: 'Bütçe ve Planlama', href: '/sablonlar/butce-ve-planlama', icon: 'trend' },
+  { name: 'Satış ve Fiyatlama', href: '/sablonlar/satis-ve-fiyatlama', icon: 'tag' },
+  { name: 'Personel ve Bordro', href: '/sablonlar/personel-ve-bordro', icon: 'users' },
+];
+---
+
+<aside class="appstore-sidebar" aria-label="App Store Gezintisi">
+  <!-- macOS Pencere Düğmeleri ● ● ● -->
+  <div class="appstore-window-controls" aria-hidden="true">
+    <span class="win-btn win-close"></span>
+    <span class="win-btn win-minimize"></span>
+    <span class="win-btn win-zoom"></span>
+  </div>
+
+  <!-- Logo & Marka -->
+  <a href="/" class="appstore-brand" aria-label="Excel Arşiv Ana Sayfa">
+    <div class="appstore-logo-box">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <line x1="9" y1="13" x2="15" y2="19"></line>
+        <line x1="15" y1="13" x2="9" y2="19"></line>
+      </svg>
+    </div>
+    <span class="appstore-brand-text">Excel Arşiv</span>
+  </a>
+
+  <!-- Arama Çubuğu -->
+  <div class="appstore-search-box">
+    <form action="/sablonlar" method="get" class="appstore-search-form" role="search">
+      <svg class="search-icon" viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="9" cy="9" r="6"></circle>
+        <line x1="13.5" y1="13.5" x2="18" y2="18"></line>
+      </svg>
+      <input type="search" name="q" placeholder="Ara" aria-label="Excel sistemleri içinde ara" autocomplete="off" />
+    </form>
+  </div>
+
+  <!-- Ana Menü -->
+  <nav class="appstore-nav-menu" aria-label="Birincil Menü">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class={`appstore-nav-item ${activeTab === item.id ? 'is-active' : ''}`}
+        aria-current={activeTab === item.id ? 'page' : undefined}
+      >
+        <span class="nav-item-icon" aria-hidden="true">
+          {item.icon === 'today' && (
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          )}
+          {item.icon === 'templates' && (
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+          )}
+          {item.icon === 'custom' && (
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          )}
+          {item.icon === 'demo' && (
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle>
+              <polygon points="10 8 16 12 10 16 10 8"></polygon>
+            </svg>
+          )}
+          {item.icon === 'guide' && (
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          )}
+          {item.icon === 'contact' && (
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          )}
+        </span>
+        <span class="nav-item-title">{item.name}</span>
+      </a>
+    ))}
+  </nav>
+
+  <!-- Ayırıcı Çizgi -->
+  <div class="appstore-nav-divider"></div>
+
+  <!-- Kategoriler -->
+  <div class="appstore-categories-section">
+    <div class="appstore-categories-header">Kategoriler</div>
+    <nav class="appstore-categories-menu" aria-label="Kategoriler">
+      {categories.map((cat) => (
+        <a href={cat.href} class="appstore-category-item">
+          <span class="cat-item-icon" aria-hidden="true">
+            {cat.icon === 'chart' && (
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            )}
+            {cat.icon === 'cash' && (
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                <circle cx="12" cy="12" r="2"></circle>
+                <path d="M6 12h.01M18 12h.01"></path>
+              </svg>
+            )}
+            {cat.icon === 'calc' && (
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                <line x1="8" y1="6" x2="16" y2="6"></line>
+                <line x1="16" y1="14" x2="16" y2="18"></line>
+                <path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"></path>
+              </svg>
+            )}
+            {cat.icon === 'box' && (
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                <rect x="1" y="3" width="22" height="5"></rect>
+                <line x1="10" y1="12" x2="14" y2="12"></line>
+              </svg>
+            )}
+            {cat.icon === 'trend' && (
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            )}
+            {cat.icon === 'tag' && (
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7.01" y2="7"></line>
+              </svg>
+            )}
+            {cat.icon === 'users' && (
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            )}
+          </span>
+          <span class="cat-item-title">{cat.name}</span>
+        </a>
+      ))}
+    </nav>
+  </div>
+</aside>
+
+<style>
+  .appstore-sidebar {
+    width: 236px;
+    flex-shrink: 0;
+    background: #fbfbfd;
+    border-right: 1px solid #e5e5ea;
+    padding: 16px 14px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* macOS Pencere Düğmeleri */
+  .appstore-window-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding-left: 4px;
+  }
+  .win-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .win-close { background: #ff5f56; border: 1px solid #e0443e; }
+  .win-minimize { background: #ffbd2e; border: 1px solid #dea123; }
+  .win-zoom { background: #27c93f; border: 1px solid #1aab29; }
+
+  /* Marka & Logo */
+  .appstore-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 6px 14px;
+    text-decoration: none;
+    color: #1d1d1f;
+  }
+  .appstore-logo-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #107c41 0%, #0a5a2f 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(16, 124, 65, 0.28);
+  }
+  .appstore-brand-text {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #1d1d1f;
+  }
+
+  /* Arama */
+  .appstore-search-box {
+    margin-bottom: 16px;
+  }
+  .appstore-search-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .search-icon {
+    position: absolute;
+    left: 10px;
+    color: #8e8e93;
+    pointer-events: none;
+  }
+  .appstore-search-form input {
+    width: 100%;
+    height: 32px;
+    padding: 0 12px 0 30px;
+    border-radius: 8px;
+    border: 1px solid #e5e5ea;
+    background: #f2f2f7;
+    font-size: 13.5px;
+    color: #1d1d1f;
+    outline: none;
+    transition: all 0.15s ease;
+  }
+  .appstore-search-form input:focus {
+    background: #ffffff;
+    border-color: #0071e3;
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+  }
+
+  /* Ana Menü */
+  .appstore-nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .appstore-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #3a3a3c;
+    text-decoration: none;
+    transition: all 0.12s ease;
+  }
+  .appstore-nav-item:hover {
+    background: #eef0f4;
+    color: #1d1d1f;
+  }
+  .appstore-nav-item.is-active {
+    background: #e5e5ea;
+    color: #1d1d1f;
+    font-weight: 600;
+  }
+  .nav-item-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0071e3;
+  }
+  .appstore-nav-item.is-active .nav-item-icon {
+    color: #0071e3;
+  }
+
+  /* Ayırıcı */
+  .appstore-nav-divider {
+    height: 1px;
+    background: #e5e5ea;
+    margin: 14px 4px;
+  }
+
+  /* Kategoriler */
+  .appstore-categories-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .appstore-categories-header {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #8e8e93;
+    padding: 4px 10px 8px;
+  }
+  .appstore-categories-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .appstore-category-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #48484a;
+    text-decoration: none;
+    transition: all 0.12s ease;
+  }
+  .appstore-category-item:hover {
+    background: #f2f2f7;
+    color: #1d1d1f;
+  }
+  .cat-item-icon {
+    color: #0071e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 900px) {
+    .appstore-sidebar {
+      display: none;
+    }
+  }
+</style>
