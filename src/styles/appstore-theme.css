@@ -136,8 +136,33 @@
   font-size: 15.5px;
   line-height: 1.5;
   color: var(--as-text-secondary);
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   max-width: 440px;
+}
+
+.as-hero-ai-search-pill {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  margin: 4px 0 14px;
+  border-radius: var(--as-radius-pill);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.as-hero-ai-search-pill:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.as-hero-ai-search-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--as-radius-pill);
+  object-fit: contain;
 }
 
 .as-hero-cta {
