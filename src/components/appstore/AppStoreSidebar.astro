@@ -347,7 +347,10 @@ const categories = [
 
   /* Ayırıcı */
   .appstore-nav-divider {
-
+    height: 1px;
+    background: #e5e5ea;
+    margin: 12px 6px;
+  }
 
   /* Masaüstünde mobil öğeleri gizle */
   .as-ios-topbar,
@@ -357,7 +360,7 @@ const categories = [
 
   @media (max-width: 900px) {
     .appstore-sidebar {
-      display: none;
+      display: none !important;
     }
 
     /* iOS Mobil Üst Başlık (Large Title Navigation & Search Bar) */
