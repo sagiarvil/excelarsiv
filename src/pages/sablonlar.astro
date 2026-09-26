@@ -8,22 +8,22 @@ import { getAllTemplates } from '../lib/templates';
 
 const templates = await getAllTemplates();
 
-// Popüler Ücretli (1'den 5'e)
+// Popüler Ücretli (1'den 5'e - Farklı Renk ve Grafik Sembolleri)
 const popularPaid = [
-  { rank: 1, name: '13 Haftalık Nakit Akışı', slug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', sub: 'Nakit dengenizi yönetin', color: 'green', icon: 'chart' },
-  { rank: 2, name: 'Akıllı Kasa Defteri', slug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', sub: 'Günlük gelir gider takibi yapın', color: 'green', icon: 'wallet' },
-  { rank: 3, name: 'Cari Mutabakat Motoru', slug: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', sub: 'Müşteri - tedarikçi ekstre kontrolü', color: 'blue', icon: 'users' },
-  { rank: 4, name: 'Banka Kredi ve Taksit Takip', slug: 'banka-kredi-ve-taksit-takip-sistemi', sub: 'Kredi, taksit ve ödeme planı yönetin', color: 'green', icon: 'bank' },
-  { rank: 5, name: 'Amortisman ve Yeniden Değerleme', slug: 'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici', sub: 'Varlıklarınızı yönetin', color: 'purple', icon: 'calc' },
+  { rank: 1, name: '13 Haftalık Nakit Akışı', slug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', sub: 'Nakit dengenizi yönetin', color: 'blue', icon: 'trend' },
+  { rank: 2, name: 'Akıllı Kasa Defteri', slug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', sub: 'Günlük gelir gider takibi yapın', color: 'green', icon: 'chart' },
+  { rank: 3, name: 'Cari Mutabakat Motoru', slug: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', sub: 'Müşteri - tedarikçi ekstre kontrolü', color: 'amber', icon: 'pie' },
+  { rank: 4, name: 'Banka Kredi ve Taksit Takip', slug: 'banka-kredi-ve-taksit-takip-sistemi', sub: 'Kredi, taksit ve ödeme planı yönetin', color: 'purple', icon: 'gauge' },
+  { rank: 5, name: 'Amortisman ve Yeniden Değerleme', slug: 'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici', sub: 'Varlıklarınızı yönetin', color: 'rose', icon: 'waterfall' },
 ];
 
-// Popüler Ücretsiz (1'den 5'e)
+// En Çok Tercih Edilenler (1'den 5'e - Farklı Renk ve Grafik Sembolleri)
 const popularFree = [
-  { rank: 1, name: 'Aylık Patron Finans Paneli', slug: 'aylik-patron-finans-paneli', sub: 'İşletmenizin genel durumunu görün', color: 'green', icon: 'trend' },
-  { rank: 2, name: 'Gelir Gider Takip', slug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', sub: 'Kişisel ve kurumsal finans takibi', color: 'green', icon: 'doc' },
-  { rank: 3, name: 'Stok Takip ve Envanter Yönetimi', slug: 'stok-satis-ve-nakit-baglanma-sistemi', sub: 'Stok giriş çıkışlarınızı yönetin', color: 'orange', icon: 'box' },
-  { rank: 4, name: 'Müşteri Risk Takip', slug: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', sub: 'Müşteri risklerinizi kolayca yönetin', color: 'blue', icon: 'pie' },
-  { rank: 5, name: 'Personel Bordro Sistemi', slug: 'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici', sub: 'Personel maaş ve bordro takibi', color: 'amber', icon: 'users' },
+  { rank: 1, name: 'Aylık Patron Finans Paneli', slug: 'aylik-patron-finans-paneli', sub: 'İşletmenizin genel durumunu görün', color: 'purple', icon: 'gauge' },
+  { rank: 2, name: 'Gelir Gider Gerçek Kârlılık', slug: 'gunluk-gelir-gider-ve-gercek-karlilik-sistemi', sub: 'Kişisel ve kurumsal kârlılık takibi', color: 'rose', icon: 'waterfall' },
+  { rank: 3, name: 'Stok Takip ve Envanter Yönetimi', slug: 'stok-satis-ve-nakit-baglanma-sistemi', sub: 'Stok giriş çıkışlarınızı yönetin', color: 'teal', icon: 'box' },
+  { rank: 4, name: 'Müşteri Risk Takip', slug: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', sub: 'Müşteri risklerinizi kolayca yönetin', color: 'amber', icon: 'pie' },
+  { rank: 5, name: 'Personel Bordro Sistemi', slug: 'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici', sub: 'Personel maaş ve bordro takibi', color: 'blue', icon: 'trend' },
 ];
 
 // Kategoriye Göre Keşfet
@@ -208,11 +208,11 @@ const catalogBreadcrumbLd = JSON.stringify({
                   <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;">
                     <span class="as-rank-number">{item.rank}</span>
                     <div class={`as-card-icon-box icon-${item.color}`} style="margin-bottom:0;width:38px;height:38px;">
-                      {item.icon === 'chart' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>}
-                      {item.icon === 'wallet' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle></svg>}
-                      {item.icon === 'users' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>}
-                      {item.icon === 'bank' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="21" x2="21" y2="21"></line><line x1="4" y1="10" x2="20" y2="10"></line><polygon points="12 2 20 10 4 10 12 2"></polygon></svg>}
-                      {item.icon === 'calc' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line></svg>}
+                      {item.icon === 'trend' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>}
+                      {item.icon === 'chart' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>}
+                      {item.icon === 'pie' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 1 9 9H12V3z"></path></svg>}
+                      {item.icon === 'gauge' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><line x1="12" y1="12" x2="16" y2="8" stroke-width="2.4"></line><circle cx="12" cy="12" r="2" fill="currentColor"></circle></svg>}
+                      {item.icon === 'waterfall' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="10" width="4" height="10" rx="1" fill="currentColor" opacity="0.9"></rect><rect x="7" y="13" width="4" height="7" rx="1" fill="currentColor" opacity="0.7"></rect><rect x="12" y="8" width="4" height="12" rx="1" fill="currentColor" opacity="0.9"></rect><rect x="17" y="4" width="5" height="16" rx="1" fill="currentColor"></rect></svg>}
                     </div>
                   </div>
                   <h3 class="as-card-title">{item.name}</h3>
@@ -243,11 +243,11 @@ const catalogBreadcrumbLd = JSON.stringify({
                   <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;">
                     <span class="as-rank-number">{item.rank}</span>
                     <div class={`as-card-icon-box icon-${item.color}`} style="margin-bottom:0;width:38px;height:38px;">
-                      {item.icon === 'trend' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg>}
-                      {item.icon === 'doc' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><line x1="16" y1="13" x2="8" y2="13"></line></svg>}
-                      {item.icon === 'box' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect></svg>}
-                      {item.icon === 'pie' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 10 10H12V2z"></path></svg>}
-                      {item.icon === 'users' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>}
+                      {item.icon === 'gauge' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><line x1="12" y1="12" x2="16" y2="8" stroke-width="2.4"></line><circle cx="12" cy="12" r="2" fill="currentColor"></circle></svg>}
+                      {item.icon === 'waterfall' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="10" width="4" height="10" rx="1" fill="currentColor" opacity="0.9"></rect><rect x="7" y="13" width="4" height="7" rx="1" fill="currentColor" opacity="0.7"></rect><rect x="12" y="8" width="4" height="12" rx="1" fill="currentColor" opacity="0.9"></rect><rect x="17" y="4" width="5" height="16" rx="1" fill="currentColor"></rect></svg>}
+                      {item.icon === 'box' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>}
+                      {item.icon === 'pie' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 1 9 9H12V3z"></path></svg>}
+                      {item.icon === 'trend' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>}
                     </div>
                   </div>
                   <h3 class="as-card-title">{item.name}</h3>

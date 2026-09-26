@@ -10,13 +10,13 @@ const searchIndex = await getTemplateSearchIndex();
 const productCount = templates.length;
 const categoryCount = new Set(templates.map((item) => item.categorySlug)).size;
 
-// Popüler Ücretsiz / Öne Çıkan Şablonlar
+// En Çok Tercih Edilenler (Farklı Renk ve Grafik Sembolleri)
 const popularFreeTemplates = [
-  { name: '13 Haftalık Nakit Akışı', slug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', url: '/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', summary: 'Nakit akışınızı haftalık olarak planlayın.' },
-  { name: 'Akıllı Kasa Defteri', slug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', url: '/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi', summary: 'Günlük gelir gider takibi yapın.' },
-  { name: 'Cari Risk Takip', slug: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', url: '/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', summary: 'Müşteri risklerini kolayca yönetin.' },
-  { name: 'Aylık Patron Finans Paneli', slug: 'aylik-patron-finans-paneli', url: '/sablon/aylik-patron-finans-paneli', summary: 'İşletmenizin genel durumunu görün.' },
-  { name: 'Gelir Gider Takip', slug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', url: '/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi', summary: 'Kişisel ve kurumsal finans takibi.' },
+  { name: '13 Haftalık Nakit Akışı', slug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', url: '/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', summary: 'Nakit akışınızı haftalık olarak planlayın.', color: 'blue', icon: 'trend' },
+  { name: 'Akıllı Kasa Defteri', slug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', url: '/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi', summary: 'Günlük gelir gider takibi yapın.', color: 'green', icon: 'chart' },
+  { name: 'Cari Risk Takip', slug: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', url: '/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', summary: 'Müşteri risklerini kolayca yönetin.', color: 'amber', icon: 'pie' },
+  { name: 'Aylık Patron Finans Paneli', slug: 'aylik-patron-finans-paneli', url: '/sablon/aylik-patron-finans-paneli', summary: 'İşletmenizin genel durumunu görün.', color: 'purple', icon: 'gauge' },
+  { name: 'Gelir Gider Gerçek Kârlılık', slug: 'gunluk-gelir-gider-ve-gercek-karlilik-sistemi', url: '/sablon/gunluk-gelir-gider-ve-gercek-karlilik-sistemi', summary: 'Kişisel ve kurumsal kârlılık takibi.', color: 'rose', icon: 'waterfall' },
 ];
 
 // İşletmeler İçin Öne Çıkanlar (6'lı Grid)
@@ -211,12 +211,41 @@ const homeJsonLd = {
             {popularFreeTemplates.map((item) => (
               <div class="as-card-col">
                 <a href={item.url} class="as-mini-app-card">
-                  <div class="as-card-icon-box">
-                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <line x1="18" y1="20" x2="18" y2="10"></line>
-                      <line x1="12" y1="20" x2="12" y2="4"></line>
-                      <line x1="6" y1="20" x2="6" y2="14"></line>
-                    </svg>
+                  <div class={`as-card-icon-box icon-${item.color}`}>
+                    {item.icon === 'trend' && (
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                        <polyline points="16 7 22 7 22 13"></polyline>
+                      </svg>
+                    )}
+                    {item.icon === 'chart' && (
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                      </svg>
+                    )}
+                    {item.icon === 'pie' && (
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M12 3a9 9 0 0 1 9 9H12V3z"></path>
+                      </svg>
+                    )}
+                    {item.icon === 'gauge' && (
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path>
+                        <line x1="12" y1="12" x2="16" y2="8" stroke-width="2.4"></line>
+                        <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
+                      </svg>
+                    )}
+                    {item.icon === 'waterfall' && (
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2" y="10" width="4" height="10" rx="1" fill="currentColor" opacity="0.9"></rect>
+                        <rect x="7" y="13" width="4" height="7" rx="1" fill="currentColor" opacity="0.7"></rect>
+                        <rect x="12" y="8" width="4" height="12" rx="1" fill="currentColor" opacity="0.9"></rect>
+                        <rect x="17" y="4" width="5" height="16" rx="1" fill="currentColor"></rect>
+                      </svg>
+                    )}
                   </div>
                   <h3 class="as-card-title">{item.name}</h3>
                   <p class="as-card-summary">{item.summary}</p>
