@@ -79,7 +79,7 @@
 
 @media (max-width: 768px) {
   .appstore-main-canvas {
-    padding: 16px 16px 40px;
+    padding: 12px 14px 88px;
   }
 }
 
@@ -365,13 +365,25 @@
 
 @media (max-width: 768px) {
   .as-five-cards-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    margin-bottom: 28px;
+    margin-left: -4px;
+    padding: 4px 16px 12px 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-}
-
-.as-card-col {
-  display: flex;
-  flex-direction: column;
+  .as-five-cards-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .as-card-col {
+    flex: 0 0 74%;
+    min-width: 220px;
+    max-width: 280px;
+    scroll-snap-align: start;
+  }
 }
 
 .as-mini-app-card {
