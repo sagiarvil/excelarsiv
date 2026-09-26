@@ -212,37 +212,38 @@ const priceDisplay = t.priceTL ? `${new Intl.NumberFormat('tr-TR').format(t.pric
           </div>
         </header>
 
-        <!-- 2. YATAY METADATA ÇUBUĞU (5 Kolon) -->
-        <section class="as-meta-bar" aria-label="Sistem Özellikleri">
-          <div class="as-meta-col">
-            <span class="as-meta-label">UYUMLULUK</span>
-            <span class="as-meta-val">4+</span>
-            <span class="as-meta-sub">Mac & Windows</span>
-          </div>
-          <div class="as-meta-col">
-            <span class="as-meta-label">KATEGORİ</span>
-            <span class="as-meta-val">
-              <a href={`/sablonlar/${t.category}`}>{categoryLabel}</a>
+        <!-- 2. YATAY METADATA ÇUBUĞU (Aktif Doğrulama & Gezinti Strip'i) -->
+        <section class="as-meta-bar" aria-label="Sistem Doğrulama ve Özellikleri">
+          <a href="#yorumlar" class="as-meta-col" title="Kullanıcı Değerlendirmeleri ve CFO İncelemeleri">
+            <span class="as-meta-label">DEĞERLENDİRME</span>
+            <span class="as-meta-val" style="color:#d97706;">
+              5.0 <span style="font-size:12px;letter-spacing:1px;color:#f59e0b;" aria-label="5 yıldız">★★★★★</span>
             </span>
-            <span class="as-meta-sub">Finansal Karar</span>
-          </div>
-          <div class="as-meta-col">
+            <span class="as-meta-sub">Doğrulanmış Model ›</span>
+          </a>
+          <a href={`/sablonlar/${t.category}`} class="as-meta-col" title={`${categoryLabel} Kategorisindeki Tüm Sistemleri İncele`}>
+            <span class="as-meta-label">KATEGORİ</span>
+            <span class="as-meta-val">{categoryLabel}</span>
+            <span class="as-meta-sub">Finansal Karar ›</span>
+          </a>
+          <a href="/hakkinda" class="as-meta-col" title="Geliştirici Barış Bağırlar Hakkında">
             <span class="as-meta-label">GELİŞTİRİCİ</span>
             <span class="as-meta-val">
-              <a href="/hakkinda">B. Bağırlar</a>
+              B. Bağırlar
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#0071e3" style="display:inline-block;vertical-align:-1px;" aria-label="Doğrulanmış"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
             </span>
-            <span class="as-meta-sub">Finans Analisti</span>
-          </div>
-          <div class="as-meta-col">
+            <span class="as-meta-sub">Finans Analisti ›</span>
+          </a>
+          <a href="#bu-sistem-hakkinda" class="as-meta-col" title="Sistem Mimarisi ve Açık Formül Yapısı">
             <span class="as-meta-label">DİL / FORMAT</span>
-            <span class="as-meta-val">TR</span>
-            <span class="as-meta-sub">.xlsx (Açık Formül)</span>
-          </div>
-          <div class="as-meta-col">
+            <span class="as-meta-val">TR · .xlsx</span>
+            <span class="as-meta-sub">%100 Açık Formül ›</span>
+          </a>
+          <a href="#guvenlik" class="as-meta-col" title="Uygulama Gizliliği ve Makrosuz Güvenlik Standardı">
             <span class="as-meta-label">GÜVENLİK</span>
             <span class="as-meta-val" style="color:#107c41;">%100</span>
-            <span class="as-meta-sub">Makrosuz / Çevrimdışı</span>
-          </div>
+            <span class="as-meta-sub">Makrosuz / Çevrimdışı ›</span>
+          </a>
         </section>
 
         <!-- 3. EKRAN GÖRÜNTÜLERİ GALERİSİ (Mac Sekmesi & Pencereler) -->
@@ -290,7 +291,7 @@ const priceDisplay = t.priceTL ? `${new Intl.NumberFormat('tr-TR').format(t.pric
         </section>
 
         <!-- 4. BU SİSTEM HAKKINDA (Açıklama & Kapsam) -->
-        <section class="as-desc-block" aria-labelledby="desc-heading">
+        <section class="as-desc-block" id="bu-sistem-hakkinda" aria-labelledby="desc-heading">
           <h2 id="desc-heading" class="as-section-headline">Bu Sistem Hakkında</h2>
           <p class="as-desc-text">
             {descriptionData.subTitle || t.summary}
@@ -310,7 +311,7 @@ const priceDisplay = t.priceTL ? `${new Intl.NumberFormat('tr-TR').format(t.pric
         </section>
 
         <!-- 5. DEĞERLENDİRMELER & YORUMLAR -->
-        <section class="as-reviews-section" style="padding-bottom: 28px; border-bottom: 1px solid var(--as-border); margin-bottom: 28px;" aria-labelledby="reviews-heading">
+        <section class="as-reviews-section" id="yorumlar" style="padding-bottom: 28px; border-bottom: 1px solid var(--as-border); margin-bottom: 28px;" aria-labelledby="reviews-heading">
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
             <h2 id="reviews-heading" class="as-section-headline" style="margin: 0;">Değerlendirmeler & Yorumlar ›</h2>
             <span style="font-size: 13px; color: var(--as-text-secondary); font-weight: 600;">5.0 / 5.0 (Doğrulanmış Alıcılar)</span>
@@ -343,7 +344,7 @@ const priceDisplay = t.priceTL ? `${new Intl.NumberFormat('tr-TR').format(t.pric
         </section>
 
         <!-- 6. YENİLİKLER (What's New) -->
-        <section class="as-whats-new-section" aria-labelledby="whats-new-heading">
+        <section class="as-whats-new-section" id="surum-notlari" aria-labelledby="whats-new-heading">
           <div class="as-whats-new-header">
             <h2 id="whats-new-heading" class="as-section-headline" style="margin: 0;">Yenilikler ›</h2>
             <span class="as-version-pill">{t.version ? `Sürüm ${t.version}` : 'Sürüm 2026.3'} · {t.updatedAt || 'Eylül 2026'}</span>
@@ -354,7 +355,7 @@ const priceDisplay = t.priceTL ? `${new Intl.NumberFormat('tr-TR').format(t.pric
         </section>
 
         <!-- 7. UYGULAMA GİZLİLİĞİ & GÜVENLİK (App Privacy) -->
-        <section class="as-privacy-section" aria-labelledby="privacy-heading">
+        <section class="as-privacy-section" id="guvenlik" aria-labelledby="privacy-heading">
           <h2 id="privacy-heading" class="as-section-headline">Uygulama Gizliliği & Veri Güvenliği ›</h2>
           <p class="as-section-subline">Geliştirici Barış Bağırlar, şirket verilerinizin gizliliğini taahhüt eder.</p>
 
