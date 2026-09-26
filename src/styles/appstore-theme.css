@@ -703,3 +703,706 @@
 .as-category-card:hover .as-cat-arrow {
   color: var(--as-green);
 }
+
+/* ==========================================================================
+   Mac App Store Product Detail / Showcase — Light Theme System
+   Reference: https://apps.apple.com/us/app/xcode/id497799835?mt=12
+   ========================================================================== */
+
+/* 1. Ürün Başlık Alanı (Product Header) */
+.as-product-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 8px 0 28px;
+  border-bottom: 1px solid var(--as-border);
+  margin-bottom: 24px;
+}
+
+@media (max-width: 640px) {
+  .as-product-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+  }
+}
+
+.as-product-icon-wrap {
+  flex-shrink: 0;
+}
+
+.as-product-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #0071e3 0%, #004fb0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 36px rgba(0, 113, 227, 0.28), 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.as-product-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.as-product-title {
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 800;
+  color: var(--as-text-primary);
+  line-height: 1.15;
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+}
+
+.as-product-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--as-accent);
+  margin: 0 0 4px;
+}
+
+.as-product-subtitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.as-product-subtitle a:hover {
+  text-decoration: underline;
+}
+
+.as-product-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--as-text-tertiary);
+  margin-bottom: 16px;
+}
+
+@media (max-width: 640px) {
+  .as-product-badge-row {
+    justify-content: center;
+  }
+}
+
+.as-product-action-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+@media (max-width: 640px) {
+  .as-product-action-row {
+    justify-content: center;
+  }
+}
+
+.as-btn-appstore-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--as-accent);
+  color: #ffffff;
+  padding: 8px 24px;
+  border-radius: var(--as-radius-pill);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 8px rgba(0, 113, 227, 0.25);
+}
+
+.as-btn-appstore-primary:hover {
+  background: var(--as-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.35);
+}
+
+.as-btn-share-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--as-border);
+  background: #fbfbfd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--as-text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.as-btn-share-icon:hover {
+  background: #ffffff;
+  border-color: #c7c7cc;
+  color: var(--as-text-primary);
+  transform: translateY(-1px);
+}
+
+/* 2. Yatay Metadata Çubuğu (5 Kolon) */
+.as-meta-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--as-border);
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+@media (max-width: 680px) {
+  .as-meta-bar {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 16px;
+  }
+}
+
+.as-meta-col {
+  padding: 0 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.as-meta-col:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: var(--as-border);
+}
+
+@media (max-width: 680px) {
+  .as-meta-col:nth-child(3)::after {
+    display: none;
+  }
+}
+
+.as-meta-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--as-text-tertiary);
+  margin-bottom: 4px;
+}
+
+.as-meta-val {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--as-text-primary);
+  line-height: 1.2;
+}
+
+.as-meta-val a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.as-meta-sub {
+  font-size: 11.5px;
+  color: var(--as-text-secondary);
+  margin-top: 2px;
+}
+
+/* 3. Ekran Görüntüleri Galerisi (Mac Sekmesi & Pencereler) */
+.as-gallery-tab-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.as-gallery-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--as-text-primary);
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--as-accent);
+}
+
+.as-gallery-scroll-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.as-gallery-card-window {
+  flex: 0 0 540px;
+  max-width: 85vw;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #d2d2d7;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.as-gallery-card-window:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+}
+
+.as-window-titlebar {
+  background: #f6f6f6;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.as-window-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.as-wdot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.as-wdot-red { background: #ff5f56; border: 1px solid #e0443e; }
+.as-wdot-yellow { background: #ffbd2e; border: 1px solid #dea123; }
+.as-wdot-green { background: #27c93f; border: 1px solid #1aab29; }
+
+.as-window-title-text {
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+  margin: 0 auto;
+}
+
+.as-window-body {
+  padding: 14px 16px;
+  background: #ffffff;
+}
+
+/* 4. Açıklama Bölümü */
+.as-desc-block {
+  padding: 18px 0 28px;
+  border-bottom: 1px solid var(--as-border);
+  margin-bottom: 28px;
+}
+
+.as-desc-text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--as-text-primary);
+  max-width: 860px;
+  margin: 0 0 10px;
+}
+
+.as-desc-more-btn {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--as-accent);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.as-desc-more-btn:hover {
+  text-decoration: underline;
+}
+
+/* 5. Değerlendirmeler & Yorumlar */
+.as-section-headline {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--as-text-primary);
+  margin: 0 0 4px;
+}
+
+.as-section-headline a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.as-section-headline a:hover {
+  color: var(--as-accent);
+}
+
+.as-section-subline {
+  font-size: 13px;
+  color: var(--as-text-secondary);
+  margin: 0 0 16px;
+}
+
+.as-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  .as-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.as-review-card {
+  background: #fbfbfd;
+  border: 1px solid var(--as-border);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.as-review-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.as-review-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--as-text-primary);
+  margin: 0;
+}
+
+.as-review-date-user {
+  font-size: 11.5px;
+  color: var(--as-text-tertiary);
+  text-align: right;
+}
+
+.as-review-stars {
+  color: #ff9500;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.as-review-body {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--as-text-secondary);
+  margin: 0;
+}
+
+/* 6. Yenilikler (What's New) */
+.as-whats-new-section {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--as-border);
+  margin-bottom: 28px;
+}
+
+.as-whats-new-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.as-version-pill {
+  font-size: 12.5px;
+  color: var(--as-text-secondary);
+  font-weight: 600;
+}
+
+/* 7. Uygulama Gizliliği (App Privacy) */
+.as-privacy-section {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--as-border);
+  margin-bottom: 28px;
+}
+
+.as-privacy-box {
+  background: #f0f7ff;
+  border: 1px solid #cce3ff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 14px;
+}
+
+.as-privacy-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.as-privacy-shield-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0071e3;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.as-privacy-box-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px;
+}
+
+.as-privacy-box-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #334155;
+  margin: 0 0 18px;
+}
+
+.as-privacy-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  border-top: 1px solid #d8e9ff;
+  padding-top: 14px;
+}
+
+@media (max-width: 640px) {
+  .as-privacy-pillars {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+.as-pillar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* 8. Öne Çıkanlar (Featured In) */
+.as-featured-in-section {
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--as-border);
+  margin-bottom: 32px;
+}
+
+.as-featured-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .as-featured-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.as-featured-hero-card {
+  background: #fbfbfd;
+  border: 1px solid var(--as-border);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.as-featured-hero-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.as-featured-card-visual {
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.as-featured-card-content {
+  padding: 18px 20px;
+  background: #ffffff;
+  border-top: 1px solid var(--as-border-light);
+  flex: 1;
+}
+
+.as-featured-eyebrow {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--as-accent);
+  margin-bottom: 4px;
+}
+
+.as-featured-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--as-text-primary);
+  margin: 0 0 6px;
+}
+
+.as-featured-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--as-text-secondary);
+  margin: 0;
+}
+
+/* 9. ExcelArşiv'den Diğer Sistemler (More by ExcelArşiv) */
+.as-more-by-section {
+  margin-bottom: 40px;
+}
+
+.as-more-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+
+@media (max-width: 800px) {
+  .as-more-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.as-more-item {
+  background: #fbfbfd;
+  border: 1px solid var(--as-border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.as-more-item:hover {
+  background: #ffffff;
+  border-color: #c7c7cc;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.as-more-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.as-more-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+}
+
+.as-more-info {
+  min-width: 0;
+}
+
+.as-more-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--as-text-primary);
+  margin: 0 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.as-more-sub {
+  font-size: 12px;
+  color: var(--as-text-secondary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.as-btn-view-pill {
+  background: var(--as-pill-btn-bg);
+  color: var(--as-accent);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 6px 18px;
+  border-radius: var(--as-radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.as-more-item:hover .as-btn-view-pill {
+  background: var(--as-accent);
+  color: #ffffff;
+}
+
+/* 10. Sayfa Altı / Footer */
+.as-store-footer {
+  border-top: 1px solid var(--as-border);
+  padding: 28px 0 12px;
+  margin-top: 20px;
+}
+
+.as-store-footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  color: var(--as-text-tertiary);
+}
+
+.as-store-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.as-store-footer-links a {
+  color: var(--as-text-secondary);
+  text-decoration: none;
+}
+
+.as-store-footer-links a:hover {
+  color: var(--as-text-primary);
+  text-decoration: underline;
+}
+
+.as-store-copyright {
+  font-size: 11.5px;
+  color: var(--as-text-tertiary);
+}
+

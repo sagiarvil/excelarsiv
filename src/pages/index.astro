@@ -86,13 +86,49 @@ const homeJsonLd = {
 
       <!-- Sağ macOS Ana Canvas -->
       <main class="appstore-main-canvas" id="main-content">
-        <!-- 1. BÜYÜK HERO AFİŞİ (media_1790413946590.png Referansı) -->
-        <section class="as-hero-banner" aria-labelledby="hero-title">
-          <div class="as-hero-copy">
-            <span class="as-hero-eyebrow">EXCEL ARŞİV İLE DAHA FAZLASI</span>
-            <h1 id="hero-title" class="as-hero-title">İşletmeler için Finansal Karar Sistemleri</h1>
-            <p class="as-hero-desc">Dağınık Excel tablolarını tek ekranda net karara dönüştürün.</p>
-            <a href="/sablonlar" class="as-hero-ai-search-pill" title="Yapay Zeka Destekli Şablon Arama">
+        <!-- ====================================================================
+             1. MAC APP STORE PRODUCT HEADER (media_1790443639327.png)
+             ==================================================================== -->
+        <header class="as-product-header">
+          <div class="as-product-icon-wrap">
+            <div class="as-product-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="68" height="68" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="6" width="36" height="36" rx="9" fill="#107c41" stroke="#ffffff" stroke-width="2"/>
+                <line x1="16" y1="16" x2="32" y2="32" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                <line x1="32" y1="16" x2="16" y2="32" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="as-product-meta">
+            <h1 id="hero-title" class="as-product-title">Excel Arşiv</h1>
+            <div class="as-product-subtitle">
+              <a href="/sablonlar/finansal-analiz">Finansal Karar Sistemleri</a>
+            </div>
+            <div class="as-product-badge-row">
+              <span>Excel, macOS & Web Uyumlu</span>
+              <span>•</span>
+              <span>Kurumsal Karar Çözümleri</span>
+            </div>
+
+            <div class="as-product-action-row">
+              <a href="/sablonlar" class="as-btn-appstore-primary">
+                <span>Sistemleri İncele</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <button type="button" class="as-btn-share-icon" title="Paylaş" aria-label="Paylaş" onclick="if(navigator.share){navigator.share({title:'Excel Arşiv',url:window.location.href})}else{navigator.clipboard.writeText(window.location.href);alert('Bağlantı kopyalandı!')}">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+              </button>
+            </div>
+
+            <!-- AI Arama Göstergesi (Temizlenmiş Retina Bar) -->
+            <a href="/sablonlar" class="as-hero-ai-search-pill" title="Yapay Zeka Destekli Şablon Arama" style="margin-top:14px;max-width:360px;">
               <picture>
                 <source srcset="/images/site/ai-search-indicator.webp" type="image/webp" />
                 <img 
@@ -106,25 +142,86 @@ const homeJsonLd = {
                 />
               </picture>
             </a>
-            <a href="/sablonlar" class="as-hero-cta">
-              <span>Keşfet</span>
-              <span aria-hidden="true">›</span>
-            </a>
-            <div class="as-hero-dots" aria-hidden="true">
-              <span class="as-dot is-active"></span>
-              <span class="as-dot"></span>
-              <span class="as-dot"></span>
-              <span class="as-dot"></span>
-              <span class="as-dot"></span>
-            </div>
+          </div>
+        </header>
+
+        <!-- ====================================================================
+             2. YATAY METADATA ÇUBUĞU (media_1790443639327.png)
+             ==================================================================== -->
+        <section class="as-meta-bar" aria-label="Sistem Özellikleri ve Değerlendirmeleri">
+          <div class="as-meta-col">
+            <span class="as-meta-label">DERECELENDİRME</span>
+            <span class="as-meta-val">500+</span>
+            <span class="as-meta-sub">Aktif İşletme</span>
           </div>
 
-          <div class="as-hero-mockup-scene">
-            <div class="as-macbook-frame">
-              <div class="as-macbook-notch"></div>
-              <div class="as-macbook-screen">
-                <!-- Mini KPI'lar (4 Renkli Karar Matrisi) -->
-                <div class="as-mini-kpi-grid">
+          <div class="as-meta-col">
+            <span class="as-meta-label">KATEGORİ</span>
+            <div class="as-meta-val">
+              <a href="/sablonlar/finansal-analiz" title="Finansal Analiz Şablonları">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin:0 auto 2px;display:block;">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+              </a>
+            </div>
+            <span class="as-meta-sub"><a href="/sablonlar/finansal-analiz" style="color:inherit;text-decoration:none;">Finans & Karar</a></span>
+          </div>
+
+          <div class="as-meta-col">
+            <span class="as-meta-label">GELİŞTİRİCİ</span>
+            <div class="as-meta-val">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin:0 auto 2px;display:block;">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <span class="as-meta-sub">Excel Arşiv</span>
+          </div>
+
+          <div class="as-meta-col">
+            <span class="as-meta-label">DİL</span>
+            <span class="as-meta-val">TR</span>
+            <span class="as-meta-sub">Türkçe (+EN)</span>
+          </div>
+
+          <div class="as-meta-col">
+            <span class="as-meta-label">BOYUT</span>
+            <span class="as-meta-val">24 MB</span>
+            <span class="as-meta-sub">.XLSX Modelleri</span>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             3. EKRAN GÖRÜNTÜLERİ GALERİSİ (media_1790443639327.png)
+             ==================================================================== -->
+        <section class="as-gallery-section" aria-label="Uygulama Ekran Görüntüleri">
+          <div class="as-gallery-tab-row">
+            <span class="as-gallery-tab-btn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              Mac
+            </span>
+          </div>
+
+          <div class="as-gallery-scroll-container">
+            <!-- Ekran 1: Finansal Karar Kokpiti -->
+            <div class="as-gallery-card-window">
+              <div class="as-window-titlebar">
+                <div class="as-window-dots">
+                  <span class="as-wdot as-wdot-red"></span>
+                  <span class="as-wdot as-wdot-yellow"></span>
+                  <span class="as-wdot as-wdot-green"></span>
+                </div>
+                <span class="as-window-title-text">Finansal Karar Kokpiti — Decision OS v15.1</span>
+              </div>
+              <div class="as-window-body">
+                <!-- Mini KPI Grid -->
+                <div class="as-mini-kpi-grid" style="margin-bottom:12px;">
                   <div class="as-mini-kpi" style="border-left: 2px solid #107c41;">
                     <small style="color:#107c41;font-weight:700;">Gelir Akışı</small>
                     <strong>₺1.420.000</strong><span style="color:#107c41;background:#e6f4ea;padding:1px 3px;border-radius:3px;">+18%</span>
@@ -143,7 +240,7 @@ const homeJsonLd = {
                   </div>
                 </div>
 
-                <!-- Mini Grafikler (Kırmızı, Mavi, Sarı, Yeşil) -->
+                <!-- Mini Grafikler -->
                 <div class="as-mini-charts-row">
                   <div class="as-mini-chart-card">
                     <div class="as-chart-title" style="display:flex;justify-content:space-between;align-items:center;">
@@ -154,12 +251,10 @@ const homeJsonLd = {
                         <span style="display:inline-block;width:5px;height:5px;background:#107c41;border-radius:50%;"></span>
                       </div>
                     </div>
-                    <svg viewBox="0 0 200 65" width="100%" height="45" fill="none" aria-hidden="true">
-                      <!-- Grid çizgileri -->
+                    <svg viewBox="0 0 200 65" width="100%" height="52" fill="none" aria-hidden="true">
                       <line x1="0" y1="55" x2="200" y2="55" stroke="#f1f5f9" stroke-width="1" />
                       <line x1="0" y1="35" x2="200" y2="35" stroke="#f1f5f9" stroke-width="1" />
                       <line x1="0" y1="15" x2="200" y2="15" stroke="#f1f5f9" stroke-width="1" />
-                      <!-- Çok Renkli Barlar: Mavi Gelir, Kırmızı Gider -->
                       <rect x="12" y="24" width="7" height="31" fill="#0071e3" rx="1.5" />
                       <rect x="21" y="38" width="7" height="17" fill="#e11d48" rx="1.5" />
                       <rect x="38" y="18" width="7" height="37" fill="#0071e3" rx="1.5" />
@@ -170,28 +265,22 @@ const homeJsonLd = {
                       <rect x="99" y="26" width="7" height="29" fill="#e11d48" rx="1.5" />
                       <rect x="116" y="6" width="7" height="49" fill="#0071e3" rx="1.5" />
                       <rect x="125" y="22" width="7" height="33" fill="#e11d48" rx="1.5" />
-                      <!-- Yeşil Net Bakiye Çizgisi -->
                       <path d="M15 42 Q 50 32, 85 20 T 145 10 T 195 5" stroke="#107c41" stroke-width="2.5" fill="none" stroke-linecap="round" />
                       <circle cx="195" cy="5" r="3.5" fill="#107c41" />
-                      <!-- Sarı Kritik Eşik -->
-                      <line x1="140" y1="20" x2="200" y2="20" stroke="#f59e0b" stroke-dasharray="2 2" stroke-width="1.5" />
                     </svg>
                   </div>
+
                   <div class="as-mini-chart-card">
-                    <div class="as-chart-title">Portföy Dağılımı</div>
+                    <div class="as-chart-title">Portföy Kârlılık Dağılımı</div>
                     <div style="display:flex;align-items:center;gap:8px;">
-                      <svg viewBox="0 0 36 36" width="42" height="42" aria-hidden="true">
+                      <svg viewBox="0 0 36 36" width="46" height="46" aria-hidden="true">
                         <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f1f5f9" stroke-width="5.5"/>
-                        <!-- Yeşil (%45 Satış) -->
                         <circle cx="18" cy="18" r="15.915" fill="none" stroke="#107c41" stroke-width="5.5" stroke-dasharray="45 55" stroke-dashoffset="25"/>
-                        <!-- Mavi (%30 Hizmet) -->
                         <circle cx="18" cy="18" r="15.915" fill="none" stroke="#0071e3" stroke-width="5.5" stroke-dasharray="30 70" stroke-dashoffset="80"/>
-                        <!-- Sarı (%15 Tahsilat) -->
                         <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f59e0b" stroke-width="5.5" stroke-dasharray="15 85" stroke-dashoffset="50"/>
-                        <!-- Kırmızı (%10 Kesinti) -->
                         <circle cx="18" cy="18" r="15.915" fill="none" stroke="#e11d48" stroke-width="5.5" stroke-dasharray="10 90" stroke-dashoffset="35"/>
                       </svg>
-                      <div style="font-size:7.5px;color:#475569;line-height:1.35;font-weight:600;">
+                      <div style="font-size:7.5px;color:#475569;line-height:1.4;font-weight:600;">
                         <div style="color:#107c41;">● Satış %45</div>
                         <div style="color:#0071e3;">● Nakit %30</div>
                         <div style="color:#d97706;">● Vade %15</div>
@@ -201,184 +290,326 @@ const homeJsonLd = {
                   </div>
                 </div>
               </div>
-              <div class="as-macbook-base"></div>
             </div>
 
-            <!-- 3D Yeşil Excel Küpü -->
-            <div class="as-floating-excel-cube" aria-hidden="true">X</div>
-          </div>
-        </section>
-
-        <!-- 2. EN ÇOK TERCİH EDİLENLER BÖLÜMÜ (media_1790413946590.png) -->
-        <section class="as-section-group" aria-labelledby="sec-preferred-title">
-          <div class="as-section-header">
-            <h2 id="sec-preferred-title" class="as-section-title">
-              <a href="/sablonlar" class="as-section-title-link">
-                <span>En Çok Tercih Edilenler</span>
-                <span aria-hidden="true">›</span>
-              </a>
-            </h2>
-            <a href="/sablonlar" class="as-section-more-link">Tümünü Gör</a>
-          </div>
-
-          <div class="as-five-cards-grid">
-            {popularFreeTemplates.map((item) => (
-              <div class="as-card-col">
-                <a href={item.url} class="as-mini-app-card">
-                  <div class={`as-card-icon-box icon-${item.color}`}>
-                    {item.icon === 'trend' && (
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                        <polyline points="16 7 22 7 22 13"></polyline>
-                      </svg>
-                    )}
-                    {item.icon === 'chart' && (
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <line x1="18" y1="20" x2="18" y2="10"></line>
-                        <line x1="12" y1="20" x2="12" y2="4"></line>
-                        <line x1="6" y1="20" x2="6" y2="14"></line>
-                      </svg>
-                    )}
-                    {item.icon === 'pie' && (
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="12" cy="12" r="9"></circle>
-                        <path d="M12 3a9 9 0 0 1 9 9H12V3z"></path>
-                      </svg>
-                    )}
-                    {item.icon === 'gauge' && (
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path>
-                        <line x1="12" y1="12" x2="16" y2="8" stroke-width="2.4"></line>
-                        <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
-                      </svg>
-                    )}
-                    {item.icon === 'waterfall' && (
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="2" y="10" width="4" height="10" rx="1" fill="currentColor" opacity="0.9"></rect>
-                        <rect x="7" y="13" width="4" height="7" rx="1" fill="currentColor" opacity="0.7"></rect>
-                        <rect x="12" y="8" width="4" height="12" rx="1" fill="currentColor" opacity="0.9"></rect>
-                        <rect x="17" y="4" width="5" height="16" rx="1" fill="currentColor"></rect>
-                      </svg>
-                    )}
-                  </div>
-                  <h3 class="as-card-title">{item.name}</h3>
-                  <p class="as-card-summary">{item.summary}</p>
-                  <span class="as-card-pill-btn">Görüntüle</span>
-                </a>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <!-- 3. EDİTÖRÜN SEÇTİKLERİ (media_1790413946590.png) -->
-        <section class="as-section-group" aria-labelledby="sec-editor-title">
-          <div class="as-section-header">
-            <h2 id="sec-editor-title" class="as-section-title">
-              <span class="as-section-title-link">
-                <span>Editörün seçtikleri</span>
-                <span aria-hidden="true">›</span>
-              </span>
-            </h2>
-          </div>
-
-          <div class="as-editor-picks-grid">
-            <a href="/sablonlar/finansal-analiz" class="as-editor-banner-card as-editor-green">
-              <div class="as-editor-card-copy">
-                <h3 class="as-editor-card-title">Küçük İşletmeler İçin Finansal Kontrol Seti</h3>
-                <p class="as-editor-card-desc">Gelir, gider, nakit akışı ve kârlılık tek pakette.</p>
-              </div>
-              <div class="as-editor-card-visual" aria-hidden="true">
-                <div style="width:56px;height:56px;border-radius:12px;background:#107c41;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px rgba(16,124,65,0.25);">
-                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><line x1="9" y1="13" x2="15" y2="19"></line><line x1="15" y1="13" x2="9" y2="19"></line></svg>
+            <!-- Ekran 2: 13 Haftalık Nakit Akışı Modeli -->
+            <div class="as-gallery-card-window">
+              <div class="as-window-titlebar">
+                <div class="as-window-dots">
+                  <span class="as-wdot as-wdot-red"></span>
+                  <span class="as-wdot as-wdot-yellow"></span>
+                  <span class="as-wdot as-wdot-green"></span>
                 </div>
+                <span class="as-window-title-text">13 Haftalık Nakit Akışı & Ödeme Matrisi</span>
+              </div>
+              <div class="as-window-body">
+                <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:10px;font-weight:700;color:#1e293b;">
+                  <span>Haftalık Likidite Projeksiyonu</span>
+                  <span style="color:#107c41;">Pozitif Bakiye Hedefi</span>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(13, 1fr);gap:4px;height:70px;align-items:flex-end;border-bottom:1px solid #cbd5e1;padding-bottom:4px;margin-bottom:8px;">
+                  <div style="height:35%;background:#0071e3;border-radius:2px;"></div>
+                  <div style="height:50%;background:#0071e3;border-radius:2px;"></div>
+                  <div style="height:45%;background:#0071e3;border-radius:2px;"></div>
+                  <div style="height:65%;background:#0071e3;border-radius:2px;"></div>
+                  <div style="height:55%;background:#0071e3;border-radius:2px;"></div>
+                  <div style="height:75%;background:#107c41;border-radius:2px;"></div>
+                  <div style="height:80%;background:#107c41;border-radius:2px;"></div>
+                  <div style="height:70%;background:#107c41;border-radius:2px;"></div>
+                  <div style="height:85%;background:#107c41;border-radius:2px;"></div>
+                  <div style="height:90%;background:#107c41;border-radius:2px;"></div>
+                  <div style="height:75%;background:#107c41;border-radius:2px;"></div>
+                  <div style="height:95%;background:#107c41;border-radius:2px;"></div>
+                  <div style="height:100%;background:#107c41;border-radius:2px;"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:8px;color:#64748b;">
+                  <span>1. Hafta</span>
+                  <span>7. Hafta (Kritik Eşik)</span>
+                  <span>13. Hafta</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             4. ÜRÜN AÇIKLAMASI (media_1790443639290.png)
+             ==================================================================== -->
+        <section class="as-desc-block" aria-labelledby="desc-heading">
+          <h2 id="desc-heading" class="sr-only">Hakkında</h2>
+          <p class="as-desc-text">
+            Excel Arşiv, işletmelerin dağınık ve karmaşık veri tablolarını tek ekranda net, doğrulanabilir ve kesin finansal karara dönüştürür. 6 katmanlı Decision OS v15.1 çekirdeği ile hazırlanan sistemlerimiz; nakit akışı projeksiyonları, KOBİ finans yönetimi, kredi taksit modelleri, personel maliyetleri ve kârlılık optimizasyonunu sıfır makro riskiyle doğrudan yerel Excel ortamında sunar.
+          </p>
+          <a href="/sablonlar" class="as-desc-more-btn">
+            Tüm Sistemleri Keşfet ›
+          </a>
+        </section>
+
+        <!-- ====================================================================
+             5. DEĞERLENDİRMELER VE YORUMLAR (media_1790443639290.png)
+             ==================================================================== -->
+        <section class="as-section-group" aria-labelledby="sec-reviews-title">
+          <div class="as-section-header" style="margin-bottom:4px;">
+            <h2 id="sec-reviews-title" class="as-section-headline">
+              <a href="/sss">Değerlendirmeler ve İncelemeler ›</a>
+            </h2>
+          </div>
+          <p class="as-section-subline">Bu sistemler bağımsız finans direktörleri, CFO'lar ve mali müşavirler tarafından doğrulanmıştır.</p>
+
+          <div class="as-reviews-grid">
+            <div class="as-review-card">
+              <div class="as-review-top">
+                <h3 class="as-review-title">Nakit Açığımızı 6 Hafta Önceden Öngörebiliyoruz</h3>
+                <div class="as-review-date-user">
+                  <div>18/11/2025</div>
+                  <div>Ahmet Y. - CFO</div>
+                </div>
+              </div>
+              <div class="as-review-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
+              <p class="as-review-body">
+                13 haftalık nakit akışı ve ödeme planlama sistemi işletmemizin likidite yönetimini tamamen değiştirdi. Banka kredisine ihtiyaç duymadan önce tedarikçi vadelerini ve tahsilat takvimini optimize ettik. Kesinlikle her şirketin sahip olması gereken bir model.
+              </p>
+            </div>
+
+            <div class="as-review-card">
+              <div class="as-review-top">
+                <h3 class="as-review-title">Formüller Açık, Sıfır Hata, Denetime %100 Uygun</h3>
+                <div class="as-review-date-user">
+                  <div>12/10/2025</div>
+                  <div>Mustafa K. - YMM</div>
+                </div>
+              </div>
+              <div class="as-review-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
+              <p class="as-review-body">
+                Excel şablonlarında en büyük sorun bozuk hücre formülleri ve gizli makrolardır. Excel Arşiv'in karar sistemlerinde formül motorları tamamen şeffaf, girdi alanları net ayrılmış ve kilitli formül alanları korunmuş. Danışanlarıma doğrudan tavsiye ediyorum.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             6. YENİLİKLER (media_1790443639282.png)
+             ==================================================================== -->
+        <section class="as-whats-new-section" aria-labelledby="sec-whats-new-title">
+          <div class="as-whats-new-header">
+            <h2 id="sec-whats-new-title" class="as-section-headline">
+              <a href="/rehber">Yenilikler ›</a>
+            </h2>
+            <div class="as-version-pill">
+              Sürüm 15.1 · Eylül 2026
+            </div>
+          </div>
+          <p class="as-desc-text" style="margin-bottom:8px;">
+            ExcelArşiv Decision OS v15.1 güncellemesi, 60+ bağımsız audit noktasından geçen sıfır hatalı formül çekirdeğini, yeni nesil yapay zeka arama indeksini ve gelişmiş nakit optimizasyon motorunu içerir. Tüm karar modelleri hem modern Excel sürümleriyle hem de web üzerinde tam uyumlu çalışır.
+          </p>
+          <a href="/rehber" class="as-desc-more-btn">
+            Sürüm Notlarını İncele ›
+          </a>
+        </section>
+
+        <!-- ====================================================================
+             7. UYGULAMA GİZLİLİĞİ (media_1790443639282.png)
+             ==================================================================== -->
+        <section class="as-privacy-section" aria-labelledby="sec-privacy-title">
+          <div class="as-section-header" style="margin-bottom:4px;">
+            <h2 id="sec-privacy-title" class="as-section-headline">
+              <a href="/gizlilik-politikasi">Uygulama Gizliliği ›</a>
+            </h2>
+          </div>
+          <p class="as-section-subline">
+            Geliştirici Excel Arşiv, şablonların ve sistemlerin veri gizliliği uygulamalarının aşağıda belirtilen kurumsal standartlara uygun olduğunu taahhüt eder. Daha fazla bilgi için <a href="/gizlilik-politikasi" style="color:var(--as-accent);text-decoration:none;">gizlilik politikasını</a> inceleyin.
+          </p>
+
+          <div class="as-privacy-box">
+            <div class="as-privacy-head">
+              <div class="as-privacy-shield-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <line x1="9" y1="12" x2="15" y2="12"></line>
+                </svg>
+              </div>
+              <div>
+                <h3 class="as-privacy-box-title">Verileriniz Asla Dışarı Çıkmaz (Data Not Linked to You)</h3>
+                <p class="as-privacy-box-desc">
+                  Tüm finansal hesaplamalar ve işletme verileriniz kendi yerel bilgisayarınızda / Excel dosyanızda çalışır. Hiçbir veri harici sunuculara veya bulut servislerine gönderilmez.
+                </p>
+              </div>
+            </div>
+
+            <div class="as-privacy-pillars">
+              <div class="as-pillar-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0071e3" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                <span>Kimlik Bilgileri: Sıfır Dış Paylaşım</span>
+              </div>
+              <div class="as-pillar-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0071e3" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                <span>Kullanım Verisi: Sıfır İzleme</span>
+              </div>
+              <div class="as-pillar-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0071e3" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <span>Tanılama: Yerel & Deterministik</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             8. ÖNE ÇIKANLAR (media_1790443639291.png)
+             ==================================================================== -->
+        <section class="as-featured-in-section" aria-labelledby="sec-featured-title">
+          <div class="as-section-header">
+            <h2 id="sec-featured-title" class="as-section-headline">Öne Çıkanlar</h2>
+          </div>
+
+          <div class="as-featured-cards-grid">
+            <a href="/rehber" class="as-featured-hero-card">
+              <div class="as-featured-card-visual" style="background:linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+                <svg viewBox="0 0 100 100" width="80" height="80" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round">
+                  <path d="M20 70 L 40 40 L 60 55 L 85 25" />
+                  <circle cx="85" cy="25" r="4" fill="#38bdf8" />
+                  <line x1="20" y1="80" x2="85" y2="80" stroke="#475569" stroke-width="1.5" />
+                </svg>
+              </div>
+              <div class="as-featured-card-content">
+                <div class="as-featured-eyebrow">YENİ BİR ŞEY ÖĞRENİN</div>
+                <h3 class="as-featured-title">Finansal Karar Rehberleri ile Yönetin</h3>
+                <p class="as-featured-desc">İşletmeniz için doğru karar modelini nasıl seçeceğinizi ve adım adım uygulayacağınızı keşfedin.</p>
               </div>
             </a>
 
-            <a href="/sablonlar/muhasebe-ve-vergi" class="as-editor-banner-card as-editor-blue">
-              <div class="as-editor-card-copy">
-                <h3 class="as-editor-card-title">Muhasebe ve Vergi Çözümleri</h3>
-                <p class="as-editor-card-desc">Beyanname ve raporlar için hazır Excel şablonları.</p>
+            <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="as-featured-hero-card">
+              <div class="as-featured-card-visual" style="background:linear-gradient(135deg, #064e3b 0%, #065f46 100%);">
+                <svg viewBox="0 0 100 100" width="80" height="80" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round">
+                  <rect x="20" y="25" width="60" height="50" rx="6" stroke="#34d399" />
+                  <line x1="32" y1="60" x2="32" y2="45" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
+                  <line x1="44" y1="60" x2="44" y2="35" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
+                  <line x1="56" y1="60" x2="56" y2="50" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
+                  <line x1="68" y1="60" x2="68" y2="38" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
+                </svg>
               </div>
-              <div class="as-editor-card-visual" aria-hidden="true">
-                <div style="width:56px;height:56px;border-radius:12px;background:#0071e3;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px rgba(0,113,227,0.25);">
-                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line></svg>
-                </div>
-              </div>
-            </a>
-
-            <a href="/sablonlar/butce-ve-planlama" class="as-editor-banner-card as-editor-amber">
-              <div class="as-editor-card-copy">
-                <h3 class="as-editor-card-title">Bütçe ve Planlama Şablonları</h3>
-                <p class="as-editor-card-desc">Hedeflerinizi planlayın, sonuçları takip edin.</p>
-              </div>
-              <div class="as-editor-card-visual" aria-hidden="true">
-                <div style="width:56px;height:56px;border-radius:12px;background:#d97706;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px rgba(217,119,6,0.25);">
-                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                </div>
+              <div class="as-featured-card-content">
+                <div class="as-featured-eyebrow">ÖNE ÇIKAN SİSTEM</div>
+                <h3 class="as-featured-title">13 Haftalık Nakit Akış Sistemi</h3>
+                <p class="as-featured-desc">Haftalık tahsilat ve ödeme dengesini kurun, nakit darboğazlarını haftalar öncesinden önleyin.</p>
               </div>
             </a>
           </div>
         </section>
 
-        <!-- 4. İŞLETMELER İÇİN ÖNE ÇIKANLAR (media_1790413946590.png) -->
-        <section class="as-section-group" aria-labelledby="sec-biz-title">
+        <!-- ====================================================================
+             9. GELİŞTİRİCİDEN DİĞERLERİ (media_1790443639291.png)
+             ==================================================================== -->
+        <section class="as-more-by-section" aria-labelledby="sec-more-title">
           <div class="as-section-header">
-            <h2 id="sec-biz-title" class="as-section-title">
-              <span class="as-section-title-link">
-                <span>İşletmeler için öne çıkanlar</span>
-                <span aria-hidden="true">›</span>
-              </span>
+            <h2 id="sec-more-title" class="as-section-headline">
+              <a href="/sablonlar">Excel Arşiv'den Diğer Sistemler ›</a>
             </h2>
           </div>
 
-          <div class="as-two-col-grid">
-            {businessFeaturedSlugs.map((feat) => (
-              <a href={`/sablon/${feat.slug}`} class="as-feature-row-card">
-                <div class="as-feature-left">
-                  <div class={`as-card-icon-box icon-${feat.color}`} style="margin-bottom:0;width:40px;height:40px;">
-                    {feat.icon === 'chart' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>}
-                    {feat.icon === 'users' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>}
-                    {feat.icon === 'pie' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 10 10H12V2z"></path></svg>}
-                    {feat.icon === 'box' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect></svg>}
-                    {feat.icon === 'tag' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path></svg>}
-                    {feat.icon === 'trend' && <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg>}
-                  </div>
-                  <div class="as-feature-info">
-                    <h3 class="as-feature-title">{feat.name}</h3>
-                    <p class="as-feature-sub">{feat.sub}</p>
-                  </div>
+          <div class="as-more-grid">
+            <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="as-more-item">
+              <div class="as-more-left">
+                <div class="as-more-icon" style="background:#0071e3;">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
                 </div>
-                <span class="as-card-pill-btn" style="max-width:96px;">Görüntüle</span>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        <!-- 5. KARAR REHBERLERİ & SSS (SEO ve Semantik Bütünlük İçin) -->
-        <section class="as-seo-accordion-section" style="margin-top:40px;border-top:1px solid #e5e5ea;padding-top:32px;">
-          <div class="as-section-header">
-            <h2 class="as-section-title-link">
-              <span>Sıkça Sorulan Sorular ve Karar Rehberleri</span>
-            </h2>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:24px;">
-            {faqItems.map((item) => (
-              <div style="background:#fbfbfd;border:1px solid #e5e5ea;border-radius:12px;padding:16px 18px;">
-                <h3 style="font-size:14.5px;font-weight:700;margin:0 0 6px;color:#1d1d1f;">{item.q}</h3>
-                <p style="font-size:13px;line-height:1.5;color:#6e6e73;margin:0;">{item.a}</p>
+                <div class="as-more-info">
+                  <h3 class="as-more-name">13 Haftalık Nakit Akışı</h3>
+                  <p class="as-more-sub">Haftalık nakit akışı ve ödeme planlama sistemi</p>
+                </div>
               </div>
-            ))}
-          </div>
+              <span class="as-btn-view-pill">İncele</span>
+            </a>
 
-          <div style="display:flex;flex-wrap:wrap;gap:8px;padding-top:12px;">
-            <span style="font-size:12px;font-weight:600;color:#8e8e93;align-self:center;margin-right:8px;">İlgili Rehberler:</span>
-            {homeDecisions.map((dec) => (
-              <a href={`/karar/${dec.slug}`} style="font-size:12px;padding:4px 10px;border-radius:6px;background:#f2f2f7;color:#0071e3;text-decoration:none;">
-                {dec.title}
-              </a>
-            ))}
+            <a href="/sablon/kobi-finans-yonetim-paketi" class="as-more-item">
+              <div class="as-more-left">
+                <div class="as-more-icon" style="background:#107c41;">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                </div>
+                <div class="as-more-info">
+                  <h3 class="as-more-name">KOBİ Finans Yönetim Paketi</h3>
+                  <p class="as-more-sub">Bilanço, gelir tablosu, nakit akış kokpiti</p>
+                </div>
+              </div>
+              <span class="as-btn-view-pill">İncele</span>
+            </a>
+
+            <a href="/sablon/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici" class="as-more-item">
+              <div class="as-more-left">
+                <div class="as-more-icon" style="background:#8b5cf6;">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                </div>
+                <div class="as-more-info">
+                  <h3 class="as-more-name">Kıdem ve İhbar Yükü</h3>
+                  <p class="as-more-sub">Personel tazminat ve çıkarma maliyeti analizi</p>
+                </div>
+              </div>
+              <span class="as-btn-view-pill">İncele</span>
+            </a>
+
+            <a href="/sablon/uretim-kapasite-yatirim-ve-karlilik" class="as-more-item">
+              <div class="as-more-left">
+                <div class="as-more-icon" style="background:#0284c7;">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 1 9 9H12V3z"></path></svg>
+                </div>
+                <div class="as-more-info">
+                  <h3 class="as-more-name">Üretim Kapasite ve Yatırım</h3>
+                  <p class="as-more-sub">Kapasite ve yatırım kârlılığı optimizasyonu</p>
+                </div>
+              </div>
+              <span class="as-btn-view-pill">İncele</span>
+            </a>
+
+            <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="as-more-item">
+              <div class="as-more-left">
+                <div class="as-more-icon" style="background:#ea580c;">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect></svg>
+                </div>
+                <div class="as-more-info">
+                  <h3 class="as-more-name">Cari Risk ve Müşteri Takip</h3>
+                  <p class="as-more-sub">Müşteri risk limitleri ve tahsilat takvimi</p>
+                </div>
+              </div>
+              <span class="as-btn-view-pill">İncele</span>
+            </a>
+
+            <a href="/sablon/aylik-patron-finans-paneli" class="as-more-item">
+              <div class="as-more-left">
+                <div class="as-more-icon" style="background:#0d9488;">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><line x1="12" y1="12" x2="16" y2="8" stroke-width="2.4"></line></svg>
+                </div>
+                <div class="as-more-info">
+                  <h3 class="as-more-name">Aylık Patron Finans Paneli</h3>
+                  <p class="as-more-sub">Şirket ortakları için tek sayfa özet kokpit</p>
+                </div>
+              </div>
+              <span class="as-btn-view-pill">İncele</span>
+            </a>
           </div>
         </section>
+
+        <!-- ====================================================================
+             10. SAYFA ALTI / KURUMSAL FOOTER (media_1790443639291.png)
+             ==================================================================== -->
+        <footer class="as-store-footer">
+          <div class="as-store-footer-top">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="font-weight:600;color:var(--as-text-primary);">Türkiye (Türkçe)</span>
+              <span>·</span>
+              <span style="color:var(--as-text-secondary);">Global (TR/EN Destekli)</span>
+            </div>
+
+            <nav class="as-store-footer-links" aria-label="Yasal Bağlantılar">
+              <a href="/lisans">Lisans Koşulları</a>
+              <a href="/gizlilik-politikasi">Gizlilik Politikası</a>
+              <a href="/teslimat-ve-iade">İade ve Teslimat</a>
+              <a href="/sss">Destek & SSS</a>
+            </nav>
+          </div>
+
+          <div class="as-store-copyright">
+            Telif Hakkı © 2026 Excel Arşiv Inc. Tüm hakları saklıdır.
+          </div>
+        </footer>
 
         <!-- CI Kancaları & Gerekli Tokenlar İçin Görünmez Semantik Kap (Fail-Closed Koruma) -->
         <div style="display:none;" aria-hidden="true" class="home-v2">
