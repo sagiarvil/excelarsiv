@@ -5,13 +5,22 @@
     <link>https://excelarsiv.com</link>
     <description>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</description>
     <language>tr-TR</language>
-    <lastBuildDate>Thu, 24 Sep 2026 17:29:05 GMT</lastBuildDate>
-    <pubDate>Thu, 24 Sep 2026 17:29:05 GMT</pubDate>
+    <lastBuildDate>Fri, 25 Sep 2026 14:17:26 GMT</lastBuildDate>
+    <pubDate>Fri, 25 Sep 2026 14:17:26 GMT</pubDate>
     <atom:link href="https://excelarsiv.com/rss.xml" rel="self" type="application/rss+xml" />
     <managingEditor>barisbagirlar@gmail.com (Barış Bağırlar)</managingEditor>
     <webMaster>barisbagirlar@gmail.com (Barış Bağırlar)</webMaster>
     <docs>https://www.rssboard.org/rss-specification</docs>
     <generator>Excel Arşiv Feed Engine v3.0</generator>
+    <item>
+      <title>Ücretsiz Excel Hesaplayıcılar ve Karar Konsolları — Excel Arşiv</title>
+      <link>https://excelarsiv.com/hesaplayici</link>
+      <guid isPermaLink="true">https://excelarsiv.com/hesaplayici</guid>
+      <description>E-ticaret pazaryeri komisyonları, WhatsApp link formatlama, freelancer gelir vergisi ve bordro maliyetlerini anında hesaplayan profesyonel ücretsiz karar araçları.</description>
+      <category>diger</category>
+      <dc:creator>Barış Bağırlar</dc:creator>
+      <pubDate>Fri, 25 Sep 2026 14:17:26 GMT</pubDate>
+    </item>
     <item>
       <title>Nakit Akışı, Nakit Dönüşüm Süresi (CCC) ve Başa Baş Karar Konsolu — Excel Arşiv</title>
       <link>https://excelarsiv.com/hesaplayici/nakit-akisi-ve-basabas-hesaplayici</link>
@@ -19,7 +28,7 @@
       <description>DSO, DPO, DIO vadeleri ve sabit maliyetlerinizle şirketin nakit dönüşüm süresini, kritik nakit tamponunu ve başa baş ciro noktasını simüle edin.</description>
       <category>hesaplayici</category>
       <dc:creator>Barış Bağırlar</dc:creator>
-      <pubDate>Thu, 24 Sep 2026 17:29:05 GMT</pubDate>
+      <pubDate>Fri, 25 Sep 2026 14:17:26 GMT</pubDate>
     </item>
     <item>
       <title>Nasıl Çalışır? 10 Saniyede Teslimat | Excel Arşiv</title>
@@ -2189,15 +2198,6 @@
       <category>diger</category>
       <dc:creator>Barış Bağırlar</dc:creator>
       <pubDate>Sat, 19 Sep 2026 14:01:54 GMT</pubDate>
-    </item>
-    <item>
-      <title>Ücretsiz Excel Hesaplayıcılar ve Karar Konsolları — Excel Arşiv</title>
-      <link>https://excelarsiv.com/hesaplayici</link>
-      <guid isPermaLink="true">https://excelarsiv.com/hesaplayici</guid>
-      <description>E-ticaret pazaryeri komisyonları, WhatsApp link formatlama, freelancer gelir vergisi ve bordro maliyetlerini anında hesaplayan profesyonel ücretsiz karar araçları.</description>
-      <category>diger</category>
-      <dc:creator>Barış Bağırlar</dc:creator>
-      <pubDate>Sat, 19 Sep 2026 10:38:04 GMT</pubDate>
     </item>
     <item>
       <title>Gizlilik Politikası ve KVKK Aydınlatma | Excel Arşiv</title>

@@ -7,49 +7,97 @@ interface Props {
 const { productSlug, name } = Astro.props;
 ---
 
-<section id="demo-indir" class="demo-card" data-proof-demo data-product-slug={productSlug}>
-  <div class="demo-card__head">
-    <div>
-      <p class="demo-card__kicker">ÜCRETSİZ DEMO</p>
-      <h2>Önce Deneyin</h2>
+<section id="demo-indir" class="demo-cockpit-card" data-proof-demo data-product-slug={productSlug}>
+  <!-- Üst Başlık & Rozet Şeridi -->
+  <div class="demo-cockpit-card__header">
+    <div class="demo-cockpit-card__kicker-wrap">
+      <span class="demo-cockpit-card__kicker">★ CANLI DEĞERLENDİRME</span>
+      <span class="demo-cockpit-card__version-pill">PROOF DEMO v15.3</span>
     </div>
-    <span class="demo-card__badge">.XLSX</span>
+    <div class="demo-cockpit-card__badges">
+      <span class="demo-badge demo-badge--xlsx">.XLSX</span>
+      <span class="demo-badge demo-badge--safe">SIFIR MAKRO</span>
+    </div>
   </div>
 
-  <p class="demo-card__lead">{name} için 20 kayıtlık değerlendirme sürümünü hemen bilgisayarınıza indirin.</p>
-  <p class="demo-card__lead">
-    <a href={`/demo/${productSlug}`}>Ücretsiz demo açılış sayfası</a>
-    — arama ve paylaşım için kalıcı bağlantı.
-  </p>
-
-  <form class="demo-card__form" data-demo-form>
-    <label class="demo-card__email" for={`demo-email-${productSlug}`}>
-      <span>E-posta (İsteğe bağlı)</span>
-      <input
-        id={`demo-email-${productSlug}`}
-        type="email"
-        name="email"
-        autocomplete="email"
-        inputmode="email"
-        maxlength="254"
-        placeholder="ornek@firma.com"
-        aria-label="Demo indirme için e-posta adresi"
-      />
-    </label>
-
-    <button type="submit" data-demo-submit aria-label={`${name} ücretsiz demosunu indir`}>
-      Ücretsiz Demo İndir <span aria-hidden="true">↓</span>
-    </button>
-
-    <label class="demo-card__terms" for={`demo-terms-${productSlug}`}>
-      <input id={`demo-terms-${productSlug}`} type="checkbox" name="terms" checked required aria-label="Demo kullanım koşullarını kabul ediyorum" />
-      <span><a href="/demo-kullanim-kosullari" target="_blank" rel="noopener noreferrer">Demo Kullanım Koşulları</a>'nı kabul ediyorum.</span>
-    </label>
-
-    <div class="demo-card__microcopy" aria-label="Demo bilgileri">
-      <span>Doğrudan cihaza iner</span><i aria-hidden="true"></i><span>E-posta beklemenize gerek yoktur</span><i aria-hidden="true"></i><span>10 dk bağlantı</span>
+  <div class="demo-cockpit-card__title-row">
+    <div>
+      <h2 class="demo-cockpit-card__title">{name}</h2>
+      <p class="demo-cockpit-card__subtitle">Yönetici Kokpiti, Dinamik Formül Motoru ve İkili Stres Testi Değerlendirme Sürümü</p>
     </div>
-    <p class="hidden demo-card__status" role="status" aria-live="polite" data-demo-status></p>
+  </div>
+
+  <!-- Bento 3'lü Özellik Şeridi -->
+  <div class="demo-cockpit-card__grid">
+    <div class="demo-feature-pill">
+      <span class="demo-feature-pill__dot demo-feature-pill__dot--emerald"></span>
+      <div class="demo-feature-pill__text">
+        <strong>20 Satır Canlı Veri</strong>
+        <span>Sarı hücreleri değiştir, formülü test et</span>
+      </div>
+    </div>
+    <div class="demo-feature-pill">
+      <span class="demo-feature-pill__dot demo-feature-pill__dot--navy"></span>
+      <div class="demo-feature-pill__text">
+        <strong>CRM/ERP Bento Pano</strong>
+        <span>Yönetici kokpiti & erken uyarı radarı</span>
+      </div>
+    </div>
+    <div class="demo-feature-pill">
+      <span class="demo-feature-pill__dot demo-feature-pill__dot--cyan"></span>
+      <div class="demo-feature-pill__text">
+        <strong>İkili Stres Senaryosu</strong>
+        <span>Kötümser vs. Baz Model karşılaştırması</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Gönderim / İndirme Formu -->
+  <form class="demo-cockpit-form" data-demo-form>
+    <div class="demo-cockpit-form__inputs">
+      <label class="demo-cockpit-form__field" for={`demo-email-${productSlug}`}>
+        <span class="demo-cockpit-form__label">
+          <span>Kurumsal E-posta Adresi</span>
+          <span class="demo-cockpit-form__optional">(İsteğe bağlı — arşiv için)</span>
+        </span>
+        <div class="demo-cockpit-form__input-wrapper">
+          <input
+            id={`demo-email-${productSlug}`}
+            type="email"
+            name="email"
+            autocomplete="email"
+            inputmode="email"
+            maxlength="254"
+            placeholder="adiniz@sirketiniz.com"
+            aria-label="Demo indirme için kurumsal e-posta adresi"
+          />
+        </div>
+      </label>
+
+      <button type="submit" class="demo-cockpit-form__submit" data-demo-submit aria-label={`${name} ücretsiz demo dosyasını hemen indir`}>
+        <span class="demo-cockpit-form__submit-icon" aria-hidden="true">↓</span>
+        <span class="demo-cockpit-form__submit-text">Ücretsiz Demoyu İndir</span>
+      </button>
+    </div>
+
+    <label class="demo-cockpit-form__terms" for={`demo-terms-${productSlug}`}>
+      <input id={`demo-terms-${productSlug}`} type="checkbox" name="terms" checked required aria-label="Demo kullanım koşullarını kabul ediyorum" />
+      <span>
+        <a href="/demo-kullanim-kosullari" target="_blank" rel="noopener noreferrer">Demo Kullanım Koşulları</a>'nı kabul ediyorum. Dosya doğrudan cihazınıza indirilir.
+      </span>
+    </label>
+
+    <div class="demo-cockpit-card__trust-strip" aria-label="Güvenlik bilgileri">
+      <span class="trust-item"><span class="trust-item__icon">⚡</span> Anında Cihaza İner</span>
+      <span class="trust-dot">·</span>
+      <span class="trust-item"><span class="trust-item__icon">💳</span> Kart Gerekmez</span>
+      <span class="trust-dot">·</span>
+      <span class="trust-item"><span class="trust-item__icon">🔒</span> 10 Dk Güvenli Bağlantı</span>
+      <span class="trust-dot">·</span>
+      <span class="trust-item"><span class="trust-item__icon">✓</span> Sıfır Spam</span>
+    </div>
+
+    <p class="hidden demo-cockpit-card__status" role="status" aria-live="polite" data-demo-status></p>
   </form>
 </section>
 
@@ -57,11 +105,11 @@ const { productSlug, name } = Astro.props;
   import { analytics, fileTypeFromDownloadUrl, resolveDownloadSource, trackAnalyticsEvent } from '../lib/analytics';
 
   const ERROR_TEXT: Record<string, string> = {
-    INVALID_EMAIL: 'Geçerli bir e-posta adresi girin.',
+    INVALID_EMAIL: 'Geçerli bir kurumsal e-posta adresi girin.',
     DEMO_TERMS_REQUIRED: 'Demo kullanım koşullarını kabul etmeniz gerekiyor.',
     UNKNOWN_PRODUCT: 'Bu ürün için demo şu anda kullanılamıyor.',
-    DEMO_RATE_LIMITED: 'Kısa sürede çok fazla demo istendi. Daha sonra yeniden deneyin.',
-    INTERNAL_ERROR: 'Demo hazırlanamadı. Lütfen yeniden deneyin.',
+    DEMO_RATE_LIMITED: 'Kısa sürede çok fazla demo istendi. Lütfen birkaç dakika sonra tekrar deneyin.',
+    INTERNAL_ERROR: 'Demo hazırlanamadı. Lütfen sayfayı yenileyip tekrar deneyin.',
   };
 
   document.querySelectorAll<HTMLElement>('[data-proof-demo]').forEach((root) => {
@@ -84,7 +132,7 @@ const { productSlug, name } = Astro.props;
       submit.disabled = true;
       submit.setAttribute('aria-busy', 'true');
       status.classList.remove('hidden');
-      status.className = 'demo-card__status';
+      status.className = 'demo-cockpit-card__status demo-cockpit-card__status--loading';
       status.textContent = 'Demo hazırlanıyor…';
 
       try {
@@ -105,12 +153,12 @@ const { productSlug, name } = Astro.props;
           templateId: productSlug,
           fileType: fileTypeFromDownloadUrl(downloadUrl),
         });
-        status.className = 'demo-card__status demo-card__status--ok';
-        status.innerHTML = 'Demo hazır! Dosya doğrudan cihazınıza indirildi. İndirme başlamadıysa <a href="' + downloadUrl + '" style="text-decoration:underline;font-weight:700;color:#0b743f;">buraya tıklayın</a>.';
+        status.className = 'demo-cockpit-card__status demo-cockpit-card__status--ok';
+        status.innerHTML = '✓ <strong>Demo başarıyla hazırlandı!</strong> Dosya doğrudan cihazınıza indirildi. İndirme başlamadıysa <a href="' + downloadUrl + '" style="text-decoration:underline;font-weight:700;color:#059669;">buraya tıklayarak indirin</a>.';
         window.location.assign(downloadUrl);
       } catch (error) {
         const code = error instanceof Error ? error.message : 'INTERNAL_ERROR';
-        status.className = 'demo-card__status demo-card__status--error';
+        status.className = 'demo-cockpit-card__status demo-cockpit-card__status--error';
         status.textContent = ERROR_TEXT[code] ?? ERROR_TEXT.INTERNAL_ERROR;
       } finally {
         submit.disabled = false;
@@ -121,6 +169,273 @@ const { productSlug, name } = Astro.props;
 </script>
 
 <style>
-  .demo-card{height:100%;padding:20px;border:1px solid #c5d4cb;border-radius:18px;background:#fff;box-shadow:0 12px 30px rgba(21,70,44,.06)}.demo-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}.demo-card__kicker{margin:0;font-family:var(--font-mono);font-size:12px;font-weight:800;letter-spacing:.12em;color:#0b7440}.demo-card h2{margin:5px 0 0;font-family:var(--font-display);font-size:21px;line-height:1.05;letter-spacing:-.025em;color:#14271d}.demo-card__badge{flex:0 0 auto;padding:5px 8px;border:1px solid #c5d4cb;border-radius:7px;background:#fff;font-family:var(--font-mono);font-size:12px;font-weight:800;color:#0b7440}.demo-card__lead{margin:10px 0 0;font-size:15px;line-height:1.6;color:#3a4a41}.demo-card__form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px;margin-top:16px}.demo-card__email{display:grid;gap:6px}.demo-card__email>span{font-size:13px;font-weight:700;color:#2f3f36}.demo-card input[type="email"]{width:100%;min-height:48px;padding:0 12px;border:1px solid #cbd8d0;border-radius:9px;background:#fff;color:#16261d;font-size:15px;outline:none}.demo-card input[type="email"]::placeholder{color:#66766d;opacity:1}.demo-card input[type="email"]:focus{border-color:#0b7a42;box-shadow:0 0 0 3px rgba(11,122,66,.08)}.demo-card__form>button{align-self:end;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:48px;border:2px solid #0b743f;border-radius:11px;background:#fff;padding:0 18px;color:#0b743f;font-family:var(--font-body);font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap}.demo-card__form>button:hover{background:#edf7f1}.demo-card__form>button:disabled{cursor:wait;opacity:.6}.demo-card__terms{grid-column:1/-1;display:flex;align-items:flex-start;gap:7px;font-size:13.5px;line-height:1.55;color:#3a4a41}.demo-card__terms input{margin-top:2px}.demo-card__terms a{color:#0b743f;font-weight:700;text-underline-offset:2px}.demo-card__microcopy{grid-column:1/-1;display:flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:13px;font-weight:600;color:#44554c}.demo-card__microcopy i{width:3px;height:3px;border-radius:50%;background:#8a9a90}.demo-card__status{grid-column:1/-1;margin:0;padding-top:2px;font-size:13.5px;line-height:1.55;color:#3a4a41}.demo-card__status--ok{color:#167044}.demo-card__status--error{color:#a53e35}.hidden{display:none!important}
-  @media(max-width:700px){.demo-card{padding:17px}.demo-card__form{grid-template-columns:1fr}.demo-card__form>button{width:100%}.demo-card__terms,.demo-card__microcopy,.demo-card__status{grid-column:1}.demo-card h2{font-size:20px}}
+  .demo-cockpit-card {
+    position: relative;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #059669;
+    border-radius: 16px;
+    background: #ffffff;
+    padding: 24px;
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.02);
+  }
+  .demo-cockpit-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .demo-cockpit-card__kicker-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .demo-cockpit-card__kicker {
+    font-family: var(--font-mono, monospace);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #059669;
+    background: #ecfdf5;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid #a7f3d0;
+  }
+  .demo-cockpit-card__version-pill {
+    font-family: var(--font-mono, monospace);
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .demo-cockpit-card__badges {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .demo-badge {
+    font-family: var(--font-mono, monospace);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+  .demo-badge--xlsx {
+    background: #f8fafc;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+  }
+  .demo-badge--safe {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+  }
+  .demo-cockpit-card__title-row {
+    margin-bottom: 16px;
+  }
+  .demo-cockpit-card__title {
+    margin: 0;
+    font-family: var(--font-display, inherit);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.25;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+  }
+  .demo-cockpit-card__subtitle {
+    margin: 4px 0 0;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #64748b;
+  }
+  .demo-cockpit-card__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .demo-feature-pill {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .demo-feature-pill__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  .demo-feature-pill__dot--emerald { background: #059669; }
+  .demo-feature-pill__dot--navy { background: #1e3a8a; }
+  .demo-feature-pill__dot--cyan { background: #0284c7; }
+  .demo-feature-pill__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .demo-feature-pill__text strong {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .demo-feature-pill__text span {
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.35;
+  }
+  .demo-cockpit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .demo-cockpit-form__inputs {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: flex-end;
+  }
+  .demo-cockpit-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .demo-cockpit-form__label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #1e293b;
+  }
+  .demo-cockpit-form__optional {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #64748b;
+  }
+  .demo-cockpit-form__input-wrapper input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 14.5px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .demo-cockpit-form__input-wrapper input:focus {
+    border-color: #059669;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.12);
+  }
+  .demo-cockpit-form__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 48px;
+    padding: 0 24px;
+    background: #059669;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14.5px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, transform 0.1s;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+  }
+  .demo-cockpit-form__submit:hover {
+    background: #047857;
+  }
+  .demo-cockpit-form__submit:active {
+    transform: translateY(1px);
+  }
+  .demo-cockpit-form__submit:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+  .demo-cockpit-form__submit-icon {
+    font-size: 16px;
+    font-weight: 800;
+  }
+  .demo-cockpit-form__terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #475569;
+    margin-top: -2px;
+  }
+  .demo-cockpit-form__terms input {
+    margin-top: 3px;
+    accent-color: #059669;
+  }
+  .demo-cockpit-form__terms a {
+    color: #059669;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .demo-cockpit-card__trust-strip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    padding-top: 4px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .trust-dot {
+    color: #cbd5e1;
+  }
+  .demo-cockpit-card__status {
+    margin: 8px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .demo-cockpit-card__status--loading {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+  }
+  .demo-cockpit-card__status--ok {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+  }
+  .demo-cockpit-card__status--error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+  }
+  .hidden { display: none !important; }
+
+  @media (max-width: 768px) {
+    .demo-cockpit-card { padding: 18px; }
+    .demo-cockpit-card__grid { grid-template-columns: 1fr; gap: 8px; }
+    .demo-cockpit-form__inputs { grid-template-columns: 1fr; }
+    .demo-cockpit-form__submit { width: 100%; }
+    .demo-cockpit-card__trust-strip { gap: 6px; }
+  }
 </style>

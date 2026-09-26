@@ -5,7 +5,7 @@
   <subtitle>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://excelarsiv.com/atom.xml" />
   <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-  <updated>2026-09-24T17:29:05.000Z</updated>
+  <updated>2026-09-25T14:17:26.000Z</updated>
   <generator uri="https://excelarsiv.com/" version="3.0">Excel Arşiv Feed Engine</generator>
   <author>
     <name>Barış Bağırlar</name>
@@ -13,11 +13,24 @@
     <uri>https://excelarsiv.com/hakkinda</uri>
   </author>
   <entry>
+    <id>https://excelarsiv.com/hesaplayici</id>
+    <title>Ücretsiz Excel Hesaplayıcılar ve Karar Konsolları — Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/hesaplayici" />
+    <updated>2026-09-25T14:17:26.000Z</updated>
+    <published>2026-09-25T14:17:26.000Z</published>
+    <summary>E-ticaret pazaryeri komisyonları, WhatsApp link formatlama, freelancer gelir vergisi ve bordro maliyetlerini anında hesaplayan profesyonel ücretsiz karar araçları.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
     <id>https://excelarsiv.com/hesaplayici/nakit-akisi-ve-basabas-hesaplayici</id>
     <title>Nakit Akışı, Nakit Dönüşüm Süresi (CCC) ve Başa Baş Karar Konsolu — Excel Arşiv</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/hesaplayici/nakit-akisi-ve-basabas-hesaplayici" />
-    <updated>2026-09-24T17:29:05.000Z</updated>
-    <published>2026-09-24T17:29:05.000Z</published>
+    <updated>2026-09-25T14:17:26.000Z</updated>
+    <published>2026-09-25T14:17:26.000Z</published>
     <summary>DSO, DPO, DIO vadeleri ve sabit maliyetlerinizle şirketin nakit dönüşüm süresini, kritik nakit tamponunu ve başa baş ciro noktasını simüle edin.</summary>
     <category term="hesaplayici" label="hesaplayici" />
     <author>
@@ -3152,19 +3165,6 @@
     <updated>2026-09-19T14:01:54.000Z</updated>
     <published>2026-09-19T14:01:54.000Z</published>
     <summary>Müşterilerinizde tekrar eden nakit, kredi, tahsilat ve finans raporlama işlerini hazır Excel karar sistemleriyle standartlaştırın. Ürünleri inceleyin ve pilot iş ortaklığına katılın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/hesaplayici</id>
-    <title>Ücretsiz Excel Hesaplayıcılar ve Karar Konsolları — Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/hesaplayici" />
-    <updated>2026-09-19T10:38:04.000Z</updated>
-    <published>2026-09-19T10:38:04.000Z</published>
-    <summary>E-ticaret pazaryeri komisyonları, WhatsApp link formatlama, freelancer gelir vergisi ve bordro maliyetlerini anında hesaplayan profesyonel ücretsiz karar araçları.</summary>
     <category term="diger" label="diger" />
     <author>
       <name>Barış Bağırlar</name>

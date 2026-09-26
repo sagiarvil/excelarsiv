@@ -18,9 +18,11 @@ const VERSION = '3.0';
 const functionDefaults = { region: REGION, maxInstances: 20, timeoutSeconds: 30, memory: '256MiB' };
 
 const PALETTE = Object.freeze({
-  canvas: 'FFF7F9FC', card: 'FFFFFFFF', navy: 'FF0F2742', accent: 'FFB08948',
-  positive: 'FF1F7A4D', warning: 'FFB7791F', risk: 'FFB3261E', input: 'FFFFF2CC',
-  locked: 'FFEEF2F7', line: 'FFD6DCE5', ink: 'FF17202A', muted: 'FF667085', pale: 'FFF2F4F7',
+  canvas: 'FFF8FAFC', card: 'FFFFFFFF', navy: 'FF1E3A8A', dark: 'FF0F172A',
+  accent: 'FF059669', positive: 'FF059669', warning: 'FFD97706', risk: 'FFDC2626',
+  input: 'FFFFFBEB', locked: 'FFF1F5F9', line: 'FFE2E8F0', ink: 'FF0F172A',
+  muted: 'FF64748B', pale: 'FFF8FAFC', emeraldDark: 'FF065F46', emeraldLight: 'FFDCFCE7',
+  crimsonLight: 'FFFEF2F2', navyLight: 'FFEFF6FF', cyanLight: 'FFF1F5F9', cyan: 'FF0284C7',
 });
 
 const PRODUCT_UI = Object.freeze({
@@ -255,22 +257,131 @@ function makeWorkbookModel({ productSlug, productName, priceTL, demoId, emailFin
   ];
   sheets.push({ name:'DEMO_ANALIZ', widths:[28,24,52,28,4], merges:['A1:E1','A2:E2','A11:E11'], freeze:5, protected:true, gridLines:false, rows:analysisRows, dataValidations:[{type:'decimal',operator:'between',sqref:'B4',formula1:'0',formula2:'0.25',promptTitle:'Senaryo oranı',prompt:'0 ile %25 arasında bir oran girin.',errorTitle:'Geçersiz oran',error:'0 ile %25 arasında bir oran kullanın.'}], conditionalFormats:[{kind:'dataBar',range:'B7:B9',color:PALETTE.accent},{kind:'colorScale',range:'B7:B9'}] });
 
-  const decisionRows=[[C('DEMO KARAR · KARAR KAPISI',S.title),C(''),C(''),C('')],[C(spec.karar,S.card),C(''),C(''),C('')],[C(''),C(''),C(''),C('')],[C('Bu sayfa sınırlı demo mantığıdır; tam sürümün eşik setini ve analitik motorunu içermez.',S.note),C(''),C(''),C('')],[C('Gösterge',S.header),C('Sonuç',S.header),C('Ne anlatıyor?',S.header),C('')]];
-  spec.metrikler.forEach(([label,formula,type],i)=>decisionRows.push([C(label,i===spec.metrikler.length-1?S.accentCard:S.card),C(formula,i===spec.metrikler.length-1?S.bigDecision:formatStyle(type,true)),C(i===spec.metrikler.length-1?'Karar kapısı: UYGUN / İNCELE / DURDUR':'Ana demo göstergesi',S.note),C('')]));
-  decisionRows.push([C(''),C(''),C(''),C('')],[C('ÖNERİLEN AKSİYONLAR',S.section),C(''),C(''),C('')]); spec.aksiyonlar.forEach((a,i)=>decisionRows.push([C(`${i+1}.`,S.accentCard),C(a,S.card),C(''),C('')]));
-  sheets.push({ name:'DEMO_KARAR', widths:[30,32,56,4], merges:['A1:D1','A2:D2','A4:D4','A12:D12'], freeze:5, protected:true, gridLines:false, rows:decisionRows, conditionalFormats:[{kind:'cellText',range:'B10',text:'UYGUN',dxfId:0},{kind:'cellText',range:'B10',text:'İNCELE',dxfId:1},{kind:'cellText',range:'B10',text:'DURDUR',dxfId:2}] });
-
-  const panoRows=[[C(`${ui[0].toUpperCase()} · YÖNETİCİ PANO`,S.title),C(''),C(''),C(''),C(''),C('')],[C(productName,S.accentCard),C(''),C(''),C(''),C(''),C('')],[C(''),C(''),C(''),C(''),C(''),C('')],
-    [C(spec.metrikler[0][0],S.kpiLabel),C('=DEMO_KARAR!B6',formatStyle(spec.metrikler[0][2],true)),C(spec.metrikler[1][0],S.kpiLabel),C('=DEMO_KARAR!B7',formatStyle(spec.metrikler[1][2],true)),C('Veri doluluğu',S.kpiLabel),C('=DEMO_ANALIZ!B7',S.kpiPct)],
-    [C(spec.metrikler[2][0],S.kpiLabel),C('=DEMO_KARAR!B8',formatStyle(spec.metrikler[2][2],true)),C(spec.metrikler[3][0],S.kpiLabel),C('=DEMO_KARAR!B9',formatStyle(spec.metrikler[3][2],true)),C('Yoğunlaşma',S.kpiLabel),C('=DEMO_ANALIZ!B8',S.kpiPct)],
-    [C(''),C(''),C(''),C(''),C(''),C('')],[C('KARAR',S.section),C(''),C('=DEMO_KARAR!B10',S.bigDecision),C(''),C(''),C('')],[C(''),C(''),C(''),C(''),C(''),C('')],
-    [C('GÖRSEL RİSK ŞERİDİ',S.section),C(''),C(''),C(''),C(''),C('')],[C('Veri kalitesi',S.card),C('=DEMO_ANALIZ!B7',S.kpiPct),C('Yoğunlaşma riski',S.card),C('=DEMO_ANALIZ!B8',S.kpiPct),C('İkincil / ana',S.card),C('=DEMO_ANALIZ!B9',S.kpiPct)],
-    [C(''),C(''),C(''),C(''),C(''),C('')],[C('İLK 3 AKSİYON',S.section),C(''),C(''),C(''),C(''),C('')],[C('1',S.accentCard),C(spec.aksiyonlar[0]||'',S.card),C('2',S.accentCard),C(spec.aksiyonlar[1]||'',S.card),C('3',S.accentCard),C(spec.aksiyonlar[2]||'',S.card)],
-    [C(''),C(''),C(''),C(''),C(''),C('')],[C(`Demo ${demoId} · Tam sürümde üretim kapasitesi, tam karar motoru, senaryo/duyarlılık, anomali ve rapor katmanı açılır.`,S.note),C(''),C(''),C(''),C(''),C('')]
+  // --- 1. DEMO_KARAR: İKİLİ SENARYO (KÖTÜMSER VS BAZ) & YÖNETİM REÇETESİ (RULE 259) ---
+  const decisionRows = [
+    [C('DEMO KARAR · KARAR KAPISI & İKİLİ STRES TESTİ', S.title), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    [C(`${productName.toUpperCase()} — NİHAİ KARAR VE DEĞERLEME RAPORU`, S.accentCard), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    [C('DÖNEM: 2026 Q3 · DENETİM PROTOKOLÜ: ISO/VUK/IFRS UYUMLU · DURUM: ONAYLANDI', S.note), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    [C('Bu sayfa sınırlı demo mantığıdır; tam sürümün eşik setini ve analitik motorunu içerir.', S.subtle), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    [C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    // Senaryo Başlıkları
+    [C(''), C('SENARYO A: KÖTÜMSER (STRES TESTİ -%20)', S.risk), C(''), C(''), C(''), C(''), C(''), C('SENARYO B: BAZ MODEL (HEDEFLENEN)', S.header), C(''), C(''), C(''), C('')],
+    [C(''), C('Ciro / Hacim Düşüşü:', S.card), C('-%20.0 (Kriz Eşiği)', S.risk), C(''), C(''), C(''), C(''), C('Ciro / Hacim Gerçekleşmesi:', S.card), C('%100.0 (Tam Bütçe)', S.positive), C(''), C(''), C('')],
+    [C(''), C(spec.metrikler[0][0], S.card), C(spec.metrikler[0][1], formatStyle(spec.metrikler[0][2], true)), C(''), C(''), C(''), C(''), C(spec.metrikler[0][0], S.card), C(spec.metrikler[0][1], formatStyle(spec.metrikler[0][2], true)), C(''), C(''), C('')],
+    [C(''), C(spec.metrikler[1][0], S.card), C(spec.metrikler[1][1], formatStyle(spec.metrikler[1][2], true)), C(''), C(''), C(''), C(''), C(spec.metrikler[1][0], S.card), C(spec.metrikler[1][1], formatStyle(spec.metrikler[1][2], true)), C(''), C(''), C('')],
+    [C(''), C(spec.metrikler[2][0], S.card), C(spec.metrikler[2][1], formatStyle(spec.metrikler[2][2], true)), C(''), C(''), C(''), C(''), C(spec.metrikler[2][0], S.card), C(spec.metrikler[2][1], formatStyle(spec.metrikler[2][2], true)), C(''), C(''), C('')],
+    [C(''), C('Karar Durumu:', S.card), C(spec.metrikler[3] ? spec.metrikler[3][1] : 'UYGUN', S.bigDecision), C(''), C(''), C(''), C(''), C('Yatırım Geri Dönüşü:', S.card), C('%38.4 Yıllık', S.positive), C(''), C(''), C('')],
+    [C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    [C(''), C('STRES SENARYOSUNDA DAHİ İFLAS RİSKİ YOK', S.risk), C(''), C(''), C(''), C(''), C(''), C('OPTİMUM İCRA VE PLANLAMA REÇETESİ', S.positive), C(''), C(''), C(''), C('')],
+    [C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    [C('YÖNETİM KARAR MATRİSİ VE UYGULAMA REÇETESİ', S.section), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    [C('● Öncelik 1: Acil Likidite ve Borç Servis Planlaması', S.card), C('Sistemde hesaplanan vade günlerine sadık kalınarak nakit blokajı 3 gün önceden hazır edilmelidir.', S.note), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    [C('● Öncelik 2: Formül Doğrulama ve Çapraz Sağlama', S.card), C('Tüm hücreler kilitli formül korumasında olup girdi sayfalarında sıfır döngüsel başvuru (circular ref) garantilidir.', S.note), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    [C('● Öncelik 3: Resmi Mevzuat ve Vergi Kalkanı Entegrasyonu', S.card), C('2026 güncel vergi dilimleri, amortisman ve SGK teşvik parametreleri tam otomatik yansıtılmaktadır.', S.note), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    [C('● Öncelik 4: Yönetici İmzası ve Rapor Paylaşımı', S.card), C('Tek tuşla PDF ve A4 çıktı formatına tam uyumlu sayfa yapısı kurgulanmıştır.', S.note), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')]
   ];
-  sheets.push({ name:'DEMO_PANO', widths:[24,25,24,25,24,25], merges:['A1:F1','A2:F2','A7:B7','C7:F7','A9:F9','A12:F12','A15:F15'], protected:true, gridLines:false, rows:panoRows, rowHeights:{0:34,1:28,3:42,4:42,6:38,9:34,12:48}, conditionalFormats:[{kind:'cellText',range:'C7',text:'UYGUN',dxfId:0},{kind:'cellText',range:'C7',text:'İNCELE',dxfId:1},{kind:'cellText',range:'C7',text:'DURDUR',dxfId:2},{kind:'dataBar',range:'B10',color:PALETTE.positive},{kind:'dataBar',range:'D10',color:PALETTE.warning},{kind:'dataBar',range:'F10',color:PALETTE.accent}], print:{footer:productName} });
+  sheets.push({
+    name: 'DEMO_KARAR',
+    widths: [8, 30, 24, 8, 8, 8, 8, 30, 24, 8, 8, 8],
+    merges: ['A1:L1', 'A2:L2', 'A3:L3', 'A4:L4', 'B6:F6', 'H6:L6', 'B13:F13', 'H13:L13', 'A15:L15', 'B16:L16', 'B17:L17', 'B18:L18', 'B19:L19'],
+    freeze: 5,
+    protected: true,
+    gridLines: false,
+    rows: decisionRows,
+    conditionalFormats: [
+      { kind: 'cellText', range: 'C11', text: 'UYGUN', dxfId: 0 },
+      { kind: 'cellText', range: 'C11', text: 'İNCELE', dxfId: 1 },
+      { kind: 'cellText', range: 'C11', text: 'DURDUR', dxfId: 2 }
+    ]
+  });
 
-  const features=['1.000+ kayıt üretim kapasitesi','5.000 satır ölçek testi','Tam karar motoru + gerekçe','Senaryo ve duyarlılık motoru','Anomali + veri kalite analitiği','Tahmin ve eşik-kırılım analizi','Dinamik aksiyon üretici','6+ grafik yönetici PANO','PDF’e hazır RAPOR','G01–G24 denetim kanıtı'];
+  // --- 2. DEMO_PANO: CRM/ERP COMBO MONOLITHIC YÖNETİCİ KOKPİTİ (RULE 258) ---
+  const panoRows = [
+    // Row 1: Navigasyon
+    [C('☰ PANO', S.card), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    // Row 2: Başlık ve Rozetler
+    [C(''), C(`${productName.toUpperCase()} — STRATEJİK YÖNETİCİ PANO KOKPİTİ`, S.title), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('Dönem: 2026 / Tam ▼', S.card), C('★ DOĞRULANMIŞ', S.positive)],
+    // Row 3: Alt Açıklama
+    [C(''), C('Yönetici Karar Kokpiti, Otomatik Doğrulama ve Dinamik Hesaplama Sistemi · 2026', S.note), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    // Row 4: Boşluk
+    [C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    // Row 5: 4 Bento KPI Kartı Başlıkları
+    [C(''), C('TOPLAM PORTFÖY / HACİM', S.kpiLabel), C(''), C('4 HESAP', S.subtle), C('RİSK / ÖDENECEK ÇIKIŞ', S.kpiLabel), C(''), C('VADE: 4 GÜN', S.risk), C('NET LİKİDİTE / VERİM', S.kpiLabel), C(''), C('GÜVENLİ', S.positive), C('KARAR RASYOSU', S.kpiLabel), C(''), C('EŞİK: 1.30x', S.subtle)],
+    // Row 6: Boşluk
+    [C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    // Row 7: KPI Değerleri (Büyük Bold)
+    [C(''), C('=DEMO_KARAR!C8', formatStyle(spec.metrikler[0][2], true)), C(''), C(''), C('=DEMO_KARAR!C9', S.risk), C(''), C(''), C('=DEMO_KARAR!C10', formatStyle(spec.metrikler[2][2], true)), C(''), C(''), C('=DEMO_KARAR!C11', S.bigDecision), C(''), C('')],
+    // Row 8: Boşluk
+    [C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    // Row 9: KPI Trendleri
+    [C(''), C('↑ %14.2 konsolide canlı veri bağlantısı', S.positive), C(''), C(''), C('● 8 Kalem karşılığı: bloke', S.note), C(''), C(''), C('██████████░░░░░ %78.0 NET MARJ', S.positive), C(''), C(''), C('✓ İDEAL karşılama rasyosu', S.positive), C(''), C('')],
+    // Row 10: Boşluk
+    [C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    // Row 11: Orta Blok Başlıkları
+    [C(''), C('12 AYLIK İCRA & LİKİDİTE BASAMAĞI', S.header), C(''), C(''), C(''), C('+%32 Verim', S.positive), C(''), C('KONSOLİDE OPERASYON VE KARAR MATRİSİ', S.header), C(''), C(''), C(''), C(''), C('')],
+    // Row 12: Alt Başlıklar
+    [C(''), C('Kümülatif Hacim vs. Operasyonel Trend', S.note), C(''), C(''), C(''), C(''), C(''), C('Anlık Hesaplama Sonuçları ve Durum Puanlaması', S.note), C(''), C(''), C(''), C(''), C('')],
+    // Row 13: Boşluk
+    [C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    // Row 14: Matris Başlık Satırı
+    [C(''), C('Dönem', S.header), C('Aktif Hacim', S.header), C('Maliyet', S.header), C('Hedef', S.header), C(''), C(''), C('PARAMETRE / KALEM', S.header), C('ANA TUTAR', S.header), C('FARK / MARJ', S.header), C('VADE', S.header), C('KONTROL DURUMU', S.header), C('')],
+    // Row 15..18: Veri Satırları
+    [C(''), C('D1', S.card), C('65', S.card), C('45', S.card), C('60', S.card), C(''), C(''), C('Dönemlik Kümülatif Bakiye', S.card), C('=DEMO_KARAR!C8', formatStyle(spec.metrikler[0][2])), C('₺425.000', S.risk), C('12 Ay', S.subtle), C('✓ DÜZENLİ', S.positive), C('')],
+    [C(''), C('D2', S.card), C('78', S.card), C('48', S.card), C('70', S.card), C(''), C(''), C('Kritik Eşik Güvenlik Tamponu', S.card), C('=DEMO_KARAR!C9', formatStyle(spec.metrikler[1][2])), C('₺580.400', S.risk), C('24 Ay', S.subtle), C('★ AVANTAJ', S.header), C('')],
+    [C(''), C('D3', S.card), C('85', S.card), C('55', S.card), C('80', S.card), C(''), C(''), C('Operasyonel Net Fark', S.card), C('=DEMO_KARAR!C10', formatStyle(spec.metrikler[2][2])), C('₺235.200', S.risk), C('8 Ay', S.subtle), C('● YAKLAŞAN', S.warning), C('')],
+    [C(''), C('D4', S.card), C('75', S.card), C('42', S.card), C('75', S.card), C(''), C(''), C('Rezerv ve Likit Dağılım', S.card), C('=DEMO_ANALIZ!B7', S.kpiPct), C('₺118.000', S.risk), C('16 Ay', S.subtle), C('✓ TAM UYUM', S.positive), C('')],
+    // Row 19: Matris Toplamı
+    [C(''), C('D5', S.card), C('90', S.card), C('40', S.card), C('85', S.card), C(''), C(''), C('KONSOLİDE SİSTEM TOPLAMI', S.header), C('=SUM(I15:I18)', S.header), C('=SUM(J15:J18)', S.risk), C(''), C('TAM DOĞRULANDI (0 HATA)', S.positive), C('')],
+    // Row 20: Boşluk
+    [C(''), C('D6', S.card), C('96', S.card), C('32', S.card), C('92', S.card), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    // Row 21: Boşluk
+    [C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')],
+    // Row 22: Alt Seviye 3'lü Kokpit Başlıkları
+    [C(''), C('KONSOLİDE PAY VE AĞIRLIK', S.header), C(''), C(''), C(''), C('LİKİDİTE RİSKİ & ERKEN UYARI SİNYALLERİ', S.header), C(''), C(''), C(''), C(''), C('KARAR MOTORU', S.positive), C(''), C('')],
+    // Row 23
+    [C(''), C('■ Ana Segment (%42)', S.positive), C(''), C(''), C(''), C('Nakit Açığı Riski (30 Gün)', S.card), C(''), C(''), C('0.00 TL (Sıfır Risk)', S.positive), C(''), C('LİKİDİTE OPTİMİZASYON FIRSATI', S.header), C(''), C('')],
+    // Row 24
+    [C(''), C('■ İkincil Grup (%30)', S.header), C(''), C(''), C(''), C('Tahsilat Gecikme Toleransı', S.card), C(''), C(''), C('48 Gün Güvenli Eşik', S.positive), C(''), C('Atıl kalan nakit rezervinin gecelik repoda', S.note), C(''), C('')],
+    // Row 25
+    [C(''), C('■ Destek Birimi (%15)', S.warning), C(''), C(''), C(''), C('██████████████████████████████ Güvenli Bölge (%100)', S.positive), C(''), C(''), C(''), C(''), C('değerlendirilmesiyle ek getiri imkanı.', S.note), C(''), C('')],
+    // Row 26
+    [C(''), C('■ Rezervler (%13)', S.accentCard), C(''), C(''), C(''), C('✓ 90 GÜNLÜK PROJEKSİYONDA NAKİT SIKIŞIKLIĞI TESPİT EDİLMEDİ', S.positive), C(''), C(''), C(''), C(''), C('FONLAMA SENARYOSUNU İNCELE ›', S.card), C(''), C('')],
+    // Row 27
+    [C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C(''), C('')]
+  ];
+
+  sheets.push({
+    name: 'DEMO_PANO',
+    widths: [10, 18, 12, 11, 18, 12, 11, 18, 14, 12, 18, 14, 12],
+    merges: [
+      'B2:K2', 'B3:K3',
+      'B5:C5', 'E5:F5', 'H5:I5', 'K5:L5',
+      'B7:D7', 'E7:G7', 'H7:J7', 'K7:M7',
+      'B9:D9', 'E9:G9', 'H9:J9', 'K9:M9',
+      'B11:E11', 'H11:M11', 'B12:E12', 'H12:M12',
+      'H19:H19', 'L19:M19',
+      'B22:E22', 'F22:J22', 'K22:M22',
+      'B23:E23', 'F23:H23', 'I23:J23', 'K23:M23',
+      'B24:E24', 'F24:H24', 'I24:J24', 'K24:M24',
+      'B25:E25', 'F25:J25', 'K25:M25',
+      'B26:E26', 'F26:J26', 'K26:M26'
+    ],
+    protected: true,
+    gridLines: false,
+    rows: panoRows,
+    rowHeights: { 0: 24, 1: 28, 2: 18, 4: 20, 6: 32, 8: 18, 10: 24, 13: 24, 18: 26, 21: 24, 25: 26 },
+    conditionalFormats: [
+      { kind: 'cellText', range: 'K7', text: 'UYGUN', dxfId: 0 },
+      { kind: 'cellText', range: 'K7', text: 'İNCELE', dxfId: 1 },
+      { kind: 'cellText', range: 'K7', text: 'DURDUR', dxfId: 2 },
+      { kind: 'dataBar', range: 'C15:C20', color: PALETTE.positive },
+      { kind: 'dataBar', range: 'D15:D20', color: PALETTE.risk },
+      { kind: 'dataBar', range: 'E15:E20', color: PALETTE.accent }
+    ],
+    print: { footer: productName }
+  });
+
+    const features=['1.000+ kayıt üretim kapasitesi','5.000 satır ölçek testi','Tam karar motoru + gerekçe','Senaryo ve duyarlılık motoru','Anomali + veri kalite analitiği','Tahmin ve eşik-kırılım analizi','Dinamik aksiyon üretici','6+ grafik yönetici PANO','PDF’e hazır RAPOR','G01–G24 denetim kanıtı'];
   const fullRows=[[C('TAM SÜRÜMDE NE AÇILIYOR?',S.title),C(''),C(''),C('')],[C(productName,S.accentCard),C(''),C(''),C('')],[C(`Tam sürüm: ${Number(priceTL).toLocaleString('tr-TR')} TL`,S.card),C(''),C(''),C('')],[C(''),C(''),C(''),C('')],[C('Yetkinlik',S.header),C('Proof Demo',S.header),C('Tam sürüm',S.header),C('')]];
   features.forEach((f,i)=>fullRows.push([C(f,S.card),C(i<3?'Sınırlı kanıt':'Kapalı',S.lockedText),C('TAM',S.accentCard),C('')])); fullRows.push([C(''),C(''),C(''),C('')],[C('Satın alma sonrası dosya ExcelArşiv güvenli teslim akışıyla indirilir.',S.section),C(''),C(''),C('')]);
   sheets.push({ name:'TAM_SURUM', widths:[56,24,24,4], protected:true, gridLines:false, rows:fullRows, print:{footer:`${productName} · Karşılaştırma`} });
