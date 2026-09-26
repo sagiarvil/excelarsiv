@@ -1,8 +1,7 @@
 ---
-import CommerceLayout from '../../layouts/CommerceLayout.astro';
-import CatalogHero from '../../components/catalog/CatalogHero.astro';
-import CatalogSearch from '../../components/catalog/CatalogSearch.astro';
-import CatalogFilters from '../../components/catalog/CatalogFilters.astro';
+import '../../styles/global.css';
+import '../../styles/appstore-theme.css';
+import AppStoreSidebar from '../../components/appstore/AppStoreSidebar.astro';
 import TemplateGrid from '../../components/catalog/TemplateGrid.astro';
 import { getCollection } from 'astro:content';
 import { getTemplatesByCategory } from '../../lib/templates';
@@ -34,6 +33,7 @@ const seoTitle = category?.seoTitle ?? `${categoryLabel} Excel Şablonları | Ex
 const seoDescription = category?.seoDescription ?? `${categoryLabel} alanında hazır Excel çalışma sistemlerini karşılaştırın ve demo ile inceleyin.`;
 const primaryQuery = category?.primaryQuery ?? `${categoryLabel.toLocaleLowerCase('tr-TR')} excel`;
 const heroDescription = category?.description ?? `${categoryLabel} alanında hazır Excel çalışma sistemleri.`;
+
 const categoryLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -67,85 +67,143 @@ const categoryBreadcrumbLd = JSON.stringify({
 });
 ---
 
-<CommerceLayout title={seoTitle} description={seoDescription}>
-  <Fragment slot="head">
-    <script type="application/ld+json" set:html={categoryLd} />
-    <script type="application/ld+json" set:html={categoryPageLd} />
-    <script type="application/ld+json" set:html={categoryBreadcrumbLd} />
-  </Fragment>
-  <CatalogHero
-    title={`${categoryLabel} Excel Şablonları`}
-    description={`${heroDescription} Gerçek ürün ekranlarını ve demo akışını satın almadan önce inceleyin.`}
-    categorySlug={categorySlug}
-  />
-  <section class="catalog-section">
-    <div class="site-container">
-      <p class="category-query">{primaryQuery}</p>
-      <CatalogSearch />
-      <div class="catalog-section__filters">
-        <CatalogFilters active={categorySlug} />
-      </div>
-      <h2 class="sr-only">{categoryLabel} Excel şablonları kataloğu</h2>
-      {karar && (
-        <section class="category-pick" aria-labelledby="category-pick-title">
-          <h2 id="category-pick-title">Bu kategoride hangi sistemi seçmeliyim?</h2>
-          <ol>
-            {karar.secim.map((item) => {
-              const match = templates.find((template) => template.slug === item.slug);
-              return (
-                <li>
-                  <a href={`/sablon/${item.slug}`}>
-                    <span>{item.problem}</span>
-                    <strong>{match?.name ?? item.slug}</strong>
-                  </a>
-                </li>
-              );
-            })}
-          </ol>
-        </section>
-      )}
-      <TemplateGrid templates={templates} />
-      {guides.length > 0 && (
-        <aside class="category-guides" aria-labelledby="category-guides-title">
-          <div class="category-guides__head">
-            <p>UYGULAMA REHBERLERİ</p>
-            <h2 id="category-guides-title">Bu kategoride önce yöntemi öğrenin</h2>
-          </div>
-          <div class="category-guides__grid">
-            {guides.map((guide) => (
-              <a href={`/rehber/${guide.id}`}>
-                <span>{guide.data.primaryQuery}</span>
-                <strong>{guide.data.title}</strong>
-                <p>{guide.data.description}</p>
-                <small>Rehberi aç →</small>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{seoTitle}</title>
+  <meta name="description" content={seoDescription} />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href={new URL(`/sablonlar/${categorySlug}`, Astro.site).toString()} />
+  <link rel="icon" type="image/png" href="/images/excel-logo.png" />
+  <script type="application/ld+json" set:html={categoryLd} />
+  <script type="application/ld+json" set:html={categoryPageLd} />
+  <script type="application/ld+json" set:html={categoryBreadcrumbLd} />
+</head>
+<body data-appstore-mode="templates">
+  <div class="appstore-root">
+    <div class="appstore-window">
+      <!-- Sol macOS Sidebar -->
+      <AppStoreSidebar activeTab="templates" />
+
+      <!-- Sağ macOS Canvas -->
+      <main class="appstore-main-canvas" id="main-content">
+        <!-- 1. Kategori Başlık Afişi (App Store Banner Stili) -->
+        <section class="as-category-header-banner" aria-labelledby="cat-header-title">
+          <nav class="as-category-breadcrumb" aria-label="Ekmek kırıntısı">
+            <a href="/">Ana Sayfa</a>
+            <span aria-hidden="true">›</span>
+            <a href="/sablonlar">Şablonlar</a>
+            <span aria-hidden="true">›</span>
+            <span>{categoryLabel}</span>
+          </nav>
+          <span class="as-category-eyebrow">{primaryQuery}</span>
+          <h1 id="cat-header-title" class="as-category-title">{categoryLabel} Excel Şablonları</h1>
+          <p class="as-category-desc">{heroDescription} Gerçek ürün ekranlarını ve karar kokpitlerini inceleyin.</p>
+
+          <!-- Diğer Kategoriler Hapları (Hızlı Filtreleme) -->
+          <div class="as-category-filter-chips" aria-label="Kategoriler Arası Geçiş">
+            {categories.map((cat) => (
+              <a
+                href={`/sablonlar/${cat.slug}`}
+                class={`as-filter-chip ${cat.slug === categorySlug ? 'is-active' : ''}`}
+              >
+                {cat.name}
               </a>
             ))}
           </div>
-        </aside>
-      )}
-      {karar && (
-        <section class="category-faq" aria-labelledby="category-faq-title">
-          <h2 id="category-faq-title">Kategori soruları</h2>
-          {karar.faq.map((item) => (
-            <details>
-              <summary>{item.question}</summary>
-              <p>{item.answer}</p>
-            </details>
-          ))}
         </section>
-      )}
-      {karar && (
-        <nav class="category-related" aria-label="İlgili kategoriler">
-          {karar.related.map((slug) => {
-            const related = categories.find((item) => item.slug === slug);
-            return related ? <a href={`/sablonlar/${related.slug}`}>{related.name}</a> : null;
-          })}
-        </nav>
-      )}
-    </div>
-  </section>
-</CommerceLayout>
 
-<style>
-  .catalog-section{padding-block:16px 48px}.category-query{margin:0 0 8px;font-family:var(--font-mono);font-size:8.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--xl-green)}.catalog-section__filters{margin-top:10px}.catalog-section>.site-container>:last-child{margin-top:24px}.category-pick{margin:18px 0 8px}.category-pick h2{margin:0 0 10px;font-family:var(--font-display);font-size:clamp(20px,2.2vw,26px);letter-spacing:-.03em}.category-pick ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}.category-pick a{display:grid;gap:6px;min-height:96px;padding:14px;border:1px solid var(--xl-grid);border-radius:12px;background:#fff;color:inherit;text-decoration:none}.category-pick span{font-size:11.5px;color:#5b6b62}.category-pick strong{font-size:13.5px;line-height:1.3}.category-faq{margin-top:28px;padding-top:20px;border-top:1px solid var(--xl-grid)}.category-faq h2{margin:0 0 10px;font-size:20px}.category-faq details{border-bottom:1px solid var(--xl-grid)}.category-faq summary{padding:10px 0;cursor:pointer;font-weight:700}.category-faq p{margin:0 0 10px;font-size:13px;line-height:1.55;color:#5b6b62}.category-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.category-related a{padding:6px 12px;border:1px solid var(--xl-grid);border-radius:999px;font-size:11.5px;font-weight:700;color:#0d7040;text-decoration:none}.category-guides{margin-top:32px!important;padding-top:20px;border-top:1px solid var(--xl-grid)}.category-guides__head>p{margin:0;font-family:var(--font-mono);font-size:8.5px;font-weight:800;letter-spacing:.08em;color:var(--xl-green)}.category-guides__head h2{max-width:720px;margin:6px 0 0;font-family:var(--font-display);font-size:clamp(22px,2.5vw,32px);line-height:1.1;letter-spacing:-.03em;color:var(--xl-ink-900)}.category-guides__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}.category-guides__grid a{display:grid;gap:6px;padding:16px;border:1px solid var(--xl-grid);border-radius:12px;background:#fff;color:var(--xl-ink-900);text-decoration:none}.category-guides__grid a:hover{border-color:#afc9b9}.category-guides__grid span{font-family:var(--font-mono);font-size:8px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--xl-green)}.category-guides__grid strong{font-size:15px;line-height:1.25}.category-guides__grid p{margin:0;font-size:12px;line-height:1.5;color:#5b6b62}.category-guides__grid small{margin-top:4px;font-size:9.5px;font-weight:800;color:var(--xl-green)}@media(max-width:720px){.category-guides__grid,.category-pick ol{grid-template-columns:1fr}}
-</style>
+        <!-- 2. Karar Matrisi / Seçim Rehberi (Varsa) -->
+        {karar && (
+          <section class="as-category-decision-box" aria-labelledby="category-pick-title">
+            <h2 id="category-pick-title">Bu kategoride hangi sistemi seçmeliyim?</h2>
+            <ol class="as-category-decision-grid">
+              {karar.secim.map((item) => {
+                const match = templates.find((template) => template.slug === item.slug);
+                return (
+                  <li>
+                    <a href={`/sablon/${item.slug}`} class="as-decision-card">
+                      <span class="as-decision-problem">{item.problem}</span>
+                      <strong class="as-decision-name">{match?.name ?? item.slug}</strong>
+                    </a>
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        )}
+
+        <!-- 3. Şablonlar Listesi (App Store Kart Izgarası) -->
+        <section class="as-section-group" aria-labelledby="cat-templates-grid-title">
+          <div class="as-section-header">
+            <h2 id="cat-templates-grid-title" class="as-section-title">
+              <span class="as-section-title-link">
+                <span>{categoryLabel} Şablonları</span>
+                <span aria-hidden="true">({templates.length})</span>
+              </span>
+            </h2>
+          </div>
+
+          <TemplateGrid templates={templates} />
+        </section>
+
+        <!-- 4. Uygulama Rehberleri (Varsa) -->
+        {guides.length > 0 && (
+          <aside class="as-category-guides-section" aria-labelledby="category-guides-title">
+            <div class="as-section-header">
+              <h2 id="category-guides-title" class="as-section-title">
+                <span class="as-section-title-link">
+                  <span>Uygulama Rehberleri</span>
+                  <span aria-hidden="true">›</span>
+                </span>
+              </h2>
+            </div>
+            <div class="as-category-guides-grid">
+              {guides.map((guide) => (
+                <a href={`/rehber/${guide.id}`} class="as-guide-card">
+                  <span class="as-guide-eyebrow">{guide.data.primaryQuery}</span>
+                  <strong class="as-guide-title">{guide.data.title}</strong>
+                  <p class="as-guide-desc">{guide.data.description}</p>
+                  <span class="as-guide-arrow" aria-hidden="true">Rehberi Aç ›</span>
+                </a>
+              ))}
+            </div>
+          </aside>
+        )}
+
+        <!-- 5. Kategori SSS (Varsa) -->
+        {karar && karar.faq && karar.faq.length > 0 && (
+          <section class="as-privacy-box" style="margin-top:36px;" aria-labelledby="category-faq-title">
+            <h2 id="category-faq-title" class="as-privacy-title">Sıkça Sorulan Sorular</h2>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:14px;">
+              {karar.faq.map((item) => (
+                <details style="padding:12px 14px;background:#fbfbfd;border:1px solid #e5e5ea;border-radius:10px;">
+                  <summary style="font-weight:600;font-size:13.5px;cursor:pointer;color:var(--as-text-primary);">{item.question}</summary>
+                  <p style="margin:8px 0 0;font-size:13px;line-height:1.55;color:var(--as-text-secondary);">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <!-- 6. Footer -->
+        <footer class="as-store-footer" style="margin-top:40px;">
+          <div class="as-store-footer-top">
+            <div class="as-store-footer-links">
+              <a href="/sablonlar">Tüm Şablonlar</a>
+              <a href="/lisans">Lisans Koşulları</a>
+              <a href="/gizlilik-politikasi">Gizlilik Politikası</a>
+              <a href="/teslimat-ve-iade">İade ve Teslimat</a>
+              <a href="/sss">Destek & SSS</a>
+            </div>
+            <span class="as-store-copyright">© 2026 Excel Arşiv Inc. Tüm hakları saklıdır. macOS App Store Vitrin Deneyimi.</span>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
+

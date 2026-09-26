@@ -87,48 +87,16 @@ const homeJsonLd = {
       <!-- Sağ macOS Ana Canvas -->
       <main class="appstore-main-canvas" id="main-content">
         <!-- ====================================================================
-             1. MAC APP STORE PRODUCT HEADER (media_1790443639327.png)
+             1. BÜYÜK MAC HERO AFİŞİ (media_1790445038375.png Referansı)
              ==================================================================== -->
-        <header class="as-product-header">
-          <div class="as-product-icon-wrap">
-            <div class="as-product-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="68" height="68" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="6" width="36" height="36" rx="9" fill="#107c41" stroke="#ffffff" stroke-width="2"/>
-                <line x1="16" y1="16" x2="32" y2="32" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
-                <line x1="32" y1="16" x2="16" y2="32" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-          </div>
-
-          <div class="as-product-meta">
-            <h1 id="hero-title" class="as-product-title">Excel Arşiv</h1>
-            <div class="as-product-subtitle">
-              <a href="/sablonlar/finansal-analiz">Finansal Karar Sistemleri</a>
-            </div>
-            <div class="as-product-badge-row">
-              <span>Excel, macOS & Web Uyumlu</span>
-              <span>•</span>
-              <span>Kurumsal Karar Çözümleri</span>
-            </div>
-
-            <div class="as-product-action-row">
-              <a href="/sablonlar" class="as-btn-appstore-primary">
-                <span>Sistemleri İncele</span>
-                <span aria-hidden="true">↗</span>
-              </a>
-              <button type="button" class="as-btn-share-icon" title="Paylaş" aria-label="Paylaş" onclick="if(navigator.share){navigator.share({title:'Excel Arşiv',url:window.location.href})}else{navigator.clipboard.writeText(window.location.href);alert('Bağlantı kopyalandı!')}">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="18" cy="5" r="3"></circle>
-                  <circle cx="6" cy="12" r="3"></circle>
-                  <circle cx="18" cy="19" r="3"></circle>
-                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                </svg>
-              </button>
-            </div>
-
-            <!-- AI Arama Göstergesi (Temizlenmiş Retina Bar) -->
-            <a href="/sablonlar" class="as-hero-ai-search-pill" title="Yapay Zeka Destekli Şablon Arama" style="margin-top:14px;max-width:360px;">
+        <section class="as-hero-banner" aria-labelledby="hero-title">
+          <div class="as-hero-copy">
+            <span class="as-hero-eyebrow">EXCEL ARŞİV İLE DAHA FAZLASI</span>
+            <h1 id="hero-title" class="as-hero-title">İşletmeler için Finansal Karar Sistemleri</h1>
+            <p class="as-hero-desc">Dağınık Excel tablolarını tek ekranda net karara dönüştürün.</p>
+            
+            <!-- AI Arama Göstergesi (Kusursuzlaştırılmış Retina Bar - Sıfır Çizgi / Sıfır Artefakt) -->
+            <a href="/sablonlar" class="as-hero-ai-search-pill" title="Yapay Zeka Destekli Şablon Arama">
               <picture>
                 <source srcset="/images/site/ai-search-indicator.webp" type="image/webp" />
                 <img 
@@ -142,8 +110,107 @@ const homeJsonLd = {
                 />
               </picture>
             </a>
+
+            <div style="display:flex;align-items:center;gap:16px;margin:6px 0 10px;">
+              <a href="/sablonlar" class="as-hero-cta">
+                <span>Keşfet</span>
+                <span aria-hidden="true">›</span>
+              </a>
+              <a href="/sablonlar/finansal-analiz" style="font-size:13.5px;font-weight:600;color:var(--as-accent);text-decoration:none;">
+                Tüm Sistemleri İncele →
+              </a>
+            </div>
+
+            <div class="as-hero-dots" aria-hidden="true">
+              <span class="as-dot is-active"></span>
+              <span class="as-dot"></span>
+              <span class="as-dot"></span>
+              <span class="as-dot"></span>
+              <span class="as-dot"></span>
+            </div>
           </div>
-        </header>
+
+          <div class="as-hero-mockup-scene">
+            <div class="as-macbook-frame">
+              <div class="as-macbook-notch"></div>
+              <div class="as-macbook-screen">
+                <!-- Mini KPI'lar (4 Renkli Karar Matrisi) -->
+                <div class="as-mini-kpi-grid">
+                  <div class="as-mini-kpi" style="border-left: 2px solid #107c41;">
+                    <small style="color:#107c41;font-weight:700;">Gelir Akışı</small>
+                    <strong>₺1.420.000</strong><span style="color:#107c41;background:#e6f4ea;padding:1px 3px;border-radius:3px;">+18%</span>
+                  </div>
+                  <div class="as-mini-kpi" style="border-left: 2px solid #0071e3;">
+                    <small style="color:#0071e3;font-weight:700;">Net Nakit</small>
+                    <strong>₺840.000</strong><span style="color:#0071e3;background:#e1f0fe;padding:1px 3px;border-radius:3px;">+24%</span>
+                  </div>
+                  <div class="as-mini-kpi" style="border-left: 2px solid #f59e0b;">
+                    <small style="color:#d97706;font-weight:700;">Vergi & Fon</small>
+                    <strong>₺165.000</strong><span style="color:#d97706;background:#fef3c7;padding:1px 3px;border-radius:3px;">Optimum</span>
+                  </div>
+                  <div class="as-mini-kpi" style="border-left: 2px solid #e11d48;">
+                    <small style="color:#e11d48;font-weight:700;">Risk & Gider</small>
+                    <strong>₺415.000</strong><span style="color:#e11d48;background:#ffe4e6;padding:1px 3px;border-radius:3px;">-9%</span>
+                  </div>
+                </div>
+
+                <!-- Mini Grafikler (Kırmızı, Mavi, Sarı, Yeşil) -->
+                <div class="as-mini-charts-row">
+                  <div class="as-mini-chart-card">
+                    <div class="as-chart-title" style="display:flex;justify-content:space-between;align-items:center;">
+                      <span>Gelir / Gider & Nakit Trendi</span>
+                      <div style="display:flex;gap:4px;align-items:center;font-size:7px;">
+                        <span style="display:inline-block;width:5px;height:5px;background:#0071e3;border-radius:50%;"></span>
+                        <span style="display:inline-block;width:5px;height:5px;background:#e11d48;border-radius:50%;"></span>
+                        <span style="display:inline-block;width:5px;height:5px;background:#107c41;border-radius:50%;"></span>
+                      </div>
+                    </div>
+                    <svg viewBox="0 0 200 65" width="100%" height="45" fill="none" aria-hidden="true">
+                      <line x1="0" y1="55" x2="200" y2="55" stroke="#f1f5f9" stroke-width="1" />
+                      <line x1="0" y1="35" x2="200" y2="35" stroke="#f1f5f9" stroke-width="1" />
+                      <line x1="0" y1="15" x2="200" y2="15" stroke="#f1f5f9" stroke-width="1" />
+                      <rect x="12" y="24" width="7" height="31" fill="#0071e3" rx="1.5" />
+                      <rect x="21" y="38" width="7" height="17" fill="#e11d48" rx="1.5" />
+                      <rect x="38" y="18" width="7" height="37" fill="#0071e3" rx="1.5" />
+                      <rect x="47" y="34" width="7" height="21" fill="#e11d48" rx="1.5" />
+                      <rect x="64" y="14" width="7" height="41" fill="#0071e3" rx="1.5" />
+                      <rect x="73" y="30" width="7" height="25" fill="#e11d48" rx="1.5" />
+                      <rect x="90" y="8" width="7" height="47" fill="#0071e3" rx="1.5" />
+                      <rect x="99" y="26" width="7" height="29" fill="#e11d48" rx="1.5" />
+                      <rect x="116" y="6" width="7" height="49" fill="#0071e3" rx="1.5" />
+                      <rect x="125" y="22" width="7" height="33" fill="#e11d48" rx="1.5" />
+                      <path d="M15 42 Q 50 32, 85 20 T 145 10 T 195 5" stroke="#107c41" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                      <circle cx="195" cy="5" r="3.5" fill="#107c41" />
+                      <line x1="140" y1="20" x2="200" y2="20" stroke="#f59e0b" stroke-dasharray="2 2" stroke-width="1.5" />
+                    </svg>
+                  </div>
+                  <div class="as-mini-chart-card">
+                    <div class="as-chart-title">Portföy Dağılımı</div>
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <svg viewBox="0 0 36 36" width="42" height="42" aria-hidden="true">
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f1f5f9" stroke-width="5.5"/>
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#107c41" stroke-width="5.5" stroke-dasharray="45 55" stroke-dashoffset="25"/>
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#0071e3" stroke-width="5.5" stroke-dasharray="30 70" stroke-dashoffset="80"/>
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f59e0b" stroke-width="5.5" stroke-dasharray="15 85" stroke-dashoffset="50"/>
+                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#e11d48" stroke-width="5.5" stroke-dasharray="10 90" stroke-dashoffset="35"/>
+                      </svg>
+                      <div style="font-size:7.5px;color:#475569;line-height:1.35;font-weight:600;">
+                        <div style="color:#107c41;">● Satış %45</div>
+                        <div style="color:#0071e3;">● Nakit %30</div>
+                        <div style="color:#d97706;">● Vade %15</div>
+                        <div style="color:#e11d48;">● Risk %10</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="as-macbook-base"></div>
+            </div>
+
+            <!-- 3D Yeşil Excel Küpü -->
+            <div class="as-floating-excel-cube" aria-hidden="true">X</div>
+          </div>
+        </section>
 
         <!-- ====================================================================
              2. YATAY METADATA ÇUBUĞU (media_1790443639327.png)
