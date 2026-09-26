@@ -5,13 +5,22 @@
     <link>https://excelarsiv.com</link>
     <description>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</description>
     <language>tr-TR</language>
-    <lastBuildDate>Sat, 26 Sep 2026 20:49:17 GMT</lastBuildDate>
-    <pubDate>Sat, 26 Sep 2026 20:49:17 GMT</pubDate>
+    <lastBuildDate>Sat, 26 Sep 2026 21:59:44 GMT</lastBuildDate>
+    <pubDate>Sat, 26 Sep 2026 21:59:44 GMT</pubDate>
     <atom:link href="https://excelarsiv.com/rss.xml" rel="self" type="application/rss+xml" />
     <managingEditor>barisbagirlar@gmail.com (Barış Bağırlar)</managingEditor>
     <webMaster>barisbagirlar@gmail.com (Barış Bağırlar)</webMaster>
     <docs>https://www.rssboard.org/rss-specification</docs>
     <generator>Excel Arşiv Feed Engine v3.0</generator>
+    <item>
+      <title>İhtiyaca Özel Excel Finans ve Karar Sistemleri | Excel Arşiv</title>
+      <link>https://excelarsiv.com/ozel-excel-sistemleri</link>
+      <guid isPermaLink="true">https://excelarsiv.com/ozel-excel-sistemleri</guid>
+      <description>Hazır Excel dosyaları işinize uymuyorsa; nakit akışı, banka-kredi, maliyet, bütçe, fizibilite ve yönetim raporlaması için işletmenize özel Excel sistemi kuruyoruz.</description>
+      <category>diger</category>
+      <dc:creator>Barış Bağırlar</dc:creator>
+      <pubDate>Sat, 26 Sep 2026 21:59:44 GMT</pubDate>
+    </item>
     <item>
       <title>Finansal Karar ve Excel Sistemleri | Excel Arşiv</title>
       <link>https://excelarsiv.com/</link>
@@ -1421,15 +1430,6 @@
       <link>https://excelarsiv.com/karar/ttk-376-sermaye-kaybi-excel</link>
       <guid isPermaLink="true">https://excelarsiv.com/karar/ttk-376-sermaye-kaybi-excel</guid>
       <description>Öz kaynak erimesi, sermaye kaybı ve borca batıklık göstergelerini değerlendirmek için uygun Excel sistemini görün.</description>
-      <category>diger</category>
-      <dc:creator>Barış Bağırlar</dc:creator>
-      <pubDate>Sat, 26 Sep 2026 13:15:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>İhtiyaca Özel Excel Finans ve Karar Sistemleri | Excel Arşiv</title>
-      <link>https://excelarsiv.com/ozel-excel-sistemleri</link>
-      <guid isPermaLink="true">https://excelarsiv.com/ozel-excel-sistemleri</guid>
-      <description>Hazır Excel dosyaları işinize uymuyorsa; nakit akışı, banka-kredi, maliyet, bütçe, fizibilite ve yönetim raporlaması için işletmenize özel Excel sistemi kuruyoruz.</description>
       <category>diger</category>
       <dc:creator>Barış Bağırlar</dc:creator>
       <pubDate>Sat, 26 Sep 2026 13:15:52 GMT</pubDate>
