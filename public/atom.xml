@@ -5,13 +5,52 @@
   <subtitle>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://excelarsiv.com/atom.xml" />
   <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-  <updated>2026-09-25T14:17:26.000Z</updated>
+  <updated>2026-09-26T10:30:15.000Z</updated>
   <generator uri="https://excelarsiv.com/" version="3.0">Excel Arşiv Feed Engine</generator>
   <author>
     <name>Barış Bağırlar</name>
     <email>barisbagirlar@gmail.com</email>
     <uri>https://excelarsiv.com/hakkinda</uri>
   </author>
+  <entry>
+    <id>https://excelarsiv.com/</id>
+    <title>Finansal Karar ve Excel Sistemleri | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
+    <updated>2026-09-26T10:30:15.000Z</updated>
+    <published>2026-09-26T10:30:15.000Z</published>
+    <summary>Dağınık Excel tablolarını tek ekranda net karara dönüştürün. Nakit akışı, bütçe, kredi, kârlılık ve muhasebe için profesyonel hazır Excel sistemleri.</summary>
+    <category term="home" label="home" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/ozel-excel-sistemleri</id>
+    <title>İhtiyaca Özel Excel Finans ve Karar Sistemleri | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/ozel-excel-sistemleri" />
+    <updated>2026-09-26T10:30:15.000Z</updated>
+    <published>2026-09-26T10:30:15.000Z</published>
+    <summary>Hazır Excel dosyaları işinize uymuyorsa; nakit akışı, banka-kredi, maliyet, bütçe, fizibilite ve yönetim raporlaması için işletmenize özel Excel sistemi kuruyoruz.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/sablonlar</id>
+    <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/sablonlar" />
+    <updated>2026-09-26T10:30:15.000Z</updated>
+    <published>2026-09-26T10:30:15.000Z</published>
+    <summary>Nakit akışı, kârlılık, tahsilat, stok, bütçe ve daha fazlası için profesyonel Excel şablonları. macOS App Store vitrin düzeninde inceleyin.</summary>
+    <category term="kategori" label="kategori" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
   <entry>
     <id>https://excelarsiv.com/hesaplayici</id>
     <title>Ücretsiz Excel Hesaplayıcılar ve Karar Konsolları — Excel Arşiv</title>
@@ -293,32 +332,6 @@
     <published>2026-09-24T17:29:05.000Z</published>
     <summary>CAPM özkaynak maliyeti, vergi sonrası borçlanma maliyeti ve sermaye yapısıyla şirkete özgü WACC iskonto oranını Excel üzerinde hesaplayın.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/sablonlar</id>
-    <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/sablonlar" />
-    <updated>2026-09-24T17:29:05.000Z</updated>
-    <published>2026-09-24T17:29:05.000Z</published>
-    <summary>Nakit akışı, kârlılık, tahsilat, stok, bütçe ve daha fazlası için profesyonel Excel şablonları. macOS App Store vitrin düzeninde inceleyin.</summary>
-    <category term="kategori" label="kategori" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/</id>
-    <title>Finansal Karar ve Excel Sistemleri | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-    <updated>2026-09-22T15:52:20.000Z</updated>
-    <published>2026-09-22T15:52:20.000Z</published>
-    <summary>Dağınık Excel tablolarını tek ekranda net karara dönüştürün. Nakit akışı, bütçe, kredi, kârlılık ve muhasebe için profesyonel hazır Excel sistemleri.</summary>
-    <category term="home" label="home" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>
@@ -2789,19 +2802,6 @@
     <published>2026-09-21T13:44:06.000Z</published>
     <summary>Yurt Disi Yapilanma Vergi Simulatoru için kalite kapılarından geçmiş Excel karar, kontrol ve raporlama sistemini inceleyin; gerçek ürün ekranları ve doğrulama kanıtlarıyla değerlendirin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/ozel-excel-sistemleri</id>
-    <title>İhtiyaca Özel Excel Finans ve Karar Sistemleri | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/ozel-excel-sistemleri" />
-    <updated>2026-09-21T11:56:06.000Z</updated>
-    <published>2026-09-21T11:56:06.000Z</published>
-    <summary>Hazır Excel dosyaları işinize uymuyorsa; nakit akışı, banka-kredi, maliyet, bütçe, fizibilite ve yönetim raporlaması için işletmenize özel Excel sistemi kuruyoruz.</summary>
-    <category term="diger" label="diger" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>
