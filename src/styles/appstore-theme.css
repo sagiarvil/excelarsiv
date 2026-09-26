@@ -44,11 +44,41 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Eski Tasarımın Yeni App Store Arayüzünü Ezmesini %100 Engelleyen Zırh (Isolation Shield) */
+body[data-appstore-mode] {
+  background: var(--as-bg, #edf1f9) !important;
+  font-family: var(--as-font, -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif) !important;
+  color: var(--as-text-primary, #1d1d1f) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 900px) {
+  body[data-appstore-mode] {
+    background: #ffffff !important;
+  }
+}
+
+/* Eski görünmez kaplar, eski yeşil barlar ve eski dual funnel kalıntılarının layout'u bozmasını kesin olarak engelle */
+body[data-appstore-mode] .home-v2,
+body[data-appstore-mode] .finance-pillars,
+body[data-appstore-mode] .high-ticket-bridge,
+body[data-appstore-mode] .home-finance-close,
+body[data-appstore-mode] .custom-build-v20,
+body[data-appstore-mode] .mobile-commerce-bar,
+body[data-appstore-mode] .special-mobile-dock,
+body[data-appstore-mode] .hero-section {
+  display: none !important;
+}
+
 .appstore-root {
   min-height: 100vh;
   background: var(--as-bg);
   padding: 16px;
   box-sizing: border-box;
+  display: block !important;
+  position: relative !important;
+  z-index: 10 !important;
 }
 
 @media (max-width: 900px) {
