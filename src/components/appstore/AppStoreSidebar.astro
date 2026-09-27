@@ -8,7 +8,7 @@ interface Props {
 const { activeTab = 'today' } = Astro.props;
 
 const navItems = [
-  { id: 'today', name: 'Bugün', href: '/', icon: 'today' },
+  { id: 'today', name: 'Ana Sayfa', href: '/', icon: 'today' },
   { id: 'templates', name: 'Şablonlar', href: '/sablonlar', icon: 'templates' },
   { id: 'custom', name: 'Size Özel', href: '/ozel-excel-sistemleri', icon: 'custom' },
   { id: 'demo', name: 'Ürün Bulucu', href: '/urun-bulucu', icon: 'demo' },
@@ -20,9 +20,10 @@ const categories = [
   { name: 'Finansal Analiz', href: '/sablonlar/finansal-analiz', icon: 'chart' },
   { name: 'Nakit Akışı', href: '/sablonlar/nakit-akisi', icon: 'cash' },
   { name: 'Muhasebe ve Vergi', href: '/sablonlar/muhasebe-ve-vergi', icon: 'calc' },
-  { name: 'Stok ve Üretim', href: '/sablonlar/stok-ve-uretim', icon: 'box' },
   { name: 'Bütçe ve Planlama', href: '/sablonlar/butce-ve-planlama', icon: 'trend' },
+  { name: 'Stok ve Üretim', href: '/sablonlar/stok-ve-uretim', icon: 'box' },
   { name: 'Satış ve Fiyatlama', href: '/sablonlar/satis-ve-fiyatlama', icon: 'tag' },
+  { name: 'Personel ve Bordro', href: '/sablonlar/personel-ve-bordro', icon: 'users' },
 ];
 
 const allTemplates = await getAllTemplates();
@@ -126,6 +127,49 @@ const searchData = allTemplates.map((t) => ({
       </a>
     ))}
   </nav>
+
+  <!-- Ayrım Çizgisi & Kategoriler Menüsü (Madde 5) -->
+  <div class="appstore-sidebar-divider" role="separator"></div>
+
+  <div class="appstore-sidebar-section">
+    <div class="appstore-section-header">
+      <span class="appstore-section-title">KATEGORİLER</span>
+      <a href="/sablonlar" class="appstore-section-more" title="Tüm kategorileri gör">Tümü ›</a>
+    </div>
+    <nav class="appstore-cat-menu" aria-label="Kategori Gezintisi">
+      {categories.map((cat) => (
+        <a href={cat.href} class="appstore-cat-item">
+          <span class="cat-item-icon" aria-hidden="true">
+            {cat.icon === 'chart' && (
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            )}
+            {cat.icon === 'cash' && (
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="3"></circle></svg>
+            )}
+            {cat.icon === 'calc' && (
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line></svg>
+            )}
+            {cat.icon === 'trend' && (
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg>
+            )}
+            {cat.icon === 'box' && (
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            )}
+            {cat.icon === 'tag' && (
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><circle cx="7" cy="7" r="1.5"></circle></svg>
+            )}
+            {cat.icon === 'users' && (
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+            )}
+            {cat.icon === 'gauge' && (
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            )}
+          </span>
+          <span class="cat-item-title">{cat.name}</span>
+        </a>
+      ))}
+    </nav>
+  </div>
 </aside>
 
 <!-- iOS Mobil Üst Başlık (Apple App Store Large Title Header) -->
@@ -133,10 +177,10 @@ const searchData = allTemplates.map((t) => ({
   <div class="as-ios-topbar-header">
     <div class="as-ios-topbar-left">
       <span class="as-ios-date">
-        {activeTab === 'today' ? 'GÜNÜN ÖNE ÇIKANLARI' : activeTab === 'templates' ? 'HAZIR SİSTEMLER' : activeTab === 'custom' ? 'TERZİ USULÜ' : activeTab === 'guide' ? 'DOKÜMANTASYON' : activeTab === 'demo' ? 'KEŞİF & ARAMA' : 'EXCEL ARŞİV'}
+        {activeTab === 'today' ? 'ANA SAYFA' : activeTab === 'templates' ? 'HAZIR SİSTEMLER' : activeTab === 'custom' ? 'TERZİ USULÜ' : activeTab === 'guide' ? 'DOKÜMANTASYON' : activeTab === 'demo' ? 'KEŞİF & ARAMA' : 'EXCEL ARŞİV'}
       </span>
       <h1 class="as-ios-large-title">
-        {activeTab === 'today' ? 'Bugün' : activeTab === 'templates' ? 'Şablonlar' : activeTab === 'custom' ? 'Size Özel' : activeTab === 'demo' ? 'Arayın' : activeTab === 'guide' ? 'Rehber' : 'İletişim'}
+        {activeTab === 'today' ? 'Ana Sayfa' : activeTab === 'templates' ? 'Şablonlar' : activeTab === 'custom' ? 'Size Özel' : activeTab === 'demo' ? 'Arayın' : activeTab === 'guide' ? 'Rehber' : 'İletişim'}
       </h1>
     </div>
     <a href="/hakkinda" class="as-ios-profile-btn" aria-label="Profil ve Hakkımızda">
@@ -175,15 +219,13 @@ const searchData = allTemplates.map((t) => ({
 
 <!-- iOS Mobil Alt Sekme Çubuğu (Apple iOS Bottom Tab Bar — 5 Sekme Birebir Model) -->
 <nav class="as-ios-tabbar" aria-label="App Store Mobil Alt Gezinme">
-  <!-- 1. Bugün -->
-  <a href="/" class={`as-tab-link ${activeTab === 'today' ? 'is-active' : ''}`} aria-label="Bugün sekmesi">
+  <!-- 1. Ana Sayfa -->
+  <a href="/" class={`as-tab-link ${activeTab === 'today' ? 'is-active' : ''}`} aria-label="Ana Sayfa sekmesi">
     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-      <line x1="16" y1="2" x2="16" y2="6"></line>
-      <line x1="8" y1="2" x2="8" y2="6"></line>
-      <line x1="3" y1="10" x2="21" y2="10"></line>
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      <polyline points="9 22 9 12 15 12 15 22"></polyline>
     </svg>
-    <span>Bugün</span>
+    <span>Ana Sayfa</span>
   </a>
 
   <!-- 2. Şablonlar -->
@@ -362,10 +404,79 @@ const searchData = allTemplates.map((t) => ({
   }
 
   /* Ayırıcı */
-  .appstore-nav-divider {
+  .appstore-nav-divider,
+  .appstore-sidebar-divider {
     height: 1px;
     background: #e5e5ea;
-    margin: 12px 6px;
+    margin: 14px 6px 12px;
+  }
+
+  /* Kategoriler Bölümü (Madde 5) */
+  .appstore-sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .appstore-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px 6px;
+  }
+  .appstore-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8493a5;
+  }
+  .appstore-section-more {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #4b97c3;
+    text-decoration: none;
+    transition: color 0.12s ease;
+  }
+  .appstore-section-more:hover {
+    color: #0071e3;
+  }
+  .appstore-cat-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .appstore-cat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #44556a;
+    text-decoration: none;
+    transition: all 0.12s ease;
+  }
+  .appstore-cat-item:hover {
+    background: #edf1f9;
+    color: #1d1d1f;
+  }
+  .cat-item-icon {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    flex-shrink: 0;
+  }
+  .appstore-cat-item:hover .cat-item-icon {
+    color: #4b97c3;
+  }
+  .cat-item-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   /* Masaüstünde mobil öğeleri gizle */
