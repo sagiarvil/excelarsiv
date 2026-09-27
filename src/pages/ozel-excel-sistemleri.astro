@@ -149,24 +149,6 @@ import AppStoreSidebar from '../components/appstore/AppStoreSidebar.astro';
       flex-direction:column;
     }
 
-    /* Pencere Düğmeleri ● ● ● */
-    .appstore-window-controls{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      margin-bottom:20px;
-      padding-left:4px;
-    }
-    .win-btn{
-      width:12px;
-      height:12px;
-      border-radius:50%;
-      display:inline-block;
-    }
-    .win-close{background:#ff5f56;border:1px solid #e0443e}
-    .win-minimize{background:#ffbd2e;border:1px solid #dea123}
-    .win-zoom{background:#27c93f;border:1px solid #1aab29}
-
     /* Logo & Marka */
     .appstore-brand{
       display:flex;
@@ -1012,13 +994,6 @@ import AppStoreSidebar from '../components/appstore/AppStoreSidebar.astro';
   <div class="appstore-window">
     <!-- Sol macOS Kenar Çubuğu (App Store Sidebar — Yalnızca Masaüstü) -->
     <aside class="appstore-sidebar" aria-label="App Store Gezintisi">
-      <!-- Pencere Düğmeleri ● ● ● -->
-      <div class="appstore-window-controls" aria-hidden="true">
-        <span class="win-btn win-close"></span>
-        <span class="win-btn win-minimize"></span>
-        <span class="win-btn win-zoom"></span>
-      </div>
-
       <!-- Marka -->
       <a href="/" class="appstore-brand" aria-label="Excel Arşiv Ana Sayfa">
         <div class="appstore-logo-box">
