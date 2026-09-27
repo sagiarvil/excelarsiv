@@ -55,6 +55,24 @@ const orgLd = JSON.stringify({
       sameAs: [...YAZAR.sameAs],
       founder: { '@id': yazarPersonId(site) },
     },
+    {
+      '@type': 'Dataset',
+      '@id': new URL('/#dataset', site).toString(),
+      name: 'Excel Arşiv Web Standartları ve Otorite Metrikleri Veri Seti',
+      description: 'excelarsiv.com üzerindeki teknik arama, GEO ve AEO optimizasyon metriklerinin kamuya açık doğrulanmış veri seti.',
+      url: 'https://excelarsiv.com',
+      sameAs: [
+        'https://www.wikidata.org/wiki/Special:Search?search=Excel%20Ar%C5%9Fiv',
+        'https://excelarsiv.com/standard/',
+      ],
+      creator: {
+        '@type': 'Organization',
+        name: 'Excel Arşiv',
+        url: 'https://excelarsiv.com',
+      },
+      isAccessibleForFree: true,
+      license: 'https://creativecommons.org/licenses/by/4.0/',
+    },
   ],
 });
 ---
