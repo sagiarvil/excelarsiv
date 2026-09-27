@@ -138,15 +138,15 @@ body[data-appstore-mode] .hero-section {
   border-radius: 20px;
   padding: 36px 40px;
   display: grid;
-  grid-template-columns: 1.05fr 1.35fr;
+  grid-template-columns: 0.95fr 1.55fr;
   align-items: center;
-  gap: 32px;
+  gap: 36px;
   margin-bottom: 36px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(68, 85, 106, 0.05);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
   .as-hero-banner {
     grid-template-columns: 1fr;
     padding: 28px 24px;
@@ -242,34 +242,38 @@ body[data-appstore-mode] .hero-section {
 }
 
 .as-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #cbd5e1;
   display: inline-block;
+  cursor: pointer;
+  border: none;
+  padding: 0;
   transition: all 0.2s ease;
 }
 
 .as-dot.is-active {
   background: var(--as-green);
-  width: 9px;
-  height: 9px;
+  width: 22px;
+  border-radius: 6px;
 }
 
-/* MacBook Mockup Sahnesi */
+/* Hero Mockup Sahnesi & Dashboard Carousel */
 .as-hero-mockup-scene {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .as-macbook-frame {
   width: 100%;
   background: #1e293b;
-  border-radius: 12px 12px 2px 2px;
+  border-radius: 14px 14px 2px 2px;
   padding: 10px 10px 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.22);
   border: 1px solid #334155;
   position: relative;
 }
@@ -283,12 +287,118 @@ body[data-appstore-mode] .hero-section {
 }
 
 .as-macbook-screen {
-  background: #ffffff;
-  border-radius: 6px;
+  background: #f8fafc;
+  border-radius: 8px;
   overflow: hidden;
-  padding: 12px 14px;
+  padding: 0;
+  position: relative;
+}
+
+/* Dashboard Carousel Track */
+.as-dashboard-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.as-dashboard-slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.as-dashboard-slide {
+  min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.as-dashboard-slide-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.as-dashboard-slide-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 11px;
+  font-weight: 700;
   color: #1e293b;
+}
+
+.as-dashboard-slide-tag .tag-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #107c41;
+}
+
+.as-dashboard-slide-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #0071e3;
+  background: #eef4ff;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.as-dashboard-slide-img-wrap {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1024 / 645;
+  background: #f8fafc;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.as-dashboard-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Carousel Kontrol Butonları (Önceki/Sonraki) */
+.as-dashboard-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: #1e293b;
+  transition: all 0.15s ease;
+}
+
+.as-dashboard-nav-btn:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.as-dashboard-nav-prev {
+  left: 8px;
+}
+
+.as-dashboard-nav-next {
+  right: 8px;
 }
 
 .as-macbook-base {

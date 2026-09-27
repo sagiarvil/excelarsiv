@@ -100,12 +100,11 @@ const catalogBreadcrumbLd = JSON.stringify({
               <span>Şablonları Keşfet</span>
               <span aria-hidden="true">›</span>
             </a>
-            <div class="as-hero-dots" aria-hidden="true">
-              <span class="as-dot is-active"></span>
-              <span class="as-dot"></span>
-              <span class="as-dot"></span>
-              <span class="as-dot"></span>
-              <span class="as-dot"></span>
+            <div class="as-hero-dots" aria-label="Dashboard Panelleri Gezinmesi" data-hero-dots>
+              <button type="button" class="as-dot is-active" aria-label="1. Panel: Borç / Alacak ve Yaşlandırma Analizi" data-slide-index="0"></button>
+              <button type="button" class="as-dot" aria-label="2. Panel: İşletme Sermayesi ve Finansal Sağlık" data-slide-index="1"></button>
+              <button type="button" class="as-dot" aria-label="3. Panel: Gelir Gider ve Bütçe Sapma Kontrolü" data-slide-index="2"></button>
+              <button type="button" class="as-dot" aria-label="4. Panel: CFO Nakit Akışı, ROE ve Hissedarlık" data-slide-index="3"></button>
             </div>
           </div>
 
@@ -113,78 +112,118 @@ const catalogBreadcrumbLd = JSON.stringify({
             <div class="as-macbook-frame">
               <div class="as-macbook-notch"></div>
               <div class="as-macbook-screen">
-                <!-- Dashboard İçeriği (4 Renkli Karar Kokpiti) -->
-                <div class="as-mini-charts-row" style="margin-bottom:8px;">
-                  <div class="as-mini-chart-card">
-                    <div class="as-chart-title" style="display:flex;justify-content:space-between;align-items:center;">
-                      <span>Haftalık Nakit Akışı & Likidite</span>
-                      <div style="display:flex;gap:3px;align-items:center;">
-                        <span style="display:inline-block;width:5px;height:5px;background:#107c41;border-radius:50%;"></span>
-                        <span style="display:inline-block;width:5px;height:5px;background:#0071e3;border-radius:50%;"></span>
-                        <span style="display:inline-block;width:5px;height:5px;background:#e11d48;border-radius:50%;"></span>
-                      </div>
-                    </div>
-                    <svg viewBox="0 0 160 50" width="100%" height="40" fill="none" aria-hidden="true">
-                      <!-- Grid çizgisi -->
-                      <line x1="0" y1="42" x2="160" y2="42" stroke="#f1f5f9" stroke-width="1" />
-                      <line x1="0" y1="24" x2="160" y2="24" stroke="#f1f5f9" stroke-width="1" />
-                      <!-- Çok Renkli Barlar: Yeşil Giriş, Mavi Tahvil/Yatırım, Kırmızı Çıkış -->
-                      <rect x="6" y="24" width="7" height="18" fill="#107c41" rx="1.5" />
-                      <rect x="15" y="32" width="7" height="10" fill="#e11d48" rx="1.5" />
-                      <rect x="28" y="16" width="7" height="26" fill="#107c41" rx="1.5" />
-                      <rect x="37" y="28" width="7" height="14" fill="#e11d48" rx="1.5" />
-                      <rect x="50" y="10" width="7" height="32" fill="#107c41" rx="1.5" />
-                      <rect x="59" y="22" width="7" height="20" fill="#e11d48" rx="1.5" />
-                      <rect x="72" y="8" width="7" height="34" fill="#0071e3" rx="1.5" />
-                      <rect x="81" y="25" width="7" height="17" fill="#e11d48" rx="1.5" />
-                      <rect x="94" y="6" width="7" height="36" fill="#107c41" rx="1.5" />
-                      <rect x="103" y="20" width="7" height="22" fill="#e11d48" rx="1.5" />
-                      <!-- Sarı Tahmin & Güvenli Aralık Çizgisi -->
-                      <path d="M8 20 Q 55 12, 100 8 T 155 4" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" fill="none" />
-                      <circle cx="155" cy="4" r="3" fill="#f59e0b" />
-                    </svg>
-                  </div>
-                  <div class="as-mini-chart-card">
-                    <div class="as-chart-title">Bütçe / Harcama Sapması</div>
-                    <div style="display:flex;align-items:center;gap:6px;">
-                      <svg viewBox="0 0 36 36" width="38" height="38" aria-hidden="true">
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f1f5f9" stroke-width="5.5"/>
-                        <!-- Yeşil (%52 Plan İçi) -->
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#107c41" stroke-width="5.5" stroke-dasharray="52 48" stroke-dashoffset="25"/>
-                        <!-- Mavi (%26 Genişleme) -->
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#0071e3" stroke-width="5.5" stroke-dasharray="26 74" stroke-dashoffset="73"/>
-                        <!-- Sarı (%14 Yakın İzleme) -->
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f59e0b" stroke-width="5.5" stroke-dasharray="14 86" stroke-dashoffset="47"/>
-                        <!-- Kırmızı (%8 Limit Aşımı) -->
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#e11d48" stroke-width="5.5" stroke-dasharray="8 92" stroke-dashoffset="33"/>
-                      </svg>
-                      <div style="font-size:7px;color:#475569;line-height:1.3;font-weight:600;">
-                        <div style="color:#107c41;">● Bütçe İçi %52</div>
-                        <div style="color:#0071e3;">● Geliştirme %26</div>
-                        <div style="color:#d97706;">● Eşik Yakın %14</div>
-                        <div style="color:#e11d48;">● Limit Aşımı %8</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <!-- Canlı & Geniş Yönetici Dashboard Carouseli (4 Gerçek Excel Karar Paneli) -->
+                <div class="as-dashboard-carousel" data-hero-carousel>
+                  <button type="button" class="as-dashboard-nav-btn as-dashboard-nav-prev" aria-label="Önceki Dashboard Paneli" data-carousel-prev>‹</button>
+                  <button type="button" class="as-dashboard-nav-btn as-dashboard-nav-next" aria-label="Sonraki Dashboard Paneli" data-carousel-next>›</button>
 
-                <!-- Alt Tablo Bilgileri (4 Renkli Durum Sinyalleri) -->
-                <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:6px 8px;font-size:8.5px;">
-                  <div style="font-weight:700;margin-bottom:4px;color:#1e293b;display:flex;justify-content:space-between;align-items:center;">
-                    <span>Tahsilat & Nakit Pozisyonu</span>
-                    <span style="font-size:7.5px;color:#107c41;background:#e6f4ea;padding:1px 5px;border-radius:4px;font-weight:700;">DENGELİ</span>
-                  </div>
-                  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;font-size:8px;">
-                    <div style="border-left:2px solid #0071e3;padding-left:4px;">Toplam: <b style="color:#0071e3;display:block;">₺613.000</b></div>
-                    <div style="border-left:2px solid #107c41;padding-left:4px;">Tahsilat: <b style="color:#107c41;display:block;">₺420.000</b></div>
-                    <div style="border-left:2px solid #f59e0b;padding-left:4px;">Vadesi Gelen: <b style="color:#d97706;display:block;">₺68.000</b></div>
-                    <div style="border-left:2px solid #e11d48;padding-left:4px;">Geciken: <b style="color:#e11d48;display:block;">₺12.500</b></div>
+                  <div class="as-dashboard-slides" data-carousel-slides>
+                    <!-- Slayt 1: Alacak / Borç Yaşlandırma & Vade Takibi -->
+                    <article class="as-dashboard-slide">
+                      <div class="as-dashboard-slide-header">
+                        <span class="as-dashboard-slide-tag">
+                          <span class="tag-dot"></span>
+                          <span>Alacak / Borç Yaşlandırma & Vade Takip Sistemi</span>
+                        </span>
+                        <span class="as-dashboard-slide-badge">CANLI KARAR KOKPİTİ</span>
+                      </div>
+                      <div class="as-dashboard-slide-img-wrap">
+                        <picture>
+                          <source srcset="/images/hero-dashboards/dashboard-receivables-payables.webp" type="image/webp" />
+                          <img
+                            src="/images/hero-dashboards/dashboard-receivables-payables.png"
+                            alt="Alacak ve Borç Yaşlandırma Excel Karar Paneli"
+                            width="1024"
+                            height="650"
+                            loading="eager"
+                            decoding="async"
+                            class="as-dashboard-slide-img"
+                          />
+                        </picture>
+                      </div>
+                    </article>
+
+                    <!-- Slayt 2: İşletme Sermayesi ve Likidite Kontrolü -->
+                    <article class="as-dashboard-slide">
+                      <div class="as-dashboard-slide-header">
+                        <span class="as-dashboard-slide-tag">
+                          <span class="tag-dot" style="background:#0071e3;"></span>
+                          <span>İşletme Sermayesi, Stok Devri & Likidite Paneli</span>
+                        </span>
+                        <span class="as-dashboard-slide-badge">CFO FİNANS MOTORU</span>
+                      </div>
+                      <div class="as-dashboard-slide-img-wrap">
+                        <picture>
+                          <source srcset="/images/hero-dashboards/dashboard-working-capital-kpis.webp" type="image/webp" />
+                          <img
+                            src="/images/hero-dashboards/dashboard-working-capital-kpis.png"
+                            alt="İşletme Sermayesi ve KPI Takip Excel Sistemi"
+                            width="1024"
+                            height="643"
+                            loading="lazy"
+                            decoding="async"
+                            class="as-dashboard-slide-img"
+                          />
+                        </picture>
+                      </div>
+                    </article>
+
+                    <!-- Slayt 3: Gelir, Gider ve Bütçe Sapma Analizi -->
+                    <article class="as-dashboard-slide">
+                      <div class="as-dashboard-slide-header">
+                        <span class="as-dashboard-slide-tag">
+                          <span class="tag-dot" style="background:#f59e0b;"></span>
+                          <span>Gelir - Gider & Dinamik Bütçe Sapma Kontrolü</span>
+                        </span>
+                        <span class="as-dashboard-slide-badge">KOBİ KONTROL PANELİ</span>
+                      </div>
+                      <div class="as-dashboard-slide-img-wrap">
+                        <picture>
+                          <source srcset="/images/hero-dashboards/dashboard-budget-income-expense.webp" type="image/webp" />
+                          <img
+                            src="/images/hero-dashboards/dashboard-budget-income-expense.png"
+                            alt="Gelir Gider ve Bütçe Sapma Analizi Excel Paneli"
+                            width="1024"
+                            height="639"
+                            loading="lazy"
+                            decoding="async"
+                            class="as-dashboard-slide-img"
+                          />
+                        </picture>
+                      </div>
+                    </article>
+
+                    <!-- Slayt 4: Serbest Nakit Akışı, ROE ve Hissedar Değeri -->
+                    <article class="as-dashboard-slide">
+                      <div class="as-dashboard-slide-header">
+                        <span class="as-dashboard-slide-tag">
+                          <span class="tag-dot" style="background:#7c3aed;"></span>
+                          <span>Serbest Nakit Akışı, ROE & Değerleme Kokpiti</span>
+                        </span>
+                        <span class="as-dashboard-slide-badge">STRATEJİK YÖNETİM</span>
+                      </div>
+                      <div class="as-dashboard-slide-img-wrap">
+                        <picture>
+                          <source srcset="/images/hero-dashboards/dashboard-cfo-cashflow-equity.webp" type="image/webp" />
+                          <img
+                            src="/images/hero-dashboards/dashboard-cfo-cashflow-equity.png"
+                            alt="Serbest Nakit Akışı ve ROE Analizi Excel Paneli"
+                            width="1024"
+                            height="653"
+                            loading="lazy"
+                            decoding="async"
+                            class="as-dashboard-slide-img"
+                          />
+                        </picture>
+                      </div>
+                    </article>
                   </div>
                 </div>
               </div>
               <div class="as-macbook-base"></div>
             </div>
 
+            <!-- 3D Yeşil Excel Küpü -->
             <div class="as-floating-excel-cube" aria-hidden="true">X</div>
           </div>
         </section>
@@ -351,5 +390,88 @@ const catalogBreadcrumbLd = JSON.stringify({
       </main>
     </div>
   </div>
+
+  <script>
+    function initHeroDashboardCarousel() {
+      const carousel = document.querySelector<HTMLElement>('[data-hero-carousel]');
+      const slidesContainer = document.querySelector<HTMLElement>('[data-carousel-slides]');
+      const dotsContainer = document.querySelector<HTMLElement>('[data-hero-dots]');
+      const prevBtn = document.querySelector<HTMLButtonElement>('[data-carousel-prev]');
+      const nextBtn = document.querySelector<HTMLButtonElement>('[data-carousel-next]');
+
+      if (!carousel || !slidesContainer) return;
+
+      const slides = slidesContainer.querySelectorAll<HTMLElement>('.as-dashboard-slide');
+      const dots = dotsContainer ? dotsContainer.querySelectorAll<HTMLButtonElement>('.as-dot') : [];
+      const totalSlides = slides.length;
+      if (totalSlides <= 1) return;
+
+      let currentIndex = 0;
+      let timer: ReturnType<typeof setInterval> | null = null;
+
+      function goToSlide(index: number) {
+        currentIndex = (index + totalSlides) % totalSlides;
+        slidesContainer!.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('is-active', idx === currentIndex);
+        });
+      }
+
+      function nextSlide() {
+        goToSlide(currentIndex + 1);
+      }
+
+      function prevSlide() {
+        goToSlide(currentIndex - 1);
+      }
+
+      function startAutoPlay() {
+        stopAutoPlay();
+        timer = setInterval(nextSlide, 5000);
+      }
+
+      function stopAutoPlay() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          prevSlide();
+          startAutoPlay();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          nextSlide();
+          startAutoPlay();
+        });
+      }
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+          startAutoPlay();
+        });
+      });
+
+      carousel.addEventListener('mouseenter', stopAutoPlay);
+      carousel.addEventListener('mouseleave', startAutoPlay);
+
+      // Başlangıç
+      goToSlide(0);
+      startAutoPlay();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeroDashboardCarousel);
+    } else {
+      initHeroDashboardCarousel();
+    }
+  </script>
 </body>
 </html>
