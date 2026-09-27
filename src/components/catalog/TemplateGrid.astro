@@ -21,6 +21,18 @@ const categoryCounts = categories.reduce((acc, cat) => {
 ---
 
 <div class="template-grid-wrap" data-template-grid-wrap>
+  <!-- ARAMA BİLGİ VE TEMİZLEME ÇUBUĞU (Arama yapıldığında görünür) -->
+  <div class="catalog-search-status-bar" data-search-status-bar style="display: none;">
+    <div class="search-status-copy">
+      <span class="search-status-badge">ARAMA SONUCU</span>
+      <span class="search-status-text" data-search-status-text></span>
+    </div>
+    <button type="button" class="search-clear-btn" data-btn-clear-search aria-label="Aramayı temizle">
+      <span>Tüm Şablonları Göster</span>
+      <span aria-hidden="true">✕</span>
+    </button>
+  </div>
+
   <!-- KATEGORİ FİLTRELEME SEKMELERİ (Someka Tabbed Filter Bar) -->
   <div class="catalog-category-filter-bar" aria-label="Şablon Kategorileri">
     <div class="soho-tabs-nav" role="tablist">
@@ -86,23 +98,41 @@ const categoryCounts = categories.reduce((acc, cat) => {
 
     const items = Array.from(gridWrap.querySelectorAll<HTMLElement>('[data-template-item]'));
     const buttons = Array.from(gridWrap.querySelectorAll<HTMLButtonElement>('[data-cat-filter]'));
-    const searchInput = document.querySelector<HTMLInputElement>('#catalog-search-input') ||
-                        document.querySelector<HTMLInputElement>('[data-catalog-search]');
+    const searchInputs = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="q"], #catalog-search-input, [data-catalog-search]'));
     const emptyState = gridWrap.querySelector<HTMLElement>('[data-catalog-empty]');
     const resetBtn = gridWrap.querySelector<HTMLButtonElement>('[data-btn-reset-filter]');
+    const statusBar = gridWrap.querySelector<HTMLElement>('[data-search-status-bar]');
+    const statusText = gridWrap.querySelector<HTMLElement>('[data-search-status-text]');
+    const clearSearchBtn = gridWrap.querySelector<HTMLButtonElement>('[data-btn-clear-search]');
+    const countDisplay = document.querySelector('#all-templates-title span:last-child');
 
     let activeCategory = 'all';
+    let currentQuery = '';
 
-    function applyFilters() {
-      const rawQuery = (searchInput?.value ?? '').trim().toLocaleLowerCase('tr-TR');
+    function normalizeText(text: string): string {
+      return (text || '')
+        .trim()
+        .toLocaleLowerCase('tr-TR')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/ı/g, 'i')
+        .replace(/ğ/g, 'g')
+        .replace(/ü/g, 'u')
+        .replace(/ş/g, 's')
+        .replace(/ö/g, 'o')
+        .replace(/ç/g, 'c');
+    }
+
+    function applyFilters(shouldScroll = false) {
+      const q = normalizeText(currentQuery);
       let visibleCount = 0;
 
       items.forEach((item) => {
         const itemCat = item.getAttribute('data-category') ?? '';
         const itemName = item.getAttribute('data-name') ?? '';
+        const normalizedItemName = normalizeText(itemName);
 
         const matchesCat = activeCategory === 'all' || itemCat === activeCategory;
-        const matchesSearch = rawQuery.length === 0 || itemName.includes(rawQuery);
+        const matchesSearch = q.length === 0 || normalizedItemName.includes(q);
 
         if (matchesCat && matchesSearch) {
           item.style.display = '';
@@ -114,8 +144,26 @@ const categoryCounts = categories.reduce((acc, cat) => {
         }
       });
 
+      if (countDisplay) {
+        countDisplay.textContent = `(${visibleCount})`;
+      }
+
+      if (statusBar && statusText) {
+        if (currentQuery.trim().length > 0) {
+          statusBar.style.display = 'flex';
+          statusText.innerHTML = `<strong>“${currentQuery.trim()}”</strong> için <strong>${visibleCount}</strong> sistem listelendi`;
+        } else {
+          statusBar.style.display = 'none';
+        }
+      }
+
       if (emptyState) {
         emptyState.style.display = visibleCount === 0 ? 'flex' : 'none';
+      }
+
+      if (shouldScroll && currentQuery.trim().length > 0) {
+        const target = statusBar || document.getElementById('tum-sablonlar') || gridWrap;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
 
@@ -123,24 +171,40 @@ const categoryCounts = categories.reduce((acc, cat) => {
       btn.addEventListener('click', () => {
         activeCategory = btn.getAttribute('data-cat-filter') ?? 'all';
         buttons.forEach((b) => b.classList.toggle('is-active', b === btn));
-        applyFilters();
+        applyFilters(false);
       });
     });
 
-    if (searchInput) {
-      searchInput.addEventListener('input', applyFilters);
-    }
+    searchInputs.forEach((input) => {
+      input.addEventListener('input', () => {
+        currentQuery = input.value;
+        // Diğer inputları da senkronize et
+        searchInputs.forEach((other) => {
+          if (other !== input) other.value = input.value;
+        });
+        applyFilters(false);
+      });
+    });
+
+    const clearAll = () => {
+      currentQuery = '';
+      activeCategory = 'all';
+      searchInputs.forEach((i) => (i.value = ''));
+      buttons.forEach((b) => b.classList.toggle('is-active', b.getAttribute('data-cat-filter') === 'all'));
+      if (window.location.search) {
+        window.history.replaceState({}, '', window.location.pathname);
+      }
+      applyFilters(false);
+    };
 
     if (resetBtn) {
-      resetBtn.addEventListener('click', () => {
-        activeCategory = 'all';
-        buttons.forEach((b) => b.classList.toggle('is-active', b.getAttribute('data-cat-filter') === 'all'));
-        if (searchInput) searchInput.value = '';
-        applyFilters();
-      });
+      resetBtn.addEventListener('click', clearAll);
+    }
+    if (clearSearchBtn) {
+      clearSearchBtn.addEventListener('click', clearAll);
     }
 
-    // URL parametre kontrolü: ?kategori=slug
+    // URL parametre kontrolü: ?kategori=slug ve ?q=terim
     const urlParams = new URLSearchParams(window.location.search);
     const catParam = urlParams.get('kategori');
     const qParam = urlParams.get('q');
@@ -148,15 +212,20 @@ const categoryCounts = categories.reduce((acc, cat) => {
     if (catParam) {
       const matchingBtn = buttons.find((b) => b.getAttribute('data-cat-filter') === catParam);
       if (matchingBtn) {
-        matchingBtn.click();
+        activeCategory = catParam;
+        buttons.forEach((b) => b.classList.toggle('is-active', b === matchingBtn));
       }
-    } else if (qParam && searchInput) {
-      searchInput.value = qParam;
-      applyFilters();
+    }
+
+    if (qParam && qParam.trim().length > 0) {
+      currentQuery = qParam.trim();
+      searchInputs.forEach((i) => (i.value = currentQuery));
+      applyFilters(true);
+    } else if (catParam) {
+      applyFilters(false);
     }
   }
 
-  // DOM hazır olduğunda veya Astro sayfa geçişlerinde çalıştır
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initCatalogFilter);
   } else {
@@ -169,6 +238,56 @@ const categoryCounts = categories.reduce((acc, cat) => {
   .template-grid-wrap {
     width: 100%;
     margin-inline: auto;
+  }
+
+  /* ARAMA BİLGİ VE TEMİZLEME ÇUBUĞU */
+  .catalog-search-status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    background: #edf1f9;
+    border: 1px solid #cfe0f5;
+    border-radius: 12px;
+  }
+  .search-status-copy {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .search-status-badge {
+    background: #0071e3;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .search-status-text {
+    font-size: 14px;
+    color: #1d1d1f;
+  }
+  .search-clear-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #ffffff;
+    border: 1px solid #d0d9e5;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #44556a;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .search-clear-btn:hover {
+    background: #e5e5ea;
+    color: #1d1d1f;
   }
 
   /* KATEGORİ FİLTRELEME SEKMELERİ (PREMIUM APPLE CAPSULE DOCK — SAĞA KAYMAZ, WRAP EDER) */
