@@ -1,19 +1,21 @@
-# excelarsiv.com — Search Revenue OS crawler policy
-# Public canonical commerce/content is searchable; private technical surfaces stay blocked.
+# excelarsiv.com — Search & AI Crawler Discovery Policy
+# Full indexation enabled for all major search engines and AI foundation models.
 
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
-Disallow: /*?*
-Disallow: /*?q=*
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Smartphone
+Allow: /
 
 User-agent: Bingbot
 Allow: /
 Disallow: /api/
-Disallow: /*?*
-Disallow: /*?q=*
 
-# --- Search / retrieval crawlers ---
+# --- Search & Retrieval AI Crawlers ---
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /api/
@@ -38,7 +40,7 @@ User-agent: PerplexityBot
 Allow: /
 Disallow: /api/
 
-# --- Training / model-improvement crawlers: separate policy class ---
+# --- AI Training & Foundation Models ---
 User-agent: GPTBot
 Allow: /
 Disallow: /api/
@@ -48,34 +50,44 @@ Allow: /
 Disallow: /api/
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
+Disallow: /api/
+
+User-agent: Applebot
+Allow: /
+Disallow: /api/
 
 User-agent: Applebot-Extended
-Disallow: /
+Allow: /
+Disallow: /api/
 
 User-agent: CCBot
-Disallow: /
+Allow: /
+Disallow: /api/
 
 User-agent: Bytespider
-Disallow: /
+Allow: /
+Disallow: /api/
 
 User-agent: Amazonbot
-Disallow: /
+Allow: /
+Disallow: /api/
 
 User-agent: meta-externalagent
-Disallow: /
+Allow: /
+Disallow: /api/
 
 User-agent: Meta-ExternalAgent
-Disallow: /
+Allow: /
+Disallow: /api/
 
 User-agent: cohere-ai
-Disallow: /
+Allow: /
+Disallow: /api/
 
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /*?*
-Disallow: /*?q=*
 
 Sitemap: https://excelarsiv.com/sitemap.xml
 # LLM Knowledge Graph & Discovery Layer: https://excelarsiv.com/llms.txt
