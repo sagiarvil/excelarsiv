@@ -5,13 +5,31 @@
     <link>https://excelarsiv.com</link>
     <description>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</description>
     <language>tr-TR</language>
-    <lastBuildDate>Sun, 27 Sep 2026 10:37:16 GMT</lastBuildDate>
-    <pubDate>Sun, 27 Sep 2026 10:37:16 GMT</pubDate>
+    <lastBuildDate>Sun, 27 Sep 2026 10:48:42 GMT</lastBuildDate>
+    <pubDate>Sun, 27 Sep 2026 10:48:42 GMT</pubDate>
     <atom:link href="https://excelarsiv.com/rss.xml" rel="self" type="application/rss+xml" />
     <managingEditor>barisbagirlar@gmail.com (Barış Bağırlar)</managingEditor>
     <webMaster>barisbagirlar@gmail.com (Barış Bağırlar)</webMaster>
     <docs>https://www.rssboard.org/rss-specification</docs>
     <generator>Excel Arşiv Feed Engine v3.0</generator>
+    <item>
+      <title>Finansal Karar ve Excel Sistemleri | Excel Arşiv</title>
+      <link>https://excelarsiv.com/</link>
+      <guid isPermaLink="true">https://excelarsiv.com/</guid>
+      <description>Dağınık Excel tablolarını tek ekranda net karara dönüştürün. Nakit akışı, bütçe, kredi, kârlılık ve muhasebe için profesyonel hazır Excel sistemleri.</description>
+      <category>home</category>
+      <dc:creator>Barış Bağırlar</dc:creator>
+      <pubDate>Sun, 27 Sep 2026 10:48:42 GMT</pubDate>
+    </item>
+    <item>
+      <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
+      <link>https://excelarsiv.com/sablonlar</link>
+      <guid isPermaLink="true">https://excelarsiv.com/sablonlar</guid>
+      <description>Nakit akışı, kârlılık, tahsilat, stok, bütçe ve daha fazlası için profesyonel Excel şablonları. macOS App Store vitrin düzeninde inceleyin.</description>
+      <category>kategori</category>
+      <dc:creator>Barış Bağırlar</dc:creator>
+      <pubDate>Sun, 27 Sep 2026 10:48:42 GMT</pubDate>
+    </item>
     <item>
       <title>İhtiyaca Özel Excel Finans ve Karar Sistemleri | Excel Arşiv</title>
       <link>https://excelarsiv.com/ozel-excel-sistemleri</link>
@@ -20,15 +38,6 @@
       <category>diger</category>
       <dc:creator>Barış Bağırlar</dc:creator>
       <pubDate>Sun, 27 Sep 2026 10:37:16 GMT</pubDate>
-    </item>
-    <item>
-      <title>Finansal Karar ve Excel Sistemleri | Excel Arşiv</title>
-      <link>https://excelarsiv.com/</link>
-      <guid isPermaLink="true">https://excelarsiv.com/</guid>
-      <description>Dağınık Excel tablolarını tek ekranda net karara dönüştürün. Nakit akışı, bütçe, kredi, kârlılık ve muhasebe için profesyonel hazır Excel sistemleri.</description>
-      <category>home</category>
-      <dc:creator>Barış Bağırlar</dc:creator>
-      <pubDate>Sat, 26 Sep 2026 20:49:17 GMT</pubDate>
     </item>
     <item>
       <title>Bütçe Excel Şablonları | Planlama ve Maliyet Takibi</title>
@@ -1431,15 +1440,6 @@
       <guid isPermaLink="true">https://excelarsiv.com/karar/ttk-376-sermaye-kaybi-excel</guid>
       <description>Öz kaynak erimesi, sermaye kaybı ve borca batıklık göstergelerini değerlendirmek için uygun Excel sistemini görün.</description>
       <category>diger</category>
-      <dc:creator>Barış Bağırlar</dc:creator>
-      <pubDate>Sat, 26 Sep 2026 13:15:52 GMT</pubDate>
-    </item>
-    <item>
-      <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
-      <link>https://excelarsiv.com/sablonlar</link>
-      <guid isPermaLink="true">https://excelarsiv.com/sablonlar</guid>
-      <description>Nakit akışı, kârlılık, tahsilat, stok, bütçe ve daha fazlası için profesyonel Excel şablonları. macOS App Store vitrin düzeninde inceleyin.</description>
-      <category>kategori</category>
       <dc:creator>Barış Bağırlar</dc:creator>
       <pubDate>Sat, 26 Sep 2026 13:15:52 GMT</pubDate>
     </item>
