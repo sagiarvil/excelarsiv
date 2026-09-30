@@ -5,13 +5,26 @@
   <subtitle>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://excelarsiv.com/atom.xml" />
   <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-  <updated>2026-09-30T16:23:36.000Z</updated>
+  <updated>2026-09-30T16:49:02.000Z</updated>
   <generator uri="https://excelarsiv.com/" version="3.0">Excel Arşiv Feed Engine</generator>
   <author>
     <name>Barış Bağırlar</name>
     <email>barisbagirlar@gmail.com</email>
     <uri>https://excelarsiv.com/hakkinda</uri>
   </author>
+  <entry>
+    <id>https://excelarsiv.com/</id>
+    <title>Finansal Karar ve Excel Sistemleri | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
+    <updated>2026-09-30T16:49:02.000Z</updated>
+    <published>2026-09-30T16:49:02.000Z</published>
+    <summary>Dağınık Excel tablolarını tek ekranda net karara dönüştürün. Nakit akışı, bütçe, kredi, kârlılık ve muhasebe için profesyonel hazır Excel sistemleri.</summary>
+    <category term="home" label="home" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
   <entry>
     <id>https://excelarsiv.com/nasil-calisir</id>
     <title>Nasıl Çalışır? 10 Saniyede Teslimat | Excel Arşiv</title>
@@ -124,19 +137,6 @@
     <published>2026-09-30T15:41:22.000Z</published>
     <summary>Stok takip Excel şablonlarıyla giriş çıkış, satış, stok devir ve stokta bağlı nakdi izleyin; hazır sistemleri karşılaştırıp demo ile inceleyin.</summary>
     <category term="kategori" label="kategori" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/</id>
-    <title>Finansal Karar ve Excel Sistemleri | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-    <updated>2026-09-30T15:27:57.000Z</updated>
-    <published>2026-09-30T15:27:57.000Z</published>
-    <summary>Dağınık Excel tablolarını tek ekranda net karara dönüştürün. Nakit akışı, bütçe, kredi, kârlılık ve muhasebe için profesyonel hazır Excel sistemleri.</summary>
-    <category term="home" label="home" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>
