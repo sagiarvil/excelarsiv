@@ -166,9 +166,21 @@ const howToLd = JSON.stringify({
 
         <!-- n8n & Dağıtım Otomasyonu Mimarisi -->
         <N8nWorkflowVisualizer
+          theme="blue"
+          badge="10 SANİYEDE OTONOM TESLİMAT HATTI"
           title="Sipariş, Lisanslama ve E-Posta Dağıtım Otomasyonumuz"
           subtitle="Shopier webhook bildirimleri, kriptografik imza doğrulaması ve 10 saniyede e-posta teslimatı sağlayan akış"
-          sourceLabel="Shopier Webhook / Lisans İmzası"
+          sourceLabel="Shopier Webhook Bildirimi"
+          sourceType="Ödeme Girişi"
+          step1Title="Webhook HMAC-SHA256 Doğrulama"
+          step1Sub="Shopier İmza & Token Kontrolü"
+          step2Title="Lisans Üretimi & Arşivleme"
+          step2Sub="Tekil İndirme Tokeni & Kayıt"
+          aiRole1="Sipariş Bütünlüğü & Güvenlik"
+          aiRole2="E-posta Şablonu & Lisans Eşleme"
+          aiRole3="Teslimat Başarımı Çapraz Teyit"
+          output1Title="Anında Tarayıcıda 'İndir' Ekranı"
+          output2Title="10 Saniyede E-posta & Fatura Gönderimi"
         />
       </div>
     </section>
