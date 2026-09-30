@@ -58,7 +58,7 @@ const metrics = [
 ---
 
 <section
-  class={`as-live-trust-section scroll-reveal ${className}`}
+  class={`as-live-trust-section ${className}`}
   aria-labelledby="trust-counters-heading"
   data-live-trust-section
 >
@@ -80,8 +80,8 @@ const metrics = [
       </p>
     </div>
 
-    <!-- 4 Sütunlu Canlı Sayaç Izgarası (Staggered Animation) -->
-    <div class="as-counters-grid stagger-animation" data-counters-grid>
+    <!-- 4 Sütunlu Canlı Sayaç Izgarası -->
+    <div class="as-counters-grid" data-counters-grid>
       {metrics.map((m, idx) => (
         <div class="as-counter-cell" style={`--stagger-i: ${idx};`}>
           <div class="as-counter-cell-top">

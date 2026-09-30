@@ -540,6 +540,8 @@ const searchData = allTemplates.map((t) => ({
         return;
       }
 
+      document.documentElement.classList.add('ea-scroll-fx');
+
       const revealObserver = new IntersectionObserver(
         function(entries, observer) {
           entries.forEach(function(entry) {

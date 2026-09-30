@@ -478,46 +478,61 @@ html {
 }
 
 /* ==========================================================================
-   SCROLL REVEAL & ON-SCROLL FADE-IN ANIMATIONS (IntersectionObserver Standard)
+   SCROLL REVEAL & ON-SCROLL FADE-IN ANIMATIONS (Fail-Safe & Progressive Enhancement)
    ========================================================================== */
 .fade-in,
 .scroll-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+html.ea-scroll-fx .fade-in:not(.visible),
+html.ea-scroll-fx .scroll-reveal:not(.visible) {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
   will-change: opacity, transform;
 }
 
 .fade-in.visible,
 .scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-in-left {
+  opacity: 1;
+  transform: none;
+}
+
+html.ea-scroll-fx .fade-in-left:not(.visible) {
   opacity: 0;
-  transform: translateX(-28px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-24px);
   will-change: opacity, transform;
 }
 
 .fade-in-left.visible {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Stagger Animation (Kademeli Gecikme) */
 .stagger-animation > * {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: calc(var(--stagger-i, 0) * 80ms);
+  opacity: 1;
+  transform: none;
 }
 
-.stagger-animation.visible > *,
-.visible .stagger-animation > * {
-  opacity: 1;
-  transform: translateY(0);
+html.ea-scroll-fx .stagger-animation > *:not(.visible) {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--stagger-i, 0) * 70ms);
+}
+
+html.ea-scroll-fx .stagger-animation > *.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
