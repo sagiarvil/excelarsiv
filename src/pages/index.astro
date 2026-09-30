@@ -1111,10 +1111,48 @@ const homeJsonLd = {
       });
     }
 
+    // 4. Scroll Reveal & On-Scroll Fade-In Animation (IntersectionObserver)
+    function initScrollReveal() {
+      const revealElements = document.querySelectorAll(
+        '.scroll-reveal, .fade-in, .fade-in-left, .stagger-animation'
+      );
+      if (!revealElements.length) return;
+
+      if (!('IntersectionObserver' in window)) {
+        revealElements.forEach(function(el) {
+          el.classList.add('visible');
+        });
+        return;
+      }
+
+      const revealObserver = new IntersectionObserver(
+        function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          rootMargin: '0px 0px 50px 0px',
+          threshold: 0.05,
+        }
+      );
+
+      revealElements.forEach(function(el) {
+        revealObserver.observe(el);
+      });
+    }
+
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initHeroSearch);
+      document.addEventListener('DOMContentLoaded', () => {
+        initHeroSearch();
+        initScrollReveal();
+      });
     } else {
       initHeroSearch();
+      initScrollReveal();
     }
   </script>
 
@@ -1412,6 +1450,13 @@ const homeJsonLd = {
       clip: rect(0, 0, 0, 0);
       white-space: normal;
       border: 0;
+    }
+
+    /* Fallback Visibility Assurance for App Store Sections */
+    .scroll-reveal,
+    .stagger-animation > * {
+      opacity: 1 !important;
+      transform: none !important;
     }
   </style>
 </body>
