@@ -141,6 +141,134 @@ const robotsDirective = (!isSatista && isPlaceholder)
   : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
 
 const priceDisplay = t.priceTL ? `${new Intl.NumberFormat('tr-TR').format(t.priceTL)} ₺` : 'Teklif Alın';
+
+// Kategori bazlı renk teması ve n8n veri akış parametreleri
+type WorkflowTheme = 'emerald' | 'blue' | 'purple' | 'amber' | 'coral' | 'indigo';
+
+interface CategoryWorkflowConfig {
+  theme: WorkflowTheme;
+  badge: string;
+  sourceLabel: string;
+  sourceType: string;
+  step1Title: string;
+  step1Sub: string;
+  step2Title: string;
+  step2Sub: string;
+  aiRole1: string;
+  aiRole2: string;
+  aiRole3: string;
+  output1Title: string;
+  output2Title: string;
+}
+
+const categoryWorkflowMap: Record<string, CategoryWorkflowConfig> = {
+  'nakit-akisi': {
+    theme: 'emerald',
+    badge: '13 HAFTALIK NAKİT & LİKİDİTE HATTI',
+    sourceLabel: 'Banka Ekstresi & POS Mizanı',
+    sourceType: 'Nakit Girdisi',
+    step1Title: 'Ekstre Ayrıştırma & Mizan Çekimi',
+    step1Sub: 'MT940, CSV & Banka Entegrasyonu',
+    step2Title: 'Likidite Normalizasyonu',
+    step2Sub: '13 Haftalık Dinamik Nakit Takvimi',
+    aiRole1: 'Nakit Açığı & Stres Simülasyonu',
+    aiRole2: 'Vade & Faiz Risk Denetimi',
+    aiRole3: 'Çoklu Banka Bakiye Çapraz Kontrol',
+    output1Title: 'Nakit Akış Karar Kokpiti',
+    output2Title: 'Kritik Bakiye WhatsApp/Slack Alarmı'
+  },
+  'muhasebe-ve-vergi': {
+    theme: 'purple',
+    badge: 'VERGİ & MEVZUAT OTONOM DENETİMİ',
+    sourceLabel: 'e-Fatura / e-Arşiv / Mizan',
+    sourceType: 'Mali Veri',
+    step1Title: 'KDV & Tevkifat Ayrıştırma',
+    step1Sub: '213 VUK & GVK 2026 Parse',
+    step2Title: 'Matrah & Beyan Normalizasyonu',
+    step2Sub: 'Kümülatif Vergi & SGK Haritası',
+    aiRole1: 'Vergi Matrahı & Beyan Doğrulama',
+    aiRole2: 'Mevzuat & İstisna Çapraz Denetimi',
+    aiRole3: 'GİB & e-Defter Format Kontrolü',
+    output1Title: 'Mali Müşavir Karar Paneli',
+    output2Title: 'Vergi/SGK Son Gün SMS & E-posta'
+  },
+  'personel-ve-bordro': {
+    theme: 'coral',
+    badge: '4857 İŞ KANUNU & BORDRO MOTORU',
+    sourceLabel: 'Puantaj & Personel Kartları',
+    sourceType: 'İK Verisi',
+    step1Title: 'Puantaj & Vardiya Çözümleme',
+    step1Sub: 'Parmak İzi, Kartlı Geçiş & Mesai',
+    step2Title: 'Bordro Parametre Normalizasyonu',
+    step2Sub: 'SGK Tavanı & Gelir Vergisi Dilimi',
+    aiRole1: 'Kıdem/İhbar & Net-Brüt Ayrıştırma',
+    aiRole2: '4857 Sayılı Kanun Madde Kontrolü',
+    aiRole3: 'Asgari Geçim & Muafiyet Çapraz Teyit',
+    output1Title: 'İnsan Kaynakları Yönetim Kokpiti',
+    output2Title: 'Bordro Onay & Muhasebe Fişi'
+  },
+  'stok-ve-uretim': {
+    theme: 'amber',
+    badge: 'STOK DÖNGÜSÜ & FİRE KONTROLÜ',
+    sourceLabel: 'Depo Sayım & İrsaliye Verisi',
+    sourceType: 'Depo & Lojistik',
+    step1Title: 'Barkod & Lot Ayrıştırma',
+    step1Sub: 'FIFO/LIFO & Barkod Verisi',
+    step2Title: 'Emniyet Stoku Normalizasyonu',
+    step2Sub: 'Optimum Sipariş & Tedarik Süresi',
+    aiRole1: 'Stok Devir Hızı & Atıl Sermaye',
+    aiRole2: 'Üretim Reçetesi & Fire Analizi',
+    aiRole3: 'Tedarikçi Teslimat Sapma Teyidi',
+    output1Title: 'Stok & Tedarik Karar Kokpiti',
+    output2Title: 'Kritik Stok Seviyesi Telegram/SMS'
+  },
+  'butce-ve-planlama': {
+    theme: 'blue',
+    badge: 'DÖNEMSEL BÜTÇE & MALİYET HATTI',
+    sourceLabel: 'Gelir-Gider & Masraf Kalemleri',
+    sourceType: 'Bütçe Verisi',
+    step1Title: 'Masraf Merkezi Ayrıştırma',
+    step1Sub: 'Departman Bütçe & Fiili Gerçekleşme',
+    step2Title: 'Sapma Analizi & Normalizasyon',
+    step2Sub: 'Varyans & Dönemsel Karşılaştırma',
+    aiRole1: 'Bütçe Aşımı & Finansal Projeksiyon',
+    aiRole2: 'Maliyet Optimizasyonu Önerileri',
+    aiRole3: 'Yıllık Hedef Çapraz Doğrulama',
+    output1Title: 'Bütçe & Planlama Karar Kokpiti',
+    output2Title: 'Aşım Raporu Yönetim Özeti'
+  },
+  'finansal-analiz': {
+    theme: 'indigo',
+    badge: 'PATRON PANELİ & EBITDA ANALİZİ',
+    sourceLabel: 'Bilanço & Gelir Tablosu',
+    sourceType: 'Finansal Tablolar',
+    step1Title: 'Rasyo & Marj Ayrıştırma',
+    step1Sub: 'Likidite, Kaldıraç & Kârlılık',
+    step2Title: 'Konsolide Rapor Normalizasyonu',
+    step2Sub: 'TTK 376 Borca Batıklık Matrisi',
+    aiRole1: 'EBITDA & Kârlılık Muhakemesi',
+    aiRole2: 'Özkaynak & Sermaye Koruma Denetimi',
+    aiRole3: 'Sektörel Benchmark Çapraz Teyit',
+    output1Title: 'Üst Yönetim Karar Kokpiti',
+    output2Title: 'Haftalık Yönetim Kurulu Brifingi'
+  }
+};
+
+const currentWorkflow = categoryWorkflowMap[t.category] ?? {
+  theme: 'emerald' as WorkflowTheme,
+  badge: 'ENDÜSTRİYEL VERİ & AI HATTI',
+  sourceLabel: 'ERP & Operasyonel Tablo',
+  sourceType: 'Girdi Verisi',
+  step1Title: 'Veri Ayrıştırma & Temizleme',
+  step1Sub: 'PDF, Mizan & Ekstre Parsing',
+  step2Title: 'Normalizasyon & Yapılandırma',
+  step2Sub: 'Dinamik AST Veri Haritası',
+  aiRole1: 'Finansal Muhakeme & Stres',
+  aiRole2: 'Mevzuat & Formül Denetimi',
+  aiRole3: 'Çoklu Veri Çapraz Teyit',
+  output1Title: 'Excel Karar Kokpiti',
+  output2Title: 'Slack & WhatsApp Bildirimi'
+};
 ---
 
 <!DOCTYPE html>
@@ -322,9 +450,21 @@ const priceDisplay = t.priceTL ? `${new Intl.NumberFormat('tr-TR').format(t.pric
 
           <N8nWorkflowVisualizer
             compact={true}
+            theme={currentWorkflow.theme}
+            badge={currentWorkflow.badge}
             title={`${t.name} — Endüstriyel Veri ve AI Akış Şeması`}
             subtitle="Ham operasyonel verinin ayıklanması, 3'lü AI çapraz kontrolü ve Excel kokpitine otomatik aktarımı"
-            sourceLabel={t.category === 'finans' ? 'Banka & Mizan Verisi' : t.category === 'insan-kaynaklari' ? 'Puantaj & Bordro Verisi' : 'ERP & Operasyonel Tablo'}
+            sourceLabel={currentWorkflow.sourceLabel}
+            sourceType={currentWorkflow.sourceType}
+            step1Title={currentWorkflow.step1Title}
+            step1Sub={currentWorkflow.step1Sub}
+            step2Title={currentWorkflow.step2Title}
+            step2Sub={currentWorkflow.step2Sub}
+            aiRole1={currentWorkflow.aiRole1}
+            aiRole2={currentWorkflow.aiRole2}
+            aiRole3={currentWorkflow.aiRole3}
+            output1Title={currentWorkflow.output1Title}
+            output2Title={currentWorkflow.output2Title}
           />
 
           <RagPipelineVisualizer

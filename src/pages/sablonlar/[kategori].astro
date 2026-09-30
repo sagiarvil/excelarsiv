@@ -3,10 +3,137 @@ import '../../styles/global.css';
 import '../../styles/appstore-theme.css';
 import AppStoreSidebar from '../../components/appstore/AppStoreSidebar.astro';
 import TemplateGrid from '../../components/catalog/TemplateGrid.astro';
+import N8nWorkflowVisualizer from '../../components/automation/N8nWorkflowVisualizer.astro';
 import { getCollection } from 'astro:content';
 import { getTemplatesByCategory, getAllTemplates } from '../../lib/templates';
 import { categories, getCategoryName } from '../../lib/categories';
 import { kategoriKarar } from '../../data/kategori-karar';
+
+type WorkflowTheme = 'emerald' | 'blue' | 'purple' | 'amber' | 'coral' | 'indigo';
+
+interface CategoryWorkflowConfig {
+  theme: WorkflowTheme;
+  badge: string;
+  sourceLabel: string;
+  sourceType: string;
+  step1Title: string;
+  step1Sub: string;
+  step2Title: string;
+  step2Sub: string;
+  aiRole1: string;
+  aiRole2: string;
+  aiRole3: string;
+  output1Title: string;
+  output2Title: string;
+}
+
+const categoryWorkflowMap: Record<string, CategoryWorkflowConfig> = {
+  'nakit-akisi': {
+    theme: 'emerald',
+    badge: '13 HAFTALIK NAKİT & LİKİDİTE HATTI',
+    sourceLabel: 'Banka Ekstresi & POS Mizanı',
+    sourceType: 'Nakit Girdisi',
+    step1Title: 'Ekstre Ayrıştırma & Mizan Çekimi',
+    step1Sub: 'MT940, CSV & Banka Entegrasyonu',
+    step2Title: 'Likidite Normalizasyonu',
+    step2Sub: '13 Haftalık Dinamik Nakit Takvimi',
+    aiRole1: 'Nakit Açığı & Stres Simülasyonu',
+    aiRole2: 'Vade & Faiz Risk Denetimi',
+    aiRole3: 'Çoklu Banka Bakiye Çapraz Kontrol',
+    output1Title: 'Nakit Akış Karar Kokpiti',
+    output2Title: 'Kritik Bakiye WhatsApp/Slack Alarmı'
+  },
+  'muhasebe-ve-vergi': {
+    theme: 'purple',
+    badge: 'VERGİ & MEVZUAT OTONOM DENETİMİ',
+    sourceLabel: 'e-Fatura / e-Arşiv / Mizan',
+    sourceType: 'Mali Veri',
+    step1Title: 'KDV & Tevkifat Ayrıştırma',
+    step1Sub: '213 VUK & GVK 2026 Parse',
+    step2Title: 'Matrah & Beyan Normalizasyonu',
+    step2Sub: 'Kümülatif Vergi & SGK Haritası',
+    aiRole1: 'Vergi Matrahı & Beyan Doğrulama',
+    aiRole2: 'Mevzuat & İstisna Çapraz Denetimi',
+    aiRole3: 'GİB & e-Defter Format Kontrolü',
+    output1Title: 'Mali Müşavir Karar Paneli',
+    output2Title: 'Vergi/SGK Son Gün SMS & E-posta'
+  },
+  'personel-ve-bordro': {
+    theme: 'coral',
+    badge: '4857 İŞ KANUNU & BORDRO MOTORU',
+    sourceLabel: 'Puantaj & Personel Kartları',
+    sourceType: 'İK Verisi',
+    step1Title: 'Puantaj & Vardiya Çözümleme',
+    step1Sub: 'Parmak İzi, Kartlı Geçiş & Mesai',
+    step2Title: 'Bordro Parametre Normalizasyonu',
+    step2Sub: 'SGK Tavanı & Gelir Vergisi Dilimi',
+    aiRole1: 'Kıdem/İhbar & Net-Brüt Ayrıştırma',
+    aiRole2: '4857 Sayılı Kanun Madde Kontrolü',
+    aiRole3: 'Asgari Geçim & Muafiyet Çapraz Teyit',
+    output1Title: 'İnsan Kaynakları Yönetim Kokpiti',
+    output2Title: 'Bordro Onay & Muhasebe Fişi'
+  },
+  'stok-ve-uretim': {
+    theme: 'amber',
+    badge: 'STOK DÖNGÜSÜ & FİRE KONTROLÜ',
+    sourceLabel: 'Depo Sayım & İrsaliye Verisi',
+    sourceType: 'Depo & Lojistik',
+    step1Title: 'Barkod & Lot Ayrıştırma',
+    step1Sub: 'FIFO/LIFO & Barkod Verisi',
+    step2Title: 'Emniyet Stoku Normalizasyonu',
+    step2Sub: 'Optimum Sipariş & Tedarik Süresi',
+    aiRole1: 'Stok Devir Hızı & Atıl Sermaye',
+    aiRole2: 'Üretim Reçetesi & Fire Analizi',
+    aiRole3: 'Tedarikçi Teslimat Sapma Teyidi',
+    output1Title: 'Stok & Tedarik Karar Kokpiti',
+    output2Title: 'Kritik Stok Seviyesi Telegram/SMS'
+  },
+  'butce-ve-planlama': {
+    theme: 'blue',
+    badge: 'DÖNEMSEL BÜTÇE & MALİYET HATTI',
+    sourceLabel: 'Gelir-Gider & Masraf Kalemleri',
+    sourceType: 'Bütçe Verisi',
+    step1Title: 'Masraf Merkezi Ayrıştırma',
+    step1Sub: 'Departman Bütçe & Fiili Gerçekleşme',
+    step2Title: 'Sapma Analizi & Normalizasyon',
+    step2Sub: 'Varyans & Dönemsel Karşılaştırma',
+    aiRole1: 'Bütçe Aşımı & Finansal Projeksiyon',
+    aiRole2: 'Maliyet Optimizasyonu Önerileri',
+    aiRole3: 'Yıllık Hedef Çapraz Doğrulama',
+    output1Title: 'Bütçe & Planlama Karar Kokpiti',
+    output2Title: 'Aşım Raporu Yönetim Özeti'
+  },
+  'finansal-analiz': {
+    theme: 'indigo',
+    badge: 'PATRON PANELİ & EBITDA ANALİZİ',
+    sourceLabel: 'Bilanço & Gelir Tablosu',
+    sourceType: 'Finansal Tablolar',
+    step1Title: 'Rasyo & Marj Ayrıştırma',
+    step1Sub: 'Likidite, Kaldıraç & Kârlılık',
+    step2Title: 'Konsolide Rapor Normalizasyonu',
+    step2Sub: 'TTK 376 Borca Batıklık Matrisi',
+    aiRole1: 'EBITDA & Kârlılık Muhakemesi',
+    aiRole2: 'Özkaynak & Sermaye Koruma Denetimi',
+    aiRole3: 'Sektörel Benchmark Çapraz Teyit',
+    output1Title: 'Üst Yönetim Karar Kokpiti',
+    output2Title: 'Haftalık Yönetim Kurulu Brifingi'
+  },
+  'satis-ve-fiyatlama': {
+    theme: 'amber',
+    badge: 'NET MARJ & POS FİYATLAMA HATTI',
+    sourceLabel: 'Satış Verisi & Komisyon Oranları',
+    sourceType: 'Satış Girdisi',
+    step1Title: 'Komisyon & İskonto Ayrıştırma',
+    step1Sub: 'Pazaryeri Kesintileri & POS Vadesi',
+    step2Title: 'Birim Kârlılık Normalizasyonu',
+    step2Sub: 'Gerçek Net Marj & Eşik Fiyat',
+    aiRole1: 'Fiyat Elastikiyeti & Kâr Marjı',
+    aiRole2: 'Pazaryeri Komisyon Doğrulaması',
+    aiRole3: 'Nakit Tahsilat Günü Çapraz Kontrol',
+    output1Title: 'Satış & Fiyatlama Kokpiti',
+    output2Title: 'Marj Altı Satış Uyarı Bildirimi'
+  }
+};
 
 export async function getStaticPaths() {
   return categories.map((category) => ({
@@ -34,6 +161,22 @@ const seoTitle = category?.seoTitle ?? `${categoryLabel} Excel Şablonları | Ex
 const seoDescription = category?.seoDescription ?? `${categoryLabel} alanında hazır Excel çalışma sistemlerini karşılaştırın ve demo ile inceleyin.`;
 const primaryQuery = category?.primaryQuery ?? `${categoryLabel.toLocaleLowerCase('tr-TR')} excel`;
 const heroDescription = category?.description ?? `${categoryLabel} alanında hazır Excel çalışma sistemleri.`;
+
+const currentWorkflow = categoryWorkflowMap[categorySlug] ?? {
+  theme: 'emerald' as WorkflowTheme,
+  badge: `${categoryLabel.toUpperCase()} VERİ & OTOMASYON MİMARİSİ`,
+  sourceLabel: 'Operasyonel ERP / Veri Kaynağı',
+  sourceType: 'Girdi Verisi',
+  step1Title: 'Veri Ayrıştırma & Temizleme',
+  step1Sub: 'CSV, Tablo & Ekstre Parsing',
+  step2Title: 'Normalizasyon & Standartlaştırma',
+  step2Sub: 'Dinamik AST Veri Haritası',
+  aiRole1: 'Muhakeme & Senaryo Analizi',
+  aiRole2: 'Mevzuat & Standart Denetimi',
+  aiRole3: 'Çoklu Veri Çapraz Teyit',
+  output1Title: `${categoryLabel} Excel Karar Kokpiti`,
+  output2Title: 'Otonom Durum & Alarm Bildirimi'
+};
 
 const categoryLd = JSON.stringify({
   '@context': 'https://schema.org',
@@ -152,6 +295,34 @@ const categoryBreadcrumbLd = JSON.stringify({
             allTemplates={allTemplates}
             activeCategory={categorySlug}
             isCategoryPage={true}
+          />
+        </section>
+
+        <!-- 3.1 Kategori Otomasyon ve Veri Akış Mimarisi (n8n & AI Karar Hattı) -->
+        <section class="as-category-flow-section" style="margin: 36px 0 24px; padding-bottom: 24px; border-bottom: 1px solid var(--as-border);" aria-labelledby="cat-flow-heading">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+            <h2 id="cat-flow-heading" class="as-section-headline" style="margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -0.015em;">{categoryLabel} Otomasyon &amp; Veri Akış Hattı ›</h2>
+            <span style="font-size: 13px; color: #107c41; font-weight: 700;">● Otonom Karar Altyapısı</span>
+          </div>
+          <p class="as-section-subline" style="margin-bottom: 18px; color: var(--as-text-secondary); font-size: 14px;">{categoryLabel} operasyonlarınızda ham verilerin temizlenmesi, 3'lü AI doğrulaması ve hatasız Excel kokpitine dökülme süreci</p>
+
+          <N8nWorkflowVisualizer
+            compact={true}
+            theme={currentWorkflow.theme}
+            badge={currentWorkflow.badge}
+            title={`${categoryLabel} — Uçtan Uca Otomasyon Hattı`}
+            subtitle="Ham girdiden çoklu model çapraz teyidine ve Excel karar kokpitine tam entegre mimari"
+            sourceLabel={currentWorkflow.sourceLabel}
+            sourceType={currentWorkflow.sourceType}
+            step1Title={currentWorkflow.step1Title}
+            step1Sub={currentWorkflow.step1Sub}
+            step2Title={currentWorkflow.step2Title}
+            step2Sub={currentWorkflow.step2Sub}
+            aiRole1={currentWorkflow.aiRole1}
+            aiRole2={currentWorkflow.aiRole2}
+            aiRole3={currentWorkflow.aiRole3}
+            output1Title={currentWorkflow.output1Title}
+            output2Title={currentWorkflow.output2Title}
           />
         </section>
 
