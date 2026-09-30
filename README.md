@@ -1,6 +1,6 @@
 # Excel Arşiv — excelarsiv.com
 
-[![Excel Arşiv Doğrulanmış Otorite](https://htmlandhtml.com/api/backlink/badge.svg?domain=excelarsiv.com&theme=light)](https://excelarsiv.com)
+[![Excel Arşiv Doğrulanmış Otorite](/public/images/brand/verified-authority-seal.svg)](https://excelarsiv.com)
 
 Türkiye'deki ticari işletmelere finans, muhasebe ve operasyon amaçlı Excel çalışma tabloları satan dijital ürün mağazası. Ödeme Shopier'de, ürün eşleştirme ve güvenli dijital teslimat ExcelArşiv/Firebase tarafında yürütülür.
 

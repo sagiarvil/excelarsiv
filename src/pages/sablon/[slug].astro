@@ -5,6 +5,8 @@ import AppStoreSidebar from '../../components/appstore/AppStoreSidebar.astro';
 import DemoDownloadBox from '../../components/DemoDownloadBox.astro';
 import ProductPurchaseCard from '../../components/product/ProductPurchaseCard.astro';
 import YazarKutusu from '../../components/YazarKutusu.astro';
+import N8nWorkflowVisualizer from '../../components/automation/N8nWorkflowVisualizer.astro';
+import RagPipelineVisualizer from '../../components/automation/RagPipelineVisualizer.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { kapakYolu, premiumKapakUrl } from '../../lib/kapak';
 import { getCommerceProduct } from '../../lib/shopier';
@@ -310,6 +312,27 @@ const priceDisplay = t.priceTL ? `${new Intl.NumberFormat('tr-TR').format(t.pric
           )}
         </section>
 
+        <!-- 4.1 SİSTEM OTOMASYON VE VERİ AKIŞ MİMARİSİ (n8n & AI Karar Hattı) -->
+        <section class="as-automation-flow-section" id="otomasyon-mimari" aria-labelledby="flow-heading" style="padding-bottom: 28px; border-bottom: 1px solid var(--as-border); margin-bottom: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+            <h2 id="flow-heading" class="as-section-headline" style="margin: 0;">Sistem Otomasyon &amp; Veri Akışı ›</h2>
+            <span style="font-size: 13px; color: #107c41; font-weight: 700;">● Doğrulanmış Karar Hattı</span>
+          </div>
+          <p class="as-section-subline">Kaynak verilerinizden nihai Excel kokpitine uzanan n8n ve çoklu LLM denetim hattı</p>
+
+          <N8nWorkflowVisualizer
+            compact={true}
+            title={`${t.name} — Endüstriyel Veri ve AI Akış Şeması`}
+            subtitle="Ham operasyonel verinin ayıklanması, 3'lü AI çapraz kontrolü ve Excel kokpitine otomatik aktarımı"
+            sourceLabel={t.category === 'finans' ? 'Banka & Mizan Verisi' : t.category === 'insan-kaynaklari' ? 'Puantaj & Bordro Verisi' : 'ERP & Operasyonel Tablo'}
+          />
+
+          <RagPipelineVisualizer
+            title="Dinamik RAG &amp; Hesaplama Motoru Entegrasyonu"
+            subtitle="Şirket verileri, 2026 kanuni mevzuat kuralları ve LET/LAMBDA formülleriyle anında doğrulanır"
+          />
+        </section>
+
         <!-- 5. DEĞERLENDİRMELER & YORUMLAR -->
         <section class="as-reviews-section" id="yorumlar" style="padding-bottom: 28px; border-bottom: 1px solid var(--as-border); margin-bottom: 28px;" aria-labelledby="reviews-heading">
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
@@ -489,8 +512,8 @@ const priceDisplay = t.priceTL ? `${new Intl.NumberFormat('tr-TR').format(t.pric
           </div>
           <div class="as-store-footer-badge" style="margin-top: 14px; margin-bottom: 6px;">
             <div class="hh-authority-badge" data-domain="excelarsiv.com" data-theme="light">
-              <a href="https://excelarsiv.com" target="_blank" rel="noopener" title="Excel Arşiv Teknik Otorite ve Doğrulama Skoru">
-                <img src="https://htmlandhtml.com/api/backlink/badge.svg?domain=excelarsiv.com&theme=light" alt="Excel Arşiv Doğrulanmış Web Otoritesi" width="220" height="42" loading="lazy" style="border:none;display:inline-block;" />
+              <a href="https://excelarsiv.com" title="Excel Arşiv Teknik Otorite ve Doğrulama Skoru">
+                <img src="/images/brand/verified-authority-seal.svg" alt="Excel Arşiv Doğrulanmış Web Otoritesi" width="220" height="42" loading="lazy" style="border:none;display:inline-block;" />
               </a>
             </div>
           </div>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 42" width="220" height="42" fill="none" role="img" aria-label="Excel Arşiv Doğrulanmış Web Otoritesi">
+  <defs>
+    <filter id="badge-shadow" x="-4%" y="-8%" width="108%" height="124%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+    <linearGradient id="shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <linearGradient stop-color="#107c41" />
+      <linearGradient stop-color="#0b5e31" />
+    </linearGradient>
+    <linearGradient id="shield-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#16a34a" />
+      <stop offset="100%" stop-color="#0d5c2f" />
+    </linearGradient>
+  </defs>
+
+  <!-- Container Box -->
+  <rect x="0.75" y="0.75" width="218.5" height="40.5" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#badge-shadow)" />
+
+  <!-- Verified Shield Icon -->
+  <g transform="translate(10, 8)">
+    <rect x="0" y="0" width="26" height="26" rx="6" fill="#f0fdf4" stroke="#dcfce7" stroke-width="1" />
+    <!-- Shield -->
+    <path d="M13 3.5L5.5 6.8V13.2C5.5 17.6 8.7 21.6 13 22.8C17.3 21.6 20.5 17.6 20.5 13.2V6.8L13 3.5Z" fill="url(#shield-glow)" />
+    <!-- Inner Checkmark -->
+    <path d="M9.5 13L11.8 15.3L16.5 10.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(43, 0)">
+    <!-- Brand Tag -->
+    <text x="0" y="15.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="0.08em" fill="#107c41" text-transform="uppercase">EXCEL ARŞİV</text>
+    
+    <!-- Title -->
+    <text x="0" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" letter-spacing="-0.01em" fill="#0f172a">Doğrulanmış Web Otoritesi</text>
+  </g>
+
+  <!-- Status Pill / Indicator -->
+  <g transform="translate(196, 14)">
+    <circle cx="7" cy="7" r="4.5" fill="#22c55e" />
+    <circle cx="7" cy="7" r="6.5" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3" fill="none" />
+  </g>
+</svg>

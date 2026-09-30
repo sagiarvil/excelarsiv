@@ -1,0 +1,375 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  badge?: string;
+}
+
+const {
+  title = "Veriden Karara: Finansal Karar Motoru & RAG Akışı",
+  subtitle = "Şirket verileri güvenli parçalanır, kanuni kurallarla birleştirilir ve anlık karar üretilir",
+  badge = "HESAPLAMA & KARAR HATTI"
+} = Astro.props;
+---
+
+<div class="rag-pipeline-container" aria-label="RAG ve Finansal Karar Hattı Görsel Şeması">
+  {badge && (
+    <div class="rag-header-meta">
+      <span class="rag-badge-kicker">
+        <span class="rag-live-beacon"></span>
+        {badge}
+      </span>
+      <h3 class="rag-pipeline-title">{title}</h3>
+      {subtitle && <p class="rag-pipeline-sub">{subtitle}</p>}
+    </div>
+  )}
+
+  <div class="rag-canvas-wrap">
+    <div class="rag-rail-track">
+      <!-- NODE 1: Data (Purple) -->
+      <div class="rag-node-unit is-purple" tabindex="0" role="region" aria-label="Veri Kaynağı">
+        <div class="rag-circle-node is-purple">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+          </svg>
+        </div>
+        <strong class="rag-node-label">1. Şirket Verisi</strong>
+        <span class="rag-node-caption">Mizan, Ekstre, ERP</span>
+      </div>
+
+      <!-- CONNECTOR 1 -> 2 (Animation: Pulsing Gradient Dots) -->
+      <div class="rag-flow-connector">
+        <svg class="rag-connector-svg" viewBox="0 0 60 24" fill="none">
+          <line x1="4" y1="12" x2="52" y2="12" stroke="#e2e8f0" stroke-width="3" stroke-linecap="round" />
+          <line x1="4" y1="12" x2="52" y2="12" stroke="#9333ea" stroke-width="3" stroke-linecap="round" class="rag-dash-flow flow-purple" />
+          <polygon points="50,8 58,12 50,16" fill="#9333ea" />
+        </svg>
+      </div>
+
+      <!-- NODE 2: Divide Content (Blue) -->
+      <div class="rag-node-unit is-blue" tabindex="0" role="region" aria-label="İçerik Parçalama">
+        <div class="rag-circle-node is-blue">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="12" y1="3" x2="12" y2="21"></line>
+            <path d="M8 9h.01M8 15h.01M16 9h.01M16 15h.01"></path>
+          </svg>
+        </div>
+        <strong class="rag-node-label">2. Ayrıştırma</strong>
+        <span class="rag-node-caption">Satır &amp; Hücre Bazında</span>
+      </div>
+
+      <!-- CONNECTOR 2 -> Junction (Animation: Flowing Stream) -->
+      <div class="rag-flow-connector">
+        <svg class="rag-connector-svg" viewBox="0 0 60 24" fill="none">
+          <line x1="4" y1="12" x2="52" y2="12" stroke="#e2e8f0" stroke-width="3" stroke-linecap="round" />
+          <line x1="4" y1="12" x2="52" y2="12" stroke="#2563eb" stroke-width="3" stroke-linecap="round" class="rag-dash-flow flow-blue" />
+          <polygon points="50,8 58,12 50,16" fill="#2563eb" />
+        </svg>
+      </div>
+
+      <!-- JUNCTION CLUSTER (Prompt Top + Context Bottom + Core Junction) -->
+      <div class="rag-junction-cluster">
+        <!-- Top: Prompt / Kural Şartı (Orange) -->
+        <div class="rag-satellite-node is-top is-orange" tabindex="0" role="region" aria-label="Prompt ve İş Kuralı">
+          <div class="rag-mini-circle is-orange">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+          </div>
+          <span class="rag-satellite-title">Yönetim Kuralı</span>
+          <span class="rag-satellite-sub">VUK / Nakit Şartı</span>
+        </div>
+
+        <!-- Central Merge Node (+) -->
+        <div class="rag-merge-hub" title="Veri ve Şartların Entegrasyonu">
+          <span class="hub-plus-icon">+</span>
+        </div>
+
+        <!-- Bottom: Context / Mevzuat (Indigo) -->
+        <div class="rag-satellite-node is-bottom is-indigo" tabindex="0" role="region" aria-label="Mevzuat Bağlamı">
+          <div class="rag-mini-circle is-indigo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <span class="rag-satellite-title">Mevzuat Bağlamı</span>
+          <span class="rag-satellite-sub">GVK 2026 / 4857</span>
+        </div>
+      </div>
+
+      <!-- CONNECTOR Junction -> LLM (Animation: High Speed Beam) -->
+      <div class="rag-flow-connector">
+        <svg class="rag-connector-svg" viewBox="0 0 60 24" fill="none">
+          <line x1="4" y1="12" x2="52" y2="12" stroke="#e2e8f0" stroke-width="3" stroke-linecap="round" />
+          <line x1="4" y1="12" x2="52" y2="12" stroke="#db2777" stroke-width="3" stroke-linecap="round" class="rag-dash-flow flow-pink" />
+          <polygon points="50,8 58,12 50,16" fill="#db2777" />
+        </svg>
+      </div>
+
+      <!-- NODE 3: LLM & Decision Engine (Pink) -->
+      <div class="rag-node-unit is-pink" tabindex="0" role="region" aria-label="LLM ve Hesaplama Motoru">
+        <div class="rag-circle-node is-pink">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+            <polyline points="7 10 9 8 7 6"></polyline>
+            <line x1="12" y1="10" x2="16" y2="10"></line>
+          </svg>
+        </div>
+        <strong class="rag-node-label">3. Karar Motoru</strong>
+        <span class="rag-node-caption">LET, LAMBDA &amp; AI</span>
+      </div>
+
+      <!-- CONNECTOR LLM -> Output (Animation: Green Emerald Stream) -->
+      <div class="rag-flow-connector">
+        <svg class="rag-connector-svg" viewBox="0 0 60 24" fill="none">
+          <line x1="4" y1="12" x2="52" y2="12" stroke="#e2e8f0" stroke-width="3" stroke-linecap="round" />
+          <line x1="4" y1="12" x2="52" y2="12" stroke="#16a34a" stroke-width="3" stroke-linecap="round" class="rag-dash-flow flow-green" />
+          <polygon points="50,8 58,12 50,16" fill="#16a34a" />
+        </svg>
+      </div>
+
+      <!-- NODE 4: Output / Karar Sonucu (Emerald) -->
+      <div class="rag-node-unit is-green" tabindex="0" role="region" aria-label="Onaylı Karar Çıktısı">
+        <div class="rag-circle-node is-green">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <strong class="rag-node-label">4. Karar Çıktısı</strong>
+        <span class="rag-node-caption">Sıfır Hata / Net Sonuç</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .rag-pipeline-container {
+    margin: 32px 0 40px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .rag-header-meta {
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .rag-badge-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: #f5f3ff;
+    border: 1px solid #ddd6fe;
+    color: #6d28d9;
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .rag-live-beacon {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #7c3aed;
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7);
+    animation: rag-pulse 2s infinite;
+  }
+  @keyframes rag-pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(124, 58, 237, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+  }
+  .rag-pipeline-title {
+    margin: 8px 0 4px;
+    font-size: 21px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+  }
+  .rag-pipeline-sub {
+    margin: 0;
+    font-size: 13.5px;
+    color: #64748b;
+  }
+
+  .rag-canvas-wrap {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 32px 24px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+    overflow-x: auto;
+  }
+  .rag-rail-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 780px;
+    position: relative;
+  }
+
+  /* Node Units */
+  .rag-node-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 120px;
+    cursor: default;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .rag-node-unit:hover {
+    transform: translateY(-4px);
+  }
+
+  .rag-circle-node {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    border: 3px solid;
+    position: relative;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .rag-circle-node::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1.5px dashed;
+    opacity: 0.35;
+    animation: rotateDashed 20s linear infinite;
+  }
+  @keyframes rotateDashed {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .rag-circle-node.is-purple { border-color: #9333ea; background: #faf5ff; }
+  .rag-circle-node.is-purple::after { border-color: #9333ea; }
+  .rag-circle-node.is-blue { border-color: #2563eb; background: #eff6ff; }
+  .rag-circle-node.is-blue::after { border-color: #2563eb; }
+  .rag-circle-node.is-pink { border-color: #db2777; background: #fdf2f8; }
+  .rag-circle-node.is-pink::after { border-color: #db2777; }
+  .rag-circle-node.is-green { border-color: #16a34a; background: #f0fdf4; }
+  .rag-circle-node.is-green::after { border-color: #16a34a; }
+
+  .rag-node-label {
+    font-size: 13px;
+    font-weight: 750;
+    color: #1e293b;
+    line-height: 1.25;
+  }
+  .rag-node-caption {
+    font-size: 10.5px;
+    color: #64748b;
+    margin-top: 2px;
+  }
+
+  /* Connectors with Different Flow Speeds */
+  .rag-flow-connector {
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rag-connector-svg {
+    width: 60px;
+    height: 24px;
+    overflow: visible;
+  }
+  .rag-dash-flow {
+    stroke-dasharray: 6 8;
+    animation: flowStream 1.5s linear infinite;
+  }
+  .flow-purple { animation-duration: 1.6s; }
+  .flow-blue { animation-duration: 1.4s; }
+  .flow-pink { animation-duration: 1.8s; }
+  .flow-green { animation-duration: 1.2s; }
+
+  @keyframes flowStream {
+    from { stroke-dashoffset: 28; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* Junction Cluster */
+  .rag-junction-cluster {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 170px;
+  }
+  .rag-merge-hub {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #0f172a;
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.2);
+    z-index: 2;
+  }
+
+  .rag-satellite-node {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: default;
+    transition: transform 0.2s ease;
+  }
+  .rag-satellite-node:hover {
+    transform: scale(1.08);
+  }
+  .rag-satellite-node.is-top {
+    top: 0;
+  }
+  .rag-satellite-node.is-bottom {
+    bottom: 0;
+  }
+
+  .rag-mini-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2px;
+  }
+  .rag-mini-circle.is-orange { border-color: #ea580c; background: #fff7ed; }
+  .rag-mini-circle.is-indigo { border-color: #4f46e5; background: #eef2ff; }
+
+  .rag-satellite-title {
+    font-size: 10px;
+    font-weight: 750;
+    color: #1e293b;
+    line-height: 1.1;
+  }
+  .rag-satellite-sub {
+    font-size: 8.5px;
+    color: #64748b;
+  }
+</style>

@@ -2,6 +2,8 @@
 import CommerceLayout from '../layouts/CommerceLayout.astro';
 import SectionLabel from '../components/SectionLabel.astro';
 import Button from '../components/Button.astro';
+import ProcessFlowCards from '../components/automation/ProcessFlowCards.astro';
+import N8nWorkflowVisualizer from '../components/automation/N8nWorkflowVisualizer.astro';
 
 const steps = [
   {
@@ -154,6 +156,20 @@ const howToLd = JSON.stringify({
             </article>
           ))}
         </div>
+
+        <!-- 4 Adımlı Görsel Süreç Döngüsü (PoC, Pilot, Optimize, Scale) -->
+        <ProcessFlowCards
+          title="Uçtan Uca Dijital Teslimat Döngüsü"
+          subtitle="Ödeme anından dosya açılışına kadar sıfır insan müdahalesiyle çalışan dağıtık mimari"
+          kicker="CANLI TESLİMAT HATTI"
+        />
+
+        <!-- n8n & Dağıtım Otomasyonu Mimarisi -->
+        <N8nWorkflowVisualizer
+          title="Sipariş, Lisanslama ve E-Posta Dağıtım Otomasyonumuz"
+          subtitle="Shopier webhook bildirimleri, kriptografik imza doğrulaması ve 10 saniyede e-posta teslimatı sağlayan akış"
+          sourceLabel="Shopier Webhook / Lisans İmzası"
+        />
       </div>
     </section>
 

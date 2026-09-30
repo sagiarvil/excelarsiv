@@ -2,6 +2,8 @@
 // Source-owned /ozel-excel-sistemleri landing page.
 import '../styles/appstore-theme.css';
 import AppStoreSidebar from '../components/appstore/AppStoreSidebar.astro';
+import ProcessFlowCards from '../components/automation/ProcessFlowCards.astro';
+import N8nWorkflowVisualizer from '../components/automation/N8nWorkflowVisualizer.astro';
 ---
 <!doctype html>
 <html lang="tr">
@@ -1356,41 +1358,24 @@ import AppStoreSidebar from '../components/appstore/AppStoreSidebar.astro';
         </div>
       </section>
 
-      <!-- 05 SÜREÇ ADIMLARI (Nasıl çalışıyoruz?) -->
+      <!-- 05 SÜREÇ ADIMLARI (Nasıl çalışıyoruz? - PoC / Pilot / Optimize / Scale) -->
       <section aria-labelledby="head-process">
         <div class="appstore-section-head">
           <h2 id="head-process">Nasıl çalışıyoruz? <span class="head-arrow">›</span></h2>
         </div>
-        <div class="process-app-grid">
-          <div class="process-card">
-            <div class="process-head">
-              <div class="process-icon-box is-green" style="background:#dcfce7;color:#166534">1</div>
-              <strong>İhtiyacınızı Dinliyoruz</strong>
-            </div>
-            <p>Süreçlerinizi, hedeflerinizi ve özel taleplerinizi detaylıca dinliyoruz.</p>
-          </div>
-          <div class="process-card">
-            <div class="process-head">
-              <div class="process-icon-box is-blue" style="background:#dbeafe;color:#1e40af">2</div>
-              <strong>Sistemi Tasarlıyoruz</strong>
-            </div>
-            <p>İhtiyacınıza uygun akış, rapor ve ekstra fonksiyonları planlıyoruz.</p>
-          </div>
-          <div class="process-card">
-            <div class="process-head">
-              <div class="process-icon-box is-purple" style="background:#f3e8ff;color:#6b21a8">3</div>
-              <strong>Geliştirip Test Ediyoruz</strong>
-            </div>
-            <p>Sistemi oluşturuyor, verilerinizle test ederek hazır hale getiriyoruz.</p>
-          </div>
-          <div class="process-card">
-            <div class="process-head">
-              <div class="process-icon-box is-orange" style="background:#ffedd5;color:#9a3412">4</div>
-              <strong>Teslim Ediyor ve Destekliyoruz</strong>
-            </div>
-            <p>Kullanıma sunuyor, eğitim veriyor ve her zaman destek sağlıyoruz.</p>
-          </div>
+        <ProcessFlowCards />
+      </section>
+
+      <!-- 05.1 ENDÜSTRİYEL n8n & ÇOKLU LLM OTOMASYON MİMARİSİ -->
+      <section aria-labelledby="head-n8n-arch">
+        <div class="appstore-section-head">
+          <h2 id="head-n8n-arch">Otomasyon &amp; AI Veri Mimarisimiz <span class="head-arrow">›</span></h2>
         </div>
+        <N8nWorkflowVisualizer
+          title="Şirket Verisinden Excel Karar Kokpitine Canlı n8n &amp; AI Hattı"
+          subtitle="ERP, PDF ekstre ve faturalarınızı n8n üzerinden ayrıştırıyor; GPT-4, Claude ve Gemini ile denetleyerek karar modelinize bağlıyoruz"
+          sourceLabel="ERP / Banka / PDF Verisi"
+        />
       </section>
 
       <!-- 06 CANLI KARAR KOKPİTİ (.workbook) -->

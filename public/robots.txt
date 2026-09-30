@@ -40,38 +40,37 @@ User-agent: PerplexityBot
 Allow: /
 Disallow: /api/
 
-# --- AI Training & Foundation Models ---
+# --- AI Training & Model Scraping Crawlers ---
 User-agent: GPTBot
-Allow: /
 Disallow: /api/
+Disallow: /data/
+Disallow: /EXCELARSIV_PRODUCTS/
 
 User-agent: ClaudeBot
-Allow: /
 Disallow: /api/
+Disallow: /data/
+Disallow: /EXCELARSIV_PRODUCTS/
 
 User-agent: Google-Extended
-Allow: /
 Disallow: /api/
+Disallow: /data/
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
 
 User-agent: Applebot
 Allow: /
 Disallow: /api/
 
 User-agent: Applebot-Extended
-Allow: /
-Disallow: /api/
-
-User-agent: CCBot
-Allow: /
-Disallow: /api/
-
-User-agent: Bytespider
-Allow: /
 Disallow: /api/
 
 User-agent: Amazonbot
-Allow: /
 Disallow: /api/
+Disallow: /data/
 
 User-agent: meta-externalagent
 Allow: /

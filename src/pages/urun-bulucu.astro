@@ -29,65 +29,100 @@ const templates = (await getCollection('templates')).map((entry) => ({
         <strong>Hızlı Özet:</strong> Excel Arşiv Ürün Bulucu, işletmenizin nakit akışı, muhasebe, stok, kârlılık veya bordro alanındaki birincil darboğazını 5 parametrede analiz ederek en uygun doğrulanmış Excel modelini deterministik olarak önerir.
       </div>
 
-      <h2 class="text-base font-bold text-ink-900 mb-4">5 Soruda Karar Kriterlerinizi Belirleyin</h2>
-      <form class="finder__form" data-finder-form>
-        <label for="finder-alan">
-          <span>Ne takip etmek istiyorsunuz?</span>
-          <select id="finder-alan" name="alan" required aria-label="Takip etmek istediğiniz alan">
-            <option value="">Seçin</option>
-            <option value="nakit-akisi">Nakit, kasa, ödeme planı</option>
-            <option value="muhasebe-ve-vergi">Cari, vergi, SGK, muhasebe</option>
-            <option value="stok-ve-uretim">Stok ve üretim</option>
-            <option value="satis-ve-fiyatlama">Satış, POS, e-ticaret kârlılığı</option>
-            <option value="personel-ve-bordro">Personel ve işçilik maliyeti</option>
-            <option value="finansal-analiz">Yönetim kârlılığı ve rapor</option>
-            <option value="butce-ve-planlama">Bütçe ve dönem planı</option>
-          </select>
-        </label>
-        <label for="finder-tip">
-          <span>İşletme tipiniz?</span>
-          <select id="finder-tip" name="tip" required aria-label="İşletme tipiniz">
-            <option value="">Seçin</option>
-            <option value="ticaret">Ticaret / toptan</option>
-            <option value="hizmet">Hizmet</option>
-            <option value="uretim">Üretim</option>
-            <option value="eticaret">E-ticaret / pazaryeri</option>
-            <option value="saha">Şantiye / saha</option>
-          </select>
-        </label>
-        <label for="finder-hacim">
-          <span>Kaç kayıt yönetiyorsunuz?</span>
-          <select id="finder-hacim" name="hacim" required aria-label="Kayıt hacminiz">
-            <option value="">Seçin</option>
-            <option value="az">50’ye kadar</option>
-            <option value="orta">50–500</option>
-            <option value="cok">500+</option>
-          </select>
-        </label>
-        <label for="finder-donem">
-          <span>Kararınız hangi dönem için?</span>
-          <select id="finder-donem" name="donem" required aria-label="Karar dönemi">
-            <option value="">Seçin</option>
-            <option value="gun">Günlük / kasa</option>
-            <option value="hafta">Haftalık nakit</option>
-            <option value="ay">Aylık yönetim</option>
-            <option value="yil">Yıllık vergi / amortisman</option>
-          </select>
-        </label>
-        <label for="finder-problem">
-          <span>En büyük probleminiz?</span>
-          <select id="finder-problem" name="problem" required aria-label="En büyük probleminiz">
-            <option value="">Seçin</option>
-            <option value="nakit">Nakit yetişmiyor</option>
-            <option value="tahsilat">Tahsilat ve cari risk</option>
-            <option value="kar">Gerçek kâr görünmüyor</option>
-            <option value="vergi">Vergi / SGK hesabı dağınık</option>
-            <option value="stok">Stok nakit bağlıyor</option>
-            <option value="personel">Personel maliyeti belirsiz</option>
-          </select>
-        </label>
-        <button type="submit" aria-label="En uygun Excel sistemini göster">Sistemi göster</button>
-      </form>
+      <div class="finder__form-container">
+        <h2 class="text-base font-bold text-ink-900 mb-5 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[#107c41]"></span>
+          5 Soruda Karar Kriterlerinizi Belirleyin
+        </h2>
+        <form class="finder__form" data-finder-form>
+          <div class="finder__field">
+            <label for="finder-alan">
+              <span class="finder__step">01</span>
+              <span>Ne takip etmek istiyorsunuz?</span>
+            </label>
+            <div class="finder__select-wrapper">
+              <select id="finder-alan" name="alan" required aria-label="Takip etmek istediğiniz alan">
+                <option value="">Seçim yapınız...</option>
+                <option value="nakit-akisi">Nakit, kasa, ödeme planı</option>
+                <option value="muhasebe-ve-vergi">Cari, vergi, SGK, muhasebe</option>
+                <option value="stok-ve-uretim">Stok ve üretim</option>
+                <option value="satis-ve-fiyatlama">Satış, POS, e-ticaret kârlılığı</option>
+                <option value="personel-ve-bordro">Personel ve işçilik maliyeti</option>
+                <option value="finansal-analiz">Yönetim kârlılığı ve rapor</option>
+                <option value="butce-ve-planlama">Bütçe ve dönem planı</option>
+              </select>
+            </div>
+          </div>
+          <div class="finder__field">
+            <label for="finder-tip">
+              <span class="finder__step">02</span>
+              <span>İşletme tipiniz?</span>
+            </label>
+            <div class="finder__select-wrapper">
+              <select id="finder-tip" name="tip" required aria-label="İşletme tipiniz">
+                <option value="">Seçim yapınız...</option>
+                <option value="ticaret">Ticaret / toptan</option>
+                <option value="hizmet">Hizmet</option>
+                <option value="uretim">Üretim</option>
+                <option value="eticaret">E-ticaret / pazaryeri</option>
+                <option value="saha">Şantiye / saha</option>
+              </select>
+            </div>
+          </div>
+          <div class="finder__field">
+            <label for="finder-hacim">
+              <span class="finder__step">03</span>
+              <span>Kaç kayıt yönetiyorsunuz?</span>
+            </label>
+            <div class="finder__select-wrapper">
+              <select id="finder-hacim" name="hacim" required aria-label="Kayıt hacminiz">
+                <option value="">Seçim yapınız...</option>
+                <option value="az">50’ye kadar</option>
+                <option value="orta">50–500</option>
+                <option value="cok">500+</option>
+              </select>
+            </div>
+          </div>
+          <div class="finder__field">
+            <label for="finder-donem">
+              <span class="finder__step">04</span>
+              <span>Kararınız hangi dönem için?</span>
+            </label>
+            <div class="finder__select-wrapper">
+              <select id="finder-donem" name="donem" required aria-label="Karar dönemi">
+                <option value="">Seçim yapınız...</option>
+                <option value="gun">Günlük / kasa</option>
+                <option value="hafta">Haftalık nakit</option>
+                <option value="ay">Aylık yönetim</option>
+                <option value="yil">Yıllık vergi / amortisman</option>
+              </select>
+            </div>
+          </div>
+          <div class="finder__field">
+            <label for="finder-problem">
+              <span class="finder__step">05</span>
+              <span>En büyük probleminiz?</span>
+            </label>
+            <div class="finder__select-wrapper">
+              <select id="finder-problem" name="problem" required aria-label="En büyük probleminiz">
+                <option value="">Seçim yapınız...</option>
+                <option value="nakit">Nakit yetişmiyor</option>
+                <option value="tahsilat">Tahsilat ve cari risk</option>
+                <option value="kar">Gerçek kâr görünmüyor</option>
+                <option value="vergi">Vergi / SGK hesabı dağınık</option>
+                <option value="stok">Stok nakit bağlıyor</option>
+                <option value="personel">Personel maliyeti belirsiz</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="finder__submit-btn" aria-label="En uygun Excel sistemini göster">
+            <span>Sistemi göster</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </form>
+      </div>
 
       <div class="finder__sonuc" data-finder-sonuc hidden></div>
     </div>
@@ -105,15 +140,145 @@ const templates = (await getCollection('templates')).map((entry) => ({
 <style>
   .finder { padding: 56px 0 96px; }
   .finder__inner { max-width: 760px; }
-  .finder__kicker { margin: 0; font-family: var(--font-mono); font-size: 10px; font-weight: 800; letter-spacing: .12em; color: #0d7040; }
-  .finder h1 { margin: 12px 0 0; font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -.04em; }
-  .finder__lead { margin: 14px 0 0; font-size: 15px; line-height: 1.65; color: #5b6b62; }
-  .finder__form { display: grid; gap: 14px; margin-top: 28px; }
-  .finder__form label { display: grid; gap: 6px; font-size: 13px; font-weight: 700; color: #173023; }
-  .finder__form select, .finder__form button { min-height: 46px; padding: 0 12px; border-radius: 12px; border: 1px solid #d7e2db; font: inherit; }
-  .finder__form button { border: 0; background: #0d7040; color: #fff; font-weight: 800; cursor: pointer; }
-  .finder__sonuc { display: grid; gap: 10px; margin-top: 28px; }
-  .finder__sonuc a { display: grid; gap: 4px; padding: 16px 18px; border: 1px solid #d7e2db; border-radius: 14px; background: #fff; color: inherit; text-decoration: none; }
-  .finder__sonuc a.is-ana { border-color: #0d7040; }
-  .finder__sonuc small { font-family: var(--font-mono); font-size: 10px; font-weight: 800; color: #0d7040; }
+  .finder__kicker { margin: 0; font-family: var(--font-mono); font-size: 11px; font-weight: 800; letter-spacing: .14em; color: #0d7040; }
+  .finder h1 { margin: 12px 0 0; font-family: var(--font-display); font-size: clamp(32px, 4vw, 46px); line-height: 1.1; letter-spacing: -.04em; color: #0f172a; }
+  .finder__lead { margin: 14px 0 0; font-size: 15px; line-height: 1.65; color: #475569; }
+  
+  .finder__form-container {
+    margin-top: 28px;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  }
+
+  .finder__form { display: grid; gap: 20px; }
+  
+  .finder__field {
+    display: grid;
+    gap: 8px;
+  }
+  
+  .finder__field label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1e293b;
+    cursor: pointer;
+  }
+  
+  .finder__step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: #eef8f2;
+    border: 1px solid #bbf7d0;
+    color: #107c41;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  
+  .finder__select-wrapper {
+    position: relative;
+  }
+  
+  .finder__select-wrapper select {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 42px 0 16px;
+    border-radius: 12px;
+    border: 1.5px solid #cbd5e1;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%230d7040'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: inherit;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: #0f172a;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .finder__select-wrapper select:hover {
+    border-color: #107c41;
+    box-shadow: 0 2px 8px rgba(16, 124, 65, 0.08);
+  }
+  
+  .finder__select-wrapper select:focus {
+    outline: none;
+    border-color: #107c41;
+    box-shadow: 0 0 0 4px rgba(16, 124, 65, 0.15), 0 2px 6px rgba(16, 124, 65, 0.08);
+  }
+
+  .finder__submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 50px;
+    padding: 0 24px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #107c41 0%, #0d6837 100%);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15.5px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(16, 124, 65, 0.25);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-top: 6px;
+  }
+  
+  .finder__submit-btn:hover {
+    background: linear-gradient(135deg, #138a49 0%, #0f753e 100%);
+    box-shadow: 0 6px 20px rgba(16, 124, 65, 0.35);
+    transform: translateY(-1px);
+  }
+  
+  .finder__submit-btn:active {
+    transform: translateY(0);
+  }
+
+  .finder__sonuc { display: grid; gap: 14px; margin-top: 32px; }
+  .finder__sonuc a {
+    display: grid;
+    gap: 6px;
+    padding: 18px 22px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    background: #ffffff;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .finder__sonuc a:hover {
+    border-color: #107c41;
+    box-shadow: 0 10px 24px -4px rgba(16, 124, 65, 0.12), 0 4px 8px -2px rgba(16, 124, 65, 0.04);
+    transform: translateY(-2px);
+  }
+  .finder__sonuc a.is-ana {
+    border-color: #107c41;
+    background: linear-gradient(180deg, #ffffff 0%, #f7fbf9 100%);
+    box-shadow: 0 4px 16px rgba(16, 124, 65, 0.1);
+  }
+  .finder__sonuc small { font-family: var(--font-mono); font-size: 11px; font-weight: 800; color: #0d7040; text-transform: uppercase; letter-spacing: 0.04em; }
+  .finder__sonuc strong { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .finder__sonuc span { font-size: 13.5px; line-height: 1.55; color: #475569; }
 </style>

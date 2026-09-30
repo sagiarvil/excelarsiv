@@ -1,0 +1,456 @@
+---
+interface Step {
+  stage: string;
+  title: string;
+  desc: string;
+  badge: string;
+  colorClass: 'blue' | 'cyan' | 'teal' | 'lime';
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  kicker?: string;
+  steps?: Step[];
+}
+
+const defaultSteps: Step[] = [
+  {
+    stage: 'PoC',
+    badge: '1',
+    title: 'İhtiyaç Keşfi',
+    desc: 'İş probleminizi, veri kaynaklarınızı ve hedeflenen karar çıktılarını netleştiriyoruz.',
+    colorClass: 'blue',
+  },
+  {
+    stage: 'Pilot',
+    badge: '2',
+    title: 'Sistem Mimarisi',
+    desc: 'Veri yapısını, sayfa ilişkilerini, formül akışını ve kokpit prototipini kurguluyoruz.',
+    colorClass: 'cyan',
+  },
+  {
+    stage: 'Optimize',
+    badge: '3',
+    title: 'Test & Doğrulama',
+    desc: 'Gerçek şirket verileriyle stres testi, mevzuat uyumu ve sıfır hata denetimi yapıyoruz.',
+    colorClass: 'teal',
+  },
+  {
+    stage: 'Scale',
+    badge: '4',
+    title: 'Canlı Teslim & Destek',
+    desc: 'Dosyayı %100 açık formülle teslim ediyor, ekibinize kullanım eğitimi sağlıyoruz.',
+    colorClass: 'lime',
+  },
+];
+
+const {
+  title = "Uçtan Uca Kurulum & Geliştirme Süreci",
+  subtitle = "PoC'den ölçeklemeye: Kurumsal sisteminizi 4 adımda hatasız devreye alıyoruz",
+  kicker = "NASIL ÇALIŞIYORUZ?",
+  steps = defaultSteps,
+} = Astro.props;
+---
+
+<div class="process-flow-section" aria-label="4 Aşamalı Süreç ve Geliştirme Akışı">
+  {kicker && (
+    <div class="process-flow-header">
+      <span class="process-flow-kicker">{kicker}</span>
+      <h3 class="process-flow-title">{title}</h3>
+      {subtitle && <p class="process-flow-subtitle">{subtitle}</p>}
+    </div>
+  )}
+
+  <div class="process-rail-container">
+    <div class="process-cards-track">
+      <!-- CARD 1: PoC (Blue) -->
+      <div class="process-pill-card is-blue">
+        <div class="card-inner-content">
+          <div class="card-icon-area">
+            <svg class="stage-vector-icon" viewBox="0 0 64 64" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Person with idea lightbulb -->
+              <circle cx="28" cy="24" r="10" />
+              <path d="M12 50c0-8.8 7.2-16 16-16s16 7.2 16 16" />
+              <path d="M46 16c1.5-2.5 4-4 7-4 4.4 0 8 3.6 8 8 0 3-1.6 5.5-4 7l-1 5h-6l-1-5c-2.4-1.5-4-4-4-7 0-1.5.4-2.8 1-4z" />
+              <line x1="50" y1="36" x2="56" y2="36" />
+              <line x1="47" y1="8" x2="44" y2="5" />
+              <line x1="53" y1="6" x2="53" y2="2" />
+              <line x1="59" y1="8" x2="62" y2="5" />
+            </svg>
+          </div>
+          
+          <div class="card-divider-dashed"></div>
+
+          <div class="card-text-area">
+            <span class="stage-tag">{steps[0].stage}</span>
+            <strong class="stage-title">{steps[0].title}</strong>
+            <p class="stage-desc">{steps[0].desc}</p>
+          </div>
+        </div>
+
+        <!-- Attached Badge with looper connector -->
+        <div class="stage-badge-node is-blue">
+          <span>{steps[0].badge}</span>
+        </div>
+
+        <!-- Looping SVG Connector to next card -->
+        <svg class="loop-connector-svg" viewBox="0 0 70 80" fill="none" aria-hidden="true">
+          <path d="M 0 20 C 35 20, 35 60, 50 60 L 65 60" class="connector-track" stroke="#3b82f6" />
+          <path d="M 0 20 C 35 20, 35 60, 50 60 L 65 60" class="connector-pulse pulse-blue" stroke="#2563eb" />
+          <!-- Arrow head -->
+          <polygon points="62,56 70,60 62,64" fill="#2563eb" />
+        </svg>
+      </div>
+
+      <!-- CARD 2: Pilot (Cyan) -->
+      <div class="process-pill-card is-cyan">
+        <div class="card-inner-content">
+          <div class="card-icon-area">
+            <svg class="stage-vector-icon" viewBox="0 0 64 64" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Team / Collaboration -->
+              <circle cx="22" cy="20" r="8" />
+              <path d="M10 44c0-6.6 5.4-12 12-12s12 5.4 12 12" />
+              <circle cx="42" cy="20" r="8" />
+              <path d="M34 32c4.2 0 7.8 2.2 9.8 5.6M46 44h8c0-6.6-5.4-12-12-12" />
+              <path d="M38 46 L54 36 L48 50 Z" fill="rgba(2,132,199,0.1)" />
+            </svg>
+          </div>
+          
+          <div class="card-divider-dashed"></div>
+
+          <div class="card-text-area">
+            <span class="stage-tag">{steps[1].stage}</span>
+            <strong class="stage-title">{steps[1].title}</strong>
+            <p class="stage-desc">{steps[1].desc}</p>
+          </div>
+        </div>
+
+        <!-- Attached Badge with looper connector -->
+        <div class="stage-badge-node is-cyan">
+          <span>{steps[1].badge}</span>
+        </div>
+
+        <!-- Looping SVG Connector to next card -->
+        <svg class="loop-connector-svg" viewBox="0 0 70 80" fill="none" aria-hidden="true">
+          <path d="M 0 20 C 35 20, 35 60, 50 60 L 65 60" class="connector-track" stroke="#06b6d4" />
+          <path d="M 0 20 C 35 20, 35 60, 50 60 L 65 60" class="connector-pulse pulse-cyan" stroke="#0284c7" />
+          <!-- Arrow head -->
+          <polygon points="62,56 70,60 62,64" fill="#0284c7" />
+        </svg>
+      </div>
+
+      <!-- CARD 3: Optimize (Teal/Green) -->
+      <div class="process-pill-card is-teal">
+        <div class="card-inner-content">
+          <div class="card-icon-area">
+            <svg class="stage-vector-icon" viewBox="0 0 64 64" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Gear with play button in center -->
+              <circle cx="32" cy="32" r="16" />
+              <path d="M32 10v4M32 50v4M10 32h4M50 32h4M16.5 16.5l2.8 2.8M44.7 44.7l2.8 2.8M16.5 47.5l2.8-2.8M44.7 19.3l2.8-2.8" stroke-width="2.5" />
+              <polygon points="30,26 38,32 30,38" fill="#0d9488" stroke="#0d9488" stroke-width="1.5" />
+            </svg>
+          </div>
+          
+          <div class="card-divider-dashed"></div>
+
+          <div class="card-text-area">
+            <span class="stage-tag">{steps[2].stage}</span>
+            <strong class="stage-title">{steps[2].title}</strong>
+            <p class="stage-desc">{steps[2].desc}</p>
+          </div>
+        </div>
+
+        <!-- Attached Badge with looper connector -->
+        <div class="stage-badge-node is-teal">
+          <span>{steps[2].badge}</span>
+        </div>
+
+        <!-- Looping SVG Connector to next card -->
+        <svg class="loop-connector-svg" viewBox="0 0 70 80" fill="none" aria-hidden="true">
+          <path d="M 0 20 C 35 20, 35 60, 50 60 L 65 60" class="connector-track" stroke="#10b981" />
+          <path d="M 0 20 C 35 20, 35 60, 50 60 L 65 60" class="connector-pulse pulse-teal" stroke="#059669" />
+          <!-- Arrow head -->
+          <polygon points="62,56 70,60 62,64" fill="#059669" />
+        </svg>
+      </div>
+
+      <!-- CARD 4: Scale (Lime/Green) -->
+      <div class="process-pill-card is-lime">
+        <div class="card-inner-content">
+          <div class="card-icon-area">
+            <svg class="stage-vector-icon" viewBox="0 0 64 64" fill="none" stroke="#65a30d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Expand / Scale arrows -->
+              <line x1="20" y1="16" x2="44" y2="16" />
+              <line x1="20" y1="48" x2="44" y2="48" />
+              <polyline points="28,24 32,16 36,24" />
+              <line x1="32" y1="16" x2="32" y2="48" />
+              <polyline points="28,40 32,48 36,40" />
+            </svg>
+          </div>
+          
+          <div class="card-divider-dashed"></div>
+
+          <div class="card-text-area">
+            <span class="stage-tag">{steps[3].stage}</span>
+            <strong class="stage-title">{steps[3].title}</strong>
+            <p class="stage-desc">{steps[3].desc}</p>
+          </div>
+        </div>
+
+        <!-- Attached Badge with exit arrow -->
+        <div class="stage-badge-node is-lime">
+          <span>{steps[3].badge}</span>
+        </div>
+
+        <!-- Final Exit Arrow pointing forward -->
+        <svg class="exit-arrow-svg" viewBox="0 0 50 80" fill="none" aria-hidden="true">
+          <path d="M 0 20 C 25 20, 25 60, 38 60 L 45 60" class="connector-track" stroke="#84cc16" />
+          <path d="M 0 20 C 25 20, 25 60, 38 60 L 45 60" class="connector-pulse pulse-lime" stroke="#65a30d" />
+          <polygon points="42,56 50,60 42,64" fill="#65a30d" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .process-flow-section {
+    margin: 32px 0 44px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .process-flow-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .process-flow-kicker {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #0284c7;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .process-flow-title {
+    margin: 0 0 6px;
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+  }
+  .process-flow-subtitle {
+    margin: 0;
+    font-size: 13.5px;
+    color: #64748b;
+  }
+
+  /* Rail Container */
+  .process-rail-container {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 12px;
+  }
+  .process-cards-track {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(210px, 1fr));
+    gap: 36px;
+    position: relative;
+    padding-right: 28px;
+    min-width: 880px;
+  }
+
+  /* Pill Cards (Stadium Container) */
+  .process-pill-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 36px;
+    border: 3.5px solid transparent;
+    padding: 24px 20px 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+  }
+  .process-pill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Color Variations matching Image 1 */
+  .process-pill-card.is-blue {
+    border-color: #3b82f6;
+    background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+  }
+  .process-pill-card.is-cyan {
+    border-color: #06b6d4;
+    background: linear-gradient(180deg, #ffffff 0%, #f0fdfa 100%);
+  }
+  .process-pill-card.is-teal {
+    border-color: #10b981;
+    background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+  }
+  .process-pill-card.is-lime {
+    border-color: #84cc16;
+    background: linear-gradient(180deg, #ffffff 0%, #f7fee7 100%);
+  }
+
+  /* Card Inner Content */
+  .card-inner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+  }
+
+  .card-icon-area {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .stage-vector-icon {
+    width: 44px;
+    height: 44px;
+    transition: transform 0.2s ease;
+  }
+  .process-pill-card:hover .stage-vector-icon {
+    transform: scale(1.1);
+  }
+
+  .card-divider-dashed {
+    width: 60%;
+    height: 1px;
+    border-top: 2px dashed #cbd5e1;
+    margin: 8px 0 16px;
+  }
+
+  .card-text-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+  }
+  .stage-tag {
+    font-size: 11px;
+    font-weight: 750;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .stage-title {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .stage-desc {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #64748b;
+  }
+
+  /* Attached Step Badge Node */
+  .stage-badge-node {
+    position: absolute;
+    right: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: grid;
+    place-items: center;
+    font-size: 15px;
+    font-weight: 850;
+    z-index: 3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid;
+    transition: transform 0.2s ease;
+  }
+  .process-pill-card:hover .stage-badge-node {
+    transform: translateY(-50%) scale(1.15);
+  }
+
+  .stage-badge-node.is-blue {
+    border-color: #2563eb;
+    color: #2563eb;
+    background: #eff6ff;
+  }
+  .stage-badge-node.is-cyan {
+    border-color: #0284c7;
+    color: #0284c7;
+    background: #f0f9ff;
+  }
+  .stage-badge-node.is-teal {
+    border-color: #059669;
+    color: #059669;
+    background: #ecfdf5;
+  }
+  .stage-badge-node.is-lime {
+    border-color: #65a30d;
+    color: #65a30d;
+    background: #f7fee7;
+  }
+
+  /* Looper Connector SVG */
+  .loop-connector-svg {
+    position: absolute;
+    right: -48px;
+    bottom: -15px;
+    width: 65px;
+    height: 75px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .exit-arrow-svg {
+    position: absolute;
+    right: -36px;
+    bottom: -15px;
+    width: 48px;
+    height: 75px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .connector-track {
+    stroke-width: 3px;
+    stroke-linecap: round;
+    opacity: 0.35;
+  }
+
+  /* Different Animation Types for Connectors */
+  .connector-pulse {
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-dasharray: 8 12;
+    animation: flowLine 1.6s linear infinite;
+  }
+  .pulse-blue { animation-duration: 1.5s; }
+  .pulse-cyan { animation-duration: 1.8s; }
+  .pulse-teal { animation-duration: 1.4s; }
+  .pulse-lime { animation-duration: 1.6s; }
+
+  @keyframes flowLine {
+    from {
+      stroke-dashoffset: 40;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .process-cards-track {
+      gap: 28px;
+    }
+  }
+</style>

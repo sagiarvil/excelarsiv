@@ -5,6 +5,9 @@ import AppStoreSidebar from '../components/appstore/AppStoreSidebar.astro';
 import { getAllTemplates, getTemplateSearchIndex } from '../lib/templates';
 import { kararPages } from '../data/kararPages';
 
+import { YAZAR, yazarPersonId, yazarPersonLd } from '../data/yazar';
+import { SATICI } from '../data/satici';
+
 const templates = await getAllTemplates();
 const searchIndex = await getTemplateSearchIndex();
 const productCount = templates.length;
@@ -53,14 +56,88 @@ const faqItems = [
   { q: 'Excel Arşiv bir ERP veya muhasebe programı mı?', a: 'Hayır. Ürünler belirli finans, muhasebe ve operasyon karar problemlerine odaklanan indirilebilir Excel çalışma sistemleridir.' },
 ];
 
+const site = 'https://excelarsiv.com';
 const homeJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'WebSite', '@id': 'https://excelarsiv.com/#website', name: 'Excel Arşiv', url: 'https://excelarsiv.com/', inLanguage: 'tr-TR' },
-    { '@type': 'FAQPage', '@id': 'https://excelarsiv.com/#faq', mainEntity: faqItems.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) },
+    {
+      '@type': 'Organization',
+      '@id': `${site}/#organization`,
+      name: 'Excel Arşiv',
+      url: `${site}/`,
+      description: 'Excel Arşiv — Türkiye\'deki işletmeler için finans, muhasebe ve operasyon odaklı hazır Excel çalışma sistemleri.',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${site}/og.png`,
+        width: 1200,
+        height: 1200,
+      },
+      email: YAZAR.eposta,
+      taxID: SATICI.vkn,
+      sameAs: [
+        'https://www.wikidata.org/wiki/Q11261',
+        'https://www.wikidata.org/wiki/Q380',
+        'https://www.wikidata.org/wiki/Q1313364',
+        'https://www.wikidata.org/wiki/Q11589432',
+        'https://www.wikidata.org/wiki/Q11190',
+        'https://www.linkedin.com/company/excelarsiv',
+        'https://www.linkedin.com/in/barisbagirlar/',
+        ...YAZAR.sameAs,
+      ],
+      founder: { '@id': yazarPersonId(site) },
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'TR',
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: YAZAR.eposta,
+        telephone: SATICI.telefonE164,
+        contactType: 'customer support',
+        availableLanguage: 'tr-TR',
+        areaServed: 'TR',
+      },
+    },
+    yazarPersonLd(site),
+    {
+      '@type': 'WebSite',
+      '@id': `${site}/#website`,
+      name: 'Excel Arşiv',
+      url: `${site}/`,
+      inLanguage: 'tr-TR',
+      publisher: { '@id': `${site}/#organization` },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${site}/sablonlar?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${site}/#webpage`,
+      url: `${site}/`,
+      name: 'İşletmeler İçin Finansal Karar Sistemleri | Excel Arşiv',
+      description: 'Dağınık Excel tablolarını tek ekranda net karara dönüştürün. Nakit akışı, bütçe, kredi, kârlılık ve muhasebe için profesyonel hazır Excel sistemleri.',
+      inLanguage: 'tr-TR',
+      isPartOf: { '@id': `${site}/#website` },
+      about: { '@id': `${site}/#organization` },
+      author: { '@id': yazarPersonId(site) },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${site}/#faq`,
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    },
     {
       '@type': 'ItemList',
-      '@id': 'https://excelarsiv.com/#catalog',
+      '@id': `${site}/#catalog`,
       name: 'Öne Çıkan Hazır Excel Şablonları ve Karar Sistemleri',
       numberOfItems: popularFreeTemplates.length,
       itemListElement: popularFreeTemplates.map((item, idx) => ({
@@ -72,12 +149,14 @@ const homeJsonLd = {
     },
     {
       '@type': 'Dataset',
-      '@id': 'https://excelarsiv.com/#dataset',
+      '@id': `${site}/#dataset`,
       name: 'Excel Arşiv Web Standartları ve Otorite Metrikleri Veri Seti',
       description: 'excelarsiv.com üzerindeki teknik arama, GEO ve AEO optimizasyon metriklerinin kamuya açık doğrulanmış veri seti.',
       url: 'https://excelarsiv.com',
       sameAs: [
-        'https://www.wikidata.org/wiki/Special:Search?search=Excel%20Ar%C5%9Fiv',
+        'https://www.wikidata.org/wiki/Q11261',
+        'https://www.wikidata.org/wiki/Q380',
+        'https://www.wikidata.org/wiki/Q1313364',
         'https://excelarsiv.com/standard/',
       ],
       creator: {
@@ -96,15 +175,27 @@ const homeJsonLd = {
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>İşletmeler İçin Finansal Karar Sistemleri | Excel Arşiv</title>
   <meta name="description" content="Dağınık Excel tablolarını tek ekranda net karara dönüştürün. Nakit akışı, bütçe, kredi, kârlılık ve muhasebe için profesyonel hazır Excel sistemleri." />
+  <meta name="author" content="Barış Bağırlar" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <link rel="canonical" href="https://excelarsiv.com/" />
+  <link rel="alternate" hreflang="tr" href="https://excelarsiv.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://excelarsiv.com/" />
+  <link rel="describedby" href="https://excelarsiv.com/llms.txt" />
+  <link rel="alternate" type="text/markdown" href="https://excelarsiv.com/llms.txt" title="llms.txt (Markdown)" />
+  <link rel="alternate" type="application/json" href="https://excelarsiv.com/.well-known/agent-card.json" title="Autonomous Agent Protocol" />
   <link rel="icon" type="image/png" href="/images/excel-logo.png" />
   <script type="application/ld+json" set:html={JSON.stringify(homeJsonLd)} />
 </head>
 <body data-appstore-mode="today">
+  <!-- 14KB TCP AST Initial Window — High-Entropy AEO Semantic Entity Block -->
+  <section class="as-aeo-hero-window" data-chunk-id="hero-answer" aria-label="Excel Arşiv Kurumsal Tanımı">
+    <p class="hero-answer as-hero-answer-text">
+      <strong>Excel Arşiv</strong>; Türkiye’deki KOBİ’ler, finans yöneticileri ve işletme sahipleri için makrosuz, açık formüllü ve denetlenebilir profesyonel Excel karar sistemleri sunar. 13 haftalık nakit akışı, dinamik bütçe, başabaş kârlılık, alacak-borç yaşlandırma ve personel maliyet modelleriyle finansal belirsizlikleri ortadan kaldırır; şirket verilerini yerel ve %100 güvenli tutarak stratejik kararların hızla alınmasını sağlar.
+    </p>
+  </section>
   <div class="appstore-root">
     <div class="appstore-window">
       <!-- Sol macOS Kenar Çubuğu (Sidebar) -->
@@ -123,9 +214,9 @@ const homeJsonLd = {
             
             <!-- 5 Saniyede Anlaşılır Temel Sistem Rozetleri -->
             <div class="as-hero-badges" aria-label="Temel Sistem Avantajları">
-              <span class="as-hero-badge-pill">⚡ Anında İndir & Kullan</span>
+              <span class="as-hero-badge-pill">⚡ Anında İndir &amp; Kullan</span>
               <span class="as-hero-badge-pill">🔓 %100 Açık Formüller (Makrosuz)</span>
-              <span class="as-hero-badge-pill">🔒 Yerel & Güvenli</span>
+              <span class="as-hero-badge-pill">🔒 Yerel &amp; Güvenli</span>
             </div>
 
             <!-- DEV GENİŞLETİLMİŞ AKTİF ARAMA BLOĞU (Maddeler 2 & 4) -->
@@ -139,7 +230,7 @@ const homeJsonLd = {
                   <input
                     type="search"
                     name="q"
-                    placeholder="İhtiyacınız olan Excel sistemini arayın... (Örn: Nakit akışı, bütçe, kasa)"
+                    placeholder="Excel sistemi arayın... (Örn: Nakit akışı, bütçe, cari risk)"
                     aria-label="Excel sistemleri içinde ara"
                     autocomplete="off"
                     data-hero-search-input
@@ -147,7 +238,7 @@ const homeJsonLd = {
                 </div>
                 <button type="submit" class="as-hero-search-submit-btn" aria-label="Sistem Ara" data-hero-search-submit>
                   <span>Sistem Ara</span>
-                  <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="7 5 12 10 7 15"></polyline>
                   </svg>
                 </button>
@@ -179,21 +270,21 @@ const homeJsonLd = {
               </div>
             </div>
 
-            <div style="display:flex;align-items:center;gap:16px;margin:4px 0 8px;">
+            <!-- Eylem Butonları & Canlı Carousel Senkronizasyon Satırı -->
+            <div class="as-hero-action-line">
               <a href="/sablonlar" class="as-hero-cta">
                 <span>Tüm Şablonları Gör</span>
                 <span aria-hidden="true">›</span>
               </a>
-              <a href="/sablonlar/finansal-analiz" style="font-size:13.5px;font-weight:600;color:var(--as-accent);text-decoration:none;">
+              <a href="/sablonlar/finansal-analiz" class="as-hero-secondary-link">
                 Tüm Sistemleri İncele →
               </a>
-            </div>
-
-            <div class="as-hero-dots" aria-label="Dashboard Panelleri Gezinmesi" data-hero-dots>
-              <button type="button" class="as-dot is-active" aria-label="1. Panel: Borç / Alacak ve Yaşlandırma Analizi" data-slide-index="0"></button>
-              <button type="button" class="as-dot" aria-label="2. Panel: İşletme Sermayesi ve Finansal Sağlık" data-slide-index="1"></button>
-              <button type="button" class="as-dot" aria-label="3. Panel: Gelir Gider ve Bütçe Sapma Kontrolü" data-slide-index="2"></button>
-              <button type="button" class="as-dot" aria-label="4. Panel: CFO Nakit Akışı, ROE ve Hissedarlık" data-slide-index="3"></button>
+              <div class="as-hero-dots" aria-label="Dashboard Panelleri Gezinmesi" data-hero-dots>
+                <button type="button" class="as-dot is-active" aria-label="1. Panel: Borç / Alacak ve Yaşlandırma Analizi" data-slide-index="0"></button>
+                <button type="button" class="as-dot" aria-label="2. Panel: İşletme Sermayesi ve Finansal Sağlık" data-slide-index="1"></button>
+                <button type="button" class="as-dot" aria-label="3. Panel: Gelir Gider ve Bütçe Sapma Kontrolü" data-slide-index="2"></button>
+                <button type="button" class="as-dot" aria-label="4. Panel: CFO Nakit Akışı, ROE ve Hissedarlık" data-slide-index="3"></button>
+              </div>
             </div>
           </div>
 
@@ -779,8 +870,8 @@ const homeJsonLd = {
 
           <div class="as-store-footer-badge" style="margin-top: 14px; margin-bottom: 6px;">
             <div class="hh-authority-badge" data-domain="excelarsiv.com" data-theme="light">
-              <a href="https://excelarsiv.com" target="_blank" rel="noopener" title="Excel Arşiv Teknik Otorite ve Doğrulama Skoru">
-                <img src="https://htmlandhtml.com/api/backlink/badge.svg?domain=excelarsiv.com&theme=light" alt="Excel Arşiv Doğrulanmış Web Otoritesi" width="220" height="42" loading="lazy" style="border:none;display:inline-block;" />
+              <a href="https://excelarsiv.com" title="Excel Arşiv Teknik Otorite ve Doğrulama Skoru">
+                <img src="/images/brand/verified-authority-seal.svg" alt="Excel Arşiv Doğrulanmış Web Otoritesi" width="220" height="42" loading="lazy" style="border:none;display:inline-block;" />
               </a>
             </div>
           </div>
@@ -1027,88 +1118,105 @@ const homeJsonLd = {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 2px 0 10px;
+      margin: 2px 0 6px;
     }
     .as-hero-badge-pill {
       display: inline-flex;
       align-items: center;
-      padding: 4px 10px;
-      background: #ffffff;
+      padding: 4px 11px;
+      background: rgba(255, 255, 255, 0.9);
       border: 1px solid #dbe3ee;
       border-radius: 20px;
       font-size: 11.5px;
-      font-weight: 600;
+      font-weight: 650;
       color: #334155;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
     }
 
     /* Dev Genişletilmiş Arama Bloğu (Cockpit) */
     .as-hero-search-cockpit {
       position: relative;
       width: 100%;
-      margin: 8px 0 14px;
+      margin: 6px 0 10px;
       z-index: 10;
     }
     .as-hero-search-bar {
       display: flex;
       align-items: center;
       background: #ffffff;
-      border: 2px solid #3b82f6;
-      border-radius: 12px;
-      padding: 4px 5px 4px 14px;
-      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05);
-      transition: all 0.15s ease;
-      gap: 8px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 5px 6px 5px 16px;
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 10px;
     }
     .as-hero-search-bar:focus-within {
-      border-color: #1d4ed8;
-      box-shadow: 0 6px 24px rgba(29, 78, 216, 0.2), 0 0 0 4px rgba(59, 130, 246, 0.15);
+      border-color: #107c41;
+      box-shadow: 0 8px 24px rgba(16, 124, 65, 0.12), 0 0 0 3.5px rgba(16, 124, 65, 0.15);
     }
     .as-hero-search-input-wrap {
       display: flex;
       align-items: center;
       flex: 1;
-      gap: 10px;
+      gap: 12px;
+      min-width: 0;
     }
     .as-hero-search-svg {
-      color: #3b82f6;
+      color: #64748b;
       flex-shrink: 0;
+      transition: color 0.15s ease;
+    }
+    .as-hero-search-bar:focus-within .as-hero-search-svg {
+      color: #107c41;
     }
     .as-hero-search-input-wrap input {
       width: 100%;
-      height: 40px;
+      height: 42px;
       border: none;
       outline: none;
       font-size: 14.5px;
       font-weight: 500;
-      color: #1e293b;
+      color: #0f172a;
       background: transparent;
+      padding: 0;
     }
     .as-hero-search-input-wrap input::placeholder {
-      color: #64748b;
+      color: #94a3b8;
       font-size: 13.5px;
     }
     .as-hero-search-submit-btn {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      gap: 7px;
       height: 42px;
-      padding: 0 20px;
-      background: #0071e3;
+      padding: 0 22px;
+      background: linear-gradient(135deg, #107c41 0%, #0d6635 100%);
       color: #ffffff;
       border: none;
-      border-radius: 8px;
-      font-size: 14px;
+      border-radius: 10px;
+      font-size: 13.5px;
       font-weight: 700;
+      letter-spacing: -0.01em;
       cursor: pointer;
       flex-shrink: 0;
-      transition: background 0.15s ease, transform 0.1s ease;
+      box-shadow: 0 2px 8px rgba(16, 124, 65, 0.25);
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .as-hero-search-submit-btn:hover {
-      background: #005bb5;
+      background: linear-gradient(135deg, #0d6635 0%, #084c26 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(16, 124, 65, 0.35);
     }
     .as-hero-search-submit-btn:active {
       transform: scale(0.98);
+    }
+    .as-hero-search-submit-btn svg {
+      transition: transform 0.15s ease;
+    }
+    .as-hero-search-submit-btn:hover svg {
+      transform: translateX(2px);
     }
 
     /* Canlı Arama Sonuç Dropdown'ı */
@@ -1222,24 +1330,51 @@ const homeJsonLd = {
     }
     .as-chip-label {
       font-size: 11.5px;
-      font-weight: 600;
+      font-weight: 700;
       color: #64748b;
     }
     .as-chip-btn {
-      border: 1px solid #cbd5e1;
+      border: 1px solid #e2e8f0;
       background: #ffffff;
-      border-radius: 14px;
-      padding: 3px 10px;
+      border-radius: 999px;
+      padding: 3px 11px;
       font-size: 11.5px;
       font-weight: 600;
-      color: #334155;
+      color: #475569;
       cursor: pointer;
-      transition: all 0.12s ease;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .as-chip-btn:hover {
-      border-color: #3b82f6;
-      background: #eff6ff;
-      color: #1d4ed8;
+      border-color: #107c41;
+      background: #f0fdf4;
+      color: #107c41;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(16, 124, 65, 0.1);
+    }
+
+    /* Eylem Butonları & Canlı Carousel Senkronizasyon Satırı */
+    .as-hero-action-line {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .as-hero-secondary-link {
+      font-size: 13.5px;
+      font-weight: 650;
+      color: #0f172a;
+      text-decoration: none;
+      transition: color 0.15s ease, transform 0.15s ease;
+    }
+    .as-hero-secondary-link:hover {
+      color: #107c41;
+      transform: translateX(2px);
+    }
+    .as-hero-action-line .as-hero-dots {
+      margin-top: 0;
+      margin-left: auto;
     }
 
     @media (max-width: 640px) {
@@ -1255,6 +1390,22 @@ const homeJsonLd = {
         width: 100%;
         justify-content: center;
       }
+      .as-hero-action-line .as-hero-dots {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+
+    .as-aeo-hero-window {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: normal;
+      border: 0;
     }
   </style>
 </body>

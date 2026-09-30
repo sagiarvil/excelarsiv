@@ -92,6 +92,10 @@
             "functionId": "downloadProofDemo",
             "region": "europe-west1"
           }
+        },
+        {
+          "source": "/agent-card.json",
+          "destination": "/.well-known/agent-card.json"
         }
       ],
       "headers": [
@@ -104,7 +108,7 @@
             },
             {
               "key": "Strict-Transport-Security",
-              "value": "max-age=63072000; includeSubDomains"
+              "value": "max-age=63072000; includeSubDomains; preload"
             },
             {
               "key": "X-Robots-Tag",
@@ -357,7 +361,7 @@
           ]
         },
         {
-          "source": "/.well-known/agent-card.json",
+          "source": "/agent-card.json",
           "headers": [
             {
               "key": "Content-Type",
