@@ -60,6 +60,151 @@ const searchData = allTemplates.map((t) => ({
       {
         menu.map((item) => {
           const active = isActive(item.href);
+          const isTemplates = item.href === '/sablonlar';
+
+          if (isTemplates) {
+            return (
+              <div class="site-header__nav-item site-header__nav-item--has-megamenu" data-megamenu-item>
+                <a
+                  href={item.href}
+                  aria-current={active ? 'page' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  class={`site-header__link site-header__link--megamenu-trigger${active ? ' is-active' : ''}`}
+                  data-megamenu-trigger
+                >
+                  <span>{item.label}</span>
+                  <svg class="site-header__chevron-svg" viewBox="0 0 20 20" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 8 10 12 14 8"></polyline>
+                  </svg>
+                </a>
+
+                {/* Fade & Slide-down Mega Menu Dropdown */}
+                <div class="site-header__megamenu" data-megamenu-dropdown role="region" aria-label="Kategoriler ve Karar Sistemleri">
+                  <div class="site-header__megamenu-inner">
+                    <!-- 1. Sütun: Uzmanlık Alanları & Kategori Açılışları (7 Temel Kategori) -->
+                    <div class="site-header__megamenu-col site-header__megamenu-col--cats">
+                      <div class="site-header__megamenu-col-head">
+                        <span class="site-header__megamenu-eyebrow">UZMANLIK ALANLARI</span>
+                        <a href="/sablonlar" class="site-header__megamenu-head-link">Tüm 12 Alan →</a>
+                      </div>
+                      <div class="site-header__mega-cat-grid">
+                        <a href="/sablonlar/finansal-analiz" class="site-header__mega-cat-card">
+                          <span class="site-header__mega-cat-badge" style="background:#e6f4ea;color:#0b7440;">📊</span>
+                          <div>
+                            <strong>Finansal Analiz</strong>
+                            <span>Kârlılık, bilanço, rasyo & oran analizleri</span>
+                          </div>
+                        </a>
+                        <a href="/sablonlar/nakit-akisi" class="site-header__mega-cat-card">
+                          <span class="site-header__mega-cat-badge" style="background:#e1f0fe;color:#0f6cbd;">💧</span>
+                          <div>
+                            <strong>Nakit Akışı & Kasa</strong>
+                            <span>13 haftalık nakit açığı & likidite tahmini</span>
+                          </div>
+                        </a>
+                        <a href="/sablonlar/muhasebe-ve-vergi" class="site-header__mega-cat-card">
+                          <span class="site-header__mega-cat-badge" style="background:#fef3c7;color:#854d0e;">📑</span>
+                          <div>
+                            <strong>Muhasebe & Vergi</strong>
+                            <span>Mizan, KDV, stopaj & vergi hesaplayıcılar</span>
+                          </div>
+                        </a>
+                        <a href="/sablonlar/butce-ve-planlama" class="site-header__mega-cat-card">
+                          <span class="site-header__mega-cat-badge" style="background:#ede9fe;color:#4f46e5;">🎯</span>
+                          <div>
+                            <strong>Bütçe & Planlama</strong>
+                            <span>Dinamik şirket bütçesi & sapma kontrolü</span>
+                          </div>
+                        </a>
+                        <a href="/sablonlar/stok-ve-uretim" class="site-header__mega-cat-card">
+                          <span class="site-header__mega-cat-badge" style="background:#ccfbf1;color:#0d9488;">📦</span>
+                          <div>
+                            <strong>Stok & Üretim</strong>
+                            <span>Kapasite, stok devri & bağlanan nakit</span>
+                          </div>
+                        </a>
+                        <a href="/sablonlar/satis-ve-fiyatlama" class="site-header__mega-cat-card">
+                          <span class="site-header__mega-cat-badge" style="background:#ffedd5;color:#d97706;">🏷️</span>
+                          <div>
+                            <strong>Satış & Prim</strong>
+                            <span>Fiyatlandırma, prim matrisi & net tahsilat</span>
+                          </div>
+                        </a>
+                        <a href="/sablonlar/personel-ve-bordro" class="site-header__mega-cat-card">
+                          <span class="site-header__mega-cat-badge" style="background:#ffe4e6;color:#e11d48;">👥</span>
+                          <div>
+                            <strong>Personel & Bordro</strong>
+                            <span>Kıdem/ihbar yükü & toplam işveren maliyeti</span>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- 2. Sütun: En Çok Tercih Edilen Karar Modelleri -->
+                    <div class="site-header__megamenu-col site-header__megamenu-col--popular">
+                      <div class="site-header__megamenu-col-head">
+                        <span class="site-header__megamenu-eyebrow">EN ÇOK TERCİH EDİLENLER</span>
+                        <span class="site-header__megamenu-pill">Popüler</span>
+                      </div>
+                      <div class="site-header__mega-popular-list">
+                        <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="site-header__mega-pop-item">
+                          <span class="site-header__pop-dot" style="background:#0f6cbd;"></span>
+                          <div class="site-header__pop-text">
+                            <strong>13 Haftalık Nakit Akışı</strong>
+                            <span>Haftalık nakit açığı & ödeme takvimi</span>
+                          </div>
+                        </a>
+                        <a href="/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi" class="site-header__mega-pop-item">
+                          <span class="site-header__pop-dot" style="background:#107c41;"></span>
+                          <div class="site-header__pop-text">
+                            <strong>Akıllı Kasa Defteri</strong>
+                            <span>Günlük kasa/banka bakiye ve mutabakat</span>
+                          </div>
+                        </a>
+                        <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="site-header__mega-pop-item">
+                          <span class="site-header__pop-dot" style="background:#f59e0b;"></span>
+                          <div class="site-header__pop-text">
+                            <strong>Cari Hesap & Risk Takip</strong>
+                            <span>Müşteri risk puanlama ve yaşlandırma</span>
+                          </div>
+                        </a>
+                        <a href="/sablon/aylik-patron-finans-paneli" class="site-header__mega-pop-item">
+                          <span class="site-header__pop-dot" style="background:#7c3aed;"></span>
+                          <div class="site-header__pop-text">
+                            <strong>Aylık Patron Finans Paneli</strong>
+                            <span>CFO düzeyinde şirket özet karar kokpiti</span>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- 3. Sütun: Özel Çözüm & Karar Köprüsü -->
+                    <div class="site-header__megamenu-col site-header__megamenu-col--bridge">
+                      <div class="site-header__mega-action-box">
+                        <span class="site-header__action-badge">ÖZEL UYARLAMA</span>
+                        <h4>Size Özel Excel Sistemi</h4>
+                        <p>Şirketinizin ERP veya muhasebe akışına birebir kurulan özel Excel karar motoru.</p>
+                        <a href="/ozel-excel-sistemleri" class="site-header__action-btn">
+                          <span>15 Dk Ön Teşhis Al</span>
+                          <span aria-hidden="true">→</span>
+                        </a>
+                      </div>
+
+                      <a href="/karar" class="site-header__mega-guide-card">
+                        <div class="site-header__guide-icon">🧭</div>
+                        <div>
+                          <strong>Karar Rehberi</strong>
+                          <span>18 işletme probleminden uygun sistemi bulun →</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
           return (
             <a
               href={item.href}
@@ -267,6 +412,7 @@ const searchData = allTemplates.map((t) => ({
 
 <script is:inline>
   (function() {
+    // 1. Mobil Menü Yönetimi
     function initMobileNav() {
       const menu = document.getElementById('site-header-menu');
       const backdrop = document.getElementById('site-header-backdrop');
@@ -320,10 +466,111 @@ const searchData = allTemplates.map((t) => ({
       });
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initMobileNav);
-    } else {
+    // 2. Sticky Header & Glassmorphism Cam Efekti
+    function initStickyHeader() {
+      const header = document.querySelector('.site-header');
+      if (!header) return;
+
+      function handleScroll() {
+        if (window.scrollY > 15) {
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.remove('is-scrolled');
+        }
+      }
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+    }
+
+    // 3. Desktop Mega Menu (Fade & Slide-down Dropdown) Etkileşimi
+    function initMegaMenu() {
+      const megaWrapper = document.querySelector('[data-megamenu-item]');
+      const trigger = document.querySelector('[data-megamenu-trigger]');
+      if (!megaWrapper || !trigger) return;
+
+      function closeMega() {
+        megaWrapper.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+
+      function openMega() {
+        megaWrapper.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+
+      trigger.addEventListener('click', function(e) {
+        // Geniş ekranda dropdown toggle
+        if (window.innerWidth >= 992) {
+          e.preventDefault();
+          if (megaWrapper.classList.contains('is-open')) {
+            closeMega();
+          } else {
+            openMega();
+          }
+        }
+      });
+
+      // Dışarı tıklandığında kapat
+      document.addEventListener('click', function(e) {
+        if (!megaWrapper.contains(e.target)) {
+          closeMega();
+        }
+      });
+
+      // Escape tuşu ile kapat
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeMega();
+        }
+      });
+    }
+
+    // 4. Scroll Reveal & On-Scroll Fade-In Animation (IntersectionObserver)
+    function initScrollReveal() {
+      const revealElements = document.querySelectorAll(
+        '.scroll-reveal, .fade-in, .fade-in-left, .stagger-animation'
+      );
+      if (!revealElements.length) return;
+
+      if (!('IntersectionObserver' in window)) {
+        revealElements.forEach(function(el) {
+          el.classList.add('visible');
+        });
+        return;
+      }
+
+      const revealObserver = new IntersectionObserver(
+        function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          rootMargin: '0px 0px -30px 0px',
+          threshold: 0.1,
+        }
+      );
+
+      revealElements.forEach(function(el) {
+        revealObserver.observe(el);
+      });
+    }
+
+    function initAll() {
       initMobileNav();
+      initStickyHeader();
+      initMegaMenu();
+      initScrollReveal();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAll);
+    } else {
+      initAll();
     }
   })();
 </script>
@@ -430,9 +677,19 @@ const searchData = allTemplates.map((t) => ({
     top: 0;
     z-index: 50;
     background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--xl-grid);
+    transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .site-header.is-scrolled {
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom-color: rgba(16, 124, 65, 0.16);
+    box-shadow: 0 6px 24px -4px rgba(15, 23, 42, 0.08);
   }
   .site-header__inner {
     display: flex;
@@ -457,6 +714,286 @@ const searchData = allTemplates.map((t) => ({
   .site-header__nav { display:flex;align-items:center;gap:4px;margin-inline:auto; }
   .site-header__link { padding:9px;border-radius:9px;font-size:13px;font-weight:550;color:var(--xl-ink-3);text-decoration:none;transition:color 150ms ease-out,background 150ms ease-out; }
   .site-header__link:hover,.site-header__link.is-active { color:var(--xl-green-dark);background:var(--xl-accent-soft); }
+
+  /* ==========================================================================
+     MEGA MENU (Fade & Slide-down Dropdown)
+     ========================================================================== */
+  .site-header__nav-item--has-megamenu {
+    position: relative;
+  }
+  .site-header__link--megamenu-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .site-header__chevron-svg {
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #64748b;
+  }
+  .site-header__nav-item--has-megamenu:hover .site-header__chevron-svg,
+  .site-header__nav-item--has-megamenu.is-open .site-header__chevron-svg {
+    transform: rotate(180deg);
+    color: var(--xl-green-dark);
+  }
+
+  /* Fade & Slide-down Container */
+  .site-header__megamenu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    width: min(980px, 94vw);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(16, 124, 65, 0.16);
+    border-radius: 18px;
+    box-shadow: 0 24px 52px -12px rgba(15, 23, 42, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.03);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.22s;
+    z-index: 100;
+  }
+
+  /* Açılma Animasyonu: Hover, Focus-within ve Is-open */
+  .site-header__nav-item--has-megamenu:hover .site-header__megamenu,
+  .site-header__nav-item--has-megamenu:focus-within .site-header__megamenu,
+  .site-header__nav-item--has-megamenu.is-open .site-header__megamenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .site-header__megamenu-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .site-header__megamenu-col-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .site-header__megamenu-eyebrow {
+    font-family: var(--font-mono, monospace);
+    font-size: 10.5px;
+    font-weight: 750;
+    letter-spacing: 0.06em;
+    color: #475569;
+    text-transform: uppercase;
+  }
+  .site-header__megamenu-head-link {
+    font-size: 11.5px;
+    font-weight: 650;
+    color: #107c41;
+    text-decoration: none;
+  }
+  .site-header__megamenu-head-link:hover {
+    text-decoration: underline;
+  }
+  .site-header__megamenu-pill {
+    background: #e6f4ea;
+    color: #0b7440;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 6px;
+    border: 1px solid rgba(11, 116, 64, 0.2);
+  }
+
+  /* 1. Sütun Kategori Kartları */
+  .site-header__mega-cat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .site-header__mega-cat-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .site-header__mega-cat-card:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+  }
+  .site-header__mega-cat-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .site-header__mega-cat-card strong {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.25;
+  }
+  .site-header__mega-cat-card span {
+    display: block;
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.35;
+    margin-top: 1px;
+  }
+
+  /* 2. Sütun Popüler Sistemler */
+  .site-header__mega-popular-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .site-header__mega-pop-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: 10px;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .site-header__mega-pop-item:hover {
+    background: #ffffff;
+    border-color: rgba(16, 124, 65, 0.3);
+    transform: translateX(2px);
+  }
+  .site-header__pop-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .site-header__pop-text strong {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.25;
+  }
+  .site-header__pop-text span {
+    display: block;
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.35;
+    margin-top: 2px;
+  }
+
+  /* 3. Sütun Köprü & Özel Aksiyon */
+  .site-header__megamenu-col--bridge {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .site-header__mega-action-box {
+    background: linear-gradient(145deg, #f0fdf4 0%, #ecfdf5 100%);
+    border: 1px solid rgba(16, 124, 65, 0.2);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .site-header__action-badge {
+    display: inline-block;
+    font-family: var(--font-mono, monospace);
+    font-size: 9.5px;
+    font-weight: 750;
+    letter-spacing: 0.05em;
+    color: #0b7440;
+    background: #ffffff;
+    padding: 2px 7px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(11, 116, 64, 0.15);
+  }
+  .site-header__mega-action-box h4 {
+    margin: 0 0 4px 0;
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #064e3b;
+    line-height: 1.25;
+  }
+  .site-header__mega-action-box p {
+    margin: 0 0 10px 0;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: #047857;
+  }
+  .site-header__action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #107c41;
+    color: #ffffff;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .site-header__action-btn:hover {
+    background: #0b6334;
+  }
+
+  .site-header__mega-guide-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 14px;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .site-header__mega-guide-card:hover {
+    background: #ffffff;
+    border-color: #0071e3;
+  }
+  .site-header__guide-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .site-header__mega-guide-card strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 750;
+    color: #0f172a;
+    line-height: 1.25;
+  }
+  .site-header__mega-guide-card span {
+    display: block;
+    font-size: 10.5px;
+    color: #64748b;
+    line-height: 1.35;
+    margin-top: 1px;
+  }
+
+  @media (max-width: 991px) {
+    .site-header__megamenu {
+      display: none;
+    }
+  }
+
   .site-header__actions { display:flex;align-items:center;gap:8px;flex-shrink:0; }
 
   /* Desktop Arama */

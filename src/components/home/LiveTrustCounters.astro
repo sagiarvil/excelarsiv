@@ -1,0 +1,478 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+const metrics = [
+  {
+    target: 500,
+    prefix: '',
+    suffix: '+',
+    decimals: 0,
+    label: 'AKTİF ŞİRKET & CFO',
+    title: '500+ Kurumsal Güven',
+    desc: 'Nakit akışı ve finansal kararlarını Excel Arşiv sistemleriyle yöneten KOBİ & CFO.',
+    liveBadge: 'Son 24s: 48+ İndirme',
+    badgeColor: 'emerald',
+    icon: 'briefcase',
+  },
+  {
+    target: 124,
+    prefix: '',
+    suffix: '+',
+    decimals: 0,
+    label: 'HAZIR KARAR MODELİ',
+    title: '124+ Dinamik Sistem',
+    desc: '12 uzmanlık alanında, makrosuz, açık formüllü ve şirket akışına tam hazır sistemler.',
+    liveBadge: '12 Temel Uzmanlık Alanı',
+    badgeColor: 'blue',
+    icon: 'layers',
+  },
+  {
+    target: 18.4,
+    prefix: '₺',
+    suffix: 'M+',
+    decimals: 1,
+    label: 'HESAPLANMIŞ RİSK HACMİ',
+    title: '₺18.4M+ Bütçe & Risk',
+    desc: 'Nakit açığı, kur riski ve stok bağlama analizlerinde optimize edilen sermaye hacmi.',
+    liveBadge: 'Sıfır Formül Hatası',
+    badgeColor: 'amber',
+    icon: 'trending',
+  },
+  {
+    target: 99.8,
+    prefix: '%',
+    suffix: '',
+    decimals: 1,
+    label: 'KARAR İSABET & MEMNUNİYET',
+    title: '%99.8 Memnuniyet',
+    desc: '500+ doğrulanmış kurumsal kullanıcı değerlendirmesinde 5.0 tam yıldız puan ortalaması.',
+    liveBadge: '★ 5.0 Doğrulanmış Puan',
+    badgeColor: 'purple',
+    icon: 'award',
+  },
+];
+---
+
+<section
+  class={`as-live-trust-section scroll-reveal ${className}`}
+  aria-labelledby="trust-counters-heading"
+  data-live-trust-section
+>
+  <div class="as-trust-card">
+    <!-- Üst Başlık & Canlı Durum Sinyali (Live Radar Header) -->
+    <div class="as-trust-header">
+      <div class="as-trust-radar-wrap">
+        <span class="as-live-pulse-dot" aria-hidden="true">
+          <span class="as-live-pulse-ring"></span>
+          <span class="as-live-pulse-core"></span>
+        </span>
+        <span class="as-trust-eyebrow">CANLI İSTATİSTİK & GÜVEN KOKPİTİ</span>
+      </div>
+      <h2 id="trust-counters-heading" class="as-trust-title">
+        Doğrulanmış Karar Altyapısı ve Kurumsal Performans Göstergeleri
+      </h2>
+      <p class="as-trust-subtitle">
+        Tüm metrikler gerçek kullanıcı indirmeleri, doğrulanmış KOBİ geri bildirimleri ve Decision OS v15.1 kalite denetimlerinden derlenmiştir.
+      </p>
+    </div>
+
+    <!-- 4 Sütunlu Canlı Sayaç Izgarası (Staggered Animation) -->
+    <div class="as-counters-grid stagger-animation" data-counters-grid>
+      {metrics.map((m, idx) => (
+        <div class="as-counter-cell" style={`--stagger-i: ${idx};`}>
+          <div class="as-counter-cell-top">
+            <span class="as-counter-label">{m.label}</span>
+            <span class={`as-counter-live-pill as-counter-live-pill--${m.badgeColor}`}>
+              <span class="as-pill-dot"></span>
+              {m.liveBadge}
+            </span>
+          </div>
+
+          <div class="as-counter-number-row">
+            <span
+              class="as-counter-number"
+              data-counter-target={m.target}
+              data-counter-prefix={m.prefix}
+              data-counter-suffix={m.suffix}
+              data-counter-decimals={m.decimals}
+            >
+              {m.prefix}{m.target}{m.suffix}
+            </span>
+          </div>
+
+          <p class="as-counter-desc">{m.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Alt Güven ve Taahhüt Çubuğu -->
+    <div class="as-trust-guarantee-bar">
+      <div class="as-guarantee-item">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#107c41" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
+        <span>Anında Otomatik Teslimat</span>
+      </div>
+      <div class="as-guarantee-sep" aria-hidden="true">•</div>
+      <div class="as-guarantee-item">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#107c41" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <span>Sıfır Makro / %100 Açık Formül</span>
+      </div>
+      <div class="as-guarantee-sep" aria-hidden="true">•</div>
+      <div class="as-guarantee-item">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#107c41" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <span>Excel 2016-365 & Google Sheets Uyumlu</span>
+      </div>
+      <div class="as-guarantee-sep" aria-hidden="true">•</div>
+      <div class="as-guarantee-item">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#107c41" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <span>Birebir Finans Analisti Desteği</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .as-live-trust-section {
+    margin: 28px 0 36px 0;
+    width: 100%;
+  }
+
+  .as-trust-card {
+    background: #ffffff;
+    border: 1px solid rgba(16, 124, 65, 0.16);
+    border-radius: 20px;
+    padding: 32px 36px 24px 36px;
+    box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Üst Parlama Çizgisi */
+  .as-trust-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #107c41 0%, #0071e3 50%, #107c41 100%);
+  }
+
+  /* Canlı Radar & Başlık */
+  .as-trust-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 28px auto;
+  }
+
+  .as-trust-radar-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(16, 124, 65, 0.08);
+    border: 1px solid rgba(16, 124, 65, 0.2);
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+
+  .as-live-pulse-dot {
+    position: relative;
+    display: inline-flex;
+    width: 8px;
+    height: 8px;
+  }
+
+  .as-live-pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #107c41;
+    opacity: 0.75;
+    animation: live-pulse-anim 1.8s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  }
+
+  .as-live-pulse-core {
+    position: relative;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #107c41;
+  }
+
+  @keyframes live-pulse-anim {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.9;
+    }
+    70% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+
+  .as-trust-eyebrow {
+    font-family: var(--font-mono, monospace);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #0b7440;
+    text-transform: uppercase;
+  }
+
+  .as-trust-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px 0;
+  }
+
+  .as-trust-subtitle {
+    font-size: 13.5px;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* 4 Sütunlu Izgara */
+  .as-counters-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .as-counter-cell {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .as-counter-cell:hover {
+    transform: translateY(-2px);
+    border-color: rgba(16, 124, 65, 0.3);
+    box-shadow: 0 10px 20px -8px rgba(16, 124, 65, 0.12);
+  }
+
+  .as-counter-cell-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .as-counter-label {
+    font-family: var(--font-mono, monospace);
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: 0.05em;
+    color: #475569;
+    text-transform: uppercase;
+  }
+
+  .as-counter-live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10.5px;
+    font-weight: 650;
+    padding: 2px 7px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .as-counter-live-pill--emerald {
+    background: #e6f4ea;
+    color: #0b7440;
+    border: 1px solid rgba(11, 116, 64, 0.2);
+  }
+
+  .as-counter-live-pill--blue {
+    background: #e1f0fe;
+    color: #0f6cbd;
+    border: 1px solid rgba(15, 108, 189, 0.2);
+  }
+
+  .as-counter-live-pill--amber {
+    background: #fef3c7;
+    color: #854d0e;
+    border: 1px solid rgba(133, 77, 14, 0.2);
+  }
+
+  .as-counter-live-pill--purple {
+    background: #ede9fe;
+    color: #6b21a8;
+    border: 1px solid rgba(107, 33, 168, 0.2);
+  }
+
+  .as-pill-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .as-counter-number-row {
+    margin-bottom: 8px;
+  }
+
+  .as-counter-number {
+    font-family: var(--font-display, inherit);
+    font-size: 34px;
+    font-weight: 850;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+    line-height: 1.1;
+    font-feature-settings: 'tnum' 1, 'lnum' 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .as-counter-desc {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: #64748b;
+    margin: 0;
+    flex: 1;
+  }
+
+  /* Alt Güvenlik Barı */
+  .as-trust-guarantee-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 18px;
+    border-top: 1px solid #edf2f7;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #334155;
+  }
+
+  .as-guarantee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .as-guarantee-sep {
+    color: #cbd5e1;
+    font-size: 12px;
+  }
+
+  @media (max-width: 991px) {
+    .as-counters-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .as-trust-card {
+      padding: 24px 20px 20px 20px;
+    }
+    .as-trust-title {
+      font-size: 19px;
+    }
+    .as-counter-number {
+      font-size: 28px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .as-counters-grid {
+      grid-template-columns: 1fr;
+    }
+    .as-trust-guarantee-bar {
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .as-guarantee-sep {
+      display: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    function initLiveCounters() {
+      const counters = document.querySelectorAll('[data-counter-target]');
+      if (!counters.length) return;
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            obs.unobserve(el);
+
+            const targetVal = parseFloat(el.getAttribute('data-counter-target') || '0');
+            const prefix = el.getAttribute('data-counter-prefix') || '';
+            const suffix = el.getAttribute('data-counter-suffix') || '';
+            const decimals = parseInt(el.getAttribute('data-counter-decimals') || '0', 10);
+            const duration = 1600;
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // Exponential ease out
+              const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+              const currentVal = eased * targetVal;
+
+              const formattedVal = decimals > 0
+                ? currentVal.toFixed(decimals).replace('.', ',')
+                : Math.round(currentVal).toString();
+
+              el.textContent = prefix + formattedVal + suffix;
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+              } else {
+                const finalFormatted = decimals > 0
+                  ? targetVal.toFixed(decimals).replace('.', ',')
+                  : targetVal.toString();
+                el.textContent = prefix + finalFormatted + suffix;
+              }
+            }
+
+            requestAnimationFrame(updateCounter);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      counters.forEach(c => observer.observe(c));
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLiveCounters);
+    } else {
+      initLiveCounters();
+    }
+  })();
+</script>

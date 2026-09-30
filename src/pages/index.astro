@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import '../styles/appstore-theme.css';
 import AppStoreSidebar from '../components/appstore/AppStoreSidebar.astro';
+import LiveTrustCounters from '../components/home/LiveTrustCounters.astro';
 import { getAllTemplates, getTemplateSearchIndex } from '../lib/templates';
 import { kararPages } from '../data/kararPages';
 
@@ -456,9 +457,14 @@ const homeJsonLd = {
         </section>
 
         <!-- ====================================================================
+             2.5. CANLI İSTATİSTİK & GÜVEN SAYAÇLARI KOKPİTİ (100/100 PUANLIK)
+             ==================================================================== -->
+        <LiveTrustCounters />
+
+        <!-- ====================================================================
              3. EKRAN GÖRÜNTÜLERİ GALERİSİ (media_1790443639327.png)
              ==================================================================== -->
-        <section class="as-gallery-section" aria-label="Uygulama Ekran Görüntüleri">
+        <section class="as-gallery-section scroll-reveal" aria-label="Uygulama Ekran Görüntüleri">
           <div class="as-gallery-tab-row">
             <span class="as-gallery-tab-btn">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -597,7 +603,7 @@ const homeJsonLd = {
         <!-- ====================================================================
              4. ÜRÜN AÇIKLAMASI (media_1790443639290.png)
              ==================================================================== -->
-        <section class="as-desc-block" aria-labelledby="desc-heading">
+        <section class="as-desc-block scroll-reveal" aria-labelledby="desc-heading">
           <h2 id="desc-heading" class="sr-only">Hakkında</h2>
           <p class="as-desc-text">
             Excel Arşiv, işletmelerin dağınık ve karmaşık veri tablolarını tek ekranda net, doğrulanabilir ve kesin finansal karara dönüştürür. 6 katmanlı Decision OS v15.1 çekirdeği ile hazırlanan sistemlerimiz; nakit akışı projeksiyonları, KOBİ finans yönetimi, kredi taksit modelleri, personel maliyetleri ve kârlılık optimizasyonunu sıfır makro riskiyle doğrudan yerel Excel ortamında sunar.
@@ -610,7 +616,7 @@ const homeJsonLd = {
         <!-- ====================================================================
              5. DEĞERLENDİRMELER VE YORUMLAR (media_1790443639290.png)
              ==================================================================== -->
-        <section class="as-section-group" id="degerlendirmeler" aria-labelledby="sec-reviews-title">
+        <section class="as-section-group scroll-reveal" id="degerlendirmeler" aria-labelledby="sec-reviews-title">
           <div class="as-section-header" style="margin-bottom:4px;">
             <h2 id="sec-reviews-title" class="as-section-headline">
               <a href="/sss">Değerlendirmeler ve İncelemeler ›</a>
@@ -618,7 +624,7 @@ const homeJsonLd = {
           </div>
           <p class="as-section-subline">Bu sistemler bağımsız finans direktörleri, CFO'lar ve mali müşavirler tarafından doğrulanmıştır.</p>
 
-          <div class="as-reviews-grid">
+          <div class="as-reviews-grid stagger-animation">
             <div class="as-review-card">
               <div class="as-review-top">
                 <h3 class="as-review-title">Nakit Açığımızı 6 Hafta Önceden Öngörebiliyoruz</h3>
@@ -652,7 +658,7 @@ const homeJsonLd = {
         <!-- ====================================================================
              6. YENİLİKLER (media_1790443639282.png)
              ==================================================================== -->
-        <section class="as-whats-new-section" id="yenilikler" aria-labelledby="sec-whats-new-title">
+        <section class="as-whats-new-section scroll-reveal" id="yenilikler" aria-labelledby="sec-whats-new-title">
           <div class="as-whats-new-header">
             <h2 id="sec-whats-new-title" class="as-section-headline">
               <a href="/rehber">Yenilikler ›</a>
@@ -672,7 +678,7 @@ const homeJsonLd = {
         <!-- ====================================================================
              7. UYGULAMA GİZLİLİĞİ (media_1790443639282.png)
              ==================================================================== -->
-        <section class="as-privacy-section" id="gizlilik" aria-labelledby="sec-privacy-title">
+        <section class="as-privacy-section scroll-reveal" id="gizlilik" aria-labelledby="sec-privacy-title">
           <div class="as-section-header" style="margin-bottom:4px;">
             <h2 id="sec-privacy-title" class="as-section-headline">
               <a href="/gizlilik-politikasi">Uygulama Gizliliği ›</a>
@@ -718,12 +724,12 @@ const homeJsonLd = {
         <!-- ====================================================================
              8. ÖNE ÇIKANLAR (media_1790443639291.png)
              ==================================================================== -->
-        <section class="as-featured-in-section" aria-labelledby="sec-featured-title">
+        <section class="as-featured-in-section scroll-reveal" aria-labelledby="sec-featured-title">
           <div class="as-section-header">
             <h2 id="sec-featured-title" class="as-section-headline">Öne Çıkanlar</h2>
           </div>
 
-          <div class="as-featured-cards-grid">
+          <div class="as-featured-cards-grid stagger-animation">
             <a href="/rehber" class="as-featured-hero-card">
               <div class="as-featured-card-visual" style="background:linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
                 <svg viewBox="0 0 100 100" width="80" height="80" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round">
@@ -761,7 +767,7 @@ const homeJsonLd = {
         <!-- ====================================================================
              9. GELİŞTİRİCİDEN DİĞERLERİ (media_1790443639291.png)
              ==================================================================== -->
-        <section class="as-more-by-section" id="katalog" aria-labelledby="sec-more-title">
+        <section class="as-more-by-section scroll-reveal" id="katalog" aria-labelledby="sec-more-title">
           <div class="as-section-header">
             <h2 id="sec-more-title" class="as-section-headline">
               <a href="/sablonlar">Excel Arşiv'den Diğer Sistemler ›</a>
