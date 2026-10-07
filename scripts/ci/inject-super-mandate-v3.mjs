@@ -63,6 +63,20 @@ for (const filePath of htmlFiles) {
   const normalizedFilePath = filePath.replace(/\\/g, '/');
   const isHomepage = normalizedFilePath === 'dist/index.html' || normalizedFilePath.endsWith('/dist/index.html');
   if (isHomepage) {
+    if (!content.includes('name="theme-color"')) {
+      const mobileMetas = `<meta name="theme-color" content="#107c41" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Excel Arşiv" />
+  <meta name="mobile-web-app-capable" content="yes" />`;
+      content = content.replace('<head>', `<head>
+  ${mobileMetas}`);
+      modified = true;
+    }
+    if (!content.includes('data-ai-citation-anchor')) {
+      content = content.replace('class="as-aeo-hero-window"', 'class="as-aeo-hero-window hero-answer-engine mobile-thumb-safe" data-ai-citation-anchor="true"');
+      modified = true;
+    }
     if (!content.includes('hero-answer')) {
       content = content.replace('class="hero-mobile-copy__summary"', 'class="hero-mobile-copy__summary hero-answer"');
       modified = true;

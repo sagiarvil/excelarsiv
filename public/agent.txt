@@ -1,5 +1,5 @@
 # https://excelarsiv.com/agent.txt
-# AI Agent Manifest v1.0 — MANDATE-SEO-GEO-MOBILE-FIRST-2026-V8 Uyumlu
+# AI Agent Manifest v1.0 — MANDATE-SEO-GEO-MOBILE-FIRST-2026-V9 Uyumlu
 
 [identity]
 name: Excel Arşiv
@@ -27,11 +27,13 @@ app_links_ios: https://excelarsiv.com/.well-known/apple-app-site-association
 markdown_root: https://excelarsiv.com/llms.txt
 deep_graphs: https://excelarsiv.com/llms/pages/
 mobile_deep_graphs: https://excelarsiv.com/llms/mobile/
-rss: https://excelarsiv.com/rss.xml
+rss: https://excelarsiv.com/feed.xml
+rss_legacy: https://excelarsiv.com/rss.xml
+feed_json: https://excelarsiv.com/feed.json
 atom: https://excelarsiv.com/atom.xml
 mobile_rss: https://excelarsiv.com/mobile/feed.xml
 sitemap: https://excelarsiv.com/sitemap.xml
-mobile_sitemap: https://excelarsiv.com/sitemap-mobile.xml
+# mobile_sitemap retired per MANDATE v9 Purge Protocol (Tekil Canonical Sitemaps)
 
 [contact]
 email: official@excelarsiv.com

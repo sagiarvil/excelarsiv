@@ -1,0 +1,21 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Excel Arşiv Feed",
+  "home_page_url": "https://excelarsiv.com",
+  "feed_url": "https://excelarsiv.com/feed.json",
+  "description": "Türkiye KOBİ ve işletmeleri için hazır Excel finansal karar sistemleri.",
+  "items": [
+    {
+      "id": "https://excelarsiv.com/sablonlar",
+      "url": "https://excelarsiv.com/sablonlar",
+      "title": "Kurumsal Excel Şablonları Kataloğu",
+      "content_text": "Doğrulanmış kurumsal Excel çalışma sistemleri ve modelleri kataloğu."
+    },
+    {
+      "id": "https://excelarsiv.com/ozel-excel-sistemleri",
+      "url": "https://excelarsiv.com/ozel-excel-sistemleri",
+      "title": "İşletmeye Özel Excel Karar Sistemleri",
+      "content_text": "Şirketlere özel terzi usulü bütçe, nakit akışı ve ERP veri köprüleri mimarisi."
+    }
+  ]
+}

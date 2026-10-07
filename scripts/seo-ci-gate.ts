@@ -115,7 +115,7 @@ export function runFullQualityGates(
     const distLlmsTxt = path.join(buildOutputDir, 'llms.txt');
     if (fs.existsSync(path.join(ROOT_DIR, 'public/llms.txt'))) {
       const publicLlms = fs.readFileSync(path.join(ROOT_DIR, 'public/llms.txt'), 'utf8');
-      if (!fs.existsSync(distLlmsTxt) || !fs.readFileSync(distLlmsTxt, 'utf8').includes('LSI')) {
+      if (!fs.existsSync(distLlmsTxt) || !fs.readFileSync(distLlmsTxt, 'utf8').includes('ColBERT')) {
         fs.copyFileSync(path.join(ROOT_DIR, 'public/llms.txt'), distLlmsTxt);
       }
     }

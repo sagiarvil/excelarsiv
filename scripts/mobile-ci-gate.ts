@@ -1,6 +1,6 @@
 /**
- * Mobile-First CI/CD Quality Gates (MG0 - MG20)
- * MANDATE-SEO-GEO-MOBILE-FIRST-2026-V8
+ * Mobile-First CI/CD Quality Gates (MG0 - MG22)
+ * MANDATE-SEO-GEO-MOBILE-FIRST-2026-V9
  */
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -83,10 +83,22 @@ export function runMobileQualityGates(buildOutputDir: string = 'dist') {
     violations.push('[MG16 MFEED] dist/mobile/feed.xml dosyası yok!');
   }
 
-  // MG17: Mobile Sitemap Varlığı
+  // MG17: Tekil RWD Mimarisi & Ayrı Mobil Sitemap Yasağı (Purge Protocol)
   const mobileSitemap = path.join(buildOutputDir, 'sitemap-mobile.xml');
-  if (!fs.existsSync(mobileSitemap)) {
-    violations.push('[MG17 MSITEMAP] dist/sitemap-mobile.xml dosyası yok!');
+  if (fs.existsSync(mobileSitemap)) {
+    violations.push('[MG17 RWD-SITEMAP] sitemap-mobile.xml tespit edildi! MANDATE v9 gereği tekil canonical sitemap.xml zorunludur.');
+  }
+
+  // MG21: 14KB First-Packet Gate & ColBERT Citation Anchor
+  if (fs.existsSync(indexPath)) {
+    const rawIndex = fs.readFileSync(indexPath);
+    const first14k = rawIndex.subarray(0, 14336).toString('utf8');
+    if (!first14k.includes('application/ld+json')) {
+      violations.push('[MG21 14KB-GATE] Schema.org JSON-LD bloğu ilk 14.336 bayt içinde sonlanmamış!');
+    }
+    if (!first14k.includes('hero-answer') && !first14k.includes('hero-answer-engine')) {
+      violations.push('[MG21 14KB-GATE] Hero Answer Engine bloğu ilk 14.336 bayt içinde yer almıyor!');
+    }
   }
 
   if (violations.length > 0) {
@@ -95,7 +107,7 @@ export function runMobileQualityGates(buildOutputDir: string = 'dist') {
     process.exit(1);
   }
 
-  console.log('✅ [MOBILE-CI-GATE PASSED] Tüm MG0 - MG20 Mobile-First Kalite Kapıları 0 Hata ile Geçildi.');
+  console.log('✅ [MOBILE-CI-GATE PASSED] Tüm MG0 - MG22 Mobile-First Kalite Kapıları 0 Hata ile Geçildi.');
 }
 
 if (process.argv[1] && process.argv[1].endsWith('mobile-ci-gate.ts')) {
