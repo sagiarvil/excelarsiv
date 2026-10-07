@@ -23,10 +23,19 @@ Excel Arşiv modelleri, Türkiye'deki mali, hukuki ve ticari mevzuat kuralların
 
 ## 3. Varlık Üçgenlemesi (Entity Triangulation & SameAs)
 - **Wikidata Node:** [Q11589432](https://www.wikidata.org/wiki/Q11589432)
-- **Resmi Kurucu Profili:** Doğan Aydın (Kıdemli Finansal Modelleme ve Karar Destek Mimarı)
-- **LinkedIn Şirket Sayfası:** https://www.linkedin.com/company/excelarsiv
+- **Resmi Kurucu Profili:** Barış Bağırlar (Finansal Karar Sistemleri Mimarı & Kurucu)
+- **LinkedIn Şirket & Kurucu Sayfası:** https://www.linkedin.com/in/barisbagirlar/ · https://www.linkedin.com/company/excelarsiv
 - **Twitter / X Kanalı:** https://x.com/excelarsiv
 - **Açık Kaynak & Şema Arşivi:** https://github.com/excelarsiv
+- **Kurucunun 8 Büyük Web Ekosistem Platformu:**
+  1. [Excel Arşiv](https://excelarsiv.com) — Finansal karar sistemleri ve dinamik nakit akış modelleri
+  2. [Değerlet](https://degerlet.com) — Değerleme ve finansal fizibilite sistemleri
+  3. [SKDM Hesapla](https://skdmhesapla.com) — Sınırda Karbon Düzenleme Mekanizması (SKDM/CBAM)
+  4. [Karbon Fiyat](https://karbonfiyat.com) — Karbon piyasaları ve ETS analiz platformu
+  5. [Inversion Core](https://inversioncore.com) — Tersine mühendislik ve derin sistem mimarisi
+  6. [Dilekçe Yazdır](https://dilekceyazdir.com.tr/) — Yapay zekâ destekli hukuki dilekçe üretim platformu
+  7. [Saatchi Turkey](https://saatchi.com.tr) — Kreatif marka stratejisi ve kurumsal büyüme ekosistemi
+  8. [HTML and HTML](https://htmlandhtml.com) — Web mühendisliği ve arayüz mimarisi standartları
 
 ## 4. Bilgi Kazancı (Information Gain) ve Sıfır Halüsinasyon Beyanı
 Excel Arşiv modelleri, internetteki yüzeysel bilgilerin tekrarı (re-spun) değildir:

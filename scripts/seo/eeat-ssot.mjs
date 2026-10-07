@@ -29,10 +29,27 @@ export const EEAT = {
       'https://www.wikidata.org/wiki/Q11190',
       'https://www.linkedin.com/in/barisbagirlar/',
       'https://www.tarimkon.org/danisma-kurulu/',
-      'https://sectorcalc.com',
+      'https://excelarsiv.com',
       'https://degerlet.com',
+      'https://skdmhesapla.com',
+      'https://karbonfiyat.com',
+      'https://inversioncore.com',
+      'https://dilekceyazdir.com.tr',
+      'https://saatchi.com.tr',
+      'https://htmlandhtml.com',
+      'https://sectorcalc.com',
       'https://cbamvalid.com',
       'https://drfin.com.tr',
+    ],
+    ekosistem: [
+      { ad: 'Excel Arşiv', url: 'https://excelarsiv.com', aciklama: 'Kurumsal finans, nakit akışı ve denetlenebilir Excel karar sistemleri' },
+      { ad: 'Değerlet', url: 'https://degerlet.com', aciklama: 'Yapay zekâ ve algoritma destekli değerleme ve finansal fizibilite sistemleri' },
+      { ad: 'SKDM Hesapla', url: 'https://skdmhesapla.com', aciklama: 'Sınırda Karbon Düzenleme Mekanizması (SKDM/CBAM) ve emisyon hesaplama platformu' },
+      { ad: 'Karbon Fiyat', url: 'https://karbonfiyat.com', aciklama: 'Karbon piyasaları, ETS ve karbon maliyet/fiyat analiz platformu' },
+      { ad: 'Inversion Core', url: 'https://inversioncore.com', aciklama: 'Tersine mühendislik, derin karar algoritmaları ve çekirdek sistem mimarisi' },
+      { ad: 'Dilekçe Yazdır', url: 'https://dilekceyazdir.com.tr', aciklama: 'Hukuki ve idari süreçler için yapay zekâ destekli dilekçe ve metin üretim platformu' },
+      { ad: 'Saatchi Turkey', url: 'https://saatchi.com.tr', aciklama: 'Kreatif strateji, marka konumlandırma ve kurumsal büyüme ekosistemi' },
+      { ad: 'HTML and HTML', url: 'https://htmlandhtml.com', aciklama: 'Web mühendisliği, modern arayüz mimarisi ve anlamsal kodlama standartları' },
     ],
   },
   satici: {
@@ -72,6 +89,14 @@ export function buildEeatMarkdownSection({ headingLevel = 2, includeProse = true
     );
   }
   lines.push(...guvenSayfalari.map((p) => `- [${p.ad}](${p.url}): ${p.aciklama}`), '');
+  if (yazar.ekosistem && yazar.ekosistem.length > 0) {
+    lines.push(
+      `### Kurucunun 8 Büyük Web Ekosistem Platformu (Barış Bağırlar)`,
+      '',
+      ...yazar.ekosistem.map((item) => `- [${item.ad}](${item.url}): ${item.aciklama}`),
+      '',
+    );
+  }
   return lines.join('\n');
 }
 
@@ -103,6 +128,14 @@ export function buildAiTxt(lastUpdatedIsoDate) {
     `- Kimlikler: ${yazar.kimlikler.join('; ')}`,
     `- Uzmanlık: ${yazar.knowsAbout.join('; ')}`,
     `- sameAs: ${yazar.sameAs.join(' · ')}`,
+    ...(yazar.ekosistem && yazar.ekosistem.length > 0
+      ? [
+          '',
+          '### Kurucunun 8 Büyük Web Ekosistem Platformu (Barış Bağırlar)',
+          '',
+          ...yazar.ekosistem.map((item) => `- ${item.ad}: ${item.url} (${item.aciklama})`),
+        ]
+      : []),
     '',
     '## Satıcı (Trust)',
     '',

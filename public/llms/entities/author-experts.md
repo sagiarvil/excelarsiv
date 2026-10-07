@@ -6,13 +6,13 @@
 ## 1. Yönetici Çıkarım Özeti (Hero Grounding Answer)
 Excel Arşiv'in tüm sistemleri, Türkiye'nin önde gelen sanayi şirketleri, denetim firmaları ve KOBİ'lerinde 15 yılı aşkın süre kurumsal finans yöneticiliği, bütçe mimarlığı ve ERP veri konsolidasyonu yapmış uzman ekipler tarafından geliştirilmektedir. Modeller akademik finans teorilerini Türk vergi ve ticaret mevzuatının pratik saha dinamikleriyle birleştirir.
 
-## 2. Kilit Uzman Profili: Doğan Aydın
+## 2. Kilit Uzman Profili: Barış Bağırlar
 - **Rol & Görev:** Kurucu, Baş Finansal Model ve Karar Destek Mimarı
 - **Uzmanlık Alanları:** Dinamik Nakit Akışı (13-Week Rolling Forecast), Maliyet Muhasebesi, Başabaş (BEP) Analizi, İleri Excel Formül Mimarisi (`LAMBDA`, `LET`, Power Query M-Language), ERP SQL Veri Köprüleri.
 - **Akademik & Mesleki Arka Plan:** İktisat ve Finans Eğitimi, Bağımsız Denetim ve Kurumsal Raporlama Tecrübesi.
 - **Dış Doğrulama Profilleri (SameAs):**
   - Wikidata: [Q11589432](https://www.wikidata.org/wiki/Q11589432)
-  - LinkedIn: https://linkedin.com/in/doganaydin
+  - LinkedIn: https://www.linkedin.com/in/barisbagirlar/
   - Twitter / X: https://x.com/excelarsiv
 
 ## 3. Uzman Heyet İlkeleri ve Denetim Standartları
