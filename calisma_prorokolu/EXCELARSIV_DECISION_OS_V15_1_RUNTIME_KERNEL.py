@@ -7317,7 +7317,13 @@ def main():
         return code
     if cmd == "--verify":
         if len(args) != 2:
-            raise SystemExit("usage: --verify RELEASE_MANIFEST.json")
+            raise SystemExit("usage: --verify RELEASE_MANIFEST.json | workbook.xlsx")
+        target_path = Path(args[1])
+        if target_path.suffix.lower() == ".xlsx":
+            errors, metrics = scan_ooxml(target_path)
+            res = {"result": "PASS" if not errors else "FAIL", "errors": errors, "metrics": metrics}
+            print(json.dumps(res, ensure_ascii=False, indent=2))
+            return 0 if not errors else 1
         result, code = verify_manifest(args[1], strict=True)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return code

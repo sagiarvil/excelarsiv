@@ -42,18 +42,19 @@ Disallow: /api/
 
 # --- AI Training & Model Scraping Crawlers ---
 User-agent: GPTBot
+Allow: /
 Disallow: /api/
 Disallow: /data/
 Disallow: /EXCELARSIV_PRODUCTS/
 
 User-agent: ClaudeBot
+Allow: /
 Disallow: /api/
 Disallow: /data/
 Disallow: /EXCELARSIV_PRODUCTS/
 
 User-agent: Google-Extended
-Disallow: /api/
-Disallow: /data/
+Disallow: /
 
 User-agent: CCBot
 Disallow: /
@@ -66,23 +67,20 @@ Allow: /
 Disallow: /api/
 
 User-agent: Applebot-Extended
-Disallow: /api/
+Disallow: /
 
 User-agent: Amazonbot
 Disallow: /api/
 Disallow: /data/
 
 User-agent: meta-externalagent
-Allow: /
-Disallow: /api/
+Disallow: /
 
 User-agent: Meta-ExternalAgent
-Allow: /
-Disallow: /api/
+Disallow: /
 
 User-agent: cohere-ai
-Allow: /
-Disallow: /api/
+Disallow: /
 
 User-agent: *
 Allow: /
