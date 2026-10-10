@@ -5,13 +5,39 @@
   <subtitle>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://excelarsiv.com/atom.xml" />
   <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-  <updated>2026-09-30T22:36:08.000Z</updated>
+  <updated>2026-10-10T19:02:01.000Z</updated>
   <generator uri="https://excelarsiv.com/" version="3.0">Excel Arşiv Feed Engine</generator>
   <author>
     <name>Barış Bağırlar</name>
     <email>barisbagirlar@gmail.com</email>
     <uri>https://excelarsiv.com/hakkinda</uri>
   </author>
+  <entry>
+    <id>https://excelarsiv.com/finansal-web</id>
+    <title>Finansal Web &amp; Sistem Kurulumu | Butik &amp; Prime Mühendislik — ExcelArşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/finansal-web" />
+    <updated>2026-10-10T19:02:01.000Z</updated>
+    <published>2026-10-10T19:02:01.000Z</published>
+    <summary>Finans kurumları, fonlar, aile ofisleri ve CFO&apos;lar için butik terzi usulü finansal web mimarisi, karar kokpitleri, ERP köprüleri ve yüksek frekanslı sistem kurulumu.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/neden-excel-arsiv</id>
+    <title>Neden ExcelArşiv? 7 Kesin Neden &amp; Karşılaştırma — Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/neden-excel-arsiv" />
+    <updated>2026-10-10T19:02:01.000Z</updated>
+    <published>2026-10-10T19:02:01.000Z</published>
+    <summary>ExcelArşiv, ChatGPT ve boş Excel yaklaşımını kullanım amacı, doğruluk, denetim, veri gizliliği ve karar desteği açısından tarafsız biçimde karşılaştırın.</summary>
+    <category term="guven" label="guven" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
   <entry>
     <id>https://excelarsiv.com/</id>
     <title>Finansal Karar ve Excel Sistemleri | Excel Arşiv</title>
@@ -2139,19 +2165,6 @@
     <published>2026-09-26T13:15:52.000Z</published>
     <summary>Kafe ve restoran işletmeleri için kasa, menü maliyeti, kayıp/kaçak ve nakit planlama Excel sistemleri.</summary>
     <category term="sektor" label="sektor" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/neden-excel-arsiv</id>
-    <title>Neden ExcelArşiv? 7 Kesin Neden &amp; Karşılaştırma — Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/neden-excel-arsiv" />
-    <updated>2026-09-24T17:29:05.000Z</updated>
-    <published>2026-09-24T17:29:05.000Z</published>
-    <summary>ExcelArşiv, ChatGPT ve boş Excel yaklaşımını kullanım amacı, doğruluk, denetim, veri gizliliği ve karar desteği açısından tarafsız biçimde karşılaştırın.</summary>
-    <category term="guven" label="guven" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>

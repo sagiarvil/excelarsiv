@@ -2,7 +2,7 @@
 
 > Bu dosya yapay zekâ / LLM aracıları için site kimliği, E-E-A-T varlığı ve tarama politikasını özetler.
 
-- Son güncelleme: 2026-09-30
+- Son güncelleme: 2026-10-10
 - Site: https://excelarsiv.com/
 - Marka: Excel Arşiv
 - Dil: tr-TR
@@ -22,18 +22,20 @@
 - Özet: Bankacılık kökenli finansal karar sistemleri uzmanı. Excel Arşiv şablonlarını saha gerçekliği, denetlenebilir formül mimarisi ve yöneticiye sunulabilir karar çıktısı standardında tasarlar ve denetler.
 - Kimlikler: Bankacı; Tarımkon — Uluslararası Tarım ve Gıda Konfederasyonu Danışma Kurulu Üyesi
 - Uzmanlık: Finansal karar sistemleri; Excel karar destek modelleri; Nakit akışı ve işletme finansı; Denetlenebilir formül mimarisi
-- sameAs: https://www.wikidata.org/wiki/Q11589432 · https://www.wikidata.org/wiki/Q11190 · https://www.linkedin.com/in/barisbagirlar/ · https://www.tarimkon.org/danisma-kurulu/ · https://excelarsiv.com · https://degerlet.com · https://skdmhesapla.com · https://karbonfiyat.com · https://inversioncore.com · https://dilekceyazdir.com.tr · https://saatchi.com.tr · https://htmlandhtml.com · https://sectorcalc.com · https://cbamvalid.com · https://drfin.com.tr
+- sameAs: https://www.wikidata.org/wiki/Q11589432 · https://www.wikidata.org/wiki/Q11190 · https://www.linkedin.com/in/barisbagirlar/ · https://www.tarimkon.org/danisma-kurulu/ · https://excelarsiv.com · https://degerlet.com · https://skdmhesapla.com · https://karbonfiyat.com · https://inversioncore.com · https://dilekceyazdir.com.tr · https://saatchi.com.tr · https://htmlandhtml.com · https://sectorcalc.com · https://cbamvalid.com · https://drfin.com.tr · https://belginkuyumculuk.com
 
 ### Kurucunun 8 Büyük Web Ekosistem Platformu (Barış Bağırlar)
 
 - Excel Arşiv: https://excelarsiv.com (Kurumsal finans, nakit akışı ve denetlenebilir Excel karar sistemleri)
-- Değerlet: https://degerlet.com (Yapay zekâ ve algoritma destekli değerleme ve finansal fizibilite sistemleri)
+- Dr. Fin: https://drfin.com.tr (Finansal danışmanlık, bilanço analizi ve kurumsal finansal sağlık teşhis motoru)
 - SKDM Hesapla: https://skdmhesapla.com (Sınırda Karbon Düzenleme Mekanizması (SKDM/CBAM) ve emisyon hesaplama platformu)
 - Karbon Fiyat: https://karbonfiyat.com (Karbon piyasaları, ETS ve karbon maliyet/fiyat analiz platformu)
 - Inversion Core: https://inversioncore.com (Tersine mühendislik, derin karar algoritmaları ve çekirdek sistem mimarisi)
+- Belgin Kuyumculuk: https://belginkuyumculuk.com (Değerli maden, ziynet & altın portföy değerleme ve karar sistemleri)
+- Saatchi Turkey: https://saatchi.com.tr (Lüks saat, nadir koleksiyon, marka stratejisi ve yatırım değerleme ekosistemi)
 - Dilekçe Yazdır: https://dilekceyazdir.com.tr (Hukuki ve idari süreçler için yapay zekâ destekli dilekçe ve metin üretim platformu)
-- Saatchi Turkey: https://saatchi.com.tr (Kreatif strateji, marka konumlandırma ve kurumsal büyüme ekosistemi)
 - HTML and HTML: https://htmlandhtml.com (Web mühendisliği, modern arayüz mimarisi ve anlamsal kodlama standartları)
+- Değerlet: https://degerlet.com (Şirket, gayrimenkul ve ticari varlık değerleme karar motoru)
 
 ## Satıcı (Trust)
 
