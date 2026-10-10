@@ -607,53 +607,6 @@
       margin-bottom: 40px;
     }
 
-    /* Video Showreel Modal */
-    .magic-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.94);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .magic-modal.active {
-      display: flex;
-    }
-    .magic-modal__content {
-      position: relative;
-      width: 100%;
-      max-width: 960px;
-      background: #000;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .magic-modal__close {
-      position: absolute;
-      top: 14px;
-      right: 18px;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 28px;
-      font-weight: 300;
-      cursor: pointer;
-      z-index: 10;
-      line-height: 1;
-    }
-    .magic-modal__close:hover {
-      color: #FA4616;
-    }
-    .magic-modal video {
-      width: 100%;
-      display: block;
-    }
-
     /* Footer */
     .magic-footer {
       background: #020305;
@@ -738,12 +691,6 @@
           <a href="https://wa.me/905324560700?text=Merhaba%2C%20finansal%20kurumumuz%20i%C3%A7in%20butik%20web%20ve%20sistem%20kurulumu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="magic-cta-btn" style="padding: 16px 36px; font-size: 13px;">
             ÖZEL DANIŞMANLIK ALIN
           </a>
-          <button type="button" class="magic-cta-btn magic-cta-btn--outline" id="openVideoModalBtn" style="padding: 16px 28px; font-size: 13px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px; vertical-align: middle;">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-            SHOWREEL İZLE
-          </button>
         </div>
 
         <div class="magic-hero__badge-band">
@@ -1004,16 +951,6 @@
     </div>
   </section>
 
-  <!-- Video Showreel Modal (MagiClick Exact Showreel Feature) -->
-  <div class="magic-modal" id="videoModal">
-    <div class="magic-modal__content">
-      <button class="magic-modal__close" id="closeVideoModalBtn" aria-label="Kapat">&times;</button>
-      <video id="modalVideo" controls loop playsinline>
-        <source src="https://magiclickcdn.blob.core.windows.net/video/MagiClick_Showreel_Website.mp4" type="video/mp4" />
-      </video>
-    </div>
-  </div>
-
   <!-- Prime Footer -->
   <footer class="magic-footer">
     <div class="magic-container magic-footer__inner">
@@ -1029,30 +966,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Video Modal Handlers
-    const openBtn = document.getElementById('openVideoModalBtn');
-    const closeBtn = document.getElementById('closeVideoModalBtn');
-    const modal = document.getElementById('videoModal');
-    const modalVideo = document.getElementById('modalVideo');
-
-    if (openBtn && modal && closeBtn) {
-      openBtn.addEventListener('click', () => {
-        modal.classList.add('active');
-        if (modalVideo) modalVideo.play();
-      });
-      closeBtn.addEventListener('click', () => {
-        modal.classList.remove('active');
-        if (modalVideo) modalVideo.pause();
-      });
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.remove('active');
-          if (modalVideo) modalVideo.pause();
-        }
-      });
-    }
-  </script>
 </body>
 </html>
