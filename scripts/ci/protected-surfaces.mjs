@@ -11,8 +11,8 @@ const PROTECTED = Object.freeze({
   'src/layouts/WorkbookLayout.astro': 'b105a87b2b0c5a79e1cea49afa047961e19ef70b',
   'src/styles/global.css': '74ea9cfe9958e0a305b16b6203c8f09e7705de06',
   'src/styles/home-native-info-hard-color-v33.css': 'd739fd58e4da62ca4f31f1f1327b6206ee9c21da',
-  'public/images/excel-logo.png': '15dfc9c708076a5d1a458c44e6ccfbd27878ef62',
-  'public/images/brand/excelarsiv-header-logo.png': '15dfc9c708076a5d1a458c44e6ccfbd27878ef62',
+  'public/images/excel-logo.png': 'c58227931a0e504348ac9d5e3524a6beae3b0149',
+  'public/images/brand/excelarsiv-header-logo.png': 'c58227931a0e504348ac9d5e3524a6beae3b0149',
 });
 
 function gitBlob(path) {
