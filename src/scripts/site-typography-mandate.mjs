@@ -98,9 +98,12 @@ export function applySiteTypographyMandate({ distDir = 'dist', specialPath = joi
   for (const path of htmlFiles) {
     let html = readFileSync(path, 'utf8');
     const isSpecialLight = path === specialPath && html.includes('data-special-light-v1');
+    const isFinansalDark = path.includes('finansal-web') || html.includes('data-finansal-web-prime');
     if (isSpecialLight) {
       lightSpecial = true;
       if (!html.includes(MANDATE)) html = html.replace('</head>', `${lightSpecialTypographyStyles}</head>`);
+    } else if (isFinansalDark) {
+      if (!html.includes(MANDATE)) html = html.replace('</head>', `<style ${MANDATE} data-ea-finansal-dark-mandate>:root{--ea-finansal-dark:true}</style></head>`);
     } else {
       if (!html.includes('data-ea-typography-font')) html = html.replace('</head>', `${FONT_LINK}${typographyStyles}</head>`);
       else if (!html.includes(MANDATE)) html = html.replace('</head>', `${typographyStyles}</head>`);
