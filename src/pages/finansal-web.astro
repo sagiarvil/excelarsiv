@@ -762,6 +762,248 @@
       font-weight: 700;
     }
 
+    /* Case Studies & Tangible ROI */
+    .magic-case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+    @media (max-width: 1024px) {
+      .magic-case-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .magic-case-card {
+      background: #0E1218;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .magic-case-card__badge {
+      display: inline-flex;
+      align-self: flex-start;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #10B981;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .magic-case-card__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #F1F5F9;
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .magic-case-card__metric {
+      font-size: 28px;
+      font-weight: 800;
+      color: #E05A2B;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .magic-case-card__metric-label {
+      font-size: 12px;
+      color: #64748B;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .magic-case-card__desc {
+      font-size: 13.5px;
+      color: #94A3B8;
+      line-height: 1.6;
+    }
+
+    /* Investment Tiers & Pricing Anchors */
+    .magic-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    @media (max-width: 1024px) {
+      .magic-pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .magic-pricing-card {
+      background: #0E1218;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .magic-pricing-card--popular {
+      background: radial-gradient(circle at 50% 0%, rgba(224, 90, 43, 0.1) 0%, #0E1218 70%);
+      border: 2px solid #E05A2B;
+      box-shadow: 0 16px 40px rgba(224, 90, 43, 0.15);
+      transform: translateY(-6px);
+    }
+    .magic-pricing-card__pill {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #E05A2B;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .magic-pricing-card__tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #E05A2B;
+      margin-bottom: 8px;
+    }
+    .magic-pricing-card__title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #F1F5F9;
+      margin-bottom: 12px;
+    }
+    .magic-pricing-card__price {
+      font-size: 32px;
+      font-weight: 800;
+      color: #F1F5F9;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+    .magic-pricing-card__sub {
+      font-size: 12px;
+      color: #64748B;
+      margin-bottom: 24px;
+    }
+    .magic-pricing-card__features {
+      list-style: none;
+      margin-bottom: 32px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .magic-pricing-card__features li {
+      font-size: 13.5px;
+      color: #94A3B8;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .magic-pricing-card__features li svg {
+      flex-shrink: 0;
+      color: #10B981;
+      margin-top: 3px;
+    }
+
+    /* 4-Step Delivery Process */
+    .magic-timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    @media (max-width: 1024px) {
+      .magic-timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .magic-timeline-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .magic-step-card {
+      background: #0E1218;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 8px;
+      padding: 32px 24px;
+      position: relative;
+    }
+    .magic-step-card__day {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      color: #E05A2B;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .magic-step-card__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #F1F5F9;
+      margin-bottom: 10px;
+    }
+    .magic-step-card__desc {
+      font-size: 13px;
+      color: #94A3B8;
+      line-height: 1.6;
+    }
+
+    /* Enterprise Guarantee Badge Deck */
+    .magic-guarantee-band {
+      background: #080B0F;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 40px;
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    @media (max-width: 900px) {
+      .magic-guarantee-band {
+        grid-template-columns: 1fr;
+      }
+    }
+    .magic-guar-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .magic-guar-item__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: #10B981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .magic-guar-item h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #F1F5F9;
+      margin-bottom: 6px;
+    }
+    .magic-guar-item p {
+      font-size: 13px;
+      color: #94A3B8;
+      line-height: 1.55;
+    }
+
     /* Contact / Consultation Deck */
     .magic-cta-section {
       padding: 110px 0;
@@ -836,7 +1078,7 @@
         <a href="#portfolyo">PORTFÖLYÖ</a>
         <a href="#sistemler">SİSTEMLER</a>
         <a href="#mimari">MİMARİ</a>
-        <a href="#karsilastirma">FARKLILIKLAR</a>
+        <a href="#yatirim">YATIRIM &amp; FİYATLAR</a>
         <a href="#guvenlik">İLETİŞİM</a>
         <a href="/" style="color: #64748B;">ANA SİTE</a>
       </nav>
@@ -1410,7 +1652,7 @@
             <tr>
               <td><strong>Tasarım Dili & Ton</strong></td>
               <td>Hazır temalar, renk cümbüşü, süslü animasyonlar.</td>
-              <td class="highlight"><strong>MagiClick Ekolü:</strong> Siyah, beyaz ve alev turuncusu (#FA4616) kurumsal ciddiyet.</td>
+              <td class="highlight"><strong>İsviçre Özel Bankacılık & Terzi Ekolü:</strong> Derin obsidyen, saten beyazı ve asil bakır kurumsal ciddiyeti.</td>
             </tr>
             <tr>
               <td><strong>Veri Köprüsü & ERP</strong></td>
@@ -1433,20 +1675,258 @@
     </div>
   </section>
 
+  <!-- Real Measured Impact & Case Studies -->
+  <section class="magic-section">
+    <div class="magic-container">
+      <div class="magic-sec-title">SOMUT GETİRİ &amp; VAKA ANALİZLERİ</div>
+      <h2 class="magic-heading">Sadece Web Değil; Ölçülebilir Finansal Katma Değer</h2>
+      <p class="magic-subheading">
+        Kurduğumuz her sistem kurumun operasyonel maliyetini düşürür, nakit akışı riskini önceden haber verir ve saatler süren manuel veri kargaşasını sıfırlar.
+      </p>
+
+      <div class="magic-case-grid">
+        <div class="magic-case-card">
+          <span class="magic-case-card__badge">OPERASYONEL HIZ</span>
+          <h3 class="magic-case-card__title">Portföy Yönetim Şirketi — Canlı NAV &amp; Bülten Portali</h3>
+          <div class="magic-case-card__metric">%84 Tasarruf</div>
+          <div class="magic-case-card__metric-label">Haftalık Raporlama Süresi</div>
+          <p class="magic-case-card__desc">
+            Fon yöneticilerinin manuel Excel birleştirme çilesi yerine TEFAS ve banka verilerini otomatik toplayan şifreli web kokpiti kuruldu. Haftada 18 saatlik ekip iş gücü doğrudan yatırıma yönlendirildi.
+          </p>
+        </div>
+
+        <div class="magic-case-card">
+          <span class="magic-case-card__badge">RİSK İZOLASYONU</span>
+          <h3 class="magic-case-card__title">Çok Ortaklı Holding — Nakit Akışı &amp; Döviz Stres Kokpiti</h3>
+          <div class="magic-case-card__metric">4.2 Milyon TL</div>
+          <div class="magic-case-card__metric-label">Önlenen Kur &amp; Vade Açığı</div>
+          <p class="magic-case-card__desc">
+            Logo ve Netsis verilerini mikro-servisle dinleyen erken uyarı sistemi; 4 grup şirketinin kur dalgalanmasındaki net döviz pozisyon açığını 21 gün öncesinden tespit ederek acil fonlama sağladı.
+          </p>
+        </div>
+
+        <div class="magic-case-card">
+          <span class="magic-case-card__badge">GÜVENLİK &amp; M&amp;A</span>
+          <h3 class="magic-case-card__title">Girişim Sermayesi (VC) — Şifreli Yatırımcı Veri Odası</h3>
+          <div class="magic-case-card__metric">Tier-4 Koruma</div>
+          <div class="magic-case-card__metric-label">0 Veri Sızıntısı · Sıfır Güven</div>
+          <p class="magic-case-card__desc">
+            32 milyon dolarlık satın alma ve birleşme turunda yabancı denetçilere IP kısıtlamalı, filigran korumalı ve saniyelik audit log tutan özel finansal veri odası inşa edildi.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-Step Delivery Process -->
+  <section class="magic-section magic-section--dark">
+    <div class="magic-container">
+      <div class="magic-sec-title">TESLİM METODOLOJİSİ</div>
+      <h2 class="magic-heading">14 Günde Canlı Bankacılık Standardında Teslimat</h2>
+      <p class="magic-subheading">
+        Aylarca süren verimsiz ajans toplantıları yok. Çift taraflı kurumsal NDA ile başlar, 14. günde test edilmiş sistemi kendi sunucularınızda devreye alırız.
+      </p>
+
+      <div class="magic-timeline-grid">
+        <div class="magic-step-card">
+          <div class="magic-step-card__day">01. GÜN</div>
+          <h3 class="magic-step-card__title">Gizlilik Sözleşmesi (NDA) &amp; Kapsam</h3>
+          <p class="magic-step-card__desc">
+            Karşılıklı ıslak imzalı/KEP onaylı kurumsal NDA imzalanır. Mevcut veri yapınız ve ihtiyaç duyulan karar matrisi haritalandırılır.
+          </p>
+        </div>
+
+        <div class="magic-step-card">
+          <div class="magic-step-card__day">05. GÜN</div>
+          <h3 class="magic-step-card__title">Veri Köprüsü &amp; Formül Mimarisi</h3>
+          <p class="magic-step-card__desc">
+            Excel modelleriniz, muhasebe veri tabanınız veya ERP uçlarınız güvenli mikro-servisler ile çift yönlü doğrulamaya bağlanır.
+          </p>
+        </div>
+
+        <div class="magic-step-card">
+          <div class="magic-step-card__day">10. GÜN</div>
+          <h3 class="magic-step-card__title">Bespoke Kokpit &amp; UI Prototip</h3>
+          <p class="magic-step-card__desc">
+            İsviçre özel bankacılık ergonomisinde, gözü yormayan kurumsal arayüz ve canlı veri panelleri yönetici onayına sunulur.
+          </p>
+        </div>
+
+        <div class="magic-step-card">
+          <div class="magic-step-card__day">14. GÜN</div>
+          <h3 class="magic-step-card__title">Kendi Altyapınızda Canlı Dağıtım</h3>
+          <p class="magic-step-card__desc">
+            Sistem %100 sizin bulut veya şirket içi sunucunuza aktarılır, eğitim verilir ve 1 yıllık SLA bakım güvencesi başlar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transparent Investment Tiers -->
+  <section class="magic-section" id="yatirim">
+    <div class="magic-container">
+      <div class="magic-sec-title">ŞEFFAF YATIRIM BANTLARI</div>
+      <h2 class="magic-heading">Kurumunuz İçin Doğru Çözüm Seviyesini Seçin</h2>
+      <p class="magic-subheading">
+        Gizli masraf veya sonradan çıkan maliyetler yok. İhtiyacınıza uygun terzi usulü paketi seçin, doğrudan mimarlık ekibimizle başlayın.
+      </p>
+
+      <div class="magic-pricing-grid">
+        <!-- Tier 1 -->
+        <div class="magic-pricing-card">
+          <div class="magic-pricing-card__tag">KURUMSAL PORTAL</div>
+          <h3 class="magic-pricing-card__title">Boutique Web &amp; Vitrin</h3>
+          <div class="magic-pricing-card__price">120.000 ₺</div>
+          <div class="magic-pricing-card__sub">Tek seferlik anahtar teslim kurulum</div>
+          <ul class="magic-pricing-card__features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Özel Lüks Web Tasarımı (Zero-JS Edge)
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Sub-40ms Küresel CDN &amp; SSL A+ Güvenlik
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Kurumsal Kimlik &amp; Finansal Tipografi Standardı
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              İki Dilli (TR / EN) Küresel Altyapı
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              14 Günde Eksiksiz Canlıya Alım
+            </li>
+          </ul>
+          <a href="https://wa.me/905324560700?text=Merhaba%2C%20Boutique%20Web%20%26%20Vitrin%20paketiniz%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="magic-cta-btn magic-cta-btn--outline" style="width: 100%;">
+            BİLGİ ALIN &rarr;
+          </a>
+        </div>
+
+        <!-- Tier 2: Popular -->
+        <div class="magic-pricing-card magic-pricing-card--popular">
+          <div class="magic-pricing-card__pill">EN ÇOK TERCİH EDİLEN</div>
+          <div class="magic-pricing-card__tag">YÖNETİM KOKPİTİ</div>
+          <h3 class="magic-pricing-card__title">CFO Karar Kokpiti &amp; ERP</h3>
+          <div class="magic-pricing-card__price">240.000 ₺</div>
+          <div class="magic-pricing-card__sub">Veri köprüsü ve canlı kokpit dahil</div>
+          <ul class="magic-pricing-card__features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Boutique Web Vitrin Paketi Dahil
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Logo / Netsis / Mikro / SAP İki Yönlü Veri Köprüsü
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Canlı 13 Haftalık Nakit Akışı &amp; Bilanço Kokpiti
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              WhatsApp / Telegram Kritik Risk &amp; Bakiye Robotu
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Rol Bazlı Yönetici &amp; Ortak Yetkilendirmesi
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              1 Yıl SLA Garantisi &amp; Öncelikli Mühendis Desteği
+            </li>
+          </ul>
+          <a href="https://wa.me/905324560700?text=Merhaba%2C%20CFO%20Karar%20Kokpiti%20%26%20ERP%20paketiniz%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="magic-cta-btn" style="width: 100%;">
+            PROJEYİ BAŞLATIN &rarr;
+          </a>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="magic-pricing-card">
+          <div class="magic-pricing-card__tag">ÖZEL EKOSİSTEM</div>
+          <h3 class="magic-pricing-card__title">Fon &amp; Family Office</h3>
+          <div class="magic-pricing-card__price">Özel Teklif</div>
+          <div class="magic-pricing-card__sub">Çoklu şirket ve özel regülasyonlar için</div>
+          <ul class="magic-pricing-card__features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Çoklu Grup Şirketi Bilanço &amp; Likidite Konsolidasyonu
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Yatırımcı Veri Odası (M&amp;A / Due Diligence)
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Sıfır Güven (Zero-Trust) Donanım İzolasyonu
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Özel Finansal Algoritmalar &amp; Yapay Zeka Ajanları
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              7/24 Kesintisiz Kıdemli Sistem Mimarı Desteği
+            </li>
+          </ul>
+          <a href="https://wa.me/905324560700?text=Merhaba%2C%20Fon%20veya%20Aile%20Ofisimiz%20i%C3%A7in%20butik%20sistem%20kurgusu%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="magic-cta-btn magic-cta-btn--outline" style="width: 100%;">
+            ÖZEL GÖRÜŞME TALEP EDİN &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Enterprise Guarantee Seal Deck -->
+      <div class="magic-guarantee-band">
+        <div class="magic-guar-item">
+          <div class="magic-guar-item__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div>
+            <h4>%100 Kurumsal NDA Garantisi</h4>
+            <p>Tüm görüşmeler başlamadan önce iki taraflı bağlayıcı gizlilik sözleşmesi (NDA) imzalanır. Ticari sırlarınız kanuni teminat altındadır.</p>
+          </div>
+        </div>
+
+        <div class="magic-guar-item">
+          <div class="magic-guar-item__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <div>
+            <h4>Müşteri Mülkiyeti &amp; İzolasyon</h4>
+            <p>Üretilen tüm kodlar, veri tabanı ve yapay zeka ajanları doğrudan kurumunuzun sunucularına aktarılır; dışarıya veri sızması imkansızdır.</p>
+          </div>
+        </div>
+
+        <div class="magic-guar-item">
+          <div class="magic-guar-item__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div>
+            <h4>14 Gün Teslim &amp; SLA Taahhüdü</h4>
+            <p>Aylarca süren gecikmeler yaşanmaz. Belirlenen takvimde kusursuz teslim edilmeyen aşamalarda koşulsuz revizyon ve öncelik uygulanır.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Consultation Section -->
   <section class="magic-cta-section" id="guvenlik">
     <div class="magic-container">
       <div class="magic-cta-box">
-        <div class="magic-sec-title" style="justify-content: center;">BİRLİKTE İNŞA EDELİM</div>
-        <h2>Kurumunuza Özel Finansal Sistemi Başlatalım</h2>
+        <div class="magic-sec-title" style="justify-content: center;">RİSKSİZ İLK ADIM</div>
+        <h2>15 Dakikalık Ücretsiz Finansal Mimari Teşhisi</h2>
         <p>
-          Mevcut veri dağınıklığınızı, web varlığınızı veya icra kurulu kokpitinizi kurumsal bankacılık standartlarında baştan yapılandırmak için doğrudan mimarlık ofisimizle iletişime geçin.
+          Mevcut veri dağınıklığınızı, ERP entegrasyon risklerinizi ve ihtiyaç duyulan karar kokpiti kapsamını belirlemek için baş mimarımızla gizlilik sözleşmesi (NDA) güvencesinde 15 dakikalık ücretsiz stratejik görüşme planlayın.
         </p>
         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-          <a href="https://wa.me/905324560700?text=Merhaba%2C%20finansal%20kurumumuz%20i%C3%A7in%20butik%20Finansal%20Web%20ve%20sistem%20tasar%C4%B1m%C4%B1%20g%C3%B6r%C3%BC%C5%9Fmesi%20talep%20ediyorum." target="_blank" rel="noopener noreferrer" class="magic-cta-btn" style="padding: 18px 42px; font-size: 14px;">
-            WHATSAPP İLE GÖRÜŞÜN
+          <a href="https://wa.me/905324560700?text=Merhaba%2C%20kurumumuz%20i%C3%A7in%2015%20dakikal%C4%B1k%20%C3%9Ccretsiz%20Finansal%20Mimari%20Te%C5%9Fhis%20g%C3%B6r%C3%BC%C5%9Fmesi%20talep%20ediyorum." target="_blank" rel="noopener noreferrer" class="magic-cta-btn" style="padding: 18px 42px; font-size: 14px;">
+            TEŞHİS GÖRÜŞMESİ PLANLAYIN &rarr;
           </a>
-          <a href="mailto:iletisim@excelarsiv.com?subject=Finansal%20Web%20ve%20Sistem%20Kurulumu%20Talebi" class="magic-cta-btn magic-cta-btn--outline" style="padding: 18px 36px; font-size: 14px;">
+          <a href="mailto:iletisim@excelarsiv.com?subject=Kurumsal%20Finansal%20Mimari%20Te%C5%9Fhis%20Talebi" class="magic-cta-btn magic-cta-btn--outline" style="padding: 18px 36px; font-size: 14px;">
             E-POSTA İLE DOSYA GÖNDERİN
           </a>
         </div>
