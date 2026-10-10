@@ -16,7 +16,7 @@
   },
   "mode": "DEGRADED_PUBLIC",
   "source": {
-    "builtIndexableUrlCount": 329,
+    "builtIndexableUrlCount": 331,
     "commercialProductCount": 70,
     "guideCount": 4,
     "phase0Artifact": "data/seo/tam_map.json"
@@ -1871,6 +1871,20 @@
       "notes": "Kalıcı 301: katalog /sablonlar altında konsolide."
     },
     {
+      "pageId": "excelarsiv:finansal-web",
+      "route": "/finansal-web",
+      "type": "legal",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/finansal-web",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/finansal-web",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — QA onaylı katalog ürünü otomatik eklendi."
+    },
+    {
       "pageId": "excelarsiv:gizlilik-politikasi",
       "route": "/gizlilik-politikasi",
       "type": "legal",
@@ -1937,6 +1951,20 @@
       "templateId": null,
       "serpFeatureTargets": [],
       "canonical": "https://excelarsiv.com/hesaplayici/freelancer-gelir-gider-kdv-vergi-hesaplayici",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — QA onaylı katalog ürünü otomatik eklendi."
+    },
+    {
+      "pageId": "excelarsiv:hesaplayici:nakit-akisi-ve-basabas-hesaplayici",
+      "route": "/hesaplayici/nakit-akisi-ve-basabas-hesaplayici",
+      "type": "landing",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/hesaplayici/nakit-akisi-ve-basabas-hesaplayici",
+      "searchIntent": "informational",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/hesaplayici/nakit-akisi-ve-basabas-hesaplayici",
       "ownerRoute": null,
       "notes": "Registry parity sync — QA onaylı katalog ürünü otomatik eklendi."
     },

@@ -32,6 +32,7 @@ export const YAZAR = {
     'https://sectorcalc.com',
     'https://cbamvalid.com',
     'https://drfin.com.tr',
+    'https://belginkuyumculuk.com',
   ],
   kimlikler: [
     'Bankacı',
@@ -39,13 +40,15 @@ export const YAZAR = {
   ],
   platformlar: [
     { ad: 'ExcelArsiv.com', url: 'https://excelarsiv.com' },
-    { ad: 'Degerlet.com', url: 'https://degerlet.com' },
+    { ad: 'DrFin.com.tr', url: 'https://drfin.com.tr' },
     { ad: 'SKDMHesapla.com', url: 'https://skdmhesapla.com' },
     { ad: 'KarbonFiyat.com', url: 'https://karbonfiyat.com' },
     { ad: 'InversionCore.com', url: 'https://inversioncore.com' },
-    { ad: 'DilekceYazdir.com.tr', url: 'https://dilekceyazdir.com.tr' },
+    { ad: 'BelginKuyumculuk.com', url: 'https://belginkuyumculuk.com' },
     { ad: 'Saatchi.com.tr', url: 'https://saatchi.com.tr' },
+    { ad: 'DilekceYazdir.com.tr', url: 'https://dilekceyazdir.com.tr' },
     { ad: 'HTMLandHTML.com', url: 'https://htmlandhtml.com' },
+    { ad: 'Degerlet.com', url: 'https://degerlet.com' },
   ],
 } as const;
 

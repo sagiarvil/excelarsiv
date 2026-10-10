@@ -54,7 +54,17 @@ export function buildCompleteJsonLdGraph(page: SeoPageRecord, domain: string = '
         'https://www.wikidata.org/wiki/Q11589432',
         'https://twitter.com/excelarsiv',
         'https://www.linkedin.com/company/excelarsiv',
-        'https://github.com/excelarsiv'
+        'https://github.com/excelarsiv',
+        'https://drfin.com.tr',
+        'https://excelarsiv.com',
+        'https://skdmhesapla.com',
+        'https://karbonfiyat.com',
+        'https://inversioncore.com',
+        'https://belginkuyumculuk.com',
+        'https://saatchi.com.tr',
+        'https://dilekceyazdir.com.tr',
+        'https://htmlandhtml.com',
+        'https://degerlet.com'
       ]
     },
 
