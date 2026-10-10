@@ -94,29 +94,31 @@ const darkStyles = `
     color: #E05A2B !important;
   }
 
-  /* CTA Buttons */
+  /* CTA Buttons: Pure MagiClick Luxury */
   .magic-cta-btn {
-    background: #E05A2B !important;
-    border: 1px solid #E05A2B !important;
-    color: #ffffff !important;
-    border-radius: 6px !important;
+    background: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    color: #090B0E !important;
+    border-radius: 4px !important;
     font-weight: 600 !important;
-    box-shadow: 0 2px 12px rgba(224, 90, 43, 0.25) !important;
+    letter-spacing: 0.8px !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12) !important;
   }
   .magic-cta-btn:hover {
-    background: #C84B1F !important;
-    border-color: #C84B1F !important;
-    box-shadow: 0 4px 20px rgba(224, 90, 43, 0.35) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 6px 24px rgba(255, 255, 255, 0.22) !important;
   }
   .magic-cta-btn--outline {
-    background: rgba(255, 255, 255, 0.04) !important;
-    border-color: rgba(255, 255, 255, 0.18) !important;
-    color: #F1F5F9 !important;
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
     box-shadow: none !important;
   }
   .magic-cta-btn--outline:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border-color: rgba(255, 255, 255, 0.35) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: #ffffff !important;
     color: #ffffff !important;
   }
 
@@ -128,6 +130,23 @@ const darkStyles = `
     background-color: #0B0E13 !important;
     border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  }
+
+  /* MagiClick Full-Bleed Work Box */
+  .magic-work-box {
+    background: #0A0D12 !important;
+    border: 1px solid rgba(255, 255, 255, 0.09) !important;
+    border-radius: 8px !important;
+  }
+  .magic-work-box:hover {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7) !important;
+  }
+  .magic-work-box__title {
+    color: #ffffff !important;
+  }
+  .magic-work-box__desc {
+    color: #CBD5E1 !important;
   }
   .magic-work-card {
     background: #0E1218 !important;

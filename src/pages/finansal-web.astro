@@ -186,33 +186,34 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 28px;
+      padding: 13px 30px;
       font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.6px;
-      background: #E05A2B;
-      color: #ffffff;
-      border: 1px solid #E05A2B;
-      border-radius: 6px;
-      box-shadow: 0 2px 12px rgba(224, 90, 43, 0.25);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      background: #ffffff;
+      color: #090B0E;
+      border: 1px solid #ffffff;
+      border-radius: 4px;
+      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12);
       transition: all 0.25s ease;
       cursor: pointer;
     }
     .magic-cta-btn:hover {
-      background: #C84B1F;
-      border-color: #C84B1F;
-      box-shadow: 0 4px 20px rgba(224, 90, 43, 0.35);
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 6px 24px rgba(255, 255, 255, 0.22);
       transform: translateY(-1px);
     }
     .magic-cta-btn--outline {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.18);
-      color: #F1F5F9;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #ffffff;
       box-shadow: none;
     }
     .magic-cta-btn--outline:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #ffffff;
       color: #ffffff;
       transform: translateY(-1px);
     }
@@ -273,11 +274,11 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1.8px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: #E05A2B;
+      color: rgba(255, 255, 255, 0.7);
       margin-bottom: 24px;
     }
     .magic-hero__tag::before {
@@ -285,18 +286,21 @@
       display: inline-block;
       width: 18px;
       height: 2px;
-      background-color: #E05A2B;
+      background-color: rgba(255, 255, 255, 0.4);
     }
     .magic-hero__title {
-      font-size: clamp(36px, 4.8vw, 64px);
+      font-size: clamp(38px, 5.2vw, 68px);
       font-weight: 700;
-      line-height: 1.14;
-      letter-spacing: -1.2px;
-      color: #F1F5F9;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: #ffffff;
       margin-bottom: 24px;
     }
     .magic-hero__title span {
-      color: #E05A2B;
+      display: block;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 300;
+      letter-spacing: -1px;
     }
     .magic-hero__desc {
       font-size: clamp(16px, 1.4vw, 19px);
@@ -473,156 +477,156 @@
       line-height: 1.55;
     }
 
-    /* Portfolio Showcase & 4K Live Platforms */
+    /* Portfolio Showcase: Pure MagiClick Work-Item Architecture */
     .magic-portfolio-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 28px;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 860px) {
       .magic-portfolio-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
       }
     }
-    .magic-port-card {
-      background: #0E1218;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    .magic-work-box {
       position: relative;
-    }
-    .magic-port-card:hover {
-      border-color: rgba(224, 90, 43, 0.45);
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-    }
-    .magic-port-card__preview {
-      position: relative;
-      background: #080B0F;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      aspect-ratio: 16 / 9;
+      display: block;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: 8px;
+      background: #0A0D12;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      text-decoration: none;
+      aspect-ratio: 16 / 10;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     }
-    .magic-port-card__browser {
-      width: 92%;
-      height: 84%;
-      background: #0D1117;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.4s ease;
+    .magic-work-box:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7);
+      transform: translateY(-2px);
     }
-    .magic-port-card:hover .magic-port-card__browser {
-      transform: scale(1.02);
-    }
-    .magic-port-card__browser-bar {
-      height: 24px;
-      background: #161B22;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      align-items: center;
-      padding: 0 10px;
-      gap: 6px;
-    }
-    .magic-port-card__dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-    }
-    .magic-port-card__url {
-      font-size: 10px;
-      font-family: monospace;
-      color: #64748B;
-      margin-left: 8px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .magic-port-card__screen {
-      flex: 1;
-      background-size: cover;
-      background-position: center top;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .magic-port-card__badge-live {
+    .magic-work-box__mask {
       position: absolute;
-      top: 14px;
-      right: 14px;
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.4);
-      color: #10B981;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .magic-work-box__mask::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      background: linear-gradient(180deg, rgba(9, 11, 14, 0.15) 0%, rgba(9, 11, 14, 0.4) 40%, rgba(9, 11, 14, 0.95) 100%);
+      transition: background 0.3s ease;
+    }
+    .magic-work-box:hover .magic-work-box__mask::before {
+      background: linear-gradient(180deg, rgba(9, 11, 14, 0.05) 0%, rgba(9, 11, 14, 0.25) 35%, rgba(9, 11, 14, 0.92) 100%);
+    }
+    .magic-work-box__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform: scale(1.001);
+    }
+    .magic-work-box:hover .magic-work-box__img {
+      transform: scale(1.06);
+    }
+    .magic-work-box__badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 4;
+      background: rgba(9, 11, 14, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #F1F5F9;
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.8px;
-      padding: 3px 8px;
-      border-radius: 4px;
+      letter-spacing: 1px;
+      padding: 5px 12px;
+      border-radius: 20px;
       text-transform: uppercase;
-      z-index: 5;
-    }
-    .magic-port-card__body {
-      padding: 24px 28px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .magic-port-card__tag {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: #E05A2B;
-      margin-bottom: 6px;
-    }
-    .magic-port-card__title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #F1F5F9;
-      margin-bottom: 8px;
-      letter-spacing: -0.2px;
-    }
-    .magic-port-card__desc {
-      font-size: 13.5px;
-      color: #94A3B8;
-      line-height: 1.55;
-      margin-bottom: 18px;
-      flex: 1;
-    }
-    .magic-port-card__meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding-top: 14px;
-      font-size: 12px;
-    }
-    .magic-port-card__tech {
-      color: #64748B;
-      font-weight: 500;
-    }
-    .magic-port-card__link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: #E05A2B;
+    }
+    .magic-work-box__badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+    }
+    .magic-work-box__caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 32px 30px;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .magic-work-box__tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+    }
+    .magic-work-box__title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      letter-spacing: -0.4px;
+      margin: 0;
+    }
+    .magic-work-box__desc {
+      font-size: 14px;
+      color: #CBD5E1;
+      line-height: 1.5;
+      margin: 0;
+      max-width: 90%;
+      font-weight: 400;
+    }
+    .magic-work-box__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .magic-work-box__url {
+      font-family: monospace;
+      font-size: 11px;
+      color: #94A3B8;
+    }
+    .magic-work-box__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
       font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.5px;
       transition: gap 0.2s ease;
     }
-    .magic-port-card__link:hover {
-      gap: 9px;
-      color: #F1F5F9;
+    .magic-work-box:hover .magic-work-box__cta {
+      gap: 10px;
     }
 
     /* Pillars of Bespoke Financial Engineering */
@@ -1167,308 +1171,140 @@
 
       <div class="magic-portfolio-grid">
         <!-- Project 1: ExcelArşiv -->
-        <article class="magic-port-card">
-          <div class="magic-port-card__preview">
-            <span class="magic-port-card__badge-live">CANLI YAYINDA</span>
-            <div class="magic-port-card__browser">
-              <div class="magic-port-card__browser-bar">
-                <span class="magic-port-card__dot" style="background:#EF4444;"></span>
-                <span class="magic-port-card__dot" style="background:#F59E0B;"></span>
-                <span class="magic-port-card__dot" style="background:#10B981;"></span>
-                <span class="magic-port-card__url">https://excelarsiv.com</span>
-              </div>
-              <div class="magic-port-card__screen" style="background: radial-gradient(circle at 50% 30%, #17324D 0%, #0A131C 100%);">
-                <div style="text-align: center; padding: 20px;">
-                  <div style="font-size: 26px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">EXCEL<span style="color: #10B981;">ARŞİV</span></div>
-                  <div style="font-size: 11px; color: #94A3B8; margin-top: 6px; letter-spacing: 1px; text-transform: uppercase;">Decision OS v15.1 · Kurumsal Karar Motoru</div>
-                  <div style="display: inline-flex; gap: 8px; margin-top: 14px;">
-                    <span style="background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #E2E8F0;">331+ Canlı Rota</span>
-                    <span style="background: rgba(16,185,129,0.15); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #10B981;">Sub-40ms Edge</span>
-                  </div>
-                </div>
-              </div>
+        <a href="https://excelarsiv.com" target="_blank" rel="noopener noreferrer" class="magic-work-box">
+          <div class="magic-work-box__mask">
+            <img src="/images/portfolyo/excelarsiv.png" alt="ExcelArşiv Finansal Karar Platformu" class="magic-work-box__img" loading="lazy" />
+          </div>
+          <span class="magic-work-box__badge">CANLI YAYINDA</span>
+          <div class="magic-work-box__caption">
+            <span class="magic-work-box__tag">KURUMSAL KARAR PLATFORMU</span>
+            <h3 class="magic-work-box__title">ExcelArşiv — Finansal Karar İşletim Sistemi</h3>
+            <p class="magic-work-box__desc">124+ kurumsal model, interaktif karar kokpitleri ve sub-40ms uç nokta mimarisi.</p>
+            <div class="magic-work-box__footer">
+              <span class="magic-work-box__url">excelarsiv.com</span>
+              <span class="magic-work-box__cta">Platformu İncele &rarr;</span>
             </div>
           </div>
-          <div class="magic-port-card__body">
-            <div class="magic-port-card__tag">KURUMSAL KARAR PLATFORMU</div>
-            <h3 class="magic-port-card__title">ExcelArşiv — Finansal Karar İşletim Sistemi</h3>
-            <p class="magic-port-card__desc">
-              124+ kurumsal finansal model, interaktif karar kokpitleri, shopier webhook entegrasyonu ve sıfır gecikmeli Cloudflare Edge altyapısı ile yönetilen ana amiral gemisi.
-            </p>
-            <div class="magic-port-card__meta">
-              <span class="magic-port-card__tech">Astro 5 · TypeScript · Edge Cache · SVG Engine</span>
-              <a href="https://excelarsiv.com" target="_blank" rel="noopener noreferrer" class="magic-port-card__link">
-                Platformu İncele &rarr;
-              </a>
-            </div>
-          </div>
-        </article>
+        </a>
 
         <!-- Project 2: HTML and HTML -->
-        <article class="magic-port-card">
-          <div class="magic-port-card__preview">
-            <span class="magic-port-card__badge-live">CANLI YAYINDA</span>
-            <div class="magic-port-card__browser">
-              <div class="magic-port-card__browser-bar">
-                <span class="magic-port-card__dot" style="background:#EF4444;"></span>
-                <span class="magic-port-card__dot" style="background:#F59E0B;"></span>
-                <span class="magic-port-card__dot" style="background:#10B981;"></span>
-                <span class="magic-port-card__url">https://htmlandhtml.com</span>
-              </div>
-              <div class="magic-port-card__screen" style="background: radial-gradient(circle at 50% 30%, #1E1B4B 0%, #090814 100%);">
-                <div style="text-align: center; padding: 20px;">
-                  <div style="font-size: 24px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">HTML<span style="color: #6366F1;">&amp;</span>HTML</div>
-                  <div style="font-size: 11px; color: #A5B4FC; margin-top: 6px; letter-spacing: 1px; text-transform: uppercase;">Global Web &amp; Kod Mühendisliği</div>
-                  <div style="display: inline-flex; gap: 8px; margin-top: 14px;">
-                    <span style="background: rgba(99,102,241,0.15); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #A5B4FC;">Zero-JS Mandate</span>
-                    <span style="background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #E2E8F0;">W3C Semantics</span>
-                  </div>
-                </div>
-              </div>
+        <a href="https://htmlandhtml.com" target="_blank" rel="noopener noreferrer" class="magic-work-box">
+          <div class="magic-work-box__mask">
+            <img src="/images/portfolyo/htmlandhtml.png" alt="HTML and HTML Web Mühendisliği" class="magic-work-box__img" loading="lazy" />
+          </div>
+          <span class="magic-work-box__badge">CANLI YAYINDA</span>
+          <div class="magic-work-box__caption">
+            <span class="magic-work-box__tag">MİMARİ WEB &amp; KOD ALTYAPISI</span>
+            <h3 class="magic-work-box__title">HTML and HTML — Yüksek Standartlı Web Mühendisliği</h3>
+            <p class="magic-work-box__desc">Silikon Vadisi kod temizliği, sıfır-JS doktrini ve W3C uyumlu arayüz mimarisi.</p>
+            <div class="magic-work-box__footer">
+              <span class="magic-work-box__url">htmlandhtml.com</span>
+              <span class="magic-work-box__cta">Platformu İncele &rarr;</span>
             </div>
           </div>
-          <div class="magic-port-card__body">
-            <div class="magic-port-card__tag">MİMARİ WEB &amp; KOD ALTYAPISI</div>
-            <h3 class="magic-port-card__title">HTML and HTML — Yüksek Standartlı Web Mühendisliği</h3>
-            <p class="magic-port-card__desc">
-              Silikon Vadisi kod temizliği doktrini, W3C validasyon kuralları ve modern web bileşenlerinin en saf haliyle sunulduğu kurumsal web mimarlık portalı.
-            </p>
-            <div class="magic-port-card__meta">
-              <span class="magic-port-card__tech">Semantic HTML5 · Modern CSS Grid · High-Perf CDN</span>
-              <a href="https://htmlandhtml.com" target="_blank" rel="noopener noreferrer" class="magic-port-card__link">
-                Platformu İncele &rarr;
-              </a>
-            </div>
-          </div>
-        </article>
+        </a>
 
         <!-- Project 3: DrFin -->
-        <article class="magic-port-card">
-          <div class="magic-port-card__preview">
-            <span class="magic-port-card__badge-live">CANLI YAYINDA</span>
-            <div class="magic-port-card__browser">
-              <div class="magic-port-card__browser-bar">
-                <span class="magic-port-card__dot" style="background:#EF4444;"></span>
-                <span class="magic-port-card__dot" style="background:#F59E0B;"></span>
-                <span class="magic-port-card__dot" style="background:#10B981;"></span>
-                <span class="magic-port-card__url">https://drfin.com.tr</span>
-              </div>
-              <div class="magic-port-card__screen" style="background: radial-gradient(circle at 50% 30%, #064E3B 0%, #021B14 100%);">
-                <div style="text-align: center; padding: 20px;">
-                  <div style="font-size: 26px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">Dr<span style="color: #34D399;">Fin</span></div>
-                  <div style="font-size: 11px; color: #6EE7B7; margin-top: 6px; letter-spacing: 1px; text-transform: uppercase;">Finansal Sağlık &amp; Rasyo Teşhisi</div>
-                  <div style="display: inline-flex; gap: 8px; margin-top: 14px;">
-                    <span style="background: rgba(52,211,153,0.15); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #34D399;">Bilanço Teşhis</span>
-                    <span style="background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #E2E8F0;">TTK 376 Uyum</span>
-                  </div>
-                </div>
-              </div>
+        <a href="https://drfin.com.tr" target="_blank" rel="noopener noreferrer" class="magic-work-box">
+          <div class="magic-work-box__mask">
+            <img src="/images/portfolyo/drfin.png" alt="DrFin Finansal Sağlık & Danışmanlık" class="magic-work-box__img" loading="lazy" />
+          </div>
+          <span class="magic-work-box__badge">CANLI YAYINDA</span>
+          <div class="magic-work-box__caption">
+            <span class="magic-work-box__tag">FİNANSAL TEŞHİS &amp; ANALİTİK</span>
+            <h3 class="magic-work-box__title">DrFin — Kurumsal Finansal Sağlık &amp; Danışmanlık</h3>
+            <p class="magic-work-box__desc">Bilanço açıklarını ve nakit tıkanıklıklarını klinik titizlikle ölçen analitik platformu.</p>
+            <div class="magic-work-box__footer">
+              <span class="magic-work-box__url">drfin.com.tr</span>
+              <span class="magic-work-box__cta">Platformu İncele &rarr;</span>
             </div>
           </div>
-          <div class="magic-port-card__body">
-            <div class="magic-port-card__tag">FİNANSAL TEŞHİS &amp; ANALİTİK</div>
-            <h3 class="magic-port-card__title">DrFin — Kurumsal Finansal Sağlık &amp; Danışmanlık</h3>
-            <p class="magic-port-card__desc">
-              Şirketlerin bilanço açıklarını, nakit tıkanıklıklarını ve borçlanma maliyetlerini klinik bir titizlikle ölçen tescilli finansal analitik platformu.
-            </p>
-            <div class="magic-port-card__meta">
-              <span class="magic-port-card__tech">Finansal Algoritmalar · Rasyo Simülasyonu · Responsive UI</span>
-              <a href="https://drfin.com.tr" target="_blank" rel="noopener noreferrer" class="magic-port-card__link">
-                Platformu İncele &rarr;
-              </a>
-            </div>
-          </div>
-        </article>
+        </a>
 
         <!-- Project 4: InversionCore -->
-        <article class="magic-port-card">
-          <div class="magic-port-card__preview">
-            <span class="magic-port-card__badge-live">CANLI YAYINDA</span>
-            <div class="magic-port-card__browser">
-              <div class="magic-port-card__browser-bar">
-                <span class="magic-port-card__dot" style="background:#EF4444;"></span>
-                <span class="magic-port-card__dot" style="background:#F59E0B;"></span>
-                <span class="magic-port-card__dot" style="background:#10B981;"></span>
-                <span class="magic-port-card__url">https://inversioncore.com</span>
-              </div>
-              <div class="magic-port-card__screen" style="background: radial-gradient(circle at 50% 30%, #18181B 0%, #09090B 100%);">
-                <div style="text-align: center; padding: 20px;">
-                  <div style="font-size: 24px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">INVERSION<span style="color: #F59E0B;">CORE</span></div>
-                  <div style="font-size: 11px; color: #FCD34D; margin-top: 6px; letter-spacing: 1px; text-transform: uppercase;">Mental Modeller &amp; Stratejik Karar Çekirdeği</div>
-                  <div style="display: inline-flex; gap: 8px; margin-top: 14px;">
-                    <span style="background: rgba(245,158,11,0.15); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #FCD34D;">Tersine Düşünme</span>
-                    <span style="background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #E2E8F0;">Risk İzolasyonu</span>
-                  </div>
-                </div>
-              </div>
+        <a href="https://inversioncore.com" target="_blank" rel="noopener noreferrer" class="magic-work-box">
+          <div class="magic-work-box__mask">
+            <img src="/images/portfolyo/inversioncore.png" alt="InversionCore Karar Zekası" class="magic-work-box__img" loading="lazy" />
+          </div>
+          <span class="magic-work-box__badge">CANLI YAYINDA</span>
+          <div class="magic-work-box__caption">
+            <span class="magic-work-box__tag">STRATEJİK DANIŞMANLIK &amp; KARAR</span>
+            <h3 class="magic-work-box__title">InversionCore — Tersine Mühendislik &amp; Karar Zekası</h3>
+            <p class="magic-work-box__desc">Tersine düşünme modellerini kurumsal risk analizine entegre eden karar platformu.</p>
+            <div class="magic-work-box__footer">
+              <span class="magic-work-box__url">inversioncore.com</span>
+              <span class="magic-work-box__cta">Platformu İncele &rarr;</span>
             </div>
           </div>
-          <div class="magic-port-card__body">
-            <div class="magic-port-card__tag">STRATEJİK DANIŞMANLIK &amp; KARAR</div>
-            <h3 class="magic-port-card__title">InversionCore — Tersine Mühendislik &amp; Karar Zekası</h3>
-            <p class="magic-port-card__desc">
-              Charlie Munger ve Carl Jacobi ekolü tersine düşünme metodolojisini kurumsal risk analizine entegre eden yüksek seviye strateji platformu.
-            </p>
-            <div class="magic-port-card__meta">
-              <span class="magic-port-card__tech">Late-Interaction ColBERT · High-Entropy Copy · Dark Obsidian</span>
-              <a href="https://inversioncore.com" target="_blank" rel="noopener noreferrer" class="magic-port-card__link">
-                Platformu İncele &rarr;
-              </a>
-            </div>
-          </div>
-        </article>
+        </a>
 
         <!-- Project 5: SKDMHesapla -->
-        <article class="magic-port-card">
-          <div class="magic-port-card__preview">
-            <span class="magic-port-card__badge-live">CANLI YAYINDA</span>
-            <div class="magic-port-card__browser">
-              <div class="magic-port-card__browser-bar">
-                <span class="magic-port-card__dot" style="background:#EF4444;"></span>
-                <span class="magic-port-card__dot" style="background:#F59E0B;"></span>
-                <span class="magic-port-card__dot" style="background:#10B981;"></span>
-                <span class="magic-port-card__url">https://skdmhesapla.com</span>
-              </div>
-              <div class="magic-port-card__screen" style="background: radial-gradient(circle at 50% 30%, #0F766E 0%, #042F2E 100%);">
-                <div style="text-align: center; padding: 20px;">
-                  <div style="font-size: 24px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">SKDM<span style="color: #2DD4BF;">HESAPLA</span></div>
-                  <div style="font-size: 11px; color: #99F6E4; margin-top: 6px; letter-spacing: 1px; text-transform: uppercase;">AB Sınırda Karbon Düzenleme Mekanizması</div>
-                  <div style="display: inline-flex; gap: 8px; margin-top: 14px;">
-                    <span style="background: rgba(45,212,191,0.15); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #2DD4BF;">CBAM Regülasyon</span>
-                    <span style="background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #E2E8F0;">Mali Simülasyon</span>
-                  </div>
-                </div>
-              </div>
+        <a href="https://skdmhesapla.com" target="_blank" rel="noopener noreferrer" class="magic-work-box">
+          <div class="magic-work-box__mask">
+            <img src="/images/portfolyo/skdmhesapla.png" alt="SKDMHesapla AB Karbon Maliyet Motoru" class="magic-work-box__img" loading="lazy" />
+          </div>
+          <span class="magic-work-box__badge">CANLI YAYINDA</span>
+          <div class="magic-work-box__caption">
+            <span class="magic-work-box__tag">YEŞİL FİNANS &amp; CBAM HESAPLAMA</span>
+            <h3 class="magic-work-box__title">SKDMHesapla — AB Karbon Maliyet Motoru</h3>
+            <p class="magic-work-box__desc">İhracatçı devlerin CBAM kapsamındaki karbon vergi yükünü hesaplayan SaaS altyapısı.</p>
+            <div class="magic-work-box__footer">
+              <span class="magic-work-box__url">skdmhesapla.com</span>
+              <span class="magic-work-box__cta">Platformu İncele &rarr;</span>
             </div>
           </div>
-          <div class="magic-port-card__body">
-            <div class="magic-port-card__tag">YEŞİL FİNANS &amp; CBAM HESAPLAMA</div>
-            <h3 class="magic-port-card__title">SKDMHesapla — Avrupa Birliği Karbon Maliyet Motoru</h3>
-            <p class="magic-port-card__desc">
-              İhracatçı sanayi devlerinin Avrupa Birliği Sınırda Karbon Düzenleme Mekanizması (CBAM) kapsamındaki vergi yükünü ve gömülü emisyonlarını hesaplayan SaaS altyapısı.
-            </p>
-            <div class="magic-port-card__meta">
-              <span class="magic-port-card__tech">Matematiksel Hesaplama Motoru · AB Mevzuat Matrisi · Güvenli Export</span>
-              <a href="https://skdmhesapla.com" target="_blank" rel="noopener noreferrer" class="magic-port-card__link">
-                Platformu İncele &rarr;
-              </a>
-            </div>
-          </div>
-        </article>
+        </a>
 
         <!-- Project 6: DilekçeYazdır -->
-        <article class="magic-port-card">
-          <div class="magic-port-card__preview">
-            <span class="magic-port-card__badge-live">CANLI YAYINDA</span>
-            <div class="magic-port-card__browser">
-              <div class="magic-port-card__browser-bar">
-                <span class="magic-port-card__dot" style="background:#EF4444;"></span>
-                <span class="magic-port-card__dot" style="background:#F59E0B;"></span>
-                <span class="magic-port-card__dot" style="background:#10B981;"></span>
-                <span class="magic-port-card__url">https://dilekceyazdir.com.tr</span>
-              </div>
-              <div class="magic-port-card__screen" style="background: radial-gradient(circle at 50% 30%, #701A75 0%, #2E0830 100%);">
-                <div style="text-align: center; padding: 20px;">
-                  <div style="font-size: 24px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">DİLEKÇE<span style="color: #F472B6;">YAZDIR</span></div>
-                  <div style="font-size: 11px; color: #FBCFE8; margin-top: 6px; letter-spacing: 1px; text-transform: uppercase;">LegalTech &amp; Hukuki Belge Robotu</div>
-                  <div style="display: inline-flex; gap: 8px; margin-top: 14px;">
-                    <span style="background: rgba(244,114,182,0.15); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #F472B6;">Otonom Doküman</span>
-                    <span style="background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #E2E8F0;">Mevzuat Formatı</span>
-                  </div>
-                </div>
-              </div>
+        <a href="https://dilekceyazdir.com.tr" target="_blank" rel="noopener noreferrer" class="magic-work-box">
+          <div class="magic-work-box__mask">
+            <img src="/images/portfolyo/dilekceyazdir.png" alt="DilekçeYazdır Hukuki Başvuru Sistemi" class="magic-work-box__img" loading="lazy" />
+          </div>
+          <span class="magic-work-box__badge">CANLI YAYINDA</span>
+          <div class="magic-work-box__caption">
+            <span class="magic-work-box__tag">LEGALTECH &amp; RESMİ DOKÜMAN MOTORU</span>
+            <h3 class="magic-work-box__title">DilekçeYazdır — Hukuki Başvuru Sistemi</h3>
+            <p class="magic-work-box__desc">Resmi kurum ve mahkemeler için standart mevzuat belgeleri üreten otomasyon.</p>
+            <div class="magic-work-box__footer">
+              <span class="magic-work-box__url">dilekceyazdir.com.tr</span>
+              <span class="magic-work-box__cta">Platformu İncele &rarr;</span>
             </div>
           </div>
-          <div class="magic-port-card__body">
-            <div class="magic-port-card__tag">LEGALTECH &amp; RESMİ DOKÜMAN MOTORU</div>
-            <h3 class="magic-port-card__title">DilekçeYazdır — Yapay Zeka Destekli Hukuki Başvuru Sistemi</h3>
-            <p class="magic-port-card__desc">
-              Vatandaş ve işletmeler için resmi kurumlara, mahkemelere ve bankalara verilecek resmi başvuruları Türk hukuku standartlarında hatasız oluşturan belge otomasyonu.
-            </p>
-            <div class="magic-port-card__meta">
-              <span class="magic-port-card__tech">Hukuki Şablon Motoru · PDF Generator · Güvenli Ödeme Köprüsü</span>
-              <a href="https://dilekceyazdir.com.tr" target="_blank" rel="noopener noreferrer" class="magic-port-card__link">
-                Platformu İncele &rarr;
-              </a>
-            </div>
-          </div>
-        </article>
+        </a>
 
         <!-- Project 7: Belgin Kuyumculuk -->
-        <article class="magic-port-card">
-          <div class="magic-port-card__preview">
-            <span class="magic-port-card__badge-live">CANLI YAYINDA</span>
-            <div class="magic-port-card__browser">
-              <div class="magic-port-card__browser-bar">
-                <span class="magic-port-card__dot" style="background:#EF4444;"></span>
-                <span class="magic-port-card__dot" style="background:#F59E0B;"></span>
-                <span class="magic-port-card__dot" style="background:#10B981;"></span>
-                <span class="magic-port-card__url">https://belginkuyumculuk.com</span>
-              </div>
-              <div class="magic-port-card__screen" style="background: radial-gradient(circle at 50% 30%, #78350F 0%, #271103 100%);">
-                <div style="text-align: center; padding: 20px;">
-                  <div style="font-size: 24px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">BELGİN<span style="color: #FBBF24;">KUYUMCULUK</span></div>
-                  <div style="font-size: 11px; color: #FDE68A; margin-top: 6px; letter-spacing: 1px; text-transform: uppercase;">Lüks Mücevherat &amp; Altın Portali</div>
-                  <div style="display: inline-flex; gap: 8px; margin-top: 14px;">
-                    <span style="background: rgba(251,191,36,0.15); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #FBBF24;">Lüks Vitrin</span>
-                    <span style="background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #E2E8F0;">Bespoke Tasarım</span>
-                  </div>
-                </div>
-              </div>
+        <a href="https://belginkuyumculuk.com" target="_blank" rel="noopener noreferrer" class="magic-work-box">
+          <div class="magic-work-box__mask">
+            <img src="/images/portfolyo/belginkuyumculuk.png" alt="Belgin Kuyumculuk Prestij Vitrin" class="magic-work-box__img" loading="lazy" />
+          </div>
+          <span class="magic-work-box__badge">CANLI YAYINDA</span>
+          <div class="magic-work-box__caption">
+            <span class="magic-work-box__tag">LÜKS PERAKENDE &amp; PRESTİJ</span>
+            <h3 class="magic-work-box__title">Belgin Kuyumculuk — Mücevher &amp; Varlık Vitrini</h3>
+            <p class="magic-work-box__desc">Yüksek değerli koleksiyonlar için zarafet ve VIP dönüşüm odaklı lüks web mimarisi.</p>
+            <div class="magic-work-box__footer">
+              <span class="magic-work-box__url">belginkuyumculuk.com</span>
+              <span class="magic-work-box__cta">Platformu İncele &rarr;</span>
             </div>
           </div>
-          <div class="magic-port-card__body">
-            <div class="magic-port-card__tag">LÜKS PERAKENDE &amp; KIYMETLİ MADEN</div>
-            <h3 class="magic-port-card__title">Belgin Kuyumculuk — Prestij Mücevher &amp; Varlık Vitrini</h3>
-            <p class="magic-port-card__desc">
-              Yüksek değerli mücevher ve altın koleksiyonları için tasarlanmış; estetik derinliği, zarafeti ve üst segment müşteri deneyimini birleştiren lüks web mimarisi.
-            </p>
-            <div class="magic-port-card__meta">
-              <span class="magic-port-card__tech">Luxury UX · Warm Gold Palette · Mobile-First VIP Funnel</span>
-              <a href="https://belginkuyumculuk.com" target="_blank" rel="noopener noreferrer" class="magic-port-card__link">
-                Platformu İncele &rarr;
-              </a>
-            </div>
-          </div>
-        </article>
+        </a>
 
         <!-- Project 8: Saatçi -->
-        <article class="magic-port-card">
-          <div class="magic-port-card__preview">
-            <span class="magic-port-card__badge-live">CANLI YAYINDA</span>
-            <div class="magic-port-card__browser">
-              <div class="magic-port-card__browser-bar">
-                <span class="magic-port-card__dot" style="background:#EF4444;"></span>
-                <span class="magic-port-card__dot" style="background:#F59E0B;"></span>
-                <span class="magic-port-card__dot" style="background:#10B981;"></span>
-                <span class="magic-port-card__url">https://saatci.com.tr</span>
-              </div>
-              <div class="magic-port-card__screen" style="background: radial-gradient(circle at 50% 30%, #312E81 0%, #0F0E2A 100%);">
-                <div style="text-align: center; padding: 20px;">
-                  <div style="font-size: 24px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">SAATÇİ<span style="color: #818CF8;">.COM.TR</span></div>
-                  <div style="font-size: 11px; color: #C7D2FE; margin-top: 6px; letter-spacing: 1px; text-transform: uppercase;">Horoloji &amp; Hassas Saatçilik Koleksiyonu</div>
-                  <div style="display: inline-flex; gap: 8px; margin-top: 14px;">
-                    <span style="background: rgba(129,140,248,0.15); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #818CF8;">Swiss Movement</span>
-                    <span style="background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #E2E8F0;">Zaman Mühendisliği</span>
-                  </div>
-                </div>
-              </div>
+        <a href="https://saatci.com.tr" target="_blank" rel="noopener noreferrer" class="magic-work-box">
+          <div class="magic-work-box__mask">
+            <img src="/images/portfolyo/saatci.png" alt="Saatçi İsviçre Lüks Saat Vitrini" class="magic-work-box__img" loading="lazy" />
+          </div>
+          <span class="magic-work-box__badge">CANLI YAYINDA</span>
+          <div class="magic-work-box__caption">
+            <span class="magic-work-box__tag">HOROLOJİ &amp; PREMİUM ZAMAN</span>
+            <h3 class="magic-work-box__title">Saatçi — Horoloji Koleksiyon Vitrini</h3>
+            <p class="magic-work-box__desc">Hassas mekanik saatçilik ve koleksiyon tutkunları için özel dijital galeri.</p>
+            <div class="magic-work-box__footer">
+              <span class="magic-work-box__url">saatci.com.tr</span>
+              <span class="magic-work-box__cta">Platformu İncele &rarr;</span>
             </div>
           </div>
-          <div class="magic-port-card__body">
-            <div class="magic-port-card__tag">HOROLOJİ &amp; PREMİUM ZAMAN DİLİMİ</div>
-            <h3 class="magic-port-card__title">Saatçi — İsviçre &amp; Lüks Saat Koleksiyon Vitrini</h3>
-            <p class="magic-port-card__desc">
-              Hassas mekanik saatçilik ve horoloji tutkunları için mikroskobik detayları, koleksiyon derinliğini ve prestiji yansıtan özel dijital galeri.
-            </p>
-            <div class="magic-port-card__meta">
-              <span class="magic-port-card__tech">Dark Luxury UI · Micro-Animations · High-DPI Visual Grid</span>
-              <a href="https://saatci.com.tr" target="_blank" rel="noopener noreferrer" class="magic-port-card__link">
-                Platformu İncele &rarr;
-              </a>
-            </div>
-          </div>
-        </article>
+        </a>
       </div>
     </div>
   </section>
