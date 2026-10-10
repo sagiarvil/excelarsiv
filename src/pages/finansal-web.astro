@@ -233,6 +233,103 @@
       transform: translateY(-1px);
     }
 
+    /* ==========================================================================
+       HARDCORE NEXT-GEN KINETIC & 3D MOTION SYSTEM
+       ========================================================================== */
+    /* Scroll Progress Laser Line */
+    .magic-scroll-scanner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #38BDF8, #818CF8, #E05A2B);
+      box-shadow: 0 0 14px #38BDF8, 0 0 28px #818CF8;
+      z-index: 9999;
+      pointer-events: none;
+      transition: width 0.1s linear;
+    }
+
+    /* Ambient Cursor Holographic Follower */
+    .magic-mouse-glow {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(224, 90, 43, 0.03) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+      mix-blend-mode: screen;
+    }
+
+    /* Glitch & Hologram Keyframe Animations */
+    @keyframes holoGlitch {
+      0%, 100% { text-shadow: 0 0 1px transparent; }
+      20% { text-shadow: -2px 0 #38BDF8, 2px 0 #E05A2B; }
+      40% { text-shadow: 2px 0 #38BDF8, -2px 0 #E05A2B; }
+      60% { text-shadow: 0 0 10px rgba(56, 189, 248, 0.6); }
+    }
+    .glitch-text:hover {
+      animation: holoGlitch 0.4s infinite;
+    }
+
+    /* Hardcore 3D Card Hover Depth & Dynamic Glare */
+    .magic-work-box,
+    .magic-work-card,
+    .magic-pillar-card,
+    .magic-case-card,
+    .magic-pricing-card,
+    .magic-step-card {
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .magic-work-box:hover,
+    .magic-work-card:hover,
+    .magic-pillar-card:hover,
+    .magic-case-card:hover,
+    .magic-pricing-card:hover,
+    .magic-step-card:hover {
+      border-color: rgba(56, 189, 248, 0.5) !important;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(56, 189, 248, 0.2) !important;
+    }
+
+    /* Laser Scanner Line Passing Through Images */
+    .magic-work-box::after,
+    .magic-work-card::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(180deg, transparent 0%, rgba(56, 189, 248, 0.15) 50%, rgba(255, 255, 255, 0.4) 95%, transparent 100%);
+      pointer-events: none;
+      z-index: 4;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .magic-work-box:hover::after,
+    .magic-work-card:hover::after {
+      opacity: 1;
+      animation: laserSweep 1.2s infinite ease-in-out;
+    }
+    @keyframes laserSweep {
+      0% { top: -60%; }
+      100% { top: 120%; }
+    }
+
+    /* Kinetic Floating Badge Pulsing */
+    .magic-work-box__badge {
+      animation: badgeFloat 4s ease-in-out infinite;
+    }
+    @keyframes badgeFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
     /* Hero Section with Video Background */
     .magic-hero {
       position: relative;
@@ -1361,6 +1458,9 @@
   </style>
 </head>
 <body data-finansal-web-prime>
+  <!-- Global Laser Progress Scanner & Mouse Ambient Glow -->
+  <div class="magic-scroll-scanner" id="magicScrollScanner" aria-hidden="true"></div>
+  <div class="magic-mouse-glow" id="magicMouseGlow" aria-hidden="true"></div>
 
   <!-- Prime Header -->
   <header class="magic-header">
@@ -2414,9 +2514,9 @@
       });
     })();
 
-    // 3. 3D GYROSCOPE CARD TILT PHYSICS ON PRICING CARDS
+    // 3. HARDCORE 3D GYROSCOPE CARD TILT PHYSICS ACROSS ALL CARDS & SECTIONS
     (function init3DCardTilt() {
-      const cards = document.querySelectorAll('.magic-pricing-card, .magic-work-box');
+      const cards = document.querySelectorAll('.magic-pricing-card, .magic-work-box, .magic-work-card, .magic-pillar-card, .magic-case-card, .magic-step-card');
       cards.forEach((card) => {
         card.addEventListener('mousemove', (e) => {
           const rect = card.getBoundingClientRect();
@@ -2424,14 +2524,34 @@
           const y = e.clientY - rect.top;
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
-          const rotateX = ((y - centerY) / centerY) * -9;
-          const rotateY = ((x - centerX) / centerX) * 9;
-          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale3d(1.02, 1.02, 1.02)`;
+          const rotateX = ((y - centerY) / centerY) * -12;
+          const rotateY = ((x - centerX) / centerX) * 12;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale3d(1.03, 1.03, 1.03)`;
         });
         card.addEventListener('mouseleave', () => {
           card.style.transform = '';
         });
       });
+    })();
+
+    // 4. KINETIC SCROLL SCANNER & AMBIENT MOUSE GLOW TRACKER
+    (function initKineticScrollAndMouse() {
+      const scanner = document.getElementById('magicScrollScanner');
+      const glow = document.getElementById('magicMouseGlow');
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (scanner) scanner.style.width = progress + '%';
+      }, { passive: true });
+
+      window.addEventListener('mousemove', (e) => {
+        if (glow) {
+          glow.style.left = e.clientX + 'px';
+          glow.style.top = e.clientY + 'px';
+        }
+      }, { passive: true });
     })();
   </script>
 </body>

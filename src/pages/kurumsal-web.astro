@@ -202,6 +202,69 @@
       border-color: #ffffff;
     }
 
+    /* ==========================================================================
+       HARDCORE KINETIC 3D MOTION & LASER SHOW SYSTEM
+       ========================================================================== */
+    .kw-scroll-laser {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #38BDF8, #818CF8, #0284C7);
+      box-shadow: 0 0 14px #38BDF8, 0 0 28px #818CF8;
+      z-index: 9999;
+      pointer-events: none;
+      transition: width 0.1s linear;
+    }
+    .kw-mouse-follower {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.09) 0%, rgba(2, 132, 199, 0.03) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: screen;
+    }
+    .kw-step-card,
+    .kw-bento-card,
+    .kw-3d-card {
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+      position: relative;
+    }
+    .kw-step-card:hover,
+    .kw-bento-card:hover,
+    .kw-3d-card:hover {
+      border-color: rgba(56, 189, 248, 0.6) !important;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.25) !important;
+    }
+    .kw-step-card::after,
+    .kw-bento-card::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(180deg, transparent 0%, rgba(56, 189, 248, 0.12) 50%, rgba(255, 255, 255, 0.4) 95%, transparent 100%);
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .kw-step-card:hover::after,
+    .kw-bento-card:hover::after {
+      opacity: 1;
+      animation: kwLaserSweep 1.2s infinite ease-in-out;
+    }
+    @keyframes kwLaserSweep {
+      0% { top: -60%; }
+      100% { top: 120%; }
+    }
+
     /* Hero Section */
     .kw-hero {
       position: relative;
@@ -587,6 +650,9 @@
   </style>
 </head>
 <body>
+  <!-- Laser Progress Bar & Mouse Follower -->
+  <div class="kw-scroll-laser" id="kwScrollLaser" aria-hidden="true"></div>
+  <div class="kw-mouse-follower" id="kwMouseFollower" aria-hidden="true"></div>
 
   <!-- Header -->
   <header class="kw-header">
@@ -947,19 +1013,37 @@
       }
       draw();
 
-      // Card 3D Tilt
-      const card = document.getElementById('kw-card');
-      if (card) {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
+      // Multi-Card 3D Gyroscope Tilt Physics across all Cards
+      const cards = document.querySelectorAll('.kw-3d-card, .kw-step-card, .kw-bento-card, .kw-table-wrap');
+      cards.forEach((c) => {
+        c.addEventListener('mousemove', (e) => {
+          const rect = c.getBoundingClientRect();
           const x = e.clientX - rect.left - rect.width / 2;
           const y = e.clientY - rect.top - rect.height / 2;
-          card.style.transform = `perspective(1000px) rotateX(${-y * 0.05}deg) rotateY(${x * 0.05}deg) translateY(-6px) scale3d(1.02, 1.02, 1.02)`;
+          c.style.transform = `perspective(1000px) rotateX(${-y * 0.06}deg) rotateY(${x * 0.06}deg) translateY(-8px) scale3d(1.03, 1.03, 1.03)`;
         });
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = '';
+        c.addEventListener('mouseleave', () => {
+          c.style.transform = '';
         });
-      }
+      });
+
+      // Scroll Progress Laser Bar & Mouse Follower
+      const laser = document.getElementById('kwScrollLaser');
+      const follower = document.getElementById('kwMouseFollower');
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (laser) laser.style.width = progress + '%';
+      }, { passive: true });
+
+      window.addEventListener('mousemove', (e) => {
+        if (follower) {
+          follower.style.left = e.clientX + 'px';
+          follower.style.top = e.clientY + 'px';
+        }
+      }, { passive: true });
     })();
   </script>
 </body>
