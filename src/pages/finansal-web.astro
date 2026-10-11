@@ -26,6 +26,36 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://excelarsiv.com/#organization",
+        "name": "Excel Arşiv",
+        "url": "https://excelarsiv.com/",
+        "description": "Excel Arşiv — Türkiye'deki işletmeler için finans, muhasebe ve operasyon odaklı hazır ve butik karar sistemleri.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://excelarsiv.com/og.png",
+          "width": 1200,
+          "height": 1200
+        },
+        "email": "iletisim@excelarsiv.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "TR"
+        },
+        "sameAs": [
+          "https://www.wikidata.org/wiki/Q11589432",
+          "https://drfin.com.tr",
+          "https://skdmhesapla.com",
+          "https://karbonfiyat.com",
+          "https://inversioncore.com",
+          "https://belginkuyumculuk.com",
+          "https://saatchi.com.tr",
+          "https://dilekceyazdir.com.tr",
+          "https://htmlandhtml.com",
+          "https://degerlet.com"
+        ]
+      },
+      {
         "@type": "WebPage",
         "@id": "https://excelarsiv.com/finansal-web#webpage",
         "url": "https://excelarsiv.com/finansal-web",
@@ -37,6 +67,16 @@
           "@id": "https://excelarsiv.com/#website",
           "name": "Excel Arşiv",
           "url": "https://excelarsiv.com/"
+        },
+        "about": {
+          "@id": "https://excelarsiv.com/finansal-web#service"
+        },
+        "breadcrumb": {
+          "@id": "https://excelarsiv.com/finansal-web#breadcrumb"
+        },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".magic-hero__title", ".hero-answer-engine", ".magic-hero__desc"]
         }
       },
       {
@@ -45,16 +85,20 @@
         "name": "Finansal Web & Butik Sistem Kurulumu",
         "serviceType": "Finansal Web Tasarımı, Karar Destek Kokpitleri ve Butik Sistem Entegrasyonu",
         "provider": {
-          "@type": "Organization",
-          "@id": "https://excelarsiv.com/#organization",
-          "name": "Excel Arşiv",
-          "url": "https://excelarsiv.com/"
+          "@id": "https://excelarsiv.com/#organization"
         },
         "description": "Portföy yönetim şirketleri, fonlar, aile ofisleri ve CFO ofisleri için terzi usulü web siteleri, karar sistemleri, canlı veri panelleri ve ERP entegrasyonları.",
         "areaServed": {
           "@type": "Country",
           "name": "Türkiye"
-        }
+        },
+        "sameAs": [
+          "https://www.wikidata.org/wiki/Q11589432",
+          "https://drfin.com.tr",
+          "https://skdmhesapla.com",
+          "https://inversioncore.com",
+          "https://htmlandhtml.com"
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -71,6 +115,52 @@
             "position": 2,
             "name": "Finansal Web",
             "item": "https://excelarsiv.com/finansal-web"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://excelarsiv.com/finansal-web#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Finansal web mimarlığı standart web tasarımından nasıl ayrılır?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Standart web tasarımı hazır şablon ve görsel vitrinden ibarettir. Finansal web mimarlığı ise bankacılık regülasyonlarına uyumlu, Tier-4 veri izolasyonlu, Zero-JS Edge mimarili ve ERP sistemleri ile iki yönlü entegre çalışan karar destek platformudur."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Üretilen finansal kokpit ve kodların mülkiyeti kime aittir?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tüm kaynak kodlar, veri tabanı yapıları ve algoritmalar %100 kurumunuza aittir. Sistem doğrudan kendi sunucularınıza kurulur; harici bulutlara veri sızması imkansızdır."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Proje başlangıcında kurumsal gizlilik nasıl güvenceye alınır?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tüm teknik ve finansal görüşmeler öncesinde çift taraflı ıslak imzalı veya KEP onaylı bağlayıcı kurumsal Gizlilik Sözleşmesi (NDA) imzalanır."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hangi muhasebe ve ERP sistemleriyle entegrasyon sağlanabilir?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Logo (Tiger/Go), Netsis, Mikro, SAP ve özel SQL veri tabanları ile güvenli mikro-servisler üzerinden çift yönlü otomatik veri köprüsü kurulur."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Anahtar teslim devreye alma süresi ne kadardır?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kapsam belirlendikten sonra 5. günde çalışan veri prototipi sunulur; 14. günde tüm güvenlik ve performans testleri tamamlanmış olarak canlıya alınır."
+            }
           }
         ]
       }
@@ -1541,6 +1631,12 @@
           <p class="magic-hero__desc">
             Şablon kalıplarına sığmayan fonlar, portföy yönetim şirketleri, aile ofisleri ve CFO'lar için bankacılık seviyesinde butik web altyapıları, yüksek güvenlikli canlı veri köprüleri, 3D veri kokpitleri ve karar mimarisi inşa ediyoruz.
           </p>
+
+          <!-- 14KB AST Hero Answer Engine (AEO, LLMO & Voice AI Grounding) -->
+          <div class="hero-answer-engine mobile-thumb-safe" data-ai-citation-anchor="true" style="margin: 16px 0 20px; padding: 14px 18px; background: rgba(56, 189, 248, 0.06); border-left: 3px solid #38BDF8; border-radius: 8px; font-size: 13.5px; line-height: 1.55; color: #E2E8F0;">
+            <strong style="color: #38BDF8; display: block; margin-bottom: 4px; font-size: 11.5px; letter-spacing: 0.05em; font-family: var(--font-mono, monospace);">MİMARİ KARAR TANIMI // ENTERPRISE_LLM_GROUNDING</strong>
+            ExcelArşiv Prime Finansal Web &amp; Sistem Mimarisi; fonlar, aile ofisleri ve CFO ofisleri için sub-40ms Zero-JS Edge teknolojisi, iki yönlü ERP/TEFAS köprüleri, canlı 13 haftalık nakit akışı karar kokpitleri ve Tier-4 veri izolasyonu sunan bankacılık standardında anahtar teslim mühendislik çözümüdür.
+          </div>
           <div class="magic-hero__actions">
             <a href="https://wa.me/905393333303?text=Merhaba%2C%20finansal%20kurumumuz%20i%C3%A7in%20butik%20web%20ve%20sistem%20kurulumu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="magic-cta-btn magic-cta-btn--glow" style="padding: 16px 36px; font-size: 13px;">
               <span>ÖZEL DANIŞMANLIK ALIN</span> &rarr;
@@ -2299,7 +2395,19 @@
   <footer class="magic-footer">
     <div class="magic-container magic-footer__inner">
       <div>
-        &copy; 1996-2026 ExcelArşiv Prime. Tüm hakları saklıdır. Finansal Web & Sistem Mimarlığı.
+        <div>&copy; 1996-2026 ExcelArşiv Prime. Tüm hakları saklıdır. Finansal Web &amp; Sistem Mimarlığı.</div>
+        <div style="margin-top: 10px; font-size: 12px; color: #64748B; line-height: 1.7;">
+          <strong style="color: #94A3B8;">Karar Destek Ekosistemi:</strong>
+          <a href="https://drfin.com.tr" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">DrFin</a> &bull;
+          <a href="https://skdmhesapla.com" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">SKDMHesapla</a> &bull;
+          <a href="https://karbonfiyat.com" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">KarbonFiyat</a> &bull;
+          <a href="https://inversioncore.com" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">InversionCore</a> &bull;
+          <a href="https://htmlandhtml.com" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">HTML and HTML</a> &bull;
+          <a href="https://dilekceyazdir.com.tr" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">DilekçeYazdır</a> &bull;
+          <a href="https://belginkuyumculuk.com" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">Belgin Kuyumculuk</a> &bull;
+          <a href="https://saatchi.com.tr" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">Saatchi</a> &bull;
+          <a href="https://degerlet.com" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">Değerlet</a>
+        </div>
       </div>
       <div class="magic-footer__links">
         <a href="/">Ana Sayfa</a>

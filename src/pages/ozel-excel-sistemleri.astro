@@ -28,6 +28,7 @@ import N8nWorkflowVisualizer from '../components/automation/N8nWorkflowVisualize
     "@graph":[
       {
         "@type":"BreadcrumbList",
+        "@id":"https://excelarsiv.com/ozel-excel-sistemleri#breadcrumb",
         "itemListElement":[
           {"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://excelarsiv.com"},
           {"@type":"ListItem","position":2,"name":"Özel Excel Sistemleri","item":"https://excelarsiv.com/ozel-excel-sistemleri"}
@@ -38,7 +39,7 @@ import N8nWorkflowVisualizer from '../components/automation/N8nWorkflowVisualize
         "@id": "https://excelarsiv.com/#organization",
         "name": "Excel Arşiv",
         "url": "https://excelarsiv.com/",
-        "description": "Excel Arşiv — Türkiye'deki işletmeler için finans, muhasebe ve operasyon odaklı hazır Excel çalışma sistemleri.",
+        "description": "Excel Arşiv — Türkiye'deki işletmeler için finans, muhasebe ve operasyon odaklı hazır ve terzi usulü Excel karar sistemleri.",
         "logo": {
           "@type": "ImageObject",
           "url": "https://excelarsiv.com/og.png",
@@ -50,6 +51,18 @@ import N8nWorkflowVisualizer from '../components/automation/N8nWorkflowVisualize
           "@type": "PostalAddress",
           "addressCountry": "TR"
         },
+        "sameAs": [
+          "https://www.wikidata.org/wiki/Q11589432",
+          "https://drfin.com.tr",
+          "https://skdmhesapla.com",
+          "https://karbonfiyat.com",
+          "https://inversioncore.com",
+          "https://belginkuyumculuk.com",
+          "https://saatchi.com.tr",
+          "https://dilekceyazdir.com.tr",
+          "https://htmlandhtml.com",
+          "https://degerlet.com"
+        ],
         "contactPoint": {
           "@type": "ContactPoint",
           "email": "iletisim@excelarsiv.com",
@@ -60,15 +73,38 @@ import N8nWorkflowVisualizer from '../components/automation/N8nWorkflowVisualize
       },
       {
         "@type":"Service",
-        "name":"İşletmeye Özel Excel Sistemleri",
+        "@id":"https://excelarsiv.com/ozel-excel-sistemleri#service",
+        "name":"İşletmeye Özel Excel Karar Sistemleri",
         "serviceType":"İşletmeye özel Excel takip, kontrol, finans ve yönetim raporlama sistemi tasarımı",
         "provider":{"@id":"https://excelarsiv.com/#organization"},
         "areaServed":{"@type":"Country","name":"Türkiye"},
         "description":"İşletmenin veri akışını, finansal mantığını, kontrol noktalarını ve yönetim raporu ihtiyacını inceleyerek çalışma düzenine göre Excel sistemi kurma hizmeti.",
-        "url":"https://excelarsiv.com/ozel-excel-sistemleri"
+        "url":"https://excelarsiv.com/ozel-excel-sistemleri",
+        "sameAs":[
+          "https://www.wikidata.org/wiki/Q11589432",
+          "https://drfin.com.tr",
+          "https://skdmhesapla.com",
+          "https://inversioncore.com"
+        ]
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://excelarsiv.com/ozel-excel-sistemleri#webpage",
+        "url":"https://excelarsiv.com/ozel-excel-sistemleri",
+        "name":"İşletmeye Özel Excel Karar Sistemleri | ExcelArşiv",
+        "description":"Hazır Excel dosyaları işinize uymuyorsa; nakit akışı, banka-kredi, maliyet, bütçe, fizibilite ve yönetim raporlaması için işletmenize özel Excel sistemi kuruyoruz.",
+        "inLanguage":"tr-TR",
+        "isPartOf":{"@id":"https://excelarsiv.com/#website"},
+        "about":{"@id":"https://excelarsiv.com/ozel-excel-sistemleri#service"},
+        "breadcrumb":{"@id":"https://excelarsiv.com/ozel-excel-sistemleri#breadcrumb"},
+        "speakable":{
+          "@type":"SpeakableSpecification",
+          "cssSelector":[".appstore-hero-copy h1", ".hero-answer-engine", ".appstore-hero-sub"]
+        }
       },
       {
         "@type":"FAQPage",
+        "@id":"https://excelarsiv.com/ozel-excel-sistemleri#faq",
         "mainEntity":[
           {"@type":"Question","name":"Özel Excel sistemi hazır şablondan nasıl ayrılır?","acceptedAnswer":{"@type":"Answer","text":"Hazır şablon önceden belirlenmiş bir düzene göre çalışır. Özel sistemde veri girişi, hesaplama, kontrol ve raporlama işletmenin mevcut iş akışına göre kurulur."}},
           {"@type":"Question","name":"Mevcut Excel dosyalarım kullanılabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Sağlam ve işe yarayan bölümler korunabilir; tekrar, çelişki veya hata üreten bölümler yeniden düzenlenir."}},
@@ -1136,6 +1172,13 @@ import N8nWorkflowVisualizer from '../components/automation/N8nWorkflowVisualize
             <span class="appstore-hero-kicker">SİZE ÖZEL EXCEL SİSTEMLERİ</span>
             <h1>Hazır dosya işinize uymuyorsa, <em>Excel'i işinize göre kuralım.</em></h1>
             <p class="appstore-hero-sub">İş süreçlerinize, sektörünüze ve ihtiyaçlarınıza tam uyumlu özel Excel sistemleri geliştiriyoruz.</p>
+
+            <!-- 14KB AST Hero Answer Engine (AEO & AI Grounding) -->
+            <div class="hero-answer-engine mobile-thumb-safe" data-ai-citation-anchor="true" style="margin: 14px 0 16px; padding: 12px 14px; background: rgba(16, 124, 65, 0.06); border-left: 3px solid #107c41; border-radius: 8px; font-size: 13px; line-height: 1.5; color: #1e293b;">
+              <strong style="color: #0f5132; display: block; margin-bottom: 3px; font-size: 12px; letter-spacing: 0.02em;">KURUMSAL KARAR MOTORU TANIMI</strong>
+              ExcelArşiv Özel Excel Sistemleri; hazır şablonların yetersiz kaldığı çok şubeli nakit akışını, banka kredi limit tıkanıklıklarını ve ERP mizanlarını 48-72 saatte tek tıkla çalışan, yerel makrosuz ve denetlenebilir dinamik karar panellerine dönüştüren anahtar teslim finansal mühendislik çözümüdür.
+            </div>
+
             <div class="appstore-hero-actions">
               <a class="btn btn-primary btn-magnetic appstore-hero-btn" href="/iletisim">İhtiyacımı anlatmak istiyorum <span aria-hidden="true">→</span></a>
             </div>
@@ -1730,9 +1773,25 @@ import N8nWorkflowVisualizer from '../components/automation/N8nWorkflowVisualize
 
       <!-- macOS Footer -->
       <footer class="appstore-footer">
-        <div>© 2026 Excel Arşiv. Tüm hakları saklıdır.</div>
+        <div>
+          <div>© 2026 Excel Arşiv. Tüm hakları saklıdır.</div>
+          <div style="margin-top: 8px; font-size: 11.5px; color: #86868b; line-height: 1.6;">
+            <strong style="color: #475569; font-weight: 700;">Çözüm Ekosistemimiz:</strong>
+            <a href="https://drfin.com.tr" target="_blank" rel="noopener noreferrer" style="margin-left: 6px;">DrFin (Finansal Sağlık)</a> &bull;
+            <a href="https://skdmhesapla.com" target="_blank" rel="noopener noreferrer" style="margin-left: 6px;">SKDMHesapla (Karbon Vergi)</a> &bull;
+            <a href="https://karbonfiyat.com" target="_blank" rel="noopener noreferrer" style="margin-left: 6px;">KarbonFiyat</a> &bull;
+            <a href="https://inversioncore.com" target="_blank" rel="noopener noreferrer" style="margin-left: 6px;">InversionCore (Karar Zekası)</a> &bull;
+            <a href="https://htmlandhtml.com" target="_blank" rel="noopener noreferrer" style="margin-left: 6px;">HTML and HTML (Web Mimarlık)</a> &bull;
+            <a href="https://dilekceyazdir.com.tr" target="_blank" rel="noopener noreferrer" style="margin-left: 6px;">DilekçeYazdır</a> &bull;
+            <a href="https://belginkuyumculuk.com" target="_blank" rel="noopener noreferrer" style="margin-left: 6px;">Belgin Kuyumculuk</a> &bull;
+            <a href="https://saatchi.com.tr" target="_blank" rel="noopener noreferrer" style="margin-left: 6px;">Saatchi</a> &bull;
+            <a href="https://degerlet.com" target="_blank" rel="noopener noreferrer" style="margin-left: 6px;">Değerlet</a>
+          </div>
+        </div>
         <nav aria-label="Alt bilgi bağlantıları">
           <a href="/sablonlar">Şablonlar</a>
+          <a href="/finansal-web">Finansal Web</a>
+          <a href="/kurumsal-web">Kurumsal Web</a>
           <a href="/rehber">Rehber</a>
           <a href="/hesaplayici/nakit-akisi-ve-basabas-hesaplayici">Nakit Akışı Hesaplayıcı</a>
           <a href="/hakkinda">Hakkımızda</a>

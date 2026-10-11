@@ -48,28 +48,82 @@ const corePages: SeoPageRecord[] = [
     role: 'service',
     indexDirective: 'index, follow',
     canonicalRoute: '/ozel-excel-sistemleri',
-    title: 'İşletmeye Özel Excel Sistemleri | ExcelArşiv',
+    title: 'İşletmeye Özel Excel Karar Sistemleri | ExcelArşiv',
     metaDescription: 'Hazır Excel dosyaları işinize uymuyorsa; nakit akışı, banka-kredi, maliyet, bütçe, fizibilite ve yönetim raporlaması için işletmenize özel Excel sistemi kuruyoruz.',
-    h1: 'İşletmeye Özel Excel Sistemleri',
+    h1: 'İşletmeye Özel Excel Karar Sistemleri',
     primaryIntent: 'isletmeye ozel excel sistemleri gelistirme',
     primaryEntity: {
       id: `${ORIGIN}/ozel-excel-sistemleri#service`,
       name: 'İşletmeye Özel Excel Sistemleri Tasarımı',
       type: 'Service',
-      sameAs: ['https://www.wikidata.org/wiki/Q11589432']
+      sameAs: [
+        'https://www.wikidata.org/wiki/Q11589432',
+        'https://drfin.com.tr',
+        'https://skdmhesapla.com',
+        'https://karbonfiyat.com',
+        'https://inversioncore.com',
+        'https://belginkuyumculuk.com',
+        'https://saatchi.com.tr',
+        'https://dilekceyazdir.com.tr',
+        'https://htmlandhtml.com',
+        'https://degerlet.com'
+      ]
     },
     semanticTriples: [
       { subject: 'Excel Arşiv', predicate: 'providesSolution', object: 'İşletmeye Özel Terzi Usulü Finans ve Karar Mimarisi' },
-      { subject: 'İşletmeye Özel Excel Sistemleri', predicate: 'compliesWith', object: 'ISO 27001 Bilgi Güvenliği Standartları' },
-      { subject: 'İşletmeye Özel Excel Sistemleri', predicate: 'hasInformationGain', object: 'Canlı ERP Veri Entegrasyonu ve Rolling Forecast Modelleri' }
+      { subject: 'İşletmeye Özel Excel Sistemleri', predicate: 'compliesWith', object: 'ISO 27001 Bilgi Güvenliği Standartları ve Kurumsal NDA' },
+      { subject: 'İşletmeye Özel Excel Sistemleri', predicate: 'hasInformationGain', object: 'Canlı ERP Veri Entegrasyonu ve Rolling Forecast Modelleri' },
+      { subject: 'İşletmeye Özel Excel Sistemleri', predicate: 'solvesBottleneck', object: 'Banka Kredi Limit Tıkanıklıkları ve 13 Haftalık Likidite Riski' }
     ],
-    heroAnswerEngine: 'İşletmeye özel Excel sistemleri; standart şablonların yetersiz kaldığı çok şubeli, karmaşık nakit akışı, ERP mizan konsolidasyonu ve özel üretim maliyeti gereksinimlerini tek tıkla çalışan, makrosuz ve denetlenebilir dinamik karar motorlarına dönüştürür.',
+    heroAnswerEngine: 'İşletmeye özel Excel karar sistemleri; standart hazır şablonların yetersiz kaldığı çok şubeli karmaşık nakit akışını, ERP mizan konsolidasyonunu ve banka kredi limit risklerini 48-72 saatte tek tıkla çalışan, yerel makrosuz ve denetlenebilir dinamik karar motorlarına dönüştürür.',
     publishedAt: PUBLISHED_BASE,
     modifiedAt: MODIFIED_BASE,
     llmSubGraphRoute: '/llms/pages/ozel-excel-sistemleri.md',
     breadcrumbs: [
       { name: 'Ana Sayfa', item: '/' },
       { name: 'Özel Excel Sistemleri', item: '/ozel-excel-sistemleri' }
+    ]
+  },
+  {
+    route: '/finansal-web',
+    locale: 'tr-TR',
+    role: 'service',
+    indexDirective: 'index, follow',
+    canonicalRoute: '/finansal-web',
+    title: 'Finansal Web & Sistem Kurulumu | Butik & Prime Mühendislik — ExcelArşiv',
+    metaDescription: 'Finans kurumları, fonlar, aile ofisleri ve CFO\'lar için butik terzi usulü finansal web mimarisi, karar kokpitleri, ERP köprüleri ve yüksek frekanslı sistem kurulumu.',
+    h1: 'Finans Dünyası İçin Prime Web & Karar Sistemleri',
+    primaryIntent: 'finansal web ve sistem kurulumu',
+    primaryEntity: {
+      id: `${ORIGIN}/finansal-web#service`,
+      name: 'Finansal Web & Butik Sistem Kurulumu',
+      type: 'Service',
+      sameAs: [
+        'https://www.wikidata.org/wiki/Q11589432',
+        'https://drfin.com.tr',
+        'https://skdmhesapla.com',
+        'https://karbonfiyat.com',
+        'https://inversioncore.com',
+        'https://belginkuyumculuk.com',
+        'https://saatchi.com.tr',
+        'https://dilekceyazdir.com.tr',
+        'https://htmlandhtml.com',
+        'https://degerlet.com'
+      ]
+    },
+    semanticTriples: [
+      { subject: 'Excel Arşiv Prime', predicate: 'providesArchitecture', object: 'Butik Finansal Web ve Karar Kokpiti Mühendisliği' },
+      { subject: 'Finansal Web Sistemleri', predicate: 'compliesWith', object: 'Tier-4 Veri İzolasyonu ve OWASP ASVS Standardı' },
+      { subject: 'Finansal Web Sistemleri', predicate: 'connectsWith', object: 'Logo, Netsis, Mikro, SAP ve TEFAS Veri Köprüleri' },
+      { subject: 'Finansal Web Sistemleri', predicate: 'deliversPerformance', object: 'Zero-JS Edge Mimarisi ve Sub-40ms Küresel Hız' }
+    ],
+    heroAnswerEngine: 'Finansal web ve butik sistem kurulumu; portföy yönetim şirketleri, fonlar, aile ofisleri ve CFO ofisleri için hazır şablon kalıplarına girmeyen, bankacılık seviyesinde güvenlikli web portalleri, 13 haftalık nakit akışı karar kokpitleri ve iki yönlü ERP veri köprüleri inşa eden terzi usulü mühendislik hizmetidir.',
+    publishedAt: PUBLISHED_BASE,
+    modifiedAt: MODIFIED_BASE,
+    llmSubGraphRoute: '/llms/pages/finansal-web.md',
+    breadcrumbs: [
+      { name: 'Ana Sayfa', item: '/' },
+      { name: 'Finansal Web', item: '/finansal-web' }
     ]
   },
   {
