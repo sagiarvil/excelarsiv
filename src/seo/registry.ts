@@ -90,13 +90,13 @@ const corePages: SeoPageRecord[] = [
     role: 'service',
     indexDirective: 'index, follow',
     canonicalRoute: '/finansal-web',
-    title: 'Finansal Web & Sistem Kurulumu | Butik & Prime Mühendislik — ExcelArşiv',
-    metaDescription: 'Finans kurumları, fonlar, aile ofisleri ve CFO\'lar için butik terzi usulü finansal web mimarisi, karar kokpitleri, ERP köprüleri ve yüksek frekanslı sistem kurulumu.',
-    h1: 'Finans Dünyası İçin Prime Web & Karar Sistemleri',
-    primaryIntent: 'finansal web ve sistem kurulumu',
+    title: 'İşletmeler İçin Özel Web Sitesi Yapımı & Tasarımı | ExcelArşiv',
+    metaDescription: 'İşletmeler ve KOBİ\'ler için sıfırdan, hazır şablonsuz özel web sitesi tasarımı ve kodlaması. Google SEO uyumlu, mobil dostu, ultra hızlı ve anahtar teslim web siteleri yapıyoruz.',
+    h1: 'İşletmeniz İçin Sıfırdan Özel Web Sitesi Yapıyoruz',
+    primaryIntent: 'isletmeler icin web sitesi yapimi ve tasarimi',
     primaryEntity: {
       id: `${ORIGIN}/finansal-web#service`,
-      name: 'Finansal Web & Butik Sistem Kurulumu',
+      name: 'İşletmeler İçin Özel Web Sitesi Yapımı ve Geliştirme',
       type: 'Service',
       sameAs: [
         'https://www.wikidata.org/wiki/Q11589432',
@@ -112,18 +112,18 @@ const corePages: SeoPageRecord[] = [
       ]
     },
     semanticTriples: [
-      { subject: 'Excel Arşiv Prime', predicate: 'providesArchitecture', object: 'Butik Finansal Web ve Karar Kokpiti Mühendisliği' },
-      { subject: 'Finansal Web Sistemleri', predicate: 'compliesWith', object: 'Tier-4 Veri İzolasyonu ve OWASP ASVS Standardı' },
-      { subject: 'Finansal Web Sistemleri', predicate: 'connectsWith', object: 'Logo, Netsis, Mikro, SAP ve TEFAS Veri Köprüleri' },
-      { subject: 'Finansal Web Sistemleri', predicate: 'deliversPerformance', object: 'Zero-JS Edge Mimarisi ve Sub-40ms Küresel Hız' }
+      { subject: 'Excel Arşiv', predicate: 'providesArchitecture', object: 'İşletmelere Özel Sıfırdan Web Sitesi Geliştirme' },
+      { subject: 'Özel Web Siteleri', predicate: 'compliesWith', object: 'Sıfır Hazır Tema, Tam Mülkiyet ve OWASP Güvenliği' },
+      { subject: 'Özel Web Siteleri', predicate: 'connectsWith', object: 'WhatsApp, Teklif Formları ve ERP/CRM Veri Köprüleri' },
+      { subject: 'Özel Web Siteleri', predicate: 'deliversPerformance', object: 'Zero-JS Edge Mimarisi ve Sub-40ms Küresel Açılış Hızı' }
     ],
-    heroAnswerEngine: 'Finansal web ve butik sistem kurulumu; portföy yönetim şirketleri, fonlar, aile ofisleri ve CFO ofisleri için hazır şablon kalıplarına girmeyen, bankacılık seviyesinde güvenlikli web portalleri, 13 haftalık nakit akışı karar kokpitleri ve iki yönlü ERP veri köprüleri inşa eden terzi usulü mühendislik hizmetidir.',
+    heroAnswerEngine: 'ExcelArşiv Kurumsal Web Hizmeti; şirketler, KOBİ\'ler ve işletmeler için hazır tema kalıplarından uzak, sıfırdan özel tasarlanıp kodlanan, sub-40ms ultra hızlı ve A+ Google SEO uyumlu anahtar teslim web siteleri üretir. 30.000 ₺\'den başlayan şeffaf paketlerle 7-14 günde eksiksiz devreye alınır.',
     publishedAt: PUBLISHED_BASE,
     modifiedAt: MODIFIED_BASE,
     llmSubGraphRoute: '/llms/pages/finansal-web.md',
     breadcrumbs: [
       { name: 'Ana Sayfa', item: '/' },
-      { name: 'Finansal Web', item: '/finansal-web' }
+      { name: 'İşletmeler İçin Web Sitesi', item: '/finansal-web' }
     ]
   },
   {

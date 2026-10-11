@@ -5,7 +5,7 @@
   <subtitle>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://excelarsiv.com/atom.xml" />
   <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-  <updated>2026-10-11T06:33:36.000Z</updated>
+  <updated>2026-10-11T09:13:51.000Z</updated>
   <generator uri="https://excelarsiv.com/" version="3.0">Excel Arşiv Feed Engine</generator>
   <author>
     <name>Barış Bağırlar</name>
@@ -14,24 +14,11 @@
   </author>
   <entry>
     <id>https://excelarsiv.com/finansal-web</id>
-    <title>Finansal Web &amp; Sistem Kurulumu | Butik &amp; Prime Mühendislik — ExcelArşiv</title>
+    <title>İşletmeler İçin Özel Web Sitesi Yapımı &amp; Tasarımı | ExcelArşiv</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/finansal-web" />
-    <updated>2026-10-11T06:33:36.000Z</updated>
-    <published>2026-10-11T06:33:36.000Z</published>
-    <summary>Finans kurumları, fonlar, aile ofisleri ve CFO&apos;lar için butik terzi usulü finansal web mimarisi, karar kokpitleri, ERP köprüleri ve yüksek frekanslı sistem kurulumu.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/kurumsal-web</id>
-    <title>Standart Kurumsal Web Sitesi | 30.000 TL Anahtar Teslim — ExcelArşiv Prime</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/kurumsal-web" />
-    <updated>2026-10-11T06:33:36.000Z</updated>
-    <published>2026-10-11T06:33:36.000Z</published>
-    <summary>Terzi usulü tam kodlama, sıfır hazır şablon, sub-40ms edge mimarisi ve kurumsal kimlik uyumlu anahtar teslim web sitesi. Sabit fiyat: 30.000 TL.</summary>
+    <updated>2026-10-11T09:13:51.000Z</updated>
+    <published>2026-10-11T09:13:51.000Z</published>
+    <summary>İşletmeler ve KOBİ&apos;ler için sıfırdan, hazır şablonsuz özel web sitesi tasarımı ve kodlaması. Google SEO uyumlu, mobil dostu, ultra hızlı ve anahtar teslim web siteleri yapıyoruz.</summary>
     <category term="diger" label="diger" />
     <author>
       <name>Barış Bağırlar</name>
@@ -42,9 +29,22 @@
     <id>https://excelarsiv.com/ozel-excel-sistemleri</id>
     <title>İhtiyaca Özel Excel Finans ve Karar Sistemleri | Excel Arşiv</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/ozel-excel-sistemleri" />
-    <updated>2026-10-10T21:58:27.000Z</updated>
-    <published>2026-10-10T21:58:27.000Z</published>
+    <updated>2026-10-11T09:13:51.000Z</updated>
+    <published>2026-10-11T09:13:51.000Z</published>
     <summary>Hazır Excel dosyaları işinize uymuyorsa; nakit akışı, banka-kredi, maliyet, bütçe, fizibilite ve yönetim raporlaması için işletmenize özel Excel sistemi kuruyoruz.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/kurumsal-web</id>
+    <title>Standart Kurumsal Web Sitesi | 30.000 TL Anahtar Teslim — ExcelArşiv Prime</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/kurumsal-web" />
+    <updated>2026-10-11T08:42:24.000Z</updated>
+    <published>2026-10-11T08:42:24.000Z</published>
+    <summary>Terzi usulü tam kodlama, sıfır hazır şablon, sub-40ms edge mimarisi ve kurumsal kimlik uyumlu anahtar teslim web sitesi. Sabit fiyat: 30.000 TL.</summary>
     <category term="diger" label="diger" />
     <author>
       <name>Barış Bağırlar</name>
