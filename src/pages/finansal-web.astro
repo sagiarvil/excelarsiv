@@ -123,59 +123,74 @@
       }
     }
 
-    /* Header Nav */
+    /* Header Nav (Strict Single Line - No Wrap) */
     .magic-header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(9, 11, 14, 0.88);
+      background: rgba(9, 11, 14, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-      height: 76px;
+      height: 72px;
       display: flex;
       align-items: center;
+      white-space: nowrap;
     }
     .magic-header__inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
+      gap: 16px;
+      flex-wrap: nowrap;
     }
     .magic-brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-size: 18px;
+      gap: 10px;
+      font-size: 16px;
       font-weight: 700;
       letter-spacing: -0.3px;
       color: #F1F5F9;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
     .magic-brand__pill {
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 700;
       text-transform: uppercase;
       background: rgba(224, 90, 43, 0.12);
       border: 1px solid rgba(224, 90, 43, 0.35);
       color: #E05A2B;
-      padding: 3px 9px;
+      padding: 3px 8px;
       border-radius: 4px;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.6px;
+      white-space: nowrap;
     }
     .magic-nav {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 20px;
+      flex-shrink: 1;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .magic-nav::-webkit-scrollbar {
+      display: none;
     }
     .magic-nav a {
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       color: #94A3B8 !important;
       transition: color 0.2s ease;
       white-space: nowrap;
+      flex-shrink: 0;
     }
     .magic-nav a:hover {
       color: #F1F5F9 !important;
@@ -185,15 +200,17 @@
     }
     .magic-nav a.special-badge {
       color: #38BDF8 !important;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
       padding: 4px 10px;
       border-radius: 999px;
       font-size: 11px;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .magic-nav a.special-badge:hover {
-      background: rgba(56, 189, 248, 0.2);
+      background: rgba(56, 189, 248, 0.22);
       border-color: #38BDF8;
       color: #ffffff !important;
     }
@@ -201,10 +218,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 13px 30px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.8px;
+      padding: 10px 22px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
       text-transform: uppercase;
       background: #ffffff;
       color: #090B0E;
@@ -213,6 +230,8 @@
       box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12);
       transition: all 0.25s ease;
       cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .magic-cta-btn:hover {
       background: rgba(255, 255, 255, 0.9);
@@ -1471,14 +1490,12 @@
         <span class="magic-brand__pill">FİNANSAL WEB</span>
       </a>
 
-      <nav class="magic-nav" style="display: flex;">
-        <a href="#portfolyo">PORTFÖLYÖ</a>
+      <nav class="magic-nav">
+        <a href="#portfolyo">PORTFÖY</a>
         <a href="#sistemler">SİSTEMLER</a>
-        <a href="#mimari">MİMARİ</a>
-        <a href="#yatirim">YATIRIM &amp; FİYATLAR</a>
+        <a href="#yatirim">FİYATLAR</a>
         <a href="/kurumsal-web" class="special-badge">KURUMSAL WEB (30.000 ₺)</a>
         <a href="#guvenlik">İLETİŞİM</a>
-        <a href="/" style="color: #64748B;">ANA SİTE</a>
       </nav>
 
       <a href="https://wa.me/905393333303?text=Merhaba%2C%20butik%20ve%20prime%20Finansal%20Web%20%2F%20Sistem%20kurulumu%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="magic-cta-btn">

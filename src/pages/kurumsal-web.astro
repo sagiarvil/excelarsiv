@@ -115,54 +115,70 @@
       .kw-container { padding: 0 20px; }
     }
 
-    /* Header Nav */
+    /* Header Nav (Strict Single Line - No Wrap) */
     .kw-header {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 1000;
-      background: rgba(8, 11, 15, 0.92);
+      background: rgba(8, 11, 15, 0.94);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      height: 74px;
+      height: 72px;
       display: flex;
       align-items: center;
+      white-space: nowrap;
     }
     .kw-header__inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
+      gap: 16px;
+      flex-wrap: nowrap;
     }
     .kw-brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-size: 17px;
+      gap: 10px;
+      font-size: 16px;
       font-weight: 700;
       color: #F1F5F9;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
     .kw-brand__badge {
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 800;
       text-transform: uppercase;
       background: rgba(56, 189, 248, 0.12);
       border: 1px solid rgba(56, 189, 248, 0.35);
       color: #38BDF8;
-      padding: 3px 9px;
+      padding: 3px 8px;
       border-radius: 4px;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.6px;
+      white-space: nowrap;
     }
     .kw-nav {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 20px;
+      flex-shrink: 1;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .kw-nav::-webkit-scrollbar {
+      display: none;
     }
     .kw-nav a {
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       color: #94A3B8;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .kw-nav a:hover {
       color: #F1F5F9;
@@ -172,14 +188,16 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 12px 26px;
-      font-size: 13px;
+      padding: 10px 22px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.6px;
       border-radius: 6px;
       cursor: pointer;
       transition: all 0.25s ease;
       text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .kw-btn--primary {
       background: #0284C7;
@@ -663,12 +681,11 @@
         <span class="kw-brand__badge">30.000 ₺</span>
       </a>
 
-      <nav class="kw-nav" style="display: flex;">
+      <nav class="kw-nav">
         <a href="#karsilastirma">KARŞILAŞTIRMA</a>
         <a href="#teslimat">7 GÜNDE TESLİM</a>
         <a href="#kapsam">PAKET KAPSAMI</a>
-        <a href="/finansal-web">FİNANSAL WEB (PRIME)</a>
-        <a href="/">ANA SAYFA</a>
+        <a href="/finansal-web">FİNANSAL WEB</a>
       </nav>
 
       <a href="https://wa.me/905393333303?text=Merhaba%2C%20Standart%20Kurumsal%20Web%20Sitesi%20(30.000%20TL)%20paketi%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="kw-btn kw-btn--primary">
