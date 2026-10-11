@@ -41,5 +41,6 @@ export interface SeoPageRecord {
   readonly publishedAt: string;
   readonly modifiedAt: string; // Gerçek son değişiklik tarihi (ISO 8601)
   readonly llmSubGraphRoute?: `/llms/${string}.md`;
+  readonly mobileSubGraphRoute?: `/llms/mobile/${string}.md`;
   readonly breadcrumbs: readonly SeoBreadcrumb[];
 }

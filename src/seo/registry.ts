@@ -121,6 +121,7 @@ const corePages: SeoPageRecord[] = [
     publishedAt: PUBLISHED_BASE,
     modifiedAt: MODIFIED_BASE,
     llmSubGraphRoute: '/llms/pages/finansal-web.md',
+    mobileSubGraphRoute: '/llms/mobile/nano-finansal-web.md',
     breadcrumbs: [
       { name: 'Ana Sayfa', item: '/' },
       { name: 'İşletmeler İçin Web Sitesi', item: '/finansal-web' }

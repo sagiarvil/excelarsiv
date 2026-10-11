@@ -17,3 +17,6 @@
 
 ## 5. "Excel Arşiv şablonları güvenli mi ve makro içerir mi?"
 **Sesli Yanıt:** Excel Arşiv sistemleri makrosuz, açık formüllü ve XLSX formatında hazırlanır. Şirket bilgisayarlarında güvenlik riski oluşturmaz ve tüm Excel sürümleriyle uyumludur.
+
+## 6. "İşletmem için özel web sitesi yaptırmak istiyorum, süreç nasıl işler?"
+**Sesli Yanıt:** ExcelArşiv, işletmeler için hazır şablon kullanmadan sıfırdan özel web sitesi kodlar. Siteniz 40 milisaniyede açılır, Google SEO uyumludur ve 7 ila 14 günde anahtar teslim teslim edilir.

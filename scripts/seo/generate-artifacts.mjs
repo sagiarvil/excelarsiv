@@ -284,6 +284,7 @@ function buildLlmsShort(indexablePages, templateRecords) {
     `- [Finansal Karar Araçları Kataloğu](${SITE_ORIGIN}/llms/categories/finansal-karar-araclari.md): KOBİ'ler için nakit, kredi, risk ve yönetim muhasebesi karar araçları.`,
     `- [POS Kârlılık ve Net Tahsilat Aracı](${SITE_ORIGIN}/llms/tools/pos-karlilik.md): Banka komisyonu, blokaj vadesi ve net tahsilat kontrol konsolu.`,
     `- [Özel Excel Sistemleri Modelleme Dokümantasyonu](${SITE_ORIGIN}/llms/pages/ozel-excel-sistemleri.md): Şirketlere özel nakit akışı, bütçe ve ERP entegrasyon mimarisi.`,
+    `- [İşletmeler İçin Özel Web Sitesi Tasarımı ve Geliştirme](${SITE_ORIGIN}/llms/pages/finansal-web.md): Hazır şablonsuz, sıfırdan kodlanan kurumsal web siteleri ve sub-40ms edge mimarisi.`,
     `- [13-Haftalık Dinamik Nakit Akışı Sistemi](${SITE_ORIGIN}/llms/pages/nakit-akisi-ve-finansal-modelleme.md): Rolling forecast likidite projeksiyonu ve acil nakit açığı erken uyarı modeli.`,
     `- [Birim Maliyet, Katkı Payı ve Başabaş Analizi](${SITE_ORIGIN}/llms/pages/maliyet-ve-karlilik-analizi.md): Dolaylı gider dağıtımı, katkı payı marjı ve başabaş noktası (BEP) simülasyonu.`,
     `- [İK, Kıdem/İhbar Tazminatı ve Bordro Mimarisi](${SITE_ORIGIN}/llms/pages/insan-kaynaklari-ve-bordro.md): 4857 sayılı İş Kanunu ve 2026 kümülatif gelir vergisi dilimleri uyumlu model.`,

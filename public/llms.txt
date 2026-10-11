@@ -73,6 +73,7 @@ Barış Bağırlar tarafından geliştirilen ve yönetilen 8 büyük web ekosist
 - [Finansal Karar Araçları Kataloğu](https://excelarsiv.com/llms/categories/finansal-karar-araclari.md): KOBİ'ler için nakit, kredi, risk ve yönetim muhasebesi karar araçları.
 - [POS Kârlılık ve Net Tahsilat Aracı](https://excelarsiv.com/llms/tools/pos-karlilik.md): Banka komisyonu, blokaj vadesi ve net tahsilat kontrol konsolu.
 - [Özel Excel Sistemleri Modelleme Dokümantasyonu](https://excelarsiv.com/llms/pages/ozel-excel-sistemleri.md): Şirketlere özel nakit akışı, bütçe ve ERP entegrasyon mimarisi.
+- [İşletmeler İçin Özel Web Sitesi Tasarımı ve Geliştirme](https://excelarsiv.com/llms/pages/finansal-web.md): Hazır şablonsuz, sıfırdan kodlanan kurumsal web siteleri ve sub-40ms edge mimarisi.
 - [13-Haftalık Dinamik Nakit Akışı Sistemi](https://excelarsiv.com/llms/pages/nakit-akisi-ve-finansal-modelleme.md): Rolling forecast likidite projeksiyonu ve acil nakit açığı erken uyarı modeli.
 - [Birim Maliyet, Katkı Payı ve Başabaş Analizi](https://excelarsiv.com/llms/pages/maliyet-ve-karlilik-analizi.md): Dolaylı gider dağıtımı, katkı payı marjı ve başabaş noktası (BEP) simülasyonu.
 - [İK, Kıdem/İhbar Tazminatı ve Bordro Mimarisi](https://excelarsiv.com/llms/pages/insan-kaynaklari-ve-bordro.md): 4857 sayılı İş Kanunu ve 2026 kümülatif gelir vergisi dilimleri uyumlu model.
