@@ -2,263 +2,128 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const distFile = path.resolve('dist/finansal-web/index.html');
-if (!fs.existsSync(distFile)) {
-  console.log('FINANSAL WEB FINALIZE: dist route missing, skipping.');
-  process.exit(0);
-}
-
-let html = fs.readFileSync(distFile, 'utf8');
-
-// 1. Remove the destructive sitewide grid overlay which injects white spreadsheet paper (#fbfaf6)
-html = html.replace(/<style\b[^>]*\bid=["']sitewide-continuous-grid-v4["'][^>]*>[\s\S]*?<\/style>/gi, '');
-
-// 2. Remove the light-mode typography mandate which forces color:#222222 and color:#444444
-html = html.replace(/<style\b[^>]*data-ea-typography-mandate="chat-readable-v2"[^>]*>[\s\S]*?<\/style>/gi, '');
-
-// 3. Remove robotic AI hero-answer injection from visual display while keeping it for parsers if needed
-html = html.replace(/<div\b[^>]*data-chunk-id=["']hero-answer-summary["'][^>]*>[\s\S]*?<\/div>/gi, '');
-
-// 4. Inject our verified dark typography token so CI / SEO gates stay compliant
-const darkMandateToken = '<style data-ea-typography-mandate="chat-readable-v2" data-ea-finansal-dark-mandate>:root{--ea-finansal-dark:true}</style>';
-
-// 5. Inject human-crafted, bespoke Swiss Private Wealth luxury styles
-const darkStyles = `
-<style id="finansal-web-dark-master-contract">
-  /* Bespoke Swiss Wealth Architecture & Ergonomics */
-  html, html.fixed {
-    background-color: #090B0E !important;
-    background-image: none !important;
-    color: #F1F5F9 !important;
+// Process both /finansal-web and /kurumsal-web routes for pristine dark ergonomics
+const targets = [
+  {
+    distFile: path.resolve('dist/finansal-web/index.html'),
+    name: 'FINANSAL WEB',
+    brandColor: '#E05A2B',
+    brandGlow: 'rgba(224, 90, 43, 0.4)',
+    extraCss: `
+      .magic-brand { color: #FFFFFF !important; }
+      .magic-nav a { color: #E2E8F0 !important; font-weight: 600 !important; opacity: 1 !important; }
+      .magic-nav a:hover { color: #FFFFFF !important; }
+      .magic-hero__desc { color: #E2E8F0 !important; }
+      .magic-sec-title { color: #E05A2B !important; }
+      .magic-work-card__title { color: #FFFFFF !important; }
+      .magic-work-card__desc { color: #CBD5E1 !important; }
+      .magic-pillar-card__title { color: #FFFFFF !important; }
+      .magic-pillar-card__desc { color: #CBD5E1 !important; }
+      .magic-comp-table td { color: #E2E8F0 !important; }
+      .magic-comp-table td strong { color: #FFFFFF !important; }
+      .magic-cta-box h2 { color: #FFFFFF !important; }
+      .magic-cta-box p { color: #E2E8F0 !important; }
+    `
+  },
+  {
+    distFile: path.resolve('dist/kurumsal-web/index.html'),
+    name: 'KURUMSAL WEB',
+    brandColor: '#38BDF8',
+    brandGlow: 'rgba(56, 189, 248, 0.4)',
+    extraCss: `
+      .kw-brand { color: #FFFFFF !important; }
+      .kw-brand span { color: #FFFFFF !important; }
+      .kw-nav a { color: #E2E8F0 !important; font-weight: 600 !important; opacity: 1 !important; }
+      .kw-nav a:hover { color: #FFFFFF !important; }
+      .kw-hero h1 { color: #FFFFFF !important; }
+      .kw-hero__p { color: #E2E8F0 !important; }
+      .kw-price-val { color: #F8FAFC !important; }
+      .kw-sec-h2 { color: #FFFFFF !important; }
+      .kw-sec-sub { color: #CBD5E1 !important; }
+      .kw-step-title { color: #FFFFFF !important; }
+      .kw-step-desc { color: #CBD5E1 !important; }
+      .kw-bento-title { color: #FFFFFF !important; }
+      .kw-bento-desc { color: #CBD5E1 !important; }
+      .kw-table td { color: #E2E8F0 !important; }
+      .kw-table td strong { color: #FFFFFF !important; }
+      .kw-table th { color: #CBD5E1 !important; }
+      .kw-checklist li { color: #F1F5F9 !important; }
+      .kw-cta-box h2 { color: #FFFFFF !important; }
+      .kw-cta-box p { color: #E2E8F0 !important; }
+    `
   }
-  body, body[data-finansal-web-prime] {
-    background-color: #090B0E !important;
+];
+
+for (const target of targets) {
+  if (!fs.existsSync(target.distFile)) {
+    console.log(`${target.name} FINALIZE: dist route missing, skipping.`);
+    continue;
+  }
+
+  let html = fs.readFileSync(target.distFile, 'utf8');
+
+  // 1. Remove the destructive sitewide grid overlay which injects white spreadsheet paper (#fbfaf6)
+  html = html.replace(/<style\b[^>]*\bid=["']sitewide-continuous-grid-v4["'][^>]*>[\s\S]*?<\/style>/gi, '');
+
+  // 2. Remove the light-mode typography mandate which forces color:#222222 and color:#444444
+  html = html.replace(/<style\b[^>]*data-ea-typography-mandate="chat-readable-v2"[^>]*>[\s\S]*?<\/style>/gi, '');
+
+  // 3. Remove robotic AI hero-answer injection from visual display while keeping it for parsers if needed
+  html = html.replace(/<div\b[^>]*data-chunk-id=["']hero-answer-summary["'][^>]*>[\s\S]*?<\/div>/gi, '');
+
+  // 4. Inject our verified dark typography token so CI / SEO gates stay compliant
+  const darkMandateToken = '<style data-ea-typography-mandate="chat-readable-v2" data-ea-finansal-dark-mandate>:root{--ea-finansal-dark:true}</style>';
+
+  // 5. Inject master high-contrast dark typography & visual contract
+  const darkStyles = `
+<style id="${target.name.toLowerCase().replace(/\s+/g, '-')}-dark-master-contract">
+  /* High-Contrast Dark Master Contract */
+  html, html.fixed {
+    background-color: #080B0F !important;
     background-image: none !important;
-    color: #F1F5F9 !important;
+    color: #F8FAFC !important;
+  }
+  body, body[data-finansal-web-prime], body[data-kurumsal-web-prime] {
+    background-color: #080B0F !important;
+    background-image: none !important;
+    color: #F8FAFC !important;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
   }
   body::before, body::after, html::before, html::after {
     display: none !important;
   }
 
-  /* Headings & Text Color Contracts */
-  h1, h2, h3, h4, h5, h6, .magic-heading, .magic-hero__title {
-    color: #F1F5F9 !important;
-    letter-spacing: -0.025em !important;
-    text-shadow: none !important;
-  }
-  .magic-hero__desc, .magic-subheading {
-    color: #94A3B8 !important;
-    text-shadow: none !important;
-    font-size: 16.5px !important;
-    line-height: 1.7 !important;
-  }
-  .magic-sec-title {
-    color: #E05A2B !important;
-    font-size: 12px !important;
-    letter-spacing: 1.8px !important;
+  /* Universal Contrast Rule: No dark text on dark surfaces */
+  h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF !important;
     text-shadow: none !important;
   }
   p, li, td, th {
-    color: #94A3B8 !important;
-  }
-
-  /* Header & Navigation */
-  .magic-header {
-    background: rgba(9, 11, 14, 0.88) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
-    z-index: 9999 !important;
-  }
-  .magic-brand {
-    color: #F1F5F9 !important;
-  }
-  .magic-brand__pill {
-    background: rgba(224, 90, 43, 0.12) !important;
-    border: 1px solid rgba(224, 90, 43, 0.35) !important;
-    color: #E05A2B !important;
-  }
-  .magic-nav a {
-    color: #94A3B8 !important;
-    font-weight: 600 !important;
-    font-size: 13px !important;
-    letter-spacing: 0.8px !important;
-    opacity: 1 !important;
-    text-shadow: none !important;
-  }
-  .magic-nav a:hover {
-    color: #F1F5F9 !important;
-  }
-  .magic-nav a.active {
-    color: #E05A2B !important;
-  }
-
-  /* CTA Buttons: Pure MagiClick Luxury */
-  .magic-cta-btn {
-    background: #ffffff !important;
-    border: 1px solid #ffffff !important;
-    color: #090B0E !important;
-    border-radius: 4px !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.8px !important;
-    text-transform: uppercase !important;
-    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12) !important;
-  }
-  .magic-cta-btn:hover {
-    background: rgba(255, 255, 255, 0.9) !important;
-    border-color: rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 6px 24px rgba(255, 255, 255, 0.22) !important;
-  }
-  .magic-cta-btn--outline {
-    background: transparent !important;
-    border-color: rgba(255, 255, 255, 0.4) !important;
-    color: #ffffff !important;
-    box-shadow: none !important;
-  }
-  .magic-cta-btn--outline:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-color: #ffffff !important;
-    color: #ffffff !important;
-  }
-
-  /* Solutions / Works Grid */
-  .magic-section {
-    background-color: #090B0E !important;
-  }
-  .magic-section--dark {
-    background-color: #0B0E13 !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-  }
-
-  /* MagiClick Full-Bleed Work Box */
-  .magic-work-box {
-    background: #0A0D12 !important;
-    border: 1px solid rgba(255, 255, 255, 0.09) !important;
-    border-radius: 8px !important;
-  }
-  .magic-work-box:hover {
-    border-color: rgba(255, 255, 255, 0.3) !important;
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7) !important;
-  }
-  .magic-work-box__title {
-    color: #ffffff !important;
-  }
-  .magic-work-box__desc {
     color: #CBD5E1 !important;
   }
-  .magic-work-card {
-    background: #0E1218 !important;
-    border: 1px solid rgba(255, 255, 255, 0.07) !important;
-    border-radius: 8px !important;
+  strong, b {
+    color: #FFFFFF !important;
   }
-  .magic-work-card:hover {
-    border-color: rgba(224, 90, 43, 0.4) !important;
-  }
-  .magic-work-card__title {
-    color: #F1F5F9 !important;
-    font-weight: 700 !important;
-    text-shadow: none !important;
-  }
-  .magic-work-card__desc {
-    color: #94A3B8 !important;
-    text-shadow: none !important;
-  }
-  .magic-work-card__tag {
-    color: #E05A2B !important;
+  [data-chunk-id="hero-answer-summary"] {
+    display: none !important;
   }
 
-  /* Engineering Pillars Cards */
-  .magic-pillar-card {
-    background: #0E1218 !important;
-    border: 1px solid rgba(255, 255, 255, 0.07) !important;
-    border-radius: 8px !important;
+  /* Header & Navigation High Contrast */
+  header {
+    background: rgba(8, 11, 15, 0.95) !important;
   }
-  .magic-pillar-card:hover {
-    border-color: rgba(224, 90, 43, 0.35) !important;
-  }
-  .magic-pillar-card__title {
-    color: #F1F5F9 !important;
-    font-weight: 700 !important;
-  }
-  .magic-pillar-card__desc {
-    color: #94A3B8 !important;
-  }
-  .magic-pillar-card__num {
-    color: #475569 !important;
-  }
-  .magic-pillar-card__icon {
-    background: rgba(224, 90, 43, 0.1) !important;
-    border: 1px solid rgba(224, 90, 43, 0.25) !important;
-    color: #E05A2B !important;
+  header a {
+    opacity: 1 !important;
   }
 
-  /* Comparison Table */
-  .magic-comp-table {
-    border: 1px solid rgba(255, 255, 255, 0.07) !important;
-    border-radius: 8px !important;
-    background: #0E1218 !important;
-  }
-  .magic-comp-table th {
-    background: #0A0D12 !important;
-    color: #64748B !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  }
-  .magic-comp-table td {
-    color: #94A3B8 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-  }
-  .magic-comp-table td strong {
-    color: #F1F5F9 !important;
-  }
-  .magic-comp-table th.highlight, .magic-comp-table td.highlight {
-    background: rgba(224, 90, 43, 0.04) !important;
-  }
-  .magic-comp-table th.highlight {
-    color: #E05A2B !important;
-  }
-  .magic-comp-table td.highlight strong {
-    color: #F1F5F9 !important;
-  }
-
-  /* Proof & CTA & Footer */
-  .magic-proof-bar {
-    background: #0B0E13 !important;
-    border-color: rgba(255, 255, 255, 0.06) !important;
-  }
-  .magic-proof-item {
-    color: #64748B !important;
-  }
-  .magic-proof-item span {
-    color: #E05A2B !important;
-  }
-  .magic-cta-section {
-    background: radial-gradient(circle at 50% 50%, rgba(224, 90, 43, 0.08) 0%, #090B0E 75%) !important;
-  }
-  .magic-cta-box h2 {
-    color: #F1F5F9 !important;
-  }
-  .magic-cta-box p {
-    color: #94A3B8 !important;
-  }
-  .magic-footer {
-    background: #07090C !important;
-    color: #64748B !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
-  }
-  .magic-footer__links a {
-    color: #64748B !important;
-  }
-  .magic-footer__links a:hover {
-    color: #F1F5F9 !important;
-  }
+  ${target.extraCss}
 </style>
 `;
 
-if (html.includes('</head>')) {
-  html = html.replace('</head>', `${darkMandateToken}\n${darkStyles}\n</head>`);
-}
+  if (html.includes('</head>')) {
+    html = html.replace('</head>', `${darkMandateToken}\n${darkStyles}\n</head>`);
+  }
 
-fs.writeFileSync(distFile, html, 'utf8');
-console.log('FINANSAL WEB FINALIZE PASS — Bespoke Swiss wealth aesthetics & human design applied.');
+  fs.writeFileSync(target.distFile, html, 'utf8');
+  console.log(`${target.name} FINALIZE PASS — High contrast dark typography & crystal readability enforced.`);
+}

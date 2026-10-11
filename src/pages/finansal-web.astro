@@ -184,16 +184,18 @@
       display: none;
     }
     .magic-nav a {
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.5px;
-      color: #94A3B8 !important;
-      transition: color 0.2s ease;
+      color: #E2E8F0 !important;
+      transition: all 0.2s ease;
       white-space: nowrap;
       flex-shrink: 0;
+      opacity: 1 !important;
     }
     .magic-nav a:hover {
-      color: #F1F5F9 !important;
+      color: #FFFFFF !important;
+      text-shadow: 0 0 10px rgba(224, 90, 43, 0.6);
     }
     .magic-nav a.active {
       color: #E05A2B !important;
@@ -698,10 +700,14 @@
     .magic-hero__desc {
       font-size: clamp(16px, 1.4vw, 19px);
       line-height: 1.7;
-      color: #94A3B8;
+      color: #E2E8F0;
       font-weight: 400;
       margin-bottom: 40px;
       max-width: 660px;
+    }
+    .magic-hero [data-chunk-id="hero-answer-summary"],
+    [data-chunk-id="hero-answer-summary"] {
+      display: none !important;
     }
     .magic-hero__actions {
       display: flex;
@@ -730,12 +736,12 @@
     .magic-hero__metric-val {
       font-size: 24px;
       font-weight: 700;
-      color: #F1F5F9;
+      color: #F8FAFC;
       letter-spacing: -0.4px;
     }
     .magic-hero__metric-label {
       font-size: 12px;
-      color: #64748B;
+      color: #CBD5E1;
       font-weight: 500;
       letter-spacing: 0.2px;
     }

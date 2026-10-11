@@ -98,11 +98,11 @@ export function applySiteTypographyMandate({ distDir = 'dist', specialPath = joi
   for (const path of htmlFiles) {
     let html = readFileSync(path, 'utf8');
     const isSpecialLight = path === specialPath && html.includes('data-special-light-v1');
-    const isFinansalDark = path.includes('finansal-web') || html.includes('data-finansal-web-prime');
+    const isDarkBespokePage = path.includes('finansal-web') || path.includes('kurumsal-web') || html.includes('data-finansal-web-prime') || html.includes('data-kurumsal-web-prime');
     if (isSpecialLight) {
       lightSpecial = true;
       if (!html.includes(MANDATE)) html = html.replace('</head>', `${lightSpecialTypographyStyles}</head>`);
-    } else if (isFinansalDark) {
+    } else if (isDarkBespokePage) {
       if (!html.includes(MANDATE)) html = html.replace('</head>', `<style ${MANDATE} data-ea-finansal-dark-mandate>:root{--ea-finansal-dark:true}</style></head>`);
     } else {
       if (!html.includes('data-ea-typography-font')) html = html.replace('</head>', `${FONT_LINK}${typographyStyles}</head>`);

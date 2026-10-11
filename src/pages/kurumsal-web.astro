@@ -173,15 +173,17 @@
       display: none;
     }
     .kw-nav a {
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.5px;
-      color: #94A3B8;
+      color: #E2E8F0;
       white-space: nowrap;
       flex-shrink: 0;
+      opacity: 1 !important;
     }
     .kw-nav a:hover {
-      color: #F1F5F9;
+      color: #FFFFFF;
+      text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
     }
     .kw-btn {
       display: inline-flex;
@@ -212,11 +214,11 @@
     }
     .kw-btn--ghost {
       background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #F1F5F9;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #FFFFFF;
     }
     .kw-btn--ghost:hover {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.12);
       border-color: #ffffff;
     }
 
@@ -355,10 +357,14 @@
     }
     .kw-hero__p {
       font-size: clamp(16px, 1.3vw, 18.5px);
-      color: #94A3B8;
+      color: #E2E8F0;
       line-height: 1.7;
       margin-bottom: 36px;
       max-width: 620px;
+    }
+    .kw-hero [data-chunk-id="hero-answer-summary"],
+    [data-chunk-id="hero-answer-summary"] {
+      display: none !important;
     }
     .kw-price-banner {
       display: inline-flex;
@@ -374,7 +380,7 @@
     .kw-price-val {
       font-size: 38px;
       font-weight: 800;
-      color: #F1F5F9;
+      color: #F8FAFC;
       letter-spacing: -1px;
     }
     .kw-price-sub {
@@ -448,8 +454,8 @@
       margin-bottom: 24px;
     }
     .kw-checklist li {
-      font-size: 13.5px;
-      color: #CBD5E1;
+      font-size: 14px;
+      color: #F1F5F9;
       display: flex;
       align-items: flex-start;
       gap: 10px;
@@ -483,13 +489,13 @@
       font-size: clamp(28px, 3.4vw, 42px);
       font-weight: 800;
       letter-spacing: -0.8px;
-      color: #F1F5F9;
+      color: #FFFFFF;
       margin-bottom: 16px;
       line-height: 1.25;
     }
     .kw-sec-sub {
       font-size: 16px;
-      color: #94A3B8;
+      color: #CBD5E1;
       max-width: 680px;
       line-height: 1.65;
       margin-bottom: 50px;
@@ -514,20 +520,20 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: #94A3B8;
+      color: #CBD5E1;
       background: #0A0D12;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     .kw-table td {
       padding: 18px 24px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      color: #CBD5E1;
+      color: #E2E8F0;
       line-height: 1.5;
     }
     .kw-table th.highlight,
     .kw-table td.highlight {
       background: rgba(2, 132, 199, 0.08);
-      color: #F1F5F9;
+      color: #FFFFFF;
       border-left: 1px solid rgba(56, 189, 248, 0.2);
       border-right: 1px solid rgba(56, 189, 248, 0.2);
     }
@@ -566,12 +572,12 @@
     .kw-step-title {
       font-size: 17px;
       font-weight: 700;
-      color: #F1F5F9;
+      color: #FFFFFF;
       margin-bottom: 10px;
     }
     .kw-step-desc {
-      font-size: 13px;
-      color: #94A3B8;
+      font-size: 13.5px;
+      color: #CBD5E1;
       line-height: 1.6;
     }
 
@@ -610,12 +616,12 @@
     .kw-bento-title {
       font-size: 18px;
       font-weight: 700;
-      color: #F1F5F9;
+      color: #FFFFFF;
       margin-bottom: 10px;
     }
     .kw-bento-desc {
-      font-size: 13.5px;
-      color: #94A3B8;
+      font-size: 14px;
+      color: #CBD5E1;
       line-height: 1.6;
     }
 
@@ -639,7 +645,7 @@
     }
     .kw-cta-box p {
       font-size: 16px;
-      color: #94A3B8;
+      color: #E2E8F0;
       max-width: 600px;
       margin: 0 auto 32px;
       line-height: 1.6;
@@ -667,7 +673,7 @@
     .kw-footer__links a:hover { color: #F1F5F9; }
   </style>
 </head>
-<body>
+<body data-kurumsal-web-prime>
   <!-- Laser Progress Bar & Mouse Follower -->
   <div class="kw-scroll-laser" id="kwScrollLaser" aria-hidden="true"></div>
   <div class="kw-mouse-follower" id="kwMouseFollower" aria-hidden="true"></div>
