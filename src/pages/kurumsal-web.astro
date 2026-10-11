@@ -223,7 +223,7 @@
     }
 
     /* ==========================================================================
-       HARDCORE KINETIC 3D MOTION & LASER SHOW SYSTEM
+       HARDCORE KINETIC 3D MOTION & CUSTOM VISUAL SHOW PER BLOCK
        ========================================================================== */
     .kw-scroll-laser {
       position: fixed;
@@ -247,35 +247,95 @@
       transform: translate(-50%, -50%);
       mix-blend-mode: screen;
     }
-    .kw-step-card,
-    .kw-bento-card,
-    .kw-3d-card {
-      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+
+    /* Comparison Table Matrix: Holographic Cyber Horizon (No Edge Crunch / No Flip) */
+    .kw-table-wrap {
+      overflow-x: auto;
+      background: #0E1218;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 14px;
+      position: relative;
+      perspective: 1400px;
       transform-style: preserve-3d;
       will-change: transform;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(2, 132, 199, 0.1);
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    .kw-table-wrap:hover {
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 45px rgba(56, 189, 248, 0.25);
+    }
+    .kw-table-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.08), rgba(255, 255, 255, 0.15), transparent);
+      transform: skewX(-25deg);
+      pointer-events: none;
+      z-index: 5;
+      transition: left 0.8s ease;
+    }
+    .kw-table-wrap:hover::before {
+      left: 150%;
+    }
+
+    /* Roadmap Step Cards: Quantum Energy Wave (Floating Glow + Neon Top Border) */
+    .kw-step-card {
+      background: #0E1218;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 30px 24px;
       position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
     }
-    .kw-step-card:hover,
-    .kw-bento-card:hover,
-    .kw-3d-card:hover {
+    .kw-step-card:hover {
+      border-color: rgba(56, 189, 248, 0.5) !important;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.85), 0 0 35px rgba(56, 189, 248, 0.2) !important;
+    }
+    .kw-step-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #38BDF8, #818CF8, #10B981);
+      opacity: 0.6;
+      transition: opacity 0.3s ease, height 0.3s ease;
+    }
+    .kw-step-card:hover::before {
+      opacity: 1;
+      height: 4px;
+      box-shadow: 0 0 16px #38BDF8;
+    }
+
+    /* Bento Deliverables Cards: Cyber Matrix Hologram with Angle Flip */
+    .kw-bento-card {
+      background: #0E1218;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 32px 26px;
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s ease, border-color 0.45s ease;
+    }
+    .kw-bento-card:hover {
       border-color: rgba(56, 189, 248, 0.6) !important;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.25) !important;
+      box-shadow: 0 30px 65px rgba(0, 0, 0, 0.85), 0 0 40px rgba(56, 189, 248, 0.25) !important;
     }
-    .kw-step-card::after,
     .kw-bento-card::after {
       content: '';
       position: absolute;
-      top: -100%;
-      left: 0;
-      width: 100%;
-      height: 60%;
-      background: linear-gradient(180deg, transparent 0%, rgba(56, 189, 248, 0.12) 50%, rgba(255, 255, 255, 0.4) 95%, transparent 100%);
+      top: -100%; left: 0; width: 100%; height: 60%;
+      background: linear-gradient(180deg, transparent 0%, rgba(56, 189, 248, 0.12) 50%, rgba(255, 255, 255, 0.35) 95%, transparent 100%);
       pointer-events: none;
       z-index: 3;
       opacity: 0;
       transition: opacity 0.2s ease;
     }
-    .kw-step-card:hover::after,
     .kw-bento-card:hover::after {
       opacity: 1;
       animation: kwLaserSweep 1.2s infinite ease-in-out;
@@ -1036,19 +1096,138 @@
       }
       draw();
 
-      // Multi-Card 3D Gyroscope Tilt Physics across all Cards
-      const cards = document.querySelectorAll('.kw-3d-card, .kw-step-card, .kw-bento-card, .kw-table-wrap');
-      cards.forEach((c) => {
-        c.addEventListener('mousemove', (e) => {
-          const rect = c.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          c.style.transform = `perspective(1000px) rotateX(${-y * 0.06}deg) rotateY(${x * 0.06}deg) translateY(-8px) scale3d(1.03, 1.03, 1.03)`;
+      // 1. Comparison Matrix: Holographic Edge Return & Wave Tilt (No breaking / smooth 3D return)
+      const tableCard = document.querySelector('.kw-table-wrap');
+      if (tableCard) {
+        let isSpinning = false;
+        tableCard.addEventListener('mousemove', (e) => {
+          if (isSpinning) return;
+          const rect = tableCard.getBoundingClientRect();
+          const normX = (e.clientX - rect.left) / rect.width; // 0 to 1
+          const normY = (e.clientY - rect.top) / rect.height; // 0 to 1
+
+          // Sona / uca dayandığında (edge hit < 0.05 veya > 0.95): otomatik 180° flip yapıp düz açıya oturma
+          if (normX < 0.04 || normX > 0.96) {
+            isSpinning = true;
+            tableCard.style.transition = 'transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease';
+            const spinDir = normX > 0.5 ? 180 : -180;
+            // 180 derece döner
+            tableCard.style.transform = `perspective(1400px) rotateY(${spinDir}deg) scale3d(0.97, 0.97, 0.97)`;
+            
+            // Ardından hemen düz açıya geri oturur
+            setTimeout(() => {
+              tableCard.style.transform = 'perspective(1400px) rotateY(0deg) rotateX(0deg) scale3d(1, 1, 1)';
+              setTimeout(() => {
+                tableCard.style.transition = 'border-color 0.4s ease, box-shadow 0.4s ease';
+                isSpinning = false;
+              }, 600);
+            }, 600);
+            return;
+          }
+
+          // Kırılmayan, ipeksi yumuşaklıkta açı değişimi (max 6 derece)
+          const tiltX = (0.5 - normY) * 6;
+          const tiltY = (normX - 0.5) * 8;
+          tableCard.style.transition = 'transform 0.12s ease-out';
+          tableCard.style.transform = `perspective(1400px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-4px)`;
         });
+
+        tableCard.addEventListener('mouseleave', () => {
+          if (isSpinning) return;
+          tableCard.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+          tableCard.style.transform = 'perspective(1400px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        });
+      }
+
+      // 2. Roadmap Step Cards: Quantum Magnetic Pulse & Floating Stagger
+      const stepCards = document.querySelectorAll('.kw-step-card');
+      stepCards.forEach((c, idx) => {
+        let isStepSpin = false;
+        c.addEventListener('mousemove', (e) => {
+          if (isStepSpin) return;
+          const rect = c.getBoundingClientRect();
+          const normX = (e.clientX - rect.left) / rect.width;
+          const normY = (e.clientY - rect.top) / rect.height;
+
+          // Uç sınırlarda 180 derece manyetik spin ve düz açıya dönüş
+          if (normX < 0.05 || normX > 0.95) {
+            isStepSpin = true;
+            c.style.transition = 'transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            c.style.transform = `perspective(1000px) rotateY(${normX > 0.5 ? 180 : -180}deg) scale3d(0.95, 0.95, 0.95)`;
+            setTimeout(() => {
+              c.style.transform = 'perspective(1000px) rotateY(0deg) scale3d(1, 1, 1)';
+              setTimeout(() => {
+                c.style.transition = '';
+                isStepSpin = false;
+              }, 500);
+            }, 500);
+            return;
+          }
+
+          const rotX = (0.5 - normY) * 14;
+          const rotY = (normX - 0.5) * 16;
+          c.style.transition = 'transform 0.1s ease-out';
+          c.style.transform = `perspective(1000px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateY(-8px) scale3d(1.02, 1.02, 1.02)`;
+        });
+
         c.addEventListener('mouseleave', () => {
+          if (isStepSpin) return;
+          c.style.transition = 'transform 0.4s ease';
           c.style.transform = '';
         });
       });
+
+      // 3. Bento Deliverables: Cyber Gyro & Dynamic 3D Prism Tilt
+      const bentoCards = document.querySelectorAll('.kw-bento-card');
+      bentoCards.forEach((b, idx) => {
+        let isBentoSpin = false;
+        b.addEventListener('mousemove', (e) => {
+          if (isBentoSpin) return;
+          const rect = b.getBoundingClientRect();
+          const normX = (e.clientX - rect.left) / rect.width;
+          const normY = (e.clientY - rect.top) / rect.height;
+
+          // Uç noktada 180 derece dönme ve düz açıyla kilitlenme
+          if (normX < 0.04 || normX > 0.96) {
+            isBentoSpin = true;
+            b.style.transition = 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            b.style.transform = `perspective(1200px) rotateY(${normX > 0.5 ? 180 : -180}deg) scale3d(0.96, 0.96, 0.96)`;
+            setTimeout(() => {
+              b.style.transform = 'perspective(1200px) rotateY(0deg) scale3d(1, 1, 1)';
+              setTimeout(() => {
+                b.style.transition = '';
+                isBentoSpin = false;
+              }, 500);
+            }, 500);
+            return;
+          }
+
+          const rotX = (0.5 - normY) * 12;
+          const rotY = (normX - 0.5) * 14;
+          b.style.transition = 'transform 0.1s ease-out';
+          b.style.transform = `perspective(1200px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateY(-6px) scale3d(1.025, 1.025, 1.025)`;
+        });
+
+        b.addEventListener('mouseleave', () => {
+          if (isBentoSpin) return;
+          b.style.transition = 'transform 0.45s ease';
+          b.style.transform = '';
+        });
+      });
+
+      // 4. Hero 3D Card HUD
+      const hero3d = document.getElementById('kw-card');
+      if (hero3d) {
+        hero3d.addEventListener('mousemove', (e) => {
+          const rect = hero3d.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          hero3d.style.transform = `rotateY(${x * 20}deg) rotateX(${-y * 16}deg) translateY(-8px)`;
+        });
+        hero3d.addEventListener('mouseleave', () => {
+          hero3d.style.transform = 'rotateY(-8deg) rotateX(5deg)';
+        });
+      }
 
       // Scroll Progress Laser Bar & Mouse Follower
       const laser = document.getElementById('kwScrollLaser');
