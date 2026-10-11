@@ -74,54 +74,12 @@ for (const target of targets) {
   // 4. Inject our verified dark typography token so CI / SEO gates stay compliant
   const darkMandateToken = '<style data-ea-typography-mandate="chat-readable-v2" data-ea-finansal-dark-mandate>:root{--ea-finansal-dark:true}</style>';
 
-  // 5. Inject master high-contrast dark typography & visual contract
-  const darkStyles = `
-<style id="${target.name.toLowerCase().replace(/\s+/g, '-')}-dark-master-contract">
-  /* High-Contrast Dark Master Contract */
-  html, html.fixed {
-    background-color: #080B0F !important;
-    background-image: none !important;
-    color: #F8FAFC !important;
-  }
-  body, body[data-finansal-web-prime], body[data-kurumsal-web-prime] {
-    background-color: #080B0F !important;
-    background-image: none !important;
-    color: #F8FAFC !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-  }
-  body::before, body::after, html::before, html::after {
-    display: none !important;
-  }
-
-  /* Universal Contrast Rule: No dark text on dark surfaces */
-  h1, h2, h3, h4, h5, h6 {
-    color: #FFFFFF !important;
-    text-shadow: none !important;
-  }
-  p, li, td, th {
-    color: #CBD5E1 !important;
-  }
-  strong, b {
-    color: #FFFFFF !important;
-  }
-  [data-chunk-id="hero-answer-summary"] {
-    display: none !important;
-  }
-
-  /* Header & Navigation High Contrast */
-  header {
-    background: rgba(8, 11, 15, 0.95) !important;
-  }
-  header a {
-    opacity: 1 !important;
-  }
-
-  ${target.extraCss}
-</style>
-`;
+  // 5. Inject master high-contrast dark typography & visual contract (minified for 14KB packet gate)
+  const minCss = `html,html.fixed{background-color:#080B0F!important;background-image:none!important;color:#F8FAFC!important}body,body[data-finansal-web-prime],body[data-kurumsal-web-prime]{background-color:#080B0F!important;background-image:none!important;color:#F8FAFC!important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif!important}body::before,body::after,html::before,html::after{display:none!important}h1,h2,h3,h4,h5,h6{color:#FFFFFF!important;text-shadow:none!important}p,li,td,th{color:#CBD5E1!important}strong,b{color:#FFFFFF!important}[data-chunk-id="hero-answer-summary"]{display:none!important}header{background:rgba(8,11,15,0.95)!important}header a{opacity:1!important}${target.extraCss.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').trim()}`;
+  const darkStyles = `<style id="${target.name.toLowerCase().replace(/\s+/g, '-')}-dark-master-contract">${minCss}</style>`;
 
   if (html.includes('</head>')) {
-    html = html.replace('</head>', `${darkMandateToken}\n${darkStyles}\n</head>`);
+    html = html.replace('</head>', `${darkMandateToken}${darkStyles}</head>`);
   }
 
   fs.writeFileSync(target.distFile, html, 'utf8');
