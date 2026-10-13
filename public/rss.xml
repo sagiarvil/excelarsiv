@@ -5,13 +5,22 @@
     <link>https://excelarsiv.com</link>
     <description>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</description>
     <language>tr-TR</language>
-    <lastBuildDate>Tue, 13 Oct 2026 15:17:41 GMT</lastBuildDate>
-    <pubDate>Tue, 13 Oct 2026 15:17:41 GMT</pubDate>
+    <lastBuildDate>Tue, 13 Oct 2026 15:54:29 GMT</lastBuildDate>
+    <pubDate>Tue, 13 Oct 2026 15:54:29 GMT</pubDate>
     <atom:link href="https://excelarsiv.com/rss.xml" rel="self" type="application/rss+xml" />
     <managingEditor>barisbagirlar@gmail.com (Barış Bağırlar)</managingEditor>
     <webMaster>barisbagirlar@gmail.com (Barış Bağırlar)</webMaster>
     <docs>https://www.rssboard.org/rss-specification</docs>
     <generator>Excel Arşiv Feed Engine v3.0</generator>
+    <item>
+      <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
+      <link>https://excelarsiv.com/sablonlar</link>
+      <guid isPermaLink="true">https://excelarsiv.com/sablonlar</guid>
+      <description>Nakit akışı, kârlılık, tahsilat, stok, bütçe ve daha fazlası için profesyonel Excel şablonları. macOS App Store vitrin düzeninde inceleyin.</description>
+      <category>kategori</category>
+      <dc:creator>Barış Bağırlar</dc:creator>
+      <pubDate>Tue, 13 Oct 2026 15:54:29 GMT</pubDate>
+    </item>
     <item>
       <title>13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi</title>
       <link>https://excelarsiv.com/demo/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi</link>
@@ -1253,15 +1262,6 @@
       <category>diger</category>
       <dc:creator>Barış Bağırlar</dc:creator>
       <pubDate>Wed, 30 Sep 2026 15:22:03 GMT</pubDate>
-    </item>
-    <item>
-      <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
-      <link>https://excelarsiv.com/sablonlar</link>
-      <guid isPermaLink="true">https://excelarsiv.com/sablonlar</guid>
-      <description>Nakit akışı, kârlılık, tahsilat, stok, bütçe ve daha fazlası için profesyonel Excel şablonları. macOS App Store vitrin düzeninde inceleyin.</description>
-      <category>kategori</category>
-      <dc:creator>Barış Bağırlar</dc:creator>
-      <pubDate>Sun, 27 Sep 2026 10:48:42 GMT</pubDate>
     </item>
     <item>
       <title>Demo Kataloğu — Excel Arşiv</title>

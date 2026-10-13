@@ -5,13 +5,26 @@
   <subtitle>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://excelarsiv.com/atom.xml" />
   <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-  <updated>2026-10-13T15:17:41.000Z</updated>
+  <updated>2026-10-13T15:54:29.000Z</updated>
   <generator uri="https://excelarsiv.com/" version="3.0">Excel Arşiv Feed Engine</generator>
   <author>
     <name>Barış Bağırlar</name>
     <email>barisbagirlar@gmail.com</email>
     <uri>https://excelarsiv.com/hakkinda</uri>
   </author>
+  <entry>
+    <id>https://excelarsiv.com/sablonlar</id>
+    <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/sablonlar" />
+    <updated>2026-10-13T15:54:29.000Z</updated>
+    <published>2026-10-13T15:54:29.000Z</published>
+    <summary>Nakit akışı, kârlılık, tahsilat, stok, bütçe ve daha fazlası için profesyonel Excel şablonları. macOS App Store vitrin düzeninde inceleyin.</summary>
+    <category term="kategori" label="kategori" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
   <entry>
     <id>https://excelarsiv.com/demo/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi</id>
     <title>13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi</title>
@@ -1801,19 +1814,6 @@
     <published>2026-09-30T15:22:03.000Z</published>
     <summary>İş probleminize, sektörünüze ve veri hacminize göre en uygun kurumsal Excel çalışma sistemini 5 soruda belirleyin.</summary>
     <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/sablonlar</id>
-    <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/sablonlar" />
-    <updated>2026-09-27T10:48:42.000Z</updated>
-    <published>2026-09-27T10:48:42.000Z</published>
-    <summary>Nakit akışı, kârlılık, tahsilat, stok, bütçe ve daha fazlası için profesyonel Excel şablonları. macOS App Store vitrin düzeninde inceleyin.</summary>
-    <category term="kategori" label="kategori" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>
