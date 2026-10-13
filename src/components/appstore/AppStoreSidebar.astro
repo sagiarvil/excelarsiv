@@ -2,7 +2,7 @@
 import { getAllTemplates } from '../../lib/templates';
 
 interface Props {
-  activeTab?: 'today' | 'templates' | 'custom' | 'demo' | 'guide' | 'contact';
+  activeTab?: 'today' | 'templates' | 'free' | 'custom' | 'demo' | 'guide' | 'contact';
 }
 
 const { activeTab = 'today' } = Astro.props;
@@ -10,6 +10,7 @@ const { activeTab = 'today' } = Astro.props;
 const navItems = [
   { id: 'today', name: 'Ana Sayfa', href: '/', icon: 'today', color: '#0F6CBD', bg: '#E1F0FE' },
   { id: 'templates', name: 'Şablonlar', href: '/sablonlar', icon: 'templates', color: '#0284C7', bg: '#E0F2FE' },
+  { id: 'free', name: 'Ücretsiz Şablonlar', href: '/sablonlar?filtre=ucretsiz', icon: 'gift', color: '#059669', bg: '#D1FAE5' },
   { id: 'custom', name: 'Size Özel', href: '/ozel-excel-sistemleri', icon: 'custom', color: '#D97706', bg: '#FEF3C7' },
   { id: 'demo', name: 'Ürün Bulucu', href: '/urun-bulucu', icon: 'demo', color: '#7C3AED', bg: '#EDE9FE' },
   { id: 'guide', name: 'Rehber', href: '/rehber', icon: 'guide', color: '#059669', bg: '#D1FAE5' },
@@ -95,6 +96,15 @@ const searchData = allTemplates.map((t) => ({
               <line x1="9" y1="21" x2="9" y2="9"></line>
             </svg>
           )}
+          {item.icon === 'gift' && (
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 12 20 22 4 22 4 12"></polyline>
+              <rect x="2" y="7" width="20" height="5"></rect>
+              <line x1="12" y1="22" x2="12" y2="7"></line>
+              <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+              <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+            </svg>
+          )}
           {item.icon === 'custom' && (
             <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
@@ -176,10 +186,10 @@ const searchData = allTemplates.map((t) => ({
   <div class="as-ios-topbar-header">
     <div class="as-ios-topbar-left">
       <span class="as-ios-date">
-        {activeTab === 'today' ? 'ANA SAYFA' : activeTab === 'templates' ? 'HAZIR SİSTEMLER' : activeTab === 'custom' ? 'TERZİ USULÜ' : activeTab === 'guide' ? 'DOKÜMANTASYON' : activeTab === 'demo' ? 'KEŞİF & ARAMA' : 'EXCEL ARŞİV'}
+        {activeTab === 'today' ? 'ANA SAYFA' : activeTab === 'free' ? 'ÜCRETSİZ SÜRÜMLER' : activeTab === 'templates' ? 'HAZIR SİSTEMLER' : activeTab === 'custom' ? 'TERZİ USULÜ' : activeTab === 'guide' ? 'DOKÜMANTASYON' : activeTab === 'demo' ? 'KEŞİF & ARAMA' : 'EXCEL ARŞİV'}
       </span>
       <span class="as-ios-large-title" role="heading" aria-level="2">
-        {activeTab === 'today' ? 'Ana Sayfa' : activeTab === 'templates' ? 'Şablonlar' : activeTab === 'custom' ? 'Size Özel' : activeTab === 'demo' ? 'Arayın' : activeTab === 'guide' ? 'Rehber' : 'İletişim'}
+        {activeTab === 'today' ? 'Ana Sayfa' : activeTab === 'free' ? 'Ücretsiz Şablonlar' : activeTab === 'templates' ? 'Şablonlar' : activeTab === 'custom' ? 'Size Özel' : activeTab === 'demo' ? 'Arayın' : activeTab === 'guide' ? 'Rehber' : 'İletişim'}
       </span>
     </div>
     <a href="/hakkinda" class="as-ios-profile-btn" aria-label="Profil ve Hakkımızda">

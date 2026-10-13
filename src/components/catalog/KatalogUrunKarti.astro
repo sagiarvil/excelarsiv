@@ -8,9 +8,15 @@ interface Props {
 
 const { template, priority = false } = Astro.props;
 const thumbSrc = template.kapak || template.preview?.src || '';
+const FREE_SLUGS = new Set([
+  '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+  'gunluk-gelir-gider-ve-gercek-karlilik-sistemi',
+  'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici',
+]);
+const isFree = FREE_SLUGS.has(template.slug);
 ---
 
-<article class="someka-product-custom-card" data-template-card data-category={template.categorySlug} data-name={template.name} data-category-label={template.categoryName} data-summary={template.summary}>
+<article class={`someka-product-custom-card ${isFree ? 'is-free-card' : ''}`} data-template-card data-category={template.categorySlug} data-is-free={isFree ? 'true' : 'false'} data-name={template.name} data-category-label={template.categoryName} data-summary={template.summary}>
   <a class="someka-card-thumb-wrap" href={template.url} aria-label={template.name}>
     {thumbSrc ? (
       <img
@@ -29,6 +35,9 @@ const thumbSrc = template.kapak || template.preview?.src || '';
       </div>
     )}
     <span class="someka-category-tag">{template.categoryName}</span>
+    {isFree && (
+      <span class="someka-free-badge">★ ÜCRETSİZ</span>
+    )}
   </a>
   <div class="someka-card-details">
     <h3 class="single-post-title"><a href={template.url}>{template.name}</a></h3>
@@ -41,15 +50,25 @@ const thumbSrc = template.kapak || template.preview?.src || '';
     </div>
     <p class="vcex-post-excerpt">{template.summary}</p>
     <div class="someka-card-bottom">
-      <a
-        href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${template.name} Excel sistemi için teklif vermek istiyorum.`)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-someka-teklif"
-        aria-label={`${template.name} için teklif ver`}
-      >
-        Teklif Ver
-      </a>
+      {isFree ? (
+        <a
+          href={`/demo/${template.slug}`}
+          class="btn-someka-teklif btn-someka-free"
+          aria-label={`${template.name} ücretsiz Excel dosyasını indir`}
+        >
+          Ücretsiz İndir
+        </a>
+      ) : (
+        <a
+          href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${template.name} Excel sistemi için teklif vermek istiyorum.`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-someka-teklif"
+          aria-label={`${template.name} için teklif ver`}
+        >
+          Teklif Ver
+        </a>
+      )}
       <a href={template.url} class="btn-someka-view">Detay</a>
     </div>
   </div>
@@ -118,6 +137,33 @@ const thumbSrc = template.kapak || template.preview?.src || '';
     text-transform: uppercase;
     border-radius: 4px;
     z-index: 2;
+  }
+  .someka-free-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 3px 8px;
+    background: #059669;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+    z-index: 2;
+  }
+  .is-free-card {
+    border-color: #a7f3d0;
+  }
+  .btn-someka-free {
+    background: #059669 !important;
+    border-color: #047857 !important;
+    box-shadow: 0 2px 6px rgba(5, 150, 105, 0.3) !important;
+  }
+  .btn-someka-free:hover {
+    background: #047857 !important;
+    box-shadow: 0 4px 10px rgba(5, 150, 105, 0.4) !important;
   }
   .someka-card-details {
     padding: 10px 12px 12px;

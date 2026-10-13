@@ -125,6 +125,7 @@ for (const page of pages) {
           /^https:\/\/www\.shopier\.com\/\d+$/.test(href) ||
           href === '/iletisim' ||
           href.startsWith('/iletisim?') ||
+          href.startsWith('/demo/') ||
           href.startsWith(VERIFIED_WHATSAPP_PREFIX)
         );
 
