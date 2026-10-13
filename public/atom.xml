@@ -5,7 +5,7 @@
   <subtitle>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://excelarsiv.com/atom.xml" />
   <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-  <updated>2026-10-11T14:49:12.000Z</updated>
+  <updated>2026-10-11T17:02:20.000Z</updated>
   <generator uri="https://excelarsiv.com/" version="3.0">Excel Arşiv Feed Engine</generator>
   <author>
     <name>Barış Bağırlar</name>
@@ -13,12 +13,12 @@
     <uri>https://excelarsiv.com/hakkinda</uri>
   </author>
   <entry>
-    <id>https://excelarsiv.com/finansal-web</id>
-    <title>İşletmeler İçin Özel Web Sitesi Yapımı &amp; Tasarımı | ExcelArşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/finansal-web" />
-    <updated>2026-10-11T14:49:12.000Z</updated>
-    <published>2026-10-11T14:49:12.000Z</published>
-    <summary>İşletmeler ve KOBİ&apos;ler için sıfırdan, hazır şablonsuz özel web sitesi tasarımı ve kodlaması. Google SEO uyumlu, mobil dostu, ultra hızlı ve anahtar teslim web siteleri yapıyoruz.</summary>
+    <id>https://excelarsiv.com/ozel-excel-sistemleri</id>
+    <title>İhtiyaca Özel Excel Finans ve Karar Sistemleri | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/ozel-excel-sistemleri" />
+    <updated>2026-10-11T17:02:20.000Z</updated>
+    <published>2026-10-11T17:02:20.000Z</published>
+    <summary>Hazır Excel dosyaları işinize uymuyorsa; nakit akışı, banka-kredi, maliyet, bütçe, fizibilite ve yönetim raporlaması için işletmenize özel Excel sistemi kuruyoruz.</summary>
     <category term="diger" label="diger" />
     <author>
       <name>Barış Bağırlar</name>
@@ -26,12 +26,12 @@
     </author>
   </entry>
   <entry>
-    <id>https://excelarsiv.com/ozel-excel-sistemleri</id>
-    <title>İhtiyaca Özel Excel Finans ve Karar Sistemleri | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/ozel-excel-sistemleri" />
-    <updated>2026-10-11T09:13:51.000Z</updated>
-    <published>2026-10-11T09:13:51.000Z</published>
-    <summary>Hazır Excel dosyaları işinize uymuyorsa; nakit akışı, banka-kredi, maliyet, bütçe, fizibilite ve yönetim raporlaması için işletmenize özel Excel sistemi kuruyoruz.</summary>
+    <id>https://excelarsiv.com/finansal-web</id>
+    <title>İşletmeler İçin Özel Web Sitesi Yapımı &amp; Tasarımı | ExcelArşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/finansal-web" />
+    <updated>2026-10-11T15:31:22.000Z</updated>
+    <published>2026-10-11T15:31:22.000Z</published>
+    <summary>İşletmeler ve KOBİ&apos;ler için sıfırdan, hazır şablonsuz özel web sitesi tasarımı ve kodlaması. Google SEO uyumlu, mobil dostu, ultra hızlı ve anahtar teslim web siteleri yapıyoruz.</summary>
     <category term="diger" label="diger" />
     <author>
       <name>Barış Bağırlar</name>
@@ -226,7 +226,7 @@
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" />
     <updated>2026-09-26T13:15:52.000Z</updated>
     <published>2026-09-26T13:15:52.000Z</published>
-    <summary>13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
+    <summary>İşletmeler ve KOBİ&apos;ler için 13 haftalık dinamik nakit akışı ve ödeme planlama Excel tablosunu hemen ücretsiz indirin. Makrosuz, açık formüllü, tam uyumlu canlı çalışma kitabı.</summary>
     <category term="nakit-akisi" label="nakit-akisi" />
     <author>
       <name>Barış Bağırlar</name>
@@ -733,7 +733,7 @@
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/gunluk-gelir-gider-ve-gercek-karlilik-sistemi" />
     <updated>2026-09-26T13:15:52.000Z</updated>
     <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
+    <summary>Kasa defteri, günlük gelir-gider ve net kârlılık Excel tablosunu hemen ücretsiz indirin. Başabaş analizi, kategori bazlı marj ve canlı formül motoru.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
       <name>Barış Bağırlar</name>
@@ -980,7 +980,7 @@
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici" />
     <updated>2026-09-26T13:15:52.000Z</updated>
     <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Kıdem–İhbar Yükü ve Personel Çıkarma Maliyeti Hesaplayıcı için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
+    <summary>4857 sayılı İş Kanunu ve 2026 tavanına tam uyumlu kıdem-ihbar tazminatı ve personel çıkarma maliyeti Excel tablosunu hemen ücretsiz indirin.</summary>
     <category term="personel-ve-bordro" label="personel-ve-bordro" />
     <author>
       <name>Barış Bağırlar</name>
@@ -2215,7 +2215,7 @@
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" />
     <updated>2026-09-24T17:29:05.000Z</updated>
     <published>2026-09-24T17:29:05.000Z</published>
-    <summary>13 haftalık nakit modeliyle giriş-çıkış tahminlerini planlayın; kritik haftaları önceden görüp ödeme önceliği verin. Ücretsiz demo ile deneyin; Shopier ile güvenli ödeme sonrası doğrudan indirin.</summary>
+    <summary>13 haftalık nakit akışı Excel tablosunu hemen ücretsiz indirin. Giriş-çıkış tahminleri, kritik hafta uyarıları ve açık formüllü çalışma kitabı.</summary>
     <category term="nakit-akisi" label="nakit-akisi" />
     <author>
       <name>Barış Bağırlar</name>
@@ -3814,7 +3814,7 @@
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/sablon/gunluk-gelir-gider-ve-gercek-karlilik-sistemi" />
     <updated>2026-08-18T09:13:00.000Z</updated>
     <published>2026-08-18T09:13:00.000Z</published>
-    <summary>Günlük gelir ve giderleri kategorilerle işleyin; aylık net kârı ve kategori marjını gerçek veriyle görün. Ücretsiz demo ile deneyin; Shopier ile güvenli ödeme sonrası doğrudan indirin.</summary>
+    <summary>Kasa defteri ve günlük gelir-gider Excel tablosunu hemen ücretsiz indirin. Aylık net kâr, başabaş analizi ve formüllü çalışma kitabı.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
       <name>Barış Bağırlar</name>
@@ -3931,7 +3931,7 @@
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/sablon/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici" />
     <updated>2026-08-18T09:13:00.000Z</updated>
     <published>2026-08-18T09:13:00.000Z</published>
-    <summary>Çalışan çıkarmada kıdem ve ihbar tazminatı yükünü hesaplayın; işverene tam maliyeti ve riskleri önceden görün. Ücretsiz demo ile deneyin; Shopier ile güvenli ödeme sonrası doğrudan indirin.</summary>
+    <summary>2026 İş Kanunu tavanına tam uyumlu kıdem ve ihbar tazminatı Excel tablosunu hemen ücretsiz indirin. Tam maliyet ve riskleri anında görün.</summary>
     <category term="personel-ve-bordro" label="personel-ve-bordro" />
     <author>
       <name>Barış Bağırlar</name>

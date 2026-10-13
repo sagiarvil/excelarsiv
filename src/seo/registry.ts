@@ -128,6 +128,49 @@ const corePages: SeoPageRecord[] = [
     ]
   },
   {
+    route: '/kurumsal-web',
+    locale: 'tr-TR',
+    role: 'service',
+    indexDirective: 'index, follow',
+    canonicalRoute: '/kurumsal-web',
+    title: 'Standart Kurumsal Web Sitesi | 30.000 TL Anahtar Teslim — ExcelArşiv Prime',
+    metaDescription: 'Terzi usulü tam kodlama, sıfır hazır şablon, sub-40ms edge mimarisi ve kurumsal kimlik uyumlu anahtar teslim web sitesi. Sabit fiyat: 30.000 TL.',
+    h1: 'Standart Kurumsal Web Sitesi (Anahtar Teslim)',
+    primaryIntent: 'standart kurumsal web sitesi anahtar teslim paket',
+    primaryEntity: {
+      id: `${ORIGIN}/kurumsal-web#product`,
+      name: 'Standart Kurumsal Web Sitesi (Anahtar Teslim)',
+      type: 'Product',
+      sameAs: [
+        'https://www.wikidata.org/wiki/Q11589432',
+        'https://drfin.com.tr',
+        'https://skdmhesapla.com',
+        'https://karbonfiyat.com',
+        'https://inversioncore.com',
+        'https://belginkuyumculuk.com',
+        'https://saatchi.com.tr',
+        'https://dilekceyazdir.com.tr',
+        'https://htmlandhtml.com',
+        'https://degerlet.com'
+      ]
+    },
+    semanticTriples: [
+      { subject: 'Excel Arşiv Prime', predicate: 'providesArchitecture', object: 'Terzi Usulü Tam Kodlanmış Kurumsal Web Sitesi' },
+      { subject: 'Kurumsal Web Sitesi', predicate: 'compliesWith', object: 'Sıfır Hazır Tema, Tam Kod Mülkiyeti ve OWASP Güvenliği' },
+      { subject: 'Kurumsal Web Sitesi', predicate: 'connectsWith', object: 'WhatsApp Doğrudan Müşteri Hattı ve Statik İletişim Formu' },
+      { subject: 'Kurumsal Web Sitesi', predicate: 'deliversPerformance', object: 'Sub-40ms Cloudflare Edge ve 100/100 Core Web Vitals' }
+    ],
+    heroAnswerEngine: 'ExcelArşiv Prime Standart Kurumsal Web Sitesi; KOBİ\'ler ve kurumsal firmalar için sıfırdan el yapımı kodlanan, şişkin CMS veya WordPress eklentisi barındırmayan, sub-40ms açılış hızına sahip anahtar teslim kurumsal web sitesi çözümüdür. Sabit 30.000 TL tek seferlik ücretle 7 iş gününde devreye alınır.',
+    publishedAt: PUBLISHED_BASE,
+    modifiedAt: MODIFIED_BASE,
+    llmSubGraphRoute: '/llms/pages/kurumsal-web.md',
+    mobileSubGraphRoute: '/llms/mobile/nano-kurumsal-web.md',
+    breadcrumbs: [
+      { name: 'Ana Sayfa', item: '/' },
+      { name: 'Kurumsal Web', item: '/kurumsal-web' }
+    ]
+  },
+  {
     route: '/sablonlar',
     locale: 'tr-TR',
     role: 'hub',

@@ -1885,6 +1885,20 @@
       "notes": "Registry parity sync — QA onaylı katalog ürünü otomatik eklendi."
     },
     {
+      "pageId": "excelarsiv:kurumsal-web",
+      "route": "/kurumsal-web",
+      "type": "legal",
+      "status": "live",
+      "primaryQueryClusterId": null,
+      "primaryEntity": "/kurumsal-web",
+      "searchIntent": null,
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/kurumsal-web",
+      "ownerRoute": null,
+      "notes": "Registry parity sync — kurumsal-web anahtar teslim web sitesi hizmeti eklendi."
+    },
+    {
       "pageId": "excelarsiv:gizlilik-politikasi",
       "route": "/gizlilik-politikasi",
       "type": "legal",

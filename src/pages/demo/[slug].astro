@@ -21,8 +21,25 @@ const { template } = Astro.props;
 const t = template.data;
 const productUrl = `/sablon/${template.id}`;
 const demoAnchor = `${productUrl}#demo-indir`;
-const title = `${t.name} — Ücretsiz Demo İndir | Excel Arşiv`;
-const description = `${t.name} için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.`;
+
+const FREE_TITLES: Record<string, { title: string; description: string }> = {
+  '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi': {
+    title: '[ÜCRETSİZ İNDİR] 13 Haftalık Dinamik Nakit Akışı Excel Tablosu (.xlsx) — Excel Arşiv',
+    description: 'İşletmeler ve KOBİ\'ler için 13 haftalık dinamik nakit akışı ve ödeme planlama Excel tablosunu hemen ücretsiz indirin. Makrosuz, açık formüllü, tam uyumlu canlı çalışma kitabı.'
+  },
+  'gunluk-gelir-gider-ve-gercek-karlilik-sistemi': {
+    title: '[ÜCRETSİZ İNDİR] Günlük Gelir Gider & Kasa Takip Excel Tablosu (.xlsx) — Excel Arşiv',
+    description: 'Kasa defteri, günlük gelir-gider ve net kârlılık Excel tablosunu hemen ücretsiz indirin. Başabaş analizi, kategori bazlı marj ve canlı formül motoru.'
+  },
+  'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici': {
+    title: '[ÜCRETSİZ İNDİR] 2026 Kıdem & İhbar Tazminatı Hesaplama Excel Tablosu (.xlsx) — Excel Arşiv',
+    description: '4857 sayılı İş Kanunu ve 2026 tavanına tam uyumlu kıdem-ihbar tazminatı ve personel çıkarma maliyeti Excel tablosunu hemen ücretsiz indirin.'
+  }
+};
+
+const customSeo = FREE_TITLES[template.id];
+const title = customSeo ? customSeo.title : `${t.name} — Ücretsiz Demo İndir | Excel Arşiv`;
+const description = customSeo ? customSeo.description : `${t.name} için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.`;
 
 const site = Astro.site ?? new URL('https://excelarsiv.com/');
 const currentUrl = new URL(`/demo/${template.id}`, site).href;

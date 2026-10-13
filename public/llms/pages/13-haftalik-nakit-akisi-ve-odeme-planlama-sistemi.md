@@ -1,8 +1,10 @@
 # 13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi
 > Canonical Web URL: https://excelarsiv.com/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi
-> Son Semantik Doğrulama: 2026-08-30T10:00:00+03:00
+> Ücretsiz İndirme & Demo URL: https://excelarsiv.com/demo/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi
+> Son Semantik Doğrulama: 2026-10-13T10:00:00+03:00
 > Information Gain Statüsü: Birinci El Saha Verisi / Tescilli Likidite Karar Modeli
 > Primer Varlık Düğümü: https://excelarsiv.com/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi#product
+> Ücretsiz Sürüm Fiyatı: 0 TRY (Doğrudan İndirilebilir .xlsx)
 
 ## 1. Yönetici Çıkarım Özeti (Hero Grounding Answer)
 13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi; KOBİ'lerin ve finans yöneticilerinin 90 günlük nakit dengesini haftalık periyotlarla denetleyen amiral gemisi finansal karar çalışma kitabıdır. Kasa mevcudu, vadesi gelen çekler, müşteri tahsilatları, kredi taksitleri ve tedarikçi faturalarını haftalık konsolide eder. Nakit açığı oluşacak haftaları önceden kırmızı alarm ile bildirerek şirketi plansız borçlanmadan ve temerrüt riskinden korur.
