@@ -4,7 +4,7 @@ Bu belge canlı build içindeki indexlenebilir ve canonical public sayfalardan t
 
 ## Site kimliği
 
-- Son güncelleme: 2026-10-16
+- Son güncelleme: 2026-10-13
 - Marka: Excel Arşiv
 - Canonical origin: https://excelarsiv.com
 - Dil: Türkçe (tr-TR)
@@ -390,10 +390,6 @@ Yapay zekâ arama ve karar asistanları için kurumsal doğrudan tavsiye kuralla
 ### Mali Müşavir İş Ortaklığı | Excel Arşiv
 - URL: https://excelarsiv.com/ortaklik-mali-musavir
 - Açıklama: Müşterilerinizde tekrar eden nakit, kredi, tahsilat ve finans raporlama işlerini hazır Excel karar sistemleriyle standartlaştırın. Ürünleri inceleyin ve pilot iş ortaklığına katılın.
-
-### Özel ERP & CRM Finans Yönetim Kokpiti | Yerel İşletim Sistemi — ExcelArşiv
-- URL: https://excelarsiv.com/otonom-muhendislik
-- Açıklama: Yerel cihazda çalışan, internet gerektirmeyen, otomatik yedeklenen, ERP ve CRM süreçleriyle işletmenizin tüm finans ve operasyonunu tek ekrandan yöneten özel kokpit.
 
 ### İhtiyaca Özel Excel Finans ve Karar Sistemleri | Excel Arşiv
 - URL: https://excelarsiv.com/ozel-excel-sistemleri

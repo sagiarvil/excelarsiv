@@ -2,7 +2,7 @@
 import { getAllTemplates } from '../../lib/templates';
 
 interface Props {
-  activeTab?: 'today' | 'templates' | 'free' | 'custom' | 'otonom' | 'demo' | 'guide' | 'contact';
+  activeTab?: 'today' | 'templates' | 'free' | 'custom' | 'demo' | 'guide' | 'contact';
 }
 
 const { activeTab = 'today' } = Astro.props;
@@ -12,7 +12,6 @@ const navItems = [
   { id: 'templates', name: 'Şablonlar', href: '/sablonlar', icon: 'templates', color: '#0284C7', bg: '#E0F2FE' },
   { id: 'free', name: 'Ücretsiz Şablonlar', href: '/sablonlar?filtre=ucretsiz', icon: 'gift', color: '#059669', bg: '#D1FAE5' },
   { id: 'custom', name: 'Size Özel', href: '/ozel-excel-sistemleri', icon: 'custom', color: '#D97706', bg: '#FEF3C7' },
-  { id: 'otonom', name: 'Yerel ERP & CRM', href: '/otonom-muhendislik', icon: 'otonom', color: '#0F6CBD', bg: '#E1F0FE' },
   { id: 'demo', name: 'Ürün Bulucu', href: '/urun-bulucu', icon: 'demo', color: '#7C3AED', bg: '#EDE9FE' },
   { id: 'guide', name: 'Rehber', href: '/rehber', icon: 'guide', color: '#059669', bg: '#D1FAE5' },
   { id: 'contact', name: 'İletişim', href: '/iletisim', icon: 'contact', color: '#4F46E5', bg: '#EEF2FF' },
@@ -109,20 +108,6 @@ const searchData = allTemplates.map((t) => ({
           {item.icon === 'custom' && (
             <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-            </svg>
-          )}
-          {item.icon === 'otonom' && (
-            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-              <rect x="9" y="9" width="6" height="6"></rect>
-              <line x1="9" y1="1" x2="9" y2="4"></line>
-              <line x1="15" y1="1" x2="15" y2="4"></line>
-              <line x1="9" y1="20" x2="9" y2="23"></line>
-              <line x1="15" y1="20" x2="15" y2="23"></line>
-              <line x1="20" y1="9" x2="23" y2="9"></line>
-              <line x1="20" y1="15" x2="23" y2="15"></line>
-              <line x1="1" y1="9" x2="4" y2="9"></line>
-              <line x1="1" y1="15" x2="4" y2="15"></line>
             </svg>
           )}
           {item.icon === 'demo' && (

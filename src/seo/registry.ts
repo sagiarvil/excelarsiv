@@ -171,49 +171,6 @@ const corePages: SeoPageRecord[] = [
     ]
   },
   {
-    route: '/otonom-muhendislik',
-    locale: 'tr-TR',
-    role: 'service',
-    indexDirective: 'index, follow',
-    canonicalRoute: '/otonom-muhendislik',
-    title: 'Özel ERP & CRM Finans Yönetim Kokpiti | Yerel İşletim Sistemi — ExcelArşiv',
-    metaDescription: 'Yerel cihazda çalışan, internet gerektirmeyen, otomatik yedeklenen, ERP ve CRM süreçleriyle işletmenizin tüm finans ve operasyonunu tek ekrandan yöneten özel kokpit.',
-    h1: 'İşletmenize Özel Yerel ERP & CRM Finans Yönetim Kokpiti',
-    primaryIntent: 'yerel erp crm finans kokpiti cevrimdisi isletme yonetim sistemi',
-    primaryEntity: {
-      id: `${ORIGIN}/otonom-muhendislik#product`,
-      name: 'Özel Yerel ERP & CRM Finans Yönetim Kokpiti',
-      type: 'Product',
-      sameAs: [
-        'https://www.wikidata.org/wiki/Q11589432',
-        'https://drfin.com.tr',
-        'https://skdmhesapla.com',
-        'https://karbonfiyat.com',
-        'https://inversioncore.com',
-        'https://belginkuyumculuk.com',
-        'https://saatchi.com.tr',
-        'https://dilekceyazdir.com.tr',
-        'https://htmlandhtml.com',
-        'https://degerlet.com'
-      ]
-    },
-    semanticTriples: [
-      { subject: 'Özel Yerel ERP & CRM Kokpiti', predicate: 'providesArchitecture', object: 'Yerel ve Çevrimdışı Çalışan Kurumsal İşletme ve Finans Yönetim Sistemi' },
-      { subject: 'Özel Yerel ERP & CRM Kokpiti', predicate: 'includesModules', object: 'Finansal Takvim, Proje Müşteri Carileri, Çift Kasa Mimarisi ve Vade Radarı' },
-      { subject: 'Özel Yerel ERP & CRM Kokpiti', predicate: 'operatesOn', object: 'Yerel Donanım, SQLite Veritabanı ve Otomatik Akşam Yedekleme Motoru' },
-      { subject: 'Özel Yerel ERP & CRM Kokpiti', predicate: 'deliversPerformance', object: 'Sıfır Bulut Bağımlılığı, Sıfır Aylık Aidat ve Yüksek Veri Güvenliği' }
-    ],
-    heroAnswerEngine: 'Özel Yerel ERP & CRM Finans Yönetim Kokpiti; işletmelerin devam eden projelerini, müşteri cari hesaplarını, hakedişlerini, çek-senet ve vadeli borçlarını, şirket ve şantiye kasalarını herhangi bir internet veya bulut bağımlılığı olmadan yerel bilgisayarlarında yönetmelerini sağlayan, otomatik yedeklemeli ve aboneliksiz kurumsal işletim sistemidir.',
-    publishedAt: PUBLISHED_BASE,
-    modifiedAt: MODIFIED_BASE,
-    llmSubGraphRoute: '/llms/pages/otonom-muhendislik.md',
-    mobileSubGraphRoute: '/llms/mobile/nano-otonom-muhendislik.md',
-    breadcrumbs: [
-      { name: 'Ana Sayfa', item: '/' },
-      { name: 'Yerel ERP & CRM', item: '/otonom-muhendislik' }
-    ]
-  },
-  {
     route: '/sablonlar',
     locale: 'tr-TR',
     role: 'hub',

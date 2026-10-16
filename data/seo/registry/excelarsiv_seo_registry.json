@@ -1899,20 +1899,6 @@
       "notes": "Registry parity sync — kurumsal-web anahtar teslim web sitesi hizmeti eklendi."
     },
     {
-      "pageId": "excelarsiv:otonom-muhendislik",
-      "route": "/otonom-muhendislik",
-      "type": "legal",
-      "status": "live",
-      "primaryQueryClusterId": null,
-      "primaryEntity": "/otonom-muhendislik",
-      "searchIntent": null,
-      "templateId": null,
-      "serpFeatureTargets": [],
-      "canonical": "https://excelarsiv.com/otonom-muhendislik",
-      "ownerRoute": null,
-      "notes": "Özel Yerel ERP & CRM Finans Yönetim Kokpiti."
-    },
-    {
       "pageId": "excelarsiv:gizlilik-politikasi",
       "route": "/gizlilik-politikasi",
       "type": "legal",
