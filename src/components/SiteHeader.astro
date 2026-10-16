@@ -11,6 +11,7 @@ const pathname = Astro.url.pathname;
 const menu = [
   { label: 'Şablonlar', href: '/sablonlar' },
   { label: 'Size Özel', href: '/ozel-excel-sistemleri' },
+  { label: 'Otonom OS', href: '/otonom-muhendislik' },
   { label: 'Demo Kataloğu', href: '/demo' },
   { label: 'Nasıl Çalışır', href: '/nasil-calisir' },
   { label: 'Rehber', href: '/rehber' },
@@ -384,6 +385,7 @@ const searchData = allTemplates.map((t) => ({
             <div class="site-header__drawer-section">
               <span class="site-header__drawer-subtitle">KURUMSAL & REHBER</span>
               <nav class="site-header__drawer-grid-nav" aria-label="Mobil kurumsal gezinme">
+                <a href="/otonom-muhendislik" style="font-weight:700;color:var(--xl-green-dark);">🚀 Otonom OS</a>
                 <a href="/demo">Demo Kataloğu</a>
                 <a href="/nasil-calisir">Nasıl Çalışır?</a>
                 <a href="/rehber">Finans Rehberi</a>

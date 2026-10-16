@@ -13,6 +13,19 @@
     <uri>https://excelarsiv.com/hakkinda</uri>
   </author>
   <entry>
+    <id>https://excelarsiv.com/otonom-muhendislik</id>
+    <title>Otonom Mühendislik İşletim Sistemi | Antigravity OS — ExcelArşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/otonom-muhendislik" />
+    <updated>2026-10-13T15:54:29.000Z</updated>
+    <published>2026-10-13T15:54:29.000Z</published>
+    <summary>Yerel cihazda çalışan, internet gerektirmeyen, çevrimdışı yedeklenebilen, ERP/CRM uyumlu otonom mühendislik işletim sistemi.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
     <id>https://excelarsiv.com/sablonlar</id>
     <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/sablonlar" />

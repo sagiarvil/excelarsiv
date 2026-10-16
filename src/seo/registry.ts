@@ -171,6 +171,49 @@ const corePages: SeoPageRecord[] = [
     ]
   },
   {
+    route: '/otonom-muhendislik',
+    locale: 'tr-TR',
+    role: 'service',
+    indexDirective: 'index, follow',
+    canonicalRoute: '/otonom-muhendislik',
+    title: 'Otonom Mühendislik İşletim Sistemi | Antigravity OS — ExcelArşiv',
+    metaDescription: 'Yerel cihazda çalışan, internet gerektirmeyen, çevrimdışı yedeklenebilen, ERP/CRM uyumlu otonom mühendislik işletim sistemi.',
+    h1: '🚀 Otonom Mühendislik İşletim Sistemi (Autonomous Engineering OS)',
+    primaryIntent: 'otonom muhendislik isletim sistemi yerel erp crm',
+    primaryEntity: {
+      id: `${ORIGIN}/otonom-muhendislik#product`,
+      name: 'Antigravity AI Master Suite Pro (Autonomous Engineering OS)',
+      type: 'Product',
+      sameAs: [
+        'https://www.wikidata.org/wiki/Q11589432',
+        'https://drfin.com.tr',
+        'https://skdmhesapla.com',
+        'https://karbonfiyat.com',
+        'https://inversioncore.com',
+        'https://belginkuyumculuk.com',
+        'https://saatchi.com.tr',
+        'https://dilekceyazdir.com.tr',
+        'https://htmlandhtml.com',
+        'https://degerlet.com'
+      ]
+    },
+    semanticTriples: [
+      { subject: 'Antigravity AI Master Suite Pro', predicate: 'providesArchitecture', object: 'Yerel Otonom Yazılım ve Sistem Mühendisliği Platformu' },
+      { subject: 'Otonom Mühendislik OS', predicate: 'compliesWith', object: 'Fail-Closed 4 Kalite Kapısı ve Demir Kanıt Doğrulaması' },
+      { subject: 'Otonom Mühendislik OS', predicate: 'operatesOn', object: 'Yerel Çekirdek, Terminal Kabuğu, Derleyiciler ve Yerel ERP CRM Modeli' },
+      { subject: 'Otonom Mühendislik OS', predicate: 'deliversPerformance', object: 'Sıfır Bulut Bağımlılığı, Tam Çevrimdışı Yedekleme ve Yüksek Zaman Tasarrufu' }
+    ],
+    heroAnswerEngine: 'Antigravity AI Master Suite Pro (Autonomous Engineering OS); yerel donanımınızda (Mac/PC) doğrudan çalışan, herhangi bir internet bağlantısı gerektirmeden tam çevrimdışı yedeklenebilen, ERP ve CRM süreçleriyle entegre, kod yazan, derleyen, test eden ve kendi kendini düzelten yeni nesil yerel otonom mühendislik platformudur.',
+    publishedAt: PUBLISHED_BASE,
+    modifiedAt: MODIFIED_BASE,
+    llmSubGraphRoute: '/llms/pages/otonom-muhendislik.md',
+    mobileSubGraphRoute: '/llms/mobile/nano-otonom-muhendislik.md',
+    breadcrumbs: [
+      { name: 'Ana Sayfa', item: '/' },
+      { name: 'Otonom Mühendislik OS', item: '/otonom-muhendislik' }
+    ]
+  },
+  {
     route: '/sablonlar',
     locale: 'tr-TR',
     role: 'hub',
