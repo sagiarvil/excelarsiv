@@ -1,0 +1,835 @@
+---
+// Yerel ERP & Yönetim Kokpitleri Açılış Sayfası (Landing Page)
+import '../styles/appstore-theme.css';
+import AppStoreSidebar from '../components/appstore/AppStoreSidebar.astro';
+---
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>İşletmeye Özel Yerel ERP & Yönetim Kokpiti Kurulumu | ExcelArşiv</title>
+  <meta name="description" content="Web tabanlı olmayan, aylık abonelik gerektirmeyen, tamamen şirketinizin bilgisayarında çalışan ve tek tıkla yedeklenen uygun fiyatlı özel ERP & yönetim kokpitleri kuruyoruz." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://excelarsiv.com/yerel-erp-kokpiti" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://excelarsiv.com/yerel-erp-kokpiti" />
+  <meta property="og:title" content="İşletmeye Özel Yerel ERP & Yönetim Kokpiti Kurulumu | ExcelArşiv" />
+  <meta property="og:description" content="Aylık lisans faturası ödemeden, internete bağımlı kalmadan, şirketinize özel yerel finans, üretim, şantiye ve yönetim kokpiti kuruyoruz." />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="alternate" type="text/markdown" href="https://excelarsiv.com/llms/pages/yerel-erp-kokpiti.md" title="LLM Grounding Content (Markdown)" />
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://excelarsiv.com/yerel-erp-kokpiti#breadcrumb",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://excelarsiv.com"},
+          {"@type":"ListItem","position":2,"name":"Yerel ERP & Kokpit","item":"https://excelarsiv.com/yerel-erp-kokpiti"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://excelarsiv.com/#organization",
+        "name":"Excel Arşiv",
+        "url":"https://excelarsiv.com/",
+        "description":"Excel Arşiv — Türkiye'deki işletmeler için finans, muhasebe ve operasyon odaklı hazır ve terzi usulü karar ve yönetim sistemleri.",
+        "logo":{"@type":"ImageObject","url":"https://excelarsiv.com/og.png","width":1200,"height":1200},
+        "email":"barisbagirlar@gmail.com",
+        "contactPoint":{"@type":"ContactPoint","email":"barisbagirlar@gmail.com","telephone":"+905393333303","contactType":"customer support","availableLanguage":"tr-TR","areaServed":"TR"}
+      },
+      {
+        "@type":"Person",
+        "@id":"https://excelarsiv.com/#baris-bagirlar",
+        "name":"Barış Bağırlar",
+        "jobTitle":"Finansal Sistem Mimarı & Yönetim Danışmanı",
+        "url":"https://excelarsiv.com/yerel-erp-kokpiti",
+        "worksFor":{"@id":"https://excelarsiv.com/#organization"},
+        "description":"17 yıllık ticari bankacılık ve KOBİ finans refleksiyle işletmelere özel internetsiz, yerel çalışan, bağımsız ve uygun maliyetli yönetim kokpitleri kurar."
+      },
+      {
+        "@type":"Service",
+        "@id":"https://excelarsiv.com/yerel-erp-kokpiti#service",
+        "name":"İşletmeye Özel Yerel ERP & Yönetim Kokpiti Kurulumu",
+        "serviceType":"Yerel çalışan, internetsiz ERP, CRM, üretim ve finans yönetim sistemleri geliştirme",
+        "provider":{"@id":"https://excelarsiv.com/#organization"},
+        "areaServed":{"@type":"Country","name":"Türkiye"},
+        "description":"Aylık bulut yazılım faturalarına ve karmaşık Excel dosyalarına son verin. Tamamen yerel cihazınızda çalışan, internet gerektirmeyen, tek tıkla yedeklenen ve firmanızın gerçek operasyonuna özel ERP & kokpit sistemleri kuruyoruz.",
+        "url":"https://excelarsiv.com/yerel-erp-kokpiti"
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://excelarsiv.com/yerel-erp-kokpiti#webpage",
+        "url":"https://excelarsiv.com/yerel-erp-kokpiti",
+        "name":"İşletmeye Özel Yerel ERP & Yönetim Kokpiti Kurulumu | ExcelArşiv",
+        "isPartOf":{"@id":"https://excelarsiv.com/#website"},
+        "about":{"@id":"https://excelarsiv.com/yerel-erp-kokpiti#service"}
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --brand-navy: #0f172a;
+      --brand-blue: #0284c7;
+      --brand-blue-hover: #0369a1;
+      --brand-accent: #059669;
+      --surface-white: #ffffff;
+      --surface-muted: #f8fafc;
+      --border-soft: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    body {
+      background-color: var(--surface-muted);
+      color: var(--text-dark);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+
+    .erp-page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px 20px 80px 20px;
+    }
+
+    /* Hero Bölümü */
+    .erp-hero {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 20px;
+      padding: 48px 40px;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .erp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: #e0f2fe;
+      color: #0369a1;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .erp-hero h1 {
+      font-size: 38px;
+      line-height: 1.25;
+      font-weight: 800;
+      color: var(--brand-navy);
+      margin: 0 0 16px 0;
+      letter-spacing: -0.5px;
+    }
+
+    .erp-hero p.lead {
+      font-size: 18px;
+      color: #475569;
+      max-width: 900px;
+      margin: 0 0 28px 0;
+      line-height: 1.6;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .hero-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-wa-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: #25d366;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    }
+    .btn-wa-primary:hover {
+      background: #1eb956;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      background: #f8fafc;
+      color: var(--brand-navy);
+      border: 1px solid #cbd5e1;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 12px;
+      text-decoration: none;
+    }
+    .btn-secondary:hover {
+      background: #e2e8f0;
+    }
+
+    /* Karşılaştırma Tablosu / Grid */
+    .section-title-wrap {
+      text-align: center;
+      margin: 48px 0 24px 0;
+    }
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--brand-blue);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--brand-navy);
+      margin: 8px 0;
+    }
+    .section-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .compare-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .compare-card.winner {
+      border: 2px solid var(--brand-blue);
+      background: #ffffff;
+      box-shadow: 0 8px 30px rgba(2, 132, 199, 0.1);
+      position: relative;
+    }
+
+    .winner-tag {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--brand-blue);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .compare-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+      color: var(--brand-navy);
+    }
+
+    .compare-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .compare-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.4;
+    }
+
+    .icon-bad {
+      color: #dc2626;
+      font-weight: 800;
+    }
+    .icon-mid {
+      color: #d97706;
+      font-weight: 800;
+    }
+    .icon-good {
+      color: #059669;
+      font-weight: 800;
+    }
+
+    /* 6 Sektörel / Fonksiyonel Modül */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .module-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .module-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
+    }
+
+    .module-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .module-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--brand-navy);
+      margin: 0 0 8px 0;
+    }
+
+    .module-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0 0 16px 0;
+      line-height: 1.5;
+    }
+
+    .module-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      color: #334155;
+      font-weight: 500;
+      border-top: 1px dashed var(--border-soft);
+      padding-top: 12px;
+    }
+
+    /* Mimari Güvenceler */
+    .features-strip {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+
+    .features-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature-item h5 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--brand-navy);
+      margin: 8px 0 4px 0;
+    }
+
+    .feature-item p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* Süreç Adımları */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .step-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #e0f2fe;
+      color: #0284c7;
+      font-weight: 800;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .step-card h5 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--brand-navy);
+      margin: 0 0 6px 0;
+    }
+
+    .step-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* SSS Akordeon */
+    .faq-wrap {
+      max-width: 880px;
+      margin: 0 auto 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-box {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 18px 24px;
+    }
+
+    .faq-box h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--brand-navy);
+      margin: 0 0 8px 0;
+    }
+
+    .faq-box p {
+      font-size: 13px;
+      color: #475569;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Alt CTA */
+    .final-cta {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 48px 36px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .final-cta h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0 0 12px 0;
+    }
+
+    .final-cta p {
+      font-size: 15px;
+      color: #94a3b8;
+      max-width: 680px;
+      margin: 0 auto 24px auto;
+    }
+
+    @media (max-width: 991px) {
+      .compare-grid, .modules-grid, .features-strip-grid, .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .erp-hero {
+        padding: 32px 20px;
+      }
+      .erp-hero h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body class="as-page-body">
+  <div class="appstore-layout">
+    <!-- Sol Gezinti Çubuğu -->
+    <AppStoreSidebar activeTab="erp" />
+
+    <!-- Ana İçerik Alanı -->
+    <div class="appstore-main">
+      <div class="erp-page">
+
+        <!-- 1. HERO BÖLÜMÜ -->
+        <section class="erp-hero">
+          <div class="erp-badge">
+            ⚡ Web Tabanlı Olmayan · Aylık Lisans Ücreti Olmayan · %100 Yerel Cihazda
+          </div>
+          <h1>İşletmenize Özel Yerel ERP & Yönetim Kokpiti Kurulumu</h1>
+          <p class="lead">
+            Yıllık binlerce dolarlık hantal bulut ERP yazılımlarına veya formülleri sürekli bozulan dağınık Excel dosyalarına mecbur değilsiniz. Finansmandan üretime, şantiye hakedişlerinden stok ve sipariş takibine kadar; tamamen işletmenizin kendi bilgisayarında çalışan, internet bağımlılığı olmayan, tek tıkla yedeklenen ve son derece uygun fiyatlı kurumsal yönetim kokpitleri kuruyoruz.
+          </p>
+
+          <div class="hero-pills">
+            <div class="hero-pill">💻 <strong>İnternetsiz Kesintisiz Çalışma</strong></div>
+            <div class="hero-pill">💰 <strong>Sıfır Aylık / Yıllık Bulut Faturası</strong></div>
+            <div class="hero-pill">🔒 <strong>%100 Yerel Veri Gizliliği (Dışarı Sızmaz)</strong></div>
+            <div class="hero-pill">💾 <strong>Tek Tıkla JSON / Excel Tam Yedek</strong></div>
+            <div class="hero-pill">🎯 <strong>Firmanızın Gerçek İhtiyacına Özel Ekranlar</strong></div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="https://wa.me/905393333303?text=Merhaba%20Bar%C4%B1%C5%9F%20Bey,%20i%C5%9Fletmemiz%20i%C3%A7in%20yerel%20ERP%20ve%20y%C3%B6netim%20kokpiti%20kurulumu%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-wa-primary">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.92-.455-1.554-.638-2.55-2.227-2.628-2.33-.077-.103-.623-.829-.623-1.579 0-.75.393-1.118.532-1.27.14-.15.305-.188.407-.188.102 0 .204.002.293.007.094.004.22-.036.344.263.128.307.437 1.07.476 1.148.038.077.064.168.013.27-.051.103-.077.167-.153.257-.077.09-.161.2-.23.27-.078.077-.16.16-.068.318.092.158.41 1.034.908 1.48 1.08.97 1.99 1.272 2.275 1.414.285.142.454.12.623-.077.17-.197.727-.847.922-1.137.195-.29.39-.243.654-.145.263.098 1.674.789 1.96.932.285.143.476.213.546.332.07.12.07.697-.074 1.102z"/>
+              </svg>
+              İşletmeniz İçin Kokpit Planlayın (WhatsApp)
+            </a>
+            <a href="#moduller" class="btn-secondary">
+              Kurulabilen Modülleri İnceleyin ↓
+            </a>
+          </div>
+        </section>
+
+        <!-- 2. KARŞILAŞTIRMA (BENTO GRID) -->
+        <div class="section-title-wrap">
+          <span class="section-eyebrow">NEDEN YEREL KOKPİT?</span>
+          <h2 class="section-title">Geleneksel Yazılımlar ile Yerel ERP Kokpitimizin Farkı</h2>
+          <p class="section-sub">Şirketinizi karmaşık sunuculara bağlamadan, hafif, bağımsız ve doğrudan sonuç üreten yönetim mimarisi.</p>
+        </div>
+
+        <div class="compare-grid">
+          <!-- Klasik Bulut ERP -->
+          <div class="compare-card">
+            <h3>Hantal Bulut ERP'ler</h3>
+            <ul class="compare-list">
+              <li class="compare-item">
+                <span class="icon-bad">✕</span>
+                <span>Her ay ve kullanıcı başına yüzlerce dolar lisans faturası kesilir.</span>
+              </li>
+              <li class="compare-item">
+                <span class="icon-bad">✕</span>
+                <span>İnternet kesildiğinde veya sunucu çöktüğünde tüm şirket işi durur.</span>
+              </li>
+              <li class="compare-item">
+                <span class="icon-bad">✕</span>
+                <span>Hassas kâr, müşteri ve finans verileriniz yabancı sunucularda saklanır.</span>
+              </li>
+              <li class="compare-item">
+                <span class="icon-bad">✕</span>
+                <span>Binlerce gereksiz menü ve karışık ekran; personelin eğitim alması aylar sürer.</span>
+              </li>
+              <li class="compare-item">
+                <span class="icon-bad">✕</span>
+                <span>Özel bir rapor veya değişiklik istediğinizde fahiş danışmanlık ücreti istenir.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Dağınık Excel Dosyaları -->
+          <div class="compare-card">
+            <h3>Dağınık Excel Tabloları</h3>
+            <ul class="compare-list">
+              <li class="compare-item">
+                <span class="icon-mid">!</span>
+                <span>Personelin formülleri silmesi veya hücreleri bozması çok kolaydır.</span>
+              </li>
+              <li class="compare-item">
+                <span class="icon-mid">!</span>
+                <span>"Hangi dosya en güncel?" karmaşası (Revize_Son_v3.xlsx sendromu).</span>
+              </li>
+              <li class="compare-item">
+                <span class="icon-mid">!</span>
+                <span>Satırlar çoğaldıkça dosya kilitlenir, yavaşlar ve açılmaz hale gelir.</span>
+              </li>
+              <li class="compare-item">
+                <span class="icon-mid">!</span>
+                <span>Kasa, çek, tedarikçi ve sipariş tabloları birbirinden kopuk çalışır.</span>
+              </li>
+              <li class="compare-item">
+                <span class="icon-mid">!</span>
+                <span>Patrona anlık özet ve kritik alarm veren otomatik bir konsolide ekran yoktur.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Bizim Yerel ERP Kokpitimiz -->
+          <div class="compare-card winner">
+            <span class="winner-tag">TAVSİYE EDİLEN</span>
+            <h3>Özel Yerel ERP Kokpiti</h3>
+            <ul class="compare-list">
+              <li class="compare-item">
+                <span class="icon-good">✓</span>
+                <span><strong>Sıfır Aylık Ücret:</strong> Tek seferlik kurulum maliyeti; sonsuza dek sınırsız kullanım.</span>
+              </li>
+              <li class="compare-item">
+                <span class="icon-good">✓</span>
+                <span><strong>%100 Yerel & İnternetsiz:</strong> Veriler sadece sizin cihazınızda kalır, sıfır sızıntı riski.</span>
+              </li>
+              <li class="compare-item">
+                <span class="icon-good">✓</span>
+                <span><strong>Tek Tıkla Tam Yedek:</strong> Tüm şirket verisini JSON ve Excel olarak anında dışa aktarma.</span>
+              </li>
+              <li class="compare-item">
+                <span class="icon-good">✓</span>
+                <span><strong>Size Özel Butonlu Ekranlar:</strong> Sadece firmanızın işine yarayan yalın, hızlı ve butonlu arayüz.</span>
+              </li>
+              <li class="compare-item">
+                <span class="icon-good">✓</span>
+                <span><strong>Otomatik Risk Radarı:</strong> Vadesi gelen ödemeler, karşılıksız çek riski ve anında WhatsApp patron özeti.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. HANGİ ALANLARDA KURUYORUZ? (6 MODÜL) -->
+        <div id="moduller" class="section-title-wrap">
+          <span class="section-eyebrow">FONKSİYONEL VE SEKTÖREL ÇÖZÜMLER</span>
+          <h2 class="section-title">İhtiyacınıza Göre Kurulabilen Yönetim Modülleri</h2>
+          <p class="section-sub">İster finans, ister üretim, ister şantiye... Şirketinizin çalışma şekline birebir uyan anahtar teslim kokpitler.</p>
+        </div>
+
+        <div class="modules-grid">
+          <!-- Modül 1: Finans & Nakit -->
+          <div class="module-card">
+            <div class="module-icon-wrap" style="background:#e0f2fe; color:#0284c7;">🏦</div>
+            <h4>Finans & Nakit Akış Kokpiti</h4>
+            <p>Kasa, banka, KMH limitleri, vadeli çek ve senetlerin anlık izlendiği, takas simülasyonu yapan finans direktörü masası.</p>
+            <ul class="module-features">
+              <li>• Çoklu kasa ve vadesiz banka bakiye takibi</li>
+              <li>• Çek-senet portföyü & takas simülasyonu</li>
+              <li>• Vade Risk Radarı ve acil ödeme alarmları</li>
+              <li>• Tek tıkla patrona WhatsApp finansal durum notu</li>
+            </ul>
+          </div>
+
+          <!-- Modül 2: Üretim & İmalat -->
+          <div class="module-card">
+            <div class="module-icon-wrap" style="background:#fef3c7; color:#d97706;">⚙️</div>
+            <h4>Üretim & İmalat Takip Kokpiti</h4>
+            <p>Siparişten tezgaha, fason atölyeden montaja kadar tüm imalat aşamalarını, hammadde tüketimini ve fireyi yönetin.</p>
+            <ul class="module-features">
+              <li>• Sipariş bazlı aşamalı üretim takibi (Açık/Tezgahta/Bitti)</li>
+              <li>• Hammadde sarfiyatı ve birim ürün reçete maliyeti</li>
+              <li>• Fason işçilik ve operasyonel teslimat takvimleri</li>
+              <li>• Gecikme riski olan siparişler için otomatik uyarılar</li>
+            </ul>
+          </div>
+
+          <!-- Modül 3: Şantiye & Taşeron -->
+          <div class="module-card">
+            <div class="module-icon-wrap" style="background:#ede9fe; color:#7c3aed;">🏗️</div>
+            <h4>Şantiye & Taşeron Hakediş Kokpiti</h4>
+            <p>İnşaat, taahhüt ve mimarlık ofisleri için şantiye harcamaları, taşeron avansları ve hakediş kesintilerini eksiksiz kontrol edin.</p>
+            <ul class="module-features">
+              <li>• Proje bazlı bütçe gerçekleşme ve sapma analizi</li>
+              <li>• Taşeron sözleşme, avans ve hakediş kesinti cetveli</li>
+              <li>• Şantiye malzeme talepleri ve nakit avans mutabakatı</li>
+              <li>• Şantiyede internetsiz dizüstü bilgisayarda tam çalışma</li>
+            </ul>
+          </div>
+
+          <!-- Modül 4: Satın Alma & Stok -->
+          <div class="module-card">
+            <div class="module-icon-wrap" style="background:#d1fae5; color:#059669;">📦</div>
+            <h4>Satın Alma, Tedarikçi & Depo Takibi</h4>
+            <p>Açık satıcı faturalarını, ödeme vadelerini ve kritik depolama seviyelerini tek merkezden hatasız yönetin.</p>
+            <ul class="module-features">
+              <li>• Tedarikçi cari borçları ve açık sipariş havuzu</li>
+              <li>• Minimum stok alarmları (Kritik parça/ürün uyarıları)</li>
+              <li>• Teklif karşılaştırma ve en uygun tedarikçi seçimi</li>
+              <li>• Depo sayım fazlası ve fire denetim raporu</li>
+            </ul>
+          </div>
+
+          <!-- Modül 5: Müşteri & Sipariş (Yerel CRM) -->
+          <div class="module-card">
+            <div class="module-icon-wrap" style="background:#fee2e2; color:#dc2626;">🤝</div>
+            <h4>Müşteri İlişkileri & Teklif Takip (CRM)</h4>
+            <p>Müşteri görüşmelerinden teklif aşamasına, sözleşmeden teslimat tarihine kadar satış sürecini tek yerde toplayın.</p>
+            <ul class="module-features">
+              <li>• Müşteri cari kartları ve geçmiş sipariş hafızası</li>
+              <li>• Teklif durumları (Hazırlanıyor / Gönderildi / Onaylandı)</li>
+              <li>• Müşteri alacak vadeleri ve tahsilat takip takvimi</li>
+              <li>• Satış ekibi için bağımsız ve hafif operasyon ekranı</li>
+            </ul>
+          </div>
+
+          <!-- Modül 6: Patron Karar Masası -->
+          <div class="module-card">
+            <div class="module-icon-wrap" style="background:#f1f5f9; color:#1e293b;">📊</div>
+            <h4>Konsolide Patron Karar Masası</h4>
+            <p>Finans, üretim, satış ve stok verilerini tek bir ekranda toplayan; şirketin can damarlarını saniyeler içinde gösteren kokpit.</p>
+            <ul class="module-features">
+              <li>• Anlık net nakit pozisyonu (Nakit - Kısa Vadeli Borç)</li>
+              <li>• Bu hafta çıkacak ve girecek tüm nakit tutarları</li>
+              <li>• Kârlılık, ciro ve açık alacak risk yoğunluğu</li>
+              <li>• Karmaşık grafikler yerine doğrudan aksiyon butonları</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4. TEKNİK & MİMARİ ÜSTÜNLÜKLER -->
+        <div class="features-strip">
+          <div class="features-strip-grid">
+            <div class="feature-item">
+              <span style="font-size:24px;">⚡</span>
+              <h5>Sıfır Kurulum Zahmeti</h5>
+              <p>Sunucu, IIS, Apache veya SQL Database kurmanıza gerek yok. Çift tıkla tarayıcınızda ışık hızında açılır.</p>
+            </div>
+            <div class="feature-item">
+              <span style="font-size:24px;">🛡️</span>
+              <h5>Tam Veri Mülkiyeti</h5>
+              <p>Verileriniz üçüncü parti şirketlerin bulutunda değil; sadece kendi bilgisayarınızın yerel hafızasında saklanır.</p>
+            </div>
+            <div class="feature-item">
+              <span style="font-size:24px;">💾</span>
+              <h5>Tek Tıkla Yedekleme</h5>
+              <p>Tek butona basarak tüm şirket verilerinizi JSON veya Excel olarak bilgisayarınıza veya USB belleğe aktarın.</p>
+            </div>
+            <div class="feature-item">
+              <span style="font-size:24px;">👥</span>
+              <h5>Yerel Ağda (LAN) Çoklu Kullanım</h5>
+              <p>İstenirse şirket içindeki yerel ağda (LAN) birden fazla personelin ortak veriyle çalışması sağlanabilir.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. 4 ADIMLI TESLİMAT SÜRECİ -->
+        <div class="section-title-wrap">
+          <span class="section-eyebrow">ÇALIŞMA ŞEKLİMİZ</span>
+          <h2 class="section-title">4 Adımda Şirketinize Özel Anahtar Teslim Kurulum</h2>
+          <p class="section-sub">Aylar süren ERP danışmanlıkları yerine, 7 günde canlıya alınan net ve uygulanabilir sistem.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <h5>İhtiyaç Analizi</h5>
+            <p>Mevcut Excel dosyalarınızı, çalışma alışkanlıklarınızı ve tıkandığınız noktaları 45 dakikalık online toplantıda analiz ediyoruz.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <h5>Özel Ekran Tasarımı</h5>
+            <p>Sadece firmanızın ihtiyaç duyduğu modülleri, butonları ve hesaplama kurallarını içeren yerel kokpitinizi 3-5 günde kodluyoruz.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <h5>Mevcut Verilerin Aktarımı</h5>
+            <p>Geçmiş cari hesaplarınızı, müşteri listenizi ve güncel bakiyelerinizi sisteme yüklüyor, formülleri ve testleri tamamlıyoruz.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <h5>Teslimat & Pratik Eğitim</h5>
+            <p>Sistemi bilgisayarınıza teslim ediyor, tek tıkla yedekleme ve günlük kullanım pratiğini ekibinize 30 dakikada öğretiyoruz.</p>
+          </div>
+        </div>
+
+        <!-- 6. SIKÇA SORULAN SORULAR -->
+        <div class="section-title-wrap">
+          <span class="section-eyebrow">MERAK EDİLENLER</span>
+          <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+        </div>
+
+        <div class="faq-wrap">
+          <div class="faq-box">
+            <h4>İnternetim kesilirse veya internet olmayan bir şantiyede olursam sistem çalışır mı?</h4>
+            <p>Evet, %100 kesintisiz çalışır. Sistem tamamen yerel cihaz mimarisine (Local-First) sahip olduğu için internet bağlantısına ihtiyaç duymaz. Uçakta, fabrikada, şantiyede veya sahada internet olmadan anında açılır ve tüm kayıtları eksiksiz işler.</p>
+          </div>
+
+          <div class="faq-box">
+            <h4>Bilgisayarıma bir şey olursa verilerim kaybolur mu? Yedekleme nasıl yapılıyor?</h4>
+            <p>Sistemin üst panelinde yer alan <strong>"Tek Tıkla Yedekle"</strong> butonuna bastığınız anda tüm veritabanı bilgisayarınıza tarihli bir dosya olarak iner. Bu yedek dosyasını USB belleğe, harici diske veya şirket e-postanıza güvenle gönderebilirsiniz. Yeni bir bilgisayara geçtiğinizde dosyayı seçmeniz 2 saniye sürer ve tüm sistem kaldığı yerden devam eder.</p>
+          </div>
+
+          <div class="faq-box">
+            <h4>Aylık veya yıllık herhangi bir lisans faturası ödeyecek miyim?</h4>
+            <p>Hayır. Klasik bulut ERP yazılımlarının aksine kullanıcı başı veya aylık/yıllık hiçbir abonelik ücreti yoktur. Tek seferlik anahtar teslim kurulum ücreti ödersiniz; sistem kalıcı olarak firmanıza ait olur.</p>
+          </div>
+
+          <div class="faq-box">
+            <h4>Mevcut kullandığımız Excel tablolarını bu sisteme aktarabilir misiniz?</h4>
+            <p>Evet. Kurulum aşamasında mevcut cari hesaplarınızı, tedarikçi borçlarınızı, ürün/reçete listelerinizi ve geçmiş bakiyelerinizi sisteme doğrudan aktarıyoruz. Sıfırdan veri girmekle vakit kaybetmezsiniz.</p>
+          </div>
+
+          <div class="faq-box">
+            <h4>Gelecekte yeni bir modül, şantiye veya rapor ekletmek istersek ne olur?</h4>
+            <p>Sistem modüler olarak inşa edildiği için firmanız büyüdükçe veya yeni bir üretim/şube hattı açıldığında yeni modüller, ek onay mekanizmaları veya özel raporlar kolaylıkla sisteme entegre edilebilir.</p>
+          </div>
+        </div>
+
+        <!-- 7. ALT DÖNÜŞÜM ÇAĞRISI (FINAL CTA) -->
+        <section class="final-cta">
+          <h2>Şirketinizin İhtiyacına Özel Kokpiti Birlikte Belirleyelim</h2>
+          <p>
+            Mevcut Excel dosyalarınızı veya yönetim ihtiyaçlarınızı WhatsApp üzerinden iletin; firmanıza en uygun yerel kokpit yapısını, modüllerini ve anahtar teslim maliyetini aynı gün netleştirelim.
+          </p>
+          <a href="https://wa.me/905393333303?text=Merhaba%20Bar%C4%B1%C5%9F%20Bey,%20%C5%9Firketimize%20%C3%B6zel%20yerel%20ERP%20ve%20y%C3%B6netim%20kokpiti%20kurulumu%20i%C3%A7in%20bilgi%20ve%20fiyat%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-wa-primary" style="font-size:16px; padding:16px 36px; display:inline-flex;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.92-.455-1.554-.638-2.55-2.227-2.628-2.33-.077-.103-.623-.829-.623-1.579 0-.75.393-1.118.532-1.27.14-.15.305-.188.407-.188.102 0 .204.002.293.007.094.004.22-.036.344.263.128.307.437 1.07.476 1.148.038.077.064.168.013.27-.051.103-.077.167-.153.257-.077.09-.161.2-.23.27-.078.077-.16.16-.068.318.092.158.41 1.034.908 1.48 1.08.97 1.99 1.272 2.275 1.414.285.142.454.12.623-.077.17-.197.727-.847.922-1.137.195-.29.39-.243.654-.145.263.098 1.674.789 1.96.932.285.143.476.213.546.332.07.12.07.697-.074 1.102z"/>
+            </svg>
+            Barış Bağırlar ile Doğrudan Görüşün (WhatsApp)
+          </a>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

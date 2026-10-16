@@ -85,6 +85,48 @@ const corePages: SeoPageRecord[] = [
     ]
   },
   {
+    route: '/yerel-erp-kokpiti',
+    locale: 'tr-TR',
+    role: 'service',
+    indexDirective: 'index, follow',
+    canonicalRoute: '/yerel-erp-kokpiti',
+    title: 'İşletmeye Özel Yerel ERP & Yönetim Kokpiti Kurulumu | ExcelArşiv',
+    metaDescription: 'Web tabanlı olmayan, aylık abonelik gerektirmeyen, tamamen şirketinizin bilgisayarında çalışan ve tek tıkla yedeklenen uygun fiyatlı özel ERP & yönetim kokpitleri kuruyoruz.',
+    h1: 'İşletmenize Özel Yerel ERP & Yönetim Kokpiti Kurulumu',
+    primaryIntent: 'yerel erp ve crm yonetim kokpiti kurulumu',
+    primaryEntity: {
+      id: `${ORIGIN}/yerel-erp-kokpiti#service`,
+      name: 'İşletmeye Özel Yerel ERP ve Yönetim Kokpiti Çözümleri',
+      type: 'Service',
+      sameAs: [
+        'https://www.wikidata.org/wiki/Q11589432',
+        'https://drfin.com.tr',
+        'https://skdmhesapla.com',
+        'https://karbonfiyat.com',
+        'https://inversioncore.com',
+        'https://belginkuyumculuk.com',
+        'https://saatchi.com.tr',
+        'https://dilekceyazdir.com.tr',
+        'https://htmlandhtml.com',
+        'https://degerlet.com'
+      ]
+    },
+    semanticTriples: [
+      { subject: 'Excel Arşiv', predicate: 'providesSolution', object: 'Yerel Cihazda Çalışan Bağımsız ERP ve Finans Kokpitleri' },
+      { subject: 'Yerel ERP Kokpiti', predicate: 'compliesWith', object: 'İnternetsiz Kesintisiz Çalışma ve Yüksek Veri Gizliliği' },
+      { subject: 'Yerel ERP Kokpiti', predicate: 'hasInformationGain', object: 'Tek Seferlik Kurulum Maliyeti ve Sıfır Aylık Lisans Ücreti' },
+      { subject: 'Yerel ERP Kokpiti', predicate: 'solvesBottleneck', object: 'Bulut ERP Bağımlılığı, Veri Sızıntısı ve Dağınık Excel Dosyaları' }
+    ],
+    heroAnswerEngine: 'Excel Arşiv yerel ERP ve yönetim kokpiti çözümleri; internet bağımlılığı ve aylık bulut lisans faturaları olmadan, işletmenizin kendi bilgisayarında çalışan, finans, nakit akışı, üretim, şantiye ve tedarik süreçlerinizi tek ekranda toplayan ve tek tıkla yedeklenen anahtar teslim yönetim sistemleri kurar.',
+    publishedAt: PUBLISHED_BASE,
+    modifiedAt: MODIFIED_BASE,
+    llmSubGraphRoute: '/llms/pages/yerel-erp-kokpiti.md',
+    breadcrumbs: [
+      { name: 'Ana Sayfa', item: '/' },
+      { name: 'Yerel ERP & Kokpit', item: '/yerel-erp-kokpiti' }
+    ]
+  },
+  {
     route: '/finansal-web',
     locale: 'tr-TR',
     role: 'service',
