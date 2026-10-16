@@ -176,13 +176,13 @@ const corePages: SeoPageRecord[] = [
     role: 'service',
     indexDirective: 'index, follow',
     canonicalRoute: '/otonom-muhendislik',
-    title: 'Otonom Mühendislik İşletim Sistemi | Antigravity OS — ExcelArşiv',
-    metaDescription: 'Yerel cihazda çalışan, internet gerektirmeyen, çevrimdışı yedeklenebilen, ERP/CRM uyumlu otonom mühendislik işletim sistemi.',
-    h1: '🚀 Otonom Mühendislik İşletim Sistemi (Autonomous Engineering OS)',
-    primaryIntent: 'otonom muhendislik isletim sistemi yerel erp crm',
+    title: 'Özel ERP & CRM Finans Yönetim Kokpiti | Yerel İşletim Sistemi — ExcelArşiv',
+    metaDescription: 'Yerel cihazda çalışan, internet gerektirmeyen, otomatik yedeklenen, ERP ve CRM süreçleriyle işletmenizin tüm finans ve operasyonunu tek ekrandan yöneten özel kokpit.',
+    h1: 'İşletmenize Özel Yerel ERP & CRM Finans Yönetim Kokpiti',
+    primaryIntent: 'yerel erp crm finans kokpiti cevrimdisi isletme yonetim sistemi',
     primaryEntity: {
       id: `${ORIGIN}/otonom-muhendislik#product`,
-      name: 'Antigravity AI Master Suite Pro (Autonomous Engineering OS)',
+      name: 'Özel Yerel ERP & CRM Finans Yönetim Kokpiti',
       type: 'Product',
       sameAs: [
         'https://www.wikidata.org/wiki/Q11589432',
@@ -198,19 +198,19 @@ const corePages: SeoPageRecord[] = [
       ]
     },
     semanticTriples: [
-      { subject: 'Antigravity AI Master Suite Pro', predicate: 'providesArchitecture', object: 'Yerel Otonom Yazılım ve Sistem Mühendisliği Platformu' },
-      { subject: 'Otonom Mühendislik OS', predicate: 'compliesWith', object: 'Fail-Closed 4 Kalite Kapısı ve Demir Kanıt Doğrulaması' },
-      { subject: 'Otonom Mühendislik OS', predicate: 'operatesOn', object: 'Yerel Çekirdek, Terminal Kabuğu, Derleyiciler ve Yerel ERP CRM Modeli' },
-      { subject: 'Otonom Mühendislik OS', predicate: 'deliversPerformance', object: 'Sıfır Bulut Bağımlılığı, Tam Çevrimdışı Yedekleme ve Yüksek Zaman Tasarrufu' }
+      { subject: 'Özel Yerel ERP & CRM Kokpiti', predicate: 'providesArchitecture', object: 'Yerel ve Çevrimdışı Çalışan Kurumsal İşletme ve Finans Yönetim Sistemi' },
+      { subject: 'Özel Yerel ERP & CRM Kokpiti', predicate: 'includesModules', object: 'Finansal Takvim, Proje Müşteri Carileri, Çift Kasa Mimarisi ve Vade Radarı' },
+      { subject: 'Özel Yerel ERP & CRM Kokpiti', predicate: 'operatesOn', object: 'Yerel Donanım, SQLite Veritabanı ve Otomatik Akşam Yedekleme Motoru' },
+      { subject: 'Özel Yerel ERP & CRM Kokpiti', predicate: 'deliversPerformance', object: 'Sıfır Bulut Bağımlılığı, Sıfır Aylık Aidat ve Yüksek Veri Güvenliği' }
     ],
-    heroAnswerEngine: 'Antigravity AI Master Suite Pro (Autonomous Engineering OS); yerel donanımınızda (Mac/PC) doğrudan çalışan, herhangi bir internet bağlantısı gerektirmeden tam çevrimdışı yedeklenebilen, ERP ve CRM süreçleriyle entegre, kod yazan, derleyen, test eden ve kendi kendini düzelten yeni nesil yerel otonom mühendislik platformudur.',
+    heroAnswerEngine: 'Özel Yerel ERP & CRM Finans Yönetim Kokpiti; işletmelerin devam eden projelerini, müşteri cari hesaplarını, hakedişlerini, çek-senet ve vadeli borçlarını, şirket ve şantiye kasalarını herhangi bir internet veya bulut bağımlılığı olmadan yerel bilgisayarlarında yönetmelerini sağlayan, otomatik yedeklemeli ve aboneliksiz kurumsal işletim sistemidir.',
     publishedAt: PUBLISHED_BASE,
     modifiedAt: MODIFIED_BASE,
     llmSubGraphRoute: '/llms/pages/otonom-muhendislik.md',
     mobileSubGraphRoute: '/llms/mobile/nano-otonom-muhendislik.md',
     breadcrumbs: [
       { name: 'Ana Sayfa', item: '/' },
-      { name: 'Otonom Mühendislik OS', item: '/otonom-muhendislik' }
+      { name: 'Yerel ERP & CRM', item: '/otonom-muhendislik' }
     ]
   },
   {
