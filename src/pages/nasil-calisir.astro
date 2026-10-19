@@ -15,10 +15,10 @@ const steps = [
   },
   {
     step: '02',
-    title: 'Kurumsal Havale / EFT & Güvenli Doğrulama',
-    kicker: 'RESMİ BANKA',
-    description: 'Ödemenizi şirketimizin resmi QNB Finansbank kurumsal IBAN hesabına Havale / EFT ile güvenle gerçekleştirin. Bildiriminizle birlikte sistem ve uzman ekibimiz anlık teyit sağlayarak siparişinizi onaylar.',
-    badges: ['QNB Finansbank Kurumsal IBAN', 'Hızlı Onay', 'Resmi E-Arşiv Fatura'],
+    title: '256-Bit SSL ile Güvenli Ödeme & Doğrulama',
+    kicker: 'SIFIR RİSK',
+    description: 'Kart bilgileriniz asla ExcelArşiv sunucularında tutulmaz. BDDK lisanslı Shopier altyapısında 256-bit SSL güvencesiyle ödeme tamamlanır. Sistem anlık kriptografik sunucu doğrulaması yaparak siparişi onaylar.',
+    badges: ['256-Bit SSL Şifreleme', 'Tüm Kartlara Taksit', 'Resmi E-Arşiv Fatura'],
   },
   {
     step: '03',
@@ -66,11 +66,11 @@ const pillars = [
     tag: '500+ Aktif İşletme',
   },
   {
-    title: 'Ödeme Kanalı',
-    kicker: 'KURUMSAL HAVALE',
-    desc: 'Şirketiniz adına resmi banka havalesi veya EFT ile ödeme, anında onay ve resmi kurumsal e-arşiv fatura teslimi.',
+    title: 'Satış Kanalı',
+    kicker: 'ESNEK ÖDEME',
+    desc: 'Şirketinize ve ihtiyaçlarınıza göre özel fiyat teklifi, resmi e-arşiv fatura ve anında teslimat desteği.',
     icon: 'S',
-    tag: 'Havale / EFT & Fatura',
+    tag: 'Tüm Kartlara Taksit',
   },
 ];
 
@@ -95,7 +95,7 @@ const howToLd = JSON.stringify({
       '@type': 'Article',
       'name': 'Excel Arşiv şablonu satın alma ve güvenli indirme',
       'headline': '10 Saniyede E-postanıza Teslim: Sıfır Kurulum, %100 Açık Formül, Anında Karar',
-      'description': 'Excel şablonunu seçme, kurumsal Havale / EFT ile güvenli ödeme, anında onay ve sıfır kurulumla Excel\'de anında çalıştırma süreci.',
+      'description': 'Excel şablonunu seçme, Shopier ile 256-bit SSL ödeme, 10 saniyede e-posta teslimatı ve sıfır kurulumla Excel\'de çalıştırma süreci.',
       'url': 'https://excelarsiv.com/nasil-calisir',
       'articleBody': steps.map((s, idx) => `${idx + 1}. ${s.title}: ${s.description}`).join('\n')
     }
@@ -235,29 +235,30 @@ const howToLd = JSON.stringify({
       </div>
     </section>
 
-    <!-- Satış Kanalı ve Havale / EFT Seçenekleri -->
+    <!-- Satış Kanalı ve Taksit Seçenekleri -->
     <section class="payment-channels-section">
       <div class="wrap-shell">
         <div class="payment-box">
           <div class="payment-copy">
-            <span class="kicker-tag">KURUMSAL HAVALE / EFT &amp; E-FATURA</span>
-            <h2>QNB Finansbank Kurumsal Havale / EFT Kolaylığı</h2>
+            <span class="kicker-tag">GÜVENLİ SATIŞ KANALI</span>
+            <h2>Tüm kurumsal ve bireysel kartlara 12 taksit</h2>
             <p>
-              Tüm siparişlerinizde şirketimiz adına kayıtlı kurumsal IBAN hesabımıza Havale / EFT yapabilirsiniz. Dekont onayınızla birlikte indirme bağlantınız ve resmi e-faturanız anında iletilir.
+              Şirketinize özel teklif ve kurumsal e-arşiv fatura avantajı. Detaylı bilgi ve teklif için doğrudan WhatsApp uzman hattımızla iletişime geçebilirsiniz.
             </p>
             <div class="card-brands">
-              <span>QNB Finansbank</span>
-              <span>FAST Uyumlu</span>
-              <span>EFT &amp; Havale</span>
-              <span>Resmi e-Fatura</span>
-              <span>Kurumsal VKN / TC</span>
+              <span>Axess</span>
+              <span>Bonus</span>
+              <span>World</span>
+              <span>Maximum</span>
+              <span>CardFinans</span>
+              <span>Paraf</span>
             </div>
           </div>
           <div class="payment-trust-seal">
             <div class="seal-icon">🛡️</div>
-            <strong>Kurumsal Banka Güvencesi</strong>
-            <span>QNB Finansbank Şirket Hesabı</span>
-            <small>Açıklamaya sipariş / telefon bilginizi yazmanız yeterlidir.</small>
+            <strong>256-Bit SSL Koruması</strong>
+            <span>BDDK Lisanslı Ödeme Ağ Geçidi</span>
+            <small>Kredi kartı bilgileriniz kaydedilmez.</small>
           </div>
         </div>
       </div>
