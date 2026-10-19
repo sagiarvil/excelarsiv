@@ -5,7 +5,7 @@
   <subtitle>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://excelarsiv.com/atom.xml" />
   <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-  <updated>2026-10-19T17:24:36.000Z</updated>
+  <updated>2026-10-19T18:35:25.000Z</updated>
   <generator uri="https://excelarsiv.com/" version="3.0">Excel Arşiv Feed Engine</generator>
   <author>
     <name>Barış Bağırlar</name>
@@ -16,10 +16,114 @@
     <id>https://excelarsiv.com/</id>
     <title>ExcelArşiv Pro | Türkiye&apos;nin Hazır Excel Şablon, Dashboard ve VBA Arşivi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-    <updated>2026-10-19T17:24:36.000Z</updated>
-    <published>2026-10-19T17:24:36.000Z</published>
+    <updated>2026-10-19T18:35:25.000Z</updated>
+    <published>2026-10-19T18:35:25.000Z</published>
     <summary>Sıfırdan tablo kurmakla saatler harcamayın: 124 hazır Excel karar modeli, dinamik yönetim dashboardları ve tek tıkla çalışan VBA makrolarını güvenle indirin.</summary>
     <category term="home" label="home" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/gizlilik-politikasi</id>
+    <title>Gizlilik Politikası ve KVKK Aydınlatma | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/gizlilik-politikasi" />
+    <updated>2026-10-19T18:35:25.000Z</updated>
+    <published>2026-10-19T18:35:25.000Z</published>
+    <summary>6698 sayılı KVKK ve ilgili mevzuat uyarınca Excel Arşiv gizlilik politikası, kişisel verilerin korunması, çerez yönetimi ve veri güvenliği ilkeleri.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/kvkk-aydinlatma</id>
+    <title>KVKK Aydınlatma Metni — Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/kvkk-aydinlatma" />
+    <updated>2026-10-19T18:35:25.000Z</updated>
+    <published>2026-10-19T18:35:25.000Z</published>
+    <summary>6698 sayılı KVKK kapsamında Excel Arşiv satın alma, Proof Demo ve güvenli dijital teslimat süreçlerinde kişisel verilerin işlenmesine ilişkin aydınlatma metni.</summary>
+    <category term="guven" label="guven" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/mesafeli-satis-sozlesmesi</id>
+    <title>Mesafeli Satış Sözleşmesi — Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/mesafeli-satis-sozlesmesi" />
+    <updated>2026-10-19T18:35:25.000Z</updated>
+    <published>2026-10-19T18:35:25.000Z</published>
+    <summary>Excel Arşiv dijital ürün satışlarına ilişkin Mesafeli Satış Sözleşmesi: satıcı kimliği, ürün, ödeme, teslimat ve cayma hakkı.</summary>
+    <category term="guven" label="guven" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/nasil-calisir</id>
+    <title>Nasıl Çalışır? 10 Saniyede Teslimat | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/nasil-calisir" />
+    <updated>2026-10-19T18:35:25.000Z</updated>
+    <published>2026-10-19T18:35:25.000Z</published>
+    <summary>Excel şablonunu seçme, Shopier ile 256-bit SSL ödeme, 10 saniyede e-posta teslimatı ve sıfır kurulumla Excel&apos;de çalıştırma süreci.</summary>
+    <category term="baslangic" label="baslangic" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/neden-excel-arsiv</id>
+    <title>Neden ExcelArşiv? 7 Kesin Neden &amp; Karşılaştırma — Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/neden-excel-arsiv" />
+    <updated>2026-10-19T18:35:25.000Z</updated>
+    <published>2026-10-19T18:35:25.000Z</published>
+    <summary>ExcelArşiv, ChatGPT ve boş Excel yaklaşımını kullanım amacı, doğruluk, denetim, veri gizliliği ve karar desteği açısından tarafsız biçimde karşılaştırın.</summary>
+    <category term="guven" label="guven" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/referans</id>
+    <title>Referanslar &amp; Sektörel Çözüm Ortaklığı — Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/referans" />
+    <updated>2026-10-19T18:35:25.000Z</updated>
+    <published>2026-10-19T18:35:25.000Z</published>
+    <summary>24 sektörde 500&apos;den fazla işletme ve mali müşavir tarafından aktif olarak kullanılan hazır Excel karar sistemi referansları.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/sablonlar</id>
+    <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/sablonlar" />
+    <updated>2026-10-19T18:35:25.000Z</updated>
+    <published>2026-10-19T18:35:25.000Z</published>
+    <summary>Nakit akışı, kârlılık, tahsilat, stok, bütçe ve daha fazlası için profesyonel Excel şablonları. macOS App Store vitrin düzeninde inceleyin.</summary>
+    <category term="kategori" label="kategori" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/yerel-erp-crm-moduller</id>
+    <title>İşletmeye Özel Yerel ERP &amp; CRM Modülleri | Bulutsuz, İnternetsiz, GitHub Yedekli — ExcelArşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/yerel-erp-crm-moduller" />
+    <updated>2026-10-19T18:35:25.000Z</updated>
+    <published>2026-10-19T18:35:25.000Z</published>
+    <summary>Aylık abonelik ödemeden kendi bilgisayarınızda çalışan, internet gerektirmeyen, GitHub ile otomatik şifreli yedeklenen, ERP ve CRM süreçleriyle işletmenizin finans ve operasyonunu tek ekrandan yöneten özel modüller.</summary>
+    <category term="diger" label="diger" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>
@@ -1885,45 +1989,6 @@
     </author>
   </entry>
   <entry>
-    <id>https://excelarsiv.com/neden-excel-arsiv</id>
-    <title>Neden ExcelArşiv? 7 Kesin Neden &amp; Karşılaştırma — Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/neden-excel-arsiv" />
-    <updated>2026-10-19T11:33:13.000Z</updated>
-    <published>2026-10-19T11:33:13.000Z</published>
-    <summary>ExcelArşiv, ChatGPT ve boş Excel yaklaşımını kullanım amacı, doğruluk, denetim, veri gizliliği ve karar desteği açısından tarafsız biçimde karşılaştırın.</summary>
-    <category term="guven" label="guven" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/yerel-erp-crm-moduller</id>
-    <title>İşletmeye Özel Yerel ERP &amp; CRM Modülleri | Bulutsuz, İnternetsiz, GitHub Yedekli — ExcelArşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/yerel-erp-crm-moduller" />
-    <updated>2026-10-19T11:33:13.000Z</updated>
-    <published>2026-10-19T11:33:13.000Z</published>
-    <summary>Aylık abonelik ödemeden kendi bilgisayarınızda çalışan, internet gerektirmeyen, GitHub ile otomatik şifreli yedeklenen, ERP ve CRM süreçleriyle işletmenizin finans ve operasyonunu tek ekrandan yöneten özel modüller.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/sablonlar</id>
-    <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/sablonlar" />
-    <updated>2026-10-13T15:54:29.000Z</updated>
-    <published>2026-10-13T15:54:29.000Z</published>
-    <summary>Nakit akışı, kârlılık, tahsilat, stok, bütçe ve daha fazlası için profesyonel Excel şablonları. macOS App Store vitrin düzeninde inceleyin.</summary>
-    <category term="kategori" label="kategori" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
     <id>https://excelarsiv.com/finansal-web</id>
     <title>İşletmeler İçin Özel Web Sitesi Yapımı &amp; Tasarımı | ExcelArşiv</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/finansal-web" />
@@ -1944,19 +2009,6 @@
     <published>2026-10-11T17:02:20.000Z</published>
     <summary>Hazır Excel dosyaları işinize uymuyorsa; nakit akışı, banka-kredi, maliyet, bütçe, fizibilite ve yönetim raporlaması için işletmenize özel Excel sistemi kuruyoruz.</summary>
     <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/nasil-calisir</id>
-    <title>Nasıl Çalışır? 10 Saniyede Teslimat | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/nasil-calisir" />
-    <updated>2026-09-30T16:23:36.000Z</updated>
-    <published>2026-09-30T16:23:36.000Z</published>
-    <summary>Excel şablonunu seçme, Shopier ile 256-bit SSL ödeme, 10 saniyede e-posta teslimatı ve sıfır kurulumla Excel&apos;de çalıştırma süreci.</summary>
-    <category term="baslangic" label="baslangic" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>
@@ -2191,19 +2243,6 @@
     <published>2026-09-26T13:15:52.000Z</published>
     <summary>Kafe ve restoran işletmeleri için kasa, menü maliyeti, kayıp/kaçak ve nakit planlama Excel sistemleri.</summary>
     <category term="sektor" label="sektor" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/referans</id>
-    <title>Referanslar &amp; Sektörel Çözüm Ortaklığı — Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/referans" />
-    <updated>2026-09-24T17:29:05.000Z</updated>
-    <published>2026-09-24T17:29:05.000Z</published>
-    <summary>24 sektörde 500&apos;den fazla işletme ve mali müşavir tarafından aktif olarak kullanılan hazır Excel karar sistemi referansları.</summary>
-    <category term="diger" label="diger" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>
@@ -3302,19 +3341,6 @@
     </author>
   </entry>
   <entry>
-    <id>https://excelarsiv.com/gizlilik-politikasi</id>
-    <title>Gizlilik Politikası ve KVKK Aydınlatma | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/gizlilik-politikasi" />
-    <updated>2026-09-07T07:27:02.000Z</updated>
-    <published>2026-09-07T07:27:02.000Z</published>
-    <summary>6698 sayılı KVKK ve ilgili mevzuat uyarınca Excel Arşiv gizlilik politikası, kişisel verilerin korunması, çerez yönetimi ve veri güvenliği ilkeleri.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
     <id>https://excelarsiv.com/iletisim</id>
     <title>İletişim | Satış, Destek ve İşletmeye Özel Excel Çözümleri | Excel Arşiv</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/iletisim" />
@@ -4244,32 +4270,6 @@
     <updated>2026-08-12T23:27:34.000Z</updated>
     <published>2026-08-12T23:27:34.000Z</published>
     <summary>Türkiye&apos;deki KOBİ ve profesyonel iş akışlarına göre hazırlanmış 20 sektörel Excel uygulama senaryosu: nakit akışı, maliyet, kârlılık, stok, teklif, üretim ve operasyon.</summary>
-    <category term="guven" label="guven" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/mesafeli-satis-sozlesmesi</id>
-    <title>Mesafeli Satış Sözleşmesi — Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/mesafeli-satis-sozlesmesi" />
-    <updated>2026-08-12T22:59:59.000Z</updated>
-    <published>2026-08-12T22:59:59.000Z</published>
-    <summary>Excel Arşiv dijital ürün satışlarına ilişkin Mesafeli Satış Sözleşmesi: satıcı kimliği, ürün, ödeme, teslimat ve cayma hakkı.</summary>
-    <category term="guven" label="guven" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/kvkk-aydinlatma</id>
-    <title>KVKK Aydınlatma Metni — Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/kvkk-aydinlatma" />
-    <updated>2026-08-12T22:24:56.000Z</updated>
-    <published>2026-08-12T22:24:56.000Z</published>
-    <summary>6698 sayılı KVKK kapsamında Excel Arşiv satın alma, Proof Demo ve güvenli dijital teslimat süreçlerinde kişisel verilerin işlenmesine ilişkin aydınlatma metni.</summary>
     <category term="guven" label="guven" />
     <author>
       <name>Barış Bağırlar</name>
