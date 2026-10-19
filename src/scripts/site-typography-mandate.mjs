@@ -27,7 +27,7 @@ const typographyStyles = `
   body{font-size:16px!important;line-height:var(--ea-leading-body)!important;color:#444444!important;background:#ffffff;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
   
   /* Someka Başlık Renkleri & Hiyerarşisi */
-  h1,h2,h3,h4,h5,h6,.display,.hero-title,.section-title{color:#222222!important;font-weight:700!important;line-height:1.25!important;letter-spacing:-0.02em}
+  :where(:not(#paketler):not(footer):not(.dark):not(.bg-slate-900):not(.bg-slate-950)) :is(h1,h2,h3,h4,h5,h6,.display,.hero-title,.section-title){color:#222222!important;font-weight:700!important;line-height:1.25!important;letter-spacing:-0.02em}
   h1,.display,.hero-title{font-size:clamp(32px,4vw,44px)!important;font-weight:800!important;line-height:1.15!important;letter-spacing:-0.03em!important}
   h2,.section-title{font-size:clamp(24px,2.8vw,32px)!important;font-weight:700!important}
   h3{font-size:clamp(19px,2vw,24px)!important}
@@ -35,8 +35,8 @@ const typographyStyles = `
   h5,h6{font-size:15px!important}
 
   /* Someka Gövde Metinleri & Paragraflar */
-  main p,main li,main td,main th,main details,main summary,article p,article li{font-family:var(--ea-font-sans)!important;font-size:16px!important;line-height:1.6!important;color:#444444!important}
-  main p{margin-bottom:1.2em}
+  :where(:not(#paketler):not(footer):not(.dark):not(.bg-slate-900):not(.bg-slate-950)) :is(main p,main li,main td,main th,main details,main summary,article p,article li){font-family:var(--ea-font-sans)!important;font-size:16px!important;line-height:1.6!important;color:#444444!important}
+  main:not([data-home-pro]) p{margin-bottom:1.2em}
   
   /* Someka Kart Başlıkları & Ürün Başlıkları (Okunaklı & Tok) */
   .single-post-title,.single-post-title a,.card__title,.card__title a,.tcard__title,.tcard__title a,[data-template-card] h3,[data-template-card] a,.mce-quick-card__title,.mce-template-card__title{font-family:var(--ea-font-sans)!important;font-size:16px!important;font-weight:700!important;line-height:1.35!important;color:#222222!important}
@@ -57,8 +57,8 @@ const typographyStyles = `
   main small,.text-muted,.meta,span.text-xs{font-size:13.5px!important;line-height:1.5!important;color:#666666!important}
 
   /* Footer */
-  footer,footer a{font-family:var(--ea-font-sans)!important;font-size:13.5px!important;line-height:1.55!important;color:#666666!important}
-  footer strong,footer h3,footer h4{color:#222222!important;font-size:15px!important}
+  footer:not(.bg-slate-950),footer:not(.bg-slate-950) a{font-family:var(--ea-font-sans)!important;font-size:13.5px!important;line-height:1.55!important;color:#666666!important}
+  footer:not(.bg-slate-950) strong,footer:not(.bg-slate-950) h3,footer:not(.bg-slate-950) h4{color:#222222!important;font-size:15px!important}
 
   @media(max-width:760px){
     :root{--ea-type-body:15.5px;--ea-type-nav:14.5px;--ea-type-small:13px}
@@ -66,8 +66,17 @@ const typographyStyles = `
     h1,.display,.hero-title{font-size:28px!important}
     h2,.section-title{font-size:22px!important}
     h3{font-size:18px!important}
-    main p,main li,main td,main th,main details,main summary{font-size:15.5px!important}
+    :where(:not(#paketler):not(footer):not(.dark):not(.bg-slate-900):not(.bg-slate-950)) :is(main p,main li,main td,main th,main details,main summary){font-size:15.5px!important}
   }
+</style>`;
+
+// Modern home page typography styles: carries MANDATE token without flattening components
+const homeModernTypographyStyles = `
+<style ${MANDATE} data-ea-home-clean-typography>
+  :root{
+    --ea-font-sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  }
+  body{font-family:var(--ea-font-sans)!important;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 </style>`;
 
 // The premium light special-systems page owns its own type scale. It still carries
@@ -99,11 +108,14 @@ export function applySiteTypographyMandate({ distDir = 'dist', specialPath = joi
     let html = readFileSync(path, 'utf8');
     const isSpecialLight = path === specialPath && html.includes('data-special-light-v1');
     const isDarkBespokePage = path.includes('finansal-web') || path.includes('kurumsal-web') || html.includes('data-finansal-web-prime') || html.includes('data-kurumsal-web-prime');
+    const isModernHome = (path === join(distDir, 'index.html') || path.endsWith('dist/index.html')) && (html.includes('data-home-pro-v2') || html.includes('data-appstore-mode="today"') || html.includes('ExcelArşiv Pro'));
     if (isSpecialLight) {
       lightSpecial = true;
       if (!html.includes(MANDATE)) html = html.replace('</head>', `${lightSpecialTypographyStyles}</head>`);
     } else if (isDarkBespokePage) {
       if (!html.includes(MANDATE)) html = html.replace('</head>', `<style ${MANDATE} data-ea-finansal-dark-mandate>:root{--ea-finansal-dark:true}</style></head>`);
+    } else if (isModernHome) {
+      if (!html.includes(MANDATE)) html = html.replace('</head>', `${homeModernTypographyStyles}</head>`);
     } else {
       if (!html.includes('data-ea-typography-font')) html = html.replace('</head>', `${FONT_LINK}${typographyStyles}</head>`);
       else if (!html.includes(MANDATE)) html = html.replace('</head>', `${typographyStyles}</head>`);
