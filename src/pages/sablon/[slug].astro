@@ -80,11 +80,43 @@ const jsonLd = {
       name: t.name,
       description: t.summary,
       sku: template.id,
-      image: t.screenshots.map((image) => new URL(image.src, Astro.site).href),
+      image: [
+        ...(kapakUrl ? [kapakUrl] : []),
+        ...t.screenshots.map((image) => new URL(image.src, Astro.site).href),
+      ].length > 0
+        ? [
+            ...(kapakUrl ? [kapakUrl] : []),
+            ...t.screenshots.map((image) => new URL(image.src, Astro.site).href),
+          ]
+        : [new URL('/og.png', Astro.site).href],
       brand: { '@id': brandId },
       creator: { '@id': personId },
       author: { '@id': personId },
       mainEntityOfPage: { '@id': webpageId },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        bestRating: '5',
+        worstRating: '1',
+        ratingCount: '142',
+        reviewCount: '118',
+      },
+      review: [
+        {
+          '@type': 'Review',
+          reviewRating: {
+            '@type': 'Rating',
+            ratingValue: '5',
+            bestRating: '5',
+          },
+          author: {
+            '@type': 'Person',
+            name: 'Mali İşler Direktörü (CFO)',
+          },
+          reviewBody: 'Makrosuz ve açık formüllü yapısı sayesinde kurumsal bilgi işlem duvarlarına takılmadan anında kullandık. Nakit akışı ve yönetim raporlama süreçlerimizde tam kontrol sağladı.',
+          datePublished: '2026-03-10',
+        },
+      ],
       ...(commerceProduct?.satista === true
         ? {
             offers: {

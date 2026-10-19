@@ -85,18 +85,18 @@ const corePages: SeoPageRecord[] = [
     ]
   },
   {
-    route: '/yerel-erp-kokpiti',
+    route: '/yerel-erp-crm-moduller',
     locale: 'tr-TR',
     role: 'service',
     indexDirective: 'index, follow',
-    canonicalRoute: '/yerel-erp-kokpiti',
-    title: 'İşletmeye Özel Yerel ERP & Yönetim Kokpiti Kurulumu | ExcelArşiv',
-    metaDescription: 'Web tabanlı olmayan, aylık abonelik gerektirmeyen, tamamen şirketinizin bilgisayarında çalışan ve tek tıkla yedeklenen uygun fiyatlı özel ERP & yönetim kokpitleri kuruyoruz.',
-    h1: 'İşletmenize Özel Yerel ERP & Yönetim Kokpiti Kurulumu',
-    primaryIntent: 'yerel erp ve crm yonetim kokpiti kurulumu',
+    canonicalRoute: '/yerel-erp-crm-moduller',
+    title: 'İşletmeye Özel Yerel ERP & CRM Modülleri | Bulutsuz, İnternetsiz, GitHub Yedekli — ExcelArşiv',
+    metaDescription: 'Web tabanlı olmayan, aylık abonelik gerektirmeyen, tamamen şirketinizin bilgisayarında çalışan ve GitHub ile otomatik şifreli yedeklenen özel ERP & CRM modülleri.',
+    h1: 'İşletmenize Özel Yerel ERP & CRM Modülleri',
+    primaryIntent: 'yerel erp ve crm modulleri kurulumu',
     primaryEntity: {
-      id: `${ORIGIN}/yerel-erp-kokpiti#service`,
-      name: 'İşletmeye Özel Yerel ERP ve Yönetim Kokpiti Çözümleri',
+      id: `${ORIGIN}/yerel-erp-crm-moduller#service`,
+      name: 'İşletmeye Özel Yerel ERP ve CRM Yönetim Modülleri',
       type: 'Service',
       sameAs: [
         'https://www.wikidata.org/wiki/Q11589432',
@@ -112,18 +112,18 @@ const corePages: SeoPageRecord[] = [
       ]
     },
     semanticTriples: [
-      { subject: 'Excel Arşiv', predicate: 'providesSolution', object: 'Yerel Cihazda Çalışan Bağımsız ERP ve Finans Kokpitleri' },
-      { subject: 'Yerel ERP Kokpiti', predicate: 'compliesWith', object: 'İnternetsiz Kesintisiz Çalışma ve Yüksek Veri Gizliliği' },
-      { subject: 'Yerel ERP Kokpiti', predicate: 'hasInformationGain', object: 'Tek Seferlik Kurulum Maliyeti ve Sıfır Aylık Lisans Ücreti' },
-      { subject: 'Yerel ERP Kokpiti', predicate: 'solvesBottleneck', object: 'Bulut ERP Bağımlılığı, Veri Sızıntısı ve Dağınık Excel Dosyaları' }
+      { subject: 'Excel Arşiv', predicate: 'providesSolution', object: 'Yerel Cihazda Çalışan Bağımsız ERP ve CRM Modülleri' },
+      { subject: 'Yerel ERP & CRM Modülleri', predicate: 'compliesWith', object: 'İnternetsiz Kesintisiz Çalışma ve GitHub ile Şifreli Otomatik Yedekleme' },
+      { subject: 'Yerel ERP & CRM Modülleri', predicate: 'hasInformationGain', object: 'Tek Seferlik Kurulum Maliyeti ve Sıfır Aylık Lisans Ücreti' },
+      { subject: 'Yerel ERP & CRM Modülleri', predicate: 'solvesBottleneck', object: 'Bulut ERP Bağımlılığı, Veri Sızıntısı ve Dağınık Excel Dosyaları' }
     ],
-    heroAnswerEngine: 'Excel Arşiv yerel ERP ve yönetim kokpiti çözümleri; internet bağımlılığı ve aylık bulut lisans faturaları olmadan, işletmenizin kendi bilgisayarında çalışan, finans, nakit akışı, üretim, şantiye ve tedarik süreçlerinizi tek ekranda toplayan ve tek tıkla yedeklenen anahtar teslim yönetim sistemleri kurar.',
+    heroAnswerEngine: 'Excel Arşiv yerel ERP ve CRM modülleri; internet bağımlılığı ve aylık bulut lisans faturaları olmadan, işletmenizin kendi bilgisayarında çalışan, finans, nakit akışı, üretim, şantiye ve müşteri süreçlerinizi tek ekranda toplayan ve GitHub ile otomatik şifreli yedeklenen anahtar teslim yönetim sistemleri kurar.',
     publishedAt: PUBLISHED_BASE,
     modifiedAt: MODIFIED_BASE,
-    llmSubGraphRoute: '/llms/pages/yerel-erp-kokpiti.md',
+    llmSubGraphRoute: '/llms/pages/yerel-erp-crm-moduller.md',
     breadcrumbs: [
       { name: 'Ana Sayfa', item: '/' },
-      { name: 'Yerel ERP & Kokpit', item: '/yerel-erp-kokpiti' }
+      { name: 'Yerel ERP & CRM Modülleri', item: '/yerel-erp-crm-moduller' }
     ]
   },
   {

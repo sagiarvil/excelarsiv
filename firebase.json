@@ -34,6 +34,26 @@
           "source": "/paketler",
           "destination": "/sablon/kobi-finans-yonetim-paketi",
           "type": 301
+        },
+        {
+          "source": "/otonom-muhendislik",
+          "destination": "/yerel-erp-crm-moduller",
+          "type": 301
+        },
+        {
+          "source": "/yerel-erp-kokpiti",
+          "destination": "/yerel-erp-crm-moduller",
+          "type": 301
+        },
+        {
+          "source": "/yerel-erp-crm",
+          "destination": "/yerel-erp-crm-moduller",
+          "type": 301
+        },
+        {
+          "source": "/yerel-erp-crm-modulleri",
+          "destination": "/yerel-erp-crm-moduller",
+          "type": 301
         }
       ],
       "rewrites": [

@@ -1899,6 +1899,20 @@
       "notes": "Registry parity sync — kurumsal-web anahtar teslim web sitesi hizmeti eklendi."
     },
     {
+      "pageId": "excelarsiv:yerel-erp-crm-moduller",
+      "route": "/yerel-erp-crm-moduller",
+      "type": "other",
+      "status": "live",
+      "primaryQueryClusterId": "yerel-erp-crm-modulleri",
+      "primaryEntity": "/yerel-erp-crm-moduller",
+      "searchIntent": "commercial",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/yerel-erp-crm-moduller",
+      "ownerRoute": null,
+      "notes": "İşletmeye Özel Yerel ERP & CRM Finans Yönetim Modülleri (Bulutsuz, İnternetsiz, GitHub Yedekli)."
+    },
+    {
       "pageId": "excelarsiv:gizlilik-politikasi",
       "route": "/gizlilik-politikasi",
       "type": "legal",

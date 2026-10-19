@@ -2,6 +2,7 @@
 import CommerceLayout from '../../layouts/CommerceLayout.astro';
 import { kararPages, type KararPageSpec } from '../../data/kararPages';
 import { getAllTemplates, type TemplateViewModel } from '../../lib/templates';
+import { IADE_POLITIKASI } from '../../data/satici';
 
 export function getStaticPaths() {
   return kararPages.map((page) => ({ params: { slug: page.slug }, props: { page } }));
@@ -55,22 +56,49 @@ const jsonLd = {
       '@type': 'ItemList',
       '@id': `${pageUrl}#products`,
       name: `${page.title} — ürün karşılaştırması`,
-      itemListElement: itemProducts.map((item, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        item: {
-          '@type': 'Product',
-          name: item.name,
-          url: new URL(item.url, siteUrl).href,
-          offers: {
-            '@type': 'Offer',
-            price: item.priceTL,
-            priceCurrency: 'TRY',
-            availability: 'https://schema.org/InStock',
+      itemListElement: itemProducts.map((item, index) => {
+        const itemImage = item.kapak
+          ? new URL(item.kapak, siteUrl).href
+          : item.preview?.src
+            ? new URL(item.preview.src, siteUrl).href
+            : new URL('/og.png', siteUrl).href;
+
+        return {
+          '@type': 'ListItem',
+          position: index + 1,
+          item: {
+            '@type': 'Product',
+            name: item.name,
+            description: item.summary,
             url: new URL(item.url, siteUrl).href,
+            image: [itemImage],
+            brand: {
+              '@type': 'Brand',
+              name: 'Excel Arşiv',
+            },
+            offers: {
+              '@type': 'Offer',
+              price: item.priceTL,
+              priceCurrency: 'TRY',
+              priceValidUntil: '2026-12-31',
+              itemCondition: 'https://schema.org/NewCondition',
+              availability: 'https://schema.org/InStock',
+              url: new URL(item.url, siteUrl).href,
+              seller: {
+                '@type': 'Organization',
+                name: 'Excel Arşiv',
+                url: new URL('/', siteUrl).href,
+              },
+              hasMerchantReturnPolicy: {
+                '@type': 'MerchantReturnPolicy',
+                applicableCountry: 'TR',
+                returnPolicyCategory: IADE_POLITIKASI.schemaCategory,
+                merchantReturnLink: new URL('/teslimat-ve-iade', siteUrl).href,
+              },
+            },
           },
-        },
-      })),
+        };
+      }),
     },
   ],
 };

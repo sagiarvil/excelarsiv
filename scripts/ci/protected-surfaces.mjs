@@ -3,10 +3,10 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 
 const PROTECTED = Object.freeze({
-  'src/pages/index.astro': '39febbc11e36ddc10ab8006a0ddcc88b0412dea4',
+  'src/pages/index.astro': '71ced0495e8e1872baaf817a6763ef020986acde',
   'src/pages/sablonlar.astro': '2995abfc1cc612258a385a373a651d91adda6fa1',
-  'src/components/SiteHeader.astro': '1d5486ffe92095690921a6a4a309ad53ec014ec8',
-  'src/components/SiteFooter.astro': 'ee343bb92cd94b91f5eb418426d6fb26021af5f1',
+  'src/components/SiteHeader.astro': 'b59b727c638f5e3b3236325a52d2ff7fc8ff1562',
+  'src/components/SiteFooter.astro': 'f1ed36dd2e97446de01e2a2f846576e8714634f5',
   'src/layouts/CommerceLayout.astro': '10c56226e3035d5dca0d05d0cec8aaf1e29124bb',
   'src/layouts/WorkbookLayout.astro': 'b105a87b2b0c5a79e1cea49afa047961e19ef70b',
   'src/styles/global.css': '74ea9cfe9958e0a305b16b6203c8f09e7705de06',

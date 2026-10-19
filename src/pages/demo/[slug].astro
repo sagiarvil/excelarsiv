@@ -4,6 +4,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import Button from '../../components/Button.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import DemoDownloadBox from '../../components/DemoDownloadBox.astro';
+import { kapakYolu, premiumKapakUrl } from '../../lib/kapak';
 
 export async function getStaticPaths() {
   const templates = await getCollection('templates');
@@ -44,6 +45,8 @@ const description = customSeo ? customSeo.description : `${t.name} iÃ§in 20 satÄ
 const site = Astro.site ?? new URL('https://excelarsiv.com/');
 const currentUrl = new URL(`/demo/${template.id}`, site).href;
 const fullProductUrl = new URL(productUrl, site).href;
+const kapak = premiumKapakUrl(template.id) ?? kapakYolu(template.id);
+const kapakUrl = kapak ? new URL(kapak, site).href : undefined;
 
 const demoJsonLd = {
   '@context': 'https://schema.org',
@@ -74,6 +77,7 @@ const demoJsonLd = {
         '@type': 'Product',
         name: t.name,
         url: fullProductUrl,
+        image: kapakUrl ? [kapakUrl] : [new URL('/og.png', site).href],
       },
     },
   ],

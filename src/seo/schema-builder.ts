@@ -133,13 +133,20 @@ export function buildCompleteJsonLdGraph(page: SeoPageRecord, domain: string = '
       '@id': page.primaryEntity.id,
       name: page.primaryEntity.name,
       description: page.metaDescription,
+      image: [`${origin}/og.png`],
       brand: { '@id': `${origin}/#organization` },
       offers: {
         '@type': 'Offer',
         priceCurrency: 'TRY',
         availability: 'https://schema.org/InStock',
         url: `${pageUrl}#satin-al`,
-        seller: { '@id': `${origin}/#organization` }
+        seller: { '@id': `${origin}/#organization` },
+        hasMerchantReturnPolicy: {
+          '@type': 'MerchantReturnPolicy',
+          applicableCountry: 'TR',
+          returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+          merchantReturnLink: `${origin}/teslimat-ve-iade`
+        }
       }
     });
   } else if (page.primaryEntity.type === 'SoftwareApplication') {

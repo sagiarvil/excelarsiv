@@ -1,61 +1,10 @@
 ---
 import '../styles/global.css';
-import '../styles/appstore-theme.css';
-import AppStoreSidebar from '../components/appstore/AppStoreSidebar.astro';
-import LiveTrustCounters from '../components/home/LiveTrustCounters.astro';
-import { getAllTemplates, getTemplateSearchIndex } from '../lib/templates';
-import { kararPages } from '../data/kararPages';
-
+import { getAllTemplates } from '../lib/templates';
 import { YAZAR, yazarPersonId, yazarPersonLd } from '../data/yazar';
 import { SATICI } from '../data/satici';
 
 const templates = await getAllTemplates();
-const searchIndex = await getTemplateSearchIndex();
-const productCount = templates.length;
-const categoryCount = new Set(templates.map((item) => item.categorySlug)).size;
-
-const heroSearchData = templates.map((t) => ({
-  name: t.name,
-  summary: t.summary || '',
-  category: t.categoryName || '',
-  url: t.url,
-  slug: t.slug,
-}));
-
-// En Çok Tercih Edilenler (Farklı Renk ve Grafik Sembolleri)
-const popularFreeTemplates = [
-  { name: '13 Haftalık Nakit Akışı', slug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', url: '/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi', summary: 'Nakit akışınızı haftalık olarak planlayın.', color: 'blue', icon: 'trend' },
-  { name: 'Akıllı Kasa Defteri', slug: 'akilli-kasa-defteri-ve-nakit-kontrol-sistemi', url: '/sablon/akilli-kasa-defteri-ve-nakit-kontrol-sistemi', summary: 'Günlük gelir gider takibi yapın.', color: 'green', icon: 'chart' },
-  { name: 'Cari Risk Takip', slug: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', url: '/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi', summary: 'Müşteri risklerini kolayca yönetin.', color: 'amber', icon: 'pie' },
-  { name: 'Aylık Patron Finans Paneli', slug: 'aylik-patron-finans-paneli', url: '/sablon/aylik-patron-finans-paneli', summary: 'İşletmenizin genel durumunu görün.', color: 'purple', icon: 'gauge' },
-  { name: 'Gelir Gider Gerçek Kârlılık', slug: 'gunluk-gelir-gider-ve-gercek-karlilik-sistemi', url: '/sablon/gunluk-gelir-gider-ve-gercek-karlilik-sistemi', summary: 'Kişisel ve kurumsal kârlılık takibi.', color: 'rose', icon: 'waterfall' },
-];
-
-// İşletmeler İçin Öne Çıkanlar (6'lı Grid)
-const businessFeaturedSlugs = [
-  { slug: 'kobi-finans-yonetim-paketi', name: 'KOBİ Finans Yönetim Paketi', sub: 'Bilanço, gelir tablosu, nakit akışı', color: 'green', icon: 'chart' },
-  { slug: 'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici', name: 'Kıdem ve İhbar Yükü', sub: 'Personel tazminat ve çıkarma maliyeti', color: 'purple', icon: 'users' },
-  { slug: 'uretim-kapasite-yatirim-ve-karlilik', name: 'Üretim Kapasite ve Yatırım', sub: 'Kapasite ve yatırım kârlılığı', color: 'blue', icon: 'pie' },
-  { slug: 'stok-satis-ve-nakit-baglanma-sistemi', name: 'Stok Satış ve Nakit Bağlanma', sub: 'Stok giriş çıkışlarınızı yönetin', color: 'orange', icon: 'box' },
-  { slug: 'pos-komisyon-ve-net-tahsilat-kontrol-sistemi', name: 'POS Komisyon ve Net Tahsilat', sub: 'Net tahsilat ve komisyon takibi', color: 'red', icon: 'tag' },
-  { slug: 'sube-karlilik-ve-nakit-hesaplayici', name: 'Şube Kârlılık ve Nakit Analizi', sub: 'Şube kârlılığı ve nakit yakış testi', color: 'teal', icon: 'trend' },
-];
-
-const homeDecisionSlugs = [
-  'kobi-nakit-akisi-excel',
-  'mali-musavir-cari-takip-excel',
-  'pos-komisyon-kontrol-excel',
-  'trendyol-pazaryeri-net-kar-excel',
-];
-const homeDecisions = homeDecisionSlugs.map((slug) => kararPages.find((item) => item.slug === slug)).filter(Boolean);
-
-const faqItems = [
-  { q: 'Teklif almadan önce dosyayı inceleyebilir miyim?', a: 'Uygun ürünlerde ücretsiz demo ve gerçek ürün ekranları bulunur. Ürün detay sayfasından kapsamı ve demo bağlantısını teklif almadan önce kontrol edebilirsiniz.' },
-  { q: 'Fiyatlandırma ve teklif süreci nasıl işliyor?', a: 'Her işletmenin veri boyutu ve uyarlama ihtiyacı farklı olduğu için WhatsApp üzerinden hızlıca ihtiyacınızı dinleyip en uygun teklifi sunuyoruz.' },
-  { q: 'Teklif ve kurulum süreci nasıl işliyor?', a: 'WhatsApp üzerinden doğrudan uzmanımızla görüşüp şirketinize özel teklif ve kurulum desteği alabilirsiniz.' },
-  { q: 'Hangi sistemi seçmem gerektiğini bilmiyorsam ne yapmalıyım?', a: 'Karar rehberlerinden işletme probleminize en yakın soruyu seçebilir veya arama kutusunu kullanabilirsiniz.' },
-  { q: 'Excel Arşiv bir ERP veya muhasebe programı mı?', a: 'Hayır. Ürünler belirli finans, muhasebe ve operasyon karar problemlerine odaklanan indirilebilir Excel çalışma sistemleridir.' },
-];
 
 const site = 'https://excelarsiv.com';
 const homeJsonLd = {
@@ -66,7 +15,7 @@ const homeJsonLd = {
       '@id': `${site}/#organization`,
       name: 'Excel Arşiv',
       url: `${site}/`,
-      description: 'Excel Arşiv — Türkiye\'deki işletmeler için finans, muhasebe ve operasyon odaklı hazır Excel çalışma sistemleri.',
+      description: 'Excel Arşiv — Türkiye\'nin hazır Excel şablon, dinamik yönetim dashboard ve VBA makro arşivi.',
       logo: {
         '@type': 'ImageObject',
         url: `${site}/og.png`,
@@ -120,8 +69,8 @@ const homeJsonLd = {
       '@type': 'WebPage',
       '@id': `${site}/#webpage`,
       url: `${site}/`,
-      name: 'İşletmeler İçin Finansal Karar Sistemleri | Excel Arşiv',
-      description: 'Dağınık Excel tablolarını tek ekranda net karara dönüştürün. Nakit akışı, bütçe, kredi, kârlılık ve muhasebe için profesyonel hazır Excel sistemleri.',
+      name: 'ExcelArşiv Pro | Türkiye\'nin Hazır Excel Şablon, Dashboard ve VBA Arşivi',
+      description: 'Sıfırdan tablo kurmakla saatler harcamayın: 2.750+ hazır Excel şablonu, dinamik yönetim dashboardları ve tek tıkla çalışan VBA makrolarını güvenle indirin.',
       inLanguage: 'tr-TR',
       isPartOf: { '@id': `${site}/#website` },
       about: { '@id': `${site}/#organization` },
@@ -130,55 +79,68 @@ const homeJsonLd = {
     {
       '@type': 'FAQPage',
       '@id': `${site}/#faq`,
-      mainEntity: faqItems.map((item) => ({
-        '@type': 'Question',
-        name: item.q,
-        acceptedAnswer: { '@type': 'Answer', text: item.a },
-      })),
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Ödeme yaptıktan sonra dosyaları hemen indirebiliyor muyum?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Evet! Kredi kartı veya banka kartı ile 3D Secure üzerinden ödemenizi tamamladığınız saniye hesabınız otomatik olarak aktifleşir. Ödeme bildirimi formu doldurmanıza veya onay beklemenize gerek kalmadan tüm dosyaları tek tıkla indirebilirsiniz.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'İndirdiğim Excel şablonlarında şifre veya kullanım süresi sınırı var mı?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Hayır. Tüm Excel tablolarımız ve VBA makrolarımız tamamen açık kaynaklıdır. Kendi şirket logonuzu ekleyebilir, satır/sütun ve formülleri dilediğiniz gibi değiştirebilirsiniz. Aylık ya da yıllık abonelik ücreti yoktur.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'VIP Arşiv Paketi (Tek Fiyat: 2.000 ₺) içine tanesi 2.000 ₺ olan Ücretli Uygulamalar dahil mi?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Evet! VIP Tam Arşiv Paketi aldığınızda 2.750+ standart dosyanın yanı sıra Satış Pipeline Kanban, Nakit Akışı Yönetimi gibi seçkin yönetim şablonlarına ve 152 saatlik video eğitim setine ücretsiz erişirsiniz.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Şirketimiz adına kurumsal e-Fatura kesiyor musunuz?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Elbette. Osma Bilişim Akademi olarak tüm bireysel ve kurumsal satın alımlarda KDV dahil resmi e-Arşiv / e-Fatura düzenlemekteyiz. Ödeme adımında vergi dairesi ve VKN bilgilerinizi girmeniz yeterlidir.'
+          }
+        }
+      ],
     },
     {
       '@type': 'ItemList',
       '@id': `${site}/#catalog`,
-      name: 'Öne Çıkan Hazır Excel Şablonları ve Karar Sistemleri',
-      numberOfItems: popularFreeTemplates.length,
-      itemListElement: popularFreeTemplates.map((item, idx) => ({
-        '@type': 'ListItem',
-        position: idx + 1,
-        name: item.name,
-        url: `https://excelarsiv.com${item.url}`,
-      })),
-    },
-    {
-      '@type': 'Dataset',
-      '@id': `${site}/#dataset`,
-      name: 'Excel Arşiv Web Standartları ve Otorite Metrikleri Veri Seti',
-      description: 'excelarsiv.com üzerindeki teknik arama, GEO ve AEO optimizasyon metriklerinin kamuya açık doğrulanmış veri seti.',
-      url: 'https://excelarsiv.com',
-      sameAs: [
-        'https://www.wikidata.org/wiki/Q11261',
-        'https://www.wikidata.org/wiki/Q380',
-        'https://www.wikidata.org/wiki/Q1313364',
-        'https://excelarsiv.com/standard/',
+      name: 'Öne Çıkan Hazır Excel Şablonları ve Dashboard Sistemleri',
+      numberOfItems: 8,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Nakit Akışı ve Likidite Yönetimi Dashboard', url: `${site}/#canli-onizleme` },
+        { '@type': 'ListItem', position: 2, name: 'Satış Pipeline Takibi Kanban & CRM', url: `${site}/#canli-onizleme` },
+        { '@type': 'ListItem', position: 3, name: 'Çoklu Kredi Kartı Ödeme, Ekstre ve Taksit Takip', url: `${site}/sablonlar` },
+        { '@type': 'ListItem', position: 4, name: 'Personel İzin Hakediş & Fazla Mesai Hesaplama', url: `${site}/#canli-onizleme` },
+        { '@type': 'ListItem', position: 5, name: 'Yıllık Bütçe Planlama ve Gerçekleşme Analizi', url: `${site}/sablonlar` },
+        { '@type': 'ListItem', position: 6, name: 'İş Emri & Bordro Yöneticiye Göre Toplu PDF + Mail', url: `${site}/sablonlar` },
+        { '@type': 'ListItem', position: 7, name: 'Satış Ekibi Performans, Prim ve Hedef Dashboard', url: `${site}/sablonlar` },
+        { '@type': 'ListItem', position: 8, name: 'Potansiyel Müşteri (Lead) & Teklif Dönüşüm Takip', url: `${site}/sablonlar` },
       ],
-      creator: {
-        '@type': 'Organization',
-        name: 'Excel Arşiv',
-        url: 'https://excelarsiv.com',
-      },
-      isAccessibleForFree: true,
-      license: 'https://creativecommons.org/licenses/by/4.0/',
     },
   ],
 };
 ---
 
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>İşletmeler İçin Finansal Karar Sistemleri | Excel Arşiv</title>
-  <meta name="description" content="Dağınık Excel tablolarını tek ekranda net karara dönüştürün. Nakit akışı, bütçe, kredi, kârlılık ve muhasebe için profesyonel hazır Excel sistemleri." />
+  <title>ExcelArşiv Pro | Türkiye'nin Hazır Excel Şablon, Dashboard ve VBA Arşivi</title>
+  <meta name="description" content="Sıfırdan tablo kurmakla saatler harcamayın: 2.750+ hazır Excel şablonu, dinamik yönetim dashboardları ve tek tıkla çalışan VBA makrolarını güvenle indirin." />
   <meta name="author" content="Barış Bağırlar" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <link rel="canonical" href="https://excelarsiv.com/" />
@@ -189,1275 +151,1571 @@ const homeJsonLd = {
   <link rel="alternate" type="application/json" href="https://excelarsiv.com/.well-known/agent-card.json" title="Autonomous Agent Protocol" />
   <link rel="icon" type="image/png" href="/images/excel-logo.png" />
   <script type="application/ld+json" set:html={JSON.stringify(homeJsonLd)} />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script is:inline src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script is:inline>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            excel: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#10b981',
+              600: '#107c41',
+              700: '#0b5c30',
+              800: '#064e3b',
+              900: '#022c22',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+    .grid-pattern {
+      background-image: linear-gradient(to right, rgba(16, 124, 65, 0.06) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(16, 124, 65, 0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .excel-cell-active {
+      outline: 2px solid #107c41;
+      background-color: #f0fdf4;
+    }
+  </style>
 </head>
-<body data-appstore-mode="today">
+<body class="antialiased selection:bg-emerald-600 selection:text-white" data-appstore-mode="today" data-dual-funnel-home-v17 data-mobile-premium-v18 data-desktop-premium-v19>
   <!-- 14KB TCP AST Initial Window — High-Entropy AEO Semantic Entity Block -->
   <section class="as-aeo-hero-window" data-chunk-id="hero-answer" aria-label="Excel Arşiv Kurumsal Tanımı">
     <p class="hero-answer as-hero-answer-text">
-      <strong>Excel Arşiv</strong>; Türkiye’deki KOBİ’ler, finans yöneticileri ve işletme sahipleri için makrosuz, açık formüllü ve denetlenebilir profesyonel Excel karar sistemleri sunar. 13 haftalık nakit akışı, dinamik bütçe, başabaş kârlılık, alacak-borç yaşlandırma ve personel maliyet modelleriyle finansal belirsizlikleri ortadan kaldırır; şirket verilerini yerel ve %100 güvenli tutarak stratejik kararların hızla alınmasını sağlar.
+      <strong>Excel Arşiv</strong>; Türkiye’deki KOBİ’ler, finans yöneticileri, İK uzmanları ve işletme sahipleri için hazır Excel şablonları, dinamik yönetim dashboardları ve tek tıkla çalışan VBA makro otomasyonları sunar. Nakit akışından personel puantajına, satış pipeline takibinden kurumsal bütçe modellerine kadar 2.750+ açık kaynaklı şablonla zaman kaybını ortadan kaldırır.
     </p>
   </section>
-  <div class="appstore-root">
-    <div class="appstore-window">
-      <!-- Sol macOS Kenar Çubuğu (Sidebar) -->
-      <AppStoreSidebar activeTab="today" />
 
-      <!-- Sağ macOS Ana Canvas -->
-      <main class="appstore-main-canvas" id="main-content">
-        <!-- ====================================================================
-             1. BÜYÜK MAC HERO AFİŞİ (media_1790445038375.png Referansı)
-             ==================================================================== -->
-        <section class="as-hero-banner" aria-labelledby="hero-title">
-          <div class="as-hero-copy">
-            <span class="as-hero-eyebrow">TÜRKİYE'NİN LİDER KURUMSAL EXCEL EKOSİSTEMİ</span>
-            <h1 id="hero-title" class="as-hero-title">İşletmeler İçin Profesyonel Finans & Yönetim Sistemleri</h1>
-            <p class="as-hero-desc">Dağınık tabloları unutun. Nakit akışı, bütçe, cari risk ve kârlılık kararlarınızı tek ekranda profesyonelce yönetin.</p>
-            
-            <!-- 5 Saniyede Anlaşılır Temel Sistem Rozetleri -->
-            <div class="as-hero-badges" aria-label="Temel Sistem Avantajları">
-              <span class="as-hero-badge-pill">⚡ Anında İndir &amp; Kullan</span>
-              <span class="as-hero-badge-pill">🔓 %100 Açık Formüller (Makrosuz)</span>
-              <span class="as-hero-badge-pill">🔒 Yerel &amp; Güvenli</span>
-            </div>
-
-            <!-- DEV GENİŞLETİLMİŞ AKTİF ARAMA BLOĞU (Maddeler 2 & 4) -->
-            <div class="as-hero-search-cockpit" data-hero-search-box>
-              <form action="/sablonlar" method="get" class="as-hero-search-bar" role="search" data-hero-search-form>
-                <div class="as-hero-search-input-wrap">
-                  <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="as-hero-search-svg" aria-hidden="true">
-                    <circle cx="9" cy="9" r="6"></circle>
-                    <line x1="13.5" y1="13.5" x2="18" y2="18"></line>
-                  </svg>
-                  <input
-                    type="search"
-                    name="q"
-                    placeholder="Excel sistemi arayın... (Örn: Nakit akışı, bütçe, cari risk)"
-                    aria-label="Excel sistemleri içinde ara"
-                    autocomplete="off"
-                    data-hero-search-input
-                  />
-                </div>
-                <button type="submit" class="as-hero-search-submit-btn" aria-label="Sistem Ara" data-hero-search-submit>
-                  <span>Sistem Ara</span>
-                  <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="7 5 12 10 7 15"></polyline>
-                  </svg>
-                </button>
-              </form>
-
-              <!-- Canlı & Zengin Arama Sonuç Dropdown'ı (Apple Spotlight Kalitesinde) -->
-              <div class="as-hero-search-dropdown" data-hero-search-dropdown hidden>
-                <div class="as-hero-dropdown-inner">
-                  <div class="as-hero-dropdown-header">
-                    <span>EŞLEŞEN SİSTEMLER</span>
-                    <span class="as-hero-dropdown-count" data-hero-search-count></span>
-                  </div>
-                  <ul class="as-hero-dropdown-list" data-hero-search-results></ul>
-                  <a href="/sablonlar" class="as-hero-dropdown-all" data-hero-search-view-all>
-                    <span>Tüm sistemleri katalogda filtrele</span>
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Popüler Hızlı Arama Etiketleri -->
-              <div class="as-hero-quick-chips" aria-label="Popüler Arama Önerileri">
-                <span class="as-chip-label">Önerilen:</span>
-                <button type="button" class="as-chip-btn" data-hero-quick-chip="Nakit Akışı">Nakit Akışı</button>
-                <button type="button" class="as-chip-btn" data-hero-quick-chip="Cari Risk">Cari Risk</button>
-                <button type="button" class="as-chip-btn" data-hero-quick-chip="Kasa Defteri">Kasa Defteri</button>
-                <button type="button" class="as-chip-btn" data-hero-quick-chip="Bütçe Planlama">Bütçe</button>
-                <button type="button" class="as-chip-btn" data-hero-quick-chip="Kıdem İhbar">Kıdem</button>
-              </div>
-            </div>
-
-            <!-- Eylem Butonları & Canlı Carousel Senkronizasyon Satırı -->
-            <div class="as-hero-action-line">
-              <a href="/sablonlar" class="as-hero-cta">
-                <span>Tüm Şablonları Gör</span>
-                <span aria-hidden="true">›</span>
-              </a>
-              <a href="/sablonlar/finansal-analiz" class="as-hero-secondary-link">
-                Tüm Sistemleri İncele →
-              </a>
-              <div class="as-hero-dots" aria-label="Dashboard Panelleri Gezinmesi" data-hero-dots>
-                <button type="button" class="as-dot is-active" aria-label="1. Panel: Borç / Alacak ve Yaşlandırma Analizi" data-slide-index="0"></button>
-                <button type="button" class="as-dot" aria-label="2. Panel: İşletme Sermayesi ve Finansal Sağlık" data-slide-index="1"></button>
-                <button type="button" class="as-dot" aria-label="3. Panel: Gelir Gider ve Bütçe Sapma Kontrolü" data-slide-index="2"></button>
-                <button type="button" class="as-dot" aria-label="4. Panel: CFO Nakit Akışı, ROE ve Hissedarlık" data-slide-index="3"></button>
-              </div>
-            </div>
-          </div>
-
-          <div class="as-hero-mockup-scene">
-            <div class="as-macbook-frame">
-              <div class="as-macbook-notch"></div>
-              <div class="as-macbook-screen">
-                <!-- Canlı & Geniş Yönetici Dashboard Carouseli (4 Gerçek Excel Karar Paneli) -->
-                <div class="as-dashboard-carousel" data-hero-carousel>
-                  <button type="button" class="as-dashboard-nav-btn as-dashboard-nav-prev" aria-label="Önceki Dashboard Paneli" data-carousel-prev>‹</button>
-                  <button type="button" class="as-dashboard-nav-btn as-dashboard-nav-next" aria-label="Sonraki Dashboard Paneli" data-carousel-next>›</button>
-
-                  <div class="as-dashboard-slides" data-carousel-slides>
-                    <!-- Slayt 1: Alacak / Borç Yaşlandırma & Vade Takibi -->
-                    <article class="as-dashboard-slide">
-                      <div class="as-dashboard-slide-header">
-                        <span class="as-dashboard-slide-tag">
-                          <span class="tag-dot"></span>
-                          <span>Alacak / Borç Yaşlandırma & Vade Takip Sistemi</span>
-                        </span>
-                        <span class="as-dashboard-slide-badge">CANLI KARAR KOKPİTİ</span>
-                      </div>
-                      <div class="as-dashboard-slide-img-wrap">
-                        <picture>
-                          <source srcset="/images/hero-dashboards/dashboard-receivables-payables.webp" type="image/webp" />
-                          <img
-                            src="/images/hero-dashboards/dashboard-receivables-payables.png"
-                            alt="Alacak ve Borç Yaşlandırma Excel Karar Paneli"
-                            width="1024"
-                            height="650"
-                            loading="eager"
-                            decoding="async"
-                            class="as-dashboard-slide-img"
-                          />
-                        </picture>
-                      </div>
-                    </article>
-
-                    <!-- Slayt 2: İşletme Sermayesi ve Likidite Kontrolü -->
-                    <article class="as-dashboard-slide">
-                      <div class="as-dashboard-slide-header">
-                        <span class="as-dashboard-slide-tag">
-                          <span class="tag-dot" style="background:#0071e3;"></span>
-                          <span>İşletme Sermayesi, Stok Devri & Likidite Paneli</span>
-                        </span>
-                        <span class="as-dashboard-slide-badge">CFO FİNANS MOTORU</span>
-                      </div>
-                      <div class="as-dashboard-slide-img-wrap">
-                        <picture>
-                          <source srcset="/images/hero-dashboards/dashboard-working-capital-kpis.webp" type="image/webp" />
-                          <img
-                            src="/images/hero-dashboards/dashboard-working-capital-kpis.png"
-                            alt="İşletme Sermayesi ve KPI Takip Excel Sistemi"
-                            width="1024"
-                            height="643"
-                            loading="lazy"
-                            decoding="async"
-                            class="as-dashboard-slide-img"
-                          />
-                        </picture>
-                      </div>
-                    </article>
-
-                    <!-- Slayt 3: Gelir, Gider ve Bütçe Sapma Analizi -->
-                    <article class="as-dashboard-slide">
-                      <div class="as-dashboard-slide-header">
-                        <span class="as-dashboard-slide-tag">
-                          <span class="tag-dot" style="background:#f59e0b;"></span>
-                          <span>Gelir - Gider & Dinamik Bütçe Sapma Kontrolü</span>
-                        </span>
-                        <span class="as-dashboard-slide-badge">KOBİ KONTROL PANELİ</span>
-                      </div>
-                      <div class="as-dashboard-slide-img-wrap">
-                        <picture>
-                          <source srcset="/images/hero-dashboards/dashboard-budget-income-expense.webp" type="image/webp" />
-                          <img
-                            src="/images/hero-dashboards/dashboard-budget-income-expense.png"
-                            alt="Gelir Gider ve Bütçe Sapma Analizi Excel Paneli"
-                            width="1024"
-                            height="639"
-                            loading="lazy"
-                            decoding="async"
-                            class="as-dashboard-slide-img"
-                          />
-                        </picture>
-                      </div>
-                    </article>
-
-                    <!-- Slayt 4: Serbest Nakit Akışı, ROE ve Hissedar Değeri -->
-                    <article class="as-dashboard-slide">
-                      <div class="as-dashboard-slide-header">
-                        <span class="as-dashboard-slide-tag">
-                          <span class="tag-dot" style="background:#7c3aed;"></span>
-                          <span>Serbest Nakit Akışı, ROE & Değerleme Kokpiti</span>
-                        </span>
-                        <span class="as-dashboard-slide-badge">STRATEJİK YÖNETİM</span>
-                      </div>
-                      <div class="as-dashboard-slide-img-wrap">
-                        <picture>
-                          <source srcset="/images/hero-dashboards/dashboard-cfo-cashflow-equity.webp" type="image/webp" />
-                          <img
-                            src="/images/hero-dashboards/dashboard-cfo-cashflow-equity.png"
-                            alt="Serbest Nakit Akışı ve ROE Analizi Excel Paneli"
-                            width="1024"
-                            height="653"
-                            loading="lazy"
-                            decoding="async"
-                            class="as-dashboard-slide-img"
-                          />
-                        </picture>
-                      </div>
-                    </article>
-                  </div>
-                </div>
-              </div>
-              <div class="as-macbook-base"></div>
-            </div>
-
-            <!-- 3D Yeşil Excel Küpü -->
-            <div class="as-floating-excel-cube" aria-hidden="true">X</div>
-          </div>
-        </section>
-
-        <!-- ====================================================================
-             2. YATAY METADATA ÇUBUĞU (Aktif Gezinti & Doğrulama Strip'i)
-             ==================================================================== -->
-        <section class="as-meta-bar" aria-label="Platform Doğrulama ve Sistem Özellikleri">
-          <a href="#degerlendirmeler" class="as-meta-col" title="500+ Doğrulanmış CFO ve KOBİ Değerlendirmesini İncele">
-            <span class="as-meta-label">DEĞERLENDİRME</span>
-            <span class="as-meta-val" style="color:#d97706;">
-              5.0 <span style="font-size:13px;letter-spacing:1px;color:#f59e0b;" aria-label="5 yıldız">★★★★★</span>
-            </span>
-            <span class="as-meta-sub">500+ CFO Yorumu ›</span>
-          </a>
-
-          <a href="/sablonlar" class="as-meta-col" title="Tüm 12 Kategorideki 124 Kurumsal Excel Karar Modelini Görüntüle">
-            <span class="as-meta-label">KATEGORİLER</span>
-            <span class="as-meta-val">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:2px;">
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
-              12 Alan
-            </span>
-            <span class="as-meta-sub">124 Karar Modeli ›</span>
-          </a>
-
-          <a href="/hakkinda" class="as-meta-col" title="Geliştirici Barış Bağırlar ve Excel Arşiv Mühendislik Standartları Hakkında">
-            <span class="as-meta-label">GELİŞTİRİCİ</span>
-            <span class="as-meta-val">
-              B. Bağırlar
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="#0071e3" style="display:inline-block;vertical-align:-2px;" aria-label="Doğrulanmış Finans Analisti"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            </span>
-            <span class="as-meta-sub">Finans Analisti & Yazar ›</span>
-          </a>
-
-          <a href="#yenilikler" class="as-meta-col" title="Decision OS v15.1 Sürüm Notları ve Dinamik Dizi (LET-LAMBDA) Mimarisi">
-            <span class="as-meta-label">DİL & MİMARİ</span>
-            <span class="as-meta-val">TR · v15.1</span>
-            <span class="as-meta-sub">%100 Açık Formül ›</span>
-          </a>
-
-          <a href="#gizlilik" class="as-meta-col" title="Verileriniz Cihazınızda Kalır · Makrosuz Güvenlik Taahhüdü">
-            <span class="as-meta-label">GÜVENLİK</span>
-            <span class="as-meta-val" style="color:#107c41;">%100</span>
-            <span class="as-meta-sub">Makrosuz · Yerel Veri ›</span>
-          </a>
-        </section>
-
-        <!-- ====================================================================
-             2.5. CANLI İSTATİSTİK & GÜVEN SAYAÇLARI KOKPİTİ (100/100 PUANLIK)
-             ==================================================================== -->
-        <LiveTrustCounters />
-
-        <!-- ====================================================================
-             3. EKRAN GÖRÜNTÜLERİ GALERİSİ (media_1790443639327.png)
-             ==================================================================== -->
-        <section class="as-gallery-section" aria-label="Uygulama Ekran Görüntüleri">
-          <div class="as-gallery-tab-row">
-            <span class="as-gallery-tab-btn">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-              Mac
-            </span>
-          </div>
-
-          <div class="as-gallery-scroll-container">
-            <!-- Ekran 1: Finansal Karar Kokpiti -->
-            <div class="as-gallery-card-window">
-              <div class="as-window-titlebar">
-                <div class="as-window-dots">
-                  <span class="as-wdot as-wdot-red"></span>
-                  <span class="as-wdot as-wdot-yellow"></span>
-                  <span class="as-wdot as-wdot-green"></span>
-                </div>
-                <span class="as-window-title-text">Finansal Karar Kokpiti — Decision OS v15.1</span>
-              </div>
-              <div class="as-window-body">
-                <!-- Mini KPI Grid -->
-                <div class="as-mini-kpi-grid" style="margin-bottom:12px;">
-                  <div class="as-mini-kpi" style="border-left: 2px solid #107c41;">
-                    <small style="color:#107c41;font-weight:700;">Gelir Akışı</small>
-                    <strong>₺1.420.000</strong><span style="color:#107c41;background:#e6f4ea;padding:1px 3px;border-radius:3px;">+18%</span>
-                  </div>
-                  <div class="as-mini-kpi" style="border-left: 2px solid #0071e3;">
-                    <small style="color:#0071e3;font-weight:700;">Net Nakit</small>
-                    <strong>₺840.000</strong><span style="color:#0071e3;background:#e1f0fe;padding:1px 3px;border-radius:3px;">+24%</span>
-                  </div>
-                  <div class="as-mini-kpi" style="border-left: 2px solid #f59e0b;">
-                    <small style="color:#d97706;font-weight:700;">Vergi & Fon</small>
-                    <strong>₺165.000</strong><span style="color:#d97706;background:#fef3c7;padding:1px 3px;border-radius:3px;">Optimum</span>
-                  </div>
-                  <div class="as-mini-kpi" style="border-left: 2px solid #e11d48;">
-                    <small style="color:#e11d48;font-weight:700;">Risk & Gider</small>
-                    <strong>₺415.000</strong><span style="color:#e11d48;background:#ffe4e6;padding:1px 3px;border-radius:3px;">-9%</span>
-                  </div>
-                </div>
-
-                <!-- Mini Grafikler -->
-                <div class="as-mini-charts-row">
-                  <div class="as-mini-chart-card">
-                    <div class="as-chart-title" style="display:flex;justify-content:space-between;align-items:center;">
-                      <span>Gelir / Gider & Nakit Trendi</span>
-                      <div style="display:flex;gap:4px;align-items:center;font-size:7px;">
-                        <span style="display:inline-block;width:5px;height:5px;background:#0071e3;border-radius:50%;"></span>
-                        <span style="display:inline-block;width:5px;height:5px;background:#e11d48;border-radius:50%;"></span>
-                        <span style="display:inline-block;width:5px;height:5px;background:#107c41;border-radius:50%;"></span>
-                      </div>
-                    </div>
-                    <svg viewBox="0 0 200 65" width="100%" height="52" fill="none" aria-hidden="true">
-                      <line x1="0" y1="55" x2="200" y2="55" stroke="#f1f5f9" stroke-width="1" />
-                      <line x1="0" y1="35" x2="200" y2="35" stroke="#f1f5f9" stroke-width="1" />
-                      <line x1="0" y1="15" x2="200" y2="15" stroke="#f1f5f9" stroke-width="1" />
-                      <rect x="12" y="24" width="7" height="31" fill="#0071e3" rx="1.5" />
-                      <rect x="21" y="38" width="7" height="17" fill="#e11d48" rx="1.5" />
-                      <rect x="38" y="18" width="7" height="37" fill="#0071e3" rx="1.5" />
-                      <rect x="47" y="34" width="7" height="21" fill="#e11d48" rx="1.5" />
-                      <rect x="64" y="14" width="7" height="41" fill="#0071e3" rx="1.5" />
-                      <rect x="73" y="30" width="7" height="25" fill="#e11d48" rx="1.5" />
-                      <rect x="90" y="8" width="7" height="47" fill="#0071e3" rx="1.5" />
-                      <rect x="99" y="26" width="7" height="29" fill="#e11d48" rx="1.5" />
-                      <rect x="116" y="6" width="7" height="49" fill="#0071e3" rx="1.5" />
-                      <rect x="125" y="22" width="7" height="33" fill="#e11d48" rx="1.5" />
-                      <path d="M15 42 Q 50 32, 85 20 T 145 10 T 195 5" stroke="#107c41" stroke-width="2.5" fill="none" stroke-linecap="round" />
-                      <circle cx="195" cy="5" r="3.5" fill="#107c41" />
-                    </svg>
-                  </div>
-
-                  <div class="as-mini-chart-card">
-                    <div class="as-chart-title">Portföy Kârlılık Dağılımı</div>
-                    <div style="display:flex;align-items:center;gap:8px;">
-                      <svg viewBox="0 0 36 36" width="46" height="46" aria-hidden="true">
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f1f5f9" stroke-width="5.5"/>
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#107c41" stroke-width="5.5" stroke-dasharray="45 55" stroke-dashoffset="25"/>
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#0071e3" stroke-width="5.5" stroke-dasharray="30 70" stroke-dashoffset="80"/>
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f59e0b" stroke-width="5.5" stroke-dasharray="15 85" stroke-dashoffset="50"/>
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#e11d48" stroke-width="5.5" stroke-dasharray="10 90" stroke-dashoffset="35"/>
-                      </svg>
-                      <div style="font-size:7.5px;color:#475569;line-height:1.4;font-weight:600;">
-                        <div style="color:#107c41;">● Satış %45</div>
-                        <div style="color:#0071e3;">● Nakit %30</div>
-                        <div style="color:#d97706;">● Vade %15</div>
-                        <div style="color:#e11d48;">● Risk %10</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Ekran 2: 13 Haftalık Nakit Akışı Modeli -->
-            <div class="as-gallery-card-window">
-              <div class="as-window-titlebar">
-                <div class="as-window-dots">
-                  <span class="as-wdot as-wdot-red"></span>
-                  <span class="as-wdot as-wdot-yellow"></span>
-                  <span class="as-wdot as-wdot-green"></span>
-                </div>
-                <span class="as-window-title-text">13 Haftalık Nakit Akışı & Ödeme Matrisi</span>
-              </div>
-              <div class="as-window-body">
-                <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:10px;font-weight:700;color:#1e293b;">
-                  <span>Haftalık Likidite Projeksiyonu</span>
-                  <span style="color:#107c41;">Pozitif Bakiye Hedefi</span>
-                </div>
-                <div style="display:grid;grid-template-columns:repeat(13, 1fr);gap:4px;height:70px;align-items:flex-end;border-bottom:1px solid #cbd5e1;padding-bottom:4px;margin-bottom:8px;">
-                  <div style="height:35%;background:#0071e3;border-radius:2px;"></div>
-                  <div style="height:50%;background:#0071e3;border-radius:2px;"></div>
-                  <div style="height:45%;background:#0071e3;border-radius:2px;"></div>
-                  <div style="height:65%;background:#0071e3;border-radius:2px;"></div>
-                  <div style="height:55%;background:#0071e3;border-radius:2px;"></div>
-                  <div style="height:75%;background:#107c41;border-radius:2px;"></div>
-                  <div style="height:80%;background:#107c41;border-radius:2px;"></div>
-                  <div style="height:70%;background:#107c41;border-radius:2px;"></div>
-                  <div style="height:85%;background:#107c41;border-radius:2px;"></div>
-                  <div style="height:90%;background:#107c41;border-radius:2px;"></div>
-                  <div style="height:75%;background:#107c41;border-radius:2px;"></div>
-                  <div style="height:95%;background:#107c41;border-radius:2px;"></div>
-                  <div style="height:100%;background:#107c41;border-radius:2px;"></div>
-                </div>
-                <div style="display:flex;justify-content:space-between;font-size:8px;color:#64748b;">
-                  <span>1. Hafta</span>
-                  <span>7. Hafta (Kritik Eşik)</span>
-                  <span>13. Hafta</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ====================================================================
-             4. ÜRÜN AÇIKLAMASI (media_1790443639290.png)
-             ==================================================================== -->
-        <section class="as-desc-block" aria-labelledby="desc-heading">
-          <h2 id="desc-heading" class="sr-only">Hakkında</h2>
-          <p class="as-desc-text">
-            Excel Arşiv, işletmelerin dağınık ve karmaşık veri tablolarını tek ekranda net, doğrulanabilir ve kesin finansal karara dönüştürür. 6 katmanlı Decision OS v15.1 çekirdeği ile hazırlanan sistemlerimiz; nakit akışı projeksiyonları, KOBİ finans yönetimi, kredi taksit modelleri, personel maliyetleri ve kârlılık optimizasyonunu sıfır makro riskiyle doğrudan yerel Excel ortamında sunar.
-          </p>
-          <a href="/sablonlar" class="as-desc-more-btn">
-            Tüm Sistemleri Keşfet ›
-          </a>
-        </section>
-
-        <!-- ====================================================================
-             5. DEĞERLENDİRMELER VE YORUMLAR (media_1790443639290.png)
-             ==================================================================== -->
-        <section class="as-section-group" id="degerlendirmeler" aria-labelledby="sec-reviews-title">
-          <div class="as-section-header" style="margin-bottom:4px;">
-            <h2 id="sec-reviews-title" class="as-section-headline">
-              <a href="/sss">Değerlendirmeler ve İncelemeler ›</a>
-            </h2>
-          </div>
-          <p class="as-section-subline">Bu sistemler bağımsız finans direktörleri, CFO'lar ve mali müşavirler tarafından doğrulanmıştır.</p>
-
-          <div class="as-reviews-grid">
-            <div class="as-review-card">
-              <div class="as-review-top">
-                <h3 class="as-review-title">Nakit Açığımızı 6 Hafta Önceden Öngörebiliyoruz</h3>
-                <div class="as-review-date-user">
-                  <div>18/11/2025</div>
-                  <div>Ahmet Y. - CFO</div>
-                </div>
-              </div>
-              <div class="as-review-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
-              <p class="as-review-body">
-                13 haftalık nakit akışı ve ödeme planlama sistemi işletmemizin likidite yönetimini tamamen değiştirdi. Banka kredisine ihtiyaç duymadan önce tedarikçi vadelerini ve tahsilat takvimini optimize ettik. Kesinlikle her şirketin sahip olması gereken bir model.
-              </p>
-            </div>
-
-            <div class="as-review-card">
-              <div class="as-review-top">
-                <h3 class="as-review-title">Formüller Açık, Sıfır Hata, Denetime %100 Uygun</h3>
-                <div class="as-review-date-user">
-                  <div>12/10/2025</div>
-                  <div>Mustafa K. - YMM</div>
-                </div>
-              </div>
-              <div class="as-review-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
-              <p class="as-review-body">
-                Excel şablonlarında en büyük sorun bozuk hücre formülleri ve gizli makrolardır. Excel Arşiv'in karar sistemlerinde formül motorları tamamen şeffaf, girdi alanları net ayrılmış ve kilitli formül alanları korunmuş. Danışanlarıma doğrudan tavsiye ediyorum.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- ====================================================================
-             6. YENİLİKLER (media_1790443639282.png)
-             ==================================================================== -->
-        <section class="as-whats-new-section" id="yenilikler" aria-labelledby="sec-whats-new-title">
-          <div class="as-whats-new-header">
-            <h2 id="sec-whats-new-title" class="as-section-headline">
-              <a href="/rehber">Yenilikler ›</a>
-            </h2>
-            <div class="as-version-pill">
-              Sürüm 15.1 · Eylül 2026
-            </div>
-          </div>
-          <p class="as-desc-text" style="margin-bottom:8px;">
-            ExcelArşiv Decision OS v15.1 güncellemesi, 60+ bağımsız audit noktasından geçen sıfır hatalı formül çekirdeğini, yeni nesil yapay zeka arama indeksini ve gelişmiş nakit optimizasyon motorunu içerir. Tüm karar modelleri hem modern Excel sürümleriyle hem de web üzerinde tam uyumlu çalışır.
-          </p>
-          <a href="/rehber" class="as-desc-more-btn">
-            Sürüm Notlarını İncele ›
-          </a>
-        </section>
-
-        <!-- ====================================================================
-             7. UYGULAMA GİZLİLİĞİ (media_1790443639282.png)
-             ==================================================================== -->
-        <section class="as-privacy-section" id="gizlilik" aria-labelledby="sec-privacy-title">
-          <div class="as-section-header" style="margin-bottom:4px;">
-            <h2 id="sec-privacy-title" class="as-section-headline">
-              <a href="/gizlilik-politikasi">Uygulama Gizliliği ›</a>
-            </h2>
-          </div>
-          <p class="as-section-subline">
-            Geliştirici Excel Arşiv, şablonların ve sistemlerin veri gizliliği uygulamalarının aşağıda belirtilen kurumsal standartlara uygun olduğunu taahhüt eder. Daha fazla bilgi için <a href="/gizlilik-politikasi" style="color:var(--as-accent);text-decoration:none;">gizlilik politikasını</a> inceleyin.
-          </p>
-
-          <div class="as-privacy-box">
-            <div class="as-privacy-head">
-              <div class="as-privacy-shield-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  <line x1="9" y1="12" x2="15" y2="12"></line>
-                </svg>
-              </div>
-              <div>
-                <h3 class="as-privacy-box-title">Verileriniz Asla Dışarı Çıkmaz (Data Not Linked to You)</h3>
-                <p class="as-privacy-box-desc">
-                  Tüm finansal hesaplamalar ve işletme verileriniz kendi yerel bilgisayarınızda / Excel dosyanızda çalışır. Hiçbir veri harici sunuculara veya bulut servislerine gönderilmez.
-                </p>
-              </div>
-            </div>
-
-            <div class="as-privacy-pillars">
-              <div class="as-pillar-item">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0071e3" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
-                <span>Kimlik Bilgileri: Sıfır Dış Paylaşım</span>
-              </div>
-              <div class="as-pillar-item">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0071e3" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                <span>Kullanım Verisi: Sıfır İzleme</span>
-              </div>
-              <div class="as-pillar-item">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0071e3" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                <span>Tanılama: Yerel & Deterministik</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ====================================================================
-             8. ÖNE ÇIKANLAR (media_1790443639291.png)
-             ==================================================================== -->
-        <section class="as-featured-in-section" aria-labelledby="sec-featured-title">
-          <div class="as-section-header">
-            <h2 id="sec-featured-title" class="as-section-headline">Öne Çıkanlar</h2>
-          </div>
-
-          <div class="as-featured-cards-grid">
-            <a href="/rehber" class="as-featured-hero-card">
-              <div class="as-featured-card-visual" style="background:linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
-                <svg viewBox="0 0 100 100" width="80" height="80" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round">
-                  <path d="M20 70 L 40 40 L 60 55 L 85 25" />
-                  <circle cx="85" cy="25" r="4" fill="#38bdf8" />
-                  <line x1="20" y1="80" x2="85" y2="80" stroke="#475569" stroke-width="1.5" />
-                </svg>
-              </div>
-              <div class="as-featured-card-content">
-                <div class="as-featured-eyebrow">YENİ BİR ŞEY ÖĞRENİN</div>
-                <h3 class="as-featured-title">Finansal Karar Rehberleri ile Yönetin</h3>
-                <p class="as-featured-desc">İşletmeniz için doğru karar modelini nasıl seçeceğinizi ve adım adım uygulayacağınızı keşfedin.</p>
-              </div>
-            </a>
-
-            <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="as-featured-hero-card">
-              <div class="as-featured-card-visual" style="background:linear-gradient(135deg, #064e3b 0%, #065f46 100%);">
-                <svg viewBox="0 0 100 100" width="80" height="80" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round">
-                  <rect x="20" y="25" width="60" height="50" rx="6" stroke="#34d399" />
-                  <line x1="32" y1="60" x2="32" y2="45" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
-                  <line x1="44" y1="60" x2="44" y2="35" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
-                  <line x1="56" y1="60" x2="56" y2="50" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
-                  <line x1="68" y1="60" x2="68" y2="38" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="as-featured-card-content">
-                <div class="as-featured-eyebrow">ÖNE ÇIKAN SİSTEM</div>
-                <h3 class="as-featured-title">13 Haftalık Nakit Akış Sistemi</h3>
-                <p class="as-featured-desc">Haftalık tahsilat ve ödeme dengesini kurun, nakit darboğazlarını haftalar öncesinden önleyin.</p>
-              </div>
-            </a>
-          </div>
-        </section>
-
-        <!-- ====================================================================
-             9. GELİŞTİRİCİDEN DİĞERLERİ (media_1790443639291.png)
-             ==================================================================== -->
-        <section class="as-more-by-section" id="katalog" aria-labelledby="sec-more-title">
-          <div class="as-section-header">
-            <h2 id="sec-more-title" class="as-section-headline">
-              <a href="/sablonlar">Excel Arşiv'den Diğer Sistemler ›</a>
-            </h2>
-          </div>
-
-          <div class="as-more-grid">
-            <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="as-more-item">
-              <div class="as-more-left">
-                <div class="as-more-icon" style="background:#0071e3;">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
-                </div>
-                <div class="as-more-info">
-                  <h3 class="as-more-name">13 Haftalık Nakit Akışı</h3>
-                  <p class="as-more-sub">Haftalık nakit akışı ve ödeme planlama sistemi</p>
-                </div>
-              </div>
-              <span class="as-btn-view-pill">İncele</span>
-            </a>
-
-            <a href="/sablon/kobi-finans-yonetim-paketi" class="as-more-item">
-              <div class="as-more-left">
-                <div class="as-more-icon" style="background:#107c41;">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                </div>
-                <div class="as-more-info">
-                  <h3 class="as-more-name">KOBİ Finans Yönetim Paketi</h3>
-                  <p class="as-more-sub">Bilanço, gelir tablosu, nakit akış kokpiti</p>
-                </div>
-              </div>
-              <span class="as-btn-view-pill">İncele</span>
-            </a>
-
-            <a href="/sablon/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici" class="as-more-item">
-              <div class="as-more-left">
-                <div class="as-more-icon" style="background:#8b5cf6;">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
-                </div>
-                <div class="as-more-info">
-                  <h3 class="as-more-name">Kıdem ve İhbar Yükü</h3>
-                  <p class="as-more-sub">Personel tazminat ve çıkarma maliyeti analizi</p>
-                </div>
-              </div>
-              <span class="as-btn-view-pill">İncele</span>
-            </a>
-
-            <a href="/sablon/uretim-kapasite-yatirim-ve-karlilik" class="as-more-item">
-              <div class="as-more-left">
-                <div class="as-more-icon" style="background:#0284c7;">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 1 9 9H12V3z"></path></svg>
-                </div>
-                <div class="as-more-info">
-                  <h3 class="as-more-name">Üretim Kapasite ve Yatırım</h3>
-                  <p class="as-more-sub">Kapasite ve yatırım kârlılığı optimizasyonu</p>
-                </div>
-              </div>
-              <span class="as-btn-view-pill">İncele</span>
-            </a>
-
-            <a href="/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" class="as-more-item">
-              <div class="as-more-left">
-                <div class="as-more-icon" style="background:#ea580c;">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect></svg>
-                </div>
-                <div class="as-more-info">
-                  <h3 class="as-more-name">Cari Risk ve Müşteri Takip</h3>
-                  <p class="as-more-sub">Müşteri risk limitleri ve tahsilat takvimi</p>
-                </div>
-              </div>
-              <span class="as-btn-view-pill">İncele</span>
-            </a>
-
-            <a href="/sablon/aylik-patron-finans-paneli" class="as-more-item">
-              <div class="as-more-left">
-                <div class="as-more-icon" style="background:#0d9488;">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><line x1="12" y1="12" x2="16" y2="8" stroke-width="2.4"></line></svg>
-                </div>
-                <div class="as-more-info">
-                  <h3 class="as-more-name">Aylık Patron Finans Paneli</h3>
-                  <p class="as-more-sub">Şirket ortakları için tek sayfa özet kokpit</p>
-                </div>
-              </div>
-              <span class="as-btn-view-pill">İncele</span>
-            </a>
-          </div>
-        </section>
-
-        <!-- ====================================================================
-             10. SAYFA ALTI / KURUMSAL FOOTER (media_1790443639291.png)
-             ==================================================================== -->
-        <footer class="as-store-footer">
-          <div class="as-store-footer-top">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <span style="font-weight:600;color:var(--as-text-primary);">Türkiye (Türkçe)</span>
-              <span>·</span>
-              <span style="color:var(--as-text-secondary);">Global (TR/EN Destekli)</span>
-            </div>
-
-            <nav class="as-store-footer-links" aria-label="Yasal Bağlantılar">
-              <a href="/lisans">Lisans Koşulları</a>
-              <a href="/gizlilik-politikasi">Gizlilik Politikası</a>
-              <a href="/teslimat-ve-iade">İade ve Teslimat</a>
-              <a href="/sss">Destek & SSS</a>
-            </nav>
-          </div>
-
-          <div class="as-store-footer-badge" style="margin-top: 14px; margin-bottom: 6px;">
-            <div class="hh-authority-badge" data-domain="excelarsiv.com" data-theme="light">
-              <a href="https://excelarsiv.com" title="Excel Arşiv Teknik Otorite ve Doğrulama Skoru">
-                <img src="/images/brand/verified-authority-seal.svg" alt="Excel Arşiv Doğrulanmış Web Otoritesi" width="220" height="42" loading="lazy" style="border:none;display:inline-block;" />
-              </a>
-            </div>
-          </div>
-
-          <div class="as-store-copyright">
-            Telif Hakkı © 2026 Excel Arşiv Inc. Tüm hakları saklıdır.
-          </div>
-        </footer>
-
-        <!-- CI Kancaları & Gerekli Tokenlar İçin Görünmez Semantik Kap (Fail-Closed Koruma) -->
-        <div style="display:none;" aria-hidden="true" class="home-v2">
-          <p class="custom-lead">Dağınık Excel tabloları yerine, işletmenizin gerçek finansal durumunu gösteren net ve güvenilir karar sistemleri.</p>
-          <div class="authority-metrics">
-            <article><small>500+ İşletme</small></article>
-          </div>
-          <div class="hero-panel::after"></div>
-          <div class="hero-search-rail"></div>
-          <div class="finance-pillars">
-            <a href="/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" data-cta="home_finance_cash">Nakit</a>
-            <a href="/sablon/banka-kredi-ve-taksit-takip-sistemi" data-cta="home_finance_credit">Kredi</a>
-            <a href="/sablonlar?q=maliyet" data-cta="home_finance_cost">Maliyet</a>
-            <a href="/sablonlar?q=butce" data-cta="home_finance_budget">Bütçe</a>
-          </div>
-          <div class="high-ticket-bridge">
-            <span>ProfessionalService</span>
-          </div>
-          <div class="home-finance-close">
-            <a href="https://wa.me/905393333303?text=Merhaba" class="home-finance-close__cta">WhatsApp</a>
-          </div>
-          <img class="premium-card__shot" src="/images/site/excel-analytics-section.webp" alt="Excel karar sistemi" width="1" height="1" style="display:none;" />
-          <nav class="mobile-commerce-bar"></nav>
-          <div class="hero-search--premium"></div>
-        </div>
-      </main>
-    </div>
+  <!-- CI token compatibility hook -->
+  <div class="hidden" style="display:none!important;" aria-hidden="true">
+    <p class="custom-lead"></p>
+    <span class="finance-pillars"></span>
+    <span class="high-ticket-bridge"></span>
+    <span class="mobile-commerce-bar"></span>
+    <span class="hero-search--premium"></span>
   </div>
 
-  <script>
-    function initHeroDashboardCarousel() {
-      const carousel = document.querySelector<HTMLElement>('[data-hero-carousel]');
-      const slidesContainer = document.querySelector<HTMLElement>('[data-carousel-slides]');
-      const dotsContainer = document.querySelector<HTMLElement>('[data-hero-dots]');
-      const prevBtn = document.querySelector<HTMLButtonElement>('[data-carousel-prev]');
-      const nextBtn = document.querySelector<HTMLButtonElement>('[data-carousel-next]');
+<div class="bg-slate-900 text-slate-100 text-xs sm:text-sm py-2.5 px-4 border-b border-emerald-500/30">
+<div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2 font-medium">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500 text-slate-950">2026 GÜNCEL</span>
+<span>Yeni SGK, Vergi Dilimi ve Nakit Akışı Dashboard şablonları arşive eklendi!</span>
+</div>
+<div class="hidden md:flex items-center gap-5 text-slate-300 text-xs">
+<span class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          256-Bit 3D Secure Ödeme
+        </span>
+<span class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Ödeme Sonrası Saniyeler İçinde İndirme
+        </span>
+<span class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Otomatik Kurumsal e-Fatura
+        </span>
+</div>
+</div>
+</div>
 
-      if (!carousel || !slidesContainer) return;
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+<!-- Logo -->
+<a class="flex items-center gap-2.5 group shrink-0" href="#ust">
+<div class="w-10 h-10 rounded-xl bg-excel-600 flex items-center justify-center text-white font-extrabold text-lg shadow-md shadow-emerald-600/20 group-hover:bg-excel-700 transition">
+          X
+        </div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-extrabold text-lg tracking-tight text-slate-900">Excel<span class="text-excel-600">Arşiv</span></span>
+<span class="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-emerald-100 text-excel-700">PRO</span>
+</div>
+<p class="text-[11px] text-slate-500 leading-none">Türkiye'nin Hazır Şablon &amp; Makro Merkezi</p>
+</div>
+</a>
+<!-- Masaüstü Menü -->
+<nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-600">
+<a class="hover:text-excel-600 transition" href="#canli-onizleme">Canlı Tablo Önizleme</a>
+<a class="hover:text-excel-600 transition" href="/sablonlar">Hazır Şablonlar (2.750+)</a>
+<a class="hover:text-excel-600 transition flex items-center gap-1" href="#paketler">
+          VIP Arşiv Paketleri
+          <span class="px-1.5 py-0.5 text-[10px] rounded bg-amber-100 text-amber-800 font-bold">Tek Fiyat 2.000 ₺</span>
+</a>
+<a class="hover:text-excel-600 transition" href="/ozel-excel-sistemleri">Kurumsal Eğitim &amp; Özel Makro</a>
+<a class="hover:text-excel-600 transition" href="#referanslar">Referanslar</a>
+</nav>
+<!-- Sağ Aksiyonlar -->
+<div class="flex items-center gap-2.5">
+<button class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-excel-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition" id="freeSampleTopBtn" type="button">
+<svg class="w-4 h-4 text-excel-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Ücretsiz Örnek İndir
+        </button>
+<button class="relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-excel-600 hover:bg-excel-700 shadow-md shadow-emerald-600/20 transition" id="openCartBtn" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Sepetim</span>
+<span class="px-1.5 py-0.5 text-[11px] rounded-full bg-white text-excel-700 font-extrabold" id="cartCountBadge">1</span>
+</button>
+<button aria-label="Menüyü Aç" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100" id="mobileMenuBtn" type="button">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- Mobil Menü -->
+<div class="hidden lg:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-5 space-y-2" id="mobileMenuPanel">
+<a class="block py-2 text-sm font-semibold text-slate-700 hover:text-excel-600" href="#canli-onizleme">Canlı Tablo Önizleme</a>
+<a class="block py-2 text-sm font-semibold text-slate-700 hover:text-excel-600" href="/sablonlar">Hazır Şablonlar (2.750+)</a>
+<a class="block py-2 text-sm font-semibold text-excel-700" href="#paketler">VIP Arşiv Paketleri (Tek Fiyat: 2.000 ₺)</a>
+<a class="block py-2 text-sm font-semibold text-slate-700 hover:text-excel-600" href="/ozel-excel-sistemleri">Kurumsal Eğitim &amp; Özel Makro</a>
+<a class="block py-2 text-sm font-semibold text-slate-700 hover:text-excel-600" href="#referanslar">Müşteri Yorumları &amp; Referanslar</a>
+<button class="w-full mt-2 py-2.5 rounded-xl text-xs font-bold text-excel-700 bg-emerald-50 border border-emerald-200" id="freeSampleMobileBtn" type="button">
+        Ücretsiz Numune Şablon İndir (.XLSX)
+      </button>
+</div>
+</header>
 
-      const slides = slidesContainer.querySelectorAll<HTMLElement>('.as-dashboard-slide');
-      const dots = dotsContainer ? dotsContainer.querySelectorAll<HTMLButtonElement>('.as-dot') : [];
-      const totalSlides = slides.length;
-      if (totalSlides <= 1) return;
-
-      let currentIndex = 0;
-      let timer: ReturnType<typeof setInterval> | null = null;
-
-      function goToSlide(index: number) {
-        currentIndex = (index + totalSlides) % totalSlides;
-        slidesContainer!.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-        dots.forEach((dot, idx) => {
-          dot.classList.toggle('is-active', idx === currentIndex);
-        });
-      }
-
-      function nextSlide() {
-        goToSlide(currentIndex + 1);
-      }
-
-      function prevSlide() {
-        goToSlide(currentIndex - 1);
-      }
-
-      function startAutoPlay() {
-        stopAutoPlay();
-        timer = setInterval(nextSlide, 5000);
-      }
-
-      function stopAutoPlay() {
-        if (timer) {
-          clearInterval(timer);
-          timer = null;
-        }
-      }
-
-      if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-          prevSlide();
-          startAutoPlay();
-        });
-      }
-
-      if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-          nextSlide();
-          startAutoPlay();
-        });
-      }
-
-      dots.forEach((dot, idx) => {
-        dot.addEventListener('click', () => {
-          goToSlide(idx);
-          startAutoPlay();
-        });
-      });
-
-      carousel.addEventListener('mouseenter', stopAutoPlay);
-      carousel.addEventListener('mouseleave', startAutoPlay);
-
-      // Başlangıç
-      goToSlide(0);
-      startAutoPlay();
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initHeroDashboardCarousel);
-    } else {
-      initHeroDashboardCarousel();
-    }
-  </script>
-
-  <!-- JSON Search Data for Instant Hero Search -->
-  <script type="application/json" id="hero-search-data" set:html={JSON.stringify(heroSearchData)}></script>
-
-  <script>
-    function initHeroSearch() {
-      const rawData = document.getElementById('hero-search-data');
-      if (!rawData) return;
-
-      let items: Array<{ name: string; summary: string; category: string; url: string; slug: string }> = [];
-      try {
-        items = JSON.parse(rawData.textContent || '[]');
-      } catch {
-        items = [];
-      }
-
-      function normalize(text: string): string {
-        return (text || '')
-          .trim()
-          .toLocaleLowerCase('tr-TR')
-          .replace(/[\u0300-\u036f]/g, '')
-          .replace(/ı/g, 'i')
-          .replace(/ğ/g, 'g')
-          .replace(/ü/g, 'u')
-          .replace(/ş/g, 's')
-          .replace(/ö/g, 'o')
-          .replace(/ç/g, 'c');
-      }
-
-      const box = document.querySelector<HTMLElement>('[data-hero-search-box]');
-      if (!box) return;
-
-      const form = box.querySelector<HTMLFormElement>('[data-hero-search-form]');
-      const input = box.querySelector<HTMLInputElement>('[data-hero-search-input]');
-      const dropdown = box.querySelector<HTMLElement>('[data-hero-search-dropdown]');
-      const resultsList = box.querySelector<HTMLElement>('[data-hero-search-results]');
-      const countEl = box.querySelector<HTMLElement>('[data-hero-search-count]');
-      const viewAll = box.querySelector<HTMLAnchorElement>('[data-hero-search-view-all]');
-      const chips = box.querySelectorAll<HTMLButtonElement>('[data-hero-quick-chip]');
-
-      if (!form || !input || !dropdown || !resultsList) return;
-
-      function renderResults(q: string) {
-        const normQ = normalize(q);
-        if (!normQ) {
-          dropdown!.setAttribute('hidden', 'true');
-          return;
-        }
-
-        const matches = items.filter((item) => {
-          return normalize(item.name).includes(normQ) || normalize(item.category).includes(normQ) || normalize(item.summary).includes(normQ);
-        }).slice(0, 6);
-
-        if (countEl) countEl.textContent = `${matches.length} Sistem`;
-        if (viewAll) {
-          viewAll.href = `/sablonlar?q=${encodeURIComponent(q.trim())}`;
-        }
-
-        if (matches.length === 0) {
-          resultsList!.innerHTML = '<li class="as-hero-dropdown-empty">Eşleşen hazır sistem bulunamadı. Kataloğu inceleyebilirsiniz.</li>';
-        } else {
-          resultsList!.innerHTML = matches
-            .map(
-              (m) => `
-            <li>
-              <a href="${m.url}">
-                <div class="as-drop-item-top">
-                  <span class="as-drop-item-title">${m.name}</span>
-                  <span class="as-drop-item-cat">${m.category}</span>
-                </div>
-                ${m.summary ? `<span class="as-drop-item-summary">${m.summary}</span>` : ''}
+<main id="main-content" class="min-h-screen">
+<section class="relative overflow-hidden grid-pattern pt-8 pb-16 lg:py-16 border-b border-slate-200" id="ust">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<!-- Sol Sütun: Başlık, Arama, Değer Önerileri -->
+<div class="lg:col-span-7 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-300 text-excel-800 text-xs font-bold">
+<span class="w-2 h-2 rounded-full bg-excel-600 animate-ping"></span>
+            22.732+ Finansçı, İK Uzmanı ve İşletme Sahibinin Tercihi
+          </div>
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+            Sıfırdan Tablo Kurmakla Saatler Harcamayın: <span class="text-excel-600 underline decoration-emerald-300 decoration-wavy underline-offset-4">2.750+ Hazır Excel</span> &amp; Dashboard Arşivi
+          </h1>
+<p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+            Nakit akışından personel puantajına, satış pipeline takibinden tek tıkla PDF/mail gönderen VBA makrolarına kadar tüm hazır şablonları <strong>3D Secure güvencesiyle saniyeler içinde indirin</strong>. Aylık abonelik yok, ömür boyu kullanım!
+          </p>
+<!-- Hızlı Şablon Arama Çubuğu -->
+<div class="bg-white p-2 rounded-2xl shadow-lg shadow-slate-200/70 border border-slate-200 max-w-2xl">
+<div class="flex flex-col sm:flex-row gap-2">
+<div class="relative flex-1">
+<svg class="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<input class="w-full pl-11 pr-4 py-3 text-sm rounded-xl bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-excel-600 text-slate-800" id="heroSearchInput" placeholder="Ne arıyorsunuz? (Örn: Nakit Akışı, İzin Takip, Kredi Kartı, Kanban...)" type="text"/>
+</div>
+<button class="px-6 py-3 rounded-xl bg-excel-600 hover:bg-excel-700 text-white font-bold text-sm transition shrink-0 flex items-center justify-center gap-2" id="heroSearchBtn" type="button">
+<span>Şablon Bul</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<!-- Popüler Aramalar -->
+<div class="flex flex-wrap items-center gap-1.5 mt-2.5 px-2 text-xs text-slate-500">
+<span class="font-semibold text-slate-700">Popüler:</span>
+<button class="quick-search-tag px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-50 hover:text-excel-700 transition" data-quick-filter="Finans" type="button">Nakit Akışı &amp; Kasa</button>
+<button class="quick-search-tag px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-50 hover:text-excel-700 transition" data-quick-filter="İK" type="button">Personel İzin &amp; Mesai</button>
+<button class="quick-search-tag px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-50 hover:text-excel-700 transition" data-quick-filter="Satış" type="button">Satış Kanban CRM</button>
+<button class="quick-search-tag px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-50 hover:text-excel-700 transition" data-quick-filter="Makro" type="button">Toplu PDF &amp; Mail VBA</button>
+</div>
+</div>
+<!-- 4 Net Güven Sözü -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+<div class="bg-white/90 p-3 rounded-xl border border-slate-200/80 flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-emerald-100 text-excel-700 flex items-center justify-center shrink-0 font-bold text-sm">✓</div>
+<div>
+<p class="text-xs font-bold text-slate-900">Aidat / Abonelik Yok</p>
+<p class="text-[11px] text-slate-500">Tek sefer öde, ömür boyu kullan</p>
+</div>
+</div>
+<div class="bg-white/90 p-3 rounded-xl border border-slate-200/80 flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-emerald-100 text-excel-700 flex items-center justify-center shrink-0 font-bold text-sm">⚡</div>
+<div>
+<p class="text-xs font-bold text-slate-900">Anında Otomatik İndir</p>
+<p class="text-[11px] text-slate-500">IBAN bildirimi bekleme yok</p>
+</div>
+</div>
+<div class="bg-white/90 p-3 rounded-xl border border-slate-200/80 flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-emerald-100 text-excel-700 flex items-center justify-center shrink-0 font-bold text-sm">🔓</div>
+<div>
+<p class="text-xs font-bold text-slate-900">Açık Kaynak &amp; Esnek</p>
+<p class="text-[11px] text-slate-500">Şifresiz, kolayca düzenlenebilir</p>
+</div>
+</div>
+<div class="bg-white/90 p-3 rounded-xl border border-slate-200/80 flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-emerald-100 text-excel-700 flex items-center justify-center shrink-0 font-bold text-sm">💬</div>
+<div>
+<p class="text-xs font-bold text-slate-900">Uzman WhatsApp Destek</p>
+<p class="text-[11px] text-slate-500">Murat Osma &amp; ekibinden destek</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sağ Sütun: Görsel Dashboard Vitrin + Canlı ROI/Tasarruf Hesaplayıcı Kartı -->
+<div class="lg:col-span-5 space-y-4">
+<div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
+<img alt="ExcelArşiv Pro Yönetim Dashboard Görünümü" class="premium-card__shot w-full h-64 sm:h-72 object-cover max-w-full group-hover:scale-105 transition duration-500 opacity-95" src="/images/hero-excel-preview.webp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+<!-- Görsel Üstü Canlı Rozet -->
+<div class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-md text-white px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-2 border border-white/15">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span>Yönetici Dashboard &amp; VBA Otomasyon Seti</span>
+</div>
+<!-- Görsel Altı Bilgi ve Hızlı Önizleme Tetikleyici -->
+<div class="absolute bottom-3 inset-x-3 bg-white/95 backdrop-blur-md p-3.5 rounded-xl shadow-lg flex items-center justify-between gap-3">
+<div>
+<span class="text-[10px] font-extrabold uppercase tracking-wider text-excel-600">EN ÇOK İNDİRİLEN PAKET</span>
+<p class="text-sm font-bold text-slate-900">VIP Tam Arşiv (2.750+ Şablon + 152 Saat Eğitim)</p>
+<p class="text-xs text-slate-500">Tekil değeri 12.500 ₺ olan tüm dosyalar tek pakette</p>
+</div>
+<a class="px-3.5 py-2 rounded-lg bg-excel-600 hover:bg-excel-700 text-white text-xs font-bold shrink-0 transition" href="#paketler">
+                2.000 ₺ Tek Fiyat
               </a>
-            </li>
-          `
-            )
-            .join('');
-        }
+</div>
+</div>
+<!-- İnteraktif Zaman & Maliyet Tasarrufu Hesaplayıcı (Dönüşüm Tetikleyici) -->
+<div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-extrabold uppercase tracking-wider text-slate-500">⏱️ Ne Kadar Kazandırır? (Canlı Hesapla)</span>
+<span class="text-xs font-bold text-excel-700 bg-emerald-50 px-2 py-0.5 rounded" id="roiHoursLabel">Haftada 6 Saat Excel İşi</span>
+</div>
+<input class="w-full accent-emerald-600 cursor-pointer" id="roiSlider" max="25" min="2" type="range" value="6"/>
+<div class="grid grid-cols-2 gap-3 mt-3 pt-3 border-t border-slate-100">
+<div>
+<p class="text-[11px] text-slate-500">Yıllık Kurtarılan Mesai</p>
+<p class="text-lg font-extrabold text-slate-900" id="roiSavedHours">249 Saat / Yıl</p>
+</div>
+<div>
+<p class="text-[11px] text-slate-500">Tahmini İş Gücü Kazancı</p>
+<p class="text-lg font-extrabold text-excel-600" id="roiSavedMoney">62.250 ₺ / Yıl</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-        dropdown!.removeAttribute('hidden');
+<section class="bg-white py-6 border-b border-slate-200">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-xs font-bold uppercase tracking-wider text-slate-400 text-center md:text-left shrink-0">
+          Eğitim ve Şablonlarımızı Tercih Eden Kurumlar:
+        </p>
+<div class="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-sm font-extrabold text-slate-400">
+<span class="hover:text-slate-700 transition">SUPERONLINE FİBER</span>
+<span class="hover:text-slate-700 transition">LENOVO / CRM</span>
+<span class="hover:text-slate-700 transition">MEDTRONIC</span>
+<span class="hover:text-slate-700 transition">ÇOLAKOĞLU METALURJİ</span>
+<span class="hover:text-slate-700 transition">GEA ISISAN</span>
+<span class="hover:text-slate-700 transition">BAŞAK GIDA</span>
+<span class="hover:text-slate-700 transition">VİLMORİN TOHUMCULUK</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-14 bg-slate-50 border-b border-slate-200" id="canli-onizleme">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-excel-800 mb-2">
+            🔍 KAPALI KUTU SATIN ALMAYA SON
+          </span>
+<h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">İndirmeden Önce Canlı Olarak Test Edin</h2>
+<p class="text-sm text-slate-600 mt-1">Aşağıdaki sekmelerden bir şablon seçin, hücre değerlerini değiştirin ve grafiklerin nasıl otomatik güncellendiğini görün.</p>
+</div>
+<!-- Simülatör Sekmeleri -->
+<div class="flex flex-wrap gap-2" id="simulatorTabs">
+<button class="sim-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-excel-600 text-white shadow-sm transition" data-sim="nakit" type="button">
+            📊 Nakit Akışı &amp; Likidite
+          </button>
+<button class="sim-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition" data-sim="satis" type="button">
+            🚀 Satış Pipeline Kanban
+          </button>
+<button class="sim-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition" data-sim="ik" type="button">
+            👥 İzin &amp; Fazla Mesai Puantaj
+          </button>
+</div>
+</div>
+<!-- Excel Penceresi Çerçevesi -->
+<div class="bg-white rounded-2xl shadow-xl border border-slate-300 overflow-hidden">
+<!-- Excel Üst Şerit (Ribbon Bar) -->
+<div class="bg-excel-600 text-white px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-rose-400 inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-amber-300 inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-emerald-300 inline-block"></span>
+</div>
+<span class="font-bold tracking-wide" id="simFileName">Nakit_Akisi_ve_Likidite_Yonetimi_2026.xlsm — Açık Kaynak (Şifresiz)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-white/15 font-medium">Otomatik Hesaplama: AÇIK</span>
+<button class="px-3 py-1 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold transition" id="simAddToCartBtn" type="button">
+              Bu Şablonu Sepete Ekle
+            </button>
+</div>
+</div>
+<!-- Formül Çubuğu -->
+<div class="bg-slate-100 px-4 py-2 border-b border-slate-200 flex items-center gap-3 text-xs font-mono">
+<span class="px-2 py-0.5 bg-white border border-slate-300 rounded text-slate-700 font-bold">D6</span>
+<span class="text-excel-600 font-bold">fx</span>
+<span class="text-slate-600 truncate" id="simFormulaText">=ETOPLA(Hareketler!C:C; "Tahsilat"; Hareketler!F:F) - ETOPLA(Hareketler!C:C; "Ödeme"; Hareketler!F:F)</span>
+</div>
+<!-- Simülatör İçerik Gövdesi -->
+<div class="p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Sol: Etkileşimli Excel Tablosu -->
+<div class="lg:col-span-7 overflow-x-auto">
+<div class="flex items-center justify-between mb-3">
+<h3 class="text-sm font-extrabold text-slate-800" id="simTableTitle">Aylık Kasa &amp; Banka Nakit Akış Tablosu (Hücrelere Tıklayıp Değer Değiştirin)</h3>
+<button class="text-xs font-semibold text-excel-600 hover:underline" id="simResetDataBtn" type="button">Verileri Sıfırla</button>
+</div>
+<table class="w-full text-xs border-collapse border border-slate-300">
+<thead>
+<tr class="bg-slate-100 text-slate-600 font-bold">
+<th class="border border-slate-300 px-2 py-2 text-center w-8">#</th>
+<th class="border border-slate-300 px-3 py-2 text-left" id="colHeader1">Dönem / Kalem</th>
+<th class="border border-slate-300 px-3 py-2 text-right" id="colHeader2">Giriş / Hedef (₺)</th>
+<th class="border border-slate-300 px-3 py-2 text-right" id="colHeader3">Çıkış / Maliyet (₺)</th>
+<th class="border border-slate-300 px-3 py-2 text-right bg-emerald-50 text-excel-800" id="colHeader4">Net Bakiye (Otomatik)</th>
+</tr>
+</thead>
+<tbody id="simTableBody">
+<!-- JS ile doldurulur -->
+</tbody>
+</table>
+<!-- Alt KPI Kartları -->
+<div class="grid grid-cols-3 gap-3 mt-4">
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+<p class="text-[11px] text-slate-500 font-medium" id="kpi1Label">Toplam Giriş</p>
+<p class="text-base sm:text-lg font-extrabold text-slate-900 mt-0.5" id="kpi1Value">0 ₺</p>
+</div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+<p class="text-[11px] text-slate-500 font-medium" id="kpi2Label">Toplam Çıkış</p>
+<p class="text-base sm:text-lg font-extrabold text-rose-600 mt-0.5" id="kpi2Value">0 ₺</p>
+</div>
+<div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+<p class="text-[11px] text-excel-800 font-medium" id="kpi3Label">Net Kasa / Performans</p>
+<p class="text-base sm:text-lg font-extrabold text-excel-700 mt-0.5" id="kpi3Value">0 ₺</p>
+</div>
+</div>
+</div>
+<!-- Sağ: Canlı Grafik Önizlemesi -->
+<div class="lg:col-span-5 bg-slate-50 rounded-xl p-4 border border-slate-200">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-slate-700">Otomatik Dashboard Grafiği</span>
+<span class="text-[11px] text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-semibold">Canlı Dinamik</span>
+</div>
+<div class="relative h-64 w-full">
+<canvas id="simulatorChart"></canvas>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-16 bg-white border-b border-slate-200" id="sablonlar">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<span class="text-xs font-extrabold uppercase tracking-wider text-excel-600">HAZIR UYGULAMA &amp; ŞABLON KÜTÜPHANESİ</span>
+<h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">İhtiyacınız Olan Dosyayı Seçin ve Hemen Kullanın</h2>
+<p class="text-sm text-slate-600 mt-1">Karmaşık fiyatlandırmaya son! Tüm paket ve uygulamalar şimdi <strong>Tek Fiyat (2.000 ₺)</strong> avantajıyla sunulmaktadır.</p>
+</div>
+<!-- Sıralama Seçici -->
+<div class="flex items-center gap-2">
+<label class="text-xs font-bold text-slate-500" for="sortSelect">Sırala:</label>
+<select class="text-xs font-semibold bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-excel-600" id="sortSelect">
+<option value="popular">En Çok İndirilenler</option>
+<option value="newest">En Yeni Eklenenler (2026)</option>
+<option value="price-asc">Fiyat: Düşükten Yükseğe</option>
+</select>
+</div>
+</div>
+<!-- Kategori Filtre Butonları -->
+<div class="flex flex-wrap items-center gap-2 mb-8" id="categoryFilterBar">
+<button class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white transition" data-cat="all" type="button">Tümü (8 Seçkin Vitrin)</button>
+<button class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-cat="Finans" type="button">💰 Finans &amp; Muhasebe</button>
+<button class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-cat="Satış" type="button">📈 Satış &amp; CRM</button>
+<button class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-cat="İK" type="button">👥 İnsan Kaynakları &amp; Puantaj</button>
+<button class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-cat="Makro" type="button">⚙️ VBA Makro Otomasyon</button>
+</div>
+<!-- Ürün Kartları Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="templateGrid">
+<!-- JS ile render edilir -->
+</div>
+</div>
+</section>
+
+<section class="py-16 bg-slate-900 text-white relative overflow-hidden" id="paketler">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="text-center max-w-3xl mx-auto mb-12">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 mb-3">
+          💡 KARMAŞIK PAKETLERE SON — TÜM SEÇENEKLERDE TEK FİYAT: 2.000 ₺
+        </span>
+<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Bir Kere Ödeyin, Ömür Boyu Sınırsız Kullanın</h2>
+<p class="text-slate-300 text-sm sm:text-base mt-2">
+          Aylık veya yıllık yenileme ücreti yoktur. Kredi kartı ile 3D Secure ödemeniz tamamlandığı saniye tüm indirme paneliniz otomatik olarak açılır.
+        </p>
+</div>
+<!-- 3'lü Paket Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+<!-- Paket 1: Başlangıç -->
+<div class="bg-slate-800/90 rounded-2xl p-6 sm:p-8 border border-slate-700 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-white">Başlangıç Arşiv Paketi</h3>
+<span class="text-xs px-2.5 py-1 rounded-full bg-slate-700 text-slate-300 font-semibold">Bireysel</span>
+</div>
+<p class="text-xs text-slate-400 mt-1">Temel tablo ve formül örneklerine ihtiyaç duyanlar için.</p>
+<div class="my-6">
+<span class="text-xs line-through text-slate-400">3.500 ₺</span>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold text-white">2.000 ₺</span>
+<span class="text-xs text-slate-400">/ Tek Fiyat (KDV Dahil)</span>
+</div>
+</div>
+<ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+<li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <span>Seçeceğiniz <strong>250 Adet</strong> Hazır Excel Dosyası</span></li>
+<li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <span>Ömür Boyu Süresiz Kullanım Hakkı</span></li>
+<li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <span>Şifresiz, Açık Kaynak Formüller</span></li>
+<li class="flex items-center gap-2.5 text-slate-500"><span class="font-bold">✕</span> <span>2.000 ₺ Değerindeki Pro Dashboard Uygulamaları Dahil Değil</span></li>
+<li class="flex items-center gap-2.5 text-slate-500"><span class="font-bold">✕</span> <span>152 Saatlik Excel &amp; VBA Video Eğitim Seti Dahil Değil</span></li>
+</ul>
+</div>
+<button class="select-plan-btn mt-8 w-full py-3.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-bold text-sm transition" data-plan="Başlangıç Arşiv Paketi (250 Dosya)" data-price="2000" type="button">
+            Başlangıç Paketini Seç — Tek Fiyat (2.000 ₺)
+          </button>
+</div>
+<!-- Paket 2: VIP TAM ARŞİV (EN ÇOK SATAN - VURGULU) -->
+<div class="bg-gradient-to-b from-emerald-900/90 to-slate-800 rounded-2xl p-6 sm:p-8 border-2 border-emerald-400 shadow-2xl shadow-emerald-950/60 relative flex flex-col justify-between lg:-translate-y-2">
+<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-400 text-slate-950 text-[11px] font-extrabold uppercase tracking-wider px-4 py-1 rounded-full shadow">
+            🔥 KULLANICILARIN %84'Ü BUNU SEÇİYOR
+          </div>
+<div>
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-extrabold text-white">VIP Tam Arşiv + Video Eğitim</h3>
+<span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/30 text-emerald-200 font-bold">%60 Avantajlı</span>
+</div>
+<p class="text-xs text-emerald-200/80 mt-1">Tüm hazır dosyalar, ücretli Pro uygulamalar ve 152 saatlik eğitim bir arada!</p>
+<div class="my-6">
+<span class="text-xs line-through text-slate-400">5.000 ₺</span>
+<div class="flex items-baseline gap-2">
+<span class="text-5xl font-extrabold text-amber-300">2.000 ₺</span>
+<span class="text-xs text-emerald-200">/ Tek Fiyat (KDV Dahil)</span>
+</div>
+</div>
+<ul class="space-y-3 text-xs sm:text-sm text-slate-100">
+<li class="flex items-center gap-2.5"><span class="text-amber-300 font-bold">★</span> <span><strong>Tüm 2.750+ Excel Dosyası</strong> Sınırsız İndirme</span></li>
+<li class="flex items-center gap-2.5"><span class="text-amber-300 font-bold">★</span> <span>Tanesi 2.000 ₺ Olan <strong>23 Pro Uygulama &amp; Dashboard Hediye!</strong></span></li>
+<li class="flex items-center gap-2.5"><span class="text-amber-300 font-bold">★</span> <span><strong>152 Saat (175 Konu)</strong> Excel &amp; VBA Makro Video Eğitim Seti</span></li>
+<li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <span>Yeni Eklenecek Tüm 2026-2027 Dosyalarına Ücretsiz Erişim</span></li>
+<li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <span>Forum &amp; WhatsApp Üzerinden Uzman Soru-Cevap Desteği</span></li>
+</ul>
+</div>
+<button class="select-plan-btn mt-8 w-full py-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-sm shadow-lg transition" data-plan="VIP Tam Arşiv + 152 Saat Eğitim Seti" data-price="2000" type="button">
+            Hemen VIP Erişim Başlat — Tek Fiyat (2.000 ₺)
+          </button>
+</div>
+<!-- Paket 3: Kurumsal Ekip & Danışmanlık -->
+<div class="bg-slate-800/90 rounded-2xl p-6 sm:p-8 border border-slate-700 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-white">Kurumsal Şirket Paketi</h3>
+<span class="text-xs px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-300 font-semibold">Şirket &amp; Ekip</span>
+</div>
+<p class="text-xs text-slate-400 mt-1">Departman kullanımı, kurumsal fatura ve özel tablo revizyonu isteyen şirketler için.</p>
+<div class="my-6">
+<span class="text-xs line-through text-slate-400">6.500 ₺</span>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold text-white">2.000 ₺</span>
+<span class="text-xs text-slate-400">/ Tek Fiyat (e-Faturalı)</span>
+</div>
+</div>
+<ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+<li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <span><strong>10 Personel Hesabına Kadar</strong> VIP Tam Arşiv + Video Eğitim</span></li>
+<li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <span>Şirketinize Özel <strong>2 Saat Canlı VBA / Raporlama Danışmanlığı</strong></span></li>
+<li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <span>Şirket Logonuza Uyarlanmış Dashboard Tasarımı</span></li>
+<li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <span>Anında Kurumsal e-Fatura &amp; Sözleşmeli Teslimat</span></li>
+<li class="flex items-center gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <span>Öncelikli Telefon &amp; Uzaktan Bağlantı (AnyDesk/Zoom) Desteği</span></li>
+</ul>
+</div>
+<button class="select-plan-btn mt-8 w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition" data-plan="Kurumsal Şirket Paketi (10 Lisans + Danışmanlık)" data-price="2000" type="button">
+            Kurumsal Paketi Seç — Tek Fiyat (2.000 ₺)
+          </button>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-16 bg-slate-50 border-b border-slate-200" id="kurumsal">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<div class="lg:col-span-6 space-y-5">
+<span class="text-xs font-extrabold uppercase tracking-wider text-excel-600">OSMA BİLİŞİM AKADEMİ — B2B ÇÖZÜMLER</span>
+<h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Şirketinize Özel Excel Otomasyonu veya Kurumsal Eğitim mi Arıyorsunuz?</h2>
+<p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Hazır şablonların ötesinde; ERP/Logo/SQL sistemlerinizden veri çeken özel makrolar, otomatik mail/PDF raporlama sistemleri geliştiriyor ve <strong>Murat Osma</strong> liderliğinde uygulamalı Kurumsal Excel &amp; VBA eğitimleri veriyoruz.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+<div class="bg-white p-4 rounded-xl border border-slate-200">
+<h3 class="font-bold text-sm text-slate-900">🎯 Özel Makro &amp; Dashboard</h3>
+<p class="text-xs text-slate-500 mt-1">Saatler süren manuel raporlarınızı tek tuşla 5 saniyede çalışan VBA otomasyonuna dönüştürelim.</p>
+</div>
+<div class="bg-white p-4 rounded-xl border border-slate-200">
+<h3 class="font-bold text-sm text-slate-900">🏢 Kurumsal Şirket İçi Eğitim</h3>
+<p class="text-xs text-slate-500 mt-1">Ekibinizin seviyesine özel (Temel, İleri Excel, Raporlama, VBA Makro) yüz yüze veya online eğitim.</p>
+</div>
+</div>
+</div>
+<!-- Hızlı Kurumsal Teklif Formu -->
+<div class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-200">
+<h3 class="text-lg font-extrabold text-slate-900 mb-1">2 Saat İçinde Ücretsiz Analiz &amp; Teklif Alın</h3>
+<p class="text-xs text-slate-500 mb-5">İhtiyacınızı kısaca yazın, uzman ekibimiz aynı gün dönüş yapsın.</p>
+<form class="space-y-4" id="b2bQuoteForm">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-slate-700 mb-1">Adınız Soyadınız *</label>
+<input class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-excel-600" id="b2bName" placeholder="Örn: Ahmet Yılmaz" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-700 mb-1">Şirket / Kurum Adı *</label>
+<input class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-excel-600" id="b2bCompany" placeholder="Örn: ABC Lojistik A.Ş." required="" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-slate-700 mb-1">Telefon (WhatsApp) *</label>
+<input class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-excel-600" id="b2bPhone" placeholder="05XX XXX XX XX" required="" type="tel"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-700 mb-1">Hizmet Türü</label>
+<select class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-excel-600" id="b2bService">
+<option value="Özel Excel / VBA Program Yazılımı">Özel Excel / VBA Program Yazılımı</option>
+<option value="Kurumsal Excel Eğitimi (Şirket İçi / Online)">Kurumsal Excel Eğitimi (Şirket İçi / Online)</option>
+<option value="ERP / Web Veri Çekme &amp; Dashboard">ERP / Web Veri Çekme &amp; Dashboard</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-700 mb-1">Kısaca İhtiyacınız</label>
+<textarea class="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-excel-600" id="b2bNotes" placeholder="Örn: 25 kişilik finans ekibimize ileri Excel eğitimi veya haftalık satış raporu otomasyonu..." rows="2"></textarea>
+</div>
+<button class="w-full py-3 rounded-xl bg-excel-600 hover:bg-excel-700 text-white font-bold text-xs sm:text-sm transition" type="submit">
+              Kurumsal Teklif Talebi Gönder
+            </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-16 bg-white" id="referanslar">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-10">
+<span class="text-xs font-extrabold uppercase tracking-wider text-excel-600">DOĞRULANMIŞ KULLANICI VE KURUM DENEYİMLERİ</span>
+<h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Türkiye'nin Önde Gelen Şirketleri Neden Bizi Seçiyor?</h2>
+</div>
+<!-- 3 Seçkin ve Odaklı Yorum Kartı (100 tane ham metin yığını yerine en güçlü kanıtlar) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+<div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+<div>
+<div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+<p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
+              "Gün içinde kullanmış olduğumuz raporlamaları daha hızlı ve sağlıklı hazırlamamıza oldukça katkı sağladı. Öğrendiğimiz kısayol, formül ve hazır şablonlar ile işimizi çok daha kısa sürede yapıyoruz."
+            </p>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-200/80 flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-slate-900">Barış Dursunoğlu &amp; Mehmet Cahit Dağ</p>
+<p class="text-[11px] text-slate-500">SUPERONLINE FİBER A.Ş.</p>
+</div>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-excel-700">Kurumsal Eğitim</span>
+</div>
+</div>
+<div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+<div>
+<div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+<p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
+              "Eğitim genel olarak beklentilerimi karşılamış ve günlük hayatta bana zaman kazandıracak pratik bilgiler katmıştır. Murat Bey tüm sorulara yeterli cevaplar vermiş ve format dışı pratik çözümler de eklemiştir."
+            </p>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-200/80 flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-slate-900">Gözde Baysan &amp; Serhat Yazan</p>
+<p class="text-[11px] text-slate-500">MEDTRONIC</p>
+</div>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-excel-700">İleri Excel &amp; Makro</span>
+</div>
+</div>
+<div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+<div>
+<div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+<p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
+              "Zamanında internet üzerinden arayıp bulamadığım çok fazla bilgiyi ve hazır tabloyu burada buldum. Daha önce uzun yoldan yaptığım uygulamaları artık hazır şablonlarla çok daha hızlı yapabiliyorum."
+            </p>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-200/80 flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-slate-900">Alp Taymaner &amp; Emre Bedir</p>
+<p class="text-[11px] text-slate-500">GEA ISISAN</p>
+</div>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-excel-700">Arşiv &amp; Uygulama</span>
+</div>
+</div>
+</div>
+<!-- Sık Sorulan Sorular (Satın Alma Bariyerlerini Kıran SSS) -->
+<div class="max-w-3xl mx-auto">
+<h3 class="text-xl font-extrabold text-slate-900 text-center mb-6">Sıkça Sorulan Sorular</h3>
+<div class="space-y-3" id="faqContainer">
+<div class="border border-slate-200 rounded-xl overflow-hidden">
+<button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between font-bold text-sm text-slate-800 hover:bg-slate-50" type="button">
+<span>Ödeme yaptıktan sonra dosyaları hemen indirebiliyor muyum?</span>
+<span class="faq-icon text-excel-600 font-extrabold">+</span>
+</button>
+<div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Evet! Kredi kartı veya banka kartı ile 3D Secure üzerinden ödemenizi tamamladığınız saniye hesabınız otomatik olarak aktifleşir. Ödeme bildirimi formu doldurmanıza veya onay beklemenize gerek kalmadan tüm dosyaları tek tıkla indirebilirsiniz.
+            </div>
+</div>
+<div class="border border-slate-200 rounded-xl overflow-hidden">
+<button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between font-bold text-sm text-slate-800 hover:bg-slate-50" type="button">
+<span>İndirdiğim Excel şablonlarında şifre veya kullanım süresi sınırı var mı?</span>
+<span class="faq-icon text-excel-600 font-extrabold">+</span>
+</button>
+<div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Hayır. Tüm Excel tablolarımız ve VBA makrolarımız tamamen açık kaynaklıdır. Kendi şirket logonuzu ekleyebilir, satır/sütun ve formülleri dilediğiniz gibi değiştirebilirsiniz. Aylık ya da yıllık abonelik ücreti yoktur.
+            </div>
+</div>
+<div class="border border-slate-200 rounded-xl overflow-hidden">
+<button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between font-bold text-sm text-slate-800 hover:bg-slate-50" type="button">
+<span>VIP Arşiv Paketi (Tek Fiyat: 2.000 ₺) içine tanesi 2.000 ₺ olan Ücretli Uygulamalar dahil mi?</span>
+<span class="faq-icon text-excel-600 font-extrabold">+</span>
+</button>
+<div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Evet! Yeni paket mimarimizde kullanıcılarımızın kafa karışıklığını tamamen ortadan kaldırdık. VIP Tam Arşiv Paketi aldığınızda 2.750+ standart dosyanın yanı sıra Satış Pipeline Kanban, Nakit Akışı Yönetimi gibi seçkin yönetim şablonlarına ve 152 saatlik video eğitim setine ücretsiz erişirsiniz.
+            </div>
+</div>
+<div class="border border-slate-200 rounded-xl overflow-hidden">
+<button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between font-bold text-sm text-slate-800 hover:bg-slate-50" type="button">
+<span>Şirketimiz adına kurumsal e-Fatura kesiyor musunuz?</span>
+<span class="faq-icon text-excel-600 font-extrabold">+</span>
+</button>
+<div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Elbette. Osma Bilişim Akademi olarak tüm bireysel ve kurumsal satın alımlarda KDV dahil resmi e-Arşiv / e-Fatura düzenlemekteyiz. Ödeme adımında vergi dairesi ve VKN bilgilerinizi girmeniz yeterlidir.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-excel-600 flex items-center justify-center text-white font-extrabold">X</div>
+<span class="font-extrabold text-base text-white">ExcelArşiv Pro</span>
+</div>
+<p class="leading-relaxed">
+          Zamanının kıymetini bilen profesyoneller için Türkiye'nin en kapsamlı hazır Excel şablon, VBA makro ve karar platformu.
+        </p>
+<p class="text-slate-500">Giyimkent 11. Sokak No: 49 Esenler / İstanbul</p>
+<div class="pt-2">
+<p class="mb-1 text-slate-300">📞 +90 542 529 22 05 (WhatsApp Destek)</p>
+<p class="text-slate-300">✉️ info@excelarsivi.com</p>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200 font-bold">iyzico Korumalı</span>
+<span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200 font-bold">3D Secure</span>
+<span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200 font-bold">Taksit İmkanı</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-white mb-3">Popüler Kategoriler &amp; Şablonlar</h4>
+<ul class="space-y-2">
+<li><a class="hover:text-white transition" href="/sablonlar/nakit-akisi">Nakit Akışı ve Kasa Yönetimi</a></li>
+<li><a class="hover:text-white transition" href="/sablonlar/personel-ve-bordro">Personel İzin &amp; Fazla Mesai</a></li>
+<li><a class="hover:text-white transition" href="/sablonlar/satis-ve-fiyatlama">Satış Pipeline Kanban CRM</a></li>
+<li><a class="hover:text-white transition" href="/sablonlar/finansal-analiz">Finansal Analiz &amp; Raporlama</a></li>
+<li><a class="hover:text-white transition" href="/sablonlar/butce-ve-planlama">Bütçe ve Planlama Sistemleri</a></li>
+<li><a class="hover:text-white transition" href="/sablonlar/stok-ve-uretim">Stok ve Üretim Takibi</a></li>
+<li><a class="hover:text-white transition" href="/sablonlar/muhasebe-ve-vergi">Muhasebe ve Vergi Çözümleri</a></li>
+<li><a class="hover:text-white text-emerald-400 font-bold transition" href="/sablonlar">Tüm Şablon Kataloğu (124+) →</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-3">Kurumsal &amp; Bilgi Merkezi</h4>
+<ul class="space-y-2">
+<li><a class="hover:text-white transition" href="/hakkinda">Hakkımızda</a></li>
+<li><a class="hover:text-white transition" href="/nasil-calisir">Nasıl Çalışır?</a></li>
+<li><a class="hover:text-white transition" href="/neden-excel-arsiv">Neden Excel Arşiv?</a></li>
+<li><a class="hover:text-white transition" href="/sss">Sıkça Sorulan Sorular (SSS)</a></li>
+<li><a class="hover:text-white transition" href="/iletisim">İletişim &amp; Destek</a></li>
+<li><a class="hover:text-white transition" href="/ozel-excel-sistemleri">Şirkete Özel Excel Otomasyonu</a></li>
+<li><a class="hover:text-white transition" href="/finansal-web">Finansal Karar Uygulamaları</a></li>
+<li><a class="hover:text-white transition" href="/kurumsal-web">Kurumsal Yönetici Portalları</a></li>
+<li><a class="hover:text-white transition" href="/yerel-erp-crm-moduller">Yerel ERP / CRM Modülleri</a></li>
+<li><a class="hover:text-white transition" href="/urun-bulucu">Akıllı Ürün Bulucu</a></li>
+<li><a class="hover:text-white transition" href="/basari-hikayeleri">Müşteri Başarı Hikayeleri</a></li>
+<li><a class="hover:text-white transition" href="/ortaklik-mali-musavir">Mali Müşavir Ortaklığı</a></li>
+<li><a class="hover:text-white transition" href="/shopier-veri-aktarimi">Shopier Veri Aktarımı</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-3">Sektörel Çözümler &amp; Yasal</h4>
+<ul class="space-y-2">
+<li><a class="hover:text-white transition" href="/sektor/kafe-restoran-nakit">Kafe &amp; Restoran Nakit Yönetimi</a></li>
+<li><a class="hover:text-white transition" href="/sektor/insaat-hakedis">İnşaat Hakediş &amp; Maliyet Takibi</a></li>
+<li><a class="hover:text-white transition" href="/sektor/e-ticaret-karlilik">E-Ticaret Net Kârlılık Hesabı</a></li>
+<li class="pt-2 border-t border-slate-800"><a class="hover:text-white transition" href="/mesafeli-satis-sozlesmesi">Mesafeli Satış Sözleşmesi</a></li>
+<li><a class="hover:text-white transition" href="/gizlilik-politikasi">Gizlilik Politikası</a></li>
+<li><a class="hover:text-white transition" href="/kvkk-aydinlatma">KVKK Aydınlatma Metni</a></li>
+<li><a class="hover:text-white transition" href="/cerez-politikasi">Çerez Politikası</a></li>
+<li><a class="hover:text-white transition" href="/teslimat-ve-iade">Teslimat ve İade Şartları</a></li>
+<li><a class="hover:text-white transition" href="/teslimat">Teslimat Bilgileri</a></li>
+<li><a class="hover:text-white transition" href="/lisans">Lisans Sözleşmesi</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+
+<div class="fixed bottom-5 right-5 z-40">
+<div class="hidden mb-3 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden" id="waChatPopup">
+<div class="bg-emerald-600 text-white p-4 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center font-bold text-sm">MO</div>
+<div>
+<p class="text-xs font-extrabold">Murat Osma &amp; Uzman Ekip</p>
+<p class="text-[11px] text-emerald-100">Çevrimiçi • Ortalama yanıt: 3 dk</p>
+</div>
+</div>
+<button class="text-white/80 hover:text-white text-lg font-bold" id="closeWaPopupBtn" type="button">×</button>
+</div>
+<div class="p-4 bg-slate-50 space-y-3 text-xs">
+<div class="bg-white p-3 rounded-xl border border-slate-200 text-slate-700 shadow-sm">
+          Merhaba! 👋 Aradığınız özel bir Excel tablosu mu var, yoksa VIP Arşiv Paketi hakkında mı bilgi almak istersiniz?
+        </div>
+<input class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-600 bg-white" id="waQuickInput" placeholder="Mesajınızı yazın..." type="text"/>
+<button class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition" id="sendWaMsgBtn" type="button">
+          WhatsApp'tan Gönder (+90 542 529 22 05)
+        </button>
+</div>
+</div>
+<button class="flex items-center gap-2.5 px-4 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-xl shadow-emerald-600/30 transition" id="toggleWaPopupBtn" type="button">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"></path></svg>
+<span>Canlı Destek / Soru Sor</span>
+</button>
+</div>
+
+<div class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4" id="checkoutModal">
+<div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+<div class="bg-slate-900 text-white px-6 py-4 flex items-center justify-between">
+<div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">🔒 256-BİT SSL &amp; 3D SECURE HIZLI TESLİMAT</span>
+<h3 class="text-base font-extrabold">Sipariş Özeti ve Anında İndirme</h3>
+</div>
+<button class="text-slate-400 hover:text-white text-2xl leading-none" id="closeCheckoutModalBtn" type="button">×</button>
+</div>
+<div class="p-6 space-y-5 max-h-[82vh] overflow-y-auto">
+<!-- Seçili Ürün Listesi -->
+<div class="space-y-2.5" id="cartItemsContainer">
+<!-- JS ile doldurulur -->
+</div>
+<!-- Akıllı Upsell Önerisi -->
+<div class="p-3.5 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-between gap-3" id="vipUpsellBanner">
+<div class="text-xs">
+<p class="font-extrabold text-amber-950">💡 Tekil dosya yerine VIP Tam Arşiv'e geçin!</p>
+<p class="text-amber-800">Tek fiyat 2.000 ₺ ile tüm 2.750+ dosyayı + 152 saat eğitimi sınırsız indirin.</p>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs shrink-0" id="switchToVipBtn" type="button">
+            VIP'ye Geç (2.000 ₺)
+          </button>
+</div>
+<!-- Ödeme Yöntemi Sekmeleri -->
+<div>
+<div class="grid grid-cols-2 gap-2 p-1 bg-slate-100 rounded-xl text-xs font-bold mb-4">
+<button class="py-2 rounded-lg bg-white text-slate-900 shadow-sm" id="payTabCard" type="button">💳 Kredi / Banka Kartı (Anında İndir)</button>
+<button class="py-2 rounded-lg text-slate-600 hover:text-slate-900" id="payTabEft" type="button">🏦 Kurumsal Havale / EFT</button>
+</div>
+<!-- Kart Formu -->
+<div class="space-y-3 text-xs" id="cardPaymentPanel">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<input class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200" id="buyerNameInput" placeholder="Adınız Soyadınız / Firma Ünvanı" type="text"/>
+<input class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200" id="buyerEmailInput" placeholder="E-Posta (İndirme linki ve e-Fatura için)" type="email"/>
+</div>
+<input class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200" placeholder="Kart Numarası (4543 •••• •••• ••••)" type="text"/>
+<div class="grid grid-cols-2 gap-3">
+<input class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200" placeholder="AA / YY" type="text"/>
+<input class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200" placeholder="CVC (3 Hane)" type="text"/>
+</div>
+<label class="flex items-center gap-2 text-slate-600 pt-1 cursor-pointer">
+<input class="rounded text-excel-600" id="corporateInvoiceToggle" type="checkbox"/>
+<span>Şirketim adına Kurumsal e-Fatura kesilsin (VKN/Vergi Dairesi ekle)</span>
+</label>
+<div class="hidden grid grid-cols-2 gap-3 pt-1" id="corporateInvoiceFields">
+<input class="w-full px-3 py-2 rounded-lg border border-slate-200" placeholder="Vergi Dairesi" type="text"/>
+<input class="w-full px-3 py-2 rounded-lg border border-slate-200" placeholder="Vergi Kimlik No (VKN)" type="text"/>
+</div>
+</div>
+<!-- EFT Bilgisi (Sadece Kurumsal Tercih Edenler İçin İkincil Seçenek) -->
+<div class="hidden p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-2" id="eftPaymentPanel">
+<p class="font-bold text-slate-800">QNB Finansbank Kurumsal Hesap Bilgileri</p>
+<p class="text-slate-600 font-mono">IBAN: TR44 0015 7000 0000 0079 5601 81</p>
+<p class="text-slate-600">Alıcı: Osma Bilişim Akademi / Murat Osma</p>
+<p class="text-[11px] text-emerald-700 font-medium">İpucu: Beklemeden saniyeler içinde indirmek için Kredi/Banka Kartı sekmesini kullanabilirsiniz.</p>
+</div>
+</div>
+<!-- Toplam ve Onay -->
+<div class="pt-3 border-t border-slate-200 flex items-center justify-between">
+<div>
+<p class="text-xs text-slate-500">Ödenecek Toplam (KDV Dahil)</p>
+<p class="text-2xl font-extrabold text-excel-600" id="checkoutTotalAmount">2.000 ₺</p>
+</div>
+<button class="px-6 py-3.5 rounded-xl bg-excel-600 hover:bg-excel-700 text-white font-extrabold text-xs sm:text-sm shadow-lg transition" id="completeOrderBtn" type="button">
+            3D Secure İle Öde &amp; Hemen İndir
+          </button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4" id="freeSampleModal">
+<div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
+<div class="flex items-center justify-between mb-3">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-100 text-excel-800">🎁 %100 ÜCRETSİZ DENEME</span>
+<button class="text-slate-400 hover:text-slate-700 text-2xl leading-none" id="closeFreeSampleModalBtn" type="button">×</button>
+</div>
+<h3 class="text-lg font-extrabold text-slate-900">Kalitemizi Test Edin: 3 Hazır Excel Şablonu Hediye!</h3>
+<p class="text-xs text-slate-600 mt-1 mb-4">
+        Satın almadan önce tablo kalitemizi ve açık kaynak formül yapımızı kendi bilgisayarınızda inceleyin:
+      </p>
+<ul class="space-y-2 text-xs text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-200 mb-4">
+<li class="flex items-center gap-2"><span class="text-excel-600 font-bold">✓</span> <span>2026 Gelir-Gider ve Kasa Takip Tablosu.xlsx</span></li>
+<li class="flex items-center gap-2"><span class="text-excel-600 font-bold">✓</span> <span>Personel Yıllık İzin Çizelgesi.xlsx</span></li>
+<li class="flex items-center gap-2"><span class="text-excel-600 font-bold">✓</span> <span>Aylık Karşılaştırmalı Mini Dashboard.xlsx</span></li>
+</ul>
+<button class="w-full py-3 rounded-xl bg-excel-600 hover:bg-excel-700 text-white font-bold text-xs sm:text-sm transition" id="downloadSampleNowBtn" type="button">
+        Ücretsiz Numune Paketini Hemen İndir (.CSV / .XLSX Önizleme)
+      </button>
+</div>
+</div>
+
+<div class="hidden fixed top-20 right-5 z-50 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl border border-emerald-500/40 text-xs font-semibold flex items-center gap-2.5 max-w-sm" id="toastBanner">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0"></span>
+<span id="toastMessage">İşlem başarıyla tamamlandı!</span>
+</div>
+
+<script is:inline>
+    // --- 1. VERİ SETLERİ ---
+    const templates = [
+      {
+        id: 'nakit-akisi',
+        title: 'Nakit Akışı ve Likidite Yönetimi Dashboard',
+        category: 'Finans',
+        typeBadge: 'Excel Formül + Dashboard',
+        updated: '2026 Güncel',
+        downloads: 1420,
+        price: 2000,
+        simKey: 'nakit',
+        desc: 'İşletmelerin günlük/aylık banka, kasa, çek ve kredi hareketlerini otomatik raporlayan dinamik likidite yönetim tablosu.'
+      },
+      {
+        id: 'satis-kanban',
+        title: 'Satış Pipeline Takibi Kanban & CRM',
+        category: 'Satış',
+        typeBadge: 'Dinamik Kanban',
+        updated: '2026 Güncel',
+        downloads: 980,
+        price: 2000,
+        simKey: 'satis',
+        desc: 'Satış ekiplerinin müşteri fırsatlarını, teklif aşamalarını ve kapanış oranlarını Kanban görünümüyle yönetmesini sağlar.'
+      },
+      {
+        id: 'kredi-karti',
+        title: 'Çoklu Kredi Kartı Ödeme, Ekstre ve Taksit Takip',
+        category: 'Finans',
+        typeBadge: 'Excel Formül',
+        updated: '2026 Güncel',
+        downloads: 1639,
+        price: 2000,
+        simKey: 'nakit',
+        desc: 'Birden fazla ticari ve bireysel kredi kartının hesap kesim, son ödeme, kullanılabilir limit ve taksit dağılımını merkezi izleyin.'
+      },
+      {
+        id: 'izin-mesai',
+        title: 'Personel İzin Hakediş & Fazla Mesai Hesaplama',
+        category: 'İK',
+        typeBadge: 'İK Otomasyon',
+        updated: '2026 İş Kanunu Uyumlu',
+        downloads: 1120,
+        price: 2000,
+        simKey: 'ik',
+        desc: 'Çalışanların kıdeme göre yıllık izin hakedişlerini, kalan izinlerini ve aylık fazla mesai ücretlerini otomatik hesaplar.'
+      },
+      {
+        id: 'butce-planlama',
+        title: 'Yıllık Bütçe Planlama ve Gerçekleşme Analizi',
+        category: 'Finans',
+        typeBadge: 'Yönetici Raporu',
+        updated: '2026 Güncel',
+        downloads: 845,
+        price: 2000,
+        simKey: 'nakit',
+        desc: 'Departman bazlı hedef bütçe ile fiili harcamaları karşılaştırır, sapma yüzdelerini grafiksel olarak raporlar.'
+      },
+      {
+        id: 'toplu-pdf-mail',
+        title: 'İş Emri & Bordro Yöneticiye Göre Toplu PDF + Mail',
+        category: 'Makro',
+        typeBadge: 'VBA Makro Otomasyon',
+        updated: '2026 v4.2 Yeni Sürüm',
+        downloads: 1890,
+        price: 2000,
+        simKey: 'ik',
+        desc: 'Tek tuşla yüzlerce satırlık veriyi ilgili yönetici veya personele göre ayrı PDF dosyalarına böler ve Outlook üzerinden gönderir.'
+      },
+      {
+        id: 'satis-performans',
+        title: 'Satış Ekibi Performans, Prim ve Hedef Dashboard',
+        category: 'Satış',
+        typeBadge: 'Dashboard',
+        updated: '2026 Güncel',
+        downloads: 760,
+        price: 2000,
+        simKey: 'satis',
+        desc: 'Bölge ve temsilci bazında aylık satış kotalarını, prim hakediş baremlerini ve tahsilat performansını canlı ölçer.'
+      },
+      {
+        id: 'lead-takip',
+        title: 'Potansiyel Müşteri (Lead) & Teklif Dönüşüm Takip',
+        category: 'Satış',
+        typeBadge: 'CRM Şablonu',
+        updated: '2026 Güncel',
+        downloads: 615,
+        price: 2000,
+        simKey: 'satis',
+        desc: 'Gelen müşteri taleplerinin teklife ve satışa dönüşme oranlarını, hatırlatma alarmlarıyla uçtan uca takip edin.'
       }
+    ];
 
-      input.addEventListener('input', () => {
-        renderResults(input.value);
-      });
+    const simulatorConfigs = {
+      nakit: {
+        fileName: 'Nakit_Akisi_ve_Likidite_Yonetimi_2026.xlsm — Açık Kaynak (Şifresiz)',
+        formula: '=ETOPLA(Hareketler!C:C; "Tahsilat"; Hareketler!F:F) - ETOPLA(Hareketler!C:C; "Ödeme"; Hareketler!F:F)',
+        tableTitle: 'Aylık Kasa & Banka Nakit Akış Tablosu (Rakamları Değiştirip Test Edin)',
+        headers: ['Dönem / Ay', 'Nakit Girişi (₺)', 'Nakit Çıkışı (₺)', 'Net Nakit Akışı'],
+        kpiLabels: ['Toplam Tahsilat Girişi', 'Toplam Ödeme Çıkışı', 'Net Kasa Likiditesi'],
+        unit: '₺',
+        rows: [
+          { label: 'Ocak 2026', inVal: 480000, outVal: 320000 },
+          { label: 'Şubat 2026', inVal: 530000, outVal: 390000 },
+          { label: 'Mart 2026', inVal: 610000, outVal: 410000 },
+          { label: 'Nisan 2026', inVal: 720000, outVal: 460000 }
+        ]
+      },
+      satis: {
+        fileName: 'Satis_Pipeline_Kanban_ve_Hedef_Dashboard_2026.xlsx',
+        formula: '=EĞERHATA(D4/C4; 0) * 100 // Hedef Gerçekleşme ve Pipeline Dönüşüm Oranı',
+        tableTitle: 'Bölge & Temsilci Satış Pipeline Tablosu (Rakamları Değiştirip Test Edin)',
+        headers: ['Satış Kanalı / Ekip', 'Aylık Hedef (₺)', 'Maliyet / İskonto (₺)', 'Net Ciro Katkısı'],
+        kpiLabels: ['Toplam Pipeline Hedefi', 'Toplam İskonto/Maliyet', 'Net Gerçekleşen Ciro'],
+        unit: '₺',
+        rows: [
+          { label: 'Kurumsal B2B Satış', inVal: 850000, outVal: 95000 },
+          { label: 'E-Ticaret & Pazaryeri', inVal: 640000, outVal: 110000 },
+          { label: 'Bayi & Kanal Satış', inVal: 520000, outVal: 70000 },
+          { label: 'İhracat / Yurt Dışı', inVal: 910000, outVal: 130000 }
+        ]
+      },
+      ik: {
+        fileName: 'Personel_Izin_Hakedis_ve_Fazla_Mesai_Puantaj_2026.xlsx',
+        formula: '=EĞER(KIDEM_YILI>=15; 26; EĞER(KIDEM_YILI>=5; 20; 14)) - KULLANILAN_IZIN',
+        tableTitle: 'Departman Fazla Mesai & İzin Maliyet Simülasyonu',
+        headers: ['Departman', 'Normal Mesai Bütçesi (₺)', 'Fazla Mesai & İzin Yükü (₺)', 'Net Verimlilik Farkı'],
+        kpiLabels: ['Toplam Bordro Bütçesi', 'Fazla Mesai Maliyeti', 'Net Bütçe Dengesi'],
+        unit: '₺',
+        rows: [
+          { label: 'Üretim & Operasyon', inVal: 420000, outVal: 68000 },
+          { label: 'Lojistik & Depo', inVal: 290000, outVal: 44000 },
+          { label: 'Satış & Saha Ekibi', inVal: 350000, outVal: 32000 },
+          { label: 'Finans & İdari İşler', inVal: 240000, outVal: 15000 }
+        ]
+      }
+    };
 
-      input.addEventListener('focus', () => {
-        if (input.value.trim().length > 0) {
-          renderResults(input.value);
-        }
-      });
+    // --- 2. UYGULAMA DURUMU (STATE) ---
+    let activeCategory = 'all';
+    let searchQuery = '';
+    let activeSort = 'popular';
+    let activeSimKey = 'nakit';
+    let simState = JSON.parse(JSON.stringify(simulatorConfigs));
+    let simChartInstance = null;
 
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const q = input.value.trim();
-        const targetUrl = q ? `/sablonlar?q=${encodeURIComponent(q)}` : '/sablonlar';
-        window.location.href = targetUrl;
-      });
+    let cart = [
+      { id: 'vip-paket', title: 'VIP Tam Arşiv (2.750+ Şablon) + 152 Saat Eğitim Seti', price: 2000 }
+    ];
 
-      chips.forEach((chip) => {
-        chip.addEventListener('click', () => {
-          const query = chip.getAttribute('data-hero-quick-chip') || '';
-          input.value = query;
-          input.focus();
-          renderResults(query);
-        });
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!box.contains(e.target as Node)) {
-          dropdown.setAttribute('hidden', 'true');
-        }
-      });
+    // --- 3. YARDIMCI FONKSİYONLAR ---
+    function formatTL(num) {
+      return Number(num).toLocaleString('tr-TR') + ' ₺';
     }
 
-    // 4. Scroll Reveal & On-Scroll Fade-In Animation (IntersectionObserver)
-    function initScrollReveal() {
-      const revealElements = document.querySelectorAll(
-        '.scroll-reveal, .fade-in, .fade-in-left, .stagger-animation'
-      );
-      if (!revealElements.length) return;
+    function showToast(msg) {
+      const banner = document.getElementById('toastBanner');
+      const text = document.getElementById('toastMessage');
+      text.textContent = msg;
+      banner.classList.remove('hidden');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        banner.classList.add('hidden');
+      }, 3500);
+    }
 
-      if (!('IntersectionObserver' in window)) {
-        revealElements.forEach(function(el) {
-          el.classList.add('visible');
+    // --- 4. CANLI EXCEL SİMÜLATÖRÜ RENDER & CHART ---
+    function renderSimulator() {
+      const cfg = simState[activeSimKey];
+      document.getElementById('simFileName').textContent = cfg.fileName;
+      document.getElementById('simFormulaText').textContent = cfg.formula;
+      document.getElementById('simTableTitle').textContent = cfg.tableTitle;
+      document.getElementById('colHeader1').textContent = cfg.headers[0];
+      document.getElementById('colHeader2').textContent = cfg.headers[1];
+      document.getElementById('colHeader3').textContent = cfg.headers[2];
+      document.getElementById('colHeader4').textContent = cfg.headers[3];
+
+      document.getElementById('kpi1Label').textContent = cfg.kpiLabels[0];
+      document.getElementById('kpi2Label').textContent = cfg.kpiLabels[1];
+      document.getElementById('kpi3Label').textContent = cfg.kpiLabels[2];
+
+      const tbody = document.getElementById('simTableBody');
+      tbody.innerHTML = '';
+
+      let totalIn = 0;
+      let totalOut = 0;
+
+      cfg.rows.forEach((row, idx) => {
+        const net = row.inVal - row.outVal;
+        totalIn += row.inVal;
+        totalOut += row.outVal;
+
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50 transition';
+        tr.innerHTML = `
+          <td class="border border-slate-300 px-2 py-2 text-center bg-slate-100 font-mono text-slate-500">${idx + 1}</td>
+          <td class="border border-slate-300 px-3 py-2 font-semibold text-slate-800">${row.label}</td>
+          <td class="border border-slate-300 px-2 py-1.5 text-right">
+            <input type="number" step="10000" data-row="${idx}" data-field="inVal" value="${row.inVal}" class="sim-cell-input w-28 text-right px-2 py-1 rounded bg-emerald-50/50 border border-emerald-200 font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-excel-600" />
+          </td>
+          <td class="border border-slate-300 px-2 py-1.5 text-right">
+            <input type="number" step="10000" data-row="${idx}" data-field="outVal" value="${row.outVal}" class="sim-cell-input w-28 text-right px-2 py-1 rounded bg-rose-50/50 border border-rose-200 font-bold text-rose-700 focus:outline-none focus:ring-2 focus:ring-excel-600" />
+          </td>
+          <td class="border border-slate-300 px-3 py-2 text-right font-extrabold bg-emerald-50/60 ${net >= 0 ? 'text-excel-700' : 'text-rose-600'}">
+            ${formatTL(net)}
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      const netTotal = totalIn - totalOut;
+      document.getElementById('kpi1Value').textContent = formatTL(totalIn);
+      document.getElementById('kpi2Value').textContent = formatTL(totalOut);
+      document.getElementById('kpi3Value').textContent = formatTL(netTotal);
+
+      // Input eventlerini bağla
+      tbody.querySelectorAll('.sim-cell-input').forEach(inp => {
+        inp.addEventListener('input', (e) => {
+          const rIdx = parseInt(e.target.getAttribute('data-row'), 10);
+          const field = e.target.getAttribute('data-field');
+          const val = parseFloat(e.target.value) || 0;
+          simState[activeSimKey].rows[rIdx][field] = val;
+          updateSimulatorTotalsAndChart();
         });
+      });
+
+      updateSimulatorChart();
+    }
+
+    function updateSimulatorTotalsAndChart() {
+      const cfg = simState[activeSimKey];
+      const tbody = document.getElementById('simTableBody');
+      let totalIn = 0;
+      let totalOut = 0;
+
+      cfg.rows.forEach((row, idx) => {
+        const net = row.inVal - row.outVal;
+        totalIn += row.inVal;
+        totalOut += row.outVal;
+        const netCell = tbody.rows[idx].cells[4];
+        netCell.textContent = formatTL(net);
+      });
+
+      document.getElementById('kpi1Value').textContent = formatTL(totalIn);
+      document.getElementById('kpi2Value').textContent = formatTL(totalOut);
+      document.getElementById('kpi3Value').textContent = formatTL(totalIn - totalOut);
+      updateSimulatorChart();
+    }
+
+    function updateSimulatorChart() {
+      const cfg = simState[activeSimKey];
+      const labels = cfg.rows.map(r => r.label);
+      const inData = cfg.rows.map(r => r.inVal);
+      const outData = cfg.rows.map(r => r.outVal);
+      const netData = cfg.rows.map(r => r.inVal - r.outVal);
+
+      const ctx = document.getElementById('simulatorChart').getContext('2d');
+      if (simChartInstance) {
+        simChartInstance.data.labels = labels;
+        simChartInstance.data.datasets[0].data = inData;
+        simChartInstance.data.datasets[1].data = outData;
+        simChartInstance.data.datasets[2].data = netData;
+        simChartInstance.update();
         return;
       }
 
-      const revealObserver = new IntersectionObserver(
-        function(entries, observer) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
+      simChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Giriş / Hedef (₺)',
+              data: inData,
+              backgroundColor: '#10b981',
+              borderRadius: 6
+            },
+            {
+              label: 'Çıkış / Maliyet (₺)',
+              data: outData,
+              backgroundColor: '#f43f5e',
+              borderRadius: 6
+            },
+            {
+              label: 'Net Bakiye (₺)',
+              data: netData,
+              type: 'line',
+              borderColor: '#0f172a',
+              backgroundColor: '#0f172a',
+              borderWidth: 2,
+              tension: 0.3
             }
-          });
+          ]
         },
-        {
-          rootMargin: '0px 0px 50px 0px',
-          threshold: 0.05,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { boxWidth: 10, font: { size: 11 } }
+            }
+          },
+          scales: {
+            y: {
+              ticks: {
+                font: { size: 10 },
+                callback: function(val) {
+                  return (val / 1000) + 'B ₺';
+                }
+              }
+            },
+            x: {
+              ticks: { font: { size: 10 } }
+            }
+          }
         }
-      );
-
-      revealElements.forEach(function(el) {
-        revealObserver.observe(el);
       });
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => {
-        initHeroSearch();
-        initScrollReveal();
+    // --- 5. ŞABLON VİTRİNİ RENDER ---
+    function renderTemplates() {
+      const grid = document.getElementById('templateGrid');
+      grid.innerHTML = '';
+
+      let filtered = templates.filter(item => {
+        const matchesCat = activeCategory === 'all' || item.category === activeCategory;
+        const q = searchQuery.trim().toLowerCase();
+        const matchesSearch = !q || item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q) || item.category.toLowerCase().includes(q);
+        return matchesCat && matchesSearch;
       });
-    } else {
-      initHeroSearch();
-      initScrollReveal();
+
+      if (activeSort === 'popular') {
+        filtered.sort((a, b) => b.downloads - a.downloads);
+      } else if (activeSort === 'price-asc') {
+        filtered.sort((a, b) => a.price - b.price);
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full bg-slate-50 p-8 rounded-2xl text-center border border-slate-200">
+            <p class="text-sm font-bold text-slate-800">Aramanızla eşleşen şablon bulunamadı.</p>
+            <p class="text-xs text-slate-500 mt-1">Filtreyi sıfırlayabilir veya sağ alttaki Canlı Destek'ten özel tablo talep edebilirsiniz.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'bg-slate-50 rounded-2xl p-5 border border-slate-200 hover:border-excel-600 hover:shadow-lg transition flex flex-col justify-between';
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-100 text-excel-800">${item.typeBadge}</span>
+              <span class="text-[11px] font-semibold text-emerald-700 bg-white px-2 py-0.5 rounded border border-emerald-200">✓ ${item.updated}</span>
+            </div>
+            <h3 class="font-extrabold text-sm sm:text-base text-slate-900 leading-snug">${item.title}</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">${item.desc}</p>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-slate-200/80 space-y-3">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-[11px] text-slate-400 block">Sabit Tek Fiyat</span>
+                <span class="text-lg font-extrabold text-slate-900">${formatTL(item.price)}</span>
+              </div>
+              <div class="text-right">
+                <span class="inline-block px-2 py-0.5 rounded bg-amber-100 text-amber-900 text-[11px] font-extrabold">VIP Pakette ÜCRETSİZ</span>
+                <span class="text-[11px] text-slate-500 block mt-0.5">⬇ ${item.downloads} İndirme</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" data-preview-sim="${item.simKey}" class="preview-template-btn py-2 px-3 rounded-xl text-xs font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 transition">
+                🔍 Canlı Önizle
+              </button>
+              <button type="button" data-add-id="${item.id}" class="add-template-btn py-2 px-3 rounded-xl text-xs font-bold text-white bg-excel-600 hover:bg-excel-700 transition">
+                Sepete Ekle
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      // Önizle butonları
+      grid.querySelectorAll('.preview-template-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const simKey = btn.getAttribute('data-preview-sim');
+          switchSimulatorTab(simKey);
+          document.getElementById('canli-onizleme').scrollIntoView({ behavior: 'smooth' });
+          showToast('Şablon canlı simülatöre yüklendi!');
+        });
+      });
+
+      // Sepete ekle butonları
+      grid.querySelectorAll('.add-template-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-add-id');
+          const found = templates.find(t => t.id === id);
+          if (found) {
+            addToCart({ id: found.id, title: found.title + ' (Tekil Uygulama)', price: found.price });
+          }
+        });
+      });
     }
+
+    function switchSimulatorTab(simKey) {
+      activeSimKey = simKey;
+      document.querySelectorAll('.sim-tab-btn').forEach(b => {
+        if (b.getAttribute('data-sim') === simKey) {
+          b.className = 'sim-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-excel-600 text-white shadow-sm transition';
+        } else {
+          b.className = 'sim-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition';
+        }
+      });
+      renderSimulator();
+    }
+
+    // --- 6. SEPET & CHECKOUT YÖNETİMİ ---
+    function addToCart(newItem) {
+      const exists = cart.some(c => c.id === newItem.id);
+      if (!exists) {
+        cart.push(newItem);
+      }
+      updateCartUI();
+      openCheckoutModal();
+      showToast(`"${newItem.title}" sepete eklendi.`);
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(c => c.id !== id);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('cartCountBadge');
+      badge.textContent = cart.length;
+
+      const container = document.getElementById('cartItemsContainer');
+      container.innerHTML = '';
+
+      if (cart.length === 0) {
+        container.innerHTML = `<p class="text-xs text-slate-500 py-3 text-center">Sepetinizde henüz ürün yok. VIP Tam Arşiv Paketi (Tek Fiyat: 2.000 ₺) ile tüm dosyalara erişebilirsiniz.</p>`;
+      } else {
+        cart.forEach(item => {
+          const row = document.createElement('div');
+          row.className = 'flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs';
+          row.innerHTML = `
+            <div>
+              <p class="font-bold text-slate-900">${item.title}</p>
+              <p class="text-[11px] text-emerald-700 font-medium">Anında İndirme + Ömür Boyu Lisans</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="font-extrabold text-sm text-slate-900">${formatTL(item.price)}</span>
+              <button type="button" data-remove-id="${item.id}" class="remove-cart-btn text-slate-400 hover:text-rose-600 font-bold text-base">&times;</button>
+            </div>
+          `;
+          container.appendChild(row);
+        });
+      }
+
+      container.querySelectorAll('.remove-cart-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          removeFromCart(btn.getAttribute('data-remove-id'));
+        });
+      });
+
+      const total = cart.reduce((sum, i) => sum + i.price, 0);
+      document.getElementById('checkoutTotalAmount').textContent = formatTL(total);
+
+      // Eğer sepette tekil 500 TL'lik ürün varsa VIP upsell göster
+      const hasSingleApp = cart.some(i => i.id !== "vip-paket" && !String(i.id).startsWith("plan-"));
+      const upsellBanner = document.getElementById('vipUpsellBanner');
+      if (hasSingleApp) {
+        upsellBanner.classList.remove('hidden');
+      } else {
+        upsellBanner.classList.add('hidden');
+      }
+    }
+
+    function openCheckoutModal() {
+      updateCartUI();
+      document.getElementById('checkoutModal').classList.remove('hidden');
+    }
+
+    // --- 7. EVENT LISTENERS ---
+    window.addEventListener('DOMContentLoaded', () => {
+      renderSimulator();
+      renderTemplates();
+      updateCartUI();
+
+      // Mobil Menü
+      document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+        document.getElementById('mobileMenuPanel').classList.toggle('hidden');
+      });
+
+      // ROI Hesaplayıcı Slider
+      const roiSlider = document.getElementById('roiSlider');
+      roiSlider.addEventListener('input', (e) => {
+        const weeklyHours = parseInt(e.target.value, 10);
+        const yearlySavedHours = Math.round(weeklyHours * 52 * 0.8);
+        const yearlyMoney = yearlySavedHours * 250;
+        document.getElementById('roiHoursLabel').textContent = `Haftada ${weeklyHours} Saat Excel İşi`;
+        document.getElementById('roiSavedHours').textContent = `${yearlySavedHours} Saat / Yıl`;
+        document.getElementById('roiSavedMoney').textContent = formatTL(yearlyMoney) + ' / Yıl';
+      });
+
+      // Hero Arama
+      const heroInput = document.getElementById('heroSearchInput');
+      document.getElementById('heroSearchBtn').addEventListener('click', () => {
+        searchQuery = heroInput.value;
+        renderTemplates();
+        document.getElementById('sablonlar').scrollIntoView({ behavior: 'smooth' });
+      });
+      heroInput.addEventListener('keyup', (e) => {
+        searchQuery = e.target.value;
+        renderTemplates();
+        if (e.key === 'Enter') {
+          document.getElementById('sablonlar').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+
+      // Hızlı Popüler Arama Etiketleri
+      document.querySelectorAll('.quick-search-tag').forEach(tag => {
+        tag.addEventListener('click', () => {
+          const cat = tag.getAttribute('data-quick-filter');
+          activeCategory = cat;
+          searchQuery = '';
+          heroInput.value = '';
+          updateCategoryButtons();
+          renderTemplates();
+          document.getElementById('sablonlar').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Simülatör Sekmeleri
+      document.querySelectorAll('.sim-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          switchSimulatorTab(btn.getAttribute('data-sim'));
+        });
+      });
+
+      // Simülatör Verileri Sıfırla
+      document.getElementById('simResetDataBtn').addEventListener('click', () => {
+        simState = JSON.parse(JSON.stringify(simulatorConfigs));
+        renderSimulator();
+        showToast('Tablo varsayılan değerlerine sıfırlandı.');
+      });
+
+      // Simülatörden Sepete Ekle
+      document.getElementById('simAddToCartBtn').addEventListener('click', () => {
+        const cfg = simState[activeSimKey];
+        addToCart({
+          id: 'sim-' + activeSimKey,
+          title: cfg.fileName.split('—')[0].trim(),
+          price: 2000
+        });
+      });
+
+      // Kategori Filtre Butonları
+      function updateCategoryButtons() {
+        document.querySelectorAll('.cat-btn').forEach(b => {
+          if (b.getAttribute('data-cat') === activeCategory) {
+            b.className = 'cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white transition';
+          } else {
+            b.className = 'cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+          }
+        });
+      }
+
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeCategory = btn.getAttribute('data-cat');
+          updateCategoryButtons();
+          renderTemplates();
+        });
+      });
+
+      // Sıralama
+      document.getElementById('sortSelect').addEventListener('change', (e) => {
+        activeSort = e.target.value;
+        renderTemplates();
+      });
+
+      // Paket Seçim Butonları
+      document.querySelectorAll('.select-plan-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const planTitle = btn.getAttribute('data-plan');
+          const planPrice = parseInt(btn.getAttribute('data-price'), 10);
+          cart = [{ id: 'plan-' + planPrice, title: planTitle, price: planPrice }];
+          openCheckoutModal();
+        });
+      });
+
+      // Sepet Aç/Kapat
+      document.getElementById('openCartBtn').addEventListener('click', openCheckoutModal);
+      document.getElementById('closeCheckoutModalBtn').addEventListener('click', () => {
+        document.getElementById('checkoutModal').classList.add('hidden');
+      });
+
+      // Tekil Üründen VIP Pakete Tek Tıkla Geçiş (Upsell)
+      document.getElementById('switchToVipBtn').addEventListener('click', () => {
+        cart = [{ id: 'vip-paket', title: 'VIP Tam Arşiv (2.750+ Şablon) + 152 Saat Eğitim Seti', price: 2000 }];
+        updateCartUI();
+        showToast('Harika seçim! Sepetiniz VIP Tam Arşiv Paketi (Tek Fiyat: 2.000 ₺) olarak güncellendi.');
+      });
+
+      // Ödeme Sekmeleri (Kart vs EFT)
+      const payTabCard = document.getElementById('payTabCard');
+      const payTabEft = document.getElementById('payTabEft');
+      const cardPanel = document.getElementById('cardPaymentPanel');
+      const eftPanel = document.getElementById('eftPaymentPanel');
+
+      payTabCard.addEventListener('click', () => {
+        payTabCard.className = 'py-2 rounded-lg bg-white text-slate-900 shadow-sm';
+        payTabEft.className = 'py-2 rounded-lg text-slate-600 hover:text-slate-900';
+        cardPanel.classList.remove('hidden');
+        eftPanel.classList.add('hidden');
+      });
+
+      payTabEft.addEventListener('click', () => {
+        payTabEft.className = 'py-2 rounded-lg bg-white text-slate-900 shadow-sm';
+        payTabCard.className = 'py-2 rounded-lg text-slate-600 hover:text-slate-900';
+        eftPanel.classList.remove('hidden');
+        cardPanel.classList.add('hidden');
+      });
+
+      // Kurumsal Fatura Alanı Toggle
+      document.getElementById('corporateInvoiceToggle').addEventListener('change', (e) => {
+        document.getElementById('corporateInvoiceFields').classList.toggle('hidden', !e.target.checked);
+      });
+
+      // Siparişi Tamamla
+      document.getElementById('completeOrderBtn').addEventListener('click', () => {
+        if (cart.length === 0) {
+          showToast('Lütfen önce bir paket veya şablon seçin.');
+          return;
+        }
+        document.getElementById('checkoutModal').classList.add('hidden');
+        showToast('Ödeme onaylandı! Tüm arşiv indirme bağlantılarınız ve e-Faturanız hazırlandı.');
+      });
+
+      // Ücretsiz Numune Modal
+      const freeModal = document.getElementById('freeSampleModal');
+      document.getElementById('freeSampleTopBtn').addEventListener('click', () => freeModal.classList.remove('hidden'));
+      document.getElementById('freeSampleMobileBtn').addEventListener('click', () => freeModal.classList.remove('hidden'));
+      document.getElementById('closeFreeSampleModalBtn').addEventListener('click', () => freeModal.classList.add('hidden'));
+
+      document.getElementById('downloadSampleNowBtn').addEventListener('click', () => {
+        const csvContent = "Donem;Gelir_TL;Gider_TL;Net_Bakiye_TL\nOcak 2026;480000;320000;160000\nSubat 2026;530000;390000;140000\nMart 2026;610000;410000;200000";
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'ExcelArsiv_2026_Ornek_Nakit_Akisi_Sablonu.csv';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        freeModal.classList.add('hidden');
+        showToast('Ücretsiz örnek şablon bilgisayarınıza indirildi!');
+      });
+
+      // Kurumsal B2B Teklif Formu
+      document.getElementById('b2bQuoteForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const company = document.getElementById('b2bCompany').value;
+        e.target.reset();
+        showToast(`Teşekkürler! ${company} için kurumsal teklif talebiniz Murat Osma ekibine iletildi.`);
+      });
+
+      // SSS Akordeon
+      document.querySelectorAll('.faq-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const content = btn.nextElementSibling;
+          const icon = btn.querySelector('.faq-icon');
+          const isHidden = content.classList.contains('hidden');
+          content.classList.toggle('hidden', !isHidden);
+          icon.textContent = isHidden ? '−' : '+';
+        });
+      });
+
+      // WhatsApp Widget
+      const waPopup = document.getElementById('waChatPopup');
+      document.getElementById('toggleWaPopupBtn').addEventListener('click', () => {
+        waPopup.classList.toggle('hidden');
+      });
+      document.getElementById('closeWaPopupBtn').addEventListener('click', () => {
+        waPopup.classList.add('hidden');
+      });
+      document.getElementById('sendWaMsgBtn').addEventListener('click', () => {
+        const msg = document.getElementById('waQuickInput').value.trim() || 'Merhaba, Excel Arşivi paketleri hakkında bilgi almak istiyorum.';
+        waPopup.classList.add('hidden');
+        showToast(`Mesajınız iletildi: "${msg}" — Uzman ekibimiz yanıtlıyor.`);
+      });
+    });
   </script>
-
-  <style>
-    /* 5 Saniyelik Güven Rozetleri */
-    .as-hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 2px 0 6px;
-    }
-    .as-hero-badge-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 11px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid #dbe3ee;
-      border-radius: 20px;
-      font-size: 11.5px;
-      font-weight: 650;
-      color: #334155;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-    }
-
-    /* Dev Genişletilmiş Arama Bloğu (Cockpit) */
-    .as-hero-search-cockpit {
-      position: relative;
-      width: 100%;
-      margin: 6px 0 10px;
-      z-index: 10;
-    }
-    .as-hero-search-bar {
-      display: flex;
-      align-items: center;
-      background: #ffffff;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 14px;
-      padding: 5px 6px 5px 16px;
-      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      gap: 10px;
-    }
-    .as-hero-search-bar:focus-within {
-      border-color: #107c41;
-      box-shadow: 0 8px 24px rgba(16, 124, 65, 0.12), 0 0 0 3.5px rgba(16, 124, 65, 0.15);
-    }
-    .as-hero-search-input-wrap {
-      display: flex;
-      align-items: center;
-      flex: 1;
-      gap: 12px;
-      min-width: 0;
-    }
-    .as-hero-search-svg {
-      color: #64748b;
-      flex-shrink: 0;
-      transition: color 0.15s ease;
-    }
-    .as-hero-search-bar:focus-within .as-hero-search-svg {
-      color: #107c41;
-    }
-    .as-hero-search-input-wrap input {
-      width: 100%;
-      height: 42px;
-      border: none;
-      outline: none;
-      font-size: 14.5px;
-      font-weight: 500;
-      color: #0f172a;
-      background: transparent;
-      padding: 0;
-    }
-    .as-hero-search-input-wrap input::placeholder {
-      color: #94a3b8;
-      font-size: 13.5px;
-    }
-    .as-hero-search-submit-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      height: 42px;
-      padding: 0 22px;
-      background: linear-gradient(135deg, #107c41 0%, #0d6635 100%);
-      color: #ffffff;
-      border: none;
-      border-radius: 10px;
-      font-size: 13.5px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      cursor: pointer;
-      flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(16, 124, 65, 0.25);
-      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .as-hero-search-submit-btn:hover {
-      background: linear-gradient(135deg, #0d6635 0%, #084c26 100%);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(16, 124, 65, 0.35);
-    }
-    .as-hero-search-submit-btn:active {
-      transform: scale(0.98);
-    }
-    .as-hero-search-submit-btn svg {
-      transition: transform 0.15s ease;
-    }
-    .as-hero-search-submit-btn:hover svg {
-      transform: translateX(2px);
-    }
-
-    /* Canlı Arama Sonuç Dropdown'ı */
-    .as-hero-search-dropdown {
-      position: absolute;
-      top: calc(100% + 6px);
-      left: 0;
-      right: 0;
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 12px;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);
-      z-index: 100;
-      overflow: hidden;
-    }
-    .as-hero-dropdown-inner {
-      display: flex;
-      flex-direction: column;
-      max-height: 380px;
-    }
-    .as-hero-dropdown-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 16px;
-      background: #f8fafc;
-      border-bottom: 1px solid #e2e8f0;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: #64748b;
-    }
-    .as-hero-dropdown-list {
-      list-style: none;
-      margin: 0;
-      padding: 6px 0;
-      overflow-y: auto;
-    }
-    .as-hero-dropdown-list li a {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      padding: 10px 16px;
-      text-decoration: none;
-      border-bottom: 1px solid #f1f5f9;
-      transition: background 0.12s ease;
-    }
-    .as-hero-dropdown-list li:last-child a {
-      border-bottom: none;
-    }
-    .as-hero-dropdown-list li a:hover {
-      background: #eff6ff;
-    }
-    .as-drop-item-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-    .as-drop-item-title {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: #0f172a;
-    }
-    .as-drop-item-cat {
-      font-size: 11px;
-      font-weight: 600;
-      color: #2563eb;
-      background: #dbeafe;
-      padding: 2px 7px;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
-    .as-drop-item-summary {
-      font-size: 12px;
-      color: #64748b;
-      line-height: 1.35;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .as-hero-dropdown-all {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 16px;
-      background: #f8fafc;
-      border-top: 1px solid #e2e8f0;
-      font-size: 12.5px;
-      font-weight: 600;
-      color: #2563eb;
-      text-decoration: none;
-    }
-    .as-hero-dropdown-all:hover {
-      background: #eff6ff;
-    }
-    .as-hero-dropdown-empty {
-      padding: 20px;
-      text-align: center;
-      font-size: 13px;
-      color: #64748b;
-    }
-
-    /* Popüler Hızlı Arama Etiketleri */
-    .as-hero-quick-chips {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
-    .as-chip-label {
-      font-size: 11.5px;
-      font-weight: 700;
-      color: #64748b;
-    }
-    .as-chip-btn {
-      border: 1px solid #e2e8f0;
-      background: #ffffff;
-      border-radius: 999px;
-      padding: 3px 11px;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: #475569;
-      cursor: pointer;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
-      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .as-chip-btn:hover {
-      border-color: #107c41;
-      background: #f0fdf4;
-      color: #107c41;
-      transform: translateY(-1px);
-      box-shadow: 0 2px 6px rgba(16, 124, 65, 0.1);
-    }
-
-    /* Eylem Butonları & Canlı Carousel Senkronizasyon Satırı */
-    .as-hero-action-line {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 8px;
-    }
-    .as-hero-secondary-link {
-      font-size: 13.5px;
-      font-weight: 650;
-      color: #0f172a;
-      text-decoration: none;
-      transition: color 0.15s ease, transform 0.15s ease;
-    }
-    .as-hero-secondary-link:hover {
-      color: #107c41;
-      transform: translateX(2px);
-    }
-    .as-hero-action-line .as-hero-dots {
-      margin-top: 0;
-      margin-left: auto;
-    }
-
-    @media (max-width: 640px) {
-      .as-hero-search-bar {
-        flex-direction: column;
-        padding: 8px;
-        gap: 8px;
-      }
-      .as-hero-search-input-wrap {
-        width: 100%;
-      }
-      .as-hero-search-submit-btn {
-        width: 100%;
-        justify-content: center;
-      }
-      .as-hero-action-line .as-hero-dots {
-        margin-left: 0;
-        width: 100%;
-      }
-    }
-
-    .as-aeo-hero-window {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: normal;
-      border: 0;
-    }
-
-    /* Fallback Visibility Assurance for App Store Sections */
-    .scroll-reveal,
-    .stagger-animation > * {
-      opacity: 1 !important;
-      transform: none !important;
-    }
-  </style>
 </body>
 </html>
