@@ -5,7 +5,7 @@
   <subtitle>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://excelarsiv.com/atom.xml" />
   <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-  <updated>2026-10-13T15:54:29.000Z</updated>
+  <updated>2026-10-19T11:33:13.000Z</updated>
   <generator uri="https://excelarsiv.com/" version="3.0">Excel Arşiv Feed Engine</generator>
   <author>
     <name>Barış Bağırlar</name>
@@ -13,26 +13,13 @@
     <uri>https://excelarsiv.com/hakkinda</uri>
   </author>
   <entry>
-    <id>https://excelarsiv.com/sablonlar</id>
-    <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/sablonlar" />
-    <updated>2026-10-13T15:54:29.000Z</updated>
-    <published>2026-10-13T15:54:29.000Z</published>
-    <summary>Nakit akışı, kârlılık, tahsilat, stok, bütçe ve daha fazlası için profesyonel Excel şablonları. macOS App Store vitrin düzeninde inceleyin.</summary>
-    <category term="kategori" label="kategori" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/yerel-erp-crm-moduller</id>
-    <title>İşletmeye Özel Yerel ERP &amp; CRM Modülleri | Bulutsuz, İnternetsiz, GitHub Yedekli — ExcelArşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/yerel-erp-crm-moduller" />
-    <updated>2026-10-13T15:54:29.000Z</updated>
-    <published>2026-10-13T15:54:29.000Z</published>
-    <summary>Aylık abonelik ödemeden kendi bilgisayarınızda çalışan, internet gerektirmeyen, GitHub ile otomatik şifreli yedeklenen, ERP ve CRM süreçleriyle işletmenizin finans ve operasyonunu tek ekrandan yöneten özel modüller.</summary>
-    <category term="diger" label="diger" />
+    <id>https://excelarsiv.com/</id>
+    <title>ExcelArşiv Pro | Türkiye&apos;nin Hazır Excel Şablon, Dashboard ve VBA Arşivi</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Sıfırdan tablo kurmakla saatler harcamayın: 2.750+ hazır Excel şablonu, dinamik yönetim dashboardları ve tek tıkla çalışan VBA makrolarını güvenle indirin.</summary>
+    <category term="home" label="home" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>
@@ -42,8 +29,8 @@
     <id>https://excelarsiv.com/demo/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi</id>
     <title>13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>İşletmeler ve KOBİ&apos;ler için 13 haftalık dinamik nakit akışı ve ödeme planlama Excel tablosunu hemen ücretsiz indirin. Makrosuz, açık formüllü, tam uyumlu canlı çalışma kitabı.</summary>
     <category term="nakit-akisi" label="nakit-akisi" />
     <author>
@@ -55,8 +42,8 @@
     <id>https://excelarsiv.com/demo/akilli-kasa-defteri-ve-nakit-kontrol-sistemi</id>
     <title>Akıllı Kasa Defteri ve Nakit Kontrol Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/akilli-kasa-defteri-ve-nakit-kontrol-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Akıllı Kasa Defteri ve Nakit Kontrol Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="nakit-akisi" label="nakit-akisi" />
     <author>
@@ -68,8 +55,8 @@
     <id>https://excelarsiv.com/demo/amortisman-2026-yeniden-degerleme</id>
     <title>Amortisman + 2026 Yeniden Değerleme</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/amortisman-2026-yeniden-degerleme" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Amortisman + 2026 Yeniden Değerleme için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -81,8 +68,8 @@
     <id>https://excelarsiv.com/demo/amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti</id>
     <title>Amortisman &amp; Sabit Kıymet Satış Zamanlama Stratejisti</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/amortisman-ve-sabit-kiymet-satis-zamanlama-stratejisti" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Amortisman &amp; Sabit Kıymet Satış Zamanlama Stratejisti için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -94,8 +81,8 @@
     <id>https://excelarsiv.com/demo/arsa-ve-gayrimenkul-proje-gelistirme-fizibilite</id>
     <title>Arsa ve Gayrimenkul Proje Geliştirme Fizibilite Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/arsa-ve-gayrimenkul-proje-gelistirme-fizibilite" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Arsa ve Gayrimenkul Proje Geliştirme Fizibilite Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -107,8 +94,8 @@
     <id>https://excelarsiv.com/demo/asgari-kurumlar-vergisi-simulasyon-motoru</id>
     <title>Asgari Kurumlar Vergisi Simülasyon Motoru</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/asgari-kurumlar-vergisi-simulasyon-motoru" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Asgari Kurumlar Vergisi Simülasyon Motoru için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -120,8 +107,8 @@
     <id>https://excelarsiv.com/demo/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli</id>
     <title>Asgari Ücret Zam Etkisi &amp; Fiyat Ayarlama Cetveli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/asgari-ucret-zam-etkisi-fiyat-ayarlama-cetveli" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Asgari Ücret Zam Etkisi &amp; Fiyat Ayarlama Cetveli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="personel-ve-bordro" label="personel-ve-bordro" />
     <author>
@@ -133,8 +120,8 @@
     <id>https://excelarsiv.com/demo/asiri-dusuk-teklif-savunma-robotu</id>
     <title>İhale Elinden Gidiyor Mu? (Aşırı Düşük Teklif Savunma Robotu)</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/asiri-dusuk-teklif-savunma-robotu" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>İhale Elinden Gidiyor Mu? (Aşırı Düşük Teklif Savunma Robotu) için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -146,8 +133,8 @@
     <id>https://excelarsiv.com/demo/aylik-patron-finans-paneli</id>
     <title>Aylık Patron Finans Paneli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/aylik-patron-finans-paneli" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Aylık Patron Finans Paneli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -159,8 +146,8 @@
     <id>https://excelarsiv.com/demo/banka-kredi-covenant-erken-uyari</id>
     <title>Banka Kredi + Covenant Erken Uyarı</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/banka-kredi-covenant-erken-uyari" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Banka Kredi + Covenant Erken Uyarı için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -172,8 +159,8 @@
     <id>https://excelarsiv.com/demo/banka-kredi-ve-taksit-takip-sistemi</id>
     <title>Banka, Kredi ve Taksit Takip Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/banka-kredi-ve-taksit-takip-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Banka, Kredi ve Taksit Takip Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="nakit-akisi" label="nakit-akisi" />
     <author>
@@ -185,8 +172,8 @@
     <id>https://excelarsiv.com/demo/borcla-sirket-satin-alma-ve-yatirim-getirisi</id>
     <title>Borçla Şirket Satın Alma ve Yatırım Getirisi Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/borcla-sirket-satin-alma-ve-yatirim-getirisi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Borçla Şirket Satın Alma ve Yatırım Getirisi Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -198,8 +185,8 @@
     <id>https://excelarsiv.com/demo/cari-ba-bs-toplu-mutabakat</id>
     <title>Cari ve Ba-Bs Toplu Mutabakat Motoru</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/cari-ba-bs-toplu-mutabakat" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Cari ve Ba-Bs Toplu Mutabakat Motoru için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -211,8 +198,8 @@
     <id>https://excelarsiv.com/demo/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi</id>
     <title>Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -224,8 +211,8 @@
     <id>https://excelarsiv.com/demo/cek-senet-ve-vade-risk-sistemi</id>
     <title>Çek–Senet ve Vade Risk Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/cek-senet-ve-vade-risk-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Çek–Senet ve Vade Risk Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="nakit-akisi" label="nakit-akisi" />
     <author>
@@ -237,8 +224,8 @@
     <id>https://excelarsiv.com/demo/dava-masraf-harc-hesaplama</id>
     <title>Dava Masraf &amp; Harç Hesaplama Motoru</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/dava-masraf-harc-hesaplama" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Dava Masraf &amp; Harç Hesaplama Motoru için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -250,8 +237,8 @@
     <id>https://excelarsiv.com/demo/defter-beyan-e-arsiv-aktarim</id>
     <title>Defter Beyan e-Arşiv Aktarım Düzenleyici</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/defter-beyan-e-arsiv-aktarim" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Defter Beyan e-Arşiv Aktarım Düzenleyici için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -263,8 +250,8 @@
     <id>https://excelarsiv.com/demo/depo-doluluk-lokasyon</id>
     <title>Depo Doluluk &amp; Lokasyon Optimizasyonu</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/depo-doluluk-lokasyon" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Depo Doluluk &amp; Lokasyon Optimizasyonu için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -276,8 +263,8 @@
     <id>https://excelarsiv.com/demo/dernek-kooperatif-mali-yonetim</id>
     <title>Dernek/Kooperatif Mali Yönetim Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/dernek-kooperatif-mali-yonetim" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Dernek/Kooperatif Mali Yönetim Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -289,8 +276,8 @@
     <id>https://excelarsiv.com/demo/doviz-acik-pozisyonu-ve-kur-riski-stres-testi</id>
     <title>Döviz Açık Pozisyonu ve Kur Riski Stres Testi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/doviz-acik-pozisyonu-ve-kur-riski-stres-testi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Döviz Açık Pozisyonu ve Kur Riski Stres Testi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -302,8 +289,8 @@
     <id>https://excelarsiv.com/demo/e-belge-zorunluluk-radari</id>
     <title>e-Belge Zorunluluk Radarı</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/e-belge-zorunluluk-radari" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>e-Belge Zorunluluk Radarı için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -315,8 +302,8 @@
     <id>https://excelarsiv.com/demo/e-fatura-satir-defteri-pdf-kaniti</id>
     <title>Toplu e-Fatura Satır Defteri ve PDF Kanıtı</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/e-fatura-satir-defteri-pdf-kaniti" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Toplu e-Fatura Satır Defteri ve PDF Kanıtı için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -328,8 +315,8 @@
     <id>https://excelarsiv.com/demo/e-fatura-toplu-donusturucu</id>
     <title>e-Fatura Toplu Dönüştürücü</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/e-fatura-toplu-donusturucu" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>e-Fatura Toplu Dönüştürücü için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -341,8 +328,8 @@
     <id>https://excelarsiv.com/demo/e-ticaret-gercek-karlilik-fiyatlama</id>
     <title>E-Ticaret Gerçek Kârlılık &amp; Fiyatlama</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/e-ticaret-gercek-karlilik-fiyatlama" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>E-Ticaret Gerçek Kârlılık &amp; Fiyatlama için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -354,8 +341,8 @@
     <id>https://excelarsiv.com/demo/elektrik-faturasi-dogrulama</id>
     <title>Elektrik Faturası Doğrulama Motoru</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/elektrik-faturasi-dogrulama" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Elektrik Faturası Doğrulama Motoru için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -367,8 +354,8 @@
     <id>https://excelarsiv.com/demo/emlak-pipeline-komisyon</id>
     <title>Emlak Ofisi Satış Pipeline &amp; Komisyon Takibi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/emlak-pipeline-komisyon" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Emlak Ofisi Satış Pipeline &amp; Komisyon Takibi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -380,8 +367,8 @@
     <id>https://excelarsiv.com/demo/emsal-sirket-carpanlariyla-degerleme</id>
     <title>Emsal Şirket Çarpanlarıyla Değerleme Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/emsal-sirket-carpanlariyla-degerleme" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Emsal Şirket Çarpanlarıyla Değerleme Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -393,8 +380,8 @@
     <id>https://excelarsiv.com/demo/fason-uretim-takip-sistemi</id>
     <title>Fason Üretim Takip Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/fason-uretim-takip-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Fason Üretim Takip Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -406,8 +393,8 @@
     <id>https://excelarsiv.com/demo/fazla-mesai-ve-isci-dava-riski-tespit-dosyasi</id>
     <title>Fazla Mesai ve İşçi Dava Riski Tespit Dosyası</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/fazla-mesai-ve-isci-dava-riski-tespit-dosyasi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Fazla Mesai ve İşçi Dava Riski Tespit Dosyası için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="personel-ve-bordro" label="personel-ve-bordro" />
     <author>
@@ -419,8 +406,8 @@
     <id>https://excelarsiv.com/demo/fesih-maliyeti-simulatoru</id>
     <title>Fesih Maliyeti Simülatörü (kıdem+ihbar+işe iade)</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/fesih-maliyeti-simulatoru" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Fesih Maliyeti Simülatörü (kıdem+ihbar+işe iade) için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="personel-ve-bordro" label="personel-ve-bordro" />
     <author>
@@ -432,8 +419,8 @@
     <id>https://excelarsiv.com/demo/filo-arac-maliyet-komutasi</id>
     <title>Filo Araç Maliyet Komutası</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/filo-arac-maliyet-komutasi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Filo Araç Maliyet Komutası için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -445,8 +432,8 @@
     <id>https://excelarsiv.com/demo/filo-yatirim-ve-arac-yenileme-fizibilite</id>
     <title>Filo Yatırım ve Araç Yenileme Fizibilite Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/filo-yatirim-ve-arac-yenileme-fizibilite" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Filo Yatırım ve Araç Yenileme Fizibilite Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -458,8 +445,8 @@
     <id>https://excelarsiv.com/demo/franchise-yatirim-fizibilite</id>
     <title>Franchise Yatırım Fizibilite Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/franchise-yatirim-fizibilite" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Franchise Yatırım Fizibilite Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -471,8 +458,8 @@
     <id>https://excelarsiv.com/demo/gayrimenkul-tut-sat-karar</id>
     <title>Gayrimenkul Tut / Sat Karar Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/gayrimenkul-tut-sat-karar" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Gayrimenkul Tut / Sat Karar Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -484,8 +471,8 @@
     <id>https://excelarsiv.com/demo/gayrimenkul-yatirim-fizibilite-ve-karlilik</id>
     <title>Gayrimenkul Yatırım Fizibilite ve Karlılık Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/gayrimenkul-yatirim-fizibilite-ve-karlilik" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Gayrimenkul Yatırım Fizibilite ve Karlılık Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -497,8 +484,8 @@
     <id>https://excelarsiv.com/demo/ges-uretim-performans</id>
     <title>GES Üretim &amp; Performans Takibi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/ges-uretim-performans" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>GES Üretim &amp; Performans Takibi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -510,8 +497,8 @@
     <id>https://excelarsiv.com/demo/ges-yatirim-fizibilite</id>
     <title>GES Yatırım Fizibilite Simülatörü</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/ges-yatirim-fizibilite" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>GES Yatırım Fizibilite Simülatörü için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -523,8 +510,8 @@
     <id>https://excelarsiv.com/demo/ges-yatirim-fizibilite-ve-proje-finansmani</id>
     <title>GES Yatırım Fizibilite ve Proje Finansmanı Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/ges-yatirim-fizibilite-ve-proje-finansmani" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>GES Yatırım Fizibilite ve Proje Finansmanı Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -536,8 +523,8 @@
     <id>https://excelarsiv.com/demo/gida-lot-maliyet-izlenebilirlik</id>
     <title>Gıda Üretim Parti (Lot) Maliyet &amp; İzlenebilirlik</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/gida-lot-maliyet-izlenebilirlik" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Gıda Üretim Parti (Lot) Maliyet &amp; İzlenebilirlik için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -549,8 +536,8 @@
     <id>https://excelarsiv.com/demo/gunluk-gelir-gider-ve-gercek-karlilik-sistemi</id>
     <title>Günlük Gelir–Gider ve Gerçek Kârlılık Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/gunluk-gelir-gider-ve-gercek-karlilik-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Kasa defteri, günlük gelir-gider ve net kârlılık Excel tablosunu hemen ücretsiz indirin. Başabaş analizi, kategori bazlı marj ve canlı formül motoru.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -562,8 +549,8 @@
     <id>https://excelarsiv.com/demo/hakedis-fiyat-farki-hak-kaybi-cetveli</id>
     <title>Hakediş Fiyat Farkı ve Hak Kaybı Cetveli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/hakedis-fiyat-farki-hak-kaybi-cetveli" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Hakediş Fiyat Farkı ve Hak Kaybı Cetveli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -575,8 +562,8 @@
     <id>https://excelarsiv.com/demo/hizmet-ihracati-100-indirim-transfer-takip</id>
     <title>Hizmet İhracatı %100 İndirim + Transfer Takip</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/hizmet-ihracati-100-indirim-transfer-takip" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Hizmet İhracatı %100 İndirim + Transfer Takip için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -588,8 +575,8 @@
     <id>https://excelarsiv.com/demo/hukuk-burosu-dosya-vekalet</id>
     <title>Hukuk Bürosu Dosya &amp; Vekalet Komutası</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/hukuk-burosu-dosya-vekalet" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Hukuk Bürosu Dosya &amp; Vekalet Komutası için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -601,8 +588,8 @@
     <id>https://excelarsiv.com/demo/ihale-fiyat-farki-eskalasyon-pro</id>
     <title>İhale Fiyat Farkı (Eskalasyon) Pro</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/ihale-fiyat-farki-eskalasyon-pro" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>İhale Fiyat Farkı (Eskalasyon) Pro için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -614,8 +601,8 @@
     <id>https://excelarsiv.com/demo/ihaleye-kac-tl-teklif-vermeliyim</id>
     <title>İhaleye Kaç TL Teklif Vermeliyim? (Sınır Değer Hesaplayıcı)</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/ihaleye-kac-tl-teklif-vermeliyim" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>İhaleye Kaç TL Teklif Vermeliyim? (Sınır Değer Hesaplayıcı) için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -627,8 +614,8 @@
     <id>https://excelarsiv.com/demo/ihracat-siparis-karlilik-kur</id>
     <title>İhracat Sipariş Kârlılık &amp; Kur Riski Komutası</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/ihracat-siparis-karlilik-kur" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>İhracat Sipariş Kârlılık &amp; Kur Riski Komutası için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -640,8 +627,8 @@
     <id>https://excelarsiv.com/demo/insaat-hakedis-santiye-maliyet</id>
     <title>İnşaat Hakediş ve Şantiye Maliyet Takip</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/insaat-hakedis-santiye-maliyet" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>İnşaat Hakediş ve Şantiye Maliyet Takip için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -653,8 +640,8 @@
     <id>https://excelarsiv.com/demo/insaat-hakedis-yonetim-sistemi</id>
     <title>İnşaat Hakediş Yönetim Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/insaat-hakedis-yonetim-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>İnşaat Hakediş Yönetim Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -666,8 +653,8 @@
     <id>https://excelarsiv.com/demo/isg-risk-degerlendirme-pro-6331</id>
     <title>İSG Risk Değerlendirme Pro (6331)</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/isg-risk-degerlendirme-pro-6331" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>İSG Risk Değerlendirme Pro (6331) için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="personel-ve-bordro" label="personel-ve-bordro" />
     <author>
@@ -679,8 +666,8 @@
     <id>https://excelarsiv.com/demo/ithalat-depo-teslim-rafa-gelen-net-birim-maliyet</id>
     <title>İthalat Depo Teslim (Rafa Gelen) Net Birim Maliyet</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/ithalat-depo-teslim-rafa-gelen-net-birim-maliyet" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>İthalat Depo Teslim (Rafa Gelen) Net Birim Maliyet için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -692,8 +679,8 @@
     <id>https://excelarsiv.com/demo/ithalat-landed-cost-motoru</id>
     <title>İthalat Landed Cost Motoru</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/ithalat-landed-cost-motoru" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>İthalat Landed Cost Motoru için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -705,8 +692,8 @@
     <id>https://excelarsiv.com/demo/kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi</id>
     <title>Kaçırılan SGK Teşvikleri &amp; Gerçek İşçilik Maliyeti Analizi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kacirilan-sgk-tesvikleri-ve-gercek-iscilik-maliyeti-analizi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Kaçırılan SGK Teşvikleri &amp; Gerçek İşçilik Maliyeti Analizi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -718,8 +705,8 @@
     <id>https://excelarsiv.com/demo/kargo-desi-maliyet-optimizasyonu</id>
     <title>Kargo/Desi Maliyet Optimizasyonu</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kargo-desi-maliyet-optimizasyonu" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Kargo/Desi Maliyet Optimizasyonu için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -731,8 +718,8 @@
     <id>https://excelarsiv.com/demo/kat-karsiligi-hasilat-paylasimi-simulator</id>
     <title>Kat Karşılığı / Hasılat Paylaşımı Simülatör</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kat-karsiligi-hasilat-paylasimi-simulator" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Kat Karşılığı / Hasılat Paylaşımı Simülatör için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -744,8 +731,8 @@
     <id>https://excelarsiv.com/demo/kdv-iade-listesi-robotu-gib7</id>
     <title>KDV İade Listesi Robotu (GİB 7 Liste)</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kdv-iade-listesi-robotu-gib7" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>KDV İade Listesi Robotu (GİB 7 Liste) için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -757,8 +744,8 @@
     <id>https://excelarsiv.com/demo/kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici</id>
     <title>KDV İadesi Azami Alacak Hesabı &amp; Dosya Hazırlayıcı</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kdv-iadesi-azami-alacak-hesabi-dosya-hazirlayici" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>KDV İadesi Azami Alacak Hesabı &amp; Dosya Hazırlayıcı için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -770,8 +757,8 @@
     <id>https://excelarsiv.com/demo/kdv-iadesi-tutar-surec-simulasyonu</id>
     <title>KDV İadesi Tutar ve Süreç Simülasyonu</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kdv-iadesi-tutar-surec-simulasyonu" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>KDV İadesi Tutar ve Süreç Simülasyonu için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -783,8 +770,8 @@
     <id>https://excelarsiv.com/demo/kdv-tevkifat-mahsup-iade-listesi</id>
     <title>KDV Tevkifat Mahsup ve KDV İade Listesi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kdv-tevkifat-mahsup-iade-listesi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>KDV Tevkifat Mahsup ve KDV İade Listesi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -796,8 +783,8 @@
     <id>https://excelarsiv.com/demo/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici</id>
     <title>Kıdem–İhbar Yükü ve Personel Çıkarma Maliyeti Hesaplayıcı</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>4857 sayılı İş Kanunu ve 2026 tavanına tam uyumlu kıdem-ihbar tazminatı ve personel çıkarma maliyeti Excel tablosunu hemen ücretsiz indirin.</summary>
     <category term="personel-ve-bordro" label="personel-ve-bordro" />
     <author>
@@ -809,8 +796,8 @@
     <id>https://excelarsiv.com/demo/kik-asiri-dusuk-savunma-sinir-deger</id>
     <title>KİK Aşırı Düşük Savunma + Sınır Değer Paketi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kik-asiri-dusuk-savunma-sinir-deger" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>KİK Aşırı Düşük Savunma + Sınır Değer Paketi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -822,8 +809,8 @@
     <id>https://excelarsiv.com/demo/kira-avans-takip-dekont</id>
     <title>Kira ve Avans Takip + Dekont</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kira-avans-takip-dekont" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Kira ve Avans Takip + Dekont için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -835,8 +822,8 @@
     <id>https://excelarsiv.com/demo/kira-portfoyu-getiri-komutasi</id>
     <title>Kira Portföyü Getiri Komutası</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kira-portfoyu-getiri-komutasi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Kira Portföyü Getiri Komutası için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -848,8 +835,8 @@
     <id>https://excelarsiv.com/demo/kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti</id>
     <title>KKEG ve Finansman Gider Kısıtlaması Vergi Savunma Seti</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kkeg-ve-finansman-gider-kisitlamasi-vergi-savunma-seti" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>KKEG ve Finansman Gider Kısıtlaması Vergi Savunma Seti için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -861,8 +848,8 @@
     <id>https://excelarsiv.com/demo/klinik-saglik-merkezi-fizibilite-ve-karlilik</id>
     <title>Klinik / Sağlık Merkezi Fizibilite ve Karlılık Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/klinik-saglik-merkezi-fizibilite-ve-karlilik" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Klinik / Sağlık Merkezi Fizibilite ve Karlılık Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -874,8 +861,8 @@
     <id>https://excelarsiv.com/demo/kobi-finans-yonetim-paketi</id>
     <title>KOBİ Finans Yönetim Paketi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kobi-finans-yonetim-paketi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>KOBİ Finans Yönetim Paketi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -887,8 +874,8 @@
     <id>https://excelarsiv.com/demo/konkordato-nakit-akis-on-projesi</id>
     <title>Konkordato Nakit Akış Ön Projesi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/konkordato-nakit-akis-on-projesi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Konkordato Nakit Akış Ön Projesi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="nakit-akisi" label="nakit-akisi" />
     <author>
@@ -900,8 +887,8 @@
     <id>https://excelarsiv.com/demo/konkordato-ttk376-kriz-paketi</id>
     <title>Konkordato + TTK 376 Kriz Paketi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/konkordato-ttk376-kriz-paketi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Konkordato + TTK 376 Kriz Paketi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -913,8 +900,8 @@
     <id>https://excelarsiv.com/demo/kvkk-veri-envanteri-verbis-uyum</id>
     <title>KVKK Veri Envanteri + VERBİS Uyum Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/kvkk-veri-envanteri-verbis-uyum" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>KVKK Veri Envanteri + VERBİS Uyum Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -926,8 +913,8 @@
     <id>https://excelarsiv.com/demo/logo-sql-cari-yaslandirma-tahsilat-karar-motoru</id>
     <title>Logo SQL Cari Yaşlandırma &amp; Tahsilat Karar Motoru</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/logo-sql-cari-yaslandirma-tahsilat-karar-motoru" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Logo SQL Cari Yaşlandırma &amp; Tahsilat Karar Motoru için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -939,8 +926,8 @@
     <id>https://excelarsiv.com/demo/makine-bakim-kalibrasyon-durus-maliyeti</id>
     <title>Makine Bakım &amp; Kalibrasyon + Duruş Maliyeti</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/makine-bakim-kalibrasyon-durus-maliyeti" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Makine Bakım &amp; Kalibrasyon + Duruş Maliyeti için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -952,8 +939,8 @@
     <id>https://excelarsiv.com/demo/mini-mrp-bom-malzeme-kapasite</id>
     <title>Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite)</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/mini-mrp-bom-malzeme-kapasite" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite) için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -965,8 +952,8 @@
     <id>https://excelarsiv.com/demo/mizan-anomali-denetim-oncesi-kontrol</id>
     <title>Mizan Anomali &amp; Denetim Öncesi Kontrol</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/mizan-anomali-denetim-oncesi-kontrol" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Mizan Anomali &amp; Denetim Öncesi Kontrol için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -978,8 +965,8 @@
     <id>https://excelarsiv.com/demo/mutfak-kayip-kacak-hesaplayici</id>
     <title>Mutfak Kayıp/Kaçak Tespiti &amp; Menü Kârlılık Analizi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/mutfak-kayip-kacak-hesaplayici" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Mutfak Kayıp/Kaçak Tespiti &amp; Menü Kârlılık Analizi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -991,8 +978,8 @@
     <id>https://excelarsiv.com/demo/nakliye-maliyeti-hesaplayici</id>
     <title>Sefer Başına Nakliye Maliyeti &amp; Fiyatlandırma Cetveli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/nakliye-maliyeti-hesaplayici" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Sefer Başına Nakliye Maliyeti &amp; Fiyatlandırma Cetveli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -1004,8 +991,8 @@
     <id>https://excelarsiv.com/demo/oee-durus-kok-neden-komutasi</id>
     <title>OEE &amp; Duruş Kök-Neden Komutası</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/oee-durus-kok-neden-komutasi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>OEE &amp; Duruş Kök-Neden Komutası için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -1017,8 +1004,8 @@
     <id>https://excelarsiv.com/demo/on-uc-haftalik-nakit-odeme-onceligi</id>
     <title>13 Haftalık Nakit + Ödeme Önceliği</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/on-uc-haftalik-nakit-odeme-onceligi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>13 Haftalık Nakit + Ödeme Önceliği için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="nakit-akisi" label="nakit-akisi" />
     <author>
@@ -1030,8 +1017,8 @@
     <id>https://excelarsiv.com/demo/ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici</id>
     <title>Ortaklar Cari &amp; Kasa Adat Faiz Faturası Hesaplayıcı</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/ortaklar-cari-ve-kasa-adat-faiz-faturasi-hesaplayici" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Ortaklar Cari &amp; Kasa Adat Faiz Faturası Hesaplayıcı için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -1043,8 +1030,8 @@
     <id>https://excelarsiv.com/demo/ortakli-gayrimenkul-yatirimi-kar-dagitim</id>
     <title>Ortaklı Gayrimenkul Yatırımı Kâr Dağıtım Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/ortakli-gayrimenkul-yatirimi-kar-dagitim" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Ortaklı Gayrimenkul Yatırımı Kâr Dağıtım Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -1056,8 +1043,8 @@
     <id>https://excelarsiv.com/demo/ortulu-sermaye-emsal-faiz-tf-paketi</id>
     <title>Örtülü Sermaye + Emsal Faiz + TF Paketi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/ortulu-sermaye-emsal-faiz-tf-paketi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Örtülü Sermaye + Emsal Faiz + TF Paketi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -1069,8 +1056,8 @@
     <id>https://excelarsiv.com/demo/otel-fizibilite-ve-karlilik</id>
     <title>Otel Fizibilite ve Karlılık Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/otel-fizibilite-ve-karlilik" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Otel Fizibilite ve Karlılık Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -1082,8 +1069,8 @@
     <id>https://excelarsiv.com/demo/pazaryeri-hakedis-mutabakat-motoru</id>
     <title>Pazaryeri Hakediş Mutabakat Motoru</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/pazaryeri-hakedis-mutabakat-motoru" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Pazaryeri Hakediş Mutabakat Motoru için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -1095,8 +1082,8 @@
     <id>https://excelarsiv.com/demo/pazaryeri-net-kar-ve-eksik-hakedis-yakalayici</id>
     <title>Pazaryeri Net Kâr &amp; Eksik Hakediş Yakalayıcı</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/pazaryeri-net-kar-ve-eksik-hakedis-yakalayici" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Pazaryeri Net Kâr &amp; Eksik Hakediş Yakalayıcı için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -1108,8 +1095,8 @@
     <id>https://excelarsiv.com/demo/perakende-magaza-acilis-fizibilite</id>
     <title>Perakende / Mağaza Açılış Fizibilite Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/perakende-magaza-acilis-fizibilite" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Perakende / Mağaza Açılış Fizibilite Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -1121,8 +1108,8 @@
     <id>https://excelarsiv.com/demo/pos-komisyon-ve-net-tahsilat-kontrol-sistemi</id>
     <title>POS, Komisyon ve Net Tahsilat Kontrol Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/pos-komisyon-ve-net-tahsilat-kontrol-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>POS, Komisyon ve Net Tahsilat Kontrol Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -1134,8 +1121,8 @@
     <id>https://excelarsiv.com/demo/profesyonel-hizmet-sirketi-karlilik-ve-kapasite</id>
     <title>Profesyonel Hizmet Şirketi Karlılık ve Kapasite Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/profesyonel-hizmet-sirketi-karlilik-ve-kapasite" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Profesyonel Hizmet Şirketi Karlılık ve Kapasite Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -1147,8 +1134,8 @@
     <id>https://excelarsiv.com/demo/proje-finansmani-dscr-llcr-paketi</id>
     <title>Proje Finansmanı Paketi (DSCR/LLCR)</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/proje-finansmani-dscr-llcr-paketi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Proje Finansmanı Paketi (DSCR/LLCR) için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -1160,8 +1147,8 @@
     <id>https://excelarsiv.com/demo/proje-ve-is-bazinda-gercek-karlilik-sistemi</id>
     <title>Proje ve İş Bazında Gerçek Kârlılık Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/proje-ve-is-bazinda-gercek-karlilik-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Proje ve İş Bazında Gerçek Kârlılık Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -1173,8 +1160,8 @@
     <id>https://excelarsiv.com/demo/puantaj-vardiya-fazla-mesai-kanit-sistemi</id>
     <title>Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/puantaj-vardiya-fazla-mesai-kanit-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="personel-ve-bordro" label="personel-ve-bordro" />
     <author>
@@ -1186,8 +1173,8 @@
     <id>https://excelarsiv.com/demo/recete-maliyeti-menu-muhendisligi</id>
     <title>Reçete Maliyeti &amp; Menü Mühendisliği</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/recete-maliyeti-menu-muhendisligi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Reçete Maliyeti &amp; Menü Mühendisliği için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -1199,8 +1186,8 @@
     <id>https://excelarsiv.com/demo/restoran-kafe-yatirim-fizibilite-ve-karlilik</id>
     <title>Restoran / Kafe Yatırım Fizibilite ve Karlılık Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/restoran-kafe-yatirim-fizibilite-ve-karlilik" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Restoran / Kafe Yatırım Fizibilite ve Karlılık Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -1212,8 +1199,8 @@
     <id>https://excelarsiv.com/demo/restoran-recete-maliyet-fire</id>
     <title>Restoran Reçete Maliyet + Fire Hesaplama</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/restoran-recete-maliyet-fire" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Restoran Reçete Maliyet + Fire Hesaplama için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -1225,8 +1212,8 @@
     <id>https://excelarsiv.com/demo/saas-finansal-planlama-runway-ve-yatirim</id>
     <title>SaaS Finansal Planlama, Runway ve Yatırım Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/saas-finansal-planlama-runway-ve-yatirim" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>SaaS Finansal Planlama, Runway ve Yatırım Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -1238,8 +1225,8 @@
     <id>https://excelarsiv.com/demo/sarj-istasyonu-yatirim</id>
     <title>Şarj İstasyonu Yatırım Simülatörü</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/sarj-istasyonu-yatirim" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Şarj İstasyonu Yatırım Simülatörü için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -1251,8 +1238,8 @@
     <id>https://excelarsiv.com/demo/sekiz-d-duzeltici-faaliyet-dosya</id>
     <title>8D / Düzeltici Faaliyet Dosya Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/sekiz-d-duzeltici-faaliyet-dosya" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>8D / Düzeltici Faaliyet Dosya Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -1264,8 +1251,8 @@
     <id>https://excelarsiv.com/demo/sera-kurulum-fizibilite</id>
     <title>Sera Kurulum &amp; Rekolte Fizibilitesi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/sera-kurulum-fizibilite" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Sera Kurulum &amp; Rekolte Fizibilitesi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -1277,8 +1264,8 @@
     <id>https://excelarsiv.com/demo/sevkiyat-fiyatlama-navlun</id>
     <title>Sevkiyat Fiyatlama &amp; Navlun Maliyet Motoru</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/sevkiyat-fiyatlama-navlun" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Sevkiyat Fiyatlama &amp; Navlun Maliyet Motoru için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -1290,8 +1277,8 @@
     <id>https://excelarsiv.com/demo/sgk-prim-tesvikleri-optimizasyon-motoru</id>
     <title>SGK Prim Teşvikleri Optimizasyon Motoru</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/sgk-prim-tesvikleri-optimizasyon-motoru" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>SGK Prim Teşvikleri Optimizasyon Motoru için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="personel-ve-bordro" label="personel-ve-bordro" />
     <author>
@@ -1303,8 +1290,8 @@
     <id>https://excelarsiv.com/demo/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli</id>
     <title>Şirket Öz Kaynağı Eridi Mi? (TTK 376 Sermaye Tamamlama Cetveli)</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/sirket-oz-kaynagi-eridi-mi-ttk-376-sermaye-tamamlama-cetveli" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Şirket Öz Kaynağı Eridi Mi? (TTK 376 Sermaye Tamamlama Cetveli) için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -1316,8 +1303,8 @@
     <id>https://excelarsiv.com/demo/sirket-satin-alma-ve-ortaklik-devir-analizi</id>
     <title>Şirket Satın Alma ve Ortaklık Devir Analizi Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/sirket-satin-alma-ve-ortaklik-devir-analizi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Şirket Satın Alma ve Ortaklık Devir Analizi Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -1329,8 +1316,8 @@
     <id>https://excelarsiv.com/demo/site-apartman-yonetim-sistemi</id>
     <title>Site/Apartman Yönetim Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/site-apartman-yonetim-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Site/Apartman Yönetim Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -1342,8 +1329,8 @@
     <id>https://excelarsiv.com/demo/spc-proses-yetenek-analizi</id>
     <title>SPC Proses Yetenek Analizi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/spc-proses-yetenek-analizi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>SPC Proses Yetenek Analizi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -1355,8 +1342,8 @@
     <id>https://excelarsiv.com/demo/startup-yatirim-alma-ve-nakit-runway</id>
     <title>Startup Yatırım Alma ve Nakit Runway Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/startup-yatirim-alma-ve-nakit-runway" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Startup Yatırım Alma ve Nakit Runway Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="nakit-akisi" label="nakit-akisi" />
     <author>
@@ -1368,8 +1355,8 @@
     <id>https://excelarsiv.com/demo/stok-optimizasyon-abc-olu-stok-nakit</id>
     <title>Stok Optimizasyon + ABC + Ölü Stok Nakit</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/stok-optimizasyon-abc-olu-stok-nakit" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Stok Optimizasyon + ABC + Ölü Stok Nakit için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -1381,8 +1368,8 @@
     <id>https://excelarsiv.com/demo/stok-satis-ve-nakit-baglanma-sistemi</id>
     <title>Stok, Satış ve Nakit Bağlanma Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/stok-satis-ve-nakit-baglanma-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Stok, Satış ve Nakit Bağlanma Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -1394,8 +1381,8 @@
     <id>https://excelarsiv.com/demo/sube-karlilik-ve-nakit-hesaplayici</id>
     <title>Bu Şubeyi Kapatmalı Mıyım? (Şube Kârlılık &amp; Nakit Yakış Analizi)</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/sube-karlilik-ve-nakit-hesaplayici" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Bu Şubeyi Kapatmalı Mıyım? (Şube Kârlılık &amp; Nakit Yakış Analizi) için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -1407,8 +1394,8 @@
     <id>https://excelarsiv.com/demo/sut-surusu-yonetim</id>
     <title>Süt Sürüsü Yönetim Komutası</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/sut-surusu-yonetim" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Süt Sürüsü Yönetim Komutası için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -1420,8 +1407,8 @@
     <id>https://excelarsiv.com/demo/tahsilat-riski-vade-komuta-paneli</id>
     <title>Tahsilat Riski &amp; Vade Komuta Paneli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/tahsilat-riski-vade-komuta-paneli" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Tahsilat Riski &amp; Vade Komuta Paneli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="nakit-akisi" label="nakit-akisi" />
     <author>
@@ -1433,8 +1420,8 @@
     <id>https://excelarsiv.com/demo/tarimsal-destek-uygunluk</id>
     <title>Tarımsal Destek/Teşvik Uygunluk Testi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/tarimsal-destek-uygunluk" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Tarımsal Destek/Teşvik Uygunluk Testi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -1446,8 +1433,8 @@
     <id>https://excelarsiv.com/demo/taseron-hakedis-kesinti-mutabakati</id>
     <title>Taşeron/Alt Yüklenici Hakediş &amp; Kesinti Mutabakatı</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/taseron-hakedis-kesinti-mutabakati" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Taşeron/Alt Yüklenici Hakediş &amp; Kesinti Mutabakatı için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -1459,8 +1446,8 @@
     <id>https://excelarsiv.com/demo/tesvikli-bordro-avantajli-tesvik</id>
     <title>Teşvikli Bordro ve En Avantajlı Teşvik Seçen</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/tesvikli-bordro-avantajli-tesvik" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Teşvikli Bordro ve En Avantajlı Teşvik Seçen için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="personel-ve-bordro" label="personel-ve-bordro" />
     <author>
@@ -1472,8 +1459,8 @@
     <id>https://excelarsiv.com/demo/tesvikli-bordro-optimizasyon</id>
     <title>Teşvikli Bordro Optimizasyon</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/tesvikli-bordro-optimizasyon" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Teşvikli Bordro Optimizasyon için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="personel-ve-bordro" label="personel-ve-bordro" />
     <author>
@@ -1485,8 +1472,8 @@
     <id>https://excelarsiv.com/demo/trendyol-komisyon-sonrasi-net-kar</id>
     <title>Trendyol Komisyon Sonrası Net Kâr Hesaplama</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/trendyol-komisyon-sonrasi-net-kar" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Trendyol Komisyon Sonrası Net Kâr Hesaplama için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="satis-ve-fiyatlama" label="satis-ve-fiyatlama" />
     <author>
@@ -1498,8 +1485,8 @@
     <id>https://excelarsiv.com/demo/uretim-kapasite-yatirim-ve-karlilik</id>
     <title>Üretim Kapasite, Yatırım ve Karlılık Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/uretim-kapasite-yatirim-ve-karlilik" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Üretim Kapasite, Yatırım ve Karlılık Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -1511,8 +1498,8 @@
     <id>https://excelarsiv.com/demo/uretim-kari-125-kv-optimizasyonu</id>
     <title>Üretim Kârı %12,5 KV Optimizasyonu</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/uretim-kari-125-kv-optimizasyonu" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Üretim Kârı %12,5 KV Optimizasyonu için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -1524,8 +1511,8 @@
     <id>https://excelarsiv.com/demo/uretim-recetesi-ve-zam-yansitma-hesaplayici</id>
     <title>Üretim Reçetesi &amp; Zam Yansıtma Hesaplayıcı</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/uretim-recetesi-ve-zam-yansitma-hesaplayici" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Üretim Reçetesi &amp; Zam Yansıtma Hesaplayıcı için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -1537,8 +1524,8 @@
     <id>https://excelarsiv.com/demo/vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi</id>
     <title>Vergi/SGK Borcunu Tecil Etmeli Miyim? (Kredi mi Tecil mi?)</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/vergi-sgk-borcunu-tecil-etmeli-miyim-kredi-mi-tecil-mi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Vergi/SGK Borcunu Tecil Etmeli Miyim? (Kredi mi Tecil mi?) için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="butce-ve-planlama" label="butce-ve-planlama" />
     <author>
@@ -1550,8 +1537,8 @@
     <id>https://excelarsiv.com/demo/vergi-sgk-ve-maas-karsilik-ayirma-sistemi</id>
     <title>Vergi, SGK ve Maaş Karşılık Ayırma Sistemi</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/vergi-sgk-ve-maas-karsilik-ayirma-sistemi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Vergi, SGK ve Maaş Karşılık Ayırma Sistemi için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -1563,8 +1550,8 @@
     <id>https://excelarsiv.com/demo/wacc-hesaplama-ve-sermaye-maliyeti</id>
     <title>WACC Hesaplama ve Sermaye Maliyeti Exceli</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/wacc-hesaplama-ve-sermaye-maliyeti" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>WACC Hesaplama ve Sermaye Maliyeti Exceli için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
     <author>
@@ -1576,8 +1563,8 @@
     <id>https://excelarsiv.com/demo/yem-rasyonu-maliyet</id>
     <title>Yem Rasyonu &amp; Maliyet Motoru</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/yem-rasyonu-maliyet" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Yem Rasyonu &amp; Maliyet Motoru için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="stok-ve-uretim" label="stok-ve-uretim" />
     <author>
@@ -1589,8 +1576,8 @@
     <id>https://excelarsiv.com/demo/yeniden-degerleme-komuta-merkezi</id>
     <title>Yeniden Değerleme Komuta Merkezi (298/Ç + Geç.32)</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/yeniden-degerleme-komuta-merkezi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Yeniden Değerleme Komuta Merkezi (298/Ç + Geç.32) için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -1602,8 +1589,8 @@
     <id>https://excelarsiv.com/demo/yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi</id>
     <title>Yeniden Değerleme Yapmalı Mıyım? (Vergi Tasarruf Analizi)</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/yeniden-degerleme-yapmali-miyim-vergi-tasarruf-analizi" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Yeniden Değerleme Yapmalı Mıyım? (Vergi Tasarruf Analizi) için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -1615,8 +1602,8 @@
     <id>https://excelarsiv.com/demo/yillara-sari-insaat-stopaj-nakit-akis-planlayici</id>
     <title>Yıllara Sari İnşaat Stopaj &amp; Nakit Akış Planlayıcı</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/yillara-sari-insaat-stopaj-nakit-akis-planlayici" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Yıllara Sari İnşaat Stopaj &amp; Nakit Akış Planlayıcı için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -1628,8 +1615,8 @@
     <id>https://excelarsiv.com/demo/ymm-tasdik-kontrol-robotu</id>
     <title>YMM Tasdik Kontrol Robotu</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/ymm-tasdik-kontrol-robotu" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>YMM Tasdik Kontrol Robotu için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="muhasebe-ve-vergi" label="muhasebe-ve-vergi" />
     <author>
@@ -1641,10 +1628,296 @@
     <id>https://excelarsiv.com/demo/yurt-disi-yapilanma-vergi-simulatoru</id>
     <title>Yurt Dışı Yapılanma Vergi Simülatörü</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/demo/yurt-disi-yapilanma-vergi-simulatoru" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
     <summary>Yurt Dışı Yapılanma Vergi Simülatörü için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.</summary>
     <category term="finansal-analiz" label="finansal-analiz" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/amortisman-yeniden-degerleme-excel</id>
+    <title>Amortisman ve yeniden değerleme için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/amortisman-yeniden-degerleme-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Amortisman, yeniden değerleme ve sabit kıymet satış zamanlaması için uygun Excel sistemlerini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/doviz-acik-pozisyon-kur-riski-excel</id>
+    <title>Döviz açık pozisyonu ve kur riski için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/doviz-acik-pozisyon-kur-riski-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Döviz varlık ve borçlarını netleştirip kur şoku etkisini görmek için uygun Excel sistemini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/hangi-excel-sistemini-almaliyim</id>
+    <title>Hangi Excel sistemini almalıyım? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/hangi-excel-sistemini-almaliyim" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Nakit, cari, stok, vergi, personel ve kârlılık ihtiyacınıza göre hangi Excel sisteminden başlamanız gerektiğini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/ihale-teklif-sinir-deger-excel</id>
+    <title>İhale teklif ve sınır değer hesabı için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/ihale-teklif-sinir-deger-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Sınır değer, teklif aralığı ve aşırı düşük teklif savunması için uygun Excel sistemlerini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/insaat-hakedis-excel</id>
+    <title>İnşaat hakediş takibi için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/insaat-hakedis-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Şantiye maliyeti, hakediş fiyat farkı ve taşeron mutabakatı için uygun Excel sistemlerini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/kasa-defteri-excel</id>
+    <title>Günlük kasa defteri Excel: hangi sistemi seçmelisiniz? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/kasa-defteri-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Günlük kasa hareketi, kapanış bakiyesi ve sayım farkını izlemek için uygun Excel sistemini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/kdv-iade-dosyasi-excel</id>
+    <title>KDV iade listesi hazırlamak için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/kdv-iade-dosyasi-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>KDV iade listeleri, azami alacak ve tevkifat mahsup süreçleri için uygun Excel sistemlerini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/kidem-ihbar-maliyeti-excel</id>
+    <title>Kıdem ve ihbar maliyeti için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/kidem-ihbar-maliyeti-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Personel çıkış maliyeti ve fazla mesai riskini ayrı değerlendirerek uygun Excel sistemini seçin.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/kobi-nakit-akisi-excel</id>
+    <title>KOBİ için nakit akışı Excel&apos;i: hangisini seçmelisiniz? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/kobi-nakit-akisi-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>KOBİ nakit akışını haftalık planlamak için 13 haftalık model ile günlük kasa kontrolü arasındaki farkı görün.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/logo-erp-cari-yaslandirma-excel</id>
+    <title>Logo/ERP cari yaşlandırma için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/logo-erp-cari-yaslandirma-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Logo veya ERP cari hareket çıktısını yaşlandırma ve tahsilat kararına dönüştürmek için uygun Excel sistemini değerlendirin.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/mali-musavir-cari-takip-excel</id>
+    <title>Cari hesap ve tahsilat takibi için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/mali-musavir-cari-takip-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Cari bakiye, vade ve müşteri tahsilat riskini izlemek için uygun Excel sistemini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/pos-komisyon-kontrol-excel</id>
+    <title>POS komisyon kontrolü için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/pos-komisyon-kontrol-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>POS brüt satış, komisyon, iade ve net tahsilatı karşılaştırmak için uygun Excel sistemini görün.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/restoran-kafe-maliyet-excel</id>
+    <title>Restoran ve kafe maliyeti için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/restoran-kafe-maliyet-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Reçete maliyeti, fire ve mutfak kayıp-kaçak analizi için uygun Excel sistemlerini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/sgk-tesvik-optimizasyon-excel</id>
+    <title>SGK teşvik analizi için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/sgk-tesvik-optimizasyon-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Kaçırılan SGK teşviklerini ve teşvikli bordro seçeneklerini değerlendirmek için uygun Excel sistemini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/stok-devir-nakit-baglanma-excel</id>
+    <title>Stok devir ve stokta bağlı nakit için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/stok-devir-nakit-baglanma-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Stok devir hızı, ortalama maliyet ve stokta bağlı nakdi görmek için uygun Excel sistemini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/sube-karlilik-analizi-excel</id>
+    <title>Şube kârlılık analizi için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/sube-karlilik-analizi-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Şube bazlı gelir, gider, nakit ve kârlılık kararını değerlendirmek için uygun Excel sistemini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/trendyol-pazaryeri-net-kar-excel</id>
+    <title>Pazaryeri net kârı için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/trendyol-pazaryeri-net-kar-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Komisyon, kargo, reklam, iade ve hakediş sonrası pazaryeri net kârını izlemek için uygun Excel sistemini karşılaştırın.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/karar/ttk-376-sermaye-kaybi-excel</id>
+    <title>TTK 376 sermaye kaybı için hangi Excel sistemi? | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/ttk-376-sermaye-kaybi-excel" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Öz kaynak erimesi, sermaye kaybı ve borca batıklık göstergelerini değerlendirmek için uygun Excel sistemini görün.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/kurumsal-web</id>
+    <title>Standart Kurumsal Web Sitesi | 30.000 TL Anahtar Teslim — ExcelArşiv Prime</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/kurumsal-web" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Terzi usulü tam kodlama, sıfır hazır şablon, sub-40ms edge mimarisi ve kurumsal kimlik uyumlu anahtar teslim web sitesi. Sabit fiyat: 30.000 TL.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/neden-excel-arsiv</id>
+    <title>Neden ExcelArşiv? 7 Kesin Neden &amp; Karşılaştırma — Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/neden-excel-arsiv" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>ExcelArşiv, ChatGPT ve boş Excel yaklaşımını kullanım amacı, doğruluk, denetim, veri gizliliği ve karar desteği açısından tarafsız biçimde karşılaştırın.</summary>
+    <category term="guven" label="guven" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/yerel-erp-crm-moduller</id>
+    <title>İşletmeye Özel Yerel ERP &amp; CRM Modülleri | Bulutsuz, İnternetsiz, GitHub Yedekli — ExcelArşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/yerel-erp-crm-moduller" />
+    <updated>2026-10-19T11:33:13.000Z</updated>
+    <published>2026-10-19T11:33:13.000Z</published>
+    <summary>Aylık abonelik ödemeden kendi bilgisayarınızda çalışan, internet gerektirmeyen, GitHub ile otomatik şifreli yedeklenen, ERP ve CRM süreçleriyle işletmenizin finans ve operasyonunu tek ekrandan yöneten özel modüller.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/sablonlar</id>
+    <title>Excel Şablonları — İşletmeniz İçin Hazır Sistemler | Excel Arşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/sablonlar" />
+    <updated>2026-10-13T15:54:29.000Z</updated>
+    <published>2026-10-13T15:54:29.000Z</published>
+    <summary>Nakit akışı, kârlılık, tahsilat, stok, bütçe ve daha fazlası için profesyonel Excel şablonları. macOS App Store vitrin düzeninde inceleyin.</summary>
+    <category term="kategori" label="kategori" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>
@@ -1664,19 +1937,6 @@
     </author>
   </entry>
   <entry>
-    <id>https://excelarsiv.com/kurumsal-web</id>
-    <title>Standart Kurumsal Web Sitesi | 30.000 TL Anahtar Teslim — ExcelArşiv Prime</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/kurumsal-web" />
-    <updated>2026-10-13T15:17:41.000Z</updated>
-    <published>2026-10-13T15:17:41.000Z</published>
-    <summary>Terzi usulü tam kodlama, sıfır hazır şablon, sub-40ms edge mimarisi ve kurumsal kimlik uyumlu anahtar teslim web sitesi. Sabit fiyat: 30.000 TL.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
     <id>https://excelarsiv.com/ozel-excel-sistemleri</id>
     <title>İhtiyaca Özel Excel Finans ve Karar Sistemleri | Excel Arşiv</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/ozel-excel-sistemleri" />
@@ -1684,32 +1944,6 @@
     <published>2026-10-11T17:02:20.000Z</published>
     <summary>Hazır Excel dosyaları işinize uymuyorsa; nakit akışı, banka-kredi, maliyet, bütçe, fizibilite ve yönetim raporlaması için işletmenize özel Excel sistemi kuruyoruz.</summary>
     <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/neden-excel-arsiv</id>
-    <title>Neden ExcelArşiv? 7 Kesin Neden &amp; Karşılaştırma — Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/neden-excel-arsiv" />
-    <updated>2026-10-10T19:02:01.000Z</updated>
-    <published>2026-10-10T19:02:01.000Z</published>
-    <summary>ExcelArşiv, ChatGPT ve boş Excel yaklaşımını kullanım amacı, doğruluk, denetim, veri gizliliği ve karar desteği açısından tarafsız biçimde karşılaştırın.</summary>
-    <category term="guven" label="guven" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/</id>
-    <title>ExcelArşiv Pro | Türkiye&apos;nin Hazır Excel Şablon, Dashboard ve VBA Arşivi</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-    <updated>2026-09-30T22:36:08.000Z</updated>
-    <published>2026-09-30T22:36:08.000Z</published>
-    <summary>Sıfırdan tablo kurmakla saatler harcamayın: 2.750+ hazır Excel şablonu, dinamik yönetim dashboardları ve tek tıkla çalışan VBA makrolarını güvenle indirin.</summary>
-    <category term="home" label="home" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>
@@ -1918,240 +2152,6 @@
     <published>2026-09-26T13:15:52.000Z</published>
     <summary>Karışık müşteri telefon numaralarını tek tıkla standart formata çevirin, toplu WhatsApp wa.me bağlantıları ve doğrudan çalışan Excel formülü üretin.</summary>
     <category term="hesaplayici" label="hesaplayici" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/amortisman-yeniden-degerleme-excel</id>
-    <title>Amortisman ve yeniden değerleme için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/amortisman-yeniden-degerleme-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Amortisman, yeniden değerleme ve sabit kıymet satış zamanlaması için uygun Excel sistemlerini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/doviz-acik-pozisyon-kur-riski-excel</id>
-    <title>Döviz açık pozisyonu ve kur riski için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/doviz-acik-pozisyon-kur-riski-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Döviz varlık ve borçlarını netleştirip kur şoku etkisini görmek için uygun Excel sistemini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/hangi-excel-sistemini-almaliyim</id>
-    <title>Hangi Excel sistemini almalıyım? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/hangi-excel-sistemini-almaliyim" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Nakit, cari, stok, vergi, personel ve kârlılık ihtiyacınıza göre hangi Excel sisteminden başlamanız gerektiğini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/ihale-teklif-sinir-deger-excel</id>
-    <title>İhale teklif ve sınır değer hesabı için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/ihale-teklif-sinir-deger-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Sınır değer, teklif aralığı ve aşırı düşük teklif savunması için uygun Excel sistemlerini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/insaat-hakedis-excel</id>
-    <title>İnşaat hakediş takibi için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/insaat-hakedis-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Şantiye maliyeti, hakediş fiyat farkı ve taşeron mutabakatı için uygun Excel sistemlerini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/kasa-defteri-excel</id>
-    <title>Günlük kasa defteri Excel: hangi sistemi seçmelisiniz? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/kasa-defteri-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Günlük kasa hareketi, kapanış bakiyesi ve sayım farkını izlemek için uygun Excel sistemini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/kdv-iade-dosyasi-excel</id>
-    <title>KDV iade listesi hazırlamak için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/kdv-iade-dosyasi-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>KDV iade listeleri, azami alacak ve tevkifat mahsup süreçleri için uygun Excel sistemlerini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/kidem-ihbar-maliyeti-excel</id>
-    <title>Kıdem ve ihbar maliyeti için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/kidem-ihbar-maliyeti-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Personel çıkış maliyeti ve fazla mesai riskini ayrı değerlendirerek uygun Excel sistemini seçin.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/kobi-nakit-akisi-excel</id>
-    <title>KOBİ için nakit akışı Excel&apos;i: hangisini seçmelisiniz? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/kobi-nakit-akisi-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>KOBİ nakit akışını haftalık planlamak için 13 haftalık model ile günlük kasa kontrolü arasındaki farkı görün.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/logo-erp-cari-yaslandirma-excel</id>
-    <title>Logo/ERP cari yaşlandırma için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/logo-erp-cari-yaslandirma-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Logo veya ERP cari hareket çıktısını yaşlandırma ve tahsilat kararına dönüştürmek için uygun Excel sistemini değerlendirin.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/mali-musavir-cari-takip-excel</id>
-    <title>Cari hesap ve tahsilat takibi için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/mali-musavir-cari-takip-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Cari bakiye, vade ve müşteri tahsilat riskini izlemek için uygun Excel sistemini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/pos-komisyon-kontrol-excel</id>
-    <title>POS komisyon kontrolü için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/pos-komisyon-kontrol-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>POS brüt satış, komisyon, iade ve net tahsilatı karşılaştırmak için uygun Excel sistemini görün.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/restoran-kafe-maliyet-excel</id>
-    <title>Restoran ve kafe maliyeti için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/restoran-kafe-maliyet-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Reçete maliyeti, fire ve mutfak kayıp-kaçak analizi için uygun Excel sistemlerini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/sgk-tesvik-optimizasyon-excel</id>
-    <title>SGK teşvik analizi için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/sgk-tesvik-optimizasyon-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Kaçırılan SGK teşviklerini ve teşvikli bordro seçeneklerini değerlendirmek için uygun Excel sistemini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/stok-devir-nakit-baglanma-excel</id>
-    <title>Stok devir ve stokta bağlı nakit için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/stok-devir-nakit-baglanma-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Stok devir hızı, ortalama maliyet ve stokta bağlı nakdi görmek için uygun Excel sistemini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/sube-karlilik-analizi-excel</id>
-    <title>Şube kârlılık analizi için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/sube-karlilik-analizi-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Şube bazlı gelir, gider, nakit ve kârlılık kararını değerlendirmek için uygun Excel sistemini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/trendyol-pazaryeri-net-kar-excel</id>
-    <title>Pazaryeri net kârı için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/trendyol-pazaryeri-net-kar-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Komisyon, kargo, reklam, iade ve hakediş sonrası pazaryeri net kârını izlemek için uygun Excel sistemini karşılaştırın.</summary>
-    <category term="diger" label="diger" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/karar/ttk-376-sermaye-kaybi-excel</id>
-    <title>TTK 376 sermaye kaybı için hangi Excel sistemi? | Excel Arşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/karar/ttk-376-sermaye-kaybi-excel" />
-    <updated>2026-09-26T13:15:52.000Z</updated>
-    <published>2026-09-26T13:15:52.000Z</published>
-    <summary>Öz kaynak erimesi, sermaye kaybı ve borca batıklık göstergelerini değerlendirmek için uygun Excel sistemini görün.</summary>
-    <category term="diger" label="diger" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>
