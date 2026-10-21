@@ -245,7 +245,7 @@ const homeJsonLd = {
           name: 'Şirketimiz adına kurumsal e-Fatura kesiyor musunuz?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Elbette. Osma Bilişim Akademi olarak tüm bireysel ve kurumsal satın alımlarda KDV dahil resmi e-Arşiv / e-Fatura düzenlemekteyiz. Ödeme adımında vergi dairesi ve VKN bilgilerinizi girmeniz yeterlidir.'
+            text: 'Elbette. ExcelArşiv olarak tüm bireysel ve kurumsal satın alımlarda KDV dahil resmi e-Arşiv / e-Fatura düzenlemekteyiz. Ödeme adımında vergi dairesi ve VKN bilgilerinizi girmeniz yeterlidir.'
           }
         }
       ],

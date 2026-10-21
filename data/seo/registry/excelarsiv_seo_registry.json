@@ -4975,6 +4975,23 @@
       "notes": null
     },
     {
+      "pageId": "excelarsiv:pratik-programlar",
+      "route": "/pratik-programlar",
+      "type": "category",
+      "status": "live",
+      "primaryQueryClusterId": "excel-pratik-programlar",
+      "queryClusterIds": [
+        "excel-pratik-programlar"
+      ],
+      "primaryEntity": "53 Pratik Excel Programı",
+      "searchIntent": "commercial",
+      "templateId": null,
+      "serpFeatureTargets": [],
+      "canonical": "https://excelarsiv.com/pratik-programlar",
+      "ownerRoute": "/pratik-programlar",
+      "notes": "53 pratik Excel programı ve dinamik grafik şablonu kataloğu."
+    },
+    {
       "pageId": "excelarsiv:sablonlar:butce-ve-planlama",
       "route": "/sablonlar/butce-ve-planlama",
       "type": "category",

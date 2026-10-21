@@ -49,24 +49,28 @@ const isFree = FREE_SLUGS.has(template.slug);
       <span class="star-active">★</span>
     </div>
     <p class="vcex-post-excerpt">{template.summary}</p>
+    <div class="someka-card-price-row">
+      <span class="someka-card-price-label">Tekil Model:</span>
+      <span class="someka-card-price-val">{isFree ? 'Ücretsiz' : '2.000 ₺'}</span>
+    </div>
     <div class="someka-card-bottom">
       {isFree ? (
         <a
           href={`/demo/${template.slug}`}
-          class="btn-someka-teklif btn-someka-free"
+          class="btn-someka-buy btn-someka-free"
           aria-label={`${template.name} ücretsiz Excel dosyasını indir`}
         >
           Ücretsiz İndir
         </a>
       ) : (
         <a
-          href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${template.name} Excel sistemi için teklif vermek istiyorum.`)}`}
+          href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${template.name} Excel karar modelini 2.000 ₺ tekil lisans bedeliyle satın almak istiyorum.`)}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-someka-teklif"
-          aria-label={`${template.name} için teklif ver`}
+          class="btn-someka-buy"
+          aria-label={`${template.name} - 2.000 ₺ Satın Al`}
         >
-          Teklif Ver
+          Satın Al (2.000 ₺)
         </a>
       )}
       <a href={template.url} class="btn-someka-view">Detay</a>
@@ -212,14 +216,37 @@ const isFree = FREE_SLUGS.has(template.slug);
   .vcex-post-excerpt {
     display: none !important;
   }
+  .someka-card-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px 6px;
+    margin-bottom: 6px;
+    background: #f8fafc;
+    border-radius: 4px;
+    border: 1px solid #f1f5f9;
+  }
+  .someka-card-price-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .someka-card-price-val {
+    font-size: 12px;
+    font-weight: 800;
+    color: #107c41;
+  }
   .someka-card-bottom {
     margin-top: auto;
     display: grid;
-    grid-template-columns: 1fr 1.6fr;
+    grid-template-columns: 1.8fr 1fr;
     gap: 6px;
-    padding-top: 8px;
+    padding-top: 6px;
     border-top: 1px solid #f1f5f9;
   }
+  .btn-someka-buy,
   .btn-someka-teklif {
     display: inline-flex;
     align-items: center;
@@ -227,15 +254,16 @@ const isFree = FREE_SLUGS.has(template.slug);
     background: #107c41;
     border: 1px solid #0d7040;
     color: #ffffff !important;
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 700;
-    padding: 7px 10px;
+    padding: 7px 8px;
     border-radius: 5px;
     text-decoration: none;
     box-shadow: 0 2px 6px rgba(16, 124, 65, 0.22);
     transition: all 0.15s ease;
     white-space: nowrap;
   }
+  .btn-someka-buy:hover,
   .btn-someka-teklif:hover {
     background: #0b6333;
     transform: translateY(-1px);

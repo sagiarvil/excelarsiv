@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import TemplateGrid from '../components/catalog/TemplateGrid.astro';
 import { getAllTemplates } from '../lib/templates';
+import { pratikSablonlar } from '../data/pratikSablonlar';
 
 const templates = await getAllTemplates();
 
@@ -82,13 +83,13 @@ const catalogBreadcrumbLd = JSON.stringify({
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
       <!-- Logo -->
       <a class="min-h-[44px] flex items-center gap-2 group shrink-0" href="/" aria-label="ExcelArşiv Pro Ana Sayfa">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-excel-600 flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-md shadow-emerald-600/20 group-hover:bg-excel-700 transition shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-excel-600 flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-md shadow-emerald-600/20 group-hover:bg-excel-700 transition shrink-0" style="background-color: #107c41 !important; color: #ffffff !important;">
           X
         </div>
         <div class="min-w-0">
           <div class="flex items-center gap-1 sm:gap-1.5">
-            <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 whitespace-nowrap">Excel<span class="text-excel-600">Arşiv</span></span>
-            <span class="text-[9px] sm:text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-md bg-emerald-100 text-excel-700">PRO</span>
+            <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 whitespace-nowrap">Excel<span class="text-excel-600" style="color: #107c41 !important;">Arşiv</span></span>
+            <span class="text-[9px] sm:text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-md bg-emerald-100 text-excel-700 font-extrabold">PRO</span>
           </div>
           <p class="hidden sm:block text-[11px] text-slate-500 leading-none">Türkiye'nin Hazır Şablon &amp; Makro Merkezi</p>
         </div>
@@ -110,25 +111,20 @@ const catalogBreadcrumbLd = JSON.stringify({
           <span>Ücretsiz Şablonlar</span>
         </a>
 
-        <!-- Sepet / VIP Paket Butonu -->
-        <a href="/#paketler" class="min-h-[42px] relative inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-excel-600 hover:bg-excel-700 shadow-md shadow-emerald-600/25 transition-all shrink-0 whitespace-nowrap">
-          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-          <span class="hidden sm:inline">VIP Arşiv (2.000 ₺)</span>
-          <span class="sm:hidden text-xs">VIP Al</span>
+        <!-- Pratik Şablonlar (199 ₺) Butonu -->
+        <a href="#pratik-sablonlar" class="min-h-[42px] relative inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-excel-600 hover:bg-excel-700 shadow-md shadow-emerald-600/25 transition-all shrink-0 whitespace-nowrap" style="background-color: #107c41 !important;">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          <span class="hidden sm:inline">53 Pratik Şablon (199 ₺)</span>
+          <span class="sm:hidden text-xs">199 ₺</span>
         </a>
 
-        <!-- Premium Sandviç (Hamburger) Menü Butonu (Yeni Nesil Dikkat Çekici Tasarım) -->
-        <button aria-label="Navigasyon Menüsünü Aç / Kapat" aria-expanded="false" aria-controls="mobileMenuPanel" class="min-h-[42px] relative inline-flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-tight shadow-md shadow-slate-900/20 border border-slate-700/80 hover:border-emerald-400/60 transition-all duration-200 group shrink-0 active:scale-95 ring-2 ring-emerald-500/20 hover:ring-emerald-400/40" id="mobileMenuBtn" type="button">
-          <!-- Canlı Radar Göstergesi (Gözden Kaçmayan Canlı Hareketli Efekt) -->
-          <span class="relative flex h-2 w-2 shrink-0">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span class="text-xs font-bold text-white group-hover:text-emerald-300 transition-colors">Menü</span>
+        <!-- Premium Sandviç (Hamburger) Menü Butonu (Executive Light Tasarım) -->
+        <button aria-label="Navigasyon Menüsünü Aç / Kapat" aria-expanded="false" aria-controls="mobileMenuPanel" class="min-h-[42px] flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-emerald-50/70 hover:border-emerald-300 text-slate-800 transition-all duration-200 group shrink-0 shadow-sm" id="mobileMenuBtn" type="button">
+          <span class="text-xs font-bold text-slate-700 group-hover:text-emerald-700 transition">Menü</span>
           <div class="w-4 h-3.5 flex flex-col justify-between py-0.5" aria-hidden="true">
-            <span class="w-full h-[2px] bg-white group-hover:bg-emerald-400 rounded-full transition-all duration-200"></span>
-            <span class="w-2.5 h-[2px] bg-emerald-400 group-hover:w-full group-hover:bg-white rounded-full transition-all duration-200 ml-auto"></span>
-            <span class="w-full h-[2px] bg-white group-hover:bg-emerald-400 rounded-full transition-all duration-200"></span>
+            <span class="w-full h-[2px] bg-slate-700 group-hover:bg-emerald-600 rounded-full transition-all duration-200"></span>
+            <span class="w-3/4 h-[2px] bg-slate-700 group-hover:bg-emerald-600 rounded-full transition-all duration-200 ml-auto group-hover:w-full"></span>
+            <span class="w-full h-[2px] bg-slate-700 group-hover:bg-emerald-600 rounded-full transition-all duration-200"></span>
           </div>
         </button>
       </div>
@@ -143,12 +139,12 @@ const catalogBreadcrumbLd = JSON.stringify({
     <!-- Panel Header -->
     <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-white shrink-0" style="background-color: #ffffff !important;">
       <div class="flex items-center gap-2">
-        <div class="w-8 h-8 rounded-lg bg-excel-600 flex items-center justify-center text-white font-extrabold text-sm shadow-sm">
+        <div class="w-8 h-8 rounded-lg bg-excel-600 flex items-center justify-center text-white font-extrabold text-sm shadow-sm" style="background-color: #107c41 !important; color: #ffffff !important;">
           X
         </div>
         <div>
           <div class="flex items-center gap-1.5">
-            <span class="font-extrabold text-sm text-slate-900">Excel<span class="text-excel-600">Arşiv</span></span>
+            <span class="font-extrabold text-sm text-slate-900">Excel<span class="text-excel-600" style="color: #107c41 !important;">Arşiv</span></span>
             <span class="text-[9px] font-bold uppercase px-1 py-0.5 rounded bg-emerald-100 text-excel-700">PRO</span>
           </div>
           <p class="text-[10px] text-slate-500 leading-none">Navigasyon &amp; Çözümler</p>
@@ -161,18 +157,18 @@ const catalogBreadcrumbLd = JSON.stringify({
 
     <!-- Panel Scrollable Body -->
     <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4 bg-white" style="background-color: #ffffff !important;">
-      <!-- VIP Arşiv Paketi Öne Çıkan Kart -->
-      <div class="p-3.5 rounded-2xl bg-gradient-to-br from-amber-50 via-amber-100/40 to-emerald-50 border border-amber-200/80 shadow-sm relative overflow-hidden">
+      <!-- Kurumsal Karar Modeli & Pratik Programlar Öne Çıkan Kart -->
+      <div class="p-3.5 rounded-2xl bg-gradient-to-br from-emerald-50 via-slate-50 to-amber-50 border border-emerald-200/80 shadow-sm relative overflow-hidden">
         <div class="flex items-center justify-between gap-2 mb-1.5">
-          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-500 text-slate-950 font-black text-[10px] uppercase tracking-wide">
-            👑 TEK FİYAT: 2.000 ₺
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-600 text-white font-black text-[10px] uppercase tracking-wide">
+            ⚡ YENİ BÖLÜM
           </span>
-          <span class="text-[11px] font-bold text-amber-800">VIP Tam Arşiv</span>
+          <span class="text-[11px] font-bold text-emerald-800">53 Pratik Program</span>
         </div>
-        <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 leading-snug">Tüm 124 Tablo &amp; Makro Tek Pakette</h4>
-        <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">Ömür boyu sınırsız erişim, yeni eklenen tüm modeller ücretsiz dahil.</p>
-        <a href="/#paketler" class="mt-2.5 inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition shadow-sm">
-          <span>VIP Paketi İncele</span>
+        <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 leading-snug">53 Pratik Excel Tablosu · Tek Fiyat 199 ₺</h4>
+        <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">Kasa takibi, teklif, puantaj ve dinamik grafik araçları anında indirilmeye hazır.</p>
+        <a href="/pratik-programlar" class="mt-2.5 inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition shadow-sm">
+          <span>Pratik Programları İncele (199 ₺)</span>
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
         </a>
       </div>
@@ -207,16 +203,29 @@ const catalogBreadcrumbLd = JSON.stringify({
           </div>
         </a>
 
+        <a href="/pratik-programlar" class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 group-hover:bg-emerald-100 text-excel-700 flex items-center justify-center shrink-0 transition mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-slate-900 group-hover:text-excel-600 transition flex items-center gap-1.5">
+              53 Pratik Program
+              <span class="px-1.5 py-0.2 rounded text-[9px] bg-emerald-100 text-excel-800 font-extrabold">199 ₺</span>
+            </div>
+            <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Kasa, teklif, puantaj ve grafik araçları.</p>
+          </div>
+        </a>
+
         <a href="/#paketler" class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
           <div class="w-8 h-8 rounded-lg bg-amber-50 group-hover:bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 transition mt-0.5">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           </div>
           <div class="min-w-0">
             <div class="text-xs font-bold text-slate-900 group-hover:text-excel-600 transition flex items-center gap-1.5">
-              VIP Arşiv Satış Kokpiti
+              Kurumsal Karar Modelleri
               <span class="px-1.5 py-0.2 rounded text-[9px] bg-amber-100 text-amber-900 font-extrabold">2.000 ₺</span>
             </div>
-            <p class="text-[11px] text-slate-500 leading-tight mt-0.5">124 model, 23 dashboard ve 152 saat video eğitim tek pakette.</p>
+            <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Finans, nakit akışı ve yönetim modelleri açık lisansla.</p>
           </div>
         </a>
       </div>
@@ -346,7 +355,7 @@ const catalogBreadcrumbLd = JSON.stringify({
             İşletmeniz İçin <span class="text-excel-600 underline decoration-emerald-300 decoration-wavy underline-offset-4">124 Profesyonel Excel</span> Karar Modeli
           </h1>
           <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl m-0">
-            Nakit akışından personel puantajına, cari mutabakattan 3 senaryolu dinamik bütçeye kadar işletmenizin tüm finans ve operasyon modelleri. <strong>%100 açık formül, sıfır makro virüs riski ve tek tıkla anında indirme!</strong>
+            Nakit akışından personel puantajına, cari mutabakattan 3 senaryolu dinamik bütçeye kadar işletmenizin tüm finans ve operasyon modelleri. <strong>Her model bağımsız olarak 2.000 ₺ lisans bedeliyle tekil satılır. Toplu satış veya abonelik yoktur. %100 açık formül ve anında indirme!</strong>
           </p>
         </div>
 
@@ -376,23 +385,23 @@ const catalogBreadcrumbLd = JSON.stringify({
 
           <div class="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Video Eğitimler</span>
-              <span class="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-xs">🎓</span>
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Pratik Şablonlar</span>
+              <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs">⚡</span>
             </div>
             <div class="mt-3">
-              <div class="text-2xl sm:text-3xl font-black text-slate-900">152 Saat</div>
-              <div class="text-xs text-slate-600 font-medium mt-0.5">A'dan Z'ye Excel Kursu</div>
+              <div class="text-2xl sm:text-3xl font-black text-emerald-700">199 ₺</div>
+              <div class="text-xs text-slate-600 font-medium mt-0.5">53 Pratik Program</div>
             </div>
           </div>
 
           <div class="p-4 rounded-2xl bg-gradient-to-br from-amber-50 to-amber-100/50 border border-amber-300/80 shadow-sm flex flex-col justify-between">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-amber-900 uppercase tracking-wide">VIP Tek Fiyat</span>
-              <span class="w-7 h-7 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center font-black text-xs">👑</span>
+              <span class="text-xs font-bold text-amber-900 uppercase tracking-wide">Tekil Satış Fiyatı</span>
+              <span class="w-7 h-7 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center font-black text-xs">💼</span>
             </div>
             <div class="mt-3">
               <div class="text-2xl sm:text-3xl font-black text-slate-950">2.000 ₺</div>
-              <div class="text-xs text-amber-900 font-bold mt-0.5">Tüm Arşive Ömür Boyu Erişim</div>
+              <div class="text-xs text-amber-900 font-bold mt-0.5">Model Başına Sabit Fiyat</div>
             </div>
           </div>
         </div>
@@ -431,13 +440,15 @@ const catalogBreadcrumbLd = JSON.stringify({
 
     <!-- KATALOG GRID ALANI (#tum-sablonlar) -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10" id="tum-sablonlar">
-      <div class="mb-6 flex items-center justify-between">
+      <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight m-0">Tüm Excel Şablonları Kataloğu</h2>
-          <p class="text-xs sm:text-sm text-slate-500 mt-1 m-0">Kategori filtreleri veya arama kutusunu kullanarak ihtiyacınız olan karar modelini anında bulun.</p>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight m-0">Kurumsal Excel Şablonları Kataloğu (Adet Başına 2.000 ₺)</h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1 m-0">Her kurumsal karar modeli bağımsız olarak tekil 2.000 ₺'ye lisanslanır. Toplu satış yoktur.</p>
         </div>
-        <div class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg">
-          Toplam 124 Model
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-excel-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg">
+            124 Kurumsal Model · 2.000 ₺ / Adet
+          </span>
         </div>
       </div>
 
@@ -445,26 +456,119 @@ const catalogBreadcrumbLd = JSON.stringify({
       <TemplateGrid templates={templates} />
     </section>
 
-    <!-- VIP TEK FİYAT SATIŞ ŞERİDİ -->
+    <!-- 53 PRATİK EXCEL PROGRAMI & DİNAMİK GRAFİKLER BÖLÜMÜ (#pratik-sablonlar) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-slate-200 scroll-mt-24" id="pratik-sablonlar">
+      <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-excel-800 text-xs font-bold border border-emerald-300 uppercase tracking-wider mb-2">
+            ⚡ GÜNLÜK VE PRATİK ÇÖZÜMLER · TEK FİYAT 199 ₺
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight m-0">
+            53 Pratik Excel Şablonu &amp; Dinamik Grafikler — Tek Fiyat 199 ₺
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-3xl leading-relaxed m-0">
+            Kasa takibi, teklif hazırlama, puantaj, dinamik KPI ve operasyon tabloları. Tüm dosyalar makrosuz (.xlsx), açık formüllü ve her biri <strong>tekil 199 ₺ sabit fiyatla</strong> hemen indirilmeye hazırdır.
+          </p>
+        </div>
+        <div class="shrink-0 flex items-center gap-2">
+          <a
+            href="/pratik-programlar"
+            class="min-h-[44px] px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm"
+          >
+            <span>Tüm 53 Pratik Programı Gör (199 ₺)</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Pratik Şablonlar Vitrini (12 popüler kart) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {pratikSablonlar.slice(0, 12).map((item) => (
+          <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg hover:border-emerald-500 transition-all flex flex-col justify-between group">
+            <div>
+              <div class="aspect-[16/10] bg-slate-100 overflow-hidden relative border-b border-slate-100">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  width="600"
+                  height="375"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-slate-900/90 text-white backdrop-blur-sm">
+                  {item.categoryLabel}
+                </span>
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md text-[11px] font-black bg-emerald-500 text-white shadow-sm">
+                  199 ₺
+                </span>
+              </div>
+              <div class="p-4">
+                <h3 class="text-xs sm:text-sm font-extrabold text-slate-900 group-hover:text-excel-600 transition line-clamp-2 leading-snug m-0">
+                  {item.title}
+                </h3>
+                <p class="text-[11px] text-slate-500 mt-1.5 line-clamp-2 leading-relaxed m-0">
+                  {item.summary}
+                </p>
+              </div>
+            </div>
+
+            <div class="p-4 pt-0">
+              <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                <div>
+                  <span class="text-[10px] text-slate-400 block font-medium">Tekil Satış</span>
+                  <span class="text-sm font-black text-slate-900">199 ₺</span>
+                </div>
+                <a
+                  href="/pratik-programlar"
+                  class="min-h-[36px] px-3.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-excel-800 text-xs font-bold transition flex items-center gap-1 border border-emerald-200"
+                >
+                  <span>Hemen İndir</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Alt Yönlendirme Bannerı -->
+      <div class="mt-8 p-5 rounded-2xl bg-gradient-to-r from-emerald-50 via-slate-50 to-emerald-50 border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <h4 class="text-sm font-extrabold text-slate-900 m-0">53 Pratik Programın Tamamını İnceleyin</h4>
+          <p class="text-xs text-slate-600 mt-0.5 m-0">Arama, filtreleme ve detaylı ekran görüntüleriyle tüm pratik Excel araçları 199 ₺ sabit fiyatla yayında.</p>
+        </div>
+        <a
+          href="/pratik-programlar"
+          class="min-h-[44px] px-6 py-2.5 rounded-xl bg-excel-600 hover:bg-excel-700 text-white font-extrabold text-xs transition shrink-0 whitespace-nowrap shadow-sm flex items-center gap-2"
+          style="background-color: #107c41 !important;"
+        >
+          <span>53 Pratik Program Kataloğu (199 ₺)</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- KURUMSAL MODEL & PRATİK PROGRAMLAR ŞERİDİ -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mb-8">
       <div class="rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white p-6 sm:p-10 shadow-xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-6">
         <div class="space-y-3 max-w-2xl text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400 text-slate-950 text-xs font-black uppercase tracking-wider">
-            👑 VIP Tam Arşiv Paketi
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500 text-white text-xs font-black uppercase tracking-wider">
+            ⚡ 53 Pratik Excel Programı &amp; Dinamik Grafikler
           </div>
           <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight m-0 text-white">
-            Tüm 124 Şablon + 23 Dashboard + 152 Saat Eğitimi Tek Fiyata İndirin!
+            Kasa Takibi, Teklif, Puantaj ve Dinamik Grafikler Tek Fiyat 199 ₺!
           </h3>
           <p class="text-sm text-slate-300 leading-relaxed m-0">
-            Ayrı ayrı dosya satın almak yerine, <strong>tek seferlik 2.000 ₺</strong> ile tüm arşive ömür boyu sahip olun. Gelecekte eklenecek tüm yeni modeller ve güncellemeler ücretsiz olarak hesabınıza tanımlanır.
+            Hemen kullanıma hazır, makrosuz ve tam uyumlu 53 pratik Excel çalışmasını tekil 199 ₺'den inceleyin. Kurumsal karar modelleri ise adet başına 2.000 ₺ lisans bedeliyle sunulmaktadır.
           </p>
         </div>
 
         <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0">
-          <a href="/#paketler" class="min-h-[48px] px-8 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm transition shadow-lg shadow-amber-400/20 whitespace-nowrap text-center">
-            VIP Paketi Satın Al (2.000 ₺)
+          <a href="/pratik-programlar" class="min-h-[48px] px-8 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm transition shadow-lg shadow-emerald-500/20 whitespace-nowrap text-center">
+            53 Pratik Şablonu Gör (199 ₺)
           </a>
-          <a href="https://wa.me/905393333303?text=Merhaba,%20VIP%20Tam%20Arşiv%20Paketi%20içeriği%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="min-h-[48px] px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm transition border border-slate-700 whitespace-nowrap text-center flex items-center justify-center gap-2">
+          <a href="https://wa.me/905393333303?text=Merhaba,%20Excel%20çözümleri%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="min-h-[48px] px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm transition border border-slate-700 whitespace-nowrap text-center flex items-center justify-center gap-2">
             <span>WhatsApp Danışma</span>
           </a>
         </div>

@@ -1,0 +1,809 @@
+---
+import '../styles/global.css';
+import { PRATIK_SABLONLAR, PRATIK_KATEGORILER } from '../data/pratikSablonlar';
+
+// Schema.org Structured Data for 53 Products
+const itemListLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': 'https://excelarsiv.com/pratik-programlar#itemlist',
+  name: 'Pratik Excel Programları ve Dinamik Grafikler (199 ₺)',
+  description: 'Kasa, stok, puantaj, fatura takip, çek-senet ve dinamik dashboard grafiklerinden oluşan 53 hazır pratik Excel çözümü.',
+  numberOfItems: PRATIK_SABLONLAR.length,
+  itemListElement: PRATIK_SABLONLAR.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Product',
+      name: item.title,
+      description: item.summary,
+      image: `https://excelarsiv.com${item.image}`,
+      offers: {
+        '@type': 'Offer',
+        price: '199',
+        priceCurrency: 'TRY',
+        availability: 'https://schema.org/InStock',
+        url: `https://excelarsiv.com/pratik-programlar#${item.slug}`
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: item.rating.toString(),
+        reviewCount: item.ratingCount.toString(),
+        bestRating: '5',
+        worstRating: '1'
+      }
+    }
+  }))
+});
+
+const breadcrumbLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: 'https://excelarsiv.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Pratik Programlar (199 ₺)', item: 'https://excelarsiv.com/pratik-programlar' }
+  ]
+});
+---
+
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pratik Excel Programları & Dinamik Grafikler (199 ₺) | ExcelArşiv PRO</title>
+  <meta name="description" content="Kasa, stok, puantaj, fatura, çek-senet ve yönetici dashboard grafiklerinden oluşan 53 hazır pratik Excel çalışması. Makrosuz saf XLSX, anında indirme, tekil 199 ₺." />
+  <meta name="keywords" content="excel kasa takip programı, excel stok programı, personel puantaj excel, dinamik waffle grafik, fatura takip excel, çek senet tablosu excel, excel şablonları 199 tl" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href="https://excelarsiv.com/pratik-programlar" />
+  <link rel="icon" type="image/png" href="/images/excel-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://excelarsiv.com/pratik-programlar" />
+  <meta property="og:title" content="Pratik Excel Programları & Dinamik Grafikler (199 ₺) | ExcelArşiv PRO" />
+  <meta property="og:description" content="Kasa, stok, puantaj, fatura ve dinamik grafiklerden oluşan 53 hazır çalışma. Makrosuz, anında indirme, tekil 199 ₺." />
+  <meta property="og:image" content="https://excelarsiv.com/og.png" />
+
+  <script type="application/ld+json" set:html={itemListLd} />
+  <script type="application/ld+json" set:html={breadcrumbLd} />
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-500 selection:text-white font-sans">
+
+  <!-- Üst Bilgi Şeridi -->
+  <div class="bg-slate-900 text-slate-100 text-xs py-2 px-4 border-b border-emerald-500/30">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 font-medium">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500 text-slate-950 shrink-0">199 ₺ TEK FİYAT</span>
+        <span class="hidden sm:inline text-slate-300">53 Pratik Excel Programı ve Dinamik Grafik Modeli · Saf XLSX · Sıfır Makro Uyarısı</span>
+        <span class="sm:hidden text-slate-300">53 Pratik Excel Şablonu · Tekil 199 ₺</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px] text-slate-300">
+        <span class="flex items-center gap-1 text-emerald-400 font-bold">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+          Anında Otomatik İndirme
+        </span>
+        <span class="hidden md:inline text-slate-400">Excel 2016 - 365 &amp; Mac Uyumlu</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ana Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+      
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2.5 sm:gap-3 group shrink-0" aria-label="Excel Arşiv Ana Sayfa">
+        <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-excel-600 flex items-center justify-center text-white font-extrabold text-base sm:text-xl shadow-md group-hover:scale-105 transition-transform">
+          X
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 whitespace-nowrap">Excel<span class="text-excel-600">Arşiv</span></span>
+            <span class="text-[9px] sm:text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-md bg-emerald-100 text-excel-700">PRO</span>
+          </div>
+          <p class="hidden sm:block text-[11px] text-slate-500 leading-none">Pratik Şablon &amp; Grafik Kütüphanesi</p>
+        </div>
+      </a>
+
+      <!-- Orta Kısım: Rozet -->
+      <div class="hidden xl:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 text-[11.5px] font-medium text-slate-600">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="font-bold text-slate-800">53 Onaylı Pratik Çözüm</span>
+        <span class="text-slate-300">|</span>
+        <span class="text-emerald-700 font-bold">Tekil 199 ₺</span>
+        <span class="text-slate-300">|</span>
+        <span>Anında İndirme · 3D Secure</span>
+      </div>
+
+      <!-- Sağ Aksiyonlar -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <a href="/sablonlar" class="min-h-[42px] hidden md:inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-all shadow-sm shrink-0">
+          <span>Kurumsal Şablonlar (124)</span>
+        </a>
+
+        <!-- Sepet Butonu -->
+        <button class="min-h-[42px] relative inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-excel-600 hover:bg-excel-700 shadow-md shadow-emerald-600/25 transition-all shrink-0" id="openCartBtn" type="button">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          <span class="hidden sm:inline">Sepetim</span>
+          <span class="sm:hidden text-xs">Sepet</span>
+          <span class="px-1.5 py-0.5 text-[10px] sm:text-[11px] rounded-full bg-white text-excel-700 font-extrabold leading-none" id="cartCountBadge">0</span>
+        </button>
+
+        <!-- Ana Menü Butonu (Canlı Radar Animasyonlu) -->
+        <a href="/" class="min-h-[42px] relative inline-flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-tight shadow-md shadow-slate-900/20 border border-slate-700/80 transition-all duration-200 shrink-0">
+          <span class="relative flex h-2 w-2 shrink-0">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>Ana Sayfa</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-white border-b border-slate-200/80 py-10 sm:py-16 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-emerald-50/40 via-transparent to-transparent pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-300 text-excel-800 text-xs font-bold uppercase tracking-wider mb-4">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+        53 ADET PRATİK İŞ PROGRAMI &amp; DİNAMİK GRAFİK SÜİTİ
+      </div>
+
+      <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight max-w-4xl mx-auto">
+        İşinizi Hızlandıran Pratik Excel Çözümleri &amp; İleri Seviye Grafikler
+      </h1>
+
+      <p class="mt-4 text-sm sm:text-base lg:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+        Kasa, stok, puantaj, fatura takip, çek-senet ve yönetim dashboard grafiklerinden oluşan 53 hazır çalışma. 
+        <strong class="text-slate-900 font-bold">Sıfır makro uyarısı (saf .xlsx)</strong>, anında indirme, ömür boyu lisans — 
+        <span class="inline-block px-2.5 py-0.5 rounded-lg bg-emerald-600 text-white font-black text-base shadow-sm">Her Biri 199 ₺</span>
+      </p>
+
+      <!-- Değer Maddeleri -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-semibold text-slate-700">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200">
+          <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+          Saf XLSX (Makrosuz Güvenli)
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200">
+          <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+          Excel 2016-365 &amp; Mac Uyumlu
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200">
+          <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+          Otomatik &amp; Dinamik Formüllü
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200">
+          <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+          Ömür Boyu Sınırsız Lisans
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Filtreler ve Arama Alanı -->
+  <section class="sticky top-16 sm:top-20 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/90 py-3 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+        
+        <!-- Kategori Butonları -->
+        <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 scrollbar-none" id="categoryTabs">
+          {PRATIK_KATEGORILER.map((cat, idx) => (
+            <button
+              type="button"
+              data-cat={cat.id}
+              class={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-150 shrink-0 ${
+                idx === 0
+                  ? 'bg-slate-900 text-white shadow-sm ring-1 ring-slate-900 active-tab'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        <!-- Canlı Arama Çubuğu -->
+        <div class="relative w-full md:w-80 shrink-0">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Şablon veya konu ara (kasa, stok, puantaj...)"
+            class="w-full pl-9 pr-8 py-2 rounded-xl text-xs font-medium bg-slate-100 border border-slate-200 focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition"
+          />
+          <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          <button id="clearSearchBtn" type="button" class="hidden absolute right-2.5 top-2.5 text-slate-400 hover:text-slate-600">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Ürün Grid Listesi -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    
+    <div class="flex items-center justify-between mb-6">
+      <p class="text-xs sm:text-sm font-semibold text-slate-500" id="resultCountText">
+        Toplam <strong class="text-slate-900 font-extrabold">{PRATIK_SABLONLAR.length}</strong> çalışma listeleniyor
+      </p>
+      <span class="text-xs text-slate-500 font-medium">Tekil Satış Fiyatı: <strong class="text-emerald-700 font-bold">199 ₺</strong> (KDV Dahil)</span>
+    </div>
+
+    <!-- Ürün Kartları Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7" id="productGrid">
+      {PRATIK_SABLONLAR.map((item) => (
+        <article
+          class="product-card group bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-emerald-300 transition-all duration-200 flex flex-col overflow-hidden relative"
+          data-category={item.category}
+          data-keywords={item.keywords.join(' ').toLowerCase()}
+          data-title={item.title.toLowerCase()}
+          data-slug={item.slug}
+          id={item.slug}
+        >
+          <!-- Görsel Alanı (Gerçek Excel Mockup) -->
+          <div class="relative bg-slate-100 aspect-[16/10] overflow-hidden border-b border-slate-100 cursor-pointer preview-trigger" data-slug={item.slug}>
+            <img
+              src={item.image}
+              alt={`${item.title} — Gerçek Excel Ekran Görüntüsü`}
+              loading="lazy"
+              class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="px-3.5 py-1.5 rounded-xl bg-slate-900/90 text-white font-bold text-xs shadow-lg flex items-center gap-1.5 backdrop-blur-sm">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                Büyüt &amp; İncele
+              </span>
+            </div>
+
+            <!-- Sol Üst Rozet -->
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-slate-900/80 backdrop-blur-sm text-emerald-300 text-[10px] font-bold tracking-tight">
+              Saf XLSX · Makrosuz
+            </span>
+
+            <!-- Sağ Üst Fiyat Rozeti -->
+            <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-md bg-emerald-600 text-white text-xs font-extrabold shadow-sm">
+              199 ₺
+            </span>
+          </div>
+
+          <!-- Kart İçeriği -->
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <!-- Kategori & Rating -->
+              <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
+                <span class="font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+                  {item.categoryLabel}
+                </span>
+                <span class="flex items-center gap-1 text-amber-500 font-bold">
+                  ★ {item.rating} <span class="text-slate-400 font-normal">({item.ratingCount})</span>
+                </span>
+              </div>
+
+              <!-- Başlık -->
+              <h2 class="text-sm sm:text-base font-extrabold text-slate-900 leading-snug group-hover:text-emerald-700 transition-colors line-clamp-2">
+                {item.title}
+              </h2>
+
+              <!-- Özet Açıklama -->
+              <p class="mt-2 text-xs text-slate-600 leading-relaxed line-clamp-3">
+                {item.summary}
+              </p>
+
+              <!-- Öne Çıkan Özellikler -->
+              <ul class="mt-3.5 space-y-1 text-[11.5px] text-slate-600">
+                {item.features.slice(0, 3).map((feat) => (
+                  <li class="flex items-start gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+                    <span class="line-clamp-1">{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Fiyat ve Aksiyon Butonları -->
+            <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+              <div>
+                <span class="text-[10px] text-slate-400 block leading-none">KDV Dahil Tek Fiyat</span>
+                <span class="text-xl font-extrabold text-slate-950">199 ₺</span>
+              </div>
+
+              <div class="flex items-center gap-1.5">
+                <!-- İncele Butonu -->
+                <button
+                  type="button"
+                  data-slug={item.slug}
+                  class="preview-trigger px-2.5 sm:px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-bold transition flex items-center gap-1"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                  <span>İncele</span>
+                </button>
+
+                <!-- Satın Al Butonu -->
+                <button
+                  type="button"
+                  data-slug={item.slug}
+                  data-title={item.title}
+                  data-price="199"
+                  data-file={item.downloadUrl}
+                  class="buy-trigger px-3.5 sm:px-4 py-2 rounded-xl bg-excel-600 hover:bg-excel-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition-all flex items-center gap-1.5"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                  <span>Hemen Al</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Sonuç Bulunamadı Mesajı -->
+    <div id="noResults" class="hidden text-center py-16 bg-white rounded-2xl border border-slate-200 mt-6">
+      <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto text-slate-400 mb-3">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+      </div>
+      <h3 class="text-base font-bold text-slate-900">Aradığınız kriterlere uygun şablon bulunamadı</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Farklı bir anahtar kelime deneyebilir veya kategori filtrelerini değiştirebilirsiniz.</p>
+      <button id="resetFilterBtn" type="button" class="mt-4 px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-bold">Tüm Şablonları Göster</button>
+    </div>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- ÖNİZLEME & DETAY MODALI (LIGHTBOX) -->
+  <!-- ===================================================================== -->
+  <div id="detailModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-5 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200 relative animate-in fade-in zoom-in-95 duration-150">
+      
+      <!-- Modal Header -->
+      <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50 shrink-0">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[11px] font-extrabold uppercase" id="modalCategory">Kategori</span>
+          <span class="text-xs text-slate-500">|</span>
+          <span class="text-xs font-semibold text-slate-600">Saf XLSX · Sıfır Makro</span>
+        </div>
+        <button id="closeModalBtn" type="button" class="w-8 h-8 rounded-lg bg-slate-200/70 hover:bg-slate-300 text-slate-600 flex items-center justify-center transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div class="overflow-y-auto p-5 sm:p-7 space-y-6">
+        
+        <!-- Büyük Önizleme Görseli -->
+        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-md bg-slate-100">
+          <img id="modalImage" src="" alt="" class="w-full h-auto object-cover" />
+        </div>
+
+        <!-- Başlık ve Fiyat Barı -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-5">
+          <div>
+            <h2 id="modalTitle" class="text-lg sm:text-2xl font-extrabold text-slate-900 leading-snug"></h2>
+            <p id="modalSummary" class="text-xs sm:text-sm text-slate-600 mt-1"></p>
+          </div>
+          <div class="text-left sm:text-right shrink-0">
+            <span class="text-[11px] text-slate-400 block">KDV Dahil Tek Fiyat</span>
+            <span class="text-2xl sm:text-3xl font-black text-slate-950">199 ₺</span>
+          </div>
+        </div>
+
+        <!-- SEO Uyumlu Ayrıntılı Açıklama Metni -->
+        <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed" id="modalDescription">
+          <!-- JS ile doldurulacak -->
+        </div>
+
+        <!-- Özellikler Listesi -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2">Bu Çalışmanın Öne Çıkan Yetenekleri</h4>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600" id="modalFeatures">
+            <!-- JS ile doldurulacak -->
+          </ul>
+        </div>
+
+        <!-- Teknik Bilgiler Rozetleri -->
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
+          <div>
+            <span class="text-[10px] text-slate-400 block uppercase font-bold">Dosya Formatı</span>
+            <span class="font-bold text-slate-800">Saf .XLSX</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 block uppercase font-bold">Makro Güvenliği</span>
+            <span class="font-bold text-emerald-600">Makrosuz (Güvenli)</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 block uppercase font-bold">Excel Uyumu</span>
+            <span class="font-bold text-slate-800">2016 - 365 &amp; Mac</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 block uppercase font-bold">Lisans Türü</span>
+            <span class="font-bold text-slate-800">Ömür Boyu Bireysel/Firma</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-5 py-4 border-t border-slate-100 bg-slate-50 flex items-center justify-between gap-4 shrink-0">
+        <span class="text-xs text-slate-500 font-medium">✓ Ödeme sonrası anında dosya indirme bağlantısı</span>
+        <button
+          type="button"
+          id="modalBuyBtn"
+          class="px-6 py-3 rounded-xl bg-excel-600 hover:bg-excel-700 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-emerald-600/25 transition flex items-center gap-2"
+        >
+          <span>199 ₺ ile Hemen Satın Al &amp; İndir</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- HIZLI ÖDEME & SİPARİŞ MODALI -->
+  <!-- ===================================================================== -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      
+      <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <h3 class="text-sm font-extrabold text-slate-900">Güvenli Sipariş &amp; İndirme</h3>
+        </div>
+        <button id="closeCheckoutBtn" type="button" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </button>
+      </div>
+
+      <div class="p-5 space-y-4">
+        
+        <!-- Seçilen Ürün Özeti -->
+        <div class="p-3.5 rounded-xl bg-emerald-50/60 border border-emerald-100 flex items-center justify-between gap-3">
+          <div>
+            <h4 class="text-xs font-bold text-slate-900 line-clamp-1" id="checkoutProductName">Excel Şablonu</h4>
+            <p class="text-[11px] text-slate-500">Saf XLSX · Anında İndirme Bağlantısı</p>
+          </div>
+          <span class="text-base font-black text-excel-700 shrink-0">199 ₺</span>
+        </div>
+
+        <!-- Müşteri Bilgileri -->
+        <div class="space-y-2.5 text-xs">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Adınız Soyadınız / Firma Ünvanı *</label>
+            <input type="text" id="buyerName" placeholder="Adınız Soyadınız" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">E-Posta Adresiniz (İndirme Linki Gönderilecek) *</label>
+            <input type="email" id="buyerEmail" placeholder="ornek@sirketiniz.com" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none" />
+          </div>
+        </div>
+
+        <!-- Ödeme Seçeneği -->
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1.5">
+          <div class="flex items-center justify-between font-bold text-slate-800">
+            <span>Kurumsal Havale / EFT İle Sipariş</span>
+            <span class="text-[10px] text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded">Resmî e-Fatura</span>
+          </div>
+          <p class="text-[11px] text-slate-600">Siparişinizi onayladığınızda kurumsal banka hesap bilgileri ve indirme bağlantınız e-posta adresinize iletilir.</p>
+          <p class="text-[10px] text-emerald-700 font-medium">✓ Açıklamaya adınızı yazmanız yeterlidir. Dosya indirme bağlantınız anında açılır.</p>
+        </div>
+
+        <button
+          type="button"
+          id="confirmOrderBtn"
+          class="w-full py-3 rounded-xl bg-excel-600 hover:bg-excel-700 text-white font-extrabold text-xs shadow-lg shadow-emerald-600/25 transition flex items-center justify-center gap-1.5"
+        >
+          <span>Siparişi Onayla &amp; Dosyayı İndir (199 ₺)</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Bildirim -->
+  <div id="toastNotification" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl border border-emerald-500/40 text-xs font-semibold hidden items-center gap-2.5 max-w-sm transition-all duration-200">
+    <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+    <span id="toastMsg">İşlem tamamlandı.</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-10 mt-16 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-3">
+      <div class="flex items-center justify-center gap-2 font-bold text-slate-800">
+        <span class="w-6 h-6 rounded-md bg-excel-600 text-white flex items-center justify-center text-xs">X</span>
+        <span>ExcelArşiv PRO</span>
+      </div>
+      <p>© 2026 ExcelArşiv. Türkiye'nin En Kapsamlı Hazır Excel Şablon ve Karar Destek Sistemleri Merkezi.</p>
+      <div class="flex items-center justify-center gap-4 text-slate-400 text-[11px]">
+        <a href="/gizlilik-politikasi" class="hover:text-slate-600">Gizlilik Politikası</a>
+        <span>·</span>
+        <a href="/mesafeli-satis-sozlesmesi" class="hover:text-slate-600">Mesafeli Satış Sözleşmesi</a>
+        <span>·</span>
+        <a href="/kvkk-aydinlatma" class="hover:text-slate-600">KVKK Aydınlatma</a>
+        <span>·</span>
+        <a href="/iletisim" class="hover:text-slate-600">İletişim</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- İstemci Scriptleri: Filtreleme, Arama, Modal ve Sepet -->
+  <script is:inline define:vars={{ pratikData: PRATIK_SABLONLAR }}>
+    document.addEventListener('DOMContentLoaded', () => {
+      let activeCategory = 'tumu';
+      let searchQuery = '';
+
+      const searchInput = document.getElementById('searchInput');
+      const clearSearchBtn = document.getElementById('clearSearchBtn');
+      const categoryTabs = document.getElementById('categoryTabs');
+      const productGrid = document.getElementById('productGrid');
+      const noResults = document.getElementById('noResults');
+      const resultCountText = document.getElementById('resultCountText');
+      const resetFilterBtn = document.getElementById('resetFilterBtn');
+
+      const detailModal = document.getElementById('detailModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const modalImage = document.getElementById('modalImage');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalSummary = document.getElementById('modalSummary');
+      const modalCategory = document.getElementById('modalCategory');
+      const modalDescription = document.getElementById('modalDescription');
+      const modalFeatures = document.getElementById('modalFeatures');
+      const modalBuyBtn = document.getElementById('modalBuyBtn');
+
+      const checkoutModal = document.getElementById('checkoutModal');
+      const closeCheckoutBtn = document.getElementById('closeCheckoutBtn');
+      const checkoutProductName = document.getElementById('checkoutProductName');
+      const confirmOrderBtn = document.getElementById('confirmOrderBtn');
+      const toastNotification = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMsg');
+
+      let currentActiveProduct = null;
+
+      function showToast(msg) {
+        if (!toastNotification || !toastMsg) return;
+        toastMsg.textContent = msg;
+        toastNotification.classList.remove('hidden');
+        toastNotification.classList.add('flex');
+        setTimeout(() => {
+          toastNotification.classList.add('hidden');
+          toastNotification.classList.remove('flex');
+        }, 3500);
+      }
+
+      function filterProducts() {
+        const cards = document.querySelectorAll('.product-card');
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const cardCat = card.getAttribute('data-category');
+          const cardTitle = card.getAttribute('data-title');
+          const cardKeywords = card.getAttribute('data-keywords');
+
+          const matchesCat = (activeCategory === 'tumu' || cardCat === activeCategory);
+          const matchesSearch = !searchQuery || cardTitle.includes(searchQuery) || cardKeywords.includes(searchQuery);
+
+          if (matchesCat && matchesSearch) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (resultCountText) {
+          resultCountText.innerHTML = `Toplam <strong class="text-slate-900 font-extrabold">${visibleCount}</strong> çalışma listeleniyor`;
+        }
+
+        if (noResults) {
+          if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+            productGrid.classList.add('hidden');
+          } else {
+            noResults.classList.add('hidden');
+            productGrid.classList.remove('hidden');
+          }
+        }
+      }
+
+      // Kategori tıklamaları
+      if (categoryTabs) {
+        categoryTabs.addEventListener('click', (e) => {
+          const btn = e.target.closest('button[data-cat]');
+          if (!btn) return;
+
+          categoryTabs.querySelectorAll('button').forEach((b) => {
+            b.className = 'px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-150 shrink-0 bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900';
+          });
+
+          btn.className = 'px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-150 shrink-0 bg-slate-900 text-white shadow-sm ring-1 ring-slate-900 active-tab';
+          activeCategory = btn.getAttribute('data-cat') || 'tumu';
+          filterProducts();
+        });
+      }
+
+      // Canlı Arama
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value.trim().toLowerCase();
+          if (clearSearchBtn) {
+            if (searchQuery.length > 0) clearSearchBtn.classList.remove('hidden');
+            else clearSearchBtn.classList.add('hidden');
+          }
+          filterProducts();
+        });
+      }
+
+      if (clearSearchBtn && searchInput) {
+        clearSearchBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          searchQuery = '';
+          clearSearchBtn.classList.add('hidden');
+          filterProducts();
+        });
+      }
+
+      if (resetFilterBtn) {
+        resetFilterBtn.addEventListener('click', () => {
+          activeCategory = 'tumu';
+          searchQuery = '';
+          if (searchInput) searchInput.value = '';
+          if (clearSearchBtn) clearSearchBtn.classList.add('hidden');
+          if (categoryTabs) {
+            const firstBtn = categoryTabs.querySelector('button[data-cat="tumu"]');
+            if (firstBtn) firstBtn.click();
+          }
+        });
+      }
+
+      // Önizleme Modalı
+      function openModalBySlug(slug) {
+        const prod = pratikData.find((p) => p.slug === slug);
+        if (!prod || !detailModal) return;
+
+        currentActiveProduct = prod;
+
+        if (modalImage) {
+          modalImage.src = prod.image;
+          modalImage.alt = prod.title;
+        }
+        if (modalTitle) modalTitle.textContent = prod.title;
+        if (modalSummary) modalSummary.textContent = prod.summary;
+        if (modalCategory) modalCategory.textContent = prod.categoryLabel;
+
+        if (modalDescription) {
+          modalDescription.innerHTML = prod.description
+            .split('\n\n')
+            .map((p) => `<p>${p}</p>`)
+            .join('');
+        }
+
+        if (modalFeatures) {
+          modalFeatures.innerHTML = prod.features
+            .map((f) => `<li class="flex items-start gap-1.5"><svg class="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg><span>${f}</span></li>`)
+            .join('');
+        }
+
+        detailModal.classList.remove('hidden');
+        detailModal.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function closeModal() {
+        if (detailModal) {
+          detailModal.classList.add('hidden');
+          detailModal.classList.remove('flex');
+        }
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      document.addEventListener('click', (e) => {
+        const previewBtn = e.target.closest('.preview-trigger');
+        if (previewBtn) {
+          const slug = previewBtn.getAttribute('data-slug');
+          if (slug) openModalBySlug(slug);
+        }
+      });
+
+      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+      if (detailModal) {
+        detailModal.addEventListener('click', (e) => {
+          if (e.target === detailModal) closeModal();
+        });
+      }
+
+      // Satın Alma Modalı
+      function openCheckout(prod) {
+        currentActiveProduct = prod;
+        if (!checkoutModal) return;
+        if (checkoutProductName) checkoutProductName.textContent = prod.title;
+        checkoutModal.classList.remove('hidden');
+        checkoutModal.classList.add('flex');
+      }
+
+      function closeCheckout() {
+        if (!checkoutModal) return;
+        checkoutModal.classList.add('hidden');
+        checkoutModal.classList.remove('flex');
+      }
+
+      document.addEventListener('click', (e) => {
+        const buyBtn = e.target.closest('.buy-trigger');
+        if (buyBtn) {
+          const slug = buyBtn.getAttribute('data-slug');
+          const prod = pratikData.find((p) => p.slug === slug);
+          if (prod) openCheckout(prod);
+        }
+      });
+
+      if (modalBuyBtn) {
+        modalBuyBtn.addEventListener('click', () => {
+          if (currentActiveProduct) {
+            closeModal();
+            openCheckout(currentActiveProduct);
+          }
+        });
+      }
+
+      if (closeCheckoutBtn) closeCheckoutBtn.addEventListener('click', closeCheckout);
+      if (checkoutModal) {
+        checkoutModal.addEventListener('click', (e) => {
+          if (e.target === checkoutModal) closeCheckout();
+        });
+      }
+
+      if (confirmOrderBtn) {
+        confirmOrderBtn.addEventListener('click', () => {
+          const name = document.getElementById('buyerName');
+          const email = document.getElementById('buyerEmail');
+
+          if (!name || !name.value.trim()) {
+            showToast('Lütfen adınızı ve soyadınızı girin.');
+            name?.focus();
+            return;
+          }
+          if (!email || !email.value.trim() || !email.value.includes('@')) {
+            showToast('Lütfen geçerli bir e-posta adresi girin.');
+            email?.focus();
+            return;
+          }
+
+          closeCheckout();
+          showToast(`Siparişiniz alındı! ${currentActiveProduct?.title || 'Şablon'} indirme linki e-postanıza iletiliyor.`);
+          
+          // Doğrudan dosya indirmesini tetikle
+          if (currentActiveProduct && currentActiveProduct.downloadUrl) {
+            setTimeout(() => {
+              const a = document.createElement('a');
+              a.href = currentActiveProduct.downloadUrl;
+              a.download = `${currentActiveProduct.slug}.xlsx`;
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+            }, 1000);
+          }
+        });
+      }
+
+      // URL Hash ile doğrudan açılış
+      if (window.location.hash) {
+        const hashSlug = window.location.hash.replace('#', '');
+        if (hashSlug) {
+          const targetCard = document.getElementById(hashSlug);
+          if (targetCard) {
+            targetCard.scrollIntoView({ behavior: 'smooth' });
+            targetCard.classList.add('ring-2', 'ring-emerald-500');
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

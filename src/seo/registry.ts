@@ -242,6 +242,35 @@ const corePages: SeoPageRecord[] = [
     ]
   },
   {
+    route: '/pratik-programlar',
+    locale: 'tr-TR',
+    role: 'hub',
+    indexDirective: 'index, follow',
+    canonicalRoute: '/pratik-programlar',
+    title: '53 Pratik Excel Programı & Dinamik Grafikler (199 ₺) | Excel Arşiv',
+    metaDescription: 'Kasa takibi, teklif hazırlama, puantaj ve dinamik grafik araçlarından oluşan 53 pratik Excel programı. Makrosuz, açık formüllü, tekil 199 ₺ sabit fiyatla.',
+    h1: '53 Pratik Excel Programı & Dinamik Grafikler',
+    primaryIntent: 'pratik excel programlari ve dinamik grafikler',
+    primaryEntity: {
+      id: `${ORIGIN}/pratik-programlar#catalog`,
+      name: '53 Pratik Excel Programı Kataloğu',
+      type: 'Product',
+      sameAs: []
+    },
+    semanticTriples: [
+      { subject: 'Excel Arşiv', predicate: 'sunar', object: '53 Pratik Excel Programı ve Dinamik Grafik' },
+      { subject: 'Pratik Şablonlar', predicate: 'fiyatlandırılır', object: 'Adet başına tekil 199 ₺ sabit lisansla' }
+    ],
+    heroAnswerEngine: '53 Pratik Excel Programı; kasa takibinden personel puantajına, dinamik grafiklerden yönetim panellerine kadar günlük iş operasyonlarınızı hızlandıran makrosuz, açık formüllü ve 199 ₺ tek fiyatlı çalışma kitaplarıdır.',
+    publishedAt: PUBLISHED_BASE,
+    modifiedAt: MODIFIED_BASE,
+    llmSubGraphRoute: '/llms/pages/pratik-programlar.md',
+    breadcrumbs: [
+      { name: 'Ana Sayfa', item: '/' },
+      { name: 'Pratik Programlar', item: '/pratik-programlar' }
+    ]
+  },
+  {
     route: '/rehber',
     locale: 'tr-TR',
     role: 'hub',

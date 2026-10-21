@@ -199,10 +199,10 @@ const homeJsonLd = {
         },
         {
           '@type': 'Question',
-          name: 'VIP Arşiv Paketi (Tek Fiyat: 2.000 ₺) içine tanesi 2.000 ₺ olan Ücretli Uygulamalar dahil mi?',
+          name: 'Kurumsal Excel Karar Modellerinin lisanslama ve fiyatlandırması nasıl çalışır?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Evet! VIP Tam Arşiv Paketi aldığınızda 124 profesyonel modelin yanı sıra Satış Pipeline Kanban, Nakit Akışı Yönetimi gibi seçkin yönetim şablonlarına ve 152 saatlik video eğitim setine ücretsiz erişirsiniz.'
+            text: 'Tüm kurumsal Excel karar destek ve yönetim modellerimiz bağımsız olarak adet başına 2.000 ₺ lisans bedeliyle sunulmaktadır. Satın aldığınız model açık formülleriyle, şifresiz, 10 kullanıcıya kadar şirket içi kullanım lisansıyla ve ömür boyu ücretsiz mevzuat güncellemeleriyle teslim edilir.'
           }
         },
         {
@@ -210,7 +210,7 @@ const homeJsonLd = {
           name: 'Şirketimiz adına kurumsal e-Fatura kesiyor musunuz?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Elbette. Osma Bilişim Akademi olarak tüm bireysel ve kurumsal satın alımlarda KDV dahil resmi e-Arşiv / e-Fatura düzenlemekteyiz. Ödeme adımında vergi dairesi ve VKN bilgilerinizi girmeniz yeterlidir.'
+            text: 'Elbette. ExcelArşiv olarak tüm bireysel ve kurumsal satın alımlarda KDV dahil resmi e-Arşiv / e-Fatura düzenlemekteyiz. Ödeme adımında vergi dairesi ve VKN bilgilerinizi girmeniz yeterlidir.'
           }
         }
       ],
@@ -342,13 +342,13 @@ function formatTL(num: number | string): string {
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
       <!-- Logo -->
       <a class="min-h-[44px] flex items-center gap-2 group shrink-0" href="#ust" aria-label="ExcelArşiv Pro Ana Sayfa">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-excel-600 flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-md shadow-emerald-600/20 group-hover:bg-excel-700 transition shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-excel-600 flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-md shadow-emerald-600/20 group-hover:bg-excel-700 transition shrink-0" style="background-color: #107c41 !important; color: #ffffff !important;">
           X
         </div>
         <div class="min-w-0">
           <div class="flex items-center gap-1 sm:gap-1.5">
-            <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 whitespace-nowrap">Excel<span class="text-excel-600">Arşiv</span></span>
-            <span class="text-[9px] sm:text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-md bg-emerald-100 text-excel-700">PRO</span>
+            <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 whitespace-nowrap">Excel<span class="text-excel-600" style="color: #107c41 !important;">Arşiv</span></span>
+            <span class="text-[9px] sm:text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-md bg-emerald-100 text-excel-700 font-extrabold">PRO</span>
           </div>
           <p class="hidden sm:block text-[11px] text-slate-500 leading-none">Türkiye'nin Hazır Şablon &amp; Makro Merkezi</p>
         </div>
@@ -371,25 +371,20 @@ function formatTL(num: number | string): string {
         </button>
 
         <!-- Sepetim Butonu -->
-        <button class="min-h-[42px] relative inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-excel-600 hover:bg-excel-700 shadow-md shadow-emerald-600/25 transition-all shrink-0 whitespace-nowrap" id="openCartBtn" type="button">
+        <button class="min-h-[42px] relative inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-excel-600 hover:bg-excel-700 shadow-md shadow-emerald-600/25 transition-all shrink-0 whitespace-nowrap" id="openCartBtn" type="button" style="background-color: #107c41 !important;">
           <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           <span class="hidden sm:inline">Sepetim</span>
           <span class="sm:hidden text-xs">Sepet</span>
           <span class="px-1.5 py-0.5 text-[10px] sm:text-[11px] rounded-full bg-white text-excel-700 font-extrabold leading-none" id="cartCountBadge">1</span>
         </button>
 
-        <!-- Premium Sandviç (Hamburger) Menü Butonu (Hem Mobil Hem Masaüstü - Yeni Nesil Dikkat Çekici Tasarım) -->
-        <button aria-label="Navigasyon Menüsünü Aç / Kapat" aria-expanded="false" aria-controls="mobileMenuPanel" class="min-h-[42px] relative inline-flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-tight shadow-md shadow-slate-900/20 border border-slate-700/80 hover:border-emerald-400/60 transition-all duration-200 group shrink-0 active:scale-95 ring-2 ring-emerald-500/20 hover:ring-emerald-400/40" id="mobileMenuBtn" type="button">
-          <!-- Canlı Radar Göstergesi (Gözden Kaçmayan Canlı Hareketli Efekt) -->
-          <span class="relative flex h-2 w-2 shrink-0">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span class="text-xs font-bold text-white group-hover:text-emerald-300 transition-colors">Menü</span>
+        <!-- Premium Sandviç (Hamburger) Menü Butonu (Executive Light Tasarım) -->
+        <button aria-label="Navigasyon Menüsünü Aç / Kapat" aria-expanded="false" aria-controls="mobileMenuPanel" class="min-h-[42px] flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-emerald-50/70 hover:border-emerald-300 text-slate-800 transition-all duration-200 group shrink-0 shadow-sm" id="mobileMenuBtn" type="button">
+          <span class="text-xs font-bold text-slate-700 group-hover:text-emerald-700 transition">Menü</span>
           <div class="w-4 h-3.5 flex flex-col justify-between py-0.5" aria-hidden="true">
-            <span class="w-full h-[2px] bg-white group-hover:bg-emerald-400 rounded-full transition-all duration-200"></span>
-            <span class="w-2.5 h-[2px] bg-emerald-400 group-hover:w-full group-hover:bg-white rounded-full transition-all duration-200 ml-auto"></span>
-            <span class="w-full h-[2px] bg-white group-hover:bg-emerald-400 rounded-full transition-all duration-200"></span>
+            <span class="w-full h-[2px] bg-slate-700 group-hover:bg-emerald-600 rounded-full transition-all duration-200"></span>
+            <span class="w-3/4 h-[2px] bg-slate-700 group-hover:bg-emerald-600 rounded-full transition-all duration-200 ml-auto group-hover:w-full"></span>
+            <span class="w-full h-[2px] bg-slate-700 group-hover:bg-emerald-600 rounded-full transition-all duration-200"></span>
           </div>
         </button>
       </div>
@@ -404,12 +399,12 @@ function formatTL(num: number | string): string {
     <!-- Panel Header -->
     <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-white shrink-0" style="background-color: #ffffff !important;">
       <div class="flex items-center gap-2">
-        <div class="w-8 h-8 rounded-lg bg-excel-600 flex items-center justify-center text-white font-extrabold text-sm shadow-sm">
+        <div class="w-8 h-8 rounded-lg bg-excel-600 flex items-center justify-center text-white font-extrabold text-sm shadow-sm" style="background-color: #107c41 !important; color: #ffffff !important;">
           X
         </div>
         <div>
           <div class="flex items-center gap-1.5">
-            <span class="font-extrabold text-sm text-slate-900">Excel<span class="text-excel-600">Arşiv</span></span>
+            <span class="font-extrabold text-sm text-slate-900">Excel<span class="text-excel-600" style="color: #107c41 !important;">Arşiv</span></span>
             <span class="text-[9px] font-bold uppercase px-1 py-0.5 rounded bg-emerald-100 text-excel-700">PRO</span>
           </div>
           <p class="text-[10px] text-slate-500 leading-none">Navigasyon &amp; Çözümler</p>
@@ -423,18 +418,18 @@ function formatTL(num: number | string): string {
     <!-- Panel Scrollable Body -->
     <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4 bg-white" style="background-color: #ffffff !important;">
         
-        <!-- VIP Arşiv Paketi Öne Çıkan Kart -->
-        <div class="p-3.5 rounded-2xl bg-gradient-to-br from-amber-50 via-amber-100/40 to-emerald-50 border border-amber-200/80 shadow-sm relative overflow-hidden">
+        <!-- Kurumsal Karar Modeli & Pratik Programlar Öne Çıkan Kart -->
+        <div class="p-3.5 rounded-2xl bg-gradient-to-br from-emerald-50 via-slate-50 to-amber-50 border border-emerald-200/80 shadow-sm relative overflow-hidden">
           <div class="flex items-center justify-between gap-2 mb-1.5">
-            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-500 text-slate-950 font-black text-[10px] uppercase tracking-wide">
-              👑 TEK FİYAT: 2.000 ₺
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-600 text-white font-black text-[10px] uppercase tracking-wide">
+              ⚡ YENİ BÖLÜM
             </span>
-            <span class="text-[11px] font-bold text-amber-800">VIP Tam Arşiv</span>
+            <span class="text-[11px] font-bold text-emerald-800">53 Pratik Program</span>
           </div>
-          <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 leading-snug">Tüm 124 Tablo &amp; Makro Tek Pakette</h4>
-          <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">Ömür boyu sınırsız erişim, yeni eklenen tüm modeller ücretsiz dahil.</p>
-          <a href="#paketler" class="mt-2.5 inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition shadow-sm">
-            <span>VIP Paketi İncele</span>
+          <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 leading-snug">53 Pratik Excel Tablosu · Tek Fiyat 199 ₺</h4>
+          <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">Kasa takibi, teklif, puantaj ve dinamik grafik araçları anında indirilmeye hazır.</p>
+          <a href="/pratik-programlar" class="mt-2.5 inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition shadow-sm">
+            <span>Pratik Programları İncele (199 ₺)</span>
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           </a>
         </div>
@@ -469,16 +464,29 @@ function formatTL(num: number | string): string {
             </div>
           </a>
 
+          <a href="/pratik-programlar" class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 group-hover:bg-emerald-100 text-excel-700 flex items-center justify-center shrink-0 transition mt-0.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            </div>
+            <div class="min-w-0">
+              <div class="text-xs font-bold text-slate-900 group-hover:text-excel-600 transition flex items-center gap-1.5">
+                53 Pratik Program
+                <span class="px-1.5 py-0.2 rounded text-[9px] bg-emerald-100 text-excel-800 font-extrabold">199 ₺</span>
+              </div>
+              <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Kasa, teklif, puantaj ve grafik araçları.</p>
+            </div>
+          </a>
+
           <a href="#paketler" class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
             <div class="w-8 h-8 rounded-lg bg-amber-50 group-hover:bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 transition mt-0.5">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
             </div>
             <div class="min-w-0">
               <div class="text-xs font-bold text-slate-900 group-hover:text-excel-600 transition flex items-center gap-1.5">
-                VIP Arşiv Satış Kokpiti
+                Kurumsal Karar Modelleri
                 <span class="px-1.5 py-0.2 rounded text-[9px] bg-amber-100 text-amber-900 font-extrabold">2.000 ₺</span>
               </div>
-              <p class="text-[11px] text-slate-500 leading-tight mt-0.5">124 model, 23 dashboard ve 152 saat video eğitim tek pakette.</p>
+              <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Finans, nakit akışı ve yönetim modelleri açık lisansla.</p>
             </div>
           </a>
         </div>
@@ -605,9 +613,9 @@ function formatTL(num: number | string): string {
 
             <!-- Hızlı Aksiyon & 45 Saniyede Karar Çağrısı (Linear/Stripe Standardı) -->
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
-              <a class="min-h-[48px] px-6 py-3.5 rounded-xl bg-excel-600 hover:bg-excel-700 text-white font-extrabold text-sm shadow-lg shadow-emerald-700/25 transition flex items-center justify-center gap-2 whitespace-nowrap" href="#paketler">
-                <span>VIP Tam Arşivi İndir</span>
-                <span class="px-2 py-0.5 rounded-md bg-amber-400 text-slate-950 text-xs font-black">2.000 ₺</span>
+              <a class="min-h-[48px] px-6 py-3.5 rounded-xl bg-excel-600 hover:bg-excel-700 text-white font-extrabold text-sm shadow-lg shadow-emerald-700/25 transition flex items-center justify-center gap-2 whitespace-nowrap" href="/pratik-programlar">
+                <span>53 Pratik Programı İncele</span>
+                <span class="px-2 py-0.5 rounded-md bg-amber-400 text-slate-950 text-xs font-black">199 ₺</span>
               </a>
               <a class="min-h-[48px] px-5 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-bold text-sm transition flex items-center justify-center gap-2 whitespace-nowrap" href="#canli-onizleme">
                 <span>Canlı Simülatörde Test Et</span>
@@ -667,7 +675,7 @@ function formatTL(num: number | string): string {
                 <div class="w-7 h-7 rounded-lg bg-emerald-100 text-excel-700 flex items-center justify-center shrink-0 font-bold text-sm">💬</div>
                 <div class="min-w-0">
                   <p class="text-xs font-bold text-slate-900 m-0 leading-tight">Uzman Destek</p>
-                  <p class="text-[11px] text-slate-500 m-0 mt-0.5 leading-normal">Murat Osma &amp; ekibinden destek</p>
+                  <p class="text-[11px] text-slate-500 m-0 mt-0.5 leading-normal">Kıdemli Excel uzmanlarımızdan destek</p>
                 </div>
               </div>
             </div>
@@ -685,15 +693,15 @@ function formatTL(num: number | string): string {
               </div>
             </div>
 
-            <!-- 2. Görsel Altı VIP Satış Paneli (Görseli örtmeyen, bağımsız kart) -->
+            <!-- 2. Görsel Altı Model Satış Paneli (Görseli örtmeyen, bağımsız kart) -->
             <div class="bg-white p-3.5 sm:p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 min-w-0">
               <div class="min-w-0 w-full sm:w-auto">
-                <span class="text-[10px] font-extrabold uppercase tracking-wider text-excel-600 block">EN ÇOK İNDİRİLEN PAKET</span>
-                <p class="text-sm font-bold text-slate-900 m-0 truncate">VIP Tam Arşiv (124 Şablon + 152 Saat Eğitim)</p>
-                <p class="text-xs text-slate-500 m-0 mt-0.5">Tekil değeri 12.500 ₺ olan tüm dosyalar tek pakette</p>
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-excel-600 block">KURUMSAL KARAR MODELİ</span>
+                <p class="text-sm font-bold text-slate-900 m-0 truncate">Açık Formüllü Karar Destek &amp; Yönetim Modelleri</p>
+                <p class="text-xs text-slate-500 m-0 mt-0.5">Her model şirket içi 10 kullanıcı lisansıyla bağımsız lisanslanır</p>
               </div>
               <a class="min-h-[44px] w-full sm:w-auto px-4 py-2.5 rounded-xl bg-excel-600 hover:bg-excel-700 text-white text-xs font-bold shrink-0 transition flex items-center justify-center whitespace-nowrap" href="#paketler">
-                2.000 ₺ Tek Fiyat
+                2.000 ₺ / Adet
               </a>
             </div>
 
@@ -1013,7 +1021,7 @@ function formatTL(num: number | string): string {
         <div class="text-center max-w-2xl mx-auto mb-8">
           <span class="text-xs font-extrabold uppercase tracking-wider text-excel-600">HAZIR ŞABLON KÜTÜPHANESİ</span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 m-0">İhtiyacınız Olan Şablonu Seçin ve Hemen Kullanın</h2>
-          <p class="text-xs sm:text-sm text-slate-500 mt-1 m-0">Tüm dosyalar açık kaynak ve şifresizdir. Tekil ya da VIP Tam Arşiv (2.000 ₺) avantajıyla indirin.</p>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1 m-0">Tüm dosyalar açık kaynak ve şifresizdir. Her kurumsal model 2.000 ₺ lisans bedeliyle hemen teslim edilir.</p>
         </div>
 
         <!-- Kategori Filtre Butonları ve Sıralama (Simetrik ve Düzgün Hizalı) -->
@@ -1077,7 +1085,7 @@ function formatTL(num: number | string): string {
                     <span class="text-lg font-extrabold text-slate-900">{formatTL(item.price)}</span>
                   </div>
                   <div class="text-right">
-                    <span class="inline-block px-2 py-0.5 rounded bg-amber-100 text-amber-900 text-[11px] font-extrabold">VIP Pakette ÜCRETSİZ</span>
+                    <span class="inline-block px-2 py-0.5 rounded bg-emerald-100 text-excel-900 text-[11px] font-extrabold">Kurumsal Model</span>
                     <span class="text-[11px] text-slate-500 block mt-0.5">⬇ {item.downloads} İndirme</span>
                   </div>
                 </div>
@@ -1106,19 +1114,19 @@ function formatTL(num: number | string): string {
       </div>
     </section>
 
-    <!-- VIP VE PAKETLER (#paketler) — TEK VE ULTRA-PREMIUM HER ŞEY DAHİL SATIŞ KOKPİTİ -->
+    <!-- KURUMSAL MODELLER & FİYATLANDIRMA (#paketler) -->
     <section class="py-14 sm:py-16 bg-slate-50/70 border-y border-slate-200/80 relative overflow-hidden scroll-mt-header" id="paketler">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div class="text-center max-w-2xl mx-auto mb-8">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 uppercase tracking-wider mb-2.5">
-            👑 TEK LİSANS · TÜM ARŞİV DAHİL (2.000 ₺)
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-excel-800 border border-emerald-300 uppercase tracking-wider mb-2.5">
+            💼 KURUMSAL KARAR SİSTEMLERİ · MODEL BAŞINA 2.000 ₺
           </span>
           <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 m-0">
-            Bir Kere Ödeyin, Ömür Boyu Sınırsız Kullanın
+            Her Model İçin Şirketinize Özel Tam Lisans
           </h2>
           <p class="text-slate-600 text-xs sm:text-sm mt-2 max-w-xl mx-auto leading-relaxed m-0">
-            Aylık veya yıllık abonelik yoktur. 124 profesyonel Excel karar modeli, 23 yönetim dashboardu ve 152 saatlik eğitim setinin tamamı tek lisansla hemen açılır.
+            Her bir kurumsal Excel tablosu bağımsız olarak 2.000 ₺ lisans bedeliyle sunulur. Açık formüllü, şifresiz ve şirket içi 10 kullanıcı lisansıyla hemen teslim edilir.
           </p>
         </div>
 
@@ -1129,11 +1137,11 @@ function formatTL(num: number | string): string {
           <div class="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-100">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-wide uppercase">VIP TAM ARŞİV MASTER LİSANS</span>
+              <span class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-wide uppercase">KURUMSAL KARAR MODELİ LİSANSI</span>
               <span class="px-2 py-0.5 rounded-md bg-emerald-100 text-excel-800 text-[10px] font-bold">2026 Resmî Sürüm</span>
             </div>
-            <div class="flex items-center gap-1.5 text-xs font-bold text-amber-800 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
-              <span>Bireysel + Kurumsal + 10 Kullanıcı Lisansı</span>
+            <div class="flex items-center gap-1.5 text-xs font-bold text-slate-800 bg-slate-100 border border-slate-200 px-3 py-1 rounded-full">
+              <span>Şirket İçi 10 Kullanıcı Lisansı Dahil</span>
             </div>
           </div>
 
@@ -1143,7 +1151,7 @@ function formatTL(num: number | string): string {
             <!-- Sol: Neler Dahil? (7 Sütun) -->
             <div class="lg:col-span-7 space-y-3.5">
               <h3 class="text-sm sm:text-base font-extrabold text-slate-900 m-0 flex items-center gap-2">
-                <span>Pakete Eksiksiz Dahil Olan 6 Temel Değer:</span>
+                <span>Her Model Lisansına Eksiksiz Dahil Olan 6 Temel Değer:</span>
               </h3>
               
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -1151,15 +1159,15 @@ function formatTL(num: number | string): string {
                 <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-slate-200 transition">
                   <span class="w-5 h-5 rounded-md bg-emerald-100 text-excel-700 font-extrabold flex items-center justify-center shrink-0 mt-0.5 text-xs">✓</span>
                   <div>
-                    <strong class="text-xs font-bold text-slate-900 block">124 Profesyonel Excel Modeli</strong>
-                    <span class="text-[11px] text-slate-500 leading-tight block mt-0.5">Finans, Nakit Akışı, İK, Muhasebe, Bütçe ve Satış tabloları.</span>
+                    <strong class="text-xs font-bold text-slate-900 block">Seçilen Kurumsal Karar Modeli</strong>
+                    <span class="text-[11px] text-slate-500 leading-tight block mt-0.5">Finansal modelleme, bütçe veya nakit akışına özel tam açık formüllü yapı.</span>
                   </div>
                 </div>
 
                 <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-slate-200 transition">
                   <span class="w-5 h-5 rounded-md bg-emerald-100 text-excel-700 font-extrabold flex items-center justify-center shrink-0 mt-0.5 text-xs">✓</span>
                   <div>
-                    <strong class="text-xs font-bold text-slate-900 block">23 Pro Dashboard &amp; Makro</strong>
+                    <strong class="text-xs font-bold text-slate-900 block">Dinamik Yönetici Panosu (Dashboard)</strong>
                     <span class="text-[11px] text-slate-500 leading-tight block mt-0.5">Dinamik KPI grafikleri ve tek tıkla çalışan raporlama otomasyonları.</span>
                   </div>
                 </div>
@@ -1167,16 +1175,8 @@ function formatTL(num: number | string): string {
                 <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-slate-200 transition">
                   <span class="w-5 h-5 rounded-md bg-emerald-100 text-excel-700 font-extrabold flex items-center justify-center shrink-0 mt-0.5 text-xs">✓</span>
                   <div>
-                    <strong class="text-xs font-bold text-slate-900 block">152 Saat Video Eğitim Seti</strong>
-                    <span class="text-[11px] text-slate-500 leading-tight block mt-0.5">175 videolu A'dan Z'ye ileri Excel, Dashboard ve VBA Makro okulu.</span>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-slate-200 transition">
-                  <span class="w-5 h-5 rounded-md bg-emerald-100 text-excel-700 font-extrabold flex items-center justify-center shrink-0 mt-0.5 text-xs">✓</span>
-                  <div>
                     <strong class="text-xs font-bold text-slate-900 block">10 Kullanıcıya Kadar Lisans</strong>
-                    <span class="text-[11px] text-slate-500 leading-tight block mt-0.5">Departman ve ekip kullanımına uygun, sınırsız şirket içi dağıtım.</span>
+                    <span class="text-[11px] text-slate-500 leading-tight block mt-0.5">Departman ve ekip kullanımına uygun, şirket içi sınırsız dağıtım hakkı.</span>
                   </div>
                 </div>
 
@@ -1184,15 +1184,23 @@ function formatTL(num: number | string): string {
                   <span class="w-5 h-5 rounded-md bg-emerald-100 text-excel-700 font-extrabold flex items-center justify-center shrink-0 mt-0.5 text-xs">✓</span>
                   <div>
                     <strong class="text-xs font-bold text-slate-900 block">Ömür Boyu Ücretsiz Güncelleme</strong>
-                    <span class="text-[11px] text-slate-500 leading-tight block mt-0.5">Arşive eklenecek yeni modeller ve mevzuat güncellemeleri bedelsiz.</span>
+                    <span class="text-[11px] text-slate-500 leading-tight block mt-0.5">İlgili model için yapılacak mevzuat ve formül güncellemeleri bedelsiz.</span>
                   </div>
                 </div>
 
                 <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-slate-200 transition">
                   <span class="w-5 h-5 rounded-md bg-emerald-100 text-excel-700 font-extrabold flex items-center justify-center shrink-0 mt-0.5 text-xs">✓</span>
                   <div>
-                    <strong class="text-xs font-bold text-slate-900 block">WhatsApp Destek &amp; Soru-Cevap</strong>
-                    <span class="text-[11px] text-slate-500 leading-tight block mt-0.5">Formül veya makro takılmalarında uzman ekipten anında rehberlik.</span>
+                    <strong class="text-xs font-bold text-slate-900 block">Kurumsal Resmî e-Fatura</strong>
+                    <span class="text-[11px] text-slate-500 leading-tight block mt-0.5">Şirketiniz adına düzenlenen KDV dahil resmi e-Fatura belgesi.</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-slate-200 transition">
+                  <span class="w-5 h-5 rounded-md bg-emerald-100 text-excel-700 font-extrabold flex items-center justify-center shrink-0 mt-0.5 text-xs">✓</span>
+                  <div>
+                    <strong class="text-xs font-bold text-slate-900 block">Uzman Destek &amp; Soru-Cevap</strong>
+                    <span class="text-[11px] text-slate-500 leading-tight block mt-0.5">Formül veya model entegrasyonunda uzman ekibimizden rehberlik.</span>
                   </div>
                 </div>
 
@@ -1203,22 +1211,27 @@ function formatTL(num: number | string): string {
             <div class="lg:col-span-5 bg-gradient-to-b from-slate-900 to-slate-950 p-6 sm:p-7 rounded-2xl text-white text-center flex flex-col justify-between shadow-lg">
               <div>
                 <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-black uppercase tracking-wider mb-2">
-                  HER ŞEY DAHİL TEK FİYAT
+                  MODEL BAŞINA TEK FİYAT
                 </span>
                 
                 <div class="my-2">
-                  <span class="text-xs line-through text-slate-400 font-bold block">Toplam Değer: 15.000 ₺</span>
                   <div class="flex items-baseline justify-center gap-1.5 mt-1">
                     <span class="text-4xl sm:text-5xl font-black text-amber-400 tracking-tight">2.000 ₺</span>
                   </div>
-                  <span class="text-[11px] text-slate-300 font-medium block mt-1">Tek Seferlik Ödeme · KDV Dahil · Aylık/Yıllık Ücret Yok</span>
+                  <span class="text-[11px] text-slate-300 font-medium block mt-1">Model Başına Tek Seferlik Ödeme · KDV Dahil · Abonelik Yok</span>
                 </div>
 
                 <!-- Satın Alma Butonu -->
-                <button class="select-plan-btn w-full min-h-[48px] py-3 px-5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-sm shadow-md shadow-amber-500/20 hover:shadow-amber-500/30 transition-all flex items-center justify-center gap-2 mt-4 group" data-plan="VIP Tam Arşiv Master Paketi (124 Şablon)" data-price="2000" type="button">
-                  <span>VIP Arşivi Hemen İndir (2.000 ₺)</span>
+                <a href="#tum-sablonlar" class="w-full min-h-[48px] py-3 px-5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-sm shadow-md shadow-amber-500/20 hover:shadow-amber-500/30 transition-all flex items-center justify-center gap-2 mt-4 group">
+                  <span>Model Seçin &amp; İnceleyin (2.000 ₺)</span>
                   <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
-                </button>
+                </a>
+              </div>
+
+              <!-- Pratik Şablonlar Yönlendirmesi -->
+              <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
+                <span>Daha pratik araçlar mı arıyorsunuz?</span>
+                <a href="/pratik-programlar" class="text-emerald-400 font-bold hover:underline ml-1">199 ₺'lik 53 Pratik Şablon Kataloğu →</a>
               </div>
 
               <!-- Güven ve Ödeme Damgaları -->
@@ -1251,10 +1264,10 @@ function formatTL(num: number | string): string {
           <!-- Sol Sütun: Kurumsal Çözümler (Eşit Yükseklik ve Dengeli Düzen) -->
           <div class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between h-full">
             <div>
-              <span class="text-xs font-extrabold uppercase tracking-wider text-excel-600">OSMA BİLİŞİM AKADEMİ — KURUMSAL ÇÖZÜMLER</span>
-              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 mb-2 m-0">Şirketinize Özel Excel Otomasyonu &amp; Eğitim</h2>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-excel-600">EXCELARŞİV — KURUMSAL ÇÖZÜMLER</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 mb-2 m-0">Şirketinize Özel Excel Otomasyonu &amp; Danışmanlık</h2>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed m-0">
-                ERP, Logo ve SQL sistemlerinizden otomatik veri çeken makrolar geliştiriyor; Murat Osma liderliğinde uygulamalı şirket içi Excel &amp; VBA eğitimleri veriyoruz.
+                ERP, Logo ve SQL sistemlerinizden otomatik veri çeken makrolar geliştiriyor; kıdemli uzmanlarımız liderliğinde şirketinize özel çözümler sunuyoruz.
               </p>
             </div>
 
@@ -1263,21 +1276,21 @@ function formatTL(num: number | string): string {
                 <span class="text-lg">🎯</span>
                 <div class="min-w-0">
                   <h3 class="font-bold text-xs sm:text-sm text-slate-900 m-0">Özel Makro &amp; ERP/SQL Entegrasyonu</h3>
-                  <p class="text-xs text-slate-500 mt-0.5 m-0 leading-normal">Saatler süren manuel raporları tek tuşla 5 saniyede çalışan güvenli VBA otomasyonuna dönüştürün.</p>
+                  <p class="text-xs text-slate-500 mt-0.5 m-0 leading-normal">Saatler süren manuel raporları tek tuşla 5 saniyede çalışan güvenli otomasyonlara dönüştürün.</p>
                 </div>
               </div>
               <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
                 <span class="text-lg">🏢</span>
                 <div class="min-w-0">
-                  <h3 class="font-bold text-xs sm:text-sm text-slate-900 m-0">Kurumsal Şirket İçi Excel &amp; VBA Eğitimi</h3>
-                  <p class="text-xs text-slate-500 mt-0.5 m-0 leading-normal">Ekibinizin ihtiyacına özel (Finansal Modelleme, İleri Excel, Dashboard) yüz yüze veya online eğitim.</p>
+                  <h3 class="font-bold text-xs sm:text-sm text-slate-900 m-0">Kurumsal Özel Çözümler &amp; Danışmanlık</h3>
+                  <p class="text-xs text-slate-500 mt-0.5 m-0 leading-normal">Ekibinizin ihtiyacına özel (Finansal Modelleme, İleri Excel, Dashboard) profesyonel danışmanlık.</p>
                 </div>
               </div>
               <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
                 <span class="text-lg">📑</span>
                 <div class="min-w-0">
                   <h3 class="font-bold text-xs sm:text-sm text-slate-900 m-0">Resmi Kurumsal e-Fatura &amp; Sözleşme</h3>
-                  <p class="text-xs text-slate-500 mt-0.5 m-0 leading-normal">Tüm hizmetler Osma Bilişim Akademi resmi e-Faturası ve gizlilik sözleşmesi güvencesiyle sunulur.</p>
+                  <p class="text-xs text-slate-500 mt-0.5 m-0 leading-normal">Tüm hizmetler resmi e-Fatura ve gizlilik sözleşmesi güvencesiyle sunulur.</p>
                 </div>
               </div>
             </div>
@@ -1415,11 +1428,11 @@ function formatTL(num: number | string): string {
             </div>
             <div class="border border-slate-200 rounded-xl overflow-hidden">
               <button class="faq-toggle min-h-[44px] w-full px-5 py-4 text-left flex items-center justify-between font-bold text-sm text-slate-800 hover:bg-slate-50 transition" type="button" aria-expanded="false">
-                <span>VIP Arşiv Paketi (Tek Fiyat: 2.000 ₺) içine tanesi 2.000 ₺ olan Ücretli Uygulamalar dahil mi?</span>
+                <span>Kurumsal Excel Karar Modellerinin lisanslama ve fiyatlandırması nasıl çalışır?</span>
                 <span class="faq-icon text-excel-600 font-extrabold text-lg">+</span>
               </button>
               <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Evet! Yeni paket mimarimizde kullanıcılarımızın kafa karışıklığını tamamen ortadan kaldırdık. VIP Tam Arşiv Paketi aldığınızda 124 profesyonel karar modelinin yanı sıra Satış Pipeline Kanban, Nakit Akışı Yönetimi gibi seçkin yönetim şablonlarına ve 152 saatlik video eğitim setine ücretsiz erişirsiniz.
+                Tüm kurumsal Excel karar destek ve yönetim modellerimiz bağımsız olarak adet başına 2.000 ₺ lisans bedeliyle sunulmaktadır. Satın aldığınız model açık formülleriyle, şifresiz, 10 kullanıcıya kadar şirket içi kullanım lisansıyla ve ömür boyu ücretsiz mevzuat güncellemeleriyle teslim edilir.
               </div>
             </div>
             <div class="border border-slate-200 rounded-xl overflow-hidden">
@@ -1428,7 +1441,7 @@ function formatTL(num: number | string): string {
                 <span class="faq-icon text-excel-600 font-extrabold text-lg">+</span>
               </button>
               <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Elbette. Osma Bilişim Akademi olarak tüm bireysel ve kurumsal satın alımlarda KDV dahil resmi e-Arşiv / e-Fatura düzenlemekteyiz. Ödeme adımında vergi dairesi ve VKN bilgilerinizi girmeniz yeterlidir.
+                Elbette. ExcelArşiv olarak tüm bireysel ve kurumsal satın alımlarda KDV dahil resmi e-Arşiv / e-Fatura düzenlemekteyiz. Ödeme adımında vergi dairesi ve VKN bilgilerinizi girmeniz yeterlidir.
               </div>
             </div>
           </div>
@@ -1522,9 +1535,9 @@ function formatTL(num: number | string): string {
     <div class="hidden mb-3 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden" id="waChatPopup">
       <div class="bg-emerald-600 text-white p-4 flex items-center justify-between">
         <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center font-bold text-sm">MO</div>
+          <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center font-bold text-sm">EA</div>
           <div>
-            <p class="text-xs font-extrabold m-0">Murat Osma &amp; Uzman Ekip</p>
+            <p class="text-xs font-extrabold m-0">ExcelArşiv Uzman Destek</p>
             <p class="text-[11px] text-emerald-100 m-0">Çevrimiçi • Ortalama yanıt: 3 dk</p>
           </div>
         </div>
@@ -1532,7 +1545,7 @@ function formatTL(num: number | string): string {
       </div>
       <div class="p-4 bg-slate-50 space-y-3 text-xs">
         <div class="bg-white p-3 rounded-xl border border-slate-200 text-slate-700 shadow-sm leading-relaxed">
-          Merhaba! 👋 Aradığınız özel bir Excel tablosu mu var, yoksa VIP Arşiv Paketi hakkında mı bilgi almak istersiniz?
+          Merhaba! 👋 Aradığınız kurumsal bir Excel karar modeli veya pratik araçlar hakkında bilgi almak ister misiniz?
         </div>
         <label for="waQuickInput" class="sr-only">Mesajınız</label>
         <input class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-600 bg-white" id="waQuickInput" placeholder="Mesajınızı yazın..." type="text"/>
@@ -1560,17 +1573,6 @@ function formatTL(num: number | string): string {
       <div class="p-6 space-y-5 max-h-[82vh] overflow-y-auto">
         <!-- Seçili Ürün Listesi -->
         <div class="space-y-2.5" id="cartItemsContainer"></div>
-
-        <!-- Akıllı VIP Upsell Önerisi -->
-        <div class="p-3.5 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-between gap-3" id="vipUpsellBanner">
-          <div class="text-xs">
-            <p class="font-extrabold text-amber-950 m-0">💡 Tekil dosya yerine VIP Tam Arşiv'e geçin!</p>
-            <p class="text-amber-800 m-0 mt-0.5">Tek fiyat 2.000 ₺ ile tüm 124 karar modelini + 152 saat eğitimi sınırsız indirin.</p>
-          </div>
-          <button class="min-h-[36px] px-3.5 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs shrink-0 whitespace-nowrap" id="switchToVipBtn" type="button">
-            VIP'ye Geç (2.000 ₺)
-          </button>
-        </div>
 
         <!-- Ödeme Yöntemi Sekmeleri -->
         <div>
@@ -1602,10 +1604,9 @@ function formatTL(num: number | string): string {
 
           <!-- EFT Bilgisi -->
           <div class="hidden p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-2" id="eftPaymentPanel">
-            <p class="font-bold text-slate-800 m-0">QNB Finansbank Kurumsal Hesap Bilgileri</p>
-            <p class="text-slate-600 font-mono m-0">IBAN: TR44 0015 7000 0000 0079 5601 81</p>
-            <p class="text-slate-600 m-0">Alıcı: Osma Bilişim Akademi / Murat Osma</p>
-            <p class="text-[11px] text-emerald-700 font-medium m-0">İpucu: Beklemeden saniyeler içinde indirmek için Kredi/Banka Kartı sekmesini kullanabilirsiniz.</p>
+            <p class="font-bold text-slate-800 m-0">Kurumsal Havale / EFT İle Ödeme</p>
+            <p class="text-slate-600 m-0">Siparişinizi tamamladığınızda resmî banka hesap bilgileri ve sipariş referans kodunuz e-posta adresinize otomatik iletilecektir.</p>
+            <p class="text-[11px] text-emerald-700 font-medium m-0">İpucu: Beklemeden saniyeler içinde anında indirmek için Kredi/Banka Kartı sekmesini tercih edebilirsiniz.</p>
           </div>
         </div>
 
@@ -1738,9 +1739,7 @@ function formatTL(num: number | string): string {
         title: string;
         price: number;
       }
-      let cart: CartItem[] = [
-        { id: 'vip-paket', title: 'VIP Tam Arşiv (124 Karar Modeli) + 152 Saat Eğitim Seti', price: 2000 }
-      ];
+      let cart: CartItem[] = [];
 
       function formatTL(num: number | string): string {
         return Number(num).toLocaleString('tr-TR') + ' ₺';
@@ -1834,7 +1833,7 @@ function formatTL(num: number | string): string {
         if (container) {
           container.innerHTML = '';
           if (cart.length === 0) {
-            container.innerHTML = '<p class="text-xs text-slate-500 py-3 text-center m-0">Sepetinizde henüz ürün yok. VIP Tam Arşiv Paketi (Tek Fiyat: 2.000 ₺) ile tüm dosyalara erişebilirsiniz.</p>';
+            container.innerHTML = '<p class="text-xs text-slate-500 py-3 text-center m-0">Sepetinizde henüz ürün bulunmuyor. Katalogdan dilediğiniz Excel tablosunu sepete ekleyebilirsiniz.</p>';
           } else {
             cart.forEach(item => {
               const row = document.createElement('div');
@@ -1865,13 +1864,6 @@ function formatTL(num: number | string): string {
         const total = cart.reduce((sum, i) => sum + i.price, 0);
         const totalElem = document.getElementById('checkoutTotalAmount');
         if (totalElem) totalElem.textContent = formatTL(total);
-
-        const hasSingleApp = cart.some(i => i.id !== 'vip-paket' && !String(i.id).startsWith('plan-'));
-        const upsellBanner = document.getElementById('vipUpsellBanner');
-        if (upsellBanner) {
-          if (hasSingleApp) upsellBanner.classList.remove('hidden');
-          else upsellBanner.classList.add('hidden');
-        }
       }
 
       function openCheckoutModal() {
@@ -1897,16 +1889,6 @@ function formatTL(num: number | string): string {
         if (openCartBtn) openCartBtn.addEventListener('click', openCheckoutModal);
         if (closeCheckoutModalBtn && checkoutModal) {
           closeCheckoutModalBtn.addEventListener('click', () => checkoutModal.classList.add('hidden'));
-        }
-
-        // VIP Upsell Butonu
-        const switchToVipBtn = document.getElementById('switchToVipBtn');
-        if (switchToVipBtn) {
-          switchToVipBtn.addEventListener('click', () => {
-            cart = [{ id: 'vip-paket', title: 'VIP Tam Arşiv (124 Karar Modeli) + 152 Saat Eğitim Seti', price: 2000 }];
-            updateCartUI();
-            showToast('Harika seçim! Sepetiniz VIP Tam Arşiv Paketi (Tek Fiyat: 2.000 ₺) olarak güncellendi.');
-          });
         }
 
         // Ödeme Sekmeleri
@@ -1945,18 +1927,18 @@ function formatTL(num: number | string): string {
         if (completeOrderBtn && checkoutModal) {
           completeOrderBtn.addEventListener('click', () => {
             if (cart.length === 0) {
-              showToast('Lütfen önce bir paket veya şablon seçin.');
+              showToast('Lütfen önce bir Excel tablosu seçin.');
               return;
             }
             checkoutModal.classList.add('hidden');
-            showToast('Ödeme onaylandı! Tüm arşiv indirme bağlantılarınız ve e-Faturanız hazırlandı.');
+            showToast('Ödeme onaylandı! Satın aldığınız Excel modeli indirme bağlantınız ve e-Faturanız hazırlandı.');
           });
         }
 
-        // Paket Seç Butonları (#paketler)
+        // Model Satın Alma Butonları (#paketler)
         document.querySelectorAll<HTMLElement>('.select-plan-btn').forEach(btn => {
           btn.addEventListener('click', () => {
-            const planTitle = btn.getAttribute('data-plan') || 'Arşiv Paketi';
+            const planTitle = btn.getAttribute('data-plan') || 'Kurumsal Karar Modeli';
             const planPrice = parseInt(btn.getAttribute('data-price') || '2000', 10);
             cart = [{ id: 'plan-' + planPrice, title: planTitle, price: planPrice }];
             openCheckoutModal();
@@ -2542,7 +2524,7 @@ function formatTL(num: number | string): string {
             const companyInput = document.getElementById('b2bCompany') as HTMLInputElement | null;
             const company = companyInput?.value || 'Şirketiniz';
             (e.target as HTMLFormElement).reset();
-            showToast(`Teşekkürler! ${company} için kurumsal teklif talebiniz Murat Osma ekibine iletildi.`);
+            showToast(`Teşekkürler! ${company} için kurumsal teklif talebiniz uzman ekibimize iletildi.`);
           });
         }
 

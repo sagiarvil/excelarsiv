@@ -3313,4 +3313,14 @@ body::after {
   }
 }
 
+/* ExcelArşiv Universal Executive Color Utility Classes */
+.text-excel-600 { color: #107c41 !important; }
+.text-excel-700 { color: #0b5c30 !important; }
+.text-excel-800 { color: #064e3b !important; }
+.bg-excel-600 { background-color: #107c41 !important; }
+.bg-excel-700 { background-color: #0b5c30 !important; }
+.hover\:bg-excel-700:hover { background-color: #0b5c30 !important; }
+.border-excel-600 { border-color: #107c41 !important; }
+
+
 
