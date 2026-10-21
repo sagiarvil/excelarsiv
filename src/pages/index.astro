@@ -8,7 +8,7 @@ const templates = await getAllTemplates();
 
 const site = 'https://excelarsiv.com';
 
-// 8 Seçkin Vitrin Şablonu (Gerçek veri modeli & doğrudan bağlantılar)
+// 8 Seçkin Vitrin Şablonu (Gerçek veri modeli, yüksek çözünürlüklü ekran önizlemeleri & doğrudan bağlantılar)
 const showcaseTemplates = [
   {
     id: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
@@ -21,54 +21,74 @@ const showcaseTemplates = [
     simKey: 'nakit',
     desc: 'İşletmelerin günlük/aylık banka, kasa, çek ve kredi hareketlerini otomatik raporlayan dinamik likidite yönetim tablosu.',
     url: '/sablon/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    image: '/screenshots/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi-1.png',
+    sheetName: 'Nakit_Akisi_Likidite_2026.xlsx',
+    rating: '5.0',
+    sheets: ['PANO', 'Nakit Akışı', 'Likidite Raporu'],
   },
   {
     id: 'satis-pipeline-kanban-crm',
     title: 'Satış Pipeline Takibi Kanban & CRM',
     category: 'Satış',
-    typeBadge: 'Dinamik Kanban',
+    typeBadge: 'Dinamik Kanban & CRM',
     updated: '2026 Güncel',
     downloads: 980,
     price: 2000,
     simKey: 'satis',
     desc: 'Satış ekiplerinin müşteri fırsatlarını, teklif aşamalarını ve kapanış oranlarını Kanban görünümüyle yönetmesini sağlar.',
     url: '/sablonlar/satis-ve-fiyatlama',
+    image: '/screenshots/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi-2.png',
+    sheetName: 'Satis_Pipeline_Kanban_CRM.xlsx',
+    rating: '4.9',
+    sheets: ['Kanban', 'Pipeline', 'Fırsatlar'],
   },
   {
     id: 'banka-kredi-ve-taksit-takip-sistemi',
     title: 'Çoklu Kredi Kartı Ödeme, Ekstre ve Taksit Takip',
     category: 'Finans',
-    typeBadge: 'Excel Formül',
+    typeBadge: 'Excel Formül & Takip',
     updated: '2026 Güncel',
     downloads: 1639,
     price: 2000,
     simKey: 'nakit',
     desc: 'Birden fazla ticari ve bireysel kredi kartının hesap kesim, son ödeme, kullanılabilir limit ve taksit dağılımını merkezi izleyin.',
     url: '/sablon/banka-kredi-ve-taksit-takip-sistemi',
+    image: '/screenshots/banka-kredi-ve-taksit-takip-sistemi-1.png',
+    sheetName: 'Kredi_Karti_Taksit_Takip.xlsx',
+    rating: '5.0',
+    sheets: ['PANO', 'Kredi Kartları', 'Ödeme Takvimi'],
   },
   {
     id: 'puantaj-vardiya-fazla-mesai-kanit-sistemi',
     title: 'Personel İzin Hakediş & Fazla Mesai Hesaplama',
     category: 'İK',
-    typeBadge: 'İK Otomasyon',
-    updated: '2026 İş Kanunu Uyumlu',
+    typeBadge: 'İK Otomasyon & Bordro',
+    updated: '2026 İş Kanunu',
     downloads: 1120,
     price: 2000,
     simKey: 'ik',
     desc: 'Çalışanların kıdeme göre yıllık izin hakedişlerini, kalan izinlerini ve aylık fazla mesai ücretlerini otomatik hesaplar.',
     url: '/sablon/puantaj-vardiya-fazla-mesai-kanit-sistemi',
+    image: '/screenshots/puantaj-vardiya-fazla-mesai-kanit-sistemi-1.png',
+    sheetName: 'Personel_Izin_Fazla_Mesai_2026.xlsx',
+    rating: '5.0',
+    sheets: ['Puantaj', 'İzin Hesabı', 'Bordro Kanıtı'],
   },
   {
     id: 'aylik-patron-finans-paneli',
     title: 'Yıllık Bütçe Planlama ve Gerçekleşme Analizi',
     category: 'Finans',
-    typeBadge: 'Yönetici Raporu',
+    typeBadge: 'Yönetici Raporu & KPI',
     updated: '2026 Güncel',
     downloads: 845,
     price: 2000,
     simKey: 'nakit',
     desc: 'Departman bazlı hedef bütçe ile fiili harcamaları karşılaştırır, sapma yüzdelerini grafiksel olarak raporlar.',
     url: '/sablon/aylik-patron-finans-paneli',
+    image: '/screenshots/aylik-patron-finans-paneli-1.png',
+    sheetName: 'Yillik_Butce_Sapma_Analizi.xlsx',
+    rating: '4.9',
+    sheets: ['Yönetici Panosu', 'Bütçe Plan', 'Gerçekleşen'],
   },
   {
     id: 'e-fatura-satir-defteri-pdf-kaniti',
@@ -81,30 +101,42 @@ const showcaseTemplates = [
     simKey: 'ik',
     desc: 'Tek tuşla yüzlerce satırlık veriyi ilgili yönetici veya personele göre ayrı PDF dosyalarına böler ve Outlook üzerinden gönderir.',
     url: '/sablon/e-fatura-satir-defteri-pdf-kaniti',
+    image: '/screenshots/e-fatura-satir-defteri-pdf-kaniti-1.png',
+    sheetName: 'Toplu_Bordro_PDF_Mail_Makro.xlsm',
+    rating: '5.0',
+    sheets: ['Makro Konsolu', 'Bordro Verisi', 'Gönderim Log'],
   },
   {
     id: 'stok-satis-ve-nakit-baglanma-sistemi',
     title: 'Satış Ekibi Performans, Prim ve Hedef Dashboard',
     category: 'Satış',
-    typeBadge: 'Dashboard',
+    typeBadge: 'Satış Dashboard & Prim',
     updated: '2026 Güncel',
     downloads: 760,
     price: 2000,
     simKey: 'satis',
     desc: 'Bölge ve temsilci bazında aylık satış kotalarını, prim hakediş baremlerini ve tahsilat performansını canlı ölçer.',
     url: '/sablon/stok-satis-ve-nakit-baglanma-sistemi',
+    image: '/screenshots/stok-satis-ve-nakit-baglanma-sistemi-1.png',
+    sheetName: 'Satis_Ekibi_Performans_Prim.xlsx',
+    rating: '5.0',
+    sheets: ['Satış KPI', 'Prim Skalası', 'Bölge Raporu'],
   },
   {
     id: 'cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi',
     title: 'Potansiyel Müşteri (Lead) & Teklif Dönüşüm Takip',
     category: 'Satış',
-    typeBadge: 'CRM Şablonu',
+    typeBadge: 'CRM & Teklif Takip',
     updated: '2026 Güncel',
     downloads: 615,
     price: 2000,
     simKey: 'satis',
     desc: 'Gelen müşteri taleplerinin teklife ve satışa dönüşme oranlarını, hatırlatma alarmlarıyla uçtan uca takip edin.',
     url: '/sablon/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi',
+    image: '/screenshots/cari-hesap-tahsilat-ve-musteri-risk-takip-sistemi-1.png',
+    sheetName: 'Potansiyel_Lead_Teklif_Takip.xlsx',
+    rating: '4.9',
+    sheets: ['CRM Panosu', 'Teklifler', 'Dönüşüm Hunisi'],
   },
 ];
 
@@ -371,23 +403,22 @@ function formatTL(num: number | string): string {
         </button>
 
         <!-- Sepetim Butonu -->
-        <button class="min-h-[42px] relative inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-excel-600 hover:bg-excel-700 shadow-md shadow-emerald-600/25 transition-all shrink-0 whitespace-nowrap" id="openCartBtn" type="button" style="background-color: #107c41 !important;">
+        <button class="min-h-[42px] relative inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-excel-600 hover:bg-excel-700 shadow-md shadow-emerald-600/25 transition-all shrink-0 whitespace-nowrap" id="openCartBtn" type="button" style="background-color: #107c41 !important;">
           <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           <span class="hidden sm:inline">Sepetim</span>
-          <span class="sm:hidden text-xs">Sepet</span>
           <span class="px-1.5 py-0.5 text-[10px] sm:text-[11px] rounded-full bg-white text-excel-700 font-extrabold leading-none" id="cartCountBadge">1</span>
         </button>
 
         <!-- Premium Sandviç (Hamburger) Menü Butonu (Canlı Radar Animasyonlu & Renkli) -->
-        <button aria-label="Navigasyon Menüsünü Aç / Kapat" aria-expanded="false" aria-controls="mobileMenuPanel" class="min-h-[42px] relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl border border-emerald-500/40 bg-gradient-to-r from-slate-950 via-slate-900 to-emerald-950 text-white hover:border-emerald-400 shadow-md shadow-slate-950/20 hover:shadow-emerald-600/25 transition-all duration-300 group shrink-0 active:scale-95 cursor-pointer ring-1 ring-emerald-500/20 hover:ring-emerald-400/40" id="mobileMenuBtn" type="button">
+        <button aria-label="Navigasyon Menüsünü Aç / Kapat" aria-expanded="false" aria-controls="mobileMenuPanel" class="min-h-[42px] relative flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3.5 py-2 rounded-xl border border-emerald-500/40 bg-gradient-to-r from-slate-950 via-slate-900 to-emerald-950 text-white hover:border-emerald-400 shadow-md shadow-slate-950/20 hover:shadow-emerald-600/25 transition-all duration-300 group shrink-0 active:scale-95 cursor-pointer ring-1 ring-emerald-500/20 hover:ring-emerald-400/40" id="mobileMenuBtn" type="button">
           <!-- Canlı Radar Pulse Noktası -->
           <span class="relative flex h-2 w-2 shrink-0">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
           </span>
-          <span class="text-xs font-black tracking-wider text-white group-hover:text-emerald-300 transition-colors uppercase">Menü</span>
+          <span class="hidden sm:inline text-xs font-black tracking-wider text-white group-hover:text-emerald-300 transition-colors uppercase">Menü</span>
           <!-- Hareketli ve Renkli Sandviç Çubukları -->
-          <div class="w-4 h-3.5 flex flex-col justify-between py-0.5" aria-hidden="true">
+          <div class="w-4 h-3.5 flex flex-col justify-between py-0.5 shrink-0" aria-hidden="true">
             <span class="w-full h-[2.5px] bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full transition-all duration-300 group-hover:w-3 group-hover:bg-white shadow-[0_0_6px_rgba(52,211,153,0.5)]"></span>
             <span class="w-2.5 h-[2.5px] bg-amber-400 rounded-full transition-all duration-300 ml-auto group-hover:w-full group-hover:bg-emerald-300 shadow-[0_0_6px_rgba(251,191,36,0.6)]"></span>
             <span class="w-full h-[2.5px] bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full transition-all duration-300 group-hover:w-2 group-hover:bg-white shadow-[0_0_6px_rgba(52,211,153,0.5)]"></span>
@@ -1026,37 +1057,68 @@ function formatTL(num: number | string): string {
     </section>
 
     <!-- HAZIR ŞABLON VİTRİNİ (#sablonlar) — SSR İLE TAM DOLU RENDER -->
-    <section class="py-16 bg-white border-b border-slate-200 scroll-mt-header" id="sablonlar">
+    <section class="py-16 sm:py-20 bg-slate-50/60 border-b border-slate-200/80 scroll-mt-header" id="sablonlar">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-8">
-          <span class="text-xs font-extrabold uppercase tracking-wider text-excel-600">HAZIR ŞABLON KÜTÜPHANESİ</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 m-0">İhtiyacınız Olan Şablonu Seçin ve Hemen Kullanın</h2>
-          <p class="text-xs sm:text-sm text-slate-500 mt-1 m-0">Tüm dosyalar açık kaynak ve şifresizdir. Her kurumsal model 2.000 ₺ lisans bedeliyle hemen teslim edilir.</p>
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-excel-800 border border-emerald-300 uppercase tracking-wider mb-3">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            TİCARİ VE FİNANSAL KARAR SİSTEMLERİ · 2026 PRO SÜRÜM
+          </div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight m-0">
+            Global Standartlarda Açık Kaynak Kurumsal Excel Şablonları
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2.5 max-w-2xl mx-auto leading-relaxed m-0">
+            Formül şifresi veya koruma kilidi yoktur. Her model <strong>2.000 ₺</strong> tekil lisans bedeliyle şirket içi sınırsız kullanıma açık saf <code>.xlsx</code> formatında anında teslim edilir.
+          </p>
+
+          <!-- Güven Rozetleri Çubuğu -->
+          <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mt-4 pt-3 text-[11px] font-semibold text-slate-500 border-t border-slate-200/60">
+            <span class="inline-flex items-center gap-1 text-slate-700">
+              <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Sıfır Kilitli Hücre (Açık Formül)
+            </span>
+            <span class="text-slate-300">·</span>
+            <span class="inline-flex items-center gap-1 text-slate-700">
+              <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              100% Yerel &amp; KVKK Güvenli
+            </span>
+            <span class="text-slate-300">·</span>
+            <span class="inline-flex items-center gap-1 text-slate-700">
+              <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Sabit 2.000 ₺ Tekil Lisans
+            </span>
+            <span class="text-slate-300">·</span>
+            <span class="inline-flex items-center gap-1 text-slate-700">
+              <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Anında İndirme &amp; E-Fatura
+            </span>
+          </div>
         </div>
 
         <!-- Kategori Filtre Butonları ve Sıralama (Simetrik ve Düzgün Hizalı) -->
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-8 pb-4 border-b border-slate-100" id="categoryFilterBar">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-8 pb-4 border-b border-slate-200/80" id="categoryFilterBar">
           <div class="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-2">
-            <button class="cat-btn min-h-[40px] px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-white transition flex items-center justify-center" data-cat="all" type="button">
-              Tümü ({showcaseTemplates.length})
+            <button class="cat-btn min-h-[40px] px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white shadow-sm transition flex items-center justify-center gap-1.5" data-cat="all" type="button">
+              <span>Tümü</span>
+              <span class="px-1.5 py-0.5 rounded-full text-[10px] bg-slate-800 text-emerald-300 font-mono">({showcaseTemplates.length})</span>
             </button>
-            <button class="cat-btn min-h-[40px] px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center justify-center" data-cat="Finans" type="button">
+            <button class="cat-btn min-h-[40px] px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-sm transition flex items-center justify-center" data-cat="Finans" type="button">
               Finans &amp; Kasa
             </button>
-            <button class="cat-btn min-h-[40px] px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center justify-center" data-cat="Satış" type="button">
+            <button class="cat-btn min-h-[40px] px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-sm transition flex items-center justify-center" data-cat="Satış" type="button">
               Satış &amp; CRM
             </button>
-            <button class="cat-btn min-h-[40px] px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center justify-center" data-cat="İK" type="button">
+            <button class="cat-btn min-h-[40px] px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-sm transition flex items-center justify-center" data-cat="İK" type="button">
               İK &amp; Puantaj
             </button>
-            <button class="cat-btn min-h-[40px] px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center justify-center" data-cat="Makro" type="button">
+            <button class="cat-btn min-h-[40px] px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-sm transition flex items-center justify-center" data-cat="Makro" type="button">
               VBA Makro
             </button>
           </div>
           <!-- Sıralama Seçici -->
           <div class="flex items-center gap-2 shrink-0">
-            <label class="text-xs font-semibold text-slate-500 whitespace-nowrap" for="sortSelect">Sırala:</label>
-            <select class="text-xs font-semibold bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-excel-600" id="sortSelect">
+            <label class="text-xs font-bold text-slate-600 whitespace-nowrap" for="sortSelect">Sırala:</label>
+            <select class="text-xs font-bold bg-white border border-slate-300 rounded-xl px-3 py-2 text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-excel-600 cursor-pointer" id="sortSelect">
               <option value="popular">En Çok İndirilenler</option>
               <option value="newest">En Yeni Eklenenler (2026)</option>
               <option value="price-asc">Fiyat: Düşükten Yükseğe</option>
@@ -1068,7 +1130,7 @@ function formatTL(num: number | string): string {
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch" id="templateGrid">
           {showcaseTemplates.map((item) => (
             <article
-              class="template-card bg-slate-50 rounded-2xl p-5 border border-slate-200 hover:border-excel-600 hover:shadow-lg transition flex flex-col justify-between h-full min-w-0"
+              class="template-card group bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-excel-600/60 transition-all duration-300 flex flex-col justify-between h-full min-w-0 overflow-hidden"
               data-id={item.id}
               data-cat={item.category}
               data-title={item.title}
@@ -1078,34 +1140,116 @@ function formatTL(num: number | string): string {
               data-sim={item.simKey}
             >
               <div>
-                <div class="flex items-center justify-between gap-2 mb-3">
-                  <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-100 text-excel-800">{item.typeBadge}</span>
-                  <span class="text-[11px] font-semibold text-emerald-700 bg-white px-2 py-0.5 rounded border border-emerald-200">✓ {item.updated}</span>
+                {/* Excel / OS Pencere Başlığı */}
+                <div class="bg-slate-900 px-3.5 py-2 border-b border-slate-800 flex items-center justify-between text-[11px] text-slate-300">
+                  <div class="flex items-center gap-1.5 shrink-0">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56] inline-block shadow-sm"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] inline-block shadow-sm"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f] inline-block shadow-sm"></span>
+                  </div>
+                  <span class="font-mono text-[10px] text-slate-400 truncate max-w-[170px] flex items-center gap-1 px-1">
+                    <span class="text-emerald-400 font-bold">📊</span> {item.sheetName || `${item.id}.xlsx`}
+                  </span>
+                  <span class="text-[9px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-500/30 shrink-0">
+                    XLSX
+                  </span>
                 </div>
-                <h3 class="font-extrabold text-sm sm:text-base text-slate-900 leading-snug m-0">
-                  <a href={item.url} class="hover:text-excel-600 transition">{item.title}</a>
-                </h3>
-                <p class="text-xs text-slate-600 mt-2 leading-relaxed m-0">{item.desc}</p>
+
+                {/* Ekran Görüntüsü ve Canlı Tablo Önizleme Sahnesi */}
+                <div class="relative aspect-[16/10] bg-slate-950 overflow-hidden group/thumb">
+                  <img
+                    src={item.image}
+                    alt={`${item.title} Excel Şablonu Ekran Görüntüsü`}
+                    class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover/thumb:scale-105"
+                    loading="lazy"
+                  />
+
+                  {/* Üst Rozet Katmanı */}
+                  <div class="absolute top-2.5 inset-x-2.5 flex items-center justify-between gap-1 pointer-events-none">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-900/85 backdrop-blur-md text-white border border-white/15 shadow-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                      {item.typeBadge}
+                    </span>
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-amber-400 text-slate-950 shadow-sm">
+                      ★ {item.rating || '5.0'}
+                    </span>
+                  </div>
+
+                  {/* Alt Çalışma Sayfası Sekmeleri (Gerçek Excel Hissi) */}
+                  <div class="absolute bottom-0 inset-x-0 bg-slate-900/95 backdrop-blur-md px-2.5 py-1 border-t border-slate-800/80 flex items-center justify-between text-[10px]">
+                    <div class="flex items-center gap-1 overflow-hidden">
+                      {(item.sheets || ['PANO', 'Girdi', 'Rapor']).map((sheet, sIdx) => (
+                        <span class={`px-2 py-0.5 rounded-t text-[10px] font-medium truncate max-w-[85px] ${sIdx === 0 ? 'bg-white text-slate-900 font-bold shadow-sm' : 'text-slate-400'}`}>
+                          {sheet}
+                        </span>
+                      ))}
+                    </div>
+                    <span class="text-[10px] font-bold text-emerald-400 whitespace-nowrap pl-1 shrink-0">
+                      ✓ Açık Formül
+                    </span>
+                  </div>
+                </div>
+
+                {/* Kart Gövdesi */}
+                <div class="p-4 sm:p-5">
+                  <div class="flex items-center justify-between gap-2 mb-2">
+                    <span class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-excel-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                      {item.category}
+                    </span>
+                    <span class="text-[11px] font-medium text-slate-500 flex items-center gap-1">
+                      <span class="text-emerald-600 font-bold">✓</span> {item.updated}
+                    </span>
+                  </div>
+
+                  <h3 class="font-extrabold text-sm sm:text-base text-slate-900 leading-snug m-0 line-clamp-2 min-h-[42px]">
+                    <a href={item.url} class="hover:text-excel-600 transition">{item.title}</a>
+                  </h3>
+
+                  <p class="text-xs text-slate-500 mt-2 leading-relaxed m-0 line-clamp-2">{item.desc}</p>
+
+                  <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                    <span class="flex items-center gap-1 text-slate-600 font-medium">
+                      <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      Sınırsız Şirket İçi Lisans
+                    </span>
+                    <span class="font-semibold text-slate-600">⬇ {item.downloads} İndirme</span>
+                  </div>
+                </div>
               </div>
 
-              <div class="mt-5 pt-4 border-t border-slate-200/80 space-y-3">
-                <div class="flex items-center justify-between">
+              {/* Fiyat Şeridi ve Aksiyon Butonları */}
+              <div class="px-4 pb-4 sm:px-5 sm:pb-5 pt-0">
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 mb-3 flex items-center justify-between">
                   <div>
-                    <span class="text-[11px] text-slate-400 block">Sabit Tek Fiyat</span>
-                    <span class="text-lg font-extrabold text-slate-900">{formatTL(item.price)}</span>
+                    <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider block">Tekil Model Fiyatı</span>
+                    <span class="text-xl font-black text-slate-900 tracking-tight">{formatTL(item.price)}</span>
                   </div>
                   <div class="text-right">
-                    <span class="inline-block px-2 py-0.5 rounded bg-emerald-100 text-excel-900 text-[11px] font-extrabold">Kurumsal Model</span>
-                    <span class="text-[11px] text-slate-500 block mt-0.5">⬇ {item.downloads} İndirme</span>
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-100 text-excel-800 text-[10px] font-bold">
+                      KDV Dahil · Fatura
+                    </span>
+                    <span class="text-[10px] text-slate-400 block mt-0.5">Anında İndirme</span>
                   </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-2">
-                  <button type="button" data-preview-sim={item.simKey} class="preview-template-btn min-h-[44px] py-2 px-3 rounded-xl text-xs font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 transition flex items-center justify-center">
-                    🔍 Canlı Önizle
+                  <button
+                    type="button"
+                    data-preview-sim={item.simKey}
+                    class="preview-template-btn min-h-[42px] py-2 px-3 rounded-xl text-xs font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 transition-all flex items-center justify-center gap-1 shadow-sm hover:border-slate-400"
+                  >
+                    <span>🔍</span> Canlı Önizle
                   </button>
-                  <button type="button" data-add-id={item.id} data-add-title={item.title} data-add-price={item.price} class="add-template-btn min-h-[44px] py-2 px-3 rounded-xl text-xs font-bold text-white bg-excel-600 hover:bg-excel-700 transition flex items-center justify-center">
-                    Sepete Ekle
+                  <button
+                    type="button"
+                    data-add-id={item.id}
+                    data-add-title={item.title}
+                    data-add-price={item.price}
+                    class="add-template-btn min-h-[42px] py-2 px-3 rounded-xl text-xs font-bold text-white bg-excel-600 hover:bg-excel-700 active:scale-[0.98] transition-all flex items-center justify-center gap-1 shadow-sm hover:shadow-md"
+                  >
+                    <span>🛒</span> Sepete Ekle
                   </button>
                 </div>
               </div>
@@ -1114,10 +1258,10 @@ function formatTL(num: number | string): string {
         </div>
 
         <!-- Boş Durum (Sonuç bulunamadı + Filtreleri temizle) -->
-        <div id="templateEmptyState" class="hidden bg-slate-50 p-8 rounded-2xl text-center border border-slate-200 mt-6">
+        <div id="templateEmptyState" class="hidden bg-white p-8 rounded-2xl text-center border border-slate-200 shadow-sm mt-6">
           <p class="text-base font-bold text-slate-800 m-0">Aramanızla veya seçtiğiniz kategoriyle eşleşen şablon bulunamadı.</p>
           <p class="text-xs text-slate-500 mt-1 mb-4 m-0">Arama kriterlerinizi değiştirebilir veya tüm vitrin şablonlarını görmek için filtreleri sıfırlayabilirsiniz.</p>
-          <button type="button" id="clearFiltersBtn" class="min-h-[44px] px-5 py-2.5 rounded-xl bg-excel-600 hover:bg-excel-700 text-white font-bold text-xs transition inline-flex items-center justify-center">
+          <button type="button" id="clearFiltersBtn" class="min-h-[44px] px-5 py-2.5 rounded-xl bg-excel-600 hover:bg-excel-700 text-white font-bold text-xs transition inline-flex items-center justify-center shadow-sm">
             Filtreleri Temizle
           </button>
         </div>
@@ -2046,9 +2190,9 @@ function formatTL(num: number | string): string {
         function updateCategoryButtons() {
           catButtons.forEach(b => {
             if (b.getAttribute('data-cat') === activeCategory) {
-              b.className = 'cat-btn min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white transition flex items-center justify-center';
+              b.className = 'cat-btn min-h-[40px] px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white shadow-sm transition flex items-center justify-center';
             } else {
-              b.className = 'cat-btn min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center justify-center';
+              b.className = 'cat-btn min-h-[40px] px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-sm transition flex items-center justify-center';
             }
           });
         }
