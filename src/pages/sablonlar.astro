@@ -54,66 +54,47 @@ const catalogBreadcrumbLd = JSON.stringify({
 </head>
 <body class="bg-white text-slate-800 antialiased selection:bg-emerald-500 selection:text-white">
 
-  <!-- Üst Bilgi Şeridi -->
-  <div class="bg-slate-900 text-slate-100 text-xs sm:text-sm py-2 px-3 sm:px-4 border-b border-emerald-500/30">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2 font-medium min-w-0">
-        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500 text-slate-950 shrink-0">2026 GÜNCEL</span>
-        <span class="truncate sm:overflow-visible sm:whitespace-normal">124 Doğrulanmış Karar Modeli, Yeni SGK, Vergi Dilimi ve Nakit Akışı Şablonları Yayında!</span>
-      </div>
-      <div class="hidden md:flex items-center gap-5 text-slate-300 text-xs">
-        <span class="flex items-center gap-1.5">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-          256-Bit 3D Secure Ödeme
-        </span>
-        <span class="flex items-center gap-1.5">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-          Ödeme Sonrası Saniyeler İçinde İndirme
-        </span>
-        <span class="flex items-center gap-1.5">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-          Otomatik Kurumsal e-Fatura
-        </span>
-      </div>
-    </div>
-  </div>
-
   <!-- Header Navigasyon -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-200">
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-[0_4px_25px_-5px_rgba(15,23,42,0.06),0_1px_3px_rgba(16,124,65,0.05)] transition-all duration-200">
+    <!-- Üst Aydınlatma Akıcı Renk Şeridi -->
+    <div class="h-[3px] w-full bg-gradient-to-r from-emerald-600 via-teal-400 to-emerald-500 shadow-[0_1px_6px_rgba(16,124,65,0.35)]" aria-hidden="true"></div>
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
       <!-- Logo -->
-      <a class="min-h-[44px] flex items-center gap-2 group shrink-0" href="/" aria-label="ExcelArşiv Pro Ana Sayfa">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-excel-600 flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-md shadow-emerald-600/20 group-hover:bg-excel-700 transition shrink-0" style="background-color: #107c41 !important; color: #ffffff !important;">
+      <a class="min-h-[44px] flex items-center gap-2.5 group shrink-0" href="/" aria-label="ExcelArşiv Pro Ana Sayfa">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#107c41] via-[#0e6b38] to-[#094d28] flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-md shadow-emerald-700/25 group-hover:shadow-emerald-700/40 group-hover:scale-105 transition-all shrink-0 ring-1 ring-emerald-500/30" style="color: #ffffff !important;">
           X
         </div>
         <div class="min-w-0">
-          <div class="flex items-center gap-1 sm:gap-1.5">
-            <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 whitespace-nowrap">Excel<span class="text-excel-600" style="color: #107c41 !important;">Arşiv</span></span>
-            <span class="text-[9px] sm:text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-md bg-emerald-100 text-excel-700 font-extrabold">PRO</span>
+          <div class="flex items-center gap-1.5">
+            <span class="font-black text-base sm:text-lg tracking-tight text-slate-900 whitespace-nowrap">Excel<span class="text-emerald-700 font-extrabold" style="color: #107c41 !important;">Arşiv</span></span>
+            <span class="text-[9px] sm:text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-xs tracking-wider">PRO</span>
           </div>
-          <p class="hidden sm:block text-[11px] text-slate-500 leading-none">Türkiye'nin Hazır Şablon &amp; Makro Merkezi</p>
+          <p class="hidden sm:block text-[11px] font-medium text-slate-500 leading-none">Türkiye'nin Hazır Şablon &amp; Makro Merkezi</p>
         </div>
       </a>
 
       <!-- Orta Kısım: Lüks Minimal Bilgi Rozeti (Desktop) -->
-      <div class="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 text-[11.5px] font-medium text-slate-600">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span class="font-bold text-slate-800">124 Onaylı Karar Modeli &amp; Şablon</span>
+      <div class="hidden xl:flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-emerald-50/70 via-slate-50 to-teal-50/70 border border-emerald-200/70 shadow-xs text-[11.5px] font-medium text-slate-600">
+        <span class="relative flex h-2 w-2 shrink-0">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+        </span>
+        <span class="font-extrabold text-slate-900 tracking-tight">124 Doğrulanmış Karar Modeli</span>
         <span class="text-slate-300">|</span>
-        <span>Anında İndirme · 3D Secure</span>
+        <span class="text-slate-600">Anında İndirme · 3D Secure</span>
       </div>
 
       <!-- Sağ Aksiyonlar -->
       <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
         <!-- Ücretsiz Örnek İndir Butonu -->
-        <a href="/sablonlar?filtre=ucretsiz#tum-sablonlar" class="min-h-[42px] hidden md:inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl text-xs font-bold text-excel-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 hover:border-emerald-300 transition-all shadow-sm shrink-0 whitespace-nowrap">
-          <svg class="w-4 h-4 text-excel-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        <a href="/sablonlar?filtre=ucretsiz#tum-sablonlar" class="min-h-[42px] hidden md:inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100/90 border border-emerald-200/90 hover:border-emerald-300 transition-all shadow-xs hover:shadow-sm shrink-0 whitespace-nowrap active:scale-95">
+          <svg class="w-4 h-4 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           <span>Ücretsiz Şablonlar</span>
         </a>
 
         <!-- Pratik Şablonlar (199 ₺) Butonu -->
-        <a href="#pratik-sablonlar" class="min-h-[42px] relative inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-excel-600 hover:bg-excel-700 shadow-md shadow-emerald-600/25 transition-all shrink-0 whitespace-nowrap" style="background-color: #107c41 !important;">
-          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        <a href="#pratik-sablonlar" class="min-h-[42px] relative inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#107c41] to-[#0e6b38] hover:from-[#0e6b38] hover:to-[#0a522a] shadow-md shadow-emerald-700/25 hover:shadow-lg hover:shadow-emerald-700/35 border border-emerald-600/30 transition-all shrink-0 whitespace-nowrap active:scale-95" style="background-color: #107c41 !important;">
+          <svg class="w-4 h-4 shrink-0 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           <span class="hidden sm:inline">53 Pratik Şablon (199 ₺)</span>
           <span class="sm:hidden text-xs">199 ₺</span>
         </a>
