@@ -130,17 +130,225 @@ const breadcrumbLd = JSON.stringify({
           <span class="px-1.5 py-0.5 text-[10px] sm:text-[11px] rounded-full bg-white text-excel-700 font-extrabold leading-none" id="cartCountBadge">0</span>
         </button>
 
-        <!-- Ana Menü Butonu (Canlı Radar Animasyonlu) -->
-        <a href="/" class="min-h-[42px] relative inline-flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-tight shadow-md shadow-slate-900/20 border border-slate-700/80 transition-all duration-200 shrink-0">
+        <!-- Premium Sandviç (Hamburger) Menü Butonu (Canlı Radar Animasyonlu & Renkli) -->
+        <button aria-label="Navigasyon Menüsünü Aç / Kapat" aria-expanded="false" aria-controls="mobileMenuPanel" class="min-h-[42px] relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl border border-emerald-500/40 bg-gradient-to-r from-slate-950 via-slate-900 to-emerald-950 text-white hover:border-emerald-400 shadow-md shadow-slate-950/20 hover:shadow-emerald-600/25 transition-all duration-300 group shrink-0 active:scale-95 cursor-pointer ring-1 ring-emerald-500/20 hover:ring-emerald-400/40" id="mobileMenuBtn" type="button">
+          <!-- Canlı Radar Pulse Noktası -->
           <span class="relative flex h-2 w-2 shrink-0">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
           </span>
-          <span>Ana Sayfa</span>
-        </a>
+          <span class="text-xs font-black tracking-wider text-white group-hover:text-emerald-300 transition-colors uppercase">Menü</span>
+          <!-- Hareketli ve Renkli Sandviç Çubukları -->
+          <div class="w-4 h-3.5 flex flex-col justify-between py-0.5" aria-hidden="true">
+            <span class="w-full h-[2.5px] bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full transition-all duration-300 group-hover:w-3 group-hover:bg-white shadow-[0_0_6px_rgba(52,211,153,0.5)]"></span>
+            <span class="w-2.5 h-[2.5px] bg-amber-400 rounded-full transition-all duration-300 ml-auto group-hover:w-full group-hover:bg-emerald-300 shadow-[0_0_6px_rgba(251,191,36,0.6)]"></span>
+            <span class="w-full h-[2.5px] bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full transition-all duration-300 group-hover:w-2 group-hover:bg-white shadow-[0_0_6px_rgba(52,211,153,0.5)]"></span>
+          </div>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Premium Sandviç Menü Offcanvas & Backdrop -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 z-[9998] bg-slate-950/75 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none" aria-hidden="true"></div>
+
+  <div class="fixed top-0 bottom-0 right-0 z-[9999] w-full max-w-md bg-white shadow-2xl border-l border-slate-200 flex flex-col transition-transform duration-300 ease-in-out translate-x-full pointer-events-none" id="mobileMenuPanel" role="dialog" aria-modal="true" aria-label="ExcelArşiv Ana Gezinme Menüsü" style="background-color: #ffffff !important; opacity: 1 !important;">
+    
+    <!-- Panel Header (Executive Deep Emerald Gradient & Aydınlatma) -->
+    <div class="px-5 py-4 border-b border-emerald-900/40 flex items-center justify-between bg-gradient-to-r from-slate-950 via-slate-900 to-emerald-950 text-white shrink-0 shadow-sm relative overflow-hidden">
+      <div class="absolute -right-8 -top-8 w-28 h-28 bg-emerald-500/15 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="flex items-center gap-2.5 relative z-10">
+        <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md shadow-emerald-900/50 border border-emerald-400/30">
+          X
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-extrabold text-sm text-white tracking-tight">Excel<span class="text-emerald-400">Arşiv</span></span>
+            <span class="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">PRO</span>
+          </div>
+          <p class="text-[10px] text-slate-300 leading-none mt-0.5 flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Navigasyon &amp; Karar Portalları
+          </p>
+        </div>
+      </div>
+      <button id="mobileMenuCloseBtn" type="button" aria-label="Menüyü Kapat" class="w-9 h-9 rounded-xl border border-white/15 bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all duration-200 hover:rotate-90 shadow-sm relative z-10 cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+      </button>
+    </div>
+
+    <!-- Panel Scrollable Body -->
+    <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4 bg-white" style="background-color: #ffffff !important;">
+      <!-- Kurumsal Karar Modeli & Pratik Programlar Öne Çıkan Kart -->
+      <div class="p-3.5 rounded-2xl bg-gradient-to-br from-emerald-50 via-slate-50 to-amber-50 border border-emerald-200/80 shadow-sm relative overflow-hidden">
+        <div class="flex items-center justify-between gap-2 mb-1.5">
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-600 text-white font-black text-[10px] uppercase tracking-wide">
+            ⚡ 53 PRATİK MODEL
+          </span>
+          <span class="text-[11px] font-bold text-emerald-800">Tek Fiyat 199 ₺</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 leading-snug">53 Pratik Excel Tablosu &amp; Dinamik Grafikler</h4>
+        <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">Kasa takibi, teklif, puantaj ve dinamik grafik araçları anında indirilmeye hazır.</p>
+        <a href="/sablonlar" class="mt-2.5 inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition shadow-sm">
+          <span>Kurumsal Şablonları İncele (2.000 ₺)</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </a>
+      </div>
+
+      <!-- Kategori 1: Temel Karar Modülleri & Kataloğu -->
+      <div class="space-y-1">
+        <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2">Temel Karar Modülleri &amp; Katalog</span>
+        
+        <a href="/sablonlar" class="group flex items-start gap-3 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 transition border border-slate-100 hover:border-emerald-200">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 group-hover:bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 transition mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-slate-900 group-hover:text-excel-600 transition flex items-center gap-1.5">
+              Hazır Şablonlar Kataloğu
+              <span class="px-1.5 py-0.2 rounded text-[9px] bg-blue-100 text-blue-800 font-extrabold">124 Model</span>
+            </div>
+            <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Finans, İK, Muhasebe ve Şirket Yönetim Tabloları.</p>
+          </div>
+        </a>
+
+        <a href="/#canli-onizleme" class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 group-hover:bg-emerald-100 text-excel-700 flex items-center justify-center shrink-0 transition mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-slate-900 group-hover:text-excel-600 transition flex items-center gap-1.5">
+              Canlı Tablo Önizleme
+              <span class="px-1.5 py-0.2 rounded text-[9px] bg-emerald-100 text-excel-800 font-extrabold">Simülatör</span>
+            </div>
+            <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Formülleri ve tabloları tarayıcıda canlı test edin.</p>
+          </div>
+        </a>
+
+        <a href="/pratik-programlar" class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 group-hover:bg-emerald-100 text-excel-700 flex items-center justify-center shrink-0 transition mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-slate-900 group-hover:text-excel-600 transition flex items-center gap-1.5">
+              53 Pratik Program
+              <span class="px-1.5 py-0.2 rounded text-[9px] bg-emerald-100 text-excel-800 font-extrabold">199 ₺</span>
+            </div>
+            <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Kasa, teklif, puantaj ve grafik araçları.</p>
+          </div>
+        </a>
+
+        <a href="/#paketler" class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
+          <div class="w-8 h-8 rounded-lg bg-amber-50 group-hover:bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 transition mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-slate-900 group-hover:text-excel-600 transition flex items-center gap-1.5">
+              Kurumsal Karar Modelleri
+              <span class="px-1.5 py-0.2 rounded text-[9px] bg-amber-100 text-amber-900 font-extrabold">2.000 ₺</span>
+            </div>
+            <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Finans, nakit akışı ve yönetim modelleri açık lisansla.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Kategori 2: İşletmeye Özel Kurumsal Çözümler -->
+      <div class="space-y-1 pt-2 border-t border-slate-100">
+        <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2">Özel Kurumsal Çözümler</span>
+
+        <a href="/ozel-excel-sistemleri" class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
+          <div class="w-8 h-8 rounded-lg bg-indigo-50 group-hover:bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0 transition mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-slate-900 group-hover:text-excel-600 transition flex items-center gap-1.5">
+              Özel Excel Karar Sistemleri
+              <span class="px-1.5 py-0.2 rounded text-[9px] bg-indigo-100 text-indigo-800 font-extrabold">Terzi Usulü</span>
+            </div>
+            <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Şirketinizin akışına birebir kurulan özel Excel karar motoru.</p>
+          </div>
+        </a>
+
+        <a href="/yerel-erp-crm-moduller" class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
+          <div class="w-8 h-8 rounded-lg bg-violet-50 group-hover:bg-violet-100 text-violet-700 flex items-center justify-center shrink-0 transition mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-slate-900 group-hover:text-excel-600 transition flex items-center gap-1.5">
+              Yerel ERP &amp; CRM Modülleri
+              <span class="px-1.5 py-0.2 rounded text-[9px] bg-violet-100 text-violet-800 font-extrabold">Bulutsuz / Yerel</span>
+            </div>
+            <p class="text-[11px] text-slate-500 leading-tight mt-0.5">İnternetsiz çalışan, GitHub şifreli yedekli bağımsız yönetim modülleri.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Kategori 3: Kurumsal & Güven -->
+      <div class="space-y-1 pt-2 border-t border-slate-100">
+        <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2">Kurumsal &amp; Bilgi</span>
+
+        <a href="/#referanslar" class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
+          <div class="w-8 h-8 rounded-lg bg-teal-50 group-hover:bg-teal-100 text-teal-700 flex items-center justify-center shrink-0 transition mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-slate-900 group-hover:text-excel-600 transition">Müşteri Yorumları &amp; Referanslar</div>
+            <p class="text-[11px] text-slate-500 leading-tight mt-0.5">22.700+ finansçı ve şirket yöneticisinin onaylı deneyimi.</p>
+          </div>
+        </a>
+
+        <a href="/#sss" class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
+          <div class="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-slate-200 text-slate-700 flex items-center justify-center shrink-0 transition mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-slate-900 group-hover:text-excel-600 transition">Sıkça Sorulan Sorular (SSS)</div>
+            <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Lisans, indirme, fatura ve güvenlik detayları.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Hızlı Kategori Kısayolları -->
+      <div class="pt-2 border-t border-slate-100">
+        <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2 block mb-2">Popüler Kategoriler</span>
+        <div class="grid grid-cols-2 gap-1.5">
+          <a href="/sablonlar/finansal-analiz" class="p-2 rounded-lg bg-slate-50 hover:bg-emerald-50 text-[11px] font-semibold text-slate-700 hover:text-excel-700 transition flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            Finansal Analiz
+          </a>
+          <a href="/sablonlar/nakit-akisi" class="p-2 rounded-lg bg-slate-50 hover:bg-emerald-50 text-[11px] font-semibold text-slate-700 hover:text-excel-700 transition flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+            Nakit Akışı &amp; Kasa
+          </a>
+          <a href="/sablonlar/personel-ve-bordro" class="p-2 rounded-lg bg-slate-50 hover:bg-emerald-50 text-[11px] font-semibold text-slate-700 hover:text-excel-700 transition flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            Personel &amp; Bordro
+          </a>
+          <a href="/sablonlar/satis-ve-fiyatlama" class="p-2 rounded-lg bg-slate-50 hover:bg-emerald-50 text-[11px] font-semibold text-slate-700 hover:text-excel-700 transition flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+            Satış &amp; Fiyatlama
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel Footer -->
+    <div class="p-4 border-t border-slate-100 bg-slate-50/90 space-y-2">
+      <a href="/demo/13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi" class="w-full py-2.5 px-3 rounded-xl text-xs font-bold text-excel-700 bg-emerald-100/70 hover:bg-emerald-200/80 border border-emerald-300/80 transition flex items-center justify-center gap-2 shadow-sm">
+        <svg class="w-4 h-4 text-excel-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        <span>Ücretsiz Numune Şablon İndir (.XLSX)</span>
+      </a>
+
+      <div class="flex items-center justify-center gap-3 pt-1 text-[10.5px] text-slate-500">
+        <span class="flex items-center gap-1">
+          <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          3D Secure
+        </span>
+        <span>·</span>
+        <span>Anında Otomatik Teslimat</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <section class="relative bg-white border-b border-slate-200/80 py-10 sm:py-16 overflow-hidden">
@@ -788,6 +996,52 @@ const breadcrumbLd = JSON.stringify({
               document.body.removeChild(a);
             }, 1000);
           }
+        });
+      }
+
+      // Sandviç Menü Açma / Kapatma Kontrolü
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      const closeBtn = document.getElementById('mobileMenuCloseBtn');
+      const panel = document.getElementById('mobileMenuPanel');
+      const backdrop = document.getElementById('mobileMenuBackdrop');
+
+      if (menuBtn && panel && backdrop) {
+        const openDrawer = () => {
+          panel.classList.remove('translate-x-full', 'pointer-events-none');
+          panel.classList.add('translate-x-0');
+          backdrop.classList.remove('opacity-0', 'pointer-events-none');
+          backdrop.classList.add('opacity-100');
+          menuBtn.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+        };
+
+        const closeDrawer = () => {
+          panel.classList.remove('translate-x-0');
+          panel.classList.add('translate-x-full', 'pointer-events-none');
+          backdrop.classList.remove('opacity-100');
+          backdrop.classList.add('opacity-0', 'pointer-events-none');
+          menuBtn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        };
+
+        menuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = panel.classList.contains('translate-x-0');
+          if (isOpen) closeDrawer();
+          else openDrawer();
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+        backdrop.addEventListener('click', closeDrawer);
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closeDrawer();
+        });
+
+        panel.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            setTimeout(closeDrawer, 150);
+          });
         });
       }
 
