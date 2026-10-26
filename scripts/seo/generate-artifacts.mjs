@@ -46,7 +46,7 @@ function sitemapUrlNode(entry) {
 }
 
 function sitemapDocument(entries) {
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.map(sitemapUrlNode).join('\n')}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.map(sitemapUrlNode).join('\n')}\n</urlset>\n`;
 }
 
 function sitemapIndexDocument(children) {
@@ -56,7 +56,7 @@ function sitemapIndexDocument(children) {
       return `  <sitemap>\n    <loc>${xmlEscape(`${SITE_ORIGIN}/${child.name}`)}</loc>${lastmod}\n  </sitemap>`;
     })
     .join('\n');
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</sitemapindex>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</sitemapindex>\n`;
 }
 
 function buildImageSitemapEntries(productEntries) {
@@ -83,7 +83,7 @@ function imageSitemapDocument(entries) {
       return `  <url>\n    <loc>${xmlEscape(entry.loc)}</loc>${lastmod}\n${images}\n  </url>`;
     })
     .join('\n');
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${body}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${body}\n</urlset>\n`;
 }
 
 function chunkByProtocolLimits(entries) {
