@@ -76,6 +76,11 @@ for (const route of validCanonicalRoutes) {
       jsonLd = getFallbackJsonLd(`https://excelarsiv.com${route}`, titleMatch ? titleMatch[1] : '', descMatch ? descMatch[1] : '');
     }
 
+    // Inject GSC verification meta if not present
+    if (!/<meta[^>]*name=["']google-site-verification["']/i.test(premiumHtml)) {
+      premiumHtml = premiumHtml.replace("<head>", `<head>\n  <meta name="google-site-verification" content="oEA2wa-CQuq0Al6xQHMJquas_RLnx0KV4eP2Erp1NWE">`);
+    }
+
     // Inject robots meta if not present
     if (!/<meta[^>]*name=["']robots["']/i.test(premiumHtml)) {
       premiumHtml = premiumHtml.replace('</head>', `  ${defaultRobotsMeta}\n</head>`);
