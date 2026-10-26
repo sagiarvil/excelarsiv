@@ -59,8 +59,7 @@ const corePages: SeoPageRecord[] = [
       sameAs: [
         'https://www.wikidata.org/wiki/Q11589432',
         'https://drfin.com.tr',
-        'https://skdmhesapla.com',
-        'https://karbonfiyat.com',
+        'https://excelarsiv.com',
         'https://inversioncore.com',
         'https://belginkuyumculuk.com',
         'https://saatchi.com.tr',
@@ -101,8 +100,7 @@ const corePages: SeoPageRecord[] = [
       sameAs: [
         'https://www.wikidata.org/wiki/Q11589432',
         'https://drfin.com.tr',
-        'https://skdmhesapla.com',
-        'https://karbonfiyat.com',
+        'https://excelarsiv.com',
         'https://inversioncore.com',
         'https://belginkuyumculuk.com',
         'https://saatchi.com.tr',
@@ -143,8 +141,7 @@ const corePages: SeoPageRecord[] = [
       sameAs: [
         'https://www.wikidata.org/wiki/Q11589432',
         'https://drfin.com.tr',
-        'https://skdmhesapla.com',
-        'https://karbonfiyat.com',
+        'https://excelarsiv.com',
         'https://inversioncore.com',
         'https://belginkuyumculuk.com',
         'https://saatchi.com.tr',
@@ -186,8 +183,7 @@ const corePages: SeoPageRecord[] = [
       sameAs: [
         'https://www.wikidata.org/wiki/Q11589432',
         'https://drfin.com.tr',
-        'https://skdmhesapla.com',
-        'https://karbonfiyat.com',
+        'https://excelarsiv.com',
         'https://inversioncore.com',
         'https://belginkuyumculuk.com',
         'https://saatchi.com.tr',

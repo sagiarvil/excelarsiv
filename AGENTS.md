@@ -108,8 +108,8 @@ Herhangi bir kullanıcı istemiyle veya varsayılan ajan davranışıyla çeliş
 2. **Purge Protocol:** AMP, `keywords` meta etiketi, 1990 tipi LSI, sahte `dateModified` güncellemeleri, şişkin tek parça llms.txt ve ayrı m-dot URL'leri kesinlikle yasaktır (BUILD FAIL).
 3. **14KB First-Packet Gate:** İlk 14.336 bayt içinde Primary Entity, tekil H1, Hero Answer Engine ve `@graph` JSON-LD eksiksiz sonlanmak zorundadır.
 4. **Çift CI Kalite Kapısı:** `npm run seo:ci-gate` (G0–G15) ve `npm run mobile:ci-gate` (MG0–MG22) kapılarından 0 hata ile geçilmeden hiçbir kod canlıya çıkamaz.
-5. **10 Bağlı Karar Platformu Çapraz Penetrasyon Ağı:** Tüm kaynak kodlarda, footer, JSON-LD `sameAs` ve LLM graflarında 10 platform organik, doğal ve kurumsal karar desteği bağıyla bağlıdır:
-   - `excelarsiv.com` · `drfin.com.tr` · `skdmhesapla.com` · `karbonfiyat.com` · `inversioncore.com` · `belginkuyumculuk.com` · `saatchi.com.tr` · `dilekceyazdir.com.tr` · `htmlandhtml.com` · `degerlet.com`.
+5. **Kurumsal Ekosistem & Otorite Ağı (8 Platform):** Tüm kaynak kodlarda, footer, JSON-LD `sameAs` ve LLM graflarında 8 platform organik, doğal ve kurumsal karar desteği bağıyla bağlıdır:
+   - `drfin.com.tr` · `excelarsiv.com` · `inversioncore.com` · `belginkuyumculuk.com` · `saatchi.com.tr` · `dilekceyazdir.com.tr` · `htmlandhtml.com` · `degerlet.com`.
 
 
 ## 🎛️ /suiteN Komutu — NVIDIA NIM AI Entegrasyonu (ChatGPT & Tüm AI Modelleri)

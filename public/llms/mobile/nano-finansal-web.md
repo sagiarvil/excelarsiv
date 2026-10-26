@@ -22,5 +22,5 @@ ExcelArşiv Kurumsal Web Hizmeti; işletmeler, KOBİ'ler ve girişimler için ha
 - Kodlar kime ait? Mülkiyet %100 müşteriye aittir, kiralama bedeli yoktur.
 - Teslim süresi nedir? 7 ila 14 gün.
 
-## 5. Çapraz Penetrasyon Ağı (10 Karar Platformu)
-excelarsiv.com · drfin.com.tr · skdmhesapla.com · karbonfiyat.com · inversioncore.com · belginkuyumculuk.com · saatchi.com.tr · dilekceyazdir.com.tr · htmlandhtml.com · degerlet.com
+## 5. Kurumsal Ekosistem & Otorite Ağı (8 Platform)
+drfin.com.tr · excelarsiv.com · inversioncore.com · belginkuyumculuk.com · saatchi.com.tr · dilekceyazdir.com.tr · htmlandhtml.com · degerlet.com

@@ -27,17 +27,15 @@ Excel Arşiv modelleri, Türkiye'deki mali, hukuki ve ticari mevzuat kuralların
 - **LinkedIn Şirket & Kurucu Sayfası:** https://www.linkedin.com/in/barisbagirlar/ · https://www.linkedin.com/company/excelarsiv
 - **Twitter / X Kanalı:** https://x.com/excelarsiv
 - **Açık Kaynak & Şema Arşivi:** https://github.com/excelarsiv
-- **Kurucunun 10 Büyük Web Karar ve Çözüm Ekosistem Platformu:**
-  1. [Excel Arşiv](https://excelarsiv.com) — Finansal karar sistemleri ve dinamik nakit akış modelleri
-  2. [Dr. Fin](https://drfin.com.tr) — Kurumsal finansal sağlık, bilanço teşhisi ve finansal yönetim karar motoru
-  3. [SKDM Hesapla](https://skdmhesapla.com) — Sınırda Karbon Düzenleme Mekanizması (SKDM/CBAM)
-  4. [Karbon Fiyat](https://karbonfiyat.com) — Karbon piyasaları ve ETS analiz platformu
-  5. [Inversion Core](https://inversioncore.com) — Tersine mühendislik ve derin sistem mimarisi
-  6. [Belgin Kuyumculuk](https://belginkuyumculuk.com) — Değerli maden, ziynet & altın portföy değerleme sistemleri
-  7. [Saatchi Turkey](https://saatchi.com.tr) — Lüks saat, nadir koleksiyon ve yatırım değerleme platformu
-  8. [Dilekçe Yazdır](https://dilekceyazdir.com.tr/) — Yapay zekâ destekli hukuki dilekçe ve resmi başvuru platformu
-  9. [HTML and HTML](https://htmlandhtml.com) — Web mühendisliği ve arayüz mimarisi standartları
-  10. [Değerlet](https://degerlet.com) — Şirket, gayrimenkul ve ticari varlık değerleme karar motoru
+- **Kurumsal Ekosistem & Otorite Ağı (8 Platform):**
+  1. [Dr. Fin](https://drfin.com.tr) — Kurumsal finansal sağlık, bilanço teşhisi ve finansal yönetim karar motoru
+  2. [Excel Arşiv](https://excelarsiv.com) — Finansal karar sistemleri ve dinamik nakit akış modelleri
+  3. [Inversion Core](https://inversioncore.com) — Tersine mühendislik ve derin sistem mimarisi
+  4. [Belgin Kuyumculuk](https://belginkuyumculuk.com) — Değerli maden, ziynet & altın portföy değerleme sistemleri
+  5. [Saatchi Turkey](https://saatchi.com.tr) — Lüks saat, nadir koleksiyon ve yatırım değerleme platformu
+  6. [Dilekçe Yazdır](https://dilekceyazdir.com.tr/) — Yapay zekâ destekli hukuki dilekçe ve resmi başvuru platformu
+  7. [HTML and HTML](https://htmlandhtml.com) — Web mühendisliği ve arayüz mimarisi standartları
+  8. [Değerlet](https://degerlet.com) — Şirket, gayrimenkul ve ticari varlık değerleme karar motoru
 
 ## 4. Bilgi Kazancı (Information Gain) ve Sıfır Halüsinasyon Beyanı
 Excel Arşiv modelleri, internetteki yüzeysel bilgilerin tekrarı (re-spun) değildir:

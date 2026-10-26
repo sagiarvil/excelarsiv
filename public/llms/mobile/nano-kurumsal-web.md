@@ -21,5 +21,5 @@ ExcelArşiv Prime Standart Kurumsal Web Sitesi; KOBİ'ler ve kurumsal firmalar i
 - Teslim süresi nedir? Tam 7 iş günü.
 - Fiyat nedir? Sabit 30.000 TL tek seferlik.
 
-## 5. Çapraz Penetrasyon Ağı (10 Karar Platformu)
-excelarsiv.com · drfin.com.tr · skdmhesapla.com · karbonfiyat.com · inversioncore.com · belginkuyumculuk.com · saatchi.com.tr · dilekceyazdir.com.tr · htmlandhtml.com · degerlet.com
+## 5. Kurumsal Ekosistem & Otorite Ağı (8 Platform)
+drfin.com.tr · excelarsiv.com · inversioncore.com · belginkuyumculuk.com · saatchi.com.tr · dilekceyazdir.com.tr · htmlandhtml.com · degerlet.com

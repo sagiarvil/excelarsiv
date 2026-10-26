@@ -1,0 +1,51 @@
+<svg fill="none" viewBox="0 0 550 350" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="281" cy="307" rx="231" ry="16" fill="#e4edff"/>
+<circle cx="298" cy="166" r="143" fill="#ffcf24"/>
+<path d="M67 114h32M80 101v26M466 244h22M477 233v22" stroke="#c4d1e2" stroke-width="2"/>
+<circle cx="450" cy="65" r="4" fill="#078653"/><circle cx="59" cy="247" r="5" fill="#e73345"/>
+<path d="m177 264-9 33h130l-9-33" fill="#c1d4ff"/><rect x="148" y="295" width="170" height="9" rx="4" fill="#1557d5"/>
+<rect x="82" y="64" width="355" height="209" rx="9" fill="#1557d5"/>
+<rect x="89" y="71" width="341" height="185" rx="3" fill="#fff"/>
+<path d="M89 93h341" stroke="#e7edf4"/>
+<rect x="102" y="80" width="11" height="8" rx="1" fill="#078653"/>
+<rect x="120" y="81" width="64" height="3" rx="1.5" fill="#a1aec0"/>
+<circle cx="404" cy="82" r="2" fill="#a4b5c9"/><circle cx="413" cy="82" r="2" fill="#a4b5c9"/>
+<rect x="102" y="107" width="50" height="135" rx="2" fill="#f1f4f8"/>
+<rect x="111" y="118" width="31" height="4" rx="2" fill="#1557d5"/>
+<rect x="111" y="133" width="25" height="3" rx="1.5" fill="#c1ccda"/>
+<rect x="111" y="147" width="29" height="3" rx="1.5" fill="#c1ccda"/>
+<rect x="111" y="161" width="21" height="3" rx="1.5" fill="#c1ccda"/>
+<rect x="111" y="175" width="27" height="3" rx="1.5" fill="#c1ccda"/>
+<text x="168" y="119" fill="#24426d" font-family="Lato,Arial,sans-serif" font-size="10" font-weight="700">İşletme raporlarınız, bir arada.</text>
+<rect x="168" y="132" width="72" height="35" rx="3" fill="#ddecff"/>
+<rect x="250" y="132" width="72" height="35" rx="3" fill="#ffe8b0"/>
+<rect x="332" y="132" width="72" height="35" rx="3" fill="#d3f4e3"/>
+<path d="M179 143h28M179 153h43M261 143h27M261 153h43M343 143h26M343 153h43" stroke="#4b7bd3" stroke-width="3"/>
+<path d="M170 186h232M170 210h232M170 234h232" stroke="#e7edf4"/>
+<path d="m171 221 31-8 33 6 31-27 32 8 36-27 33 9 35-28" fill="none" stroke="#e63345" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="m171 232 31-3 33 2 31-6 32 3 36-8 33 4 35-9" fill="none" stroke="#078653" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="266" cy="192" r="4" fill="#e63345" stroke="#fff" stroke-width="2"/>
+<circle cx="334" cy="173" r="4" fill="#e63345" stroke="#fff" stroke-width="2"/>
+<circle cx="402" cy="154" r="4" fill="#e63345" stroke="#fff" stroke-width="2"/>
+<circle cx="259" cy="265" r="3" fill="#97a9bd"/>
+<!-- Report card in front of the desktop; all figures are illustrative. -->
+<rect x="31" y="196" width="158" height="111" rx="6" fill="#fff" stroke="#ccd7e5"/>
+<rect x="31" y="196" width="158" height="23" rx="6" fill="#f7f9fc"/>
+<path d="M31 218h158" stroke="#e4eaf3"/>
+<text x="44" y="211" font-family="Lato,Arial,sans-serif" font-size="8" font-weight="700" fill="#294a80">GELİR / GİDER TAKİBİ</text>
+<path d="M47 288h123" stroke="#dbe3ed"/>
+<rect x="52" y="260" width="10" height="28" rx="1" fill="#078653"/><rect x="65" y="272" width="10" height="16" rx="1" fill="#e73345"/>
+<rect x="84" y="246" width="10" height="42" rx="1" fill="#078653"/><rect x="97" y="263" width="10" height="25" rx="1" fill="#e73345"/>
+<rect x="116" y="251" width="10" height="37" rx="1" fill="#078653"/><rect x="129" y="268" width="10" height="20" rx="1" fill="#e73345"/>
+<rect x="148" y="234" width="10" height="54" rx="1" fill="#078653"/>
+<!-- An offset chart adds depth without becoming a second interface. -->
+<rect x="371" y="28" width="140" height="128" rx="6" fill="#fff" stroke="#d0dbe8"/>
+<text x="387" y="47" font-family="Lato,Arial,sans-serif" font-size="8" font-weight="700" fill="#294a80">GÖRSEL RAPORLAMA</text>
+<circle cx="441" cy="100" r="33" stroke="#e8edf4" stroke-width="15"/>
+<circle cx="441" cy="100" r="33" stroke="#1557d5" stroke-width="15" stroke-dasharray="108 208" transform="rotate(-90 441 100)"/>
+<circle cx="441" cy="100" r="33" stroke="#ffcf24" stroke-width="15" stroke-dasharray="49 208" stroke-dashoffset="-108" transform="rotate(-90 441 100)"/>
+<text x="441" y="103" text-anchor="middle" font-family="Lato,Arial,sans-serif" font-size="10" fill="#1557d5">ÖZET</text>
+<rect x="355" y="280" width="158" height="30" rx="4" fill="#fff" stroke="#cddae7"/>
+<path d="m368 295 4 4 8-9" stroke="#86a19c" stroke-width="2" fill="none" stroke-linecap="round"/>
+<text x="387" y="299" font-family="Lato,Arial,sans-serif" font-size="10" font-weight="700" fill="#7890a7">Seçin. İnceleyin. Kullanın.</text>
+</svg>

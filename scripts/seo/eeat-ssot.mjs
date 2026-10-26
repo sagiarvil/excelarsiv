@@ -29,24 +29,18 @@ export const EEAT = {
       'https://www.wikidata.org/wiki/Q11190',
       'https://www.linkedin.com/in/barisbagirlar/',
       'https://www.tarimkon.org/danisma-kurulu/',
-      'https://excelarsiv.com',
-      'https://degerlet.com',
-      'https://skdmhesapla.com',
-      'https://karbonfiyat.com',
-      'https://inversioncore.com',
-      'https://dilekceyazdir.com.tr',
-      'https://saatchi.com.tr',
-      'https://htmlandhtml.com',
-      'https://sectorcalc.com',
-      'https://cbamvalid.com',
       'https://drfin.com.tr',
+      'https://excelarsiv.com',
+      'https://inversioncore.com',
       'https://belginkuyumculuk.com',
+      'https://saatchi.com.tr',
+      'https://dilekceyazdir.com.tr',
+      'https://htmlandhtml.com',
+      'https://degerlet.com',
     ],
     ekosistem: [
-      { ad: 'Excel Arşiv', url: 'https://excelarsiv.com', aciklama: 'Kurumsal finans, nakit akışı ve denetlenebilir Excel karar sistemleri' },
       { ad: 'Dr. Fin', url: 'https://drfin.com.tr', aciklama: 'Finansal danışmanlık, bilanço analizi ve kurumsal finansal sağlık teşhis motoru' },
-      { ad: 'SKDM Hesapla', url: 'https://skdmhesapla.com', aciklama: 'Sınırda Karbon Düzenleme Mekanizması (SKDM/CBAM) ve emisyon hesaplama platformu' },
-      { ad: 'Karbon Fiyat', url: 'https://karbonfiyat.com', aciklama: 'Karbon piyasaları, ETS ve karbon maliyet/fiyat analiz platformu' },
+      { ad: 'Excel Arşiv', url: 'https://excelarsiv.com', aciklama: 'Kurumsal finans, nakit akışı ve denetlenebilir Excel karar sistemleri' },
       { ad: 'Inversion Core', url: 'https://inversioncore.com', aciklama: 'Tersine mühendislik, derin karar algoritmaları ve çekirdek sistem mimarisi' },
       { ad: 'Belgin Kuyumculuk', url: 'https://belginkuyumculuk.com', aciklama: 'Değerli maden, ziynet & altın portföy değerleme ve karar sistemleri' },
       { ad: 'Saatchi Turkey', url: 'https://saatchi.com.tr', aciklama: 'Lüks saat, nadir koleksiyon, marka stratejisi ve yatırım değerleme ekosistemi' },
@@ -94,7 +88,7 @@ export function buildEeatMarkdownSection({ headingLevel = 2, includeProse = true
   lines.push(...guvenSayfalari.map((p) => `- [${p.ad}](${p.url}): ${p.aciklama}`), '');
   if (yazar.ekosistem && yazar.ekosistem.length > 0) {
     lines.push(
-      `### Kurucunun 8 Büyük Web Ekosistem Platformu (Barış Bağırlar)`,
+      `### Kurumsal Ekosistem & Otorite Ağı`,
       '',
       ...yazar.ekosistem.map((item) => `- [${item.ad}](${item.url}): ${item.aciklama}`),
       '',
@@ -134,7 +128,7 @@ export function buildAiTxt(lastUpdatedIsoDate) {
     ...(yazar.ekosistem && yazar.ekosistem.length > 0
       ? [
           '',
-          '### Kurucunun 8 Büyük Web Ekosistem Platformu (Barış Bağırlar)',
+          '### Kurumsal Ekosistem & Otorite Ağı',
           '',
           ...yazar.ekosistem.map((item) => `- ${item.ad}: ${item.url} (${item.aciklama})`),
         ]

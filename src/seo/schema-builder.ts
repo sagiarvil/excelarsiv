@@ -57,8 +57,6 @@ export function buildCompleteJsonLdGraph(page: SeoPageRecord, domain: string = '
         'https://github.com/excelarsiv',
         'https://drfin.com.tr',
         'https://excelarsiv.com',
-        'https://skdmhesapla.com',
-        'https://karbonfiyat.com',
         'https://inversioncore.com',
         'https://belginkuyumculuk.com',
         'https://saatchi.com.tr',
