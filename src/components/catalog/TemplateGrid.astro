@@ -45,11 +45,11 @@ const freeCount = baseTemplates.filter((t) => FREE_SLUGS.has(t.slug)).length;
     <div class="soho-tabs-nav" role="tablist">
       {isCategoryPage ? (
         <a href="/sablonlar" class={`soho-tab-btn ${activeCategory === 'all' ? 'is-active' : ''}`}>
-          Tüm Kurumsal Şablonlar (2.000 ₺) <span class="tab-count">({totalAllCount})</span>
+          Tüm Kurumsal Şablonlar (999 ₺) <span class="tab-count">({totalAllCount})</span>
         </a>
       ) : (
         <button type="button" class={`soho-tab-btn ${activeCategory === 'all' ? 'is-active' : ''}`} data-cat-filter="all">
-          Tüm Kurumsal Şablonlar (2.000 ₺) <span class="tab-count">({totalAllCount})</span>
+          Tüm Kurumsal Şablonlar (999 ₺) <span class="tab-count">({totalAllCount})</span>
         </button>
       )}
       <a
@@ -57,7 +57,7 @@ const freeCount = baseTemplates.filter((t) => FREE_SLUGS.has(t.slug)).length;
         class="soho-tab-btn soho-tab-btn--pratik font-black"
         style="background-color: #ecfdf5 !important; color: #065f46 !important; border-color: #a7f3d0 !important;"
       >
-        ⚡ 53 Pratik Şablon (199 ₺) <span class="tab-count">(53)</span>
+        ⚡ 53 Pratik Şablon (999 ₺) <span class="tab-count">(53)</span>
       </a>
       <button
         type="button"

@@ -51,7 +51,7 @@ const isFree = FREE_SLUGS.has(template.slug);
     <p class="vcex-post-excerpt">{template.summary}</p>
     <div class="someka-card-price-row">
       <span class="someka-card-price-label">Tekil Model:</span>
-      <span class="someka-card-price-val">{isFree ? 'Ücretsiz' : '2.000 ₺'}</span>
+      <span class="someka-card-price-val">{isFree ? 'Ücretsiz' : '999 ₺'}</span>
     </div>
     <div class="someka-card-bottom">
       {isFree ? (
@@ -64,13 +64,13 @@ const isFree = FREE_SLUGS.has(template.slug);
         </a>
       ) : (
         <a
-          href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${template.name} Excel karar modelini 2.000 ₺ tekil lisans bedeliyle satın almak istiyorum.`)}`}
+          href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${template.name} Excel karar modelini 999 ₺ tekil lisans bedeliyle satın almak istiyorum.`)}`}
           target="_blank"
           rel="noopener noreferrer"
           class="btn-someka-buy"
-          aria-label={`${template.name} - 2.000 ₺ Satın Al`}
+          aria-label={`${template.name} - 999 ₺ Satın Al`}
         >
-          Satın Al (2.000 ₺)
+          Satın Al (999 ₺)
         </a>
       )}
       <a href={template.url} class="btn-someka-view">Detay</a>
