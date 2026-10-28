@@ -106,6 +106,15 @@ const orgLd = JSON.stringify({
     <link rel="preload" href="/fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin />
     <script type="application/ld+json" set:html={orgLd} />
     <slot name="head" />
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-59JM2MQCTF"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-59JM2MQCTF');
+    </script>
   </head>
   <body class={commerce ? 'commerce-body' : 'font-body text-ink-700 antialiased'}>
     <Fragment set:html={iconSprite} />

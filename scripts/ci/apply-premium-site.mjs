@@ -81,6 +81,12 @@ for (const route of validCanonicalRoutes) {
       premiumHtml = premiumHtml.replace("<head>", `<head>\n  <meta name="google-site-verification" content="oEA2wa-CQuq0Al6xQHMJquas_RLnx0KV4eP2Erp1NWE">`);
     }
 
+    // Inject Google tag (gtag.js) if not present
+    if (!premiumHtml.includes('googletagmanager.com/gtag/js?id=G-59JM2MQCTF')) {
+      const gtagSnippet = `<!-- Google tag (gtag.js) -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=G-59JM2MQCTF"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'G-59JM2MQCTF');\n</script>`;
+      premiumHtml = premiumHtml.replace("<head>", `<head>\n${gtagSnippet}`);
+    }
+
     // Inject robots meta if not present
     if (!/<meta[^>]*name=["']robots["']/i.test(premiumHtml)) {
       premiumHtml = premiumHtml.replace('</head>', `  ${defaultRobotsMeta}\n</head>`);

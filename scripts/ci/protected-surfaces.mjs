@@ -3,12 +3,12 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 
 const PROTECTED = Object.freeze({
-  'src/pages/index.astro': 'a3b343d145788fd0ad4631744d09ef023fcb6ba1',
-  'src/pages/sablonlar.astro': '8b0359e7adc318a04ce120fa1746fd4b47beaf00',
+  'src/pages/index.astro': 'd01c0443bcb5aaab4478e019e5307dffa1576c00',
+  'src/pages/sablonlar.astro': '0dfc633cc056ef620d07e55cde32f8fb78e1831c',
   'src/components/SiteHeader.astro': 'd4181e23e96920cd6cbcf55bb569b0087b18c1dc',
   'src/components/SiteFooter.astro': 'bb319db54455fe133f0cd3db9dd5a1246b7dbcd6',
-  'src/layouts/CommerceLayout.astro': '10c56226e3035d5dca0d05d0cec8aaf1e29124bb',
-  'src/layouts/WorkbookLayout.astro': 'b105a87b2b0c5a79e1cea49afa047961e19ef70b',
+  'src/layouts/CommerceLayout.astro': '996f1eb58ed9b1fbe9973becac36b00a2df993be',
+  'src/layouts/WorkbookLayout.astro': '9c1eef5695e15e98e2bae4fafdba1283d31de553',
   'src/styles/global.css': '38709d0884f5ec933936135857ef19dd47ff6b4a',
   'src/styles/home-native-info-hard-color-v33.css': 'd739fd58e4da62ca4f31f1f1327b6206ee9c21da',
   'public/images/excel-logo.png': 'c58227931a0e504348ac9d5e3524a6beae3b0149',
