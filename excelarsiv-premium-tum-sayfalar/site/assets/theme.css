@@ -23,8 +23,8 @@
 .watermark-head {
       position: relative;
       text-align: center;
-      padding: clamp(36px, 6vw, 70px) 16px clamp(20px, 3vw, 36px);
-      margin-bottom: 20px;
+      padding: clamp(50px, 9vw, 96px) 16px clamp(28px, 4.5vw, 48px);
+      margin-bottom: 24px;
       overflow: hidden;
     }
     .watermark-ghost {
@@ -32,23 +32,40 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -52%);
+      transform: translate(-50%, -60%);
       font-family: inherit;
-      font-size: clamp(60px, 12vw, 135px);
+      font-size: clamp(80px, 18vw, 180px);
       font-weight: 900;
       color: #E2E8F0;
-      letter-spacing: -0.04em;
-      line-height: 0.85;
+      letter-spacing: -0.045em;
+      line-height: 0.75;
       white-space: nowrap;
       pointer-events: none;
       user-select: none;
       z-index: 0;
-      text-transform: uppercase;
       -webkit-font-smoothing: antialiased;
     }
     .watermark-content {
       position: relative;
       z-index: 1;
+    }
+    .watermark-content .ea-section-title,
+    .watermark-content h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 900;
+      color: #0F172A;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin: 0 0 14px;
+    }
+    .watermark-content .ea-section-subtitle,
+    .watermark-content p {
+      font-size: 15.5px;
+      color: #475569;
+      max-width: 660px;
+      margin-inline: auto;
+      line-height: 1.65;
+      margin: 0;
     }
 
 .watermark-content .section-tag,
