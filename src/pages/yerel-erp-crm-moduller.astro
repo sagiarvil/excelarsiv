@@ -869,6 +869,38 @@ import '../styles/global.css';
         padding: 32px 20px;
       }
     }
+  
+    .watermark-head {
+      position: relative;
+      text-align: center;
+      padding: clamp(36px, 6vw, 70px) 16px clamp(20px, 3vw, 36px);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .watermark-ghost {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -52%);
+      font-family: inherit;
+      font-size: clamp(60px, 12vw, 135px);
+      font-weight: 900;
+      color: #E2E8F0;
+      letter-spacing: -0.04em;
+      line-height: 0.85;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      text-transform: uppercase;
+      -webkit-font-smoothing: antialiased;
+    }
+    .watermark-content {
+      position: relative;
+      z-index: 1;
+    }
+  
   </style>
   <!-- Google tag (gtag.js) -->
   <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-59JM2MQCTF"></script>
@@ -1239,11 +1271,16 @@ import '../styles/global.css';
     <!-- Canlı Örnek Sistem İncelemesi (Yeşilay Tadilat & Mimarlık Referansı) -->
     <section class="ea-section" id="canli-mimari">
       <div class="ea-container">
-        <div class="ea-section-tag">CANLI UYGULAMA REFERANSI</div>
+        <div class="watermark-head">
+        <span class="watermark-ghost" aria-hidden="true">MİMARİ</span>
+        <div class="watermark-content">
+          <div class="ea-section-tag">CANLI UYGULAMA REFERANSI</div>
         <h2 class="ea-section-title">Gerçek İşletmeler İçin Kurduğumuz Sistem Mimarisi</h2>
         <p class="ea-section-subtitle">
           Örnek referansımız <strong>Yeşilay Ev Tadilatı & Mimarlık Finans Yönetim Kokpiti</strong> üzerinden geliştirdiğimiz; ofis, şantiye, malzeme tedarikçileri ve müşteri hakedişlerini tek bir yerel ekranda toplayan çalışma modeli:
         </p>
+        </div>
+      </div>
 
         <div class="ea-showcase-box">
           <div class="ea-showcase-header">
@@ -1349,11 +1386,16 @@ import '../styles/global.css';
     <!-- Modüller Bölümü (6 Temel Yönetim Modülü - Açık Renk Kutular) -->
     <section class="ea-section" id="moduller">
       <div class="ea-container">
-        <div class="ea-section-tag">KAPSAM VE MODÜLLER</div>
+        <div class="watermark-head">
+        <span class="watermark-ghost" aria-hidden="true">MODÜLLER</span>
+        <div class="watermark-content">
+          <div class="ea-section-tag">KAPSAM VE MODÜLLER</div>
         <h2 class="ea-section-title">İşletmenizin İhtiyacına Göre Şekillenen 6 Temel Modül</h2>
         <p class="ea-section-subtitle">
           İşletmenizin dağınık WhatsApp yazışmalarını, kağıt notlarını ve yüzlerce farklı Excel tablosunu tek bir temiz, güvenli ve hızlı ekranda birleştiriyoruz.
         </p>
+        </div>
+      </div>
 
         <div class="ea-modules-grid">
           <div class="ea-module-card ea-module-card--sky">
@@ -1512,11 +1554,16 @@ import '../styles/global.css';
     <!-- Hangi Sektörlere Uygundur? (6 Sektör Kartı - Açık Renk Kutular) -->
     <section class="ea-section" id="sektorler">
       <div class="ea-container">
-        <div class="ea-section-tag">SEKTÖREL ÇÖZÜMLER</div>
+        <div class="watermark-head">
+        <span class="watermark-ghost" aria-hidden="true">SEKTÖRLER</span>
+        <div class="watermark-content">
+          <div class="ea-section-tag">SEKTÖREL ÇÖZÜMLER</div>
         <h2 class="ea-section-title">Hangi Sektörler İçin Bu Sistemi İnşa Ediyoruz?</h2>
         <p class="ea-section-subtitle">
           İş modeli ne olursa olsun; vadeli borçları, devam eden işleri, kasa harcamalarını ve müşteri tahsilatlarını yönetmek isteyen tüm işletmeler için 3-5 günde uyarlıyoruz:
         </p>
+        </div>
+      </div>
 
         <div class="ea-sectors-grid">
           <div class="ea-sector-card ea-sector-card--amber">
@@ -1555,11 +1602,16 @@ import '../styles/global.css';
     <!-- 4 Adımda Teslimat Süreci (Açık Renk Kutular) -->
     <section class="ea-section">
       <div class="ea-container">
-        <div class="ea-section-tag">ÇALIŞMA MODELİ</div>
+        <div class="watermark-head">
+        <span class="watermark-ghost" aria-hidden="true">KURULUM</span>
+        <div class="watermark-content">
+          <div class="ea-section-tag">ÇALIŞMA MODELİ</div>
         <h2 class="ea-section-title">Sisteminizi 4 Adımda Nasıl Devreye Alıyoruz?</h2>
         <p class="ea-section-subtitle">
           Haftalarca süren toplantılar veya karmaşık yazılım projeleri yok. Doğrudan sonuca odaklı, net ve hızlı bir süreç:
         </p>
+        </div>
+      </div>
 
         <div class="ea-flow-grid">
           <div class="ea-flow-step ea-flow-step--sky">
@@ -1592,11 +1644,16 @@ import '../styles/global.css';
     <!-- Sıkça Sorulan Sorular (FAQ) -->
     <section class="ea-section" id="faq">
       <div class="ea-container">
-        <div class="ea-section-tag">MERAK EDİLENLER</div>
+        <div class="watermark-head">
+        <span class="watermark-ghost" aria-hidden="true">SORULAR</span>
+        <div class="watermark-content">
+          <div class="ea-section-tag">MERAK EDİLENLER</div>
         <h2 class="ea-section-title">Sıkça Sorulan Sorular</h2>
         <p class="ea-section-subtitle">
           İşletmenize özel yerel ERP & CRM modülleri hakkında aklınıza takılabilecek tüm soruların net cevapları:
         </p>
+        </div>
+      </div>
 
         <div class="ea-faq-list">
           <details class="ea-faq-item" open>

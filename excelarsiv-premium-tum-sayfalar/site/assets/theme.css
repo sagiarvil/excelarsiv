@@ -16,3 +16,71 @@
 @media(max-width:900px){.hero-inner{padding-block:35px;min-height:0}}
 @media(max-width:640px){.hero-inner{padding-block:32px 25px}.hero-visual:has(.hero-illustration){padding-bottom:0}.hero-visual:has(.hero-illustration) .hero-caption{margin-top:6px;font-size:13px}.hero-illustration{max-width:400px}}
 .detail-tabs{overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}
+
+/* ==========================================================================
+   WATERMARK TYPOGRAPHY / GHOST TEXT HEADINGS (VOLKSWAGEN / APPLE LAYERED STYLE)
+   ========================================================================== */
+.watermark-head {
+      position: relative;
+      text-align: center;
+      padding: clamp(36px, 6vw, 70px) 16px clamp(20px, 3vw, 36px);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .watermark-ghost {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -52%);
+      font-family: inherit;
+      font-size: clamp(60px, 12vw, 135px);
+      font-weight: 900;
+      color: #E2E8F0;
+      letter-spacing: -0.04em;
+      line-height: 0.85;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      text-transform: uppercase;
+      -webkit-font-smoothing: antialiased;
+    }
+    .watermark-content {
+      position: relative;
+      z-index: 1;
+    }
+
+.watermark-content .section-tag,
+.watermark-content .ea-section-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #1557d5;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.watermark-content h2,
+.watermark-content .ea-section-title {
+  font-size: clamp(23px, 3.2vw, 34px);
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.watermark-content p,
+.watermark-content .ea-section-subtitle {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #475569;
+  max-width: 640px;
+  margin-inline: auto;
+  line-height: 1.6;
+}
+
+
+.page-hero .watermark-head { padding: 10px 0; margin-bottom: 0; overflow: hidden; }
