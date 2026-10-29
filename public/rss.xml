@@ -5,13 +5,22 @@
     <link>https://excelarsiv.com</link>
     <description>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</description>
     <language>tr-TR</language>
-    <lastBuildDate>Thu, 29 Oct 2026 15:34:28 GMT</lastBuildDate>
-    <pubDate>Thu, 29 Oct 2026 15:34:28 GMT</pubDate>
+    <lastBuildDate>Thu, 29 Oct 2026 19:16:05 GMT</lastBuildDate>
+    <pubDate>Thu, 29 Oct 2026 19:16:05 GMT</pubDate>
     <atom:link href="https://excelarsiv.com/rss.xml" rel="self" type="application/rss+xml" />
     <managingEditor>barisbagirlar@gmail.com (Barış Bağırlar)</managingEditor>
     <webMaster>barisbagirlar@gmail.com (Barış Bağırlar)</webMaster>
     <docs>https://www.rssboard.org/rss-specification</docs>
     <generator>Excel Arşiv Feed Engine v3.0</generator>
+    <item>
+      <title>İşletmeye Özel Excel Sistemleri | ExcelArşiv</title>
+      <link>https://excelarsiv.com/ozel-excel-sistemleri</link>
+      <guid isPermaLink="true">https://excelarsiv.com/ozel-excel-sistemleri</guid>
+      <description>İş akışınıza ve raporlama ihtiyacınıza uygun özel Excel sistemi geliştirme.</description>
+      <category>diger</category>
+      <dc:creator>Barış Bağırlar</dc:creator>
+      <pubDate>Thu, 29 Oct 2026 19:16:05 GMT</pubDate>
+    </item>
     <item>
       <title>Excel Stok Takip ve Üretim Reçetesi (BOM) Programı | ExcelArsiv.com</title>
       <link>https://excelarsiv.com/urun/barkodlu-stok-ambar-uretim-recetesi-excel</link>
@@ -134,15 +143,6 @@
       <link>https://excelarsiv.com/kurumsal-web</link>
       <guid isPermaLink="true">https://excelarsiv.com/kurumsal-web</guid>
       <description>Terzi usulü tam kodlama, sıfır hazır şablon, sub-40ms edge mimarisi ve kurumsal kimlik uyumlu anahtar teslim web sitesi. Sabit fiyat: 999 TL.</description>
-      <category>diger</category>
-      <dc:creator>Barış Bağırlar</dc:creator>
-      <pubDate>Wed, 28 Oct 2026 17:17:42 GMT</pubDate>
-    </item>
-    <item>
-      <title>İşletmeye Özel Excel Sistemleri | ExcelArşiv</title>
-      <link>https://excelarsiv.com/ozel-excel-sistemleri</link>
-      <guid isPermaLink="true">https://excelarsiv.com/ozel-excel-sistemleri</guid>
-      <description>İş akışınıza ve raporlama ihtiyacınıza uygun özel Excel sistemi geliştirme.</description>
       <category>diger</category>
       <dc:creator>Barış Bağırlar</dc:creator>
       <pubDate>Wed, 28 Oct 2026 17:17:42 GMT</pubDate>
