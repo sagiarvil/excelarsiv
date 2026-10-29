@@ -613,7 +613,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel personel puantaj tablosu formüllü otomatik',
     problem: 'Personelin günlük giriş-çıkış saatleri, izin ve devamsızlıklarının ay sonunda bordroya aktarılırken karışması.',
     solution: 'Günlük çalışma saatlerini toplayan, tatil günlerini otomatik renklendiren ve aylık hak edilen günü çıkaran puantaj.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'Aylık Otomatik Personel Puantaj ve Devam Çizelgesi',
   },
   {
@@ -622,7 +622,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Fazla mesai hesaplama Excel %50 %100 bayram',
     problem: 'Haftalık 45 saati aşan fazla mesai (%50) ile resmi tatil (%100) mesailerinin brüt saat ücretinden hatalı hesaplanması.',
     solution: 'İş Kanunu 41. maddesine tam uyumlu, saatlik ücret üzerinden net/brüt mesai hakedişi hesaplayan formüllü model.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'Haftalık ve Bayram Fazla Mesai Hakediş Hesaplayıcı',
   },
   {
@@ -631,7 +631,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Yıllık izin hakediş ve bakiye takip tablosu Excel',
     problem: 'Personelin kıdemine göre hak ettiği izin günlerinin (14, 20, 26 gün) ve kullanılan izinlerin takip edilememesi.',
     solution: 'İşe giriş tarihine göre izin hak edişini hesaplayan, kullanılan izinleri düşüp kalan bakiyeyi gösteren İK tablosu.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'Personel Yıllık Ücretli İzin Hakediş ve Bakiye Takip Sistemi',
   },
   {
@@ -640,7 +640,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Kıdem ve ihbar tazminatı hesaplama tablosu 2026 Excel',
     problem: 'İşten ayrılan personelin güncel kıdem tavanı, giydirilmiş brüt ücret ve damga vergisi kesintilerinin yanlış hesaplanması.',
     solution: '2026 resmi kıdem tavanı parametreli, yol-yemek ek hakları giydiren kıdem ve ihbar hesaplama tablosu.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: '2026 Mevzuat Uyumlu Kıdem ve İhbar Tazminatı Hesaplama Modeli',
   },
   {
@@ -649,7 +649,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Brütten nete maaş bordrosu hesaplama tablosu Excel',
     problem: 'Kümülatif gelir vergisi matrahı dilim atladıkça personelin net maaşının ve asgari ücret istisnasının karışması.',
     solution: '193 sayılı GVK 2026 kümülatif dilimlerine (%15, %20, %27, %35, %40) göre brütten nete bordro hesaplama motoru.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'Kümülatif Vergi Dilimli Brütten Nete Bordro Hesaplama Sistemi',
   },
   {
@@ -658,7 +658,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Netten brüte personel maliyeti hesaplama Excel',
     problem: 'Yeni bir personel istihdam edilirken net maaş teklifinin şirkete toplam işveren maliyetinin (SGK payı dahil) bilinememesi.',
     solution: 'SGK işveren primi, işsizlik payı ve 5510 %5 teşviki hesaplayarak toplam işveren bordro maliyetini veren simülatör.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'Netten Brüte Personel İşveren Maliyeti Hesaplama Simülatörü',
   },
   {
@@ -667,7 +667,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Vardiya çizelgesi ve nöbet listesi şablonu Excel',
     problem: '3 vardiya çalışan işletmelerde haftalık izin çakışmaları ve vardiya adaletsizlikleri.',
     solution: 'Haftalık 11 saatlik dinlenme kuralını denetleyen ve vardiyaları adil dağıtan otomatik nöbet planlayıcı.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: '3 Vardiyalı Personel Nöbet ve Çalışma Çizelgesi Şablonu',
   },
   {
@@ -676,7 +676,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Personel özlük dosyası evrak kontrol listesi Excel',
     problem: 'Çalışma Bakanlığı teftişlerinde eksik özlük evrakı (Sağlık raporu, adli sicil vb.) nedeniyle idari para cezası riski.',
     solution: 'Her personel için zorunlu evrakların tamamlanma durumunu gösteren denetimli özlük arşivi takip listesi.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'İş Kanunu Uyumlu Personel Özlük Dosyası Evrak Kontrol Listesi',
   },
   {
@@ -685,7 +685,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Performans değerlendirme 360 derece puanlama Excel',
     problem: 'Yıl sonu personel zam ve terfilerinin objektif kriterlere dayanmaması ve çalışan motivasyon kaybı.',
     solution: 'Yönetici, iş arkadaşı ve ast değerlendirme puanlarını ağırlıklandırıp genel performans skoru üreten matris.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: '360 Derece Personel Yetkinlik ve Performans Değerleme Modeli',
   },
   {
@@ -694,7 +694,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Personel devir oranı turnover rate hesaplama Excel',
     problem: 'Şirketten ayrılan personel sayısının artması ve yeni işe alım maliyetlerinin ölçülememesi.',
     solution: 'Departman bazında aylık ve yıllık çalışan sirkülasyon oranını (turnover) ve ayrılma nedenlerini analiz eden tablo.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'Çalışan Devir Oranı (Turnover Rate) ve İstifa Analiz Tablosu',
   },
   {
@@ -703,7 +703,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'İşe alım aday takip sistemi ATS Excel şablonu',
     problem: 'Gelen özgeçmişlerin ve mülakat sonuçlarının takipsiz kalması, doğru adaya zamanında dönülememesi.',
     solution: 'Adayın başvurduğu pozisyon, mülakat aşaması, istenen maaş ve değerlendirme notlarını izleyen mini ATS tablosu.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'Aday Başvuru, Mülakat ve İşe Alım Takip Sistemi (ATS)',
   },
   {
@@ -712,7 +712,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Eğitim planlama ve çalışan eğitim takip Excel',
     problem: 'İSG ve mesleki zorunlu eğitim saatlerinin tamamlanıp tamamlanmadığının denetlenememesi.',
     solution: 'Personel bazında alınan eğitimler, sınav başarı puanı ve kişi başı eğitim bütçesi harcamasını gösteren tablo.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'Yıllık Şirket İçi Eğitim Planlama ve Katılım Takip Sistemi',
   },
   {
@@ -721,7 +721,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'İş sağlığı ve güvenliği İSG ramak kala takip Excel',
     problem: 'İş kazasına yol açabilecek ramak kala olayların kaydedilmemesi ve önleyici tedbirlerin gecikmesi.',
     solution: 'Olay yeri, tehlike türü, kök neden analizi ve alınan aksiyonları izleyen İSG ramak kala kayıt defteri.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'İSG Ramak Kala Olay Kayıt ve Düzeltici Faaliyet Takip Tablosu',
   },
   {
@@ -730,7 +730,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Personel zimmet formu ve ekipman takip tablosu Excel',
     problem: 'İşten ayrılan personelden teslim alınan laptop, telefon ve araç anahtarlarının takibinde yaşanan kayıplar.',
     solution: 'Seri numaralı ekipman zimmet sözleşmesi çıktısı veren ve personeldeki aktif zimmetleri gösteren İK konsolu.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'Şirket Ekipman Zimmet Takip ve İade Tutanağı Şablonu',
   },
   {
@@ -739,7 +739,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'İş analizi ve norm kadro hesaplama Excel',
     problem: 'Hangi departmanda fazla personel, hangi birimde eleman açığı olduğunun matematiksel olarak bilinememesi.',
     solution: 'İşlem süreleri ve yıllık iş yüküne dayalı norm kadro ihtiyacını ve kapasite kullanımını hesaplayan model.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'İş Yükü Analizi ve Departman Norm Kadro Hesaplama Modeli',
   },
   {
@@ -748,7 +748,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Yemek kartı ve yol yardımı hesaplama tablosu Excel',
     problem: 'Fiili çalışılan gün sayısına göre vergiden muaf yemek ve yol paralarının bordroya aktarılmasında yapılan hatalar.',
     solution: 'Puantajdaki fiili gün sayısıyla 2026 günlük istisna tutarlarını çarparak net hakediş çıkaran hesaplayıcı.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'Fiili Gün Bazlı Yemek Kartı ve Yol Parası Hesaplama Tablosu',
   },
   {
@@ -757,7 +757,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Asgari ücret işveren desteği hesaplama 2026 Excel',
     problem: 'SGK bildirgelerinde yararlanılacak devlet teşvik ve desteklerinin eksik hesaplanması.',
     solution: 'İstihdam edilen personele göre 2026 asgari ücret işveren teşvik tutarını düşen bordro analiz tablosu.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: '2026 İstihdam Teşvikleri ve Asgari Ücret Desteği Hesaplayıcı',
   },
   {
@@ -766,7 +766,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Kısmi süreli part-time bordro ve puantaj Excel',
     problem: 'Ay içinde belirli gün veya saat çalışan personelin eksik gün bildirimlerinin (07 kodu) ve ücretinin hesaplanması.',
     solution: 'Haftalık çalışma saatine göre SGK prim günü ve saat ücreti bazlı part-time bordro hesaplama tablosu.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'Part-Time ve Kısmi Süreli Çalışan Bordro Hesaplama Modeli',
   },
   {
@@ -775,7 +775,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'İhbar öneli süre ve ücret hesaplama Excel',
     problem: 'İşten çıkarma veya istifada çalışanın kıdemine göre kaç hafta önceden bildirim yapılması gerektiğinin bilinmemesi.',
     solution: 'İşe giriş ve çıkış tarihine göre ihbar öneli haftasını (2, 4, 6, 8 hafta) ve nakit ihbar tazminatını veren tablo.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'İhbar Süresi (Öneli) ve Peşin İhbar Tazminatı Hesaplayıcı',
   },
   {
@@ -784,7 +784,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'İnsan kaynakları İK aylık yönetim dashboard Excel',
     problem: 'Genel müdüre sunulacak toplam çalışan sayısı, bordro maliyeti, devamsızlık ve fazla mesainin dağınık olması.',
     solution: 'Tüm İK metriklerini görsel KPI kartları ve grafiklerle tek ekranda özetleyen kurumsal İK paneli.',
-    recommendedProductSlug: 'personel-maliyet-ve-kidem-tazminati-hesaplama-tablosu',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'İnsan Kaynakları (İK) Direktörü Yönetici Gösterge Kokpiti',
   },
 

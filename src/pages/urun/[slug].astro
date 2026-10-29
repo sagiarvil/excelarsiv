@@ -1,0 +1,524 @@
+---
+/**
+ * ExcelArsiv.com - 14KB İlk TCP Paket Bütçesi Uyumlu, Sıfır JS (Zero-Slop) Ürün Sayfası
+ * Dosya Konumu: src/pages/urun/[slug].astro
+ *
+ * Mimari Özellikler:
+ * 1. Sıfır İstemci Tarafı JS (0 KB Client JS): Native HTML5 <details>/<summary> ve CSS :has() ile çalışan paket seçici.
+ * 2. 14KB TCP İlk Paket Garantisi: Kritik CSS (~2.2 KB sıkıştırılmış) doğrudan inline; harici stil/font bloklaması yok.
+ * 3. Tam AEO / LLMO & llmstxt.org v2 Uyumu: .md ikiz sayfa linki, /llms.txt describedby ve @graph JSON-LD.
+ * 4. Yüksek Satış Dönüşümü (CRO): Tekil Lisans vs. Kurumsal ERP & CRM Tam Paket (Bundle) fiyat çapalaması ve iyzico/Shopier doğrudan geçiş.
+ */
+
+import { getCollection, render } from 'astro:content';
+import { generateProductSchema } from '../../content.config';
+
+export async function getStaticPaths() {
+  const urunler = await getCollection('urunler');
+  return urunler.map((urun) => ({
+    params: { slug: urun.data.slug || urun.id },
+    props: { urun },
+  }));
+}
+
+const { urun } = Astro.props;
+const d = urun.data;
+const { Content } = await render(urun);
+
+const slug = d.slug || urun.id;
+const canonicalUrl = `https://excelarsiv.com/urun/${slug}`;
+const markdownTwinUrl = `${canonicalUrl}.md`;
+const categoryUrl = 'https://excelarsiv.com/yerel-erp-crm-moduller';
+const bundleUrl = `https://excelarsiv.com/urun/${d.bundleSlug}`;
+
+// Birleşik SoftwareApplication + Product + FAQPage + BreadcrumbList JSON-LD (@graph)
+const baseSchema = generateProductSchema({
+  ...d,
+  slug,
+});
+
+const fullJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    ...baseSchema['@graph'],
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${canonicalUrl}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: 'https://excelarsiv.com/' },
+        { '@type': 'ListItem', position: 2, name: d.categoryName, item: categoryUrl },
+        { '@type': 'ListItem', position: 3, name: d.seoTitle, item: canonicalUrl },
+      ],
+    },
+  ],
+};
+
+// Tekil vs Tam Paket tasarruf hesabı
+const isBundleItself = slug === d.bundleSlug;
+const singleCheckoutUrl = `/api/checkout?sku=${encodeURIComponent(d.id)}&slug=${encodeURIComponent(slug)}&tier=single`;
+const bundleCheckoutUrl = `/api/checkout?sku=erp-crm-010&slug=${encodeURIComponent(d.bundleSlug)}&tier=bundle&ref=${encodeURIComponent(slug)}`;
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{d.seoTitle} | ExcelArsiv.com</title>
+    <meta name="description" content={d.seoDescription} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- llmstxt.org v2 Otomatik Keşif ve Saf Markdown (.md) İkiz Bağlantıları -->
+    <link rel="describedby" href="https://excelarsiv.com/llms.txt" type="text/markdown" title="ExcelArsiv.com AI Index" />
+    <link rel="alternate" type="text/markdown" href={markdownTwinUrl} title={`${d.seoTitle} (AI Markdown)`} />
+
+    <!-- Open Graph / Kurumsal Paylaşım -->
+    <meta property="og:type" content="product" />
+    <meta property="og:title" content={d.seoTitle} />
+    <meta property="og:description" content={d.seoDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="product:price:amount" content={d.price.toFixed(2)} />
+    <meta property="product:price:currency" content={d.currency} />
+
+    <!-- Birleşik JSON-LD (@graph: SoftwareApplication + Product + FAQPage + BreadcrumbList) -->
+    <script type="application/ld+json" set:html={JSON.stringify(fullJsonLd)} />
+
+    <!-- 14KB İlk TCP Bütçesi Dostu Kritik Inline CSS (Sıfır Harici Bloklama, System UI Font Stack) -->
+    <style>
+      :root {
+        --bg: #f8fafc;
+        --surface: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --border: #e2e8f0;
+        --brand: #107c41; /* Kurumsal Excel Yeşili */
+        --brand-dark: #0b5c30;
+        --brand-light: #ecfdf5;
+        --accent: #0284c7;
+        --amber: #d97706;
+        --radius: 10px;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: var(--brand); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .wrap { max-width: 1160px; margin: 0 auto; padding: 0 1.25rem; }
+
+      /* Üst Bilgi ve Gezinti (Header & Breadcrumb) */
+      .topbar {
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        padding: 0.85rem 0;
+        font-size: 0.9rem;
+      }
+      .topbar-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+      .brand-logo { font-weight: 800; font-size: 1.15rem; color: var(--brand); letter-spacing: -0.02em; }
+      .trust-pill {
+        background: var(--brand-light);
+        color: var(--brand-dark);
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.8rem;
+      }
+      .breadcrumb { padding: 0.85rem 0; font-size: 0.85rem; color: var(--muted); }
+      .breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+      .breadcrumb li+li::before { content: "/"; margin-right: 0.4rem; color: #94a3b8; }
+
+      /* Ana Grid (Sol: Ürün Detay, Sağ: Yapışkan Satın Alma Kutusu) */
+      .product-grid {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 2rem;
+        align-items: start;
+        padding: 0.5rem 0 3rem;
+      }
+      @media (max-width: 920px) {
+        .product-grid { grid-template-columns: 1fr; }
+      }
+
+      /* Hero & Başlık Katmanı */
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        margin-bottom: 1.25rem;
+      }
+      .badge-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; font-size: 0.8rem; }
+      .badge {
+        background: #f1f5f9;
+        color: var(--text);
+        padding: 0.2rem 0.6rem;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+      .badge-rating { background: #fef3c7; color: #92400e; }
+      h1 { font-size: clamp(1.45rem, 2.5vw, 1.95rem); line-height: 1.25; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+      .summary { font-size: 1.05rem; color: var(--muted); margin-bottom: 1.25rem; }
+
+      /* Teknik Uyumluluk Şeridi */
+      .spec-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 0.75rem;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.9rem;
+        font-size: 0.85rem;
+      }
+      .spec-item strong { display: block; color: var(--text); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+
+      /* Bölüm Başlıkları ve Listeler */
+      h2 { font-size: 1.25rem; margin: 0 0 0.9rem; color: var(--text); letter-spacing: -0.01em; }
+      .feature-list, .prompt-list { list-style: none; display: grid; gap: 0.6rem; }
+      .feature-list li, .prompt-list li {
+        position: relative;
+        padding-left: 1.5rem;
+        font-size: 0.95rem;
+      }
+      .feature-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--brand);
+        font-weight: 800;
+      }
+      .prompt-list li::before {
+        content: "💬";
+        position: absolute;
+        left: 0;
+        font-size: 0.85rem;
+      }
+
+      /* Rakip / Yazılım Karşılaştırma Tablosu */
+      .cmp-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 0.5rem; }
+      .cmp-table th, .cmp-table td { border: 1px solid var(--border); padding: 0.65rem 0.75rem; text-align: left; }
+      .cmp-table th { background: #f1f5f9; font-weight: 700; }
+      .cmp-win { background: var(--brand-light); font-weight: 700; color: var(--brand-dark); }
+
+      /* Sıfır JS Native HTML5 <details> SSS Akordeon */
+      details {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.85rem 1rem;
+        margin-bottom: 0.6rem;
+        background: #fcfcfd;
+      }
+      details[open] { background: var(--surface); border-color: #cbd5e1; }
+      summary { cursor: pointer; font-weight: 700; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+      summary::-webkit-details-marker { display: none; }
+      summary::after { content: "+"; font-weight: 800; color: var(--brand); font-size: 1.1rem; }
+      details[open] summary::after { content: "−"; }
+      details p { margin-top: 0.65rem; font-size: 0.92rem; color: var(--muted); }
+
+      /* Arama Etiketleri (Long-Tail SEO Kümesi) */
+      .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+      .tag {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.76rem;
+        background: #f1f5f9;
+        color: var(--muted);
+        padding: 0.25rem 0.55rem;
+        border-radius: 4px;
+      }
+
+      /* Sağ Sütun: Sıfır JS CSS :has() Destekli Satın Alma & Fiyat Çapalama Kutusu */
+      .buy-box {
+        position: sticky;
+        top: 1.25rem;
+        background: var(--surface);
+        border: 2px solid var(--brand);
+        border-radius: var(--radius);
+        padding: 1.35rem;
+        box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+      }
+      .tier-option {
+        display: block;
+        border: 2px solid var(--border);
+        border-radius: 8px;
+        padding: 0.9rem;
+        margin-bottom: 0.75rem;
+        cursor: pointer;
+        transition: border-color 0.15s, background 0.15s;
+      }
+      .tier-option:has(input:checked) {
+        border-color: var(--brand);
+        background: var(--brand-light);
+      }
+      .tier-head { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 0.95rem; }
+      .tier-price { font-size: 1.25rem; font-weight: 800; color: var(--brand-dark); }
+      .tier-desc { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
+      .tier-pop {
+        display: inline-block;
+        background: var(--amber);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 800;
+        padding: 0.12rem 0.45rem;
+        border-radius: 4px;
+        text-transform: uppercase;
+        margin-bottom: 0.35rem;
+      }
+
+      /* CSS :has() ile Seçilen Pakete Göre İlgili CTA Butonunu Gösterme (0 KB JS) */
+      .cta-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background: var(--brand);
+        color: #fff;
+        font-weight: 800;
+        font-size: 1.02rem;
+        padding: 0.9rem 1rem;
+        border-radius: 8px;
+        margin-top: 0.9rem;
+        text-decoration: none;
+      }
+      .cta-btn:hover { background: var(--brand-dark); text-decoration: none; }
+      .cta-bundle { display: none; }
+      .buy-box:has(#tier-bundle:checked) .cta-single { display: none; }
+      .buy-box:has(#tier-bundle:checked) .cta-bundle { display: block; }
+
+      .guarantee-list { list-style: none; margin-top: 1rem; font-size: 0.8rem; color: var(--muted); display: grid; gap: 0.4rem; }
+      .prose { font-size: 0.95rem; color: var(--text); }
+      .prose h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    </style>
+  </head>
+
+  <body>
+    <!-- Üst Kurumsal Güven Şeridi -->
+    <header class="topbar">
+      <div class="wrap topbar-inner">
+        <a href="https://excelarsiv.com/" class="brand-logo">ExcelArsiv.com</a>
+        <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+          <span class="trust-pill">⚡ 0 Sn Anında İndirme (Google Cloud)</span>
+          <span class="trust-pill">🧾 Resmi e-Fatura (iyzico & Shopier 3D)</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- Semantik Breadcrumb -->
+      <nav aria-label="Sayfa konumu" class="breadcrumb">
+        <ol>
+          <li><a href="https://excelarsiv.com/">Ana Sayfa</a></li>
+          <li><a href={categoryUrl}>{d.categoryName}</a></li>
+          <li aria-current="page">{d.seoTitle}</li>
+        </ol>
+      </nav>
+
+      <div class="product-grid">
+        <!-- SOL SÜTUN: Ürün Detayları, Karşılaştırma ve 100 Arama Niyeti Karşılıkları -->
+        <article>
+          <section class="card">
+            <div class="badge-row">
+              <span class="badge badge-rating">★ {d.ratingValue.toFixed(1)} / 5.0 ({d.reviewCount} Kurumsal Değerlendirme)</span>
+              <span class="badge">{d.categoryName}</span>
+              <span class="badge">{d.vbaRequired ? 'VBA Makro Destekli' : 'Saf Formül (Windows & Mac %100 Uyumlu)'}</span>
+            </div>
+
+            <h1>{d.title}</h1>
+            <p class="summary">{d.summary}</p>
+
+            <div class="spec-grid">
+              <div class="spec-item">
+                <strong>Çalışma Ortamı</strong>
+                <span>{d.operatingSystems}</span>
+              </div>
+              <div class="spec-item">
+                <strong>Formül & Karar Motoru</strong>
+                <span>{d.formulaEngine.slice(0, 3).join(', ')}</span>
+              </div>
+              <div class="spec-item">
+                <strong>Lisans & Teslimat</strong>
+                <span>Ömür Boyu Lisans / Anında Token</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Modüller ve Teknik Özellikler -->
+          <section class="card" aria-labelledby="ozellikler-baslik">
+            <h2 id="ozellikler-baslik">Bu Karar Sisteminde Yer Alan Hazır Modüller</h2>
+            <ul class="feature-list">
+              {d.features.map((feat: string) => <li>{feat}</li>)}
+            </ul>
+          </section>
+
+          <!-- Doğrudan Çözdüğü İş Krizleri (Kullanıcıların Sorduğu Doğal Sorular) -->
+          <section class="card" aria-labelledby="problemler-baslik">
+            <h2 id="problemler-baslik">Hangi İş Problemlerini ve İhtiyaçlarını Doğrudan Çözer?</h2>
+            <ul class="prompt-list">
+              {d.naturalPrompts.map((prompt: string) => <li>“{prompt}”</li>)}
+            </ul>
+          </section>
+
+          <!-- Fiyat ve Mimari Çapalama Tablosu (Rakibi ve Aylık SaaS Yazılımları Ezen Tablo) -->
+          <section class="card" aria-labelledby="karsilastirma-baslik">
+            <h2 id="karsilastirma-baslik">Neden Aylık Yazılım Aboneliği veya Eski Forum Dosyaları Değil?</h2>
+            <table class="cmp-table">
+              <thead>
+                <tr>
+                  <th>Kriter</th>
+                  <th class="cmp-win">ExcelArsiv.com Karar Sistemi</th>
+                  <th>Aylık ERP/CRM Yazılımları</th>
+                  <th>Eski Nesil Dosya/Forum Siteleri</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Maliyet Modeli</strong></td>
+                  <td class="cmp-win">Tek Seferlik Ödeme ({d.price} TL) - Ömür Boyu</td>
+                  <td>Her Yıl 15.000 TL+ Zorunlu Abonelik</td>
+                  <td>Dağınık / Manuel EFT Bildirimli</td>
+                </tr>
+                <tr>
+                  <td><strong>Teslimat Hızı</strong></td>
+                  <td class="cmp-win">0 Saniye (Google Cloud Şifreli Token)</td>
+                  <td>Günler Süren Kurulum ve Eğitim</td>
+                  <td>Havale/EFT Onayı Bekleme</td>
+                </tr>
+                <tr>
+                  <td><strong>Mac & Bulut Uyumu</strong></td>
+                  <td class="cmp-win">Windows, Mac (macOS) ve Excel 365 Tam Uyum</td>
+                  <td>Sadece Tarayıcı (İnternet Şart)</td>
+                  <td>Eski Windows VBA (Mac'te Bozulur)</td>
+                </tr>
+                <tr>
+                  <td><strong>Veri Gizliliği</strong></td>
+                  <td class="cmp-win">%100 Kendi Bilgisayarınızda / Bulutunuzda</td>
+                  <td>Üçüncü Parti Sunucularda</td>
+                  <td>Belirsiz / Şifreli Makrolar</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!-- Markdown Gövde İçeriği -->
+          <section class="card prose">
+            <Content />
+          </section>
+
+          <!-- Sıfır JS Native HTML5 <details> Sıkça Sorulan Sorular -->
+          <section class="card" aria-labelledby="sss-baslik">
+            <h2 id="sss-baslik">Sıkça Sorulan Sorular (SSS)</h2>
+            {d.faqs.map((faq: { question: string; answer: string }, idx: number) => (
+              <details open={idx === 0}>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </section>
+
+          <!-- Kapsanan Arama Terimleri ve AI Markdown İkiz Linki -->
+          <section class="card" aria-labelledby="etiketler-baslik">
+            <h2 id="etiketler-baslik">İlgili Kurumsal Arama Terimleri (Arama Niyeti #{d.queryNumbers.join(', #')})</h2>
+            <div class="tag-cloud">
+              {d.targetQueries.map((q: string) => <span class="tag">{q}</span>)}
+            </div>
+            <p style="margin-top:0.85rem;font-size:0.8rem;color:var(--muted);">
+              🤖 Yapay zeka ajanları ve LLM botları bu sayfanın saf Markdown ikizine şuradan erişebilir:
+              <a href={markdownTwinUrl}>{markdownTwinUrl}</a>
+            </p>
+          </section>
+        </article>
+
+        <!-- SAĞ SÜTUN: Sıfır JS (CSS :has) Satın Alma ve Paket Çapalama Kutusu -->
+        <aside class="buy-box" aria-label="Lisans Seçimi ve Hemen Satın Alma">
+          <div style="font-size:0.8rem;font-weight:700;color:var(--brand-dark);margin-bottom:0.65rem;">
+            🔒 BDDK Lisanslı iyzico & Shopier 3D Secure Güvencesi
+          </div>
+
+          {!isBundleItself ? (
+            <>
+              <!-- Seçenek 1: Tekil Karar Sistemi -->
+              <label class="tier-option" for="tier-single">
+                <div class="tier-head">
+                  <span>
+                    <input type="radio" name="license_tier" id="tier-single" value="single" />
+                    {' '}Tekil Karar Sistemi Lisansı
+                  </span>
+                  <span class="tier-price">{d.price} TL</span>
+                </div>
+                <p class="tier-desc">Sadece <strong>{d.seoTitle}</strong> dosyasını ve ömür boyu kurumsal kullanım hakkını içerir.</p>
+              </label>
+
+              <!-- Seçenek 2: Kurumsal ERP & CRM Tam Paket (Varsayılan Seçili - Sepet Büyütücü) -->
+              <label class="tier-option" for="tier-bundle">
+                <span class="tier-pop">★ En Çok Tercih Edilen (%65 Fiyat Avantajı)</span>
+                <div class="tier-head">
+                  <span>
+                    <input type="radio" name="license_tier" id="tier-bundle" value="bundle" checked />
+                    {' '}Kurumsal ERP & CRM Tam Paket
+                  </span>
+                  <span class="tier-price">{d.bundlePrice} TL</span>
+                </div>
+                <p class="tier-desc">
+                  Bu şablon dahil <strong>tüm 5 departmanın (CRM/Satış + Ön Muhasebe + Stok/Üretim + İK/Puantaj + E-Ticaret)</strong> tamamına tek seferde ömür boyu sahip olun.
+                </p>
+              </label>
+
+              <!-- CSS :has() ile Otomatik Değişen Satın Alma Butonları -->
+              <a href={singleCheckoutUrl} class="cta-btn cta-single" rel="nofollow">
+                Tekil Lisansı Hemen İndir ({d.price} TL) →
+              </a>
+              <a href={bundleCheckoutUrl} class="cta-btn cta-bundle" rel="nofollow">
+                Tam Paketi Hemen İndir ({d.bundlePrice} TL) →
+              </a>
+            </>
+          ) : (
+            <>
+              <div class="tier-option" style="border-color:var(--brand);background:var(--brand-light);">
+                <span class="tier-pop">★ Amiral Gemisi Kurumsal Tam Set</span>
+                <div class="tier-head">
+                  <span>Tüm 5 Departman Tam Paket</span>
+                  <span class="tier-price">{d.price} TL</span>
+                </div>
+                <p class="tier-desc">Şirketinizin tüm departmanları için 10 çekirdek ERP & CRM karar sisteminin tamamı tek ZIP paketinde.</p>
+              </div>
+              <a href={singleCheckoutUrl} class="cta-btn" rel="nofollow">
+                Tam Paketi Hemen Satın Al & İndir ({d.price} TL) →
+              </a>
+            </>
+          )}
+
+          <ul class="guarantee-list">
+            <li>⚡ <strong>Anında Teslimat:</strong> Ödeme sonrası Google Cloud Storage şifreli tek kullanımlık token ile saniyesinde indirilir.</li>
+            <li>🧾 <strong>Resmi Kurumsal e-Fatura:</strong> KDV dahil faturanız otomatik kesilir, şirketinize doğrudan gider yazabilirsiniz.</li>
+            <li>♾️ <strong>Sıfır Abonelik:</strong> Aylık veya yıllık yenileme ücreti yoktur; şirket içi sınırsız süreyle kullanılır.</li>
+            <li>💻 <strong>Tam Uyumluluk:</strong> Windows, Mac (macOS), Excel 365 ve Google Sheets üzerinde hatasız çalışır.</li>
+          </ul>
+
+          {!isBundleItself && (
+            <p style="margin-top:0.85rem;font-size:0.78rem;text-align:center;">
+              <a href={bundleUrl}>Tam Paketin İçindeki Tüm 10 Sistemi İncele →</a>
+            </p>
+          )}
+        </aside>
+      </div>
+    </main>
+
+    <footer style="margin-top:3rem;background:#ffffff;border-top:1px solid #e2e8f0;padding:2rem 1rem 3rem;font-size:0.85rem;color:#64748b;">
+      <div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem;align-items:center;">
+        <div>
+          <strong style="color:#0f172a;">ExcelArsiv.com</strong> — Kurumsal Excel ERP, CRM & Karar Sistemleri Platformu
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+          <a href="/" style="color:#2563eb;text-decoration:none;">Ana Sayfa</a>
+          <a href="/yerel-erp-crm-moduller" style="color:#2563eb;text-decoration:none;">Yerel ERP & CRM Modülleri</a>
+          <a href="/sablonlar" style="color:#2563eb;text-decoration:none;">Tüm Şablonlar</a>
+          <a href="/urun/kurumsal-erp-crm-tam-paket" style="color:#2563eb;text-decoration:none;">Kurumsal ERP & CRM Tam Paket</a>
+          <a href="/llms.txt" style="color:#64748b;text-decoration:none;">/llms.txt</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
