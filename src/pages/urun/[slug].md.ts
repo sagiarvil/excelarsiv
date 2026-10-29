@@ -4,7 +4,7 @@
  * 
  * Bu endpoint, llmstxt.org v2 standardına uygun olarak her ürünün /urun/[slug].md
  * saf Markdown (.md) ikizini derleme (build) anında sıfır JS yüküyle üretir.
- * Örnek çıktı URL: https://excelarsiv.com/urun/cari-hesap-borc-alacak-yaslandirma-excel.md
+ * Örnek çıktı URL: https://excelarsiv.com/urun/crm-musteri-satis-pipeline-excel.md
  */
 
 import type { APIRoute, GetStaticPaths } from 'astro';
@@ -12,36 +12,70 @@ import { getCollection } from 'astro:content';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const templates = await getCollection('templates');
-  return templates.map((template) => ({
+  const urunler = await getCollection('urunler');
+
+  const templatePaths = templates.map((template) => ({
     params: { slug: template.id },
-    props: { template },
+    props: { item: template, isUrun: false },
   }));
+
+  const urunPaths = urunler.map((urun) => ({
+    params: { slug: urun.data.slug || urun.id },
+    props: { item: urun, isUrun: true },
+  }));
+
+  return [...templatePaths, ...urunPaths];
 };
 
 export const GET: APIRoute = async ({ props }) => {
-  const { template } = props;
-  const t = template.data;
+  const { item, isUrun } = props;
 
-  const title = t.name;
-  const summary = t.summary;
-  const price = t.priceTL;
-  const bundlePrice = 999;
-  const category = t.category;
-  const operatingSystems = t.macCompatible
-    ? 'Windows ve macOS (Microsoft Excel 365, 2016-2024 ve Google Sheets)'
-    : 'Windows (Microsoft Excel 2016-2024, Microsoft 365)';
+  let title = '';
+  let summary = '';
+  let price = 499;
+  let bundlePrice = 999;
+  let category = '';
+  let operatingSystems = 'Windows ve macOS (Microsoft Excel 365, 2016-2024 ve Google Sheets)';
+  let canonicalUrl = '';
+  let twinUrl = '';
+  let features: string[] = [];
+  let suitable: string[] = [];
+  let faqs: { question: string; answer: string }[] = [];
 
-  const canonicalUrl = `https://excelarsiv.com/sablon/${template.id}`;
-  const twinUrl = `https://excelarsiv.com/urun/${template.id}.md`;
-
-  const features = [
-    ...(t.sheetMap ? t.sheetMap.map((s: { name: string; purpose: string }) => `${s.name}: ${s.purpose}`) : []),
-    ...(t.inputs ? t.inputs.map((inp: string) => `Girdi Modülü: ${inp}`) : []),
-    ...(t.outputs ? t.outputs.map((out: string) => `Rapor & Karar Çıktısı: ${out}`) : []),
-  ];
-
-  const suitable = t.suitableFor || [];
-  const faqs = t.faq || [];
+  if (isUrun) {
+    const d = item.data;
+    const slug = d.slug || item.id;
+    title = d.title;
+    summary = d.summary;
+    price = d.price;
+    bundlePrice = d.bundlePrice;
+    category = d.categoryName;
+    operatingSystems = d.operatingSystems || operatingSystems;
+    canonicalUrl = `https://excelarsiv.com/urun/${slug}`;
+    twinUrl = `${canonicalUrl}.md`;
+    features = d.features || [];
+    suitable = d.naturalPrompts || [];
+    faqs = d.faqs || [];
+  } else {
+    const t = item.data;
+    title = t.name;
+    summary = t.summary;
+    price = t.priceTL;
+    bundlePrice = 999;
+    category = t.category;
+    operatingSystems = t.macCompatible
+      ? 'Windows ve macOS (Microsoft Excel 365, 2016-2024 ve Google Sheets)'
+      : 'Windows (Microsoft Excel 2016-2024, Microsoft 365)';
+    canonicalUrl = `https://excelarsiv.com/sablon/${item.id}`;
+    twinUrl = `https://excelarsiv.com/urun/${item.id}.md`;
+    features = [
+      ...(t.sheetMap ? t.sheetMap.map((s: { name: string; purpose: string }) => `${s.name}: ${s.purpose}`) : []),
+      ...(t.inputs ? t.inputs.map((inp: string) => `Girdi Modülü: ${inp}`) : []),
+      ...(t.outputs ? t.outputs.map((out: string) => `Rapor & Karar Çıktısı: ${out}`) : []),
+    ];
+    suitable = t.suitableFor || [];
+    faqs = t.faq || [];
+  }
 
   const markdownBody = `# ${title}
 
@@ -53,7 +87,7 @@ export const GET: APIRoute = async ({ props }) => {
 - **Tekil Lisans Fiyatı:** ${price} TL (KDV Dahil, Tek Seferlik Ödeme - Ömür Boyu Kurumsal Kullanım)
 - **Kurumsal Tam Paket Avantajı:** ${bundlePrice} TL (Tüm ERP & CRM Karar Sistemleri Dahil)
 - **Uyumlu Sistemler:** ${operatingSystems}
-- **Dosya Formatı:** .${t.fileFormat || 'xlsx'} (Sıfır Makro Riski, %100 Açık Formül Güvencesi)
+- **Dosya Formatı:** .xlsx (Sıfır Makro Riski, %100 Açık Formül Güvencesi)
 - **Ödeme ve Teslimat Altyapısı:** BDDK/TCMB lisanslı iyzico & Shopier 3D Secure ödeme, resmi kurumsal e-Fatura/e-Arşiv ve Google Cloud Storage üzerinden tek kullanımlık şifreli token ile saniyeler içinde anında teslimat.
 
 ## Bu Karar Sisteminin Çözdüğü Temel İş Problemleri ve Arama Niyetleri
