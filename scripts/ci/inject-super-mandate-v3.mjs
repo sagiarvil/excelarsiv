@@ -74,10 +74,12 @@ for (const filePath of htmlFiles) {
       modified = true;
     }
     if (!content.includes('data-ai-citation-anchor')) {
+      content = content.replace('class="hero-copy"', 'class="hero-copy hero-answer-engine" data-ai-citation-anchor="true"');
       content = content.replace('class="as-aeo-hero-window"', 'class="as-aeo-hero-window hero-answer-engine mobile-thumb-safe" data-ai-citation-anchor="true"');
       modified = true;
     }
     if (!content.includes('hero-answer')) {
+      content = content.replace('<h1>İşiniz ilerlesin.<span>Tablonuz hazır.</span></h1><p>', '<h1>İşiniz ilerlesin.<span>Tablonuz hazır.</span></h1><p class="hero-answer">');
       content = content.replace('class="hero-mobile-copy__summary"', 'class="hero-mobile-copy__summary hero-answer"');
       modified = true;
     }
