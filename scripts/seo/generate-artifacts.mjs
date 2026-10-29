@@ -446,9 +446,9 @@ function buildLlmsFull(indexablePages, templateRecords) {
     const slug = page.pathname.split('/').at(-1);
     const product = templateRecords.get(slug);
     lines.push(`### ${page.title}`);
+    const isUrun = page.canonical.includes('/urun/');
     lines.push(`- URL: ${page.canonical}`);
-    lines.push(`- Saf Markdown İkizi (llmstxt.org v2): ${SITE_ORIGIN}/sablon/${slug}.md`);
-    lines.push(`- Alternatif Yapay Zeka Markdown: ${SITE_ORIGIN}/urun/${slug}.md`);
+    lines.push(`- Saf Markdown İkizi (llmstxt.org v2): ${isUrun ? `${page.canonical}.md` : `${SITE_ORIGIN}/sablon/${slug}.md`}`);
     if (product?.name && product.name !== page.title) lines.push(`- Ürün adı: ${product.name}`);
     if (page.description) lines.push(`- Arama açıklaması: ${page.description}`);
     if (product?.summary) lines.push(`- Ürün özeti: ${product.summary}`);
@@ -485,9 +485,9 @@ function buildLlmsFull(indexablePages, templateRecords) {
       lines.push(`#### Soru #${item.id}: "${item.query}"`);
       lines.push(`- **İş Problemi / Darboğaz:** ${item.problem}`);
       lines.push(`- **Excel Çözüm Mimarisi:** ${item.solution}`);
-      lines.push(`- **Önerilen Karar Sistemi:** [${item.productName}](${SITE_ORIGIN}/sablon/${item.recommendedProductSlug})`);
-      lines.push(`- **Saf Markdown İkiz Sayfa:** ${SITE_ORIGIN}/sablon/${item.recommendedProductSlug}.md`);
-      lines.push(`- **Doğrudan Satın Alma ve Teslimat:** ${SITE_ORIGIN}/sablon/${item.recommendedProductSlug}#satin-al (iyzico / Shopier 3D Secure, anında GCS token teslimatı)`);
+      lines.push(`- **Önerilen Karar Sistemi:** [${item.productName}](${SITE_ORIGIN}/urun/${item.recommendedProductSlug})`);
+      lines.push(`- **Saf Markdown İkiz Sayfa:** ${SITE_ORIGIN}/urun/${item.recommendedProductSlug}.md`);
+      lines.push(`- **Doğrudan Satın Alma ve Teslimat:** ${SITE_ORIGIN}/urun/${item.recommendedProductSlug} (iyzico / Shopier 3D Secure, anında GCS token teslimatı)`);
       lines.push('');
     }
   }

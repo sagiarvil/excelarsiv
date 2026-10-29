@@ -22,7 +22,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel müşteri takip programı ücretsiz indir',
     problem: 'Müşteri görüşmelerinin, tekliflerin ve satış fırsatlarının unutulması, dağınık notlar nedeniyle müşteri kaybı.',
     solution: 'Aday müşteri (lead) durumları, görüşme tarihçesi, hatırlatma takvimi ve satış hunisi (pipeline) içeren kurumsal Excel CRM tablosu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'crm-musteri-satis-pipeline-excel',
     productName: 'KOBİ Müşteri Takip ve Satış Pipeline (CRM) Excel Sistemi',
   },
   {
@@ -31,7 +31,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel satış hunisi pipeline şablonu',
     problem: 'Fırsatların hangi aşamada (Teklif, Müzakere, Kazanıldı, Kaybedildi) tıkandığının görülememesi.',
     solution: 'Dinamik Kanban görünümü, kapanma olasılığı ve ağırlıklı ciro projeksiyonu hesaplayan satış hunisi modeli.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'crm-musteri-satis-pipeline-excel',
     productName: 'Dinamik Satış Hunisi ve Fırsat Pipeline Matrisi',
   },
   {
@@ -40,7 +40,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel teklif hazırlama ve takip tablosu dövizli',
     problem: 'Dolar/Euro dalgalanmalarında teklif kârlılığının erimesi ve revize tekliflerin karışması.',
     solution: 'Otomatik TCMB kur çekimli, çoklu dövizli proforma ve resmi teklif şablonu, otomatik iskonto ve KDV matrahı.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'crm-musteri-satis-pipeline-excel',
     productName: 'Çok Dövizli Kurumsal Teklif ve Proforma Sistemi',
   },
   {
@@ -49,7 +49,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel satışçı prim ve kota takip programı',
     problem: 'Satış temsilcilerinin kademeli kota hedeflerinin, tahsilat bazlı primlerinin manuel hesaplanırken hata yapılması.',
     solution: 'Ciro veya kârlılık baremlerine göre dinamik prim katsayıları hesaplayan satış temsilcisi performans modeli.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'satis-yonetim-teklif-prim-dashboard-excel',
     productName: 'Satış Ekibi Kota, Prim ve Performans Değerleme Tablosu',
   },
   {
@@ -58,7 +58,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Müşteri kayıp oranı churn rate Excel formülü',
     problem: 'Hangi müşterilerin siparişi kestiğini veya sipariş sıklığının düştüğünü zamanında fark edememek.',
     solution: 'Son sipariş tarihi ve sıklığı üzerinden otomatik RFM skorlaması yapan müşteri sadakat ve churn takip modeli.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'satis-yonetim-teklif-prim-dashboard-excel',
     productName: 'RFM Analizi ve Müşteri Yaşam Boyu Değeri (LTV) Hesaplayıcı',
   },
   {
@@ -67,7 +67,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel müşteri kartı ve cari adres veritabanı',
     problem: 'Müşteri yetkilisi, telefon, e-posta ve vergi kimlik bilgilerinin kurumsal hafızada saklanamaması.',
     solution: 'Veri doğrulama kurallı, mükerrer kayıt engelleyen kurumsal müşteri bilgi bankası ve hızlı filtreleme konsolu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'crm-musteri-satis-pipeline-excel',
     productName: 'Merkezi Müşteri Rehberi ve Kurumsal İletişim Veritabanı',
   },
   {
@@ -76,7 +76,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'B2B toptan satış sipariş takip Excel',
     problem: 'Alınan toptan siparişlerin üretim/depo aşamaları ile sevkiyat durumunun takip edilememesi.',
     solution: 'Sipariş onayı, üretim durumu, kısmi sevk ve faturalama durumunu renkli KPI göstergeleriyle takip eden model.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'satis-yonetim-teklif-prim-dashboard-excel',
     productName: 'B2B Sipariş Karşılama ve Sevkiyat Takip Sistemi',
   },
   {
@@ -85,7 +85,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel sözleşme yenileme ve taahhüt takip tablosu',
     problem: 'Müşteri hizmet ve bakım sözleşmelerinin bitiş tarihlerinin kaçırılması ve gelir kaybı.',
     solution: 'Bitiş tarihine 30/60 gün kala otomatik renkli uyarı veren ve yıllık yenileme cirosunu hesaplayan sözleşme takip modeli.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'crm-musteri-satis-pipeline-excel',
     productName: 'Sözleşme Bitiş ve Periyodik Yenileme Takip Tablosu',
   },
   {
@@ -94,7 +94,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Müşteri şikayet ve destek talep takip Excel',
     problem: 'Müşterilerden gelen arıza veya iade taleplerinin çözülme sürelerinin uzaması ve memnuniyetsizlik.',
     solution: 'İlk temas, çözüm süresi (SLA) ve departman bazlı çözülme oranlarını ölçen müşteri destek takip matrisi.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'satis-yonetim-teklif-prim-dashboard-excel',
     productName: 'Müşteri Destek Talepleri ve SLA Çözüm Takip Sistemi',
   },
   {
@@ -103,7 +103,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel satış tahmini forecasting tablosu',
     problem: 'Gelecek ayların nakit ve hammadde planlaması için güvenilir satış projeksiyonunun yapılamaması.',
     solution: 'Mevsimsellik endeksi ve geçmiş trend analizine dayalı ağırlıklı satış tahmin modeli.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'satis-yonetim-teklif-prim-dashboard-excel',
     productName: '12 Aylık Dinamik Satış Tahmin ve Trend Modeli',
   },
   {
@@ -112,7 +112,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Bölge bazlı satış dağılımı Excel raporu',
     problem: 'Hangi coğrafi bölgenin kârlı, hangi bölgenin satış kotasının gerisinde kaldığının tespit edilememesi.',
     solution: 'İl ve bölge bazında ciro, kâr marjı ve pazar payı dağılımını gösteren interaktif dashboard.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'satis-yonetim-teklif-prim-dashboard-excel',
     productName: 'Coğrafi Satış Dağılımı ve Bölge Performans Analizi',
   },
   {
@@ -121,7 +121,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel bayi ve distribütör kota takip sistemi',
     problem: 'Bayilerin yıllık taahhüt alımlarının ve prim hakedişlerinin şeffaf hesaplanamaması.',
     solution: 'Aylık taahhüt gerçekleşme oranları, iskonto baremleri ve yıl sonu ciro primi hesaplama motoru.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'crm-musteri-satis-pipeline-excel',
     productName: 'Bayi Ağı Ciro Gerçekleşme ve İskonto Yönetim Konsolu',
   },
   {
@@ -130,7 +130,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Çoklu ürün fiyat listesi iskonto matrisi Excel',
     problem: 'Farklı müşteri segmentlerine (Toptan, Bayi, Perakende) farklı iskonto uygularken fiyat hatası yapılması.',
     solution: 'Müşteri grubuna göre otomatik liste fiyatı ve net fiyat türeten dinamik iskonto matrisi.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'crm-musteri-satis-pipeline-excel',
     productName: 'Kademeli Fiyat Listesi ve Segment Bazlı İskonto Matrisi',
   },
   {
@@ -139,7 +139,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Satış görüşmesi arama ve ziyaret log Excel',
     problem: 'Satışçıların sahada hangi müşteriyi ne zaman ziyaret ettiğinin ve görüşme sonucunun denetlenememesi.',
     solution: 'Ziyaret tarihi, görüşülen yetkili, sonraki aksiyon adımı ve teklif durumunu kaydeden aktivite günlüğü.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'crm-musteri-satis-pipeline-excel',
     productName: 'Saha Satış Ziyaret ve Müşteri Görüşme Log Defteri',
   },
   {
@@ -148,7 +148,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel çapraz satış ve ek satış (cross-sell) analizi',
     problem: 'Mevcut müşterilere hangi tamamlayıcı ürünlerin satılabileceğinin analiz edilememesi.',
     solution: 'Birlikte satın alma sepet analizine göre potansiyel çapraz satış fırsatlarını listeleyen algoritma tablosu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'crm-musteri-satis-pipeline-excel',
     productName: 'Müşteri Sepet Analizi ve Çapraz Satış Matrisi',
   },
   {
@@ -157,7 +157,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Kaybedilen satış analiz tablosu Excel',
     problem: 'Kaybedilen tekliflerin neden kaybedildiğinin (Yüksek Fiyat, Rakip, Teslimat Süresi) takip edilmemesi.',
     solution: 'Kayıp nedenlerini kategorize eden, rakip fiyat kıyaslaması yapan ve satış iyileştirme raporu üreten tablo.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'satis-yonetim-teklif-prim-dashboard-excel',
     productName: 'Kayıp Satış Fırsatları ve Rakip Analiz Raporu',
   },
   {
@@ -166,7 +166,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel fuar potansiyel müşteri toplama tablosu',
     problem: 'Ticari fuarlarda toplanan kartvizitlerin ve taleplerin sisteme girilmemesi ve unutulması.',
     solution: 'Stand ziyareti sırasında tablet veya laptoptan hızlı veri girişi sağlayan öncelikli lead matrisi.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'crm-musteri-satis-pipeline-excel',
     productName: 'Etkinlik ve Fuar Lead Toplama Hızlı Giriş Şablonu',
   },
   {
@@ -175,7 +175,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Müşteri kârlılık analizi ABC yöntemi Excel',
     problem: 'Cirosu yüksek olan fakat operasyonel maliyeti nedeniyle şirkete zarar ettiren müşterilerin tespit edilememesi.',
     solution: 'Pareto (80/20) kuralına göre müşterileri net kârlılık katkısına göre A, B, C olarak sınıflandıran model.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'crm-musteri-satis-pipeline-excel',
     productName: 'Müşteri Bazlı ABC Kârlılık ve Maliyet Katkı Analizi',
   },
   {
@@ -184,7 +184,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel proforma fatura oluşturma şablonu otomatik',
     problem: 'Yurtdışı veya kurumsal siparişlerde hızlı ve hatasız proforma fatura düzenleyememek.',
     solution: 'KDV istisnası, GTIP kodu, teslim şekli (Incoterms) ve banka IBAN bilgilerini otomatik dolduran proforma motoru.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'satis-yonetim-teklif-prim-dashboard-excel',
     productName: 'Uluslararası Ticaret ve İhracat Proforma Fatura Şablonu',
   },
   {
@@ -193,7 +193,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Satış departmanı haftalık KPI paneli Excel',
     problem: 'Genel müdür ve satış direktörünün haftalık hedefleri tek ekranda izleyememesi.',
     solution: 'Haftalık arama sayısı, verilen teklif hacmi, kazanılan ciro ve tahsilat oranlarını özetleyen yönetici kokpiti.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'crm-musteri-satis-pipeline-excel',
     productName: 'Satış Direktörü Haftalık KPI ve Ciro Gösterge Paneli',
   },
 
@@ -204,7 +204,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel cari hesap takip programı borç alacak',
     problem: 'Müşterilerden tahsilatların ve tedarikçi ödemelerinin karışması, açık hesap bakiyelerinin denetlenememesi.',
     solution: 'Borç-alacak-bakiye çalışan, otomatik cari hesap ekstresi üreten ve mutabakat sağlayan kurumsal model.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'cari-hesap-borc-alacak-yaslandirma-excel',
     productName: 'Kurumsal Cari Hesap Borç-Alacak ve Ekstre Takip Sistemi',
   },
   {
@@ -213,7 +213,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Alacak yaşlandırma tablosu aging Excel formülü',
     problem: 'Vadesi 30, 60, 90+ gün geçmiş batık alacakların zamanında tespit edilememesi ve nakit sıkışıklığı.',
     solution: 'Fatura vade tarihine göre dinamik yaşlandırma aralıkları hesaplayan ve gecikme faizi simüle eden aging tablosu.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'cari-hesap-borc-alacak-yaslandirma-excel',
     productName: 'Dinamik Alacak Yaşlandırma (Aging) ve Tahsilat Riski Modeli',
   },
   {
@@ -222,7 +222,7 @@ export const ERP_CRM_100_QUERIES = [
     query: '13 haftalık nakit akışı tablosu Excel indir',
     problem: 'Gelecek 3 ay içinde şirketin hangi hafta maaş, vergi veya çek ödemesinde nakit açığına düşeceğini görememek.',
     solution: 'Rolling forecast yöntemiyle her hafta güncellenen 13 haftalık operasyonel ve finansal nakit projeksiyonu.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'nakit-akisi-cek-senet-kasa-takip-excel',
     productName: '13 Haftalık Dinamik Nakit Akışı ve Likidite Karar Sistemi',
   },
   {
@@ -231,7 +231,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Çek senet bordrosu ve ortalama vade hesaplama Excel',
     problem: 'Müşterilerden alınan çeklerin ortalama vadesi ile tedarikçiye verilen çeklerin vadesi arasındaki uyumsuzluk.',
     solution: 'Ağırlıklı ortalama vade (günde) hesaplayan, ciro edilen çekleri ve portföy durumunu izleyen çek-senet takip sistemi.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'nakit-akisi-cek-senet-kasa-takip-excel',
     productName: 'Portföy Çek-Senet Takip ve Ağırlıklı Vade Hesaplama Tablosu',
   },
   {
@@ -240,7 +240,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel günlük kasa defteri gelir gider takibi',
     problem: 'Nakit para giriş-çıkışlarında açık çıkması, personelin masraf fişlerinin muhasebeleşememesi.',
     solution: 'Günün devir bakiyesi, masraf kategorileri, fiş no kontrolü ve kasa mutabakatı sağlayan denetimli kasa defteri.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'nakit-akisi-cek-senet-kasa-takip-excel',
     productName: 'Akıllı Kasa Defteri ve Günlük Nakit Hareket Kontrol Sistemi',
   },
   {
@@ -249,7 +249,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Şirket kredi kartı harcama ve taksit takip tablosu Excel',
     problem: 'Şirket kredi kartlarının limit aşımı yapması ve gelecek aylara sarkan taksit yükümlülüklerinin bilinmemesi.',
     solution: 'Kart bazında limit, ekstre kesim tarihi, asgari ödeme ve 12 aylık taksit projeksiyonunu hesaplayan model.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'cari-hesap-borc-alacak-yaslandirma-excel',
     productName: 'Ticari Kredi Kartı Limit ve Gelecek Taksit Yükümlülük Planı',
   },
   {
@@ -258,7 +258,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Banka kredi geri ödeme tablosu rotatif spot taksitli Excel',
     problem: 'Banka kredilerinin faiz, BSMV, KKDF hesaplarının ve erken kapatma alternatiflerinin denetlenememesi.',
     solution: 'Eşit taksitli, rotatif ve spot kredilerin ana para-faiz ayrımını ve toplam finansman maliyetini hesaplayan amortisman tablosu.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'nakit-akisi-cek-senet-kasa-takip-excel',
     productName: 'Banka Kredileri Finansman Maliyeti ve Geri Ödeme Planlayıcı',
   },
   {
@@ -267,7 +267,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Yıllık şirket bütçesi gelir tablosu P&L Excel şablonu',
     problem: 'Yıllık hedeflenen gelir-gider ile fiili gerçekleşmeler arasındaki sapmanın departman bazında görülememesi.',
     solution: 'Aylık bütçelenen vs gerçekleşen varyans analizi (% ve TL sapma) yapan kurumsal gelir tablosu modeli.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'butce-kar-zarar-maliyet-finansal-analiz-excel',
     productName: 'Yıllık Şirket Bütçesi ve Bütçe Gerçekleşen Sapma Konsolu',
   },
   {
@@ -276,7 +276,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Birim maliyet ve başabaş noktası BEP Excel hesaplama',
     problem: 'Hangi satış fiyatında şirketin sıfır kâr/zarar noktasına ulaştığının bilinememesi.',
     solution: 'Sabit ve değişken maliyet ayrımıyla birim katkı payı ve ciro bazında başabaş noktasını simüle eden karar modeli.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'cari-hesap-borc-alacak-yaslandirma-excel',
     productName: 'Sabit-Değişken Maliyet ve Dinamik Başabaş (BEP) Analiz Motoru',
   },
   {
@@ -285,7 +285,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Döviz pozisyonu kur riski takip tablosu Excel',
     problem: 'Dolar ve Euro yükümlülükler ile alacaklar arasındaki kur farkı zararının önceden tespit edilememesi.',
     solution: 'Döviz açık/fazla pozisyonunu hesaplayan ve kur artış senaryolarında kâr/zarar etkisini gösteren stres testi tablosu.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'nakit-akisi-cek-senet-kasa-takip-excel',
     productName: 'Kur Riski, Döviz Pozisyonu ve Duyarlılık Stres Testi',
   },
   {
@@ -294,7 +294,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'KDV beyannamesi öncesi devreden ve ödenecek KDV hesaplama Excel',
     problem: 'Ay sonlarında ne kadar KDV ödeneceğinin veya ne kadar sonraki döneme devredeceğinin önceden bilinememesi.',
     solution: 'Tevkifatlı ve standart oranlı (%1, %10, %20) faturaları ayrıştırıp tahmini net KDV yükünü çıkaran hesaplama tablosu.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'butce-kar-zarar-maliyet-finansal-analiz-excel',
     productName: 'Ön Muhasebe KDV Tahakkuk ve Tevkifat Kontrol Matrisi',
   },
   {
@@ -303,7 +303,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Geçici vergi ve kurumlar vergisi karşılığı hesaplama Excel',
     problem: '3 aylık dönemlerde vergi matrahının sürpriz maliyet yaratması ve nakit planlamasının bozulması.',
     solution: 'KKEG (Kanunen Kabul Edilmeyen Giderler) ve istisnaları dikkate alan geçici vergi karşılık hesaplayıcı.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'butce-kar-zarar-maliyet-finansal-analiz-excel',
     productName: 'Kurumlar ve Geçici Vergi Karşılık Tahmin Konsolu',
   },
   {
@@ -312,7 +312,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Banka hesapları konsolidasyon ve ekstre mutabakatı Excel',
     problem: 'Birden fazla bankadaki hesap hareketlerinin tek merkezden takip edilememesi ve bakiyelerin uyuşmaması.',
     solution: 'Tüm banka ekstrelerini standart formatta birleştiren ve muhasebe kayıtlarıyla otomatik eşleştiren konsol.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'cari-hesap-borc-alacak-yaslandirma-excel',
     productName: 'Çoklu Banka Hesap Konsolidasyonu ve Hareket Mutabakatı',
   },
   {
@@ -321,7 +321,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Sabit kıymet amortisman tablosu VUK Excel',
     problem: 'Şirket demirbaş ve taşıtlarının faydalı ömür ve amortisman paylarının manuel hesaplanmasında yapılan hatalar.',
     solution: 'VUK amortisman oranlarına göre normal ve azalan bakiyeler yöntemiyle yıllık itfa payı çıkaran tablo.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'cari-hesap-borc-alacak-yaslandirma-excel',
     productName: 'Sabit Kıymet Amortisman Defteri ve Demirbaş Listesi',
   },
   {
@@ -330,7 +330,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'İthalat maliyeti gümrük navlun dağıtım Excel',
     problem: 'Yurtdışından alınan ürünlerin navlun, gümrük vergisi, ardiye ve sigorta masraflarının birim fiyata adil dağıtılamaması.',
     solution: 'Ağırlık veya tutar esasına göre masraf paylaştıran ve nihai TL birim maliyeti çıkaran ithalat maliyetlendirme tablosu.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'butce-kar-zarar-maliyet-finansal-analiz-excel',
     productName: 'İthalat Gümrük Masraf Dağıtımı ve Birim Maliyet Hesaplayıcı',
   },
   {
@@ -339,7 +339,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Masraf merkezi ve departman gider dağıtım anahtarı Excel',
     problem: 'Genel yönetim giderlerinin hangi departman veya ürün tarafından tüketildiğinin bilinememesi.',
     solution: 'Personel sayısı, alan (m2) veya ciroya göre genel giderleri dağıtan 2. ve 3. dağıtım muhasebe tablosu.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'proje-lojistik-santiye-sektorel-erp-excel',
     productName: 'Gider Dağıtım Anahtarları ve Masraf Merkezi Analizi',
   },
   {
@@ -348,7 +348,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Ticari alacak tahsilat performansı DSO hesaplama Excel',
     problem: 'Müşterilerden satış bedelinin ortalama kaç günde tahsil edildiğinin (Days Sales Outstanding) ölçülememesi.',
     solution: 'Aylık ve çeyreklik DSO trendi hesaplayan ve tahsilat departmanını denetleyen finansal rasyo modeli.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'personel-puantaj-fazla-mesai-izin-excel',
     productName: 'DSO (Tahsilat Süresi) ve Nakit Dönüşüm Döngüsü (CCC) Modeli',
   },
   {
@@ -357,7 +357,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Tedarikçi ödeme planlama ve DPO analizi Excel',
     problem: 'Tedarikçi faturalarının vadesinden önce ödenerek nakit sıkışıklığı yaşanması veya gecikip ticari itibarın bozulması.',
     solution: 'Ödeme vadelerine göre haftalık ödeme icmali çıkaran ve DPO süresini optimize eden satın alma finans tablosu.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'cari-hesap-borc-alacak-yaslandirma-excel',
     productName: 'Tedarikçi Ödeme İcmali ve Borç Ödeme Süresi (DPO) Modeli',
   },
   {
@@ -366,7 +366,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Mizan analizi ve bilanço oranları rasyo tablosu Excel',
     problem: 'Muhasebeden gelen mizanın işletme yöneticisi tarafından okunup finansal sağlığın analiz edilememesi.',
     solution: 'Mizanı otomatik bilanço ve gelir tablosuna dönüştüren, likidite, kârlılık ve borçluluk rasyolarını yorumlayan model.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'nakit-akisi-cek-senet-kasa-takip-excel',
     productName: 'Otomatik Mizan Analizi, Bilanço ve Finansal Rasyo Kokpiti',
   },
   {
@@ -375,7 +375,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Yatırım fizibilitesi NPV IRR geri ödeme süresi Excel',
     problem: 'Yeni makine alımı veya şube açılışında yatırımın kendini kaç yılda amorti edeceğinin bilinememesi.',
     solution: 'Net Bugünkü Değer (NPV), İç Verim Oranı (IRR) ve İskontolu Geri Ödeme Süresi hesaplayan fizibilite tablosu.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'butce-kar-zarar-maliyet-finansal-analiz-excel',
     productName: 'Yatırım Fizibilitesi, NPV, IRR ve Geri Ödeme Karar Modeli',
   },
   {
@@ -384,7 +384,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Akaryakıt ve şirket araçları masraf takip Excel',
     problem: 'Şirket araçlarının kilometre başına yakıt tüketimi ve bakım masraflarının kontrol edilememesi.',
     solution: 'Plaka bazında km, yakıt fişi, bakım, sigorta ve HGS masraflarını izleyen araç filosu gider tablosu.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'butce-kar-zarar-maliyet-finansal-analiz-excel',
     productName: 'Araç Filosu Yakıt, Masraf ve Kilometre Başı Maliyet Tablosu',
   },
   {
@@ -393,7 +393,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Personel avans ve harcırah masraf formu Excel',
     problem: 'İş seyahatlerine giden personelin aldığı avansların ve fişlerinin denetlenmesinde kayıplar yaşanması.',
     solution: 'Harcama türü (Konaklama, Yemek, Ulaşım) bazında onay mekanizmalı otomatik harcırah kapatma şablonu.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'cari-hesap-borc-alacak-yaslandirma-excel',
     productName: 'Personel Seyahat Masrafı ve Harcırah Avans Kapatma Formu',
   },
   {
@@ -402,7 +402,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Finansal kiralama leasing ödeme planı Excel',
     problem: 'Leasing ödemelerindeki anapara, faiz ve KDV dökümünün muhasebe kayıtlarıyla uyuşmaması.',
     solution: 'Finansal kiralama sözleşmesi taksitlerini muhasebe standartlarına göre ayrıştıran ödeme planı tablosu.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'nakit-akisi-cek-senet-kasa-takip-excel',
     productName: 'Leasing Finansman Ayrıştırma ve Geri Ödeme Tablosu',
   },
   {
@@ -411,7 +411,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'CFO aylık finansal yönetim raporu dashboard Excel',
     problem: 'Yönetim kurulu veya şirket ortakları için 50 sayfalık muhasebe dökümü yerine 1 sayfalık özet sunulamaması.',
     solution: 'Ciro, FAVÖK (EBITDA), Net Nakit, Çalışma Sermayesi ve kritik riskleri tek ekranda toplayan CFO kokpiti.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'cari-hesap-borc-alacak-yaslandirma-excel',
     productName: 'CFO Aylık Finansal Yönetim Raporu ve Yönetici Kokpiti',
   },
   {
@@ -420,7 +420,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Kira artış oranı TÜFE hesaplama ve stopaj tablosu Excel',
     problem: 'İşyeri ve konut kira artışlarında TÜFE 12 aylık ortalamasının ve stopaj/KDV kesintilerinin yanlış hesaplanması.',
     solution: 'TÜİK resmi verilerine göre güncel kira artışı, stopaj ve brüt kira hesaplayan gayrimenkul takip modeli.',
-    recommendedProductSlug: '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi',
+    recommendedProductSlug: 'nakit-akisi-cek-senet-kasa-takip-excel',
     productName: 'İşyeri Kira Takip, Stopaj ve TÜFE Artış Hesaplayıcı',
   },
 
@@ -431,7 +431,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Excel stok takip programı barkodlu giriş çıkış',
     problem: 'Depoda hangi üründen kaç adet kaldığının bilinmemesi ve sayım farkları nedeniyle siparişlerin aksaması.',
     solution: 'Barkod okuyucu destekli, anlık stok bakiyesi ve depo hareket logu tutan tam teşekküllü envanter sistemi.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Barkod Destekli Ambar Giriş-Çıkış ve Envanter Yönetim Sistemi',
   },
   {
@@ -440,7 +440,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Kritik stok seviyesi ve otomatik sipariş uyarısı Excel',
     problem: 'Hızlı satan ürünlerin aniden tükenmesi (stock-out) nedeniyle müşteri ve ciro kaybı yaşanması.',
     solution: 'Tedarik süresi (lead time) ve günlük tüketim hızına göre dinamik emniyet stoku ve sipariş noktası hesaplayan model.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Emniyet Stoku ve Otomatik Satın Alma Sipariş Noktası Konsolu',
   },
   {
@@ -449,7 +449,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Üretim reçetesi BOM hammadde düşüm Excel tablosu',
     problem: 'Mamul üretildiğinde reçetedeki hammaddelerin stoktan manuel düşülürken hata yapılması.',
     solution: 'Mamul sipariş adedi girildiğinde bağlı tüm hammadde ve ambalaj malzemelerini otomatik stoktan düşen BOM modeli.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Çok Seviyeli Üretim Reçetesi (BOM) ve Hammadde Düşüm Motoru',
   },
   {
@@ -458,7 +458,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'FIFO maliyet yöntemi stok değerleme Excel',
     problem: 'Enflasyonist ortamda ilk giren ilk çıkar (FIFO) maliyetinin ve dönem sonu stok kârının yanlış hesaplanması.',
     solution: 'Her parti mal alışının fiyatını saklayıp satıldıkça en eski maliyetten düşen formüllü FIFO motoru.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'FIFO Stok Değerleme ve Satılan Malın Maliyeti (SMM) Tablosu',
   },
   {
@@ -467,7 +467,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Çoklu depo transferi ve ambarlar arası bakiye Excel',
     problem: 'Merkez depo ile şube/mağaza depoları arasındaki transferlerde ürün kayıpları yaşanması.',
     solution: 'Ambarlar arası transfer fişi düzenleyen ve her deponun ayrı anlık stok kartını tutan çok ambarlı model.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Çok Depolu Stok Yönetimi ve Şubeler Arası Transfer Konsolu',
   },
   {
@@ -476,7 +476,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Stok devir hızı ve elde tutma süresi DSI Excel',
     problem: 'Rafta aylarca bekleyen ölü stokların şirketin nakdini bağlaması ve finansman yükü oluşturması.',
     solution: 'Kategori bazında Stok Devir Hızı ve Stokta Kalma Süresi (DSI) hesaplayıp ölü stokları uyaran analiz tablosu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Stok Devir Hızı, Ölü Stok Tespiti ve DSI Hesaplama Modeli',
   },
   {
@@ -485,7 +485,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Stok ABC analizi Pareto kuralı Excel',
     problem: 'Tüm stoklara aynı önemde muamele edilmesi sonucu değerli ürünlerin denetiminin zayıf kalması.',
     solution: 'Toplam ciro ve stok değerine katkısına göre ürünleri A (%80 değer), B (%15), C (%5) olarak etiketleyen matris.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Envanter ABC/XYZ Analizi ve Stok Yönetim Stratejisi Modeli',
   },
   {
@@ -494,7 +494,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Yıl sonu ve periyodik stok sayım farkı mutabakat Excel',
     problem: 'Fiziksel depoda sayılan adetler ile sistemdeki stok arasındaki artı/eksi farkların nedenlerinin bulunamaması.',
     solution: 'Sayım tutanağı girişiyle teorik stok arasındaki adet ve parasal farkı çıkaran sayım mutabakat tablosu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Fiziki Stok Sayım Farkı, Fire ve Mutabakat Raporu',
   },
   {
@@ -503,7 +503,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Son kullanma tarihi SKT ve parti lot takip tablosu Excel',
     problem: 'Gıda, ilaç veya kimyada miadı dolan ürünlerin rafta kalması ve imha maliyeti yaratması.',
     solution: 'Lot numarası bazında SKT takibi yapan ve miadı dolmaya 30 gün kalan ürünleri kırmızıyla uyaran model.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Parti/Lot Bazlı SKT Takip ve Raf Ömrü Erken Uyarı Sistemi',
   },
   {
@@ -512,7 +512,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'İmalat iş emri ve üretim takip kartı Excel',
     problem: 'Atölyedeki üretimin hangi aşamada (Kesim, Montaj, Boya, Kalite Kontrol) olduğunun bilinememesi.',
     solution: 'İş emri numarası, operasyon adımları, tamamlanan adet ve gecikme durumunu izleyen üretim takip çizelgesi.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'proje-lojistik-santiye-sektorel-erp-excel',
     productName: 'İmalat İş Emri Takip Kartı ve Atölye Operasyon Çizelgesi',
   },
   {
@@ -521,7 +521,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Üretim kapasite kullanım oranı OEE hesaplama Excel',
     problem: 'Makinelerin duruş sürelerinin, hız kayıplarının ve fire oranlarının ölçülememesi.',
     solution: 'Kullanılabilirlik, Performans ve Kalite çarpanlarıyla OEE (Toplam Ekipman Etkinliği) hesaplayan üretim modeli.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'proje-lojistik-santiye-sektorel-erp-excel',
     productName: 'OEE (Toplam Ekipman Etkinliği) ve Makine Duruş Analiz Tablosu',
   },
   {
@@ -530,7 +530,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Fire ve ıskarta oranı takip tablosu Excel',
     problem: 'Üretimdeki hammadde firelerinin standart reçete toleransını aşıp aşmadığının denetlenememesi.',
     solution: 'Standart fire vs fiili fire karşılaştırması yapan ve parasal kayıp büyüklüğünü gösteren fire denetim matrisi.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Üretim Fire, Atık ve Hurda Maliyeti Denetim Tablosu',
   },
   {
@@ -539,7 +539,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Satın alma sipariş karşılama ve tedarikçi teslimat performansı OTIF Excel',
     problem: 'Tedarikçilerin siparişleri eksik veya geç teslim etmesi sonucu üretimin durması.',
     solution: 'On-Time In-Full (OTIF) rasyosu ile tedarikçilerin teslimat hızını ve doğruluk puanını ölçen değerlendirme modeli.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Tedarikçi Değerlendirme ve OTIF Teslimat Performans Tablosu',
   },
   {
@@ -548,7 +548,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Konsinye stok takip tablosu Excel',
     problem: 'Müşterilere veya bayilere emanet bırakılan konsinye malların satıldıkça faturalanmasının takip edilememesi.',
     solution: 'Konsinye sevk edilen, satılan ve iade gelen ürünlerin cari hesapla entegre bakiye kontrol tablosu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Konsinye Mal Çıkış ve Satış Mutabakat Takip Sistemi',
   },
   {
@@ -557,7 +557,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Koli hacim m3 ve palet yerleşim hesaplayıcı Excel',
     problem: 'Tır veya konteyner yüklemelerinde desi/m3 hesabının yanlış yapılması sonucu nakliye maliyetlerinin artması.',
     solution: 'Koli en-boy-yükseklik ölçülerine göre toplam m3 ve palet optimizasyonu yapan lojistik planlayıcı.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Lojistik Hacim (m3), Desi ve Palet Yükleme Hesaplayıcı',
   },
   {
@@ -566,7 +566,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Seri no ve IMEI garanti takip tablosu Excel',
     problem: 'Elektronik veya teknik cihazların satış sonrası garanti sürelerinin ve arızalı seri numaralarının karışması.',
     solution: 'Cihaz seri no veya IMEI bazında fatura tarihi, müşteri adı ve garanti bitiş süresini sorgulayan tablo.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'proje-lojistik-santiye-sektorel-erp-excel',
     productName: 'Cihaz Seri No, IMEI ve Garanti Süresi Takip Tablosu',
   },
   {
@@ -575,7 +575,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Minimum sipariş miktarı MOQ hesaplama Excel',
     problem: 'Tedarikçinin talep ettiği minimum sipariş adetlerinin finansal açıdan kârlı olup olmadığının bilinememesi.',
     solution: 'Elde tutma maliyeti ile iskonto kazancını kıyaslayarak ekonomik sipariş miktarını (EOQ) hesaplayan model.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'proje-lojistik-santiye-sektorel-erp-excel',
     productName: 'Ekonomik Sipariş Miktarı (EOQ) ve MOQ Kârlılık Karar Modeli',
   },
   {
@@ -584,7 +584,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Fason üretim takip ve malzeme bakiye defteri Excel',
     problem: 'Fason üreticiye gönderilen kumaş, iplik veya hammadde ile geri gelen bitmiş ürün arasındaki denklik kontrolü.',
     solution: 'Fasoncuya sevk edilen hammadde, üretilen mamul ve fasoncuda kalan emanet hammadde mutabakat tablosu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Fason İmalat Malzeme Sevk ve Fire Mutabakat Sistemi',
   },
   {
@@ -593,7 +593,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Yedek parça ve bakım sarf malzemesi takip Excel',
     problem: 'Fabrikadaki kritik makinelerin arızalanması durumunda gereken yedek parçanın stokta bulunamaması.',
     solution: 'Makine kodu eşleştirmeli kritik yedek parça envanter ve periyodik değişim takip listesi.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'proje-lojistik-santiye-sektorel-erp-excel',
     productName: 'Makine Yedek Parça ve Periyodik Bakım Stok Kontrol Listesi',
   },
   {
@@ -602,7 +602,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Depo doluluk oranı ve raf yerleşim adresi Excel',
     problem: 'Depodaki boş rafların tespit edilememesi ve yeni gelen yüklerin rastgele yerleştirilip kaybolması.',
     solution: 'Koridor-Raf-Göz koordinatlı ürün adresleme ve anlık depo doluluk yüzdesi göstergesi.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'barkodlu-stok-ambar-uretim-recetesi-excel',
     productName: 'Depo Raf Adresleme ve Kapasite Doluluk Haritası',
   },
 
@@ -795,7 +795,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Trendyol komisyon ve kâr hesaplama Excel tablosu',
     problem: 'Pazaryeri komisyonu, kargo baremi, hizmet bedeli ve stopaj düşüldükten sonra siparişin kâr mı zarar mı ettiğinin bilinmemesi.',
     solution: 'Kategori komisyon oranı, güncel kargo baremi ve ürün alış fiyatını girince net ele geçen kârı hesaplayan model.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'pazaryeri-komisyon-karlilik-mutabakat-excel',
     productName: 'Trendyol Satıcı Komisyon, Kargo Barem ve Net Kâr Hesaplayıcı',
   },
   {
@@ -804,7 +804,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Hepsiburada satıcı hakediş ve komisyon hesaplama Excel',
     problem: 'Hepsiburada işlem bedeli, kargo kesintisi ve erken ödeme komisyonları sonrası hesaba geçen paranın denetlenememesi.',
     solution: 'Kategori bazlı komisyon ve kargo baremlerini düşerek net hakediş tutarını çıkaran e-ticaret tablosu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'pazaryeri-komisyon-karlilik-mutabakat-excel',
     productName: 'Hepsiburada Hakediş, Komisyon ve Erken Ödeme Mutabakat Modeli',
   },
   {
@@ -813,7 +813,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Pazaryeri hakediş mutabakatı eksik ödeme tespit Excel',
     problem: 'Pazaryerlerinin kestiği haksız iade kargo ücretleri ve komisyon farklarının manuel fatura kontrolünde yakalanamaması.',
     solution: 'Pazaryeri ekstresi ile şirket satış faturasını sipariş numarasına göre otomatik karşılaştırıp eksik ödemeleri listeleyen konsol.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'pazaryeri-komisyon-karlilik-mutabakat-excel',
     productName: 'Pazaryeri Hakediş Kontrolü ve Eksik Ödeme Tespit Mutabakatı',
   },
   {
@@ -822,7 +822,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'E-ticaret iade oranı ve kayıp maliyet analizi Excel',
     problem: 'İade edilen ürünlerde gidiş-dönüş kargo bedeli ve ambalaj hasarı nedeniyle oluşan gizli zararların ölçülememesi.',
     solution: 'Ürün ve kategori bazında iade yüzdelerini ve iade kaynaklı net lojistik zararını hesaplayan analiz tablosu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'proje-lojistik-santiye-sektorel-erp-excel',
     productName: 'E-Ticaret İade Oranları ve Lojistik Zarar Analiz Tablosu',
   },
   {
@@ -831,7 +831,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'E-ticaret reklam ROAS ve müşteri edinme maliyeti CAC Excel',
     problem: 'Meta ve Google reklamlarına harcanan paranın hangi ürünlerde kârlı, hangi ürünlerde zarara yol açtığının bilinememesi.',
     solution: 'Kampanya bazında harcama, dönüşüm cirosu, ROAS ve sipariş başı edinim maliyeti (CPA) hesaplayan reklam modeli.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'pazaryeri-komisyon-karlilik-mutabakat-excel',
     productName: 'Reklam Bütçesi ROAS, CAC ve Pazarlama Kârlılık Modeli',
   },
   {
@@ -840,7 +840,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Gantt şeması proje planlama ve takip şablonu Excel',
     problem: 'Projelerdeki görevlerin başlangıç-bitiş süreleri, bağımlılıkları ve gecikmelerinin tek bakışta izlenememesi.',
     solution: 'Otomatik tarih renklendirmeli, tamamlanma yüzdesi gösteren dinamik formüllü Gantt şeması proje yönetim tablosu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'pazaryeri-komisyon-karlilik-mutabakat-excel',
     productName: 'Dinamik Formüllü Gantt Şeması ve Proje Zaman Planı Şablonu',
   },
   {
@@ -849,7 +849,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Proje bütçesi gerçekleşen maliyet varyans analizi Excel',
     problem: 'Proje için ayrılan bütçenin taşeron, malzeme ve işçilik harcamalarıyla aşılması ve kâr marjının erimesi.',
     solution: 'Kalem bazında bütçelenen vs gerçekleşen harcamaları kıyaslayan ve maliyet sapmasını uyaran bütçe takip modeli.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'kurumsal-erp-crm-tam-paket',
     productName: 'Proje Bütçesi Maliyet Sapma ve Kârlılık Kontrol Tablosu',
   },
   {
@@ -858,7 +858,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Görev atama ve ekip iş takip tablosu Excel',
     problem: 'Şirket içindeki operasyonel işlerin kime atandığının, durumunun (Beklemede, Devam Ediyor, Tamamlandı) takipsiz kalması.',
     solution: 'Sorumlu kişi, öncelik derecesi, termin tarihi ve gecikme uyarılarıyla çalışan çok kullanıcılı görev takip matrisi.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'kurumsal-erp-crm-tam-paket',
     productName: 'Ekip Görev Dağılımı, Önceliklendirme ve İş Takip Çizelgesi',
   },
   {
@@ -867,7 +867,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Yurtdışı Amazon FBA kâr ve maliyet hesaplayıcı Excel',
     problem: 'Amazon FBA komisyonları, depolama ücretleri ve dövizli kargo maliyetlerinin net kârı nasıl etkilediğinin hesaplanamaması.',
     solution: 'FBA depolama, referral fee ve iade oranlarını girince ürün başı Dolar cinsinden net marjı hesaplayan e-ihracat modeli.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'proje-lojistik-santiye-sektorel-erp-excel',
     productName: 'Amazon FBA E-İhracat Komisyon, Kargo ve Net Kâr Hesaplayıcı',
   },
   {
@@ -876,7 +876,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'E-ihracat mikro ihracat ETGB gümrük ve KDV iadesi Excel',
     problem: 'Mikro ihracat kapsamında yapılan satışların ETGB numaraları ve KDV iadesi takip süreçlerinin karışması.',
     solution: 'ETGB beyanname tarihleri, dövizli tahsilat ve hak edilen KDV iadesi tutarlarını takip eden ihracat konsolu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'cari-hesap-borc-alacak-yaslandirma-excel',
     productName: 'Mikro İhracat ETGB ve KDV İadesi Takip Tablosu',
   },
   {
@@ -885,7 +885,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Kargo anlaşması desi maliyet kontrol tablosu Excel',
     problem: 'Kargo firmalarının kestiği faturalardaki desi aşımları ve yanlış barem uygulamalarının tespit edilememesi.',
     solution: 'Şirket çıkış desisi ile kargo firmasının fatura ettiği desiyi karşılaştırıp haksız kesintileri bulan denetim tablosu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'butce-kar-zarar-maliyet-finansal-analiz-excel',
     productName: 'Kargo Desi ve Taşıma Bedeli Fatura Denetim Mutabakatı',
   },
   {
@@ -894,7 +894,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Yazılım ve IT proje efor sprint takip tablosu Excel',
     problem: 'Yazılım ekiplerinin sprint hedeflerinin, story point eforlarının ve tamamlanan işlerin raporlanamaması.',
     solution: 'Agile/Scrum uyumlu sprint burndown grafiği ve yazılımcı bazlı tamamlanan iş yükü takip tablosu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'proje-lojistik-santiye-sektorel-erp-excel',
     productName: 'Scrum/Agile Sprint Takip ve Geliştirici Efor Matrisi',
   },
   {
@@ -903,7 +903,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Taşeron ve müteahhit hakediş eskalasyon Excel',
     problem: 'Taşerona yapılan avans ödemeleri, kesintiler ve yapılan imalatın hakediş raporuyla denetlenememesi.',
     solution: 'Kümülatif imalat tutarı, stopaj ve teminat kesintilerini düşerek net ödenecek hakedişi çıkaran inşaat tablosu.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'cari-hesap-borc-alacak-yaslandirma-excel',
     productName: 'Taşeron İmalat Hakedişi ve Teminat Kesinti Takip Sistemi',
   },
   {
@@ -912,7 +912,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Etkinlik ve organizasyon bütçe planlama Excel',
     problem: 'Seminer, lansman veya kurumsal etkinlik harcamalarının öngörülen bütçeyi aşması.',
     solution: 'Mekan, ikram, sahne ve tanıtım giderlerini katılımcı sayısına göre bütçeleyen organizasyon planlayıcı.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'proje-lojistik-santiye-sektorel-erp-excel',
     productName: 'Kurumsal Etkinlik, Lansman ve Bütçe Planlama Şablonu',
   },
   {
@@ -921,7 +921,7 @@ export const ERP_CRM_100_QUERIES = [
     query: 'Kurumsal ERP CRM hepsi bir arada tam paket Excel sistemi',
     problem: 'Ayrı ayrı tablolar kullanmak yerine şirketin tüm operasyonlarını tek merkezden yönetme ihtiyacı.',
     solution: 'Satış, Kasa, Cari, Stok, İK ve Bütçe modüllerini birbirine bağlı ve tek lisansla sunan tam entegre karar sistemi.',
-    recommendedProductSlug: 'kobi-finans-yonetim-paketi',
+    recommendedProductSlug: 'kurumsal-erp-crm-tam-paket',
     productName: 'All-in-One Kurumsal Excel ERP, CRM ve Karar Sistemleri Tam Paketi',
   },
 ];
