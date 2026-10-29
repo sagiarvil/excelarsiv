@@ -240,12 +240,16 @@
             },
             {
               "key": "Cache-Control",
-              "value": "public, max-age=300, stale-while-revalidate=600"
+              "value": "public, max-age=3600, s-maxage=86400"
+            },
+            {
+              "key": "X-Robots-Tag",
+              "value": "all"
             }
           ]
         },
         {
-          "source": "/llms.txt",
+          "source": "/llms*.txt",
           "headers": [
             {
               "key": "Content-Type",
@@ -257,24 +261,37 @@
             },
             {
               "key": "Cache-Control",
-              "value": "public, max-age=300, stale-while-revalidate=600"
+              "value": "public, max-age=3600, s-maxage=86400"
+            },
+            {
+              "key": "X-Robots-Tag",
+              "value": "all"
             }
           ]
         },
         {
-          "source": "/llms-full.txt",
+          "source": "/urun/**",
           "headers": [
             {
-              "key": "Content-Type",
-              "value": "text/markdown; charset=utf-8"
+              "key": "Link",
+              "value": "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\""
             },
             {
               "key": "Access-Control-Allow-Origin",
               "value": "*"
+            }
+          ]
+        },
+        {
+          "source": "/sablon/**",
+          "headers": [
+            {
+              "key": "Link",
+              "value": "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\""
             },
             {
-              "key": "Cache-Control",
-              "value": "public, max-age=300, stale-while-revalidate=600"
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
             }
           ]
         },

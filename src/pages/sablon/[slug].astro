@@ -337,6 +337,9 @@ const pageDescription = PRODUCT_SEO_OVERRIDES[template.id]?.desc ?? `${t.summary
   <meta name="description" content={pageDescription} />
   <meta name="robots" content={robotsDirective} />
   <link rel="canonical" href={productUrl} />
+  <link rel="describedby" href="https://excelarsiv.com/llms.txt" type="text/markdown" title="ExcelArsiv.com AI Index" />
+  <link rel="alternate" type="text/markdown" href={`https://excelarsiv.com/sablon/${template.id}.md`} title="Markdown Version for AI Agents" />
+  <link rel="alternate" type="text/markdown" href={`https://excelarsiv.com/urun/${template.id}.md`} title="Markdown Twin for LLM" />
   <link rel="icon" type="image/png" href="/images/excel-logo.png" />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <!-- Google tag (gtag.js) -->
