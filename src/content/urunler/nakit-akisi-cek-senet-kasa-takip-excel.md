@@ -7,9 +7,9 @@ seoDescription: "90 günlük nakit projeksiyonu, çek/senet ortalama vade hesab�
 summary: "Likidite krizlerini önceden haber veren 13 haftalık dinamik nakit akışı ve hazine yönetim modeli."
 categorySlug: "finans-on-muhasebe"
 categoryName: "Finans ve Ön Muhasebe"
-price: 499
+price: 1999
 currency: "TRY"
-bundlePrice: 999
+bundlePrice: 1999
 bundleSlug: "kurumsal-erp-crm-tam-paket"
 paymentGateways:
   - "iyzico"

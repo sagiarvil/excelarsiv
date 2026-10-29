@@ -80,7 +80,7 @@ const urunler = defineCollection({
     categoryName: z.string(),
     price: z.number(),
     currency: z.literal('TRY').default('TRY'),
-    bundlePrice: z.number().default(999),
+    bundlePrice: z.number().default(1999),
     bundleSlug: z.string().default('kurumsal-erp-crm-tam-paket'),
     paymentGateways: z.array(z.enum(['iyzico', 'shopier'])).default(['iyzico', 'shopier']),
     instantDelivery: z.boolean().default(true),

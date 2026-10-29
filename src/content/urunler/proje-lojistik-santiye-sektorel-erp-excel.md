@@ -7,9 +7,9 @@ seoDescription: "Dinamik Gantt şeması, görev atama matrisi, şantiye taşeron
 summary: "Projelerin zaman planını, bütçe sapmalarını ve taşeron hakedişlerini yöneten sektörel ERP şablonu."
 categorySlug: "e-ticaret-proje-yonetimi"
 categoryName: "E-Ticaret ve Proje Yönetimi"
-price: 499
+price: 1999
 currency: "TRY"
-bundlePrice: 999
+bundlePrice: 1999
 bundleSlug: "kurumsal-erp-crm-tam-paket"
 paymentGateways:
   - "iyzico"

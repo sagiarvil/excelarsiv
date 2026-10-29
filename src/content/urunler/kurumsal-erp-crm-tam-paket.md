@@ -7,9 +7,9 @@ seoDescription: "Satış, CRM, Kasa, Cari, Nakit Akışı, Stok, Depo, İK ve B�
 summary: "Bir şirketin tüm departmanlarının ihtiyaç duyduğu tüm kurumsal Excel sistemlerini içeren anahtar teslim paket."
 categorySlug: "e-ticaret-proje-yonetimi"
 categoryName: "E-Ticaret ve Proje Yönetimi"
-price: 999
+price: 1999
 currency: "TRY"
-bundlePrice: 999
+bundlePrice: 1999
 bundleSlug: "kurumsal-erp-crm-tam-paket"
 paymentGateways:
   - "iyzico"

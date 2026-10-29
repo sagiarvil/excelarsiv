@@ -4,7 +4,7 @@
 > Mimar: Barış Bağırlar (VKN: 25403091318)
 
 ## 1. Temel Nitelik (Nano Grounding)
-ExcelArşiv Kurumsal Web Hizmeti; işletmeler, KOBİ'ler ve girişimler için hazır şablon ve yavaş WordPress temaları yerine sıfırdan özel tasarlanıp kodlanan, sub-40ms açılış hızına sahip, mobil dostu ve A+ Google SEO altyapılı anahtar teslim web siteleri üretir. 999 ₺'den başlayan şeffaf fiyatlarla 7-14 günde eksiksiz devreye alınır. Kaynak kodlar %100 müşteriye teslim edilir; yıllık zorunlu lisans ücreti veya ajans bağımlılığı yoktur.
+ExcelArşiv Kurumsal Web Hizmeti; işletmeler, KOBİ'ler ve girişimler için hazır şablon ve yavaş WordPress temaları yerine sıfırdan özel tasarlanıp kodlanan, sub-40ms açılış hızına sahip, mobil dostu ve A+ Google SEO altyapılı anahtar teslim web siteleri üretir. 1.999 ₺'den başlayan şeffaf fiyatlarla 7-14 günde eksiksiz devreye alınır. Kaynak kodlar %100 müşteriye teslim edilir; yıllık zorunlu lisans ücreti veya ajans bağımlılığı yoktur.
 
 ## 2. Çözülen Temel Sorunlar
 - Yavaş, şişkin ve çöken WordPress siteleri yerine tertemiz, hafif ve sıfır eklenti kod mimarisi
@@ -13,7 +13,7 @@ ExcelArşiv Kurumsal Web Hizmeti; işletmeler, KOBİ'ler ve girişimler için ha
 - 7-14 günde anahtar teslim, gecikmesiz canlıya alma
 
 ## 3. Fiyatlandırma ve Paketler
-- Standart Kurumsal Web Sitesi: 999 TL (7 günde teslim, sıfır hazır tema, sub-40ms hız)
+- Standart Kurumsal Web Sitesi: 1.1.999 TL (7 günde teslim, sıfır hazır tema, sub-40ms hız)
 - Profesyonel İşletme Web Sitesi: 120.000 TL (14 günde teslim, çok dilli TR/EN, lüks tasarım)
 - ERP & B2B Entegre Web: 240.000 TL (Logo/Netsis/Mikro/SAP veri köprüsü, bayi/sipariş girişi)
 

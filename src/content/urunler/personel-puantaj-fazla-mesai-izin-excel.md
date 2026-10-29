@@ -7,9 +7,9 @@ seoDescription: "Türkiye İş Kanunu'na tam uyumlu aylık devam çizelgesi, %50
 summary: "4857 sayılı İş Kanunu ve 2026 vergi dilimlerine tam uyumlu bordro, puantaj ve tazminat karar sistemi."
 categorySlug: "insan-kaynaklari-bordro"
 categoryName: "İnsan Kaynakları ve Bordro"
-price: 499
+price: 1999
 currency: "TRY"
-bundlePrice: 999
+bundlePrice: 1999
 bundleSlug: "kurumsal-erp-crm-tam-paket"
 paymentGateways:
   - "iyzico"

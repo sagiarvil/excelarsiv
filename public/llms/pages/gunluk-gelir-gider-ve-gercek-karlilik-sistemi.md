@@ -1,7 +1,7 @@
 # Gelir Gider Tablosu Excel
 > Canonical Web URL: https://excelarsiv.com/sablon/gunluk-gelir-gider-ve-gercek-karlilik-sistemi
 > Ücretsiz İndir (Demo/Freemium): https://excelarsiv.com/demo/gunluk-gelir-gider-ve-gercek-karlilik-sistemi
-> Lisans Bedeli: 0 TRY (Ücretsiz Başlangıç Sürümü) / 499 TRY (Tam Ticari Sürüm)
+> Lisans Bedeli: 0 TRY (Ücretsiz Başlangıç Sürümü) / 1.999 TRY (Tam Ticari Sürüm)
 > Son Semantik Doğrulama: 2026-08-30T10:00:00+03:00
 > Information Gain Statüsü: Birinci El Saha Verisi / Tescilli Karar Destek Modeli
 > Primer Varlık Düğümü: https://excelarsiv.com/sablon/gunluk-gelir-gider-ve-gercek-karlilik-sistemi#product

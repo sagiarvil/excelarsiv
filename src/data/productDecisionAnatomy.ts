@@ -31,7 +31,7 @@ export const specificDecisionData: Record<string, Partial<ProductDecisionData>> 
     systemComputes: 'Dinamik cari yaşlandırma dilimlerini (0-30, 31-60, 61-90+ gün), ortalama tahsilat süresini (DSO) ve müşteri risk skorunu hesaplar.',
     decisionAction: 'Risk skoru düşen ve vadesi 45 günü aşan müşterilere yeni mal sevkiyatını durdurma ve yasal takip başlatma kararı verirsiniz.',
     wrongDataEffect: 'Mükerrer fatura veya eksik tahsilat girildiğinde bakiye kontrol hücresi kırmızıya döner, sistem tutarsızlığı anında işaret eder.',
-    whyPayPrice: '100.000 TL\'lik tek bir batık müşteri tüm yıllık kârınızı silerken, 999 TL\'lik sistem her gün hangi müşteriden para isteneceğini gösterir.',
+    whyPayPrice: '100.000 TL\'lik tek bir batık müşteri tüm yıllık kârınızı silerken, 1.999 TL\'lik sistem her gün hangi müşteriden para isteneceğini gösterir.',
     concreteDecisionExample: 'ABC Ticaret 74 gündür ödeme yapmıyor ve limitini %120 aştı → Açık hesap sevkiyat derhal bloke edilmeli, teminat mektubu istenmeli.'
   },
   'banka-kredi-ve-taksit-takip-sistemi': {
@@ -64,7 +64,7 @@ export const specificDecisionData: Record<string, Partial<ProductDecisionData>> 
     systemComputes: 'Her şubenin net kârlılığını, katkı payını, metrekare başına verimliliğini ve başabaş cirosunu hesaplar.',
     decisionAction: 'Kâr etmeyen şubeyi kapatma, kirayı yeniden müzakere etme veya personel sayısını revize etme kararını netleştirirsiniz.',
     wrongDataEffect: 'Merkez gider dağıtımında eksik veri kalırsa şube kârlılıkları kilitlenmez, uyarı sütunu devreye girer.',
-    whyPayPrice: 'Zarar eden bir şubenin aylık net kaybı en az 80.000 TL iken, 799 TL\'lik sistemle şube kapatma/büyütme kararını objektif alırsınız.',
+    whyPayPrice: 'Zarar eden bir şubenin aylık net kaybı en az 80.000 TL iken, 1.999 TL\'lik sistemle şube kapatma/büyütme kararını objektif alırsınız.',
     concreteDecisionExample: 'Kadıköy şubesi ciroda 2. sırada ancak yüksek kira ve personel nedeniyle aylık -₺34.000 zarar yazıyor → Kira indirimi istenmeli veya kapatılmalı.'
   },
   'stok-satis-ve-nakit-baglanma-sistemi': {

@@ -32,8 +32,8 @@ export const GET: APIRoute = async ({ props }) => {
 
   let title = '';
   let summary = '';
-  let price = 499;
-  let bundlePrice = 999;
+  let price = 1999;
+  let bundlePrice = 1999;
   let category = '';
   let operatingSystems = 'Windows ve macOS (Microsoft Excel 365, 2016-2024 ve Google Sheets)';
   let canonicalUrl = '';
@@ -61,7 +61,7 @@ export const GET: APIRoute = async ({ props }) => {
     title = t.name;
     summary = t.summary;
     price = t.priceTL;
-    bundlePrice = 999;
+    bundlePrice = 1999;
     category = t.category;
     operatingSystems = t.macCompatible
       ? 'Windows ve macOS (Microsoft Excel 365, 2016-2024 ve Google Sheets)'

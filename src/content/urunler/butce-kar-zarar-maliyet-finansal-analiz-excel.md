@@ -7,9 +7,9 @@ seoDescription: "Gelir tablosu varyans analizi, sabit-değişken maliyet ayrım�
 summary: "Şirket kârlılığını, departman bütçe sapmalarını ve başabaş noktasını hesaplayan kurumsal karar modeli."
 categorySlug: "finans-on-muhasebe"
 categoryName: "Finans ve Ön Muhasebe"
-price: 549
+price: 1999
 currency: "TRY"
-bundlePrice: 999
+bundlePrice: 1999
 bundleSlug: "kurumsal-erp-crm-tam-paket"
 paymentGateways:
   - "iyzico"

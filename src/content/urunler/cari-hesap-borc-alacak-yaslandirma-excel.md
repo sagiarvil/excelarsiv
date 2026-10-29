@@ -7,9 +7,9 @@ seoDescription: "Müşteri ve tedarikçi açık hesap bakiyelerini, vadesi geçe
 summary: "Açık hesap bakiyelerini, tahsilat risklerini ve cari hesap ekstrelerini otomatik denetleyen karar sistemi."
 categorySlug: "finans-on-muhasebe"
 categoryName: "Finans ve Ön Muhasebe"
-price: 499
+price: 1999
 currency: "TRY"
-bundlePrice: 999
+bundlePrice: 1999
 bundleSlug: "kurumsal-erp-crm-tam-paket"
 paymentGateways:
   - "iyzico"

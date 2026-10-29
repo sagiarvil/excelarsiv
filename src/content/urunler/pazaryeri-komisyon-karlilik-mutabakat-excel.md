@@ -7,9 +7,9 @@ seoDescription: "E-ticaret satıcıları için güncel pazaryeri komisyonları, 
 summary: "Pazaryeri komisyonları ve kargo kesintileri sonrası net kârı ve eksik ödemeleri denetleyen e-ticaret karar sistemi."
 categorySlug: "e-ticaret-proje-yonetimi"
 categoryName: "E-Ticaret ve Proje Yönetimi"
-price: 499
+price: 1999
 currency: "TRY"
-bundlePrice: 999
+bundlePrice: 1999
 bundleSlug: "kurumsal-erp-crm-tam-paket"
 paymentGateways:
   - "iyzico"

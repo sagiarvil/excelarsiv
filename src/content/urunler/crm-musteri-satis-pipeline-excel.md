@@ -7,9 +7,9 @@ seoDescription: "Aday müşterileri (lead), verilen teklifleri, görüşme hatı
 summary: "Aday müşteri yönetiminden satış kapanışına kadar tüm satış döngüsünü hatasız yöneten kurumsal Excel CRM karar sistemi."
 categorySlug: "crm-satis-yonetimi"
 categoryName: "CRM ve Satış Yönetimi"
-price: 499
+price: 1999
 currency: "TRY"
-bundlePrice: 999
+bundlePrice: 1999
 bundleSlug: "kurumsal-erp-crm-tam-paket"
 paymentGateways:
   - "iyzico"

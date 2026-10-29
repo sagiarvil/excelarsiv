@@ -7,9 +7,9 @@ seoDescription: "Kritik stok altına düşen ürünleri uyaran, reçeteli üreti
 summary: "Çoklu ambar transferi, FIFO stok değerleme ve reçeteli hammadde düşümü sağlayan entegre depo yönetim sistemi."
 categorySlug: "stok-depo-uretim"
 categoryName: "Stok, Depo ve Üretim"
-price: 549
+price: 1999
 currency: "TRY"
-bundlePrice: 999
+bundlePrice: 1999
 bundleSlug: "kurumsal-erp-crm-tam-paket"
 paymentGateways:
   - "iyzico"

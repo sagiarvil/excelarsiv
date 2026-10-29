@@ -7,9 +7,9 @@ seoDescription: "Satış ekibi kotalarını, tahsilat bazlı prim baremlerini ve
 summary: "Satış ekibinin kota, prim ve ciro gerçekleşmelerini yöneten interaktif KPI dashboard sistemi."
 categorySlug: "crm-satis-yonetimi"
 categoryName: "CRM ve Satış Yönetimi"
-price: 499
+price: 1999
 currency: "TRY"
-bundlePrice: 999
+bundlePrice: 1999
 bundleSlug: "kurumsal-erp-crm-tam-paket"
 paymentGateways:
   - "iyzico"
