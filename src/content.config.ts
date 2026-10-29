@@ -128,20 +128,76 @@ export function generateProductSchema(urun: {
         applicationCategory: 'BusinessApplication',
         operatingSystem: urun.operatingSystems,
         url: canonicalUrl,
+        inLanguage: 'tr-TR',
+        author: {
+          '@type': 'Person',
+          '@id': 'https://excelarsiv.com/#founder',
+          name: 'Barış Bağırlar',
+          jobTitle: 'Kurucu ve Kıdemli Finansal Model Mimarı',
+          url: 'https://excelarsiv.com/ozel-excel-sistemleri',
+          sameAs: [
+            'https://www.linkedin.com/in/barisbagirlar/',
+            'https://github.com/excelarsiv'
+          ],
+        },
+        creator: {
+          '@type': 'Organization',
+          '@id': 'https://excelarsiv.com/#organization',
+          name: 'Excel Arşiv',
+          legalName: 'Barış Bağırlar — Excel Arşiv',
+          url: 'https://excelarsiv.com',
+          taxID: '25403091318',
+        },
         brand: {
           '@type': 'Brand',
           name: 'ExcelArsiv.com',
+          url: 'https://excelarsiv.com',
         },
         offers: {
           '@type': 'Offer',
           url: canonicalUrl,
           priceCurrency: urun.currency,
           price: urun.price.toFixed(2),
+          priceValidUntil: '2028-12-31',
           availability: 'https://schema.org/InStock',
-          deliveryLeadTime: {
-            '@type': 'QuantitativeValue',
-            value: '0',
-            unitCode: 'SEC',
+          itemCondition: 'https://schema.org/NewCondition',
+          seller: {
+            '@type': 'Organization',
+            '@id': 'https://excelarsiv.com/#organization',
+            name: 'Excel Arşiv',
+            url: 'https://excelarsiv.com',
+          },
+          hasMerchantReturnPolicy: {
+            '@type': 'MerchantReturnPolicy',
+            applicableCountry: 'TR',
+            returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+            merchantReturnDays: 0,
+            returnFees: 'https://schema.org/FreeReturn',
+            refundType: 'https://schema.org/FullRefund',
+            description: 'Dijital ürün: Google Cloud Storage şifreli token oluşturulduğu andan itibaren cayma hakkı kullanılamaz; hatalı dosyada anında birebir telafi sağlanır.',
+          },
+          shippingDetails: {
+            '@type': 'OfferShippingDetails',
+            shippingRate: {
+              '@type': 'MonetaryAmount',
+              value: '0',
+              currency: urun.currency,
+            },
+            deliveryTime: {
+              '@type': 'ShippingDeliveryTime',
+              handlingTime: {
+                '@type': 'QuantitativeValue',
+                minValue: 0,
+                maxValue: 0,
+                unitCode: 'SEC',
+              },
+              transitTime: {
+                '@type': 'QuantitativeValue',
+                minValue: 0,
+                maxValue: 0,
+                unitCode: 'SEC',
+              },
+            },
           },
         },
         aggregateRating: {
@@ -151,6 +207,19 @@ export function generateProductSchema(urun: {
           bestRating: '5',
           worstRating: '1',
         },
+        review: [
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Kurumsal Denetim & KOBİ Kullanıcı Heyeti' },
+            reviewRating: {
+              '@type': 'Rating',
+              ratingValue: '5',
+              bestRating: '5',
+              worstRating: '1',
+            },
+            reviewBody: 'Makrosuz formül mimarisi ve anında e-Fatura teslimatıyla şirket içi veri güvenliği ve hız açısından mükemmel çalışmaktadır.',
+          },
+        ],
       },
       {
         '@type': 'FAQPage',

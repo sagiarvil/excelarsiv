@@ -27,16 +27,17 @@ export function buildCompleteJsonLdGraph(page: SeoPageRecord, domain: string = '
       },
       description: 'Türkiye\'deki işletmeler, finans yöneticileri ve KOBİ\'ler için kurumsal Excel çalışma sistemleri, nakit akışı modelleri ve terzi usulü karar mimarileri.',
       email: 'bilgi@excelarsiv.com',
-      taxID: '2230353841',
+      taxID: '25403091318',
       founder: {
         '@type': 'Person',
         '@id': `${origin}/#founder`,
-        name: 'Doğan Aydın',
+        name: 'Barış Bağırlar',
         jobTitle: 'Kurucu, Kıdemli Finansal Model ve Karar Destek Mimarı',
         sameAs: [
           'https://www.wikidata.org/wiki/Q11589432',
-          'https://linkedin.com/in/doganaydin',
-          'https://x.com/excelarsiv'
+          'https://www.linkedin.com/in/barisbagirlar/',
+          'https://x.com/excelarsiv',
+          'https://github.com/excelarsiv'
         ]
       },
       address: {

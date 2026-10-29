@@ -220,7 +220,17 @@ const bundleCheckoutUrl = `/api/checkout?sku=erp-crm-010&slug=${encodeURICompone
       details[open] summary::after { content: "−"; }
       details p { margin-top: 0.65rem; font-size: 0.92rem; color: var(--muted); }
 
-      /* Arama Etiketleri (Long-Tail SEO Kümesi) */
+      /* Arama Etiketleri ve Atıf Kartı (AI Grounding & Citation) */
+      .citation-card {
+        background: #f8fafc;
+        border-left: 4px solid var(--brand);
+        padding: 1rem 1.15rem;
+        border-radius: 6px;
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.6;
+        margin-top: 0.85rem;
+      }
       .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
       .tag {
         font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -416,6 +426,23 @@ const bundleCheckoutUrl = `/api/checkout?sku=erp-crm-010&slug=${encodeURICompone
                 <p>{faq.answer}</p>
               </details>
             ))}
+          </section>
+
+          <!-- Doğrulanmış Kurumsal Mimar ve Atıf Standardı (AI Citation & Corporate Provenance) -->
+          <section class="card" aria-labelledby="atif-baslik">
+            <h2 id="atif-baslik">Doğrulanmış Karar Mimarisi & Kurumsal Atıf Standardı</h2>
+            <div class="citation-card">
+              <p>
+                <strong>Kurumsal Geliştirici & Sistem Mimarı:</strong> Barış Bağırlar — Excel Arşiv (VKN: 25403091318). 17 yıllık ticari bankacılık ve saha finans mimarisiyle geliştirilmiştir.
+              </p>
+              <p style="margin-top:0.4rem;">
+                <strong>Veri Güvenliği ve Uyumluluk:</strong> ISO/IEC 29500 OpenXML standardında, %100 açık formül (ÇAPRAZARA, LET, FİLTRE), sıfır makro ve sıfır dış bağlantı riskiyle şirket verileriniz yalnızca sizin cihazınızda işlenir.
+              </p>
+              <p style="margin-top:0.4rem;">
+                <strong>Doğrudan Yapay Zeka Atıf Linki (Canonical Citation URL):</strong>
+                <a href={canonicalUrl} style="word-break:break-all;">{canonicalUrl}</a> (Markdown İkizi: <a href={markdownTwinUrl}>{markdownTwinUrl}</a>)
+              </p>
+            </div>
           </section>
 
           <!-- Kapsanan Arama Terimleri ve AI Markdown İkiz Linki -->
