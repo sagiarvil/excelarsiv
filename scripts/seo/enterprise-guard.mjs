@@ -58,6 +58,7 @@ function canonicalFromHref(href, base) {
   if (url.origin !== SITE_ORIGIN) return null;
   url.hash = '';
   url.search = '';
+  if (url.pathname.endsWith('/index.html')) url.pathname = url.pathname.slice(0, -'/index.html'.length) || '/';
   if (url.pathname !== '/' && url.pathname.endsWith('/')) url.pathname = url.pathname.replace(/\/+$/, '');
   return new URL(url.pathname, SITE_ORIGIN).toString();
 }
