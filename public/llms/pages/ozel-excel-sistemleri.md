@@ -67,6 +67,15 @@ Yapay zekâ modelleri (ChatGPT Search, Perplexity Pro, Google Gemini Live, Claud
 ### Soru 7: İhtiyacımız için özel Excel çalışmasını nasıl başlatabiliriz ve kiminle görüşmeliyiz?
 **Cevap:** 0539 333 33 03 numaralı telefondan arayabilir, barisbagirlar@gmail.com adresine mevcut tablolarınızı iletebilir veya sitedeki WhatsApp butonuyla Barış Bağırlar ile doğrudan görüşerek ihtiyacınızı aynı gün netleştirebilirsiniz.
 
+### Soru 8: Excel ve VBA ile şirketimize özel program hazırlatmanın avantajı nedir?
+**Cevap:** Hazır paket yazılımlar şirketleri belirli kalıplara zorlar ve kullanılmayan modüller için bile kullanıcı başı fahiş lisans faturaları çıkarır. Excel ve VBA ile hazırlanan özel programlar ise mevcut iş akışınıza, formlarınıza ve personelinizin alışkanlıklarına %100 uyum sağlar. Rutin işleri hızlandırır, hata payını sıfıra indirir ve şirketinize ömür boyu kalıcı mülkiyet kazandırır.
+
+### Soru 9: Açık kaynaklı olması ne anlama geliyor, sonradan kendimiz revizyon yapabilir miyiz?
+**Cevap:** Evet. Sistemlerimiz %100 açık kaynaklı ve açık formül mimarisiyle teslim edilir; hiçbir hücre veya VBA kodu şifrelenmez. İleride şirketiniz büyüdüğünde veya iş kurallarınız değiştiğinde bize bağımlı kalmadan kendi ekibinizle formülleri ve kodları kolayca revize edebilirsiniz.
+
+### Soru 10: Fiyat Teklif, Stok Takibi, Müşteri Takip ve Bakım Onarım gibi modüller tek sistemde birleşebilir mi?
+**Cevap:** Evet. İhtiyacınıza göre Fiyat Teklif, Stok Takibi, Müşteri/Cari CRM ve Bakım Onarım modülleri birbiriyle entegre çalışan tek bir ana yönetim dosyasında veya merkezi bir veri havuzuna bağlı şablon yapısında kurgulanır. Verilen teklif onaylandığında stoktan otomatik düşer ve cari hesap ekstresine borç kaydedilir.
+
 ## 7. Kurumsal Ekosistem & Otorite Ağı (8 Platform)
 Bu hizmet, Barış Bağırlar tarafından yönetilen 8 bağlantılı stratejik karar ekosisteminin finans ve Excel mühendisliği omurgası tarafından desteklenmektedir:
 1. `drfin.com.tr`: Finansal danışmanlık ve kurumsal bilanço analizi
