@@ -273,4 +273,16 @@ if (existsSync(join(distDir, 'sablonlar', 'raporlama'))) {
   rmSync(join(distDir, 'sablonlar', 'raporlama'), { recursive: true, force: true });
 }
 
+// Strict Assertion: Ensure no legacy design remnants ever exist in dist/index.html
+const finalIndexHtml = readFileSync(distIndex, 'utf8');
+if (!finalIndexHtml.includes('İşiniz ilerlesin') || !finalIndexHtml.includes('brand-spectrum')) {
+  console.error('KRİTİK HATA: dist/index.html içinde güncel premium tasarım bulunamadı!');
+  process.exit(1);
+}
+if (finalIndexHtml.includes("Türkiye'nin En Kapsamlı <span>Excel Çözüm Arşivi</span>")) {
+  console.error("KRİTİK HATA: Eski tasarım tespit edildi! Build durduruldu.");
+  process.exit(1);
+}
+console.log('[PASS] Eski tasarım tamamen engellendi, güncel tasarım %100 kilitlendi.');
+
 console.log(`[PASS] ${updatedPagesCount} sayfa premium tasarımla başarıyla entegre edildi.`);
