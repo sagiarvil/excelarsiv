@@ -24,7 +24,7 @@ export const GET: APIRoute = async () => {
     content += `## ${d.title}\n`;
     content += `- **Satın Alma ve İnceleme Sayfası:** ${url}\n`;
     content += `- **Yapay Zeka Saf Markdown İkizi:** ${mdUrl}\n`;
-    content += `- **Departman:** ${d.categoryName} (https://excelarsiv.com/kategori/${d.categorySlug})\n`;
+    content += `- **Departman:** ${d.categoryName} (https://excelarsiv.com/yerel-erp-crm-moduller)\n`;
     content += `- **Lisans ve Fiyat:** ${d.price} ${d.currency} (Tek Seferlik Ödeme, Ömür Boyu Lisans) | Kurumsal Tam Paket: ${d.bundlePrice} ${d.currency}\n`;
     content += `- **Teslimat ve Ödeme:** ${d.deliveryMethod} (${d.paymentGateways.join(' & ')} 3D Secure)\n`;
     content += `- **Uyumlu Sistemler:** ${d.operatingSystems}\n`;

@@ -9,12 +9,9 @@ export async function pingIndexNowAfterDeploy(indexNowKey = '9b2d3bf9c5d144578ea
     `https://${host}/`,
     `https://${host}/llms.txt`,
     `https://${host}/llms-full.txt`,
-    // 5 Ana Departman Hub Sayfası
-    `https://${host}/kategori/crm-satis-yonetimi`,
-    `https://${host}/kategori/finans-on-muhasebe`,
-    `https://${host}/kategori/stok-depo-uretim`,
-    `https://${host}/kategori/insan-kaynaklari-bordro`,
-    `https://${host}/kategori/e-ticaret-proje-yonetimi`,
+    // Ana Hub Sayfaları
+    `https://${host}/yerel-erp-crm-moduller`,
+    `https://${host}/sablonlar`,
     // İlk 10 Çekirdek Ürün ve .md İkiz Sayfaları
     `https://${host}/urun/crm-musteri-satis-pipeline-excel`,
     `https://${host}/urun/crm-musteri-satis-pipeline-excel.md`,
