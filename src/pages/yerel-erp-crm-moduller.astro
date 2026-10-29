@@ -247,6 +247,20 @@ import '../styles/global.css';
       padding: 0;
     }
 
+    /* Kök Zemin & Flush Mount (Kırılma Engelleme Standartı) */
+    :global(html),
+    :global(body) {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      background-color: #ffffff !important;
+      background-image: none !important;
+    }
+    :global(body::after) {
+      display: none !important;
+    }
+
     body {
       font-family: var(--ea-font);
       background-color: var(--ea-bg);
@@ -254,6 +268,295 @@ import '../styles/global.css';
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       padding-bottom: 80px;
+    }
+
+    /* SVG Küresel Sınırlandırma Koruması (Asla Patlama Yapamaz) */
+    svg {
+      box-sizing: content-box;
+    }
+    .ea-topbar-svg {
+      width: 15px !important;
+      height: 15px !important;
+      min-width: 15px !important;
+      min-height: 15px !important;
+      max-width: 15px !important;
+      max-height: 15px !important;
+      flex-shrink: 0 !important;
+      display: inline-block !important;
+      vertical-align: middle;
+    }
+    .ea-btn-icon-16 {
+      width: 16px !important;
+      height: 16px !important;
+      min-width: 16px !important;
+      min-height: 16px !important;
+      max-width: 16px !important;
+      max-height: 16px !important;
+      flex-shrink: 0 !important;
+      display: inline-block !important;
+      vertical-align: middle;
+    }
+    .ea-close-icon-20 {
+      width: 20px !important;
+      height: 20px !important;
+      min-width: 20px !important;
+      min-height: 20px !important;
+      max-width: 20px !important;
+      max-height: 20px !important;
+      flex-shrink: 0 !important;
+      display: inline-block !important;
+      vertical-align: middle;
+    }
+
+    /* Üst Bilgi Şeridi (Topbar) */
+    .ea-topbar {
+      background: #0f172a;
+      color: #f1f5f9;
+      font-size: 12px;
+      line-height: 1.4;
+      padding: 7px 16px;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+      width: 100%;
+    }
+    .ea-topbar__inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .ea-topbar__left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      font-weight: 500;
+    }
+    .ea-topbar__badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-size: 10.5px;
+      font-weight: 800;
+      background: #10b981;
+      color: #022c22;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+    .ea-topbar__text {
+      color: #e2e8f0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .ea-topbar__right {
+      display: none;
+      align-items: center;
+      gap: 20px;
+      color: #cbd5e1;
+      font-size: 11.5px;
+    }
+    @media (min-width: 768px) {
+      .ea-topbar__right {
+        display: flex;
+      }
+    }
+    .ea-topbar__item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    /* Ana Sticky Header & Altın Oran Boyutlandırma */
+    .ea-header-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+      width: 100%;
+      transition: all 0.2s ease;
+    }
+    .ea-header__container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 16px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .ea-header__container {
+        padding: 0 24px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .ea-header__container {
+        padding: 0 32px;
+      }
+    }
+
+    /* Logo & Marka Bloğu */
+    .ea-logo-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .ea-logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: #107c41;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      box-shadow: 0 4px 12px -2px rgba(16, 124, 65, 0.28);
+      flex-shrink: 0;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+    .ea-logo-link:hover .ea-logo-mark {
+      background: #0b6133;
+      transform: translateY(-1px);
+    }
+    .ea-brand-title {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      line-height: 1.15;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .ea-brand-title span.accent {
+      color: #107c41;
+    }
+    .ea-brand-pro-tag {
+      font-size: 9px;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+      letter-spacing: 0.04em;
+    }
+    .ea-brand-subtitle {
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-top: 1px;
+      display: none;
+    }
+    @media (min-width: 640px) {
+      .ea-brand-subtitle {
+        display: block;
+      }
+    }
+
+    /* Orta Rozet (Lüks Minimalist Masaüstü Rozeti) */
+    .ea-center-pill {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #475569;
+      white-space: nowrap;
+    }
+    @media (min-width: 1180px) {
+      .ea-center-pill {
+        display: flex;
+      }
+    }
+    .ea-center-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 9999px;
+      background: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+      flex-shrink: 0;
+    }
+
+    /* Sağ Aksiyon Grubu */
+    .ea-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    @media (min-width: 640px) {
+      .ea-header-actions {
+        gap: 12px;
+      }
+    }
+    .ea-btn-whatsapp-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #ffffff !important;
+      background: #107c41;
+      border: 1px solid #0d6334;
+      box-shadow: 0 4px 14px -2px rgba(16, 124, 65, 0.35);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .ea-btn-whatsapp-cta:hover {
+      background: #0b6133;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px -2px rgba(16, 124, 65, 0.45);
+    }
+    .ea-btn-menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 13px;
+      border-radius: 10px;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 12px -2px rgba(2, 6, 23, 0.3);
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .ea-btn-menu-toggle:hover {
+      border-color: #34d399;
+      box-shadow: 0 4px 16px -1px rgba(16, 185, 129, 0.35);
+      transform: translateY(-1px);
     }
 
     a {
@@ -931,65 +1234,65 @@ import '../styles/global.css';
 </head>
 <body>
 
-  <!-- Üst Bilgi Şeridi -->
-  <div class="bg-slate-900 text-slate-100 text-xs sm:text-sm py-2 px-3 sm:px-4 border-b border-emerald-500/30">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2 font-medium min-w-0">
-        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500 text-slate-950 shrink-0">2026 GÜNCEL</span>
-        <span class="truncate sm:overflow-visible sm:whitespace-normal">İşletmeye Özel Yerel ERP &amp; CRM Modülleri · Bulutsuz &bull; İnternetsiz &bull; GitHub Şifreli Yedekli</span>
+  <!-- Üst Bilgi Şeridi (Topbar) -->
+  <div class="ea-topbar">
+    <div class="ea-topbar__inner">
+      <div class="ea-topbar__left">
+        <span class="ea-topbar__badge">2026 GÜNCEL</span>
+        <span class="ea-topbar__text">İşletmeye Özel Yerel ERP &amp; CRM Modülleri · Bulutsuz &bull; İnternetsiz &bull; GitHub Şifreli Yedekli</span>
       </div>
-      <div class="hidden md:flex items-center gap-5 text-slate-300 text-xs">
-        <span class="flex items-center gap-1.5">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-          %100 Yerel Cihaz Veri Güvenliği
+      <div class="ea-topbar__right">
+        <span class="ea-topbar__item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ea-topbar-svg"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          %100 Yerel Veri Güvenliği
         </span>
-        <span class="flex items-center gap-1.5">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        <span class="ea-topbar__item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ea-topbar-svg"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
           Sıfır Aylık Abonelik
         </span>
-        <span class="flex items-center gap-1.5">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        <span class="ea-topbar__item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ea-topbar-svg"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
           48 Saatte Canlı Kurulum
         </span>
       </div>
     </div>
   </div>
 
-  <!-- Header Navigasyon -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-200">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
-      <!-- Logo -->
-      <a class="min-h-[44px] flex items-center gap-2 group shrink-0" href="/" aria-label="ExcelArşiv Pro Ana Sayfa">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-excel-600 flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-md shadow-emerald-600/20 group-hover:bg-excel-700 transition shrink-0" style="background-color: #107c41 !important; color: #ffffff !important;">
+  <!-- Header Navigasyon (Flush Mount, Altın Oran Boyutlandırma & Premium Açılar) -->
+  <header class="ea-header-sticky">
+    <div class="ea-header__container">
+      <!-- Logo Markası -->
+      <a class="ea-logo-link" href="/" aria-label="ExcelArşiv Pro Ana Sayfa">
+        <div class="ea-logo-mark">
           X
         </div>
-        <div class="min-w-0">
-          <div class="flex items-center gap-1 sm:gap-1.5">
-            <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 whitespace-nowrap">Excel<span class="text-excel-600" style="color: #107c41 !important;">Arşiv</span></span>
-            <span class="text-[9px] sm:text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-md bg-emerald-100 text-excel-700 font-extrabold">PRO</span>
+        <div>
+          <div class="ea-brand-title">
+            Excel<span class="accent">Arşiv</span>
+            <span class="ea-brand-pro-tag">PRO</span>
           </div>
-          <p class="hidden sm:block text-[11px] text-slate-500 leading-none">Yerel Kurumsal Yönetim Modülleri</p>
+          <p class="ea-brand-subtitle">Yerel Kurumsal Yönetim Modülleri</p>
         </div>
       </a>
 
-      <!-- Orta Kısım: Lüks Minimal Bilgi Rozeti (Desktop) -->
-      <div class="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 text-[11.5px] font-medium text-slate-600">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span class="font-bold text-slate-800">Bulutsuz · İnternetsiz · Yerel Cihaz</span>
-        <span class="text-slate-300">|</span>
+      <!-- Orta Kısım: Lüks Minimalist Karar Rozeti (Desktop) -->
+      <div class="ea-center-pill">
+        <span class="ea-center-pill-dot animate-pulse"></span>
+        <span style="font-weight:700;color:#0f172a;">Bulutsuz · İnternetsiz · Yerel Cihaz</span>
+        <span style="color:#cbd5e1;">|</span>
         <span>GitHub Otomatik Şifreli Yedek</span>
       </div>
 
-      <!-- Sağ Aksiyonlar -->
-      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
-        <a href="https://wa.me/905393333303?text=Merhaba,%20işletmem%20için%20yerel%20ERP%20CRM%20modülleri%20kurulumu%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="min-h-[42px] inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-600/25 transition-all shrink-0 whitespace-nowrap" style="background-color: #107c41 !important;">
-          <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+      <!-- Sağ Aksiyon Grubu -->
+      <div class="ea-header-actions">
+        <a href="https://wa.me/905393333303?text=Merhaba,%20işletmem%20için%20yerel%20ERP%20CRM%20modülleri%20kurulumu%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="ea-btn-whatsapp-cta" aria-label="WhatsApp üzerinden canlı demo ve bilgi talep edin">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="ea-btn-icon-16"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
           <span class="hidden sm:inline">Demo &amp; Danışma</span>
-          <span class="sm:hidden text-xs">Demo</span>
+          <span class="sm:hidden">Demo</span>
         </a>
 
         <!-- Premium Sandviç (Hamburger) Menü Butonu (Canlı Radar Animasyonlu & Renkli) -->
-        <button aria-label="Navigasyon Menüsünü Aç / Kapat" aria-expanded="false" aria-controls="mobileMenuPanel" class="min-h-[42px] relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl border border-emerald-500/40 bg-gradient-to-r from-slate-950 via-slate-900 to-emerald-950 text-white hover:border-emerald-400 shadow-md shadow-slate-950/20 hover:shadow-emerald-600/25 transition-all duration-300 group shrink-0 active:scale-95 cursor-pointer ring-1 ring-emerald-500/20 hover:ring-emerald-400/40" id="mobileMenuBtn" type="button">
+        <button aria-label="Navigasyon Menüsünü Aç / Kapat" aria-expanded="false" aria-controls="mobileMenuPanel" class="ea-btn-menu-toggle group" id="mobileMenuBtn" type="button">
           <!-- Canlı Radar Pulse Noktası -->
           <span class="relative flex h-2 w-2 shrink-0">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -997,7 +1300,7 @@ import '../styles/global.css';
           </span>
           <span class="text-xs font-black tracking-wider text-white group-hover:text-emerald-300 transition-colors uppercase">Menü</span>
           <!-- Hareketli ve Renkli Sandviç Çubukları -->
-          <div class="w-4 h-3.5 flex flex-col justify-between py-0.5" aria-hidden="true">
+          <div class="w-4 h-3.5 flex flex-col justify-between py-0.5" aria-hidden="true" style="width:16px;height:14px;">
             <span class="w-full h-[2.5px] bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full transition-all duration-300 group-hover:w-3 group-hover:bg-white shadow-[0_0_6px_rgba(52,211,153,0.5)]"></span>
             <span class="w-2.5 h-[2.5px] bg-amber-400 rounded-full transition-all duration-300 ml-auto group-hover:w-full group-hover:bg-emerald-300 shadow-[0_0_6px_rgba(251,191,36,0.6)]"></span>
             <span class="w-full h-[2.5px] bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full transition-all duration-300 group-hover:w-2 group-hover:bg-white shadow-[0_0_6px_rgba(52,211,153,0.5)]"></span>
@@ -1031,7 +1334,7 @@ import '../styles/global.css';
         </div>
       </div>
       <button id="mobileMenuCloseBtn" type="button" aria-label="Menüyü Kapat" class="w-9 h-9 rounded-xl border border-white/15 bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all duration-200 hover:rotate-90 shadow-sm relative z-10 cursor-pointer">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        <svg width="20" height="20" class="ea-close-icon-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
       </button>
     </div>
 
@@ -1193,13 +1496,13 @@ import '../styles/global.css';
     <!-- Panel Footer -->
     <div class="p-4 border-t border-slate-100 bg-slate-50/90 space-y-2">
       <a href="https://wa.me/905393333303?text=Merhaba,%20işletmem%20için%20yerel%20ERP%20CRM%20modülleri%20kurulumu%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition flex items-center justify-center gap-2 shadow-sm">
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+        <svg width="16" height="16" class="ea-btn-icon-16 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
         <span>WhatsApp'tan Demo Talep Et</span>
       </a>
 
       <div class="flex items-center justify-center gap-3 pt-1 text-[10.5px] text-slate-500">
         <span class="flex items-center gap-1">
-          <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          <svg width="14" height="14" class="ea-topbar-svg text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           Yerel Güvenlik
         </span>
         <span>·</span>

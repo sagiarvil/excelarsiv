@@ -101,3 +101,38 @@
 
 
 .page-hero .watermark-head { padding: 10px 0; margin-bottom: 0; overflow: hidden; }
+
+/* --- Ghost / Watermark Typography Header Architecture (Stacked, Soft & Zero-Collision - dilekceyazdir style) --- */
+.section-watermark-wrap {
+  width: 100% !important;
+  display: flex !important;
+  user-select: none !important;
+  pointer-events: none !important;
+  padding-bottom: 0.5rem !important;
+  overflow: visible !important;
+}
+.section-watermark-wrap.wm-center {
+  justify-content: center !important;
+}
+.section-watermark-wrap.wm-left {
+  justify-content: flex-start !important;
+}
+.section-watermark-svg {
+  width: auto !important;
+  max-width: 100% !important;
+  height: clamp(3.5rem, 8vw, 6.75rem) !important;
+  overflow: visible !important;
+  display: block !important;
+}
+.section-watermark-text {
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 110px !important;
+  letter-spacing: -0.04em !important;
+  fill: #0F172A !important;
+  opacity: 0.085 !important;
+}
+.section-watermark-dark .section-watermark-text {
+  fill: #FFFFFF !important;
+  opacity: 0.095 !important;
+}
