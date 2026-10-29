@@ -26,11 +26,6 @@
       "trailingSlash": false,
       "redirects": [
         {
-          "source": "/urun/:slug",
-          "destination": "/sablon/:slug",
-          "type": 301
-        },
-        {
           "source": "/excel-araclari",
           "destination": "/sablonlar",
           "type": 301
