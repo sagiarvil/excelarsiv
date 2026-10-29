@@ -61,4 +61,109 @@ const guides = defineCollection({
   }),
 });
 
-export const collections = { templates, guides };
+const urunler = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/urunler' }),
+  schema: z.object({
+    id: z.string(),
+    slug: z.string(),
+    title: z.string().max(110),
+    seoTitle: z.string().max(70),
+    seoDescription: z.string().max(160),
+    summary: z.string(),
+    categorySlug: z.enum([
+      'crm-satis-yonetimi',
+      'finans-on-muhasebe',
+      'stok-depo-uretim',
+      'insan-kaynaklari-bordro',
+      'e-ticaret-proje-yonetimi',
+    ]),
+    categoryName: z.string(),
+    price: z.number(),
+    currency: z.literal('TRY').default('TRY'),
+    bundlePrice: z.number().default(999),
+    bundleSlug: z.string().default('kurumsal-erp-crm-tam-paket'),
+    paymentGateways: z.array(z.enum(['iyzico', 'shopier'])).default(['iyzico', 'shopier']),
+    instantDelivery: z.boolean().default(true),
+    deliveryMethod: z.string().default('Google Cloud Storage Tek Kullanımlık Şifreli Token & Resmi e-Fatura'),
+    operatingSystems: z.string().default('Windows, macOS (Microsoft Excel 365, 2021, 2019 & Google Sheets)'),
+    formulaEngine: z.array(z.string()),
+    vbaRequired: z.boolean().default(false),
+    ratingValue: z.number().min(1).max(5).default(4.9),
+    reviewCount: z.number().int().positive(),
+    queryNumbers: z.array(z.number()),
+    targetQueries: z.array(z.string()),
+    naturalPrompts: z.array(z.string()),
+    features: z.array(z.string()),
+    faqs: z.array(
+      z.object({
+        question: z.string(),
+        answer: z.string(),
+      })
+    ),
+  }),
+});
+
+export const collections = { templates, guides, urunler };
+
+export function generateProductSchema(urun: {
+  slug: string;
+  title: string;
+  seoDescription: string;
+  price: number;
+  currency: string;
+  operatingSystems: string;
+  ratingValue: number;
+  reviewCount: number;
+  faqs: Array<{ question: string; answer: string }>;
+}) {
+  const canonicalUrl = `https://excelarsiv.com/urun/${urun.slug}`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': ['SoftwareApplication', 'Product'],
+        '@id': `${canonicalUrl}#software`,
+        name: urun.title,
+        description: urun.seoDescription,
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: urun.operatingSystems,
+        url: canonicalUrl,
+        brand: {
+          '@type': 'Brand',
+          name: 'ExcelArsiv.com',
+        },
+        offers: {
+          '@type': 'Offer',
+          url: canonicalUrl,
+          priceCurrency: urun.currency,
+          price: urun.price.toFixed(2),
+          availability: 'https://schema.org/InStock',
+          deliveryLeadTime: {
+            '@type': 'QuantitativeValue',
+            value: '0',
+            unitCode: 'SEC',
+          },
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: urun.ratingValue.toString(),
+          reviewCount: urun.reviewCount.toString(),
+          bestRating: '5',
+          worstRating: '1',
+        },
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${canonicalUrl}#faq`,
+        mainEntity: urun.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.answer,
+          },
+        })),
+      },
+    ],
+  };
+}

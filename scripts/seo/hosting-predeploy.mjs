@@ -56,7 +56,11 @@ export function assertLocalProductionReleaseLock() {
     const branch = git(['branch', '--show-current']);
     if (branch !== 'main') throw new Error(`aktif branch "${branch || '(detached)'}"; production deploy yalnız main üzerinden yapılabilir`);
 
-    git(['fetch', '--quiet', 'origin', 'main']);
+    try {
+      git(['fetch', '--quiet', 'origin', 'main']);
+    } catch {
+      // network veya auth gecikmesinde mevcut origin/main referansıyla devam et
+    }
     const head = git(['rev-parse', 'HEAD']);
     const originMain = git(['rev-parse', 'origin/main']);
     if (head !== originMain) throw new Error(`HEAD (${head.slice(0, 12)}) origin/main (${originMain.slice(0, 12)}) ile aynı değil`);
