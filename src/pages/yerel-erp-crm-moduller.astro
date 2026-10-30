@@ -205,12 +205,25 @@ import '../styles/global.css';
 
   <style>
     :root {
-      --ea-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --color-excel-50: #f0fdf4;
+      --color-excel-100: #dcfce7;
+      --color-excel-200: #bbf7d0;
+      --color-excel-300: #86efac;
+      --color-excel-400: #4ade80;
+      --color-excel-500: #22c55e;
+      --color-excel-600: #107c41; /* Excel Resmi Kurumsal Yeşili */
+      --color-excel-700: #0b5c30;
+      --color-excel-800: #064e3b;
+      --color-excel-900: #022c22;
+
+      --ea-font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --ea-navy: #0F172A;
       --ea-navy-light: #1E293B;
+      --ea-brand: #107c41;
+      --ea-brand-hover: #0b5c30;
       --ea-blue: #0284C7;
       --ea-blue-hover: #0369A1;
-      --ea-green: #059669;
+      --ea-green: #107c41;
       --ea-emerald: #10B981;
       --ea-amber: #D97706;
       --ea-rose: #E11D48;
@@ -239,6 +252,18 @@ import '../styles/global.css';
       --box-teal-border: #5EEAD4;
       --box-indigo-bg: #EEF2FF;
       --box-indigo-border: #A5B4FC;
+    }
+
+    .text-excel-600 { color: #107c41; }
+    .text-excel-700 { color: #0b5c30; }
+    .text-excel-800 { color: #064e3b; }
+    .bg-excel-600 { background-color: #107c41; }
+    .bg-excel-700 { background-color: #0b5c30; }
+    .hover\:bg-excel-700:hover { background-color: #0b5c30; }
+    .grid-pattern {
+      background-image: linear-gradient(to right, rgba(16, 124, 65, 0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(16, 124, 65, 0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
     }
 
     * {
@@ -608,37 +633,26 @@ import '../styles/global.css';
     .ea-header__nav a:hover {
       color: var(--ea-blue);
     }
-    .ea-btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--ea-navy);
-      color: #FFFFFF !important;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-    .ea-btn-primary:hover {
-      background: var(--ea-navy-light);
-      transform: translateY(-1px);
-    }
+    .ea-btn-primary,
     .ea-btn-whatsapp {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #25D366;
+      background: linear-gradient(to right, #107c41, #0e6b38) !important;
       color: #FFFFFF !important;
       padding: 10px 20px;
-      border-radius: 8px;
+      border-radius: 12px;
       font-size: 13.5px;
       font-weight: 700;
-      transition: all 0.2s ease;
+      border: 1px solid rgba(16, 124, 65, 0.3);
+      box-shadow: 0 4px 14px -2px rgba(16, 124, 65, 0.35);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    .ea-btn-primary:hover,
     .ea-btn-whatsapp:hover {
-      background: #1EBE5B;
+      background: #0b5c30 !important;
       transform: translateY(-1px);
+      box-shadow: 0 6px 20px -2px rgba(16, 124, 65, 0.45);
     }
     .ea-btn-outline {
       display: inline-flex;
@@ -648,34 +662,38 @@ import '../styles/global.css';
       background: #FFFFFF;
       color: var(--ea-navy);
       padding: 10px 18px;
-      border-radius: 8px;
+      border-radius: 12px;
       font-size: 13.5px;
       font-weight: 600;
       transition: all 0.2s ease;
     }
     .ea-btn-outline:hover {
       background: var(--ea-canvas);
-      border-color: var(--ea-navy);
+      border-color: #107c41;
+      color: #107c41;
     }
 
     /* Hero Section */
     .ea-hero {
       padding: 48px 0 36px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+      background-color: #FFFFFF;
+      background-image: linear-gradient(to right, rgba(16, 124, 65, 0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(16, 124, 65, 0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
       border-bottom: 1px solid var(--ea-border);
     }
     .ea-badge-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #E0F2FE;
-      color: #0369A1;
+      background: #ECFDF5;
+      color: #065F46;
       padding: 6px 14px;
       border-radius: 9999px;
       font-size: 12.5px;
       font-weight: 700;
       margin-bottom: 18px;
-      border: 1px solid #BAE6FD;
+      border: 1px solid #A7F3D0;
     }
     .ea-hero__title {
       font-size: 34px;
@@ -765,8 +783,8 @@ import '../styles/global.css';
     .ea-section-tag {
       font-size: 11.5px;
       font-weight: 800;
-      letter-spacing: 1px;
-      color: var(--ea-blue);
+      letter-spacing: 1.2px;
+      color: #107c41;
       text-transform: uppercase;
       margin-bottom: 8px;
     }
@@ -864,7 +882,7 @@ import '../styles/global.css';
       content: "•";
       position: absolute;
       left: 4px;
-      color: var(--ea-blue);
+      color: #107c41;
       font-weight: bold;
     }
 
@@ -1067,7 +1085,7 @@ import '../styles/global.css';
     .ea-step-num {
       width: 32px;
       height: 32px;
-      background: var(--ea-navy);
+      background: linear-gradient(135deg, #107c41, #0e6b38);
       color: #FFFFFF;
       border-radius: 9999px;
       font-size: 13px;
@@ -1076,6 +1094,7 @@ import '../styles/global.css';
       align-items: center;
       justify-content: center;
       margin-bottom: 14px;
+      box-shadow: 0 2px 8px rgba(16, 124, 65, 0.3);
     }
     .ea-flow-step h4 {
       font-size: 15px;
@@ -1133,8 +1152,9 @@ import '../styles/global.css';
 
     /* CTA Banner */
     .ea-cta-banner {
-      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%) !important;
-      border-radius: 18px !important;
+      background: linear-gradient(135deg, #020617 0%, #0f172a 60%, #064e3b 100%) !important;
+      border: 1px solid rgba(16, 185, 129, 0.3) !important;
+      border-radius: 20px !important;
       padding: 44px 36px !important;
       color: #FFFFFF !important;
       margin: 48px 0 !important;
@@ -1143,7 +1163,7 @@ import '../styles/global.css';
       align-items: center !important;
       justify-content: space-between !important;
       gap: 24px !important;
-      box-shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.25) !important;
+      box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.2), 0 0 24px rgba(16, 185, 129, 0.1) !important;
     }
     .ea-cta-content h3 {
       font-size: 26px !important;
@@ -1234,73 +1254,55 @@ import '../styles/global.css';
 </head>
 <body>
 
-  <!-- Üst Bilgi Şeridi (Topbar) -->
-  <div class="ea-topbar">
-    <div class="ea-topbar__inner">
-      <div class="ea-topbar__left">
-        <span class="ea-topbar__badge">2026 GÜNCEL</span>
-        <span class="ea-topbar__text">İşletmeye Özel Yerel ERP &amp; CRM Modülleri · Bulutsuz &bull; İnternetsiz &bull; GitHub Şifreli Yedekli</span>
-      </div>
-      <div class="ea-topbar__right">
-        <span class="ea-topbar__item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ea-topbar-svg"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-          %100 Yerel Veri Güvenliği
-        </span>
-        <span class="ea-topbar__item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ea-topbar-svg"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-          Sıfır Aylık Abonelik
-        </span>
-        <span class="ea-topbar__item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ea-topbar-svg"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-          48 Saatte Canlı Kurulum
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header Navigasyon (Flush Mount, Altın Oran Boyutlandırma & Premium Açılar) -->
-  <header class="ea-header-sticky">
-    <div class="ea-header__container">
-      <!-- Logo Markası -->
-      <a class="ea-logo-link" href="/" aria-label="ExcelArşiv Pro Ana Sayfa">
-        <div class="ea-logo-mark">
+  <!-- Header Navigasyon (Standart Ana Sayfa DNA) -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-[0_4px_25px_-5px_rgba(15,23,42,0.06),0_1px_3px_rgba(16,124,65,0.05)] transition-all duration-200">
+    <!-- Üst Aydınlatma Akıcı Renk Şeridi -->
+    <div class="h-[3px] w-full bg-gradient-to-r from-emerald-600 via-teal-400 to-emerald-500 shadow-[0_1px_6px_rgba(16,124,65,0.35)]" aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
+      <!-- Logo -->
+      <a class="min-h-[44px] flex items-center gap-2.5 group shrink-0" href="/" aria-label="ExcelArşiv Pro Ana Sayfa">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#107c41] via-[#0e6b38] to-[#094d28] flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-md shadow-emerald-700/25 group-hover:shadow-emerald-700/40 group-hover:scale-105 transition-all shrink-0 ring-1 ring-emerald-500/30" style="color: #ffffff !important;">
           X
         </div>
-        <div>
-          <div class="ea-brand-title">
-            Excel<span class="accent">Arşiv</span>
-            <span class="ea-brand-pro-tag">PRO</span>
+        <div class="min-w-0">
+          <div class="flex items-center gap-1.5">
+            <span class="font-black text-base sm:text-lg tracking-tight text-slate-900 whitespace-nowrap">Excel<span class="text-emerald-700 font-extrabold" style="color: #107c41 !important;">Arşiv</span></span>
+            <span class="text-[9px] sm:text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-xs tracking-wider">PRO</span>
           </div>
-          <p class="ea-brand-subtitle">Yerel Kurumsal Yönetim Modülleri</p>
+          <p class="hidden sm:block text-[11px] font-medium text-slate-500 leading-none">Türkiye'nin Hazır Şablon &amp; Makro Merkezi</p>
         </div>
       </a>
 
-      <!-- Orta Kısım: Lüks Minimalist Karar Rozeti (Desktop) -->
-      <div class="ea-center-pill">
-        <span class="ea-center-pill-dot animate-pulse"></span>
-        <span style="font-weight:700;color:#0f172a;">Bulutsuz · İnternetsiz · Yerel Cihaz</span>
-        <span style="color:#cbd5e1;">|</span>
-        <span>GitHub Otomatik Şifreli Yedek</span>
+      <!-- Orta Kısım: Lüks Minimal Bilgi Rozeti (Desktop) -->
+      <div class="hidden xl:flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-emerald-50/70 via-slate-50 to-teal-50/70 border border-emerald-200/70 shadow-xs text-[11.5px] font-medium text-slate-600">
+        <span class="relative flex h-2 w-2 shrink-0">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+        </span>
+        <span class="font-extrabold text-slate-900 tracking-tight">Yerel ERP &amp; CRM Modülleri</span>
+        <span class="text-slate-300">|</span>
+        <span class="text-slate-600">Bulutsuz · Çevrimdışı · GitHub Şifreli Yedek</span>
       </div>
 
-      <!-- Sağ Aksiyon Grubu -->
-      <div class="ea-header-actions">
-        <a href="https://wa.me/905393333303?text=Merhaba,%20işletmem%20için%20yerel%20ERP%20CRM%20modülleri%20kurulumu%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="ea-btn-whatsapp-cta" aria-label="WhatsApp üzerinden canlı demo ve bilgi talep edin">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="ea-btn-icon-16"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
-          <span class="hidden sm:inline">Demo &amp; Danışma</span>
-          <span class="sm:hidden">Demo</span>
+      <!-- Sağ Aksiyonlar -->
+      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <!-- WhatsApp Danışma Butonu -->
+        <a href="https://wa.me/905393333303?text=Merhaba,%20işletmem%20için%20yerel%20ERP%20CRM%20modülleri%20kurulumu%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="min-h-[42px] inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#107c41] to-[#0e6b38] hover:from-[#0e6b38] hover:to-[#0a522a] shadow-md shadow-emerald-700/25 hover:shadow-lg hover:shadow-emerald-700/35 border border-emerald-600/30 transition-all shrink-0 whitespace-nowrap active:scale-95" style="background-color: #107c41 !important;">
+          <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+          <span class="hidden sm:inline">WhatsApp Görüşme</span>
+          <span class="sm:hidden text-xs">WhatsApp</span>
         </a>
 
         <!-- Premium Sandviç (Hamburger) Menü Butonu (Canlı Radar Animasyonlu & Renkli) -->
-        <button aria-label="Navigasyon Menüsünü Aç / Kapat" aria-expanded="false" aria-controls="mobileMenuPanel" class="ea-btn-menu-toggle group" id="mobileMenuBtn" type="button">
+        <button aria-label="Navigasyon Menüsünü Aç / Kapat" aria-expanded="false" aria-controls="mobileMenuPanel" class="min-h-[42px] relative flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3.5 py-2 rounded-xl border border-emerald-500/40 bg-gradient-to-r from-slate-950 via-slate-900 to-emerald-950 text-white hover:border-emerald-400 shadow-md shadow-slate-950/20 hover:shadow-emerald-600/25 transition-all duration-300 group shrink-0 active:scale-95 cursor-pointer ring-1 ring-emerald-500/20 hover:ring-emerald-400/40" id="mobileMenuBtn" type="button">
           <!-- Canlı Radar Pulse Noktası -->
           <span class="relative flex h-2 w-2 shrink-0">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
           </span>
-          <span class="text-xs font-black tracking-wider text-white group-hover:text-emerald-300 transition-colors uppercase">Menü</span>
+          <span class="hidden sm:inline text-xs font-black tracking-wider text-white group-hover:text-emerald-300 transition-colors uppercase">Menü</span>
           <!-- Hareketli ve Renkli Sandviç Çubukları -->
-          <div class="w-4 h-3.5 flex flex-col justify-between py-0.5" aria-hidden="true" style="width:16px;height:14px;">
+          <div class="w-4 h-3.5 flex flex-col justify-between py-0.5 shrink-0" aria-hidden="true">
             <span class="w-full h-[2.5px] bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full transition-all duration-300 group-hover:w-3 group-hover:bg-white shadow-[0_0_6px_rgba(52,211,153,0.5)]"></span>
             <span class="w-2.5 h-[2.5px] bg-amber-400 rounded-full transition-all duration-300 ml-auto group-hover:w-full group-hover:bg-emerald-300 shadow-[0_0_6px_rgba(251,191,36,0.6)]"></span>
             <span class="w-full h-[2.5px] bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full transition-all duration-300 group-hover:w-2 group-hover:bg-white shadow-[0_0_6px_rgba(52,211,153,0.5)]"></span>

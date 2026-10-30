@@ -2,7 +2,7 @@
 
 **Ürün:** Cari Hesap, Tahsilat ve Müşteri Risk Takip Sistemi
 **Sürüm:** 2.0.0 (10.08.2026)
-**Satış fiyatı:** 1.490 TL
+**Satış fiyatı:** 1.1.999 TL
 **SHA-256:** `bd8f773843f13582c20417be574be4a2dcdf2f87cbe0c347c734804e27038aab`
 
 ## Bu sürümde neler var

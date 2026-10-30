@@ -26,6 +26,9 @@ app_links_ios: https://excelarsiv.com/.well-known/apple-app-site-association
 [preferred_content]
 markdown_root: https://excelarsiv.com/llms.txt
 deep_graphs: https://excelarsiv.com/llms/pages/
+geo_graph: https://excelarsiv.com/llms/geo-turkiye.md
+authority: https://excelarsiv.com/llms/authority.md
+citations: https://excelarsiv.com/llms/citations.md
 mobile_deep_graphs: https://excelarsiv.com/llms/mobile/
 rss: https://excelarsiv.com/feed.xml
 rss_legacy: https://excelarsiv.com/rss.xml

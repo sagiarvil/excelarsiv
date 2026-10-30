@@ -570,7 +570,7 @@ def create_mockup(raw_img_path, title_text, out_path):
     
     # Safe short title
     short_title = title_text[:50] + '...' if len(title_text) > 50 else title_text
-    w_draw.text((80, dot_y - 7), f'ExcelArşiv PRO  •  {short_title}  •  199 ₺', fill='#94A3B8')
+    w_draw.text((80, dot_y - 7), f'ExcelArşiv PRO  •  {short_title}  •  1.999 ₺', fill='#94A3B8')
     
     # Raw screenshot
     if os.path.exists(raw_img_path):
@@ -592,7 +592,7 @@ def create_mockup(raw_img_path, title_text, out_path):
     badge_h = 32
     b_y = win_h - badge_h
     w_draw.rectangle([0, b_y, win_w, win_h], fill='#0F172A')
-    w_draw.text((16, b_y + 8), '✓ Saf XLSX (Makrosuz)  •  ✓ Dinamik Formüllü  •  ✓ Anında İndirme  •  ✓ 199 ₺', fill='#34D399')
+    w_draw.text((16, b_y + 8), '✓ Saf XLSX (Makrosuz)  •  ✓ Dinamik Formüllü  •  ✓ Anında İndirme  •  ✓ 1.999 ₺', fill='#34D399')
     
     # Mask
     mask = Image.new('L', (win_w, win_h), 0)
@@ -629,7 +629,7 @@ print(f"Copied {len(PRODUCTS_CONFIG)} delivery files in {delivery_out_dir}")
 
 # 3. Export TypeScript Data File
 ts_content = """// =====================================================================
-// EXCELARŞİV 199 ₺ PRATİK ŞABLON & DİNAMİK GRAFİK KATALOĞU (53 ÜRÜN)
+// EXCELARŞİV 1.999 ₺ PRATİK ŞABLON & DİNAMİK GRAFİK KATALOĞU (53 ÜRÜN)
 // SEO Uyumlu Başlık, Açıklama, Anahtar Kelimeler & E-E-A-T Uyumlu İçerik
 // =====================================================================
 
@@ -683,7 +683,7 @@ for i, p in enumerate(PRODUCTS_CONFIG, 1):
     title: {json.dumps(p['title'], ensure_ascii=False)},
     category: '{p['category']}',
     categoryLabel: '{clabel}',
-    priceTL: 199,
+    priceTL: 1999,
     vatIncluded: true,
     fileFormat: 'xlsx',
     hasMacros: false,

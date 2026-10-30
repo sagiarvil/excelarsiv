@@ -1,6 +1,6 @@
 # FİYAT SAVUNMASI — TAŞERON/ALT YÜKLENİCİ HAKEDİŞ & KESİNTİ MUTABAKATI
 
-**Satış fiyatı:** 1.490 TL
+**Satış fiyatı:** 1.1.999 TL
 **Manda v4 D01 eşiği:** Y1 (danışman ikamesi) + Y2 (kurulum ikamesi) ≥ 3 × 1.490 = **4.470 TL**
 
 ## Y1 — Danışman ikamesi (ne yapıldığında para ödenir)
@@ -56,5 +56,5 @@ yaparım" diyen alıcıya karşı savunulabilir:
 
 - D01: **GEÇTİ** (7.000 ≥ 4.470)
 - D02: **GEÇTİ** (7 ayrım maddesi ≥ 5, her biri ad tanımlı çıktı)
-- Satış fiyatı 1.490 TL; ürün üzerinde kurulan değer mimarisi **ikame bedelinin 4,7 katı**
-  değer üretir (7.000 TL ikame / 1.490 TL satış).
+- Satış fiyatı 1.1.999 TL; ürün üzerinde kurulan değer mimarisi **ikame bedelinin 4,7 katı**
+  değer üretir (7.000 TL ikame / 1.1.999 TL satış).

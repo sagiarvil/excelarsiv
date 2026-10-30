@@ -64,13 +64,8 @@ for (const filePath of htmlFiles) {
   const isHomepage = normalizedFilePath === 'dist/index.html' || normalizedFilePath.endsWith('/dist/index.html');
   if (isHomepage) {
     if (!content.includes('name="theme-color"')) {
-      const mobileMetas = `<meta name="theme-color" content="#107c41" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="Excel Arşiv" />
-  <meta name="mobile-web-app-capable" content="yes" />`;
-      content = content.replace('<head>', `<head>
-  ${mobileMetas}`);
+      const mobileMetas = `<meta name="theme-color" content="#107c41" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="default" /><meta name="apple-mobile-web-app-title" content="Excel Arşiv" /><meta name="mobile-web-app-capable" content="yes" />`;
+      content = content.replace('<head>', `<head>${mobileMetas}`);
       modified = true;
     }
     if (!content.includes('data-ai-citation-anchor')) {

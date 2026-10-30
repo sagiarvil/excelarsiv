@@ -1,16 +1,16 @@
 # FİYAT SAVUNMASI — ÜRETİM REÇETESİ & ZAM YANSITMA HESAPLAYICI
 
-## D01 — İkame maliyeti analizi (satış fiyatı: 1.490 ₺)
+## D01 — İkame maliyeti analizi (satış fiyatı: 1.1.999 TL)
 
 Satış fiyatı çapası, manda v4 D01 kuralına göre danışman ikamesi (Y1) + kurulum ikamesi (Y2) toplamının satış fiyatının en az 3 katı olmasını gerektirir.
 
 | Kalem | Değer | Gerekçe |
 |---|---|---|
-| Satış fiyatı | 1.490 ₺ | Ürünün perakende fiyatı |
+| Satış fiyatı | 1.1.999 TL | Ürünün perakende fiyatı |
 | Y1 — Danışman ikamesi | 6.000 ₺ | Hammadde zamlarının reçete maliyetine etkisini modellemek, ürün bazında eski/yeni maliyet ve hedef marjı koruyan fiyat üretmek için danışmanlık (2 gün × 3.000 ₺) |
 | Y2 — Kurulum ikamesi | 1.500 ₺ | Reçete verisinin toplanması, fire/işçilik/GÜG oranlarının belirlenmesi, eşik ve senaryo parametrelerinin kurulması (yarım gün) |
 | Toplam ikame | 7.500 ₺ | Y1 + Y2 |
-| Eşik (3 × satış) | 4.470 ₺ | 1.490 ₺ × 3 |
+| Eşik (3 × satış) | 4.470 ₺ | 1.1.999 TL × 3 |
 | Sonuç | 7.500 ₺ ≥ 4.470 ₺ → GEÇTİ | D01 sağlanır |
 
 Y3 (önlenen hata) hesaba dahil edilmemiştir. Gerçek hesapta ayrıca şunlar eklenir: hatalı fiyatlama nedeniyle kaçan marj, eksik yansıtılan zam nedeniyle oluşan satış geliri kaybı, elle toplanan verilerdeki hesap hataları.

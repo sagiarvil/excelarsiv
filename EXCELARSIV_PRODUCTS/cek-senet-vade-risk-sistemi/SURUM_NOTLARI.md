@@ -2,7 +2,7 @@
 
 **Ürün:** Çek Senet Vade ve Karşılık Risk Sistemi
 **Sürüm:** 1.0.0 (10.08.2026)
-**Satış fiyatı:** 1.490 TL
+**Satış fiyatı:** 1.1.999 TL
 **SHA-256:** `ef5a8de2e06705c8915fec1b7fcf23b26530b406a1c2853716c5df844730d81b`
 
 ## Bu sürümde neler var

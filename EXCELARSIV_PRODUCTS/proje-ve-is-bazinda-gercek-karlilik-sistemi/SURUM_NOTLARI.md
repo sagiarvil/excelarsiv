@@ -4,7 +4,7 @@
 **Sürüm:** 1.0.0 (10.08.2026)
 **Üretici betik:** `proje_is_karlilik.py`
 **Denetim:** **0 KALDI** — G01–G24 (İşçilik) + Ö1, Ö1b, Ö2 (Dayanıklılık) + D01–D14 (Değer)
-**Satış fiyatı:** 2.490 TL
+**Satış fiyatı:** 2.1.999 TL
 **SHA-256:** `aa615f97dfa8f71c01cd2c4c9cb575618e6cf0c836ea02d40ac676ffa42e79f4`
 
 ## Bu sürümde neler var

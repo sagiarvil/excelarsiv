@@ -2,7 +2,7 @@
 
 **Ürün:** Asgari Ücret Zam Etkisi & Fiyat Ayarlama Cetveli
 **Sürüm:** 1.0.0 (09.08.2026)
-**Satış fiyatı:** 1.490 TL
+**Satış fiyatı:** 1.1.999 TL
 **SHA-256:** `f7935923f4ac20ff75354188f27b92dd55d49f1c038649de9aaef774a17264d9`
 
 ## Bu sürümde neler var

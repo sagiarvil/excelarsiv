@@ -21,6 +21,9 @@
     "mcp": "https://excelarsiv.com/mcp",
     "openapi": "https://excelarsiv.com/openapi.json",
     "llms": "https://excelarsiv.com/llms.txt",
+    "geo": "https://excelarsiv.com/llms/geo-turkiye.md",
+    "citations": "https://excelarsiv.com/llms/citations.md",
+    "authority": "https://excelarsiv.com/llms/authority.md",
     "catalog": "https://excelarsiv.com/sablonlar"
   },
   "skills": [

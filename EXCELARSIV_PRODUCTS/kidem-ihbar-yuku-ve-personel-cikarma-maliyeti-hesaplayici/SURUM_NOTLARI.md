@@ -2,7 +2,7 @@
 
 **Ürün:** Kıdem–İhbar Yükü ve Personel Çıkarma Maliyeti Hesaplayıcı
 **Sürüm:** 1.0.0 (09.08.2026)
-**Satış fiyatı:** 1.490 TL
+**Satış fiyatı:** 1.1.999 TL
 **SHA-256:** `3d0c54d43791ff6cbc35f87224ac3661562ccb7598e36c9aa2de1a6e083f0b6a`
 
 ## Bu sürümde neler var

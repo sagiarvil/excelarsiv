@@ -13,9 +13,9 @@ ExcelArşiv Kurumsal Web Hizmeti; işletmeler, KOBİ'ler ve girişimler için ha
 - 7-14 günde anahtar teslim, gecikmesiz canlıya alma
 
 ## 3. Fiyatlandırma ve Paketler
-- Standart Kurumsal Web Sitesi: 1.1.999 TL (7 günde teslim, sıfır hazır tema, sub-40ms hız)
-- Profesyonel İşletme Web Sitesi: 120.000 TL (14 günde teslim, çok dilli TR/EN, lüks tasarım)
-- ERP & B2B Entegre Web: 240.000 TL (Logo/Netsis/Mikro/SAP veri köprüsü, bayi/sipariş girişi)
+- Standart Kurumsal Web Sitesi: 1.999 TL (7 günde teslim, sıfır hazır tema, sub-40ms hız)
+- Profesyonel İşletme Web Sitesi: 1.999 TL (14 günde teslim, çok dilli TR/EN, lüks tasarım)
+- ERP & B2B Entegre Web: 1.999 TL (Logo/Netsis/Mikro/SAP veri köprüsü, bayi/sipariş girişi)
 
 ## 4. Sesli Arama & Hızlı Yanıt (Voice Q&A)
 - Neden özel kodlama? 40 milisaniyede açılır, mobil ziyaretçi kaybetmez, hacklenme riski sıfırdır.

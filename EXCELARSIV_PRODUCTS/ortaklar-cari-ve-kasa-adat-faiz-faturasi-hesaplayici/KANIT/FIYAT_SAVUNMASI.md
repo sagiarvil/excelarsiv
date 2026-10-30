@@ -1,6 +1,6 @@
 # FİYAT SAVUNMASI — ORTAKLAR CARİ & KASA ADAT FAİZ FATURASI HESAPLAYICI
 
-**Satış fiyatı:** 2.490 TL
+**Satış fiyatı:** 2.1.999 TL
 **Denetim eşiği:** 3 × satış fiyatı = 7.470 TL (ikame maliyeti bu değerin üzerinde olmalı)
 
 ## D01 — İkame Maliyeti Çapası
@@ -30,4 +30,4 @@
 
 ## Fiyat-performans gerekçesi
 
-2.490 TL = bir mali müşavirin dönemlik adat/faiz mutabakat ücretinin küçük bir kısmına denk gelir; karşılığında ortak cari bakiyesi, gün bazlı adat, faiz faturası tutarı, örtülü sermaye/KKEG risk izleme, senaryo bandı, tornado, tahmin ve karar kapısı kalıcı olarak kullanıcının cihazında çalışır ve her dönem hareket girişinde yeniden kullanılır.
+2.1.999 TL = bir mali müşavirin dönemlik adat/faiz mutabakat ücretinin küçük bir kısmına denk gelir; karşılığında ortak cari bakiyesi, gün bazlı adat, faiz faturası tutarı, örtülü sermaye/KKEG risk izleme, senaryo bandı, tornado, tahmin ve karar kapısı kalıcı olarak kullanıcının cihazında çalışır ve her dönem hareket girişinde yeniden kullanılır.

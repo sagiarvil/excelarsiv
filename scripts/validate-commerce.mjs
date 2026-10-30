@@ -39,8 +39,8 @@ if (!fs.existsSync(functionsCatalogPath)) {
 }
 
 const allowedPrices = new Set(Object.values(catalog.tiers).map((tier) => tier.priceTL));
-if (!allowedPrices.has(1999)) {
-  errors.push('Shopier fiyat seviyesi 1999 TL olmalı.');
+if (![...allowedPrices].every((price) => price === 1999)) {
+  errors.push('Shopier fiyat seviyeleri 1999 TL olmalı.');
 }
 
 for (const [tierName, tier] of Object.entries(catalog.tiers)) {

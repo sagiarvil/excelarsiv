@@ -146,11 +146,11 @@ function generate3DImageSvg(p) {
       3D İnteraktif Gösterge Paneli · Formüllü &amp; Otomatik Hesaplama · 2026 Sürüm
     </text>
 
-    <!-- Price Tag 999 TL -->
+    <!-- Price Tag 1.999 TL -->
     <g transform="translate(450, 92)">
       <rect width="165" height="28" rx="6" fill="rgba(16,185,129,0.22)" stroke="#10b981" stroke-width="1.2"/>
       <circle cx="16" cy="14" r="4" fill="#10b981"/>
-      <text x="94" y="19" fill="#34d399" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Tek Fiyat: 999 TL</text>
+      <text x="94" y="19" fill="#34d399" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Tek Fiyat: 1.999 TL</text>
     </g>
   </g>
 

@@ -1,6 +1,6 @@
 # FİYAT SAVUNMASI — YENİDEN DEĞERLEME YAPMALI MIYIM? (VERGİ TASARRUF ANALİZİ)
 
-**Satış fiyatı:** 2.490 TL
+**Satış fiyatı:** 2.1.999 TL
 **Denetim eşiği:** 3 × satış fiyatı = 7.470 TL (ikame maliyeti bu değerin üzerinde olmalı)
 
 ## D01 — İkame Maliyeti Çapası
@@ -29,4 +29,4 @@
 
 ## Fiyat-performans gerekçesi
 
-2.490 TL = bir mali müşavirin yeniden değerleme dosyası hazırlama ücretinin küçük bir kısmına denk gelir; karşılığında kıymet bazlı net fayda, %2 fon vergisi, iskonto edilmiş tasarruf, senaryo bandı, tornado, tahmin ve karar kapısı kalıcı olarak kullanıcının cihazında çalışır ve her dönem veri girişinde yeniden kullanılır.
+2.1.999 TL = bir mali müşavirin yeniden değerleme dosyası hazırlama ücretinin küçük bir kısmına denk gelir; karşılığında kıymet bazlı net fayda, %2 fon vergisi, iskonto edilmiş tasarruf, senaryo bandı, tornado, tahmin ve karar kapısı kalıcı olarak kullanıcının cihazında çalışır ve her dönem veri girişinde yeniden kullanılır.

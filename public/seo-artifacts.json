@@ -4,17 +4,17 @@
     {
       "file": "sitemap-pages.xml",
       "urlCount": 220,
-      "sha256": "8e221b2d86cfdbf67fc9b519d1deae9ea2cce25435b1aceeaa13e0501842bb3a"
+      "sha256": "e5c5db0559bb793c23ebb25e434bbd2d5a94c8a27ef047998884a981fbf29283"
     },
     {
       "file": "sitemap-products.xml",
       "urlCount": 124,
-      "sha256": "371e0f2ba24d51b26d3405b68bab931a9e9c75f63c16c9588dd20bb62101b539"
+      "sha256": "fdb159a38c5ebe661ac9823120986e7bc5e4f7dbbc8e4b7ddabaae1734857bcc"
     },
     {
       "file": "sitemap-images.xml",
       "urlCount": 124,
-      "sha256": "38cd7cb08639edd9f767c8701ccc48edb6fdf102d9a10481dc5296f46782315d"
+      "sha256": "7356d93387d2da77313d887218cc31fe3c91a1ba5418381f7697424ce8abad96"
     }
   ]
 }

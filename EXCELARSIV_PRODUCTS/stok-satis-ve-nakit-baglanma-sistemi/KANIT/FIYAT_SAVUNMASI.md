@@ -1,6 +1,6 @@
 # FİYAT SAVUNMASI — STOK, SATIŞ VE NAKİT BAĞLANMA SİSTEMİ
 
-**Satış fiyatı:** 1.490 TL
+**Satış fiyatı:** 1.1.999 TL
 **Denetim eşiği:** 3 × satış fiyatı = 4.470 TL (ikame maliyeti bu değerin üzerinde olmalı)
 
 ## D01 — İkame Maliyeti Çapası
@@ -30,4 +30,4 @@
 
 ## Fiyat-performans gerekçesi
 
-1.490 TL = bir işletme danışmanının bir günlük bedelinin altına denk gelir; karşılığında stok devir raporu, stoğa bağlanan nakit görünümü, ürün bazlı stok değeri, senaryo bandı, tornado ve karar kapısı kalıcı olarak kullanıcının cihazında çalışır ve her hareket girişinde yeniden kullanılır.
+1.1.999 TL = bir işletme danışmanının bir günlük bedelinin altına denk gelir; karşılığında stok devir raporu, stoğa bağlanan nakit görünümü, ürün bazlı stok değeri, senaryo bandı, tornado ve karar kapısı kalıcı olarak kullanıcının cihazında çalışır ve her hareket girişinde yeniden kullanılır.

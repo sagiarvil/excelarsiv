@@ -4,7 +4,7 @@
 
 **Ürün:** 13 Haftalık Nakit Akışı ve Ödeme Planlama Sistemi
 **Slug:** `on-uc-haftalik-nakit-akisi-ve-odeme-planlama-sistemi`
-**Satış fiyatı:** 2.490 ₺ (KDV dahil)
+**Satış fiyatı:** 2.1.999 TL (KDV dahil)
 
 ### Kapsam
 - 13 haftalık nakit giriş-çıkış planı üzerinden para bitiş haftası tespiti.

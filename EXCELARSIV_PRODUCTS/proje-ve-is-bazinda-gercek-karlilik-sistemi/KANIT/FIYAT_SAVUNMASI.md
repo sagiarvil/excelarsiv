@@ -1,6 +1,6 @@
 # FİYAT SAVUNMASI — PROJE VE İŞ BAZINDA GERÇEK KÂRLILIK SİSTEMİ
 
-**Satış fiyatı:** 2.490 TL
+**Satış fiyatı:** 2.1.999 TL
 **Denetim eşiği:** 3 × satış fiyatı = 7.470 TL (ikame maliyeti bu değerin üzerinde olmalı)
 
 ## D01 — İkame Maliyeti Çapası
@@ -30,4 +30,4 @@
 
 ## Fiyat-performans gerekçesi
 
-2.490 TL = bir işletme danışmanının bir günlük bedelinin altına denk gelir; karşılığında iş bazlı kârlılık raporu, riskli iş tespiti, senaryo bandı, tornado ve karar kapısı kalıcı olarak kullanıcının cihazında çalışır ve her iş kapanışında yeniden kullanılır.
+2.1.999 TL = bir işletme danışmanının bir günlük bedelinin altına denk gelir; karşılığında iş bazlı kârlılık raporu, riskli iş tespiti, senaryo bandı, tornado ve karar kapısı kalıcı olarak kullanıcının cihazında çalışır ve her iş kapanışında yeniden kullanılır.

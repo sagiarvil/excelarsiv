@@ -1,6 +1,6 @@
 # FİYAT SAVUNMASI — KIDEM–İHBAR YÜKÜ VE PERSONEL ÇIKARMA MALİYETİ HESAPLAYICI
 
-**Satış fiyatı:** 1.490 TL
+**Satış fiyatı:** 1.1.999 TL
 **Manda v4 D01 eşiği:** Y1 (danışman ikamesi) + Y2 (kurulum ikamesi) ≥ 3 × 1.490 = **4.470 TL**
 
 ## Y1 — Danışman ikamesi (ne yapıldığında para ödenir)

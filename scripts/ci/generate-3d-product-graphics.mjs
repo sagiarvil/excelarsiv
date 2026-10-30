@@ -206,11 +206,11 @@ function generate3DSvg(product) {
       ${isFinance ? 'Otomatik Nakit Projeksiyonu · 3D Grafik Modülü · 2026 Uyumlu' : isHR ? 'Dinamik Bordro &amp; Puantaj Matrisi · 3D Analiz Paneli' : isStock ? 'Akıllı Stok &amp; Depo Optimizasyonu · 3D Karlılık Göstergeleri' : 'Kurumsal Karar Destek Modeli · Canlı Yönetim Kokpiti'}
     </text>
 
-    <!-- High-Converting Value Badge (999 TL & Instant Delivery) -->
+    <!-- High-Converting Value Badge (1.999 TL & Instant Delivery) -->
     <g transform="translate(420, 100)">
       <rect width="152" height="28" rx="6" fill="rgba(16,185,129,0.18)" stroke="#10b981" stroke-width="1"/>
       <circle cx="14" cy="14" r="4" fill="#10b981"/>
-      <text x="82" y="19" fill="#34d399" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" font-weight="700" text-anchor="middle">Anında İndir · 999 TL</text>
+      <text x="82" y="19" fill="#34d399" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" font-weight="700" text-anchor="middle">Anında İndir · 1.999 TL</text>
     </g>
   </g>
 

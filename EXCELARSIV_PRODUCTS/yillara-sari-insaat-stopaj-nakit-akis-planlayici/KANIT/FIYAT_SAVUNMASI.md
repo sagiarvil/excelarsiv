@@ -1,6 +1,6 @@
 # FİYAT SAVUNMASI — YILLARA SARİ İNŞAAT STOPAJ & NAKİT AKIŞ PLANLAYICI
 
-**Satış fiyatı:** 2.490 TL
+**Satış fiyatı:** 2.1.999 TL
 **Manda v4 D01 eşiği:** Y1 (danışman ikamesi) + Y2 (kurulum ikamesi) ≥ 3 × 2.490 = **7.470 TL**
 
 ## Y1 — Danışman ikamesi (ne yapıldığında para ödenir)
@@ -54,5 +54,5 @@ yaparım" diyen alıcıya karşı savunulabilir:
 
 - D01: **GEÇTİ** (11.500 ≥ 7.470)
 - D02: **GEÇTİ** (7 ayrım maddesi ≥ 5, her biri ad tanımlı çıktı)
-- Satış fiyatı 2.490 TL; ürün üzerinde kurulan değer mimarisi **ikame bedelinin 4,6 katı**
-  değer üretir (11.500 TL ikame / 2.490 TL satış).
+- Satış fiyatı 2.1.999 TL; ürün üzerinde kurulan değer mimarisi **ikame bedelinin 4,6 katı**
+  değer üretir (11.500 TL ikame / 2.1.999 TL satış).

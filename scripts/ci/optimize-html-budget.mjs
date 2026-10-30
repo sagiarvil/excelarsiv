@@ -61,8 +61,9 @@ while ((sm = genericStyleRegex.exec(html)) !== null) {
 }
 html = html.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '');
 
-// Collapse redundant indentation whitespace between tags to stay strictly under the 250KB ceiling
-html = html.replace(/>\s{2,}</g, '> <');
+// Remove comments and collapse redundant indentation whitespace between tags to stay strictly under the 250KB ceiling and ensure first 14KB packet gate
+html = html.replace(/<!--(?!\[if)[\s\S]*?-->/g, '');
+html = html.replace(/>\s+</g, '><');
 
 if (extractedCss.length > 0) {
   const combinedCss = extractedCss.join('\n\n');
@@ -89,5 +90,7 @@ if (extractedCss.length > 0) {
   console.log(`✅ [HTML-BUDGET] dist/index.html optimize edildi: ${initialSize} B -> ${finalSize} B (Tasarruf: ${saved} B, %${pct})`);
   console.log(`✅ [HTML-BUDGET] Harici CSS oluşturuldu: /_astro/${hashedBundleFileName} (${Buffer.byteLength(combinedCss, 'utf8')} B)`);
 } else {
-  console.log('ℹ️ [HTML-BUDGET] Ayrıştırılacak inline style bulunamadı.');
+  html = html.replace(/>\s{2,}</g, '><');
+  fs.writeFileSync(HOME_HTML, html, 'utf8');
+  console.log('ℹ️ [HTML-BUDGET] Inline style haricinde HTML whitespace optimize edildi.');
 }

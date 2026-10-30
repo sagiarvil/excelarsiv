@@ -2,7 +2,7 @@
 
 **Ürün:** Fazla Mesai ve İşçi Dava Riski Tespit Dosyası
 **Sürüm:** 1.0.0 (09.08.2026)
-**Satış fiyatı:** 2.490 TL
+**Satış fiyatı:** 2.1.999 TL
 **SHA-256:** `9132a9860eb89098fcdf1166bd957aee7a07797e66b448081fb3aec55d24d431`
 
 ## Bu sürümde neler var

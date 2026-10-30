@@ -1,0 +1,158 @@
+---
+interface Props {
+  phone?: string;
+  message?: string;
+}
+
+const {
+  phone = '905393333303',
+  message = 'Merhaba, web siteniz üzerinden iletişime geçiyorum.',
+} = Astro.props;
+---
+
+<style is:inline>
+/* Premium WhatsApp butonu — diğer site stillerinden izole */
+.wa-premium, .wa-premium * { box-sizing: border-box; }
+.wa-premium {
+  --wa-lime: #22de49;
+  --wa-green: #04be37;
+  --wa-deep: #078d32;
+  position: fixed;
+  z-index: 2147483000;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  isolation: isolate;
+}
+.wa-premium__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  min-width: 262px;
+  max-width: min(344px, calc(100vw - 32px));
+  min-height: 72px;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  filter: drop-shadow(0 10px 17px rgba(10, 80, 30, .22));
+  transition: transform .22s ease, filter .22s ease;
+}
+.wa-premium__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  min-height: 69px;
+  flex: 1;
+  min-width: 0;
+  padding: 12px 29px 13px 32px;
+  margin-left: -15px;
+  border: 1px solid rgba(0, 124, 25, .20);
+  border-radius: 0 22px 22px 0;
+  background: linear-gradient(180deg, #4beb68 0%, #17db45 26%, #09c738 64%, #07ae32 100%);
+  box-shadow: inset 0 2px 2px rgba(255,255,255,.34), inset 0 -3px 5px rgba(0,104,27,.16);
+  text-align: center;
+  white-space: nowrap;
+}
+.wa-premium__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 79px;
+  height: 81px;
+  border: 1px solid rgba(0, 118, 30, .18);
+  border-radius: 25px;
+  background: linear-gradient(148deg, #49f86d 0%, #0cdb42 35%, #08c539 72%, #02a72c 100%);
+  box-shadow: inset 2px 3px 3px rgba(255,255,255,.33), inset -3px -5px 8px rgba(0,100,25,.16), 4px 3px 9px rgba(0, 89, 31,.22);
+  z-index: 1;
+}
+.wa-premium__icon::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 10px;
+  left: 10px;
+  height: 15px;
+  border-radius: 40% 40% 50% 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,.22), transparent);
+  pointer-events: none;
+}
+.wa-premium__logo {
+  width: 47px;
+  height: 47px;
+  color: #fff;
+  filter: drop-shadow(0 2px 2px rgba(0, 95, 26, .23));
+}
+.wa-premium__title {
+  display: block;
+  font-weight: 760;
+  font-size: 17px;
+  letter-spacing: -.30px;
+  line-height: 1.18;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 1px rgba(0,77,20,.24);
+}
+.wa-premium__subtitle {
+  display: block;
+  font-size: 11px;
+  font-weight: 550;
+  line-height: 1.25;
+  letter-spacing: .1px;
+  opacity: .95;
+}
+.wa-premium__link:hover { transform: translateY(-3px); filter: drop-shadow(0 15px 21px rgba(9, 85, 32, .28)); }
+.wa-premium__link:active { transform: translateY(0) scale(.985); }
+.wa-premium__link:focus-visible { outline: 3px solid #1453bd; outline-offset: 5px; border-radius: 25px; }
+.wa-premium__link[aria-disabled="true"] { cursor: not-allowed; }
+.wa-premium__link[aria-disabled="true"]:hover { transform: none; }
+@media (max-width: 480px) {
+  .wa-premium { right: max(14px, env(safe-area-inset-right)); bottom: max(14px, env(safe-area-inset-bottom)); }
+  .wa-premium__link { min-width: 219px; min-height: 63px; }
+  .wa-premium__icon { flex-basis: 66px; height: 68px; border-radius: 21px; }
+  .wa-premium__logo { width: 41px; height: 41px; }
+  .wa-premium__body { min-height: 60px; padding: 10px 18px 11px 28px; border-radius: 0 19px 19px 0; }
+  .wa-premium__title { font-size: 15px; }
+  .wa-premium__subtitle { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .wa-premium__link { transition: none; } }
+</style>
+
+<!-- WHATSAPP BUTONU: Telefonu data-phone içinde ülke koduyla yazın. Örn: 905551112233 -->
+<aside class="wa-premium" data-phone={phone} data-message={message} aria-label="WhatsApp üzerinden iletişim">
+  <a class="wa-premium__link" href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp üzerinden mesaj gönder" aria-disabled="true">
+    <span class="wa-premium__icon"><svg class="wa-premium__logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.148-.67-1.611-.916-2.206-.242-.579-.487-.5-.67-.51-.173-.009-.371-.011-.57-.011s-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.003a9.85 9.85 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.647-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.437-9.886 9.893-9.886a9.83 9.83 0 0 1 6.99 2.895 9.82 9.82 0 0 1 2.893 6.993c-.003 5.45-4.437 9.889-9.893 9.889m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.333.157 11.893c0 2.096.547 4.14 1.588 5.945L.057 24l6.307-1.654a11.89 11.89 0 0 0 5.681 1.448h.005c6.557 0 11.894-5.334 11.897-11.893a11.82 11.82 0 0 0-3.483-8.413Z"/></svg></span>
+    <span class="wa-premium__body">
+      <span class="wa-premium__title">WhatsApp'tan Yazın</span>
+      <span class="wa-premium__subtitle">Size yardımcı olalım</span>
+    </span>
+  </a>
+</aside>
+
+<script is:inline>
+/* Numara girilmemişse yanlış bir kişiye mesaj yönlendirmesi yapılmaz. */
+(function () {
+  "use strict";
+  document.querySelectorAll('.wa-premium').forEach(function(widget) {
+    var link = widget.querySelector('.wa-premium__link');
+    if (!link) return;
+    var phone = (widget.getAttribute('data-phone') || '').replace(/\D/g, '');
+    var message = widget.getAttribute('data-message') || '';
+    if (/^[1-9]\d{9,14}$/.test(phone)) {
+      link.setAttribute('href', 'https://wa.me/' + phone + (message ? '?text=' + encodeURIComponent(message) : ''));
+      link.removeAttribute('aria-disabled');
+    } else {
+      link.setAttribute('href', '#');
+      link.setAttribute('aria-disabled', 'true');
+    }
+    link.addEventListener('click', function(event) {
+      if (link.getAttribute('aria-disabled') === 'true') event.preventDefault();
+    });
+  });
+})();
+</script>

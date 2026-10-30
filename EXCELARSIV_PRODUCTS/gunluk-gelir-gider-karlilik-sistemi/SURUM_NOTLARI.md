@@ -4,7 +4,7 @@
 **Sürüm:** 1.0.0 (10.08.2026)
 **Üretici betik:** `gelir_gider_karliik.py`
 **Denetim:** **0 KALDI** — G01–G24 (İşçilik) + Ö1, Ö1b, Ö2 (Dayanıklılık) + D01–D14 (Değer)
-**Satış fiyatı:** 1.490 TL
+**Satış fiyatı:** 1.1.999 TL
 **SHA-256:** `6d19ace18c80109214c7773a7e39586b42ebcc98875676e532a2007bb40498c4`
 
 ## Bu sürümde neler var

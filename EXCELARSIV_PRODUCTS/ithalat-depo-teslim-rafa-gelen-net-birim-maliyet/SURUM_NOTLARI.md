@@ -2,7 +2,7 @@
 
 **Ürün:** İthalat Depo Teslim (Rafa Gelen) Net Birim Maliyet
 **Sürüm:** 1.0.0 (09.08.2026)
-**Satış fiyatı:** 1.490 TL
+**Satış fiyatı:** 1.1.999 TL
 **SHA-256:** `4d69f63d6656a15ba9f69aee08a9c1395c730f83ab65e06c0d85102106c622d8`
 
 ## Bu sürümde neler var

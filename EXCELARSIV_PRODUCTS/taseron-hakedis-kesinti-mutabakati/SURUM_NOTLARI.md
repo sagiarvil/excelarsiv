@@ -2,7 +2,7 @@
 
 **Ürün:** Taşeron/Alt Yüklenici Hakediş & Kesinti Mutabakatı
 **Sürüm:** 1.0.0 (09.08.2026)
-**Satış fiyatı:** 1.490 TL
+**Satış fiyatı:** 1.1.999 TL
 **SHA-256:** `0a6bce31e2f81e0cbcae9a265fbb47b45f784b49f741d907c80a8d3db893fefd`
 
 ## Bu sürümde neler var

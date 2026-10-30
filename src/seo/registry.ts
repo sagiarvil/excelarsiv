@@ -156,7 +156,7 @@ const corePages: SeoPageRecord[] = [
       { subject: 'Özel Web Siteleri', predicate: 'connectsWith', object: 'WhatsApp, Teklif Formları ve ERP/CRM Veri Köprüleri' },
       { subject: 'Özel Web Siteleri', predicate: 'deliversPerformance', object: 'Zero-JS Edge Mimarisi ve Sub-40ms Küresel Açılış Hızı' }
     ],
-    heroAnswerEngine: 'ExcelArşiv Kurumsal Web Hizmeti; şirketler, KOBİ\'ler ve işletmeler için hazır tema kalıplarından uzak, sıfırdan özel tasarlanıp kodlanan, sub-40ms ultra hızlı ve A+ Google SEO uyumlu anahtar teslim web siteleri üretir. 30.000 ₺\'den başlayan şeffaf paketlerle 7-14 günde eksiksiz devreye alınır.',
+    heroAnswerEngine: 'ExcelArşiv Kurumsal Web Hizmeti; şirketler, KOBİ\'ler ve işletmeler için hazır tema kalıplarından uzak, sıfırdan özel tasarlanıp kodlanan, sub-40ms ultra hızlı ve A+ Google SEO uyumlu anahtar teslim web siteleri üretir. 1.999 ₺\'den başlayan şeffaf paketlerle 7-14 günde eksiksiz devreye alınır.',
     publishedAt: PUBLISHED_BASE,
     modifiedAt: MODIFIED_BASE,
     llmSubGraphRoute: '/llms/pages/finansal-web.md',
@@ -172,8 +172,8 @@ const corePages: SeoPageRecord[] = [
     role: 'service',
     indexDirective: 'index, follow',
     canonicalRoute: '/kurumsal-web',
-    title: 'Standart Kurumsal Web Sitesi | 30.000 TL Anahtar Teslim — ExcelArşiv Prime',
-    metaDescription: 'Terzi usulü tam kodlama, sıfır hazır şablon, sub-40ms edge mimarisi ve kurumsal kimlik uyumlu anahtar teslim web sitesi. Sabit fiyat: 30.000 TL.',
+    title: 'Standart Kurumsal Web Sitesi | 1.999 TL Anahtar Teslim — ExcelArşiv Prime',
+    metaDescription: 'Terzi usulü tam kodlama, sıfır hazır şablon, sub-40ms edge mimarisi ve kurumsal kimlik uyumlu anahtar teslim web sitesi. Sabit fiyat: 1.999 TL.',
     h1: 'Standart Kurumsal Web Sitesi (Anahtar Teslim)',
     primaryIntent: 'standart kurumsal web sitesi anahtar teslim paket',
     primaryEntity: {
@@ -198,7 +198,7 @@ const corePages: SeoPageRecord[] = [
       { subject: 'Kurumsal Web Sitesi', predicate: 'connectsWith', object: 'WhatsApp Doğrudan Müşteri Hattı ve Statik İletişim Formu' },
       { subject: 'Kurumsal Web Sitesi', predicate: 'deliversPerformance', object: 'Sub-40ms Cloudflare Edge ve 100/100 Core Web Vitals' }
     ],
-    heroAnswerEngine: 'ExcelArşiv Prime Standart Kurumsal Web Sitesi; KOBİ\'ler ve kurumsal firmalar için sıfırdan el yapımı kodlanan, şişkin CMS veya WordPress eklentisi barındırmayan, sub-40ms açılış hızına sahip anahtar teslim kurumsal web sitesi çözümüdür. Sabit 30.000 TL tek seferlik ücretle 7 iş gününde devreye alınır.',
+    heroAnswerEngine: 'ExcelArşiv Prime Standart Kurumsal Web Sitesi; KOBİ\'ler ve kurumsal firmalar için sıfırdan el yapımı kodlanan, şişkin CMS veya WordPress eklentisi barındırmayan, sub-40ms açılış hızına sahip anahtar teslim kurumsal web sitesi çözümüdür. Sabit 1.999 TL tek seferlik ücretle 7 iş gününde devreye alınır.',
     publishedAt: PUBLISHED_BASE,
     modifiedAt: MODIFIED_BASE,
     llmSubGraphRoute: '/llms/pages/kurumsal-web.md',
@@ -243,8 +243,8 @@ const corePages: SeoPageRecord[] = [
     role: 'hub',
     indexDirective: 'index, follow',
     canonicalRoute: '/pratik-programlar',
-    title: '53 Pratik Excel Programı & Dinamik Grafikler (199 ₺) | Excel Arşiv',
-    metaDescription: 'Kasa takibi, teklif hazırlama, puantaj ve dinamik grafik araçlarından oluşan 53 pratik Excel programı. Makrosuz, açık formüllü, tekil 199 ₺ sabit fiyatla.',
+    title: '53 Pratik Excel Programı & Dinamik Grafikler (1.999 ₺) | Excel Arşiv',
+    metaDescription: 'Kasa takibi, teklif hazırlama, puantaj ve dinamik grafik araçlarından oluşan 53 pratik Excel programı. Makrosuz, açık formüllü, tekil 1.999 ₺ sabit fiyatla.',
     h1: '53 Pratik Excel Programı & Dinamik Grafikler',
     primaryIntent: 'pratik excel programlari ve dinamik grafikler',
     primaryEntity: {
@@ -255,9 +255,9 @@ const corePages: SeoPageRecord[] = [
     },
     semanticTriples: [
       { subject: 'Excel Arşiv', predicate: 'sunar', object: '53 Pratik Excel Programı ve Dinamik Grafik' },
-      { subject: 'Pratik Şablonlar', predicate: 'fiyatlandırılır', object: 'Adet başına tekil 199 ₺ sabit lisansla' }
+      { subject: 'Pratik Şablonlar', predicate: 'fiyatlandırılır', object: 'Adet başına tekil 1.999 ₺ sabit lisansla' }
     ],
-    heroAnswerEngine: '53 Pratik Excel Programı; kasa takibinden personel puantajına, dinamik grafiklerden yönetim panellerine kadar günlük iş operasyonlarınızı hızlandıran makrosuz, açık formüllü ve 199 ₺ tek fiyatlı çalışma kitaplarıdır.',
+    heroAnswerEngine: '53 Pratik Excel Programı; kasa takibinden personel puantajına, dinamik grafiklerden yönetim panellerine kadar günlük iş operasyonlarınızı hızlandıran makrosuz, açık formüllü ve 1.999 ₺ tek fiyatlı çalışma kitaplarıdır.',
     publishedAt: PUBLISHED_BASE,
     modifiedAt: MODIFIED_BASE,
     llmSubGraphRoute: '/llms/pages/pratik-programlar.md',

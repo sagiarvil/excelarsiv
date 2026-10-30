@@ -6,7 +6,7 @@
 
 ## 1. D01 — İkame değeri hesabı (fiyat çapası)
 
-Satış fiyatı **1.490 ₺**; manda kuralı: **Y1 + Y2 ≥ 3 × satış fiyatı (4.470 ₺)**.
+Satış fiyatı **1.1.999 TL**; manda kuralı: **Y1 + Y2 ≥ 3 × satış fiyatı (4.470 ₺)**.
 
 | Bileşen | Değer (₺) | Açıklama |
 |---|---|---|
@@ -49,7 +49,7 @@ Mevzuata dayanan parametrelerde kaynak `kurum + madde + tarih`; kaynağı olmaya
 3. En zayıf nokta: eşik parametreleri (likidite eşiği 0,85, kaldıraç eşiği 3,0, veri kalitesi
    eşikleri) işletme varsayımlarıdır; alıcının kendi borç yapısına göre AYARLAR'dan güncellemesi
    gerekir.
-4. Y1+Y2 = 5.000 ₺ ≥ 3 × 1.490 ₺ → fiyat çapası sağlanır.
+4. Y1+Y2 = 5.000 ₺ ≥ 3 × 1.1.999 TL → fiyat çapası sağlanır.
 5. Serbest alternatifle en çok örtüşen özellik: kredi ve taksit girişi — bu, her yerde elle
    yapılabilen bir girdidir; fark, borç yükü kararı + ödeme baskısı + refinansman katmanıdır.
 6. İçeriği zorladığımız eşik yok; modüller gerçek acıya (borç yükünün ve ödeme baskısının geç
