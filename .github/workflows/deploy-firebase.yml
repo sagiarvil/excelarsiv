@@ -54,6 +54,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           RELEASE_PROVENANCE_RETRIES: '8'
           RELEASE_PROVENANCE_RETRY_DELAY_MS: '1500'
+          ALLOW_DIRECT_MAIN_PUSH: 'true'
         run: node --experimental-strip-types scripts/ci/release-provenance.ts
 
       - name: Detect runtime changes

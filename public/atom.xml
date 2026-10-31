@@ -5,7 +5,7 @@
   <subtitle>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://excelarsiv.com/atom.xml" />
   <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-  <updated>2026-10-29T20:37:39.000Z</updated>
+  <updated>2026-10-30T18:20:19.000Z</updated>
   <generator uri="https://excelarsiv.com/" version="3.0">Excel Arşiv Feed Engine</generator>
   <author>
     <name>Barış Bağırlar</name>
@@ -13,24 +13,11 @@
     <uri>https://excelarsiv.com/hakkinda</uri>
   </author>
   <entry>
-    <id>https://excelarsiv.com/</id>
-    <title>Hazır Excel Şablonları ve İş Çözümleri | ExcelArşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
-    <updated>2026-10-29T20:37:39.000Z</updated>
-    <published>2026-10-29T20:37:39.000Z</published>
-    <summary>Finans, stok, personel ve satış için Türkçe Excel şablonları. Ürünleri, gerçek dosya görsellerini ve ücretsiz demoları inceleyin.</summary>
-    <category term="home" label="home" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
     <id>https://excelarsiv.com/finansal-web</id>
     <title>İşletmeler İçin Özel Web Sitesi Yapımı &amp; Tasarımı | ExcelArşiv</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/finansal-web" />
-    <updated>2026-10-29T20:37:39.000Z</updated>
-    <published>2026-10-29T20:37:39.000Z</published>
+    <updated>2026-10-30T18:20:19.000Z</updated>
+    <published>2026-10-30T18:20:19.000Z</published>
     <summary>İşletmeler ve KOBİ&apos;ler için sıfırdan, hazır şablonsuz özel web sitesi tasarımı ve kodlaması. Google SEO uyumlu, mobil dostu, ultra hızlı ve anahtar teslim web siteleri yapıyoruz.</summary>
     <category term="diger" label="diger" />
     <author>
@@ -42,8 +29,8 @@
     <id>https://excelarsiv.com/kurumsal-web</id>
     <title>Standart Kurumsal Web Sitesi | 1.999 TL Anahtar Teslim — ExcelArşiv Prime</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/kurumsal-web" />
-    <updated>2026-10-29T20:37:39.000Z</updated>
-    <published>2026-10-29T20:37:39.000Z</published>
+    <updated>2026-10-30T18:20:19.000Z</updated>
+    <published>2026-10-30T18:20:19.000Z</published>
     <summary>Terzi usulü tam kodlama, sıfır hazır şablon, sub-40ms edge mimarisi ve kurumsal kimlik uyumlu anahtar teslim web sitesi. Sabit fiyat: 1.999 TL.</summary>
     <category term="diger" label="diger" />
     <author>
@@ -55,8 +42,8 @@
     <id>https://excelarsiv.com/ozel-excel-sistemleri</id>
     <title>İşletmeye Özel Excel Sistemleri | ExcelArşiv</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/ozel-excel-sistemleri" />
-    <updated>2026-10-29T20:37:39.000Z</updated>
-    <published>2026-10-29T20:37:39.000Z</published>
+    <updated>2026-10-30T18:20:19.000Z</updated>
+    <published>2026-10-30T18:20:19.000Z</published>
     <summary>İş akışınıza ve raporlama ihtiyacınıza uygun özel Excel sistemi geliştirme.</summary>
     <category term="diger" label="diger" />
     <author>
@@ -68,10 +55,36 @@
     <id>https://excelarsiv.com/pratik-programlar</id>
     <title>Pratik Excel Programları | ExcelArşiv</title>
     <link rel="alternate" type="text/html" href="https://excelarsiv.com/pratik-programlar" />
-    <updated>2026-10-29T20:37:39.000Z</updated>
-    <published>2026-10-29T20:37:39.000Z</published>
+    <updated>2026-10-30T18:20:19.000Z</updated>
+    <published>2026-10-30T18:20:19.000Z</published>
     <summary>53 pratik Excel programı ve dinamik grafik; her biri 1.999 TL.</summary>
     <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/yerel-erp-crm-moduller</id>
+    <title>İşletmeye Özel Yerel ERP &amp; CRM Modülleri | Bulutsuz, İnternetsiz, GitHub Yedekli — ExcelArşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/yerel-erp-crm-moduller" />
+    <updated>2026-10-30T18:20:19.000Z</updated>
+    <published>2026-10-30T18:20:19.000Z</published>
+    <summary>Aylık abonelik ödemeden kendi bilgisayarınızda çalışan, internet gerektirmeyen, GitHub ile otomatik şifreli yedeklenen, ERP ve CRM süreçleriyle işletmenizin finans ve operasyonunu tek ekrandan yöneten özel modüller.</summary>
+    <category term="diger" label="diger" />
+    <author>
+      <name>Barış Bağırlar</name>
+      <uri>https://excelarsiv.com/hakkinda</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>https://excelarsiv.com/</id>
+    <title>Hazır Excel Şablonları ve İş Çözümleri | ExcelArşiv</title>
+    <link rel="alternate" type="text/html" href="https://excelarsiv.com/" />
+    <updated>2026-10-29T20:37:39.000Z</updated>
+    <published>2026-10-29T20:37:39.000Z</published>
+    <summary>Finans, stok, personel ve satış için Türkçe Excel şablonları. Ürünleri, gerçek dosya görsellerini ve ücretsiz demoları inceleyin.</summary>
+    <category term="home" label="home" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>
@@ -1710,19 +1723,6 @@
     <published>2026-10-29T20:37:39.000Z</published>
     <summary>177 tablo ve model arasından ihtiyacınıza uygun çözümü bulun.</summary>
     <category term="kategori" label="kategori" />
-    <author>
-      <name>Barış Bağırlar</name>
-      <uri>https://excelarsiv.com/hakkinda</uri>
-    </author>
-  </entry>
-  <entry>
-    <id>https://excelarsiv.com/yerel-erp-crm-moduller</id>
-    <title>İşletmeye Özel Yerel ERP &amp; CRM Modülleri | Bulutsuz, İnternetsiz, GitHub Yedekli — ExcelArşiv</title>
-    <link rel="alternate" type="text/html" href="https://excelarsiv.com/yerel-erp-crm-moduller" />
-    <updated>2026-10-29T20:37:39.000Z</updated>
-    <published>2026-10-29T20:37:39.000Z</published>
-    <summary>Aylık abonelik ödemeden kendi bilgisayarınızda çalışan, internet gerektirmeyen, GitHub ile otomatik şifreli yedeklenen, ERP ve CRM süreçleriyle işletmenizin finans ve operasyonunu tek ekrandan yöneten özel modüller.</summary>
-    <category term="diger" label="diger" />
     <author>
       <name>Barış Bağırlar</name>
       <uri>https://excelarsiv.com/hakkinda</uri>

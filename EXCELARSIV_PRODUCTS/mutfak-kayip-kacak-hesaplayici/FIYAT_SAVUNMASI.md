@@ -1,16 +1,16 @@
 # FİYAT SAVUNMASI — MUTFAK KAYIP/KAÇAK HESAPLAYICI
 
-## D01 — İkame maliyeti analizi (satış fiyatı: 2.1.999 TL)
+## D01 — İkame maliyeti analizi (satış fiyatı: 1.1.999 TL)
 
 Satış fiyatı çapası, manda v4 D01 kuralına göre danışman ikamesi (Y1) + kurulum ikamesi (Y2) toplamının satış fiyatının en az 3 katı olmasını gerektirir.
 
 | Kalem | Değer | Gerekçe |
 |---|---|---|
-| Satış fiyatı | 2.1.999 TL | Ürünün perakende fiyatı |
+| Satış fiyatı | 1.1.999 TL | Ürünün perakende fiyatı |
 | Y1 — Danışman ikamesi | 9.000 ₺ | Kayıp/kaçağın stok mutabakatı ve reçete teorik tüketimiyle tespiti, hammadde bazında kayıp tutarı ve oranı çıkarımı, karar kapısı kurgusu için danışmanlık (3 gün × 3.000 ₺) |
 | Y2 — Kurulum ikamesi | 3.000 ₺ | Reçete ve stok verisinin toplanması, dönem başı/alım/dönem sonu stok düzeninin kurulması, eşik ve senaryo parametrelerinin belirlenmesi (1 gün) |
 | Toplam ikame | 12.000 ₺ | Y1 + Y2 |
-| Eşik (3 × satış) | 7.470 ₺ | 2.1.999 TL × 3 |
+| Eşik (3 × satış) | 7.470 ₺ | 1.1.999 TL × 3 |
 | Sonuç | 12.000 ₺ ≥ 7.470 ₺ → GEÇTİ | D01 sağlanır |
 
 Y3 (önlenen hata) hesaba dahil edilmemiştir. Gerçek hesapta ayrıca şunlar eklenir: tespit edilemeyen kaçak nedeniyle oluşan hammadde gideri, mutfak kaybının yönetici raporu yerine sezgiyle yönetilmesi, elle toplanan verilerdeki mutabakat hataları.

@@ -6,7 +6,7 @@
 
 ## 1. D01 — İkame değeri hesabı (fiyat çapası)
 
-Satış fiyatı **2.1.999 TL**; manda kuralı: **Y1 + Y2 ≥ 3 × satış fiyatı (7.470 ₺)**.
+Satış fiyatı **1.1.999 TL**; manda kuralı: **Y1 + Y2 ≥ 3 × satış fiyatı (7.470 ₺)**.
 
 | Bileşen | Değer (₺) | Açıklama |
 |---|---|---|
@@ -49,7 +49,7 @@ Mevzuata dayanan parametrelerde kaynak `kurum + madde + tarih`; kaynağı olmaya
 3. En zayıf nokta: eşik parametreleri (asgari nakit tamponu 50.000 ₺, veri kalitesi eşikleri
    80/60, minimum veri sayısı 6) işletme varsayımlarıdır; alıcının kendi nakit yapısına göre
    AYARLAR'dan güncellemesi gerekir.
-4. Y1+Y2 = 8.500 ₺ ≥ 3 × 2.1.999 TL → fiyat çapası sağlanır.
+4. Y1+Y2 = 8.500 ₺ ≥ 3 × 1.1.999 TL → fiyat çapası sağlanır.
 5. Serbest alternatifle en çok örtüşen özellik: nakit giriş-çıkış kaydı — bu, her yerde elle
    yapılabilen bir girdidir; fark, para bitiş tespiti + önlem önerisi + senaryo katmanıdır.
 6. İçeriği zorladığımız eşik yok; modüller gerçek acıya (nakit tükenme haftasının geç fark

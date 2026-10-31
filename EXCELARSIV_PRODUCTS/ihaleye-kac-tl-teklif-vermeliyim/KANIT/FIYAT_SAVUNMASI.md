@@ -6,7 +6,7 @@
 
 ## 1. D01 — İkame değeri hesabı (fiyat çapası)
 
-Satış fiyatı **2.1.999 TL**; manda kuralı: **Y1 + Y2 ≥ 3 × satış fiyatı (7.470 ₺)**.
+Satış fiyatı **1.1.999 TL**; manda kuralı: **Y1 + Y2 ≥ 3 × satış fiyatı (7.470 ₺)**.
 
 | Bileşen | Değer (₺) | Açıklama |
 |---|---|---|
@@ -51,7 +51,7 @@ Mevzuata dayanan parametrelerde kaynak `kurum + madde + tarih`; kaynağı olmaya
 2. Uygulanamayan madde yok; üç katman da tamamlandı.
 3. En zayıf nokta: sınır değer katsayısı (N) ve hesap yöntemi ihaleden ihaleye değişir; dosya
    genel eşikleri kullanır, alıcının ihale dokümanındaki değerleri AYARLAR'dan güncellemesi gerekir.
-4. Y1+Y2 = 11.500 ₺ ≥ 3 × 2.1.999 TL → fiyat çapası sağlanır.
+4. Y1+Y2 = 11.500 ₺ ≥ 3 × 1.1.999 TL → fiyat çapası sağlanır.
 5. Serbest alternatifle en çok örtüşen özellik: sınır değer hesabı — bu, idare cetvelleriyle
    elle yapılabilen bir girdidir; fark, marj bazlı teklif önerisi + anomali + mutabakat +
    tahmin + duyarlılık katmanıdır.

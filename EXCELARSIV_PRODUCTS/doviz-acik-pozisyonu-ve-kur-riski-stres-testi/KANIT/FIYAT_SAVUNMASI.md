@@ -1,6 +1,6 @@
 # FİYAT SAVUNMASI — DÖVİZ AÇIK POZİSYONU VE KUR RİSKİ STRES TESTİ
 
-**Satış fiyatı:** 2.1.999 TL
+**Satış fiyatı:** 1.1.999 TL
 **Denetim eşiği:** 3 × satış fiyatı = 7.470 TL (ikame maliyeti bu değerin üzerinde olmalı)
 
 ## D01 — İkame Maliyeti Çapası
@@ -30,4 +30,4 @@
 
 ## Fiyat-performans gerekçesi
 
-2.1.999 TL = bir kur riski danışmanının yarım günlük bedeline denk gelir; karşılığında net açık pozisyon, stres etkisi, senaryo bandı, tornado, tahmin ve karar kapısı kalıcı olarak kullanıcının cihazında çalışır ve her pozisyon girişinde yeniden kullanılır.
+1.1.999 TL = bir kur riski danışmanının yarım günlük bedeline denk gelir; karşılığında net açık pozisyon, stres etkisi, senaryo bandı, tornado, tahmin ve karar kapısı kalıcı olarak kullanıcının cihazında çalışır ve her pozisyon girişinde yeniden kullanılır.

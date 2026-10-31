@@ -1,6 +1,6 @@
 # FİYAT SAVUNMASI — FAZLA MESAİ VE İŞÇİ DAVA RİSKİ TESPİT DOSYASI
 
-**Satış fiyatı:** 2.1.999 TL
+**Satış fiyatı:** 1.1.999 TL
 **Manda v4 D01 eşiği:** Y1 (danışman ikamesi) + Y2 (kurulum ikamesi) ≥ 3 × 2.490 = **7.470 TL**
 
 ## Y1 — Danışman ikamesi (ne yapıldığında para ödenir)

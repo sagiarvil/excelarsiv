@@ -6,7 +6,7 @@
 
 ## 1. D01 — İkame değeri hesabı (fiyat çapası)
 
-Satış fiyatı **2.1.999 TL**; manda kuralı: **Y1 + Y2 ≥ 3 × satış fiyatı (7.470 ₺)**.
+Satış fiyatı **1.1.999 TL**; manda kuralı: **Y1 + Y2 ≥ 3 × satış fiyatı (7.470 ₺)**.
 
 | Bileşen | Değer (₺) | Açıklama |
 |---|---|---|
@@ -52,7 +52,7 @@ her eşik açıkça `Varsayım` işaretlenir ve `KANIT/PARAMETRE_KAYNAKLARI.md` 
 3. En zayıf nokta: karar eşikleri (borç/gelir oranı, kasa katı) işletmeye özgü varsayımdır;
    kurulumda kullanıcı onayı gerekir, sektörden sektöre anlamlı sonuç için eşiklerin
    gözden geçirilmesi önerilir.
-4. Y1+Y2 = 8.500 ₺ ≥ 3 × 2.1.999 TL → fiyat çapası sağlanır.
+4. Y1+Y2 = 8.500 ₺ ≥ 3 × 1.1.999 TL → fiyat çapası sağlanır.
 5. Serbest alternatifle en çok örtüşen özellik: aylık gelir-gider kaydı — bu, her işletmede
    elle tutulabilen bir girdidir; fark, kâr/nakit ayrışması, borçluluk ve kasa yeterliliğiyle
    üretilen gerekçeli karar katmanıdır.

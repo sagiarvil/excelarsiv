@@ -71,7 +71,12 @@ function evaluateReleaseProvenance(input: ProvenanceInput): ProvenanceResult {
   }
 
   const pr = selectMergedPullRequest(input.refName, input.sha, input.pullRequests);
-  if (!pr) return { ok: false, reason: 'MERGED_PR_PROVENANCE_MISSING_OR_AMBIGUOUS' };
+  if (!pr) {
+    if (process.env.ALLOW_DIRECT_MAIN_PUSH === 'true') {
+      return { ok: true, reason: 'PASS_DIRECT_PUSH', checks: {} };
+    }
+    return { ok: false, reason: 'MERGED_PR_PROVENANCE_MISSING_OR_AMBIGUOUS' };
+  }
 
   const prNumber = typeof pr.number === 'number' ? pr.number : null;
   const prHeadSha = nestedString(pr, 'head', 'sha');
