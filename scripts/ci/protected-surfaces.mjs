@@ -13,6 +13,7 @@ const PROTECTED = Object.freeze({
   'src/styles/home-native-info-hard-color-v33.css': 'd739fd58e4da62ca4f31f1f1327b6206ee9c21da',
   'public/images/excel-logo.png': 'c58227931a0e504348ac9d5e3524a6beae3b0149',
   'public/images/brand/excelarsiv-header-logo.png': 'c58227931a0e504348ac9d5e3524a6beae3b0149',
+  'src/pages/yerel-erp-crm-moduller.astro': 'a5d08bf653112c627d9fa96bc3b058f7b73f90a3',
 });
 
 function gitBlob(path) {
