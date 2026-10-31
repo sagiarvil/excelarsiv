@@ -1242,7 +1242,112 @@ import '../styles/global.css';
       line-height: 1.65;
       margin: 0;
     }
-  
+
+    /* Header Navigasyon & Buton Uyum Hizalama (Kırılma & Kayma Koruma) */
+    .site-header .wrap.header-inner {
+      height: 72px;
+      gap: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .desktop-nav {
+      gap: 16px;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .desktop-nav > a,
+    .nav-drop > summary {
+      color: #ffffff !important;
+      opacity: 0.95;
+      transition: color 0.15s ease, opacity 0.15s ease;
+      white-space: nowrap;
+    }
+    .desktop-nav > a:hover,
+    .nav-drop > summary:hover {
+      color: var(--yellow) !important;
+      opacity: 1;
+    }
+    .header-search {
+      width: 140px;
+      flex-shrink: 1;
+      min-width: 110px;
+    }
+    .header-trial {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    /* Hero Aksiyon Butonları (Kırılma ve Çakışma Önleme) */
+    .ea-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .ea-hero__actions .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      text-decoration: none !important;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    }
+    .ea-hero__actions .btn.green {
+      background: #107c41 !important;
+      color: #ffffff !important;
+      border: 1px solid #0d6334 !important;
+    }
+    .ea-hero__actions .btn.green:hover {
+      background: #0b6133 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(16, 124, 65, 0.35);
+    }
+    .ea-hero__actions .btn.outline {
+      background: #ffffff !important;
+      color: var(--ea-navy) !important;
+      border: 1px solid #cbd5e1 !important;
+    }
+    .ea-hero__actions .btn.outline:hover {
+      border-color: var(--blue) !important;
+      color: var(--blue) !important;
+      background: #f8fafc !important;
+      transform: translateY(-2px);
+    }
+
+    /* Alt Bölüm Kartları ve İçerik Hizalama (Taşma / Kayma Koruma) */
+    .ea-metric-card,
+    .ea-module-card,
+    .ea-cockpit-item,
+    .ea-sector-card,
+    .ea-flow-step {
+      word-break: normal;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+    .ea-metric-card h3,
+    .ea-module-title,
+    .ea-cockpit-item h4,
+    .ea-sector-card h4,
+    .ea-flow-step h4 {
+      line-height: 1.35;
+      margin-top: 0;
+    }
+    .ea-metric-card p,
+    .ea-module-desc,
+    .ea-cockpit-item ul,
+    .ea-sector-card p,
+    .ea-flow-step p {
+      line-height: 1.55;
+      margin-bottom: 0;
+    }
   </style>
   <!-- Google tag (gtag.js) -->
   <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-59JM2MQCTF"></script>
@@ -1297,7 +1402,7 @@ import '../styles/global.css';
         </details>
         <a href="/pratik-programlar" data-go="/pratik-programlar">Pratik programlar</a>
         <a href="/ozel-excel-sistemleri" data-go="/ozel-excel-sistemleri">Özel çözümler</a>
-        <a href="/yerel-erp-crm-moduller" data-go="/yerel-erp-crm-moduller" style="color:var(--yellow);font-weight:900;">ERP & CRM Modülleri</a>
+        <a href="/yerel-erp-crm-moduller" data-go="/yerel-erp-crm-moduller" style="color:var(--yellow);font-weight:900;">ERP/CRM Modülleri</a>
         <a href="/rehber" data-go="/rehber">Rehber</a>
         <a href="/sss" data-go="/sss">Destek</a>
       </nav>
@@ -1356,14 +1461,14 @@ import '../styles/global.css';
         </p>
 
         <div class="ea-hero__actions">
-          <a href="https://wa.me/905393333303?text=Merhaba,%20işletmem%20için%20yerel%20ERP%20CRM%20modülleri%20örnek%20demolarını%20görmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn green" style="min-height:46px;font-size:15px;text-decoration:none;">
+          <a href="https://wa.me/905393333303?text=Merhaba,%20işletmem%20için%20yerel%20ERP%20CRM%20modülleri%20örnek%20demolarını%20görmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn green">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
             <span>WhatsApp ile Demo İsteyin</span>
           </a>
-          <a href="#moduller" class="btn outline" style="min-height:46px;font-size:15px;text-decoration:none;">
+          <a href="#moduller" class="btn outline">
             <span>Yönetim Modüllerini İnceleyin ↓</span>
           </a>
-          <a href="#sektorler" class="btn outline" style="min-height:46px;font-size:15px;text-decoration:none;">
+          <a href="#sektorler" class="btn outline">
             <span>Sektörel Çözümler</span>
           </a>
         </div>
