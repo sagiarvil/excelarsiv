@@ -282,7 +282,10 @@ import '../styles/global.css';
       width: 100% !important;
       max-width: 100% !important;
       background-color: #ffffff !important;
-      background-image: none !important;
+      background-image: linear-gradient(to right, rgba(16, 124, 65, 0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(16, 124, 65, 0.05) 1px, transparent 1px) !important;
+      background-size: 28px 28px !important;
+      background-attachment: fixed !important;
     }
     :global(body::after) {
       display: none !important;
@@ -1243,41 +1246,6 @@ import '../styles/global.css';
       margin: 0;
     }
 
-    /* Header Navigasyon & Buton Uyum Hizalama (Kırılma & Kayma Koruma) */
-    .site-header .wrap.header-inner {
-      height: 72px;
-      gap: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .desktop-nav {
-      gap: 16px;
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-    .desktop-nav > a,
-    .nav-drop > summary {
-      color: #ffffff !important;
-      opacity: 0.95;
-      transition: color 0.15s ease, opacity 0.15s ease;
-      white-space: nowrap;
-    }
-    .desktop-nav > a:hover,
-    .nav-drop > summary:hover {
-      color: var(--yellow) !important;
-      opacity: 1;
-    }
-    .header-search {
-      width: 140px;
-      flex-shrink: 1;
-      min-width: 110px;
-    }
-    .header-trial {
-      flex-shrink: 0;
-      white-space: nowrap;
-    }
-
     /* Hero Aksiyon Butonları (Kırılma ve Çakışma Önleme) */
     .ea-hero__actions {
       display: flex;
@@ -1402,7 +1370,7 @@ import '../styles/global.css';
         </details>
         <a href="/pratik-programlar" data-go="/pratik-programlar">Pratik programlar</a>
         <a href="/ozel-excel-sistemleri" data-go="/ozel-excel-sistemleri">Özel çözümler</a>
-        <a href="/yerel-erp-crm-moduller" data-go="/yerel-erp-crm-moduller" style="color:var(--yellow);font-weight:900;">ERP/CRM Modülleri</a>
+        <a href="/yerel-erp-crm-moduller" data-go="/yerel-erp-crm-moduller" style="color:var(--yellow);font-weight:900;">ERP & CRM Modülleri</a>
         <a href="/rehber" data-go="/rehber">Rehber</a>
         <a href="/sss" data-go="/sss">Destek</a>
       </nav>
