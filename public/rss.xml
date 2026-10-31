@@ -5,13 +5,22 @@
     <link>https://excelarsiv.com</link>
     <description>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</description>
     <language>tr-TR</language>
-    <lastBuildDate>Fri, 30 Oct 2026 18:20:19 GMT</lastBuildDate>
-    <pubDate>Fri, 30 Oct 2026 18:20:19 GMT</pubDate>
+    <lastBuildDate>Sat, 31 Oct 2026 03:59:22 GMT</lastBuildDate>
+    <pubDate>Sat, 31 Oct 2026 03:59:22 GMT</pubDate>
     <atom:link href="https://excelarsiv.com/rss.xml" rel="self" type="application/rss+xml" />
     <managingEditor>barisbagirlar@gmail.com (Barış Bağırlar)</managingEditor>
     <webMaster>barisbagirlar@gmail.com (Barış Bağırlar)</webMaster>
     <docs>https://www.rssboard.org/rss-specification</docs>
     <generator>Excel Arşiv Feed Engine v3.0</generator>
+    <item>
+      <title>İşletmeye Özel Yerel ERP &amp; CRM Modülleri | Bulutsuz, İnternetsiz, GitHub Yedekli — ExcelArşiv</title>
+      <link>https://excelarsiv.com/yerel-erp-crm-moduller</link>
+      <guid isPermaLink="true">https://excelarsiv.com/yerel-erp-crm-moduller</guid>
+      <description>Aylık abonelik ödemeden kendi bilgisayarınızda çalışan, internet gerektirmeyen, GitHub ile otomatik şifreli yedeklenen, ERP ve CRM süreçleriyle işletmenizin finans ve operasyonunu tek ekrandan yöneten özel modüller.</description>
+      <category>diger</category>
+      <dc:creator>Barış Bağırlar</dc:creator>
+      <pubDate>Sat, 31 Oct 2026 03:59:22 GMT</pubDate>
+    </item>
     <item>
       <title>İşletmeler İçin Özel Web Sitesi Yapımı &amp; Tasarımı | ExcelArşiv</title>
       <link>https://excelarsiv.com/finansal-web</link>
@@ -44,15 +53,6 @@
       <link>https://excelarsiv.com/pratik-programlar</link>
       <guid isPermaLink="true">https://excelarsiv.com/pratik-programlar</guid>
       <description>53 pratik Excel programı ve dinamik grafik; her biri 1.999 TL.</description>
-      <category>diger</category>
-      <dc:creator>Barış Bağırlar</dc:creator>
-      <pubDate>Fri, 30 Oct 2026 18:20:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>İşletmeye Özel Yerel ERP &amp; CRM Modülleri | Bulutsuz, İnternetsiz, GitHub Yedekli — ExcelArşiv</title>
-      <link>https://excelarsiv.com/yerel-erp-crm-moduller</link>
-      <guid isPermaLink="true">https://excelarsiv.com/yerel-erp-crm-moduller</guid>
-      <description>Aylık abonelik ödemeden kendi bilgisayarınızda çalışan, internet gerektirmeyen, GitHub ile otomatik şifreli yedeklenen, ERP ve CRM süreçleriyle işletmenizin finans ve operasyonunu tek ekrandan yöneten özel modüller.</description>
       <category>diger</category>
       <dc:creator>Barış Bağırlar</dc:creator>
       <pubDate>Fri, 30 Oct 2026 18:20:19 GMT</pubDate>
