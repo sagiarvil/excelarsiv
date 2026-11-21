@@ -131,6 +131,53 @@ for (const route of validCanonicalRoutes) {
       premiumHtml = premiumHtml.replace('</head>', `  ${jsonLd}\n</head>`);
     }
 
+    // Inject Sister Platforms Showcase into Footer (htmlandhtml.com, cateringmaliyet.web.app, matbaaprogrami.web.app)
+    if (premiumHtml.includes('</div><div class="wrap footer-bottom">') && !premiumHtml.includes('cateringmaliyet.web.app')) {
+      const partnerStrip = `
+    <div class="footer-col" style="grid-column: 1 / -1; margin-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem;">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 0.75rem;">
+        <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #4ADE80;">SEKTÖREL YAZILIM &amp; WEB ÇÖZÜMLERİ</span>
+        <span style="font-size: 12px; color: #94A3B8;">İşletmenize hız ve kârlılık kazandıran kardeş platformlarımız</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+        <a href="https://htmlandhtml.com" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; justify-content: space-between; gap: 6px; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: rgba(15,23,42,0.55); text-decoration: none;">
+          <div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
+              <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: #4ADE80;">WEB MÜHENDİSLİĞİ</span>
+              <span style="font-size: 10.5px; color: #64748B;">htmlandhtml.com</span>
+            </div>
+            <strong style="display: block; font-size: 13.5px; font-weight: 700; color: #FFFFFF; line-height: 1.3;">HTML and HTML — Kurumsal Web &amp; Yazılım</strong>
+            <p style="margin: 4px 0 0; font-size: 12px; line-height: 1.45; color: #CBD5E1;">Müşteri getiren, yüksek hızlı, SEO ve dönüşüm odaklı kurumsal web mimarisi.</p>
+          </div>
+          <span style="font-size: 12px; font-weight: 700; color: #38BDF8;">Platformu İncele →</span>
+        </a>
+        <a href="https://cateringmaliyet.web.app/" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; justify-content: space-between; gap: 6px; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: rgba(15,23,42,0.55); text-decoration: none;">
+          <div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
+              <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: #4ADE80;">CATERİNG &amp; YEMEKHANE</span>
+              <span style="font-size: 10.5px; color: #64748B;">cateringmaliyet.web.app</span>
+            </div>
+            <strong style="display: block; font-size: 13.5px; font-weight: 700; color: #FFFFFF; line-height: 1.3;">Catering Maliyet &amp; Reçete Programı</strong>
+            <p style="margin: 4px 0 0; font-size: 12px; line-height: 1.45; color: #CBD5E1;">Porsiyon maliyeti, menü reçetesi, teklif hazırlama ve net kârlılık kontrolü.</p>
+          </div>
+          <span style="font-size: 12px; font-weight: 700; color: #38BDF8;">Programı İncele →</span>
+        </a>
+        <a href="https://matbaaprogrami.web.app/" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; justify-content: space-between; gap: 6px; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: rgba(15,23,42,0.55); text-decoration: none;">
+          <div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
+              <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: #4ADE80;">MATBAA &amp; BASKI</span>
+              <span style="font-size: 10.5px; color: #64748B;">matbaaprogrami.web.app</span>
+            </div>
+            <strong style="display: block; font-size: 13.5px; font-weight: 700; color: #FFFFFF; line-height: 1.3;">Matbaa Maliyet &amp; Teklif Programı</strong>
+            <p style="margin: 4px 0 0; font-size: 12px; line-height: 1.45; color: #CBD5E1;">Kağıt, kalıp, baskı, fire hesabı ve saniyeler içinde profesyonel müşteri teklifi.</p>
+          </div>
+          <span style="font-size: 12px; font-weight: 700; color: #38BDF8;">Programı İncele →</span>
+        </a>
+      </div>
+    </div>`;
+      premiumHtml = premiumHtml.replace('</div><div class="wrap footer-bottom">', `${partnerStrip}</div><div class="wrap footer-bottom">`);
+    }
+
     writeFileSync(distFile, premiumHtml, 'utf8');
     updatedPagesCount++;
   }
