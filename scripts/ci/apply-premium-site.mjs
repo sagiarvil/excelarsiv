@@ -131,51 +131,68 @@ for (const route of validCanonicalRoutes) {
       premiumHtml = premiumHtml.replace('</head>', `  ${jsonLd}\n</head>`);
     }
 
-    // Inject Sister Platforms Showcase into Footer (htmlandhtml.com, cateringmaliyet.web.app, matbaaprogrami.web.app)
-    if (premiumHtml.includes('</div><div class="wrap footer-bottom">') && !premiumHtml.includes('cateringmaliyet.web.app')) {
-      const partnerStrip = `
-    <div class="footer-col" style="grid-column: 1 / -1; margin-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem;">
-      <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 0.75rem;">
-        <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #4ADE80;">SEKTÖREL YAZILIM &amp; WEB ÇÖZÜMLERİ</span>
-        <span style="font-size: 12px; color: #94A3B8;">İşletmenize hız ve kârlılık kazandıran kardeş platformlarımız</span>
+    // Inject Premium Sister Platforms Showcase between .footer-grid and .footer-bottom
+    if (premiumHtml.includes('</div><div class="wrap footer-bottom">') && !premiumHtml.includes('ea-partner-showcase')) {
+      const partnerStrip = `</div><section class="wrap ea-partner-showcase" aria-label="Öne Çıkan Sektörel Çözümler">
+      <style>
+        .ea-partner-showcase{margin-top:4px;margin-bottom:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1)}
+        .ea-partner-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin-bottom:16px}
+        .ea-partner-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#ffcf24}
+        .ea-partner-eyebrow::before{content:"";width:8px;height:8px;border-radius:999px;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+        .ea-partner-sub{margin:0;font-size:13px;color:#b9c5d5}
+        .ea-partner-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+        .ea-partner-card{display:flex;flex-direction:column;justify-content:space-between;gap:12px;padding:20px 22px;border-radius:14px;border:1px solid rgba(255,255,255,0.12);background:linear-gradient(160deg,rgba(255,255,255,0.06) 0%,rgba(255,255,255,0.02) 100%);text-decoration:none;transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease}
+        .ea-partner-card:hover{transform:translateY(-3px);border-color:rgba(255,207,36,.65);background:linear-gradient(160deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.04) 100%);box-shadow:0 14px 30px rgba(0,0,0,0.22)}
+        .ea-partner-meta{display:flex;align-items:center;justify-content:space-between;gap:8px}
+        .ea-partner-tag{padding:3px 9px;border-radius:999px;background:rgba(255,207,36,.14);border:1px solid rgba(255,207,36,.28);font-size:10.5px;font-weight:800;letter-spacing:.06em;color:#ffcf24;text-transform:uppercase}
+        .ea-partner-domain{font-size:11.5px;font-weight:600;color:#94a3b8}
+        .ea-partner-title{margin:8px 0 0;font-size:16px;font-weight:800;line-height:1.35;color:#ffffff;letter-spacing:-.01em}
+        .ea-partner-desc{margin:6px 0 0;font-size:13px;line-height:1.55;color:#cbd5e1}
+        .ea-partner-foot{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08);font-size:12.5px;font-weight:700;color:#4ade80}
+        .ea-partner-card:hover .ea-partner-foot{color:#ffcf24}
+        @media(max-width:900px){.ea-partner-grid{grid-template-columns:1fr}}
+      </style>
+      <div class="ea-partner-head">
+        <span class="ea-partner-eyebrow">Sektörel Yazılım &amp; Web Çözümlerimiz</span>
+        <p class="ea-partner-sub">İşletmenize hız, kontrol ve doğrudan müşteri kazandıran kardeş platformlarımız</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
-        <a href="https://htmlandhtml.com" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; justify-content: space-between; gap: 6px; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: rgba(15,23,42,0.55); text-decoration: none;">
+      <div class="ea-partner-grid">
+        <a href="https://htmlandhtml.com" target="_blank" rel="noopener noreferrer" class="ea-partner-card">
           <div>
-            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
-              <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: #4ADE80;">WEB MÜHENDİSLİĞİ</span>
-              <span style="font-size: 10.5px; color: #64748B;">htmlandhtml.com</span>
+            <div class="ea-partner-meta">
+              <span class="ea-partner-tag">Web Mühendisliği</span>
+              <span class="ea-partner-domain">htmlandhtml.com</span>
             </div>
-            <strong style="display: block; font-size: 13.5px; font-weight: 700; color: #FFFFFF; line-height: 1.3;">HTML and HTML — Kurumsal Web &amp; Yazılım</strong>
-            <p style="margin: 4px 0 0; font-size: 12px; line-height: 1.45; color: #CBD5E1;">Müşteri getiren, yüksek hızlı, SEO ve dönüşüm odaklı kurumsal web mimarisi.</p>
+            <h4 class="ea-partner-title">HTML and HTML — Kurumsal Web &amp; Yazılım</h4>
+            <p class="ea-partner-desc">Müşteri getiren, yüksek hızlı, SEO ve dönüşüm odaklı kurumsal web mimarisi.</p>
           </div>
-          <span style="font-size: 12px; font-weight: 700; color: #38BDF8;">Platformu İncele →</span>
+          <div class="ea-partner-foot"><span>Platformu İncele</span><span aria-hidden="true">→</span></div>
         </a>
-        <a href="https://cateringmaliyet.web.app/" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; justify-content: space-between; gap: 6px; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: rgba(15,23,42,0.55); text-decoration: none;">
+        <a href="https://cateringmaliyet.web.app/" target="_blank" rel="noopener noreferrer" class="ea-partner-card">
           <div>
-            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
-              <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: #4ADE80;">CATERİNG &amp; YEMEKHANE</span>
-              <span style="font-size: 10.5px; color: #64748B;">cateringmaliyet.web.app</span>
+            <div class="ea-partner-meta">
+              <span class="ea-partner-tag">Catering &amp; Yemekhane</span>
+              <span class="ea-partner-domain">cateringmaliyet.web.app</span>
             </div>
-            <strong style="display: block; font-size: 13.5px; font-weight: 700; color: #FFFFFF; line-height: 1.3;">Catering Maliyet &amp; Reçete Programı</strong>
-            <p style="margin: 4px 0 0; font-size: 12px; line-height: 1.45; color: #CBD5E1;">Porsiyon maliyeti, menü reçetesi, teklif hazırlama ve net kârlılık kontrolü.</p>
+            <h4 class="ea-partner-title">Catering Maliyet &amp; Reçete Programı</h4>
+            <p class="ea-partner-desc">Porsiyon maliyeti, menü reçetesi, hızlı teklif hazırlama ve net kârlılık kontrolü.</p>
           </div>
-          <span style="font-size: 12px; font-weight: 700; color: #38BDF8;">Programı İncele →</span>
+          <div class="ea-partner-foot"><span>Programı İncele</span><span aria-hidden="true">→</span></div>
         </a>
-        <a href="https://matbaaprogrami.web.app/" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; justify-content: space-between; gap: 6px; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: rgba(15,23,42,0.55); text-decoration: none;">
+        <a href="https://matbaaprogrami.web.app/" target="_blank" rel="noopener noreferrer" class="ea-partner-card">
           <div>
-            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
-              <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: #4ADE80;">MATBAA &amp; BASKI</span>
-              <span style="font-size: 10.5px; color: #64748B;">matbaaprogrami.web.app</span>
+            <div class="ea-partner-meta">
+              <span class="ea-partner-tag">Matbaa &amp; Baskı</span>
+              <span class="ea-partner-domain">matbaaprogrami.web.app</span>
             </div>
-            <strong style="display: block; font-size: 13.5px; font-weight: 700; color: #FFFFFF; line-height: 1.3;">Matbaa Maliyet &amp; Teklif Programı</strong>
-            <p style="margin: 4px 0 0; font-size: 12px; line-height: 1.45; color: #CBD5E1;">Kağıt, kalıp, baskı, fire hesabı ve saniyeler içinde profesyonel müşteri teklifi.</p>
+            <h4 class="ea-partner-title">Matbaa Maliyet &amp; Teklif Programı</h4>
+            <p class="ea-partner-desc">Kağıt, kalıp, baskı, fire hesabı ve saniyeler içinde profesyonel müşteri teklifi.</p>
           </div>
-          <span style="font-size: 12px; font-weight: 700; color: #38BDF8;">Programı İncele →</span>
+          <div class="ea-partner-foot"><span>Programı İncele</span><span aria-hidden="true">→</span></div>
         </a>
       </div>
-    </div>`;
-      premiumHtml = premiumHtml.replace('</div><div class="wrap footer-bottom">', `${partnerStrip}</div><div class="wrap footer-bottom">`);
+    </section><div class="wrap footer-bottom">`;
+      premiumHtml = premiumHtml.replace('</div><div class="wrap footer-bottom">', partnerStrip);
     }
 
     writeFileSync(distFile, premiumHtml, 'utf8');
@@ -212,24 +229,28 @@ if (existsSync(distIndex)) {
   }
 
   const extraFooterLinks = `
-    <div class="footer-col" style="grid-column: span 2; margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
-      <h3 style="font-size: 13px; color: #94A3B8; margin-bottom: 0.5rem;">Karar Sistemleri & Rehberler</h3>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; font-size: 13px;">
-        <a href="/karar" style="color: #CBD5E1;">Karar Rehberleri</a>
-        <a href="/hesaplayici" style="color: #CBD5E1;">Hesaplayıcılar</a>
-        <a href="/basari-hikayeleri" style="color: #CBD5E1;">Başarı Hikayeleri</a>
-        <a href="/ortaklik-mali-musavir" style="color: #CBD5E1;">Mali Müşavir Ortaklığı</a>
-        <a href="/neden-excel-arsiv" style="color: #CBD5E1;">Neden ExcelArşiv?</a>
-        <a href="/referans" style="color: #CBD5E1;">Referanslar</a>
-        <a href="/finansal-web" style="color: #CBD5E1;">Finansal Web</a>
-        <a href="/kurumsal-web" style="color: #CBD5E1;">Kurumsal Web</a>
-        <a href="/yerel-erp-crm-moduller" style="color: #CBD5E1;">Yerel ERP & CRM</a>
-        <a href="/demo" style="color: #CBD5E1;">Demo Kataloğu</a>
+    <div class="footer-col" style="grid-column: 1 / -1; margin-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+      <h3 style="font-size: 12px; color: #ffcf24; margin-bottom: 0.5rem;">Karar Sistemleri &amp; Rehberler</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; font-size: 13px;">
+        <a href="/karar">Karar Rehberleri</a>
+        <a href="/hesaplayici">Hesaplayıcılar</a>
+        <a href="/basari-hikayeleri">Başarı Hikayeleri</a>
+        <a href="/ortaklik-mali-musavir">Mali Müşavir Ortaklığı</a>
+        <a href="/neden-excel-arsiv">Neden ExcelArşiv?</a>
+        <a href="/referans">Referanslar</a>
+        <a href="/finansal-web">Finansal Web</a>
+        <a href="/kurumsal-web">Kurumsal Web</a>
+        <a href="/yerel-erp-crm-moduller">Yerel ERP &amp; CRM</a>
+        <a href="/demo">Demo Kataloğu</a>
       </div>
     </div>
   `;
   if (!hIndex.includes('href="/karar"')) {
-    hIndex = hIndex.replace('</div><div class="wrap footer-bottom">', `${extraFooterLinks}</div><div class="wrap footer-bottom">`);
+    if (hIndex.includes('</div><section class="wrap ea-partner-showcase"')) {
+      hIndex = hIndex.replace('</div><section class="wrap ea-partner-showcase"', `${extraFooterLinks}</div><section class="wrap ea-partner-showcase"`);
+    } else {
+      hIndex = hIndex.replace('</div><div class="wrap footer-bottom">', `${extraFooterLinks}</div><div class="wrap footer-bottom">`);
+    }
     writeFileSync(distIndex, hIndex, 'utf8');
     console.log('[PASS] dist/index.html footer rehber dizini eklendi.');
   }
