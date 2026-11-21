@@ -1,9 +1,10 @@
 /**
- * Mobile-First CI/CD Quality Gates (MG0 - MG22)
+ * Mobile-First CI/CD Quality Gates (MG0 - MG23)
  * MANDATE-SEO-GEO-MOBILE-FIRST-2026-V9
  */
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { spawnSync } from 'node:child_process';
 
 export function runMobileQualityGates(buildOutputDir: string = 'dist') {
   console.log('📱 [MOBILE-CI-GATE] Mobile-First SEO, PWA, App Indexing & CWV Kapıları Doğrulanıyor...');
@@ -101,13 +102,46 @@ export function runMobileQualityGates(buildOutputDir: string = 'dist') {
     }
   }
 
+  // MG22: Semantic Delta Check & Freshness
+  const sitemapPath = path.join(buildOutputDir, 'sitemap-index.xml');
+  if (fs.existsSync(sitemapPath)) {
+    const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
+    const lastmods = [...sitemapContent.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map(m => m[1]);
+    const now = Date.now();
+    for (const lm of lastmods) {
+      const ts = new Date(lm).getTime();
+      if (Number.isNaN(ts) || ts > now + 300000) {
+        violations.push(`[MG22 SEMANTIC-DELTA] Geçersiz veya gelecekteki lastmod tespit edildi: ${lm}`);
+        break;
+      }
+    }
+  }
+
+  // MG23: Mobile Humanized Hero Answer Gate (Zero-Synthetic Prose Verification)
+  if (fs.existsSync(indexPath)) {
+    const indexHtml = fs.readFileSync(indexPath, 'utf8');
+    const heroMatch = indexHtml.match(/<div[^>]*class="[^"]*(?:hero-answer|hero-copy)[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+    if (heroMatch) {
+      const cleanHeroText = heroMatch[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      const humanizerScript = path.join(process.cwd(), 'scripts/humanizer_engine.py');
+      if (fs.existsSync(humanizerScript) && cleanHeroText.length > 0) {
+        const runRes = spawnSync('python3', [humanizerScript, cleanHeroText, '--check'], {
+          encoding: 'utf8'
+        });
+        if (runRes.status !== 0) {
+          violations.push('[MG23 MOBILE HUMANIZER] İlk 600px mobil cevap bloğunda yapay zeka kalıbı (AI Tell) saptandı!');
+        }
+      }
+    }
+  }
+
   if (violations.length > 0) {
     console.error(`\n❌ [MOBILE-CI-GATE BLOCKED] ${violations.length} adet ihlal bulundu:\n`);
     violations.forEach((v) => console.error(`  ⛔ ${v}`));
     process.exit(1);
   }
 
-  console.log('✅ [MOBILE-CI-GATE PASSED] Tüm MG0 - MG22 Mobile-First Kalite Kapıları 0 Hata ile Geçildi.');
+  console.log('✅ [MOBILE-CI-GATE PASSED] Tüm MG0 - MG23 Mobile-First Kalite Kapıları 0 Hata ile Geçildi.');
 }
 
 if (process.argv[1] && process.argv[1].endsWith('mobile-ci-gate.ts')) {

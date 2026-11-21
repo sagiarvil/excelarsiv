@@ -23,6 +23,8 @@ export const YAZAR = {
     'https://www.tarimkon.org/danisma-kurulu/',
     'https://drfin.com.tr',
     'https://excelarsiv.com',
+    'https://skdmhesapla.com',
+    'https://karbonfiyat.com',
     'https://inversioncore.com',
     'https://belginkuyumculuk.com',
     'https://saatchi.com.tr',
@@ -37,6 +39,8 @@ export const YAZAR = {
   platformlar: [
     { ad: 'DrFin.com.tr', url: 'https://drfin.com.tr' },
     { ad: 'ExcelArsiv.com', url: 'https://excelarsiv.com' },
+    { ad: 'SKDMHesapla.com', url: 'https://skdmhesapla.com' },
+    { ad: 'KarbonFiyat.com', url: 'https://karbonfiyat.com' },
     { ad: 'InversionCore.com', url: 'https://inversioncore.com' },
     { ad: 'BelginKuyumculuk.com', url: 'https://belginkuyumculuk.com' },
     { ad: 'Saatchi.com.tr', url: 'https://saatchi.com.tr' },

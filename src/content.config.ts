@@ -200,26 +200,6 @@ export function generateProductSchema(urun: {
             },
           },
         },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: urun.ratingValue.toString(),
-          reviewCount: urun.reviewCount.toString(),
-          bestRating: '5',
-          worstRating: '1',
-        },
-        review: [
-          {
-            '@type': 'Review',
-            author: { '@type': 'Person', name: 'Kurumsal Denetim & KOBİ Kullanıcı Heyeti' },
-            reviewRating: {
-              '@type': 'Rating',
-              ratingValue: '5',
-              bestRating: '5',
-              worstRating: '1',
-            },
-            reviewBody: 'Makrosuz formül mimarisi ve anında e-Fatura teslimatıyla şirket içi veri güvenliği ve hız açısından mükemmel çalışmaktadır.',
-          },
-        ],
       },
       {
         '@type': 'FAQPage',

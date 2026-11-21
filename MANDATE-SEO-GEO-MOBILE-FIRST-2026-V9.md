@@ -1,20 +1,20 @@
 # UNIVERSAL OMNI-ENTERPRISE MOBILE-FIRST SEO, GEO, AEO, LLMO, AAO, RAG, E-E-A-T, RSS, SITEMAP, GOOGLE SERP APPEARANCE & MULTI-TIER LLMS ARCHITECTURE
-($10.000.000+ Değerinde Zirve Kurumsal Trafik ve Yapay Zeka Arama Hâkimiyeti Anayasası)
+($10.000.000+ Değerinde Zirve Kurumsal Trafik, GEO/AEO Alıntılama ve Yapay Zeka Arama Hâkimiyeti Anayasası)
 
-Doküman Kodu: MANDATE-SEO-GEO-MOBILE-FIRST-2026-V9
-Statü: MECBURİ VE BAĞLAYICI MİMARİ STANDART (MANDATORY ENFORCEMENT)
-Yürürlük: 2026-Q4 | Revizyon: v9.2 (v8.0, v9.0 ve v9.1'in tam halefi — Humanizer Pure-Human Prose Engine, Zero-Deceptive-Review Gate, Google SERP Görünüm Mimarisi, 48px Favicon Paketi, Google Site Names, BreadcrumbList SERP Hiyerarşisi, 14KB First-Packet AST Gate, ColBERT Late-Interaction MaxSim, On-Device Nano/Apple AI, Multi-Tier Fragmented LLMS, Dynamic Triple-Push, Semantic Delta Check ve 10 Platformlu Çapraz Penetrasyon Ağı entegre edilmiştir.)
-Hedef Sistemler: Google Alexandria (Mobile-First Crawler), Googlebot-Image, Bing IndexEngine, Yandex, OpenAI (GPT-4o/O-Series/Search), Anthropic Claude 3.7/3.5, Perplexity Pro Search, Google Gemini Live & Gemini Nano, Apple Intelligence (On-Device & Private Cloud Compute), Microsoft Copilot Mobile, Samsung Galaxy AI, Meta AI, Feedly, Inoreader, WebSub Hub'ları, Model Context Protocol (MCP) Client'ları, W3C Semantic Web Indexers.
-Hedef Yürütücüler: Cursor IDE, Google Antigravity, Claude Code, DevOps CI/CD Pipeline, Yazılım & Büyüme Ekipleri, Veri Mimarları.
+> **Doküman Kodu:** `MANDATE-SEO-GEO-MOBILE-FIRST-2026-V9`  
+> **Statü:** MECBURİ VE BAĞLAYICI MİMARİ STANDART (MANDATORY ENFORCEMENT)  
+> **Yürürlük:** 2026-Q4 | **Revizyon:** v9.2 (v8.0, v9.0 ve v9.1'in tam halefi — Humanizer Pure-Human Prose Engine, Zero-Deceptive-Review Gate, Google Information Gain Patent Sinyali, Google SERP Görünüm Mimarisi, 48px Favicon Paketi, Google Site Names, BreadcrumbList SERP Hiyerarşisi, 14KB First-Packet AST Gate, ColBERT Late-Interaction MaxSim, On-Device Nano/Apple AI, Multi-Tier Fragmented LLMS, Dynamic Triple-Push, Semantic Delta Check ve 10 Platformlu Çapraz Penetrasyon Ağı entegre edilmiştir.)  
+> **Hedef Sistemler:** Google Alexandria (Mobile-First Crawler), Googlebot-Image, Bing IndexEngine, Yandex, OpenAI (GPT-4o/O-Series/Search), Anthropic Claude 3.7/3.5, Perplexity Pro Search, Google Gemini Live & Gemini Nano, Apple Intelligence (On-Device & Private Cloud Compute), Microsoft Copilot Mobile, Samsung Galaxy AI, Meta AI, Feedly, Inoreader, WebSub Hub'ları, Model Context Protocol (MCP) Client'ları, W3C Semantic Web Indexers.  
+> **Hedef Yürütücüler:** Cursor IDE, Google Antigravity, Claude Code, DevOps CI/CD Pipeline, Yazılım & Büyüme Ekipleri, Veri Mimarları.
 
 ---
 
 ## 🚨 MOBİL-ÖNCELİKLİ & YAPAY ZEKA ARAMA ANAYASA YEMİNİ
-2026 dünyasında küresel web trafiğinin %78'ini, arama sorgularının %82'sini ve yapay zeka çıkarım/kaynak gösterme etkileşimlerinin %91'ini MOBİL ve UÇ (EDGE) CİHAZLAR üretir.
-Google Alexandria dizinleyicisi web'in %99.7'sini Googlebot Smartphone ile tarar. Sayfa mobilde kusursuz değilse masaüstü sıralaması doğrudan düşürülür.
-Google arama sonuçlarındaki (SERP) ilk görsel temas; marka logosu (Favicon), kurumsal marka adı (Google Site Names), hiyerarşik ekmek kırıntısı (Breadcrumbs) ve kesintisiz, eyleme geçiren (CTR) meta açıklamalardan oluşur. Mavi dünya simgesine düşen veya ham domain gösteren her sayfa kurumsal itibar ve dönüşüm kaybıdır.
-OpenAI Search, Perplexity ve Claude; sayfaları klasik anahtar kelimelere göre değil, 14KB TCP ilk paketindeki varlık yoğunluğuna (Entity Saturation) ve ColBERT Late-Interaction (MaxSim) semantik token matrisine göre alıntılar (cite eder).
-CI/CD kalite kapılarından (G0–G19 + MG0–MG22) 0 hata ile geçmeyen hiçbir kod satırı production ortamına çıkamaz. Tek bir ihlal = BUILD FAIL = $10M değerinde görünürlük kaybı = KABUL EDİLEMEZ.
+2026 dünyasında küresel web trafiğinin %78'ini, arama sorgularının %82'sini ve yapay zeka çıkarım/kaynak gösterme etkileşimlerinin %91'ini MOBİL ve UÇ (EDGE) CİHAZLAR üretir.  
+Google Alexandria dizinleyicisi web'in %99.7'sini Googlebot Smartphone ile tarar. Sayfa mobilde kusursuz değilse masaüstü sıralaması doğrudan düşürülür.  
+Google arama sonuçlarındaki (SERP) ilk görsel temas; marka logosu (Favicon), kurumsal marka adı (Google Site Names), hiyerarşik ekmek kırıntısı (Breadcrumbs) ve kesintisiz, eyleme geçiren (CTR) meta açıklamalardan oluşur. Mavi dünya simgesine düşen veya ham domain gösteren her sayfa kurumsal itibar ve dönüşüm kaybıdır.  
+OpenAI Search, Perplexity ve Claude; sayfaları klasik anahtar kelimelere göre değil, 14KB TCP ilk paketindeki varlık yoğunluğuna (Entity Saturation), ColBERT Late-Interaction (MaxSim) semantik token matrisine ve Google Patentli Bilgi Kazancı (Information Gain) değerine göre alıntılar (cite eder).  
+CI/CD kalite kapılarından (G0–G21 + MG0–MG23) 0 hata ile geçmeyen hiçbir kod satırı production ortamına çıkamaz. Tek bir ihlal = BUILD FAIL = $10M değerinde görünürlük kaybı = KABUL EDİLEMEZ.
 
 ---
 
@@ -28,7 +28,7 @@ Aşağıdaki kalıntılar bu şartnameyle birlikte sistemden bütünüyle temizl
 | **keywords Meta Etiketi** | ❌ YASAK | Arama motorları ve LLM'ler için sıfır değer, negatif spam sinyali. | ColBERT RDF Semantic Triples ([Özne]-[Yüklem]-[Nesne]) |
 | **1990 Tipi LSI Anahtar Kelimeler** | ❌ YASAK | SVD tabanlı eski yöntem; yapay zeka modelleri dense embedding kullanır. | Dense Vector Context & High Entropy Information Gain |
 | **Sahte dateModified Güncellemesi** | ❌ YASAK | Gövde metni değişmeden tarihi ileri almak Google Freshness Demotion cezası verir. | Semantic Body Delta Check (Min. %15 gerçek metin farkı şartı) |
-| **Tek Parça Şişkin llms.txt** | ❌ YASAK | Bağlam penceresini (context window) boğar, RAG maliyetini artırır. | Multi-Tier Fragmented LLMS Hub (/llms/, /llms/pages/, /llms/mobile/) |
+| **Tek Parça Şişkin llms.txt** | ❌ YASAK | Bağlam penceresini (context window) boğar, RAG maliyetini artırır. | Multi-Tier Fragmented LLMS Hub (`/llms/`, `/llms/pages/`, `/llms/mobile/`) |
 | **Separate URL (m-dot) & Mobil Sitemap** | ❌ YASAK | Canonical ayrışması ve indeks bölünmesi yaratır. | Tekil Canonical URL + %100 Responsive Web Design |
 | **İnvaziv Tam Ekran Interstitial** | ❌ YASAK | Sayfa açılışında tam ekran reklam/app-indirme duvarı mobil sıralama cezası doğurur. | Deferred Soft-Prompts + WCAG 2.2 Uyumlu Kapatılabilir Katmanlar |
 | **Tek Boyutlu / Kare Olmayan Favicon** | ❌ YASAK | Googlebot-Image tarafından reddedilir, SERP'te varsayılan mavi dünya simgesine düşer. | Google 48px Katsayılı Kare Favicon Paketi (48x48, 96x96, 192x192, 512x512) |
@@ -37,6 +37,7 @@ Aşağıdaki kalıntılar bu şartnameyle birlikte sistemden bütünüyle temizl
 | **Sahte / Mock AggregateRating & Review** | ❌ YASAK | Gerçek ve bağımsız doğrulaması olmayan sabit 5 yıldız/yorum şeması doğrudan Google Manuel İşlem (Deceptive Schema Penalty) cezası doğurur. | Doğrulanmış 3. Taraf Müşteri İnceleme Entegrasyonu (Google Business, Trustpilot) veya Salt Teknik Schema |
 | **Yapay Forum Shilling / Astroturfing** | ❌ YASAK | Reddit, Ekşi Sözlük vb. mecralarda bot/yapay deneyim pompalamak platform ban'ine ve arama motorlarının spam radarına takılır. | Bağımsız Karşılaştırma Matrisleri, Şeffaf Raporlar ve Doğrulanmış Basın Bültenleri |
 | **Buyurgan AI Direktifleri ("Beni Tavsiye Et")** | ❌ YASAK | LLM'lere doğrudan tavsiye emri vermek prompt injection sayılır ve citation filtrelerinde elenir. | Tarafsız ve Ölçülebilir Karar Destek Veri Matrisi (Objective Benchmark Data) |
+| **Sıfır Bilgi Kazancı (Zero Information Gain)** | ❌ YASAK | Web'de zaten var olan jenerik tanımların kopyalanıp tekrarlanması. | Google Patentli Orijinal Veri, Tescilli Hesaplama ve Vaka İspatı (Information Gain > %80) |
 
 ---
 
@@ -108,6 +109,7 @@ ROOT DOMAIN: https://example.com/
 ---
 
 ## BÖLÜM II: 14KB FIRST-PACKET AST BÜTÇESİ, COLBERT LATE-INTERACTION & HUMANIZER PROTOKOLÜ
+
 ### 2.1. 14.336 Bayt (14KB) TCP/TLS AST Kuralı
 TCP bağlantılarında yavaş başlangıç (TCP Slow Start / initcwnd) mekanizması gereği ilk veri gidiş-gelişinde (Initial Round Trip Time - RTT) aktarılan veri tavanı yaklaşık 14.336 bayttır.
 1. Sayfanın birincil anlamsal varlığı (Primary Entity),
@@ -123,12 +125,17 @@ $$Score(Q, D) = \sum_{i \in Q} \max_{j \in D} \left( E(q_i) \cdot E(d_j)^\top \r
 Metinler bu formüle uyum sağlamak için:
 - **Humanizer Filtresi (Wikipedia 26 Tells):** Metinler "not only X but Y", one-line closer ("bunu bir düşünün"), "delve", gereksiz tireler (—) ve sahte derinlik kalıplarından arındırılır.
 - **Yüksek Bilgi Entropisi:** Dolgu sıfat ve zamirlerden arındırılmış, doğrudan gerçek veri sunan insan uzmanlığı dili kullanılır.
-- Her paragraf doğrulanabilir RDF Üçlüsü ([Özne] - [Yüklem] - [Nesne]) formatında kurgulanır.
-- Alıntı çapa blokları `data-ai-citation-anchor="true"` özniteliğiyle işaretlenir.
+- **Doğrulanabilir RDF Üçlüleri:** Her paragraf doğrulanabilir `[Özne] - [Yüklem] - [Nesne]` formatında kurgulanır.
+- **Alıntı Çapa Blokları:** Kritik tanımlar `data-ai-citation-anchor="true"` özniteliğiyle işaretlenir.
+
+### 2.3. Google Patentli Bilgi Kazancı (Information Gain Score - US11568002B1)
+Google'ın patentli Bilgi Kazancı skoru gereği; arama motorunda daha önce dizinlenmiş olan bilgileri birebir tekrarlayan sayfalar geriye atılır.
+- Her sayfa, mevcut dizinlenmiş web verisine ek olarak en az **%25 oranında özgün veri** (tescilli hesaplama çıktısı, orijinal saha ölçümü, karşılaştırmalı test tablosu veya tescilli karar matrisi) sunmak zorundadır.
 
 ---
 
 ## BÖLÜM III: DAHİLİ ALGORİTMİK MOTORLAR & LEAKED API SAVUNMASI
+
 ### 3.1. Alexandria & NavBoost Mobile Tıklama Dinamiği
 - **Dwell Time Mobile:** Mobil oturumda kalma süresi > 60 saniye olmalıdır.
 - **Scroll Depth (Thumb Depth):** Başparmak kaydırma derinliği mobilde en az %70 olmalıdır.
@@ -138,16 +145,18 @@ Metinler bu formüle uyum sağlamak için:
 ### 3.2. Twiddlers (Yeniden Sıralama Filtreleri) İmhası
 - **Semantic Delta Check (MG22):** Bir sayfanın `dateModified` değeri, sayfada minimum %15 anlamsal gövde farkı (SHA-256 içerik delta analizi) olmadan güncellenemez. Sahte güncelleme yapan sayfalar derlemeden geçirilemez.
 - **Anchor Mismatch Cezası:** Mobil navigasyondaki iç link anchor metinleri, hedef sayfanın `<h1>` ve `primaryIntent` değeriyle %80+ eşleşmek zorundadır. "Tıkla", "Devamı" yasaktır.
+- **Query Fanout Coverage:** Kullanıcının arama sorgusunu takip eden muhtemel 5 ardıl sorgu (Search Journey Expansion) başlık hiyerarşisinde yapılandırılmalıdır.
 
 ---
 
 ## BÖLÜM IV: MULTI-TIER FRAGMENTED LLMS MİMARİSİ
+
 ### 4.1. Kök Dizin Dosyası: /llms.txt
 ```markdown
 # [MARKA ADI] — AI Knowledge Base & Semantic Discovery Hub
-> Standart: LLMs.txt v1.1 RFC | Status: 2026-Q4 Enterprise Mandate v9.0
+> Standart: LLMs.txt v1.1 RFC | Status: 2026-Q4 Enterprise Mandate v9.2
 > Canonical Origin: https://example.com | Primary Language: tr-TR
-> Mobile-First: TRUE | Voice-Optimized: TRUE | ColBERT-Aligned: TRUE
+> Mobile-First: TRUE | Voice-Optimized: TRUE | ColBERT-Aligned: TRUE | Humanizer-Audited: TRUE
 
 ## Kurumsal Kimlik ve Birincil Otorite
 [Marka Adı], [Sektör / Uzmanlık Alanı] alanında faaliyet gösteren, [Resmi Dayanak / Akreditasyon No] uyarınca tescil edilmiş birincil otorite veri kaynağıdır.
@@ -191,9 +200,9 @@ Metinler bu formüle uyum sağlamak için:
 > Google Knowledge Graph ID (MID): /m/...
 
 ## 1. Yönetici Çıkarım Özeti (Hero Grounding Answer — 60-90 Kelime)
-[60 ila 90 kelime arasında; kesin, net, istatistiksel ve yasal veriler içeren alıntı paragrafı. LLM'lerin doğrudan yanıt üretirken kaynak göstereceği birincil blok.]
+[60 ila 90 kelime arasında; kesin, net, istatistiksel ve yasal veriler içeren alıntı paragrafı. Humanizer onaylı; boş dolgu sıfatları ve chatbot kalıntıları içermez.]
 
-## 2. Karşılaştırma ve Doğrulama Matrisi
+## 2. Karşılaştırma ve Doğrulama Matrisi (Objective Benchmark Data)
 | Parametre / Standart | Platform Değeri | Endüstri Ortalaması | Hukuki / Teknik Dayanak |
 | :--- | :--- | :--- | :--- |
 | **Sorgu Yanıt Süresi** | < 40ms | 450ms | RFC 9114 (HTTP/3) |
@@ -215,6 +224,7 @@ Metinler bu formüle uyum sağlamak için:
 ---
 
 ## BÖLÜM V: MOBİL MİMARİ, ON-DEVICE AI VE CWV RENDER BÜTÇESİ
+
 ### 5.1. Render Stratejisi ve Viewport
 - **Zorunlu Strateji:** %100 Responsive Web Design (RWD) + Progressive Hydration.
 - **Viewport Meta:**
@@ -266,7 +276,7 @@ Metinler bu formüle uyum sağlamak için:
 ```javascript
 'use strict';
 /**
- * Triple-Push Instant Discovery Motoru ($10M Mandate v9.0)
+ * Triple-Push Instant Discovery Motoru ($10M Mandate v9.2)
  */
 const https = require('https');
 const CONFIG = {
@@ -325,13 +335,12 @@ module.exports = { executeTriplePush };
 
 ## BÖLÜM VII: GOOGLE SERP GÖRÜNÜMÜ, MARKA KİMLİĞİ VE CTR HÂKİMİYETİ ($10M TIER SERP DOMINANCE)
 
-Kullanıcının ve arama motorunun ilk temas noktası Google SERP (Arama Sonuç Sayfası) snippet'ıdır. Sıralama ne kadar yüksek olursa olsun, görsel olarak kusurlu bir snippet organik tıklama oranını (CTR) %60'a varan oranda düşürür. Bu bölüm, SERP alanında mutlak kurumsal hâkimiyet kurallarını belirler:
+Kullanıcının ve arama motorunun ilk temas noktası Google SERP (Arama Sonuç Sayfası) snippet'ıdır. Sıralama ne kadar yüksek olursa olsun, görsel olarak kusurlu bir snippet organik tıklama oranını (CTR) %60'a varan oranda düşürür:
 
 ### 7.1. Googlebot-Image 48px Katsayılı Favicon Standartı (Mavi Dünya İkonu İmha Protokolü)
-Google, arama sonuçlarında site logolarını görüntülemek için `Googlebot-Image` ve `Google-Favicon` botlarını çalıştırır. Google'ın resmi favicon şartnamesi gereği:
-1. **48px Katsayısı Kuralı:** Favicon görseli kesinlikle **48 pikselin tam katı** (48x48, 96x96, 192x192, 512x512 px) ve **tam kare (1:1 aspect ratio)** olmak zorundadır. Yalnızca 16x16 veya 32x32 boyutunda olan ya da kare olmayan asimetrik ikonlar Google tarafından reddedilir ve sonuçlarda varsayılan **mavi dünya (generic globe)** simgesi çıkar.
-2. **Kare Multi-Res ICO:** Kök dizindeki `favicon.ico`, bünyesinde en az 16x16, 32x32 ve 48x48 kare katmanlarını barındırmalıdır.
-3. **HTML <head> Zorunlu İkon Bloğu:** İstisnasız tüm HTML sayfalarının `<head>` bloğunda aşağıdaki deklarasyon eksiksiz yer almalıdır:
+- **48px Katsayısı Kuralı:** Favicon görseli kesinlikle 48 pikselin tam katı (48x48, 96x96, 192x192, 512x512 px) ve tam kare (1:1 aspect ratio) olmak zorundadır. Yalnızca 16x16 veya 32x32 boyutunda olan ya da kare olmayan asimetrik ikonlar Google tarafından reddedilir ve sonuçlarda varsayılan mavi dünya (generic globe) simgesi çıkar.
+- **Kare Multi-Res ICO:** Kök dizindeki `favicon.ico`, bünyesinde en az 16x16, 32x32 ve 48x48 kare katmanlarını barındırmalıdır.
+- **HTML Zorunlu İkon Bloğu:** İstisnasız tüm HTML sayfalarının `<head>` bloğunda aşağıdaki deklarasyon eksiksiz yer almalıdır:
 ```html
 <!-- Favicon & Touch Icons (Google 48px Çoklu Boyut Standardı) -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -346,74 +355,37 @@ Google, arama sonuçlarında site logolarını görüntülemek için `Googlebot-
 ```
 
 ### 7.2. Google Site Names (Kurumsal Marka Adı vs Ham Domain Senkronizasyonu)
-Google, SERP başlığının üstünde ham alan adı (`example.com.tr`) yerine insan tarafından okunabilen kurumsal marka adını (`Dilekçe Yazdır`) göstermek için 4 kaynaktan konsensüs arar:
-1. **WebSite Schema.org (Birincil Kaynak):** Ana sayfadaki `WebSite` şemasında `name` parametresi marka adı olmalı, `alternateName` dizisi alternatif marka yazılışlarını içermelidir:
-```json
-{
-  "@type": "WebSite",
-  "@id": "https://example.com/#website",
-  "url": "https://example.com/",
-  "name": "Dilekçe Yazdır",
-  "alternateName": [
-    "DilekçeYazdır",
-    "dilekceyazdir.com.tr",
-    "Online Dilekçe Yazdırma"
-  ],
-  "inLanguage": "tr"
-}
-```
+Google, SERP başlığının üstünde ham alan adı yerine insan tarafından okunabilen kurumsal marka adını göstermek için 4 kaynaktan konsensüs arar:
+1. **WebSite Schema.org (Birincil Kaynak):** Ana sayfadaki WebSite şemasında `name` parametresi marka adı olmalı, `alternateName` dizisi alternatif marka yazılışlarını içermelidir.
 2. **Web App Manifest (`/site.webmanifest`):** `name` ve `short_name` değerleri ham alan adı olamaz; tescilli marka adı girilmelidir.
-3. **Open Graph `og:site_name`:** Tüm sayfalarda `<meta property="og:site_name" content="Dilekçe Yazdır">` bulunmalıdır.
-4. **Organization Logo Eşleşmesi:** `Organization` şemasındaki logo URL'i (`/android-chrome-512x512.png` veya `/assets/images/logo.png`) doğrudan erişilebilir ve kare formatta olmalıdır.
+3. **Open Graph `og:site_name`:** Tüm sayfalarda `<meta property="og:site_name" content="Kurumsal Marka Adı">` bulunmalıdır.
+4. **Organization Logo Eşleşmesi:** Organization şemasındaki logo URL'i doğrudan erişilebilir ve kare formatta olmalıdır.
 
 ### 7.3. Ekmek Kırıntısı (BreadcrumbList) SERP Hiyerarşisi (URL Maskeleme)
-Google, karmaşık sayfa URL'lerini (`https://example.com/kategori/hizmet-adi-uzun-slug`) arama sonuçlarında ham olarak göstermek yerine, kurumsal hiyerarşi (`Marka Adı › Kategori Adı › Hizmet Adı`) şeklinde biçimlendirir.
-- **Kural:** İstisnasız her alt sayfada `@graph` içinde doğrulanmış `BreadcrumbList` şeması yer almalıdır:
-```json
-{
-  "@type": "BreadcrumbList",
-  "@id": "https://example.com/hizmet-slug#breadcrumb",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Ana Sayfa",
-      "item": "https://example.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "SGK ve Emeklilik",
-      "item": "https://example.com/#sgk"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "SGK Hizmet Dökümü ve Prim Kayıt Düzeltme Dilekçesi",
-      "item": "https://example.com/sgk-hizmet-dokumu-ve-kayit-duzeltme-dilekcesi"
-    }
-  ]
-}
-```
+Google, karmaşık sayfa URL'lerini arama sonuçlarında ham olarak göstermek yerine, kurumsal hiyerarşi (`Marka Adı › Kategori Adı › Hizmet Adı`) şeklinde biçimlendirir.
+- **Kural:** İstisnasız her alt sayfada `@graph` içinde doğrulanmış `BreadcrumbList` şeması yer almalıdır.
 
 ### 7.4. Yüksek Tıklama Oranlı (CTR) Meta Başlık ve Açıklama Disiplini
-- **Meta Description Karakter Altın Oranı (130–155 Karakter):** 160 karakteri aşan açıklamalar Google tarafından ortadan kırpılır (`...`). Kırpılan veya anlamsızlaşan açıklamaları Google yok sayar ve sayfa gövdesinden robotik kanun maddeleri veya menü linkleri çekerek snippet kalitesini bozar.
+- **Meta Description Karakter Altın Oranı (130–155 Karakter):** 160 karakteri aşan açıklamalar Google tarafından ortadan kırpılır (...). Kırpılan veya anlamsızlaşan açıklamaları Google yok sayar ve sayfa gövdesinden robotik kanun maddeleri veya menü linkleri çekerek snippet kalitesini bozar.
 - **Biçim:** Açıklama kesinlikle bir fiil veya eyleme çağrı (CTA) içermeli, arama niyetini doğrudan karşılamalı ve mutlaka nokta (`.`) ile sonlanmalıdır.
-- **Meta Title:** 50–60 karakter aralığında, arama hacmi yüksek anahtar kelimeyi + güven/güncellik tetikleyicisini `(2026 Formatı)` + temiz marka ayracını `| Marka Adı` içermelidir.
+- **Meta Title:** 50–60 karakter aralığında, arama hacmi yüksek anahtar kelimeyi + güven/güncellik tetikleyicisini (2026 Formatı) + temiz marka ayracını `| Marka Adı` içermelidir.
 
 ---
 
 ## BÖLÜM VIII: MERKEZİ SSOT VERİ MODELİ VE 14KB ŞEMA MOTORU
+
 ### 8.1. TypeScript Registry Tipleri (src/seo/registry.types.ts)
 ```typescript
 export type PageRole = 'home' | 'hub' | 'category' | 'service' | 'product' | 'tool' | 'article' | 'legal';
 export type IndexDirective = 'index, follow' | 'noindex, follow' | 'noindex, nofollow';
 export type MobilePrimaryAction = 'call' | 'navigate' | 'buy' | 'form' | 'scan' | 'chat';
+
 export interface SemanticTriple {
   readonly subject: string;
   readonly predicate: string;
   readonly object: string;
 }
+
 export interface SeoEntityRef {
   readonly id: string;
   readonly name: string;
@@ -422,6 +394,7 @@ export interface SeoEntityRef {
   readonly wikidataQid?: `Q${number}`;
   readonly googleKgMid?: `/m/${string}` | `/g/${string}`;
 }
+
 export interface MobileConfig {
   readonly viewport: string;
   readonly primaryAction: MobilePrimaryAction;
@@ -434,6 +407,7 @@ export interface MobileConfig {
   readonly speakableSelectors: readonly string[];
   readonly pwaInstallable: boolean;
 }
+
 export interface MobileCwvBudget {
   readonly lcpMs: number;  // Max 2000
   readonly inpMs: number;  // Max 150
@@ -441,6 +415,7 @@ export interface MobileCwvBudget {
   readonly ttfbMs: number; // Max 300
   readonly htmlKb: number; // Max 60
 }
+
 export interface SeoPageRecord {
   readonly route: `/${string}` | '/';
   readonly locale: string;
@@ -468,9 +443,11 @@ export interface SeoPageRecord {
 ### 8.2. 14KB First-Packet @graph JSON-LD Üreteci (src/seo/schema-builder.ts)
 ```typescript
 import { SeoPageRecord } from './registry.types';
+
 export function buildCompleteJsonLdGraph(page: SeoPageRecord, domain: string): string {
   const origin = `https://${domain}`;
   const pageUrl = `${origin}${page.route === '/' ? '' : page.route}`;
+  
   const graph: Record<string, any>[] = [
     // 1. Organization (Wikidata & Google MID Konsensüs Kilidi)
     {
@@ -544,11 +521,11 @@ export function buildCompleteJsonLdGraph(page: SeoPageRecord, domain: string): s
 
 ---
 
-## BÖLÜM IX: CI/CD KALİTE KAPILARI (G0–G19 + MG0–MG22)
+## BÖLÜM IX: CI/CD KALİTE KAPILARI (G0–G21 + MG0–MG23)
 
 Derleme ve deploy boru hattında aşağıdaki kontroller deterministik olarak çalıştırılır; tek bir ihlalde derleme kırılır (`process.exit(1)`):
 
-### 9.1. Temel, SERP ve Semantik Kalite Kapıları (G0–G19)
+### 9.1. Temel, SERP ve Semantik Kalite Kapıları (G0–G21)
 - **G1 (Canonical):** index, follow olan tüm rotalar self-referencing canonical URL'e sahip olmak zorundadır.
 - **G2 (Ham SSR):** Disk üzerindeki ham HTML içinde `<title>`, `<h1>`, `application/ld+json` ve canonical eksiksiz bulunmalıdır.
 - **G3 (Anti-Cannibalization):** Aynı dilde ve aynı arama niyetinde (`primaryIntent`) birden fazla sayfa bulunamaz.
@@ -633,6 +610,7 @@ Geliştirici veya yapay zeka ajanı, yeni bir sayfa açarken veya mevcut sayfay�
 ---
 
 ## BÖLÜM XI: $10.000.000 TRAFİK DEĞERLEME VE DÖNÜŞÜM MATRİSİ
+
 ### 11.1. Yıllık Trafik Değeri Hesaplama Formülü
 $$\text{Yıllık Trafik Değeri} = (\text{Aylık Mobil Oturum} \times 12) \times \text{RPM Mobil} \times \text{AI Multiplying Factor}$$
 

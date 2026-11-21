@@ -5,13 +5,22 @@
     <link>https://excelarsiv.com</link>
     <description>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</description>
     <language>tr-TR</language>
-    <lastBuildDate>Sat, 31 Oct 2026 07:14:16 GMT</lastBuildDate>
-    <pubDate>Sat, 31 Oct 2026 07:14:16 GMT</pubDate>
+    <lastBuildDate>Sat, 21 Nov 2026 17:51:46 GMT</lastBuildDate>
+    <pubDate>Sat, 21 Nov 2026 17:51:46 GMT</pubDate>
     <atom:link href="https://excelarsiv.com/rss.xml" rel="self" type="application/rss+xml" />
     <managingEditor>barisbagirlar@gmail.com (Barış Bağırlar)</managingEditor>
     <webMaster>barisbagirlar@gmail.com (Barış Bağırlar)</webMaster>
     <docs>https://www.rssboard.org/rss-specification</docs>
     <generator>Excel Arşiv Feed Engine v3.0</generator>
+    <item>
+      <title>Hazır Excel Şablonları ve İş Çözümleri | ExcelArşiv</title>
+      <link>https://excelarsiv.com/</link>
+      <guid isPermaLink="true">https://excelarsiv.com/</guid>
+      <description>Finans, stok, personel ve satış için Türkçe Excel şablonları. Ürünleri, gerçek dosya görsellerini ve ücretsiz demoları inceleyin.</description>
+      <category>home</category>
+      <dc:creator>Barış Bağırlar</dc:creator>
+      <pubDate>Sat, 21 Nov 2026 17:51:46 GMT</pubDate>
+    </item>
     <item>
       <title>İşletmeye Özel Yerel ERP &amp; CRM Modülleri | Bulutsuz, İnternetsiz, GitHub Yedekli — ExcelArşiv</title>
       <link>https://excelarsiv.com/yerel-erp-crm-moduller</link>
@@ -56,15 +65,6 @@
       <category>diger</category>
       <dc:creator>Barış Bağırlar</dc:creator>
       <pubDate>Fri, 30 Oct 2026 18:20:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>Hazır Excel Şablonları ve İş Çözümleri | ExcelArşiv</title>
-      <link>https://excelarsiv.com/</link>
-      <guid isPermaLink="true">https://excelarsiv.com/</guid>
-      <description>Finans, stok, personel ve satış için Türkçe Excel şablonları. Ürünleri, gerçek dosya görsellerini ve ücretsiz demoları inceleyin.</description>
-      <category>home</category>
-      <dc:creator>Barış Bağırlar</dc:creator>
-      <pubDate>Thu, 29 Oct 2026 20:37:39 GMT</pubDate>
     </item>
     <item>
       <title>Excel ve İş Yönetimi Rehberleri | ExcelArşiv</title>

@@ -31,6 +31,8 @@ export const EEAT = {
       'https://www.tarimkon.org/danisma-kurulu/',
       'https://drfin.com.tr',
       'https://excelarsiv.com',
+      'https://skdmhesapla.com',
+      'https://karbonfiyat.com',
       'https://inversioncore.com',
       'https://belginkuyumculuk.com',
       'https://saatchi.com.tr',
@@ -41,6 +43,8 @@ export const EEAT = {
     ekosistem: [
       { ad: 'Dr. Fin', url: 'https://drfin.com.tr', aciklama: 'Finansal danışmanlık, bilanço analizi ve kurumsal finansal sağlık teşhis motoru' },
       { ad: 'Excel Arşiv', url: 'https://excelarsiv.com', aciklama: 'Kurumsal finans, nakit akışı ve denetlenebilir Excel karar sistemleri' },
+      { ad: 'SKDM Hesapla', url: 'https://skdmhesapla.com', aciklama: 'SKDM / CBAM karbon vergi hesaplama ve emisyon raporlama sistemi' },
+      { ad: 'Karbon Fiyat', url: 'https://karbonfiyat.com', aciklama: 'Karbon fiyatlama, emisyon ticareti (ETS) ve yeşil dönüşüm karar sistemi' },
       { ad: 'Inversion Core', url: 'https://inversioncore.com', aciklama: 'Tersine mühendislik, derin karar algoritmaları ve çekirdek sistem mimarisi' },
       { ad: 'Belgin Kuyumculuk', url: 'https://belginkuyumculuk.com', aciklama: 'Değerli maden, ziynet & altın portföy değerleme ve karar sistemleri' },
       { ad: 'Saatchi Turkey', url: 'https://saatchi.com.tr', aciklama: 'Lüks saat, nadir koleksiyon, marka stratejisi ve yatırım değerleme ekosistemi' },

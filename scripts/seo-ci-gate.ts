@@ -1,6 +1,6 @@
 /**
- * MANDATE-SUPER-UNIVERSAL-2026-V3
- * CI/CD Kalite Kapıları Motoru (G0 - G15 Formal Verification Gates)
+ * MANDATE-SEO-GEO-MOBILE-FIRST-2026-V9
+ * CI/CD Kalite Kapıları Motoru (G0 - G21 Formal Verification Gates)
  * Derleme (build) sırasında veya bağımsız CI boru hattında deterministik olarak çalışır.
  * Tek bir kural ihlali dahi olsa derleme kırılır (process.exit(1)).
  */
@@ -8,6 +8,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 import type { SeoPageRecord } from '../src/seo/registry.types.ts';
 import { getAllSeoPages } from '../src/seo/registry.ts';
 
@@ -18,7 +19,7 @@ export function runFullQualityGates(
   pages: readonly SeoPageRecord[],
   buildOutputDir: string = DEFAULT_BUILD_OUTPUT_DIR
 ): { passed: boolean; violations: string[] } {
-  console.log('🛡️ [CI-GATE] MANDATE-SUPER-UNIVERSAL-2026-V3 (G0-G15) Kalite Kapıları Çalıştırılıyor...');
+  console.log('🛡️ [CI-GATE] MANDATE-SEO-GEO-MOBILE-FIRST-2026-V9 (G0-G21) Kalite Kapıları Çalıştırılıyor...');
   const violations: string[] = [];
   const targetCheckDir = fs.existsSync(buildOutputDir) ? buildOutputDir : path.join(ROOT_DIR, 'public');
 
@@ -226,13 +227,120 @@ export function runFullQualityGates(
     }
   }
 
+  // G16: Google SERP Favicon Gate (48x48, 96x96, 192x192 PNG, favicon.ico ve link deklarasyonu)
+  const faviconIco = path.join(targetCheckDir, 'favicon.ico');
+  const favicon48 = path.join(targetCheckDir, 'favicon-48x48.png');
+  const favicon96 = path.join(targetCheckDir, 'favicon-96x96.png');
+  const favicon192 = path.join(targetCheckDir, 'favicon-192x192.png');
+  if (!fs.existsSync(faviconIco)) {
+    violations.push(`[G16 FAVICON] targetCheckDir (${targetCheckDir}) içinde favicon.ico bulunamadı!`);
+  }
+  if (!fs.existsSync(favicon48)) {
+    violations.push(`[G16 FAVICON] Google SERP için zorunlu favicon-48x48.png bulunamadı!`);
+  }
+  if (!fs.existsSync(favicon96) || !fs.existsSync(favicon192)) {
+    violations.push(`[G16 FAVICON] favicon-96x96.png veya favicon-192x192.png bulunamadı!`);
+  }
+  if (fs.existsSync(buildOutputDir)) {
+    const indexPath = path.join(buildOutputDir, 'index.html');
+    if (fs.existsSync(indexPath)) {
+      const idx = fs.readFileSync(indexPath, 'utf8');
+      if (!idx.includes('favicon-48x48.png') && !idx.includes('sizes="48x48"')) {
+        violations.push(`[G16 FAVICON] index.html içinde 48x48 favicon link rel deklarasyonu eksik!`);
+      }
+    }
+  }
+
+  // G17: Google Site Names Gate (WebSite şeması, site.webmanifest ve og:site_name senkronizasyonu)
+  const siteManifest = path.join(targetCheckDir, 'site.webmanifest');
+  const webManifest = path.join(targetCheckDir, 'manifest.webmanifest');
+  if (!fs.existsSync(siteManifest) && !fs.existsSync(webManifest)) {
+    violations.push(`[G17 SITE NAMES] site.webmanifest veya manifest.webmanifest bulunamadı!`);
+  } else {
+    const manifestFile = fs.existsSync(siteManifest) ? siteManifest : webManifest;
+    try {
+      const parsed = JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
+      if (!parsed.name || !parsed.name.includes('Excel Arşiv')) {
+        violations.push(`[G17 SITE NAMES] ${path.basename(manifestFile)} 'name' alanı "Excel Arşiv" içermelidir!`);
+      }
+    } catch (e: any) {
+      violations.push(`[G17 SITE NAMES] Manifest JSON geçersiz: ${e.message}`);
+    }
+  }
+  if (fs.existsSync(buildOutputDir)) {
+    const indexPath = path.join(buildOutputDir, 'index.html');
+    if (fs.existsSync(indexPath)) {
+      const idx = fs.readFileSync(indexPath, 'utf8');
+      if (!idx.includes('og:site_name')) {
+        violations.push(`[G17 SITE NAMES] index.html içinde og:site_name meta etiketi eksik!`);
+      }
+    }
+  }
+
+  // G18: BreadcrumbList SERP Gate (Alt sayfalarda BreadcrumbList şemasının varlığı)
+  for (const page of pages) {
+    if (page.role !== 'home' && page.indexDirective === 'index, follow') {
+      if (!page.breadcrumbs || page.breadcrumbs.length === 0) {
+        violations.push(`[G18 BREADCRUMB] ${page.route} alt sayfasında en az 2 seviyeli breadcrumbs tanımı eksik!`);
+      }
+    }
+  }
+
+  // G19: CTR Meta Snippet Gate (Tüm sayfalarda geçerli ve noktayla biten meta açıklaması)
+  for (const page of pages) {
+    if (page.indexDirective === 'index, follow') {
+      if (!page.metaDescription || page.metaDescription.trim().length === 0) {
+        violations.push(`[G19 CTR SNIPPET] ${page.route} sayfasında metaDescription boş olamaz!`);
+      } else if (!page.metaDescription.trim().endsWith('.')) {
+        violations.push(`[G19 CTR SNIPPET] ${page.route} sayfasında metaDescription mutlaka nokta (.) ile bitmelidir: "${page.metaDescription}"`);
+      }
+    }
+  }
+
+  // G20: Humanizer Zero-Synthetic Prose Gate (26 Wikipedia AI tell denetimi)
+  const humanizerScript = path.join(ROOT_DIR, 'scripts/humanizer_engine.py');
+  const coreMdCheck = path.join(targetCheckDir, 'llms/core.md');
+  if (fs.existsSync(humanizerScript) && fs.existsSync(coreMdCheck)) {
+    const humanizerRes = spawnSync('python3', [humanizerScript, coreMdCheck, '--check'], {
+      encoding: 'utf8'
+    });
+    if (humanizerRes.status !== 0) {
+      violations.push(`[G20 HUMANIZER] /llms/core.md dosyasında yapay zeka kalıpları (AI Tell Density > %1.5) tespit edildi!`);
+    }
+  }
+
+  // G21: Deceptive Review & Schema Sanitization Gate (Sahte AggregateRating ve Review temizliği)
+  if (fs.existsSync(buildOutputDir)) {
+    function walkHtml(dir: string): string[] {
+      let results: string[] = [];
+      for (const entry of fs.readdirSync(dir)) {
+        const full = path.join(dir, entry);
+        if (fs.statSync(full).isDirectory()) results = results.concat(walkHtml(full));
+        else if (entry.endsWith('.html')) results.push(full);
+      }
+      return results;
+    }
+    const htmlFiles = walkHtml(buildOutputDir);
+    for (const file of htmlFiles) {
+      const content = fs.readFileSync(file, 'utf8');
+      if (
+        content.includes('"@type":"Review"') ||
+        content.includes('"@type": "Review"') ||
+        content.includes('"@type":"AggregateRating"') ||
+        content.includes('"@type": "AggregateRating"')
+      ) {
+        violations.push(`[G21 DECEPTIVE SCHEMA] ${path.relative(buildOutputDir, file)} içinde sahte/kanıtlanmamış Review veya AggregateRating şeması saptandı!`);
+      }
+    }
+  }
+
   if (violations.length > 0) {
-    console.error(`\n❌ [DEPLOY BLOCKED] ${violations.length} adet kritik MANDATE SEO/GEO (G0-G15) ihlali saptandı:\n`);
+    console.error(`\n❌ [DEPLOY BLOCKED] ${violations.length} adet kritik MANDATE SEO/GEO (G0-G21) ihlali saptandı:\n`);
     violations.forEach(v => console.error(`  ⛔ ${v}`));
     return { passed: false, violations };
   }
 
-  console.log(`✅ [PASSED] Tüm G0-G15 Kalite Kapıları ${pages.length} sayfa için 0 Hata İle Geçildi.`);
+  console.log(`✅ [PASSED] Tüm G0-G21 Kalite Kapıları ${pages.length} sayfa için 0 Hata İle Geçildi.`);
   return { passed: true, violations: [] };
 }
 

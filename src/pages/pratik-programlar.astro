@@ -24,13 +24,6 @@ const itemListLd = JSON.stringify({
         priceCurrency: 'TRY',
         availability: 'https://schema.org/InStock',
         url: `https://excelarsiv.com/pratik-programlar#${item.slug}`
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: item.rating.toString(),
-        reviewCount: item.ratingCount.toString(),
-        bestRating: '5',
-        worstRating: '1'
       }
     }
   }))
