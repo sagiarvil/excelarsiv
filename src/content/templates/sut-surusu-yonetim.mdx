@@ -1,89 +1,89 @@
 ---
-name: 'Süt Sürüsü Yönetim Komutası'
-summary: 'Süt Sürüsü Yönetim Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'stok-ve-uretim'
+name: Süt Sürüsü Yönetim Komutası
+summary: 'Süt Sürüsü Yönetim Komutası: Süt çiftliği sahibi için makrosuz kurumsal Excel ve karar modeli.'
+category: stok-ve-uretim
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.13
 sheetCount: 14
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VARLIKLAR'
-    purpose: 'Varliklar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GUNLUK_GIRIS'
-    purpose: 'Gunluk Giris için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'DONEM_ANALIZ'
-    purpose: 'Donem Analiz üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'HESAP'
-    purpose: 'Hesap için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ALARMLAR'
-    purpose: 'Alarmlar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'RAPOR'
-    purpose: 'Rapor üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: Süt Sürüsü Yönetim Komutası içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: Süt Sürüsü Yönetim Komutası içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Süt Sürüsü Yönetim Komutası içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VARLIKLAR
+  purpose: Süt Sürüsü Yönetim Komutası içindeki varliklar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GUNLUK_GIRIS
+  purpose: Süt Sürüsü Yönetim Komutası içindeki gunluk giris değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: DONEM_ANALIZ
+  purpose: Süt Sürüsü Yönetim Komutası sonuçlarını donem analiz formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: HESAP
+  purpose: Süt Sürüsü Yönetim Komutası içindeki hesap değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Süt Sürüsü Yönetim Komutası sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ALARMLAR
+  purpose: Süt Sürüsü Yönetim Komutası içindeki alarmlar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: RAPOR
+  purpose: Süt Sürüsü Yönetim Komutası sonuçlarını yönetim raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Süt Sürüsü Yönetim Komutası modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Süt Sürüsü Yönetim Komutası modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Süt Sürüsü Yönetim Komutası modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Hayvan kulak küpe numarası, laktasyon günü ve günlük süt verim litresı
+- Kaba/kesif yem rasyon maliyeti, tohumlama ve veteriner giderleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- İnek ve grup bazında yem/süt kârlılık ve tohumlama takvimi
+- Sürü ortalama verim trendi, kuru dönem ve buzağılama uyarı listesi
 suitableFor:
-  - 'Süt çiftliği sahibi'
-  - 'sürü yöneticisi'
-  - 'ziraat mühendisi'
-  - 'CFO'
+- Büyükbaş süt çiftliği sahipleri ve zooteknistler
+- Tarım/hayvancılık işletme yöneticileri
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Süt Sürüsü Yönetim Komutası kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Süt Sürüsü Yönetim Komutası dosyasında hangi hesaplamalar yer alır?
+  answer: Süt Sürüsü Yönetim Komutası; Tutarlılık Denetimi, Varliklar, Gunluk Giris, Donem Analiz başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Süt Sürüsü Yönetim Komutası hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Süt Sürüsü Yönetim Komutası satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/sut-surusu-yonetim-1.png'
-    alt: 'Süt Sürüsü Yönetim Komutası — ürün ekranı 1'
-  - src: '/screenshots/sut-surusu-yonetim-2.png'
-    alt: 'Süt Sürüsü Yönetim Komutası — ürün ekranı 2'
-  - src: '/screenshots/sut-surusu-yonetim-3.png'
-    alt: 'Süt Sürüsü Yönetim Komutası — ürün ekranı 3'
+- src: /screenshots/sut-surusu-yonetim-1.png
+  alt: Süt Sürüsü Yönetim Komutası — ürün ekranı 1
+- src: /screenshots/sut-surusu-yonetim-2.png
+  alt: Süt Sürüsü Yönetim Komutası — ürün ekranı 2
+- src: /screenshots/sut-surusu-yonetim-3.png
+  alt: Süt Sürüsü Yönetim Komutası — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Süt Sürüsü Yönetim Komutası, Süt çiftliği sahibi, sürü yöneticisi, ziraat mühendisi kullanıcılarının stok, tedarik ve üretim planlaması kararlarını 13 çalışma sayfasında (Tutarlılık Denetimi, Varliklar, Gunluk Giris, Donem Analiz) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

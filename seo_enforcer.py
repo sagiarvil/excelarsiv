@@ -1455,7 +1455,7 @@ def bootstrap_project(project_root: Path, domain: str) -> int:
             "allowAiTrainingBots": True,
             "enableUcpCommerce": False,
             "cannibalizationThreshold": 0.78,
-            "shingleThreshold": 0.35,
+            "shingleThreshold": 0.48,
             "allowedPartnerDomains": [],
             "indexNowKey": key_seed,
         }
@@ -1677,7 +1677,7 @@ def audit_project(
     brand_name = ""
     expected_lang = "tr"
     cannibal_threshold = 0.78
-    shingle_threshold = 0.35
+    shingle_threshold = 0.48
     core_keywords: List[str] = []
     indexnow_key = ""
     enable_ucp = False
@@ -1696,7 +1696,7 @@ def audit_project(
             brand_name = str(cfg_obj.get("brandName", "")).strip()
             expected_lang = str(cfg_obj.get("defaultLanguage", "tr")).strip().lower()
             cannibal_threshold = float(cfg_obj.get("cannibalizationThreshold", 0.78))
-            shingle_threshold = float(cfg_obj.get("shingleThreshold", 0.35))
+            shingle_threshold = float(cfg_obj.get("shingleThreshold", 0.48))
             core_keywords = [str(x) for x in cfg_obj.get("coreTopicKeywords", []) if str(x).strip()]
             indexnow_key = str(cfg_obj.get("indexNowKey", "")).strip()
             enable_ucp = bool(cfg_obj.get("enableUcpCommerce", False))

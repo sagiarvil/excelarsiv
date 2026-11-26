@@ -1,113 +1,115 @@
 ---
-name: 'Hukuk Bürosu Dosya & Vekalet Komutası'
-summary: 'Hukuk Bürosu Dosya & Vekalet Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'butce-ve-planlama'
+name: Hukuk Bürosu Dosya & Vekalet Komutası
+summary: 'Hukuk Bürosu Dosya & Vekalet Komutası: Hukuk bürosu sahibi için makrosuz kurumsal Excel ve karar modeli.'
+category: butce-ve-planlama
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.12
 sheetCount: 22
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'HIZLI_BASLANGIC'
-    purpose: 'Hizli Baslangic için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIRDI'
-    purpose: 'Girdi için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'KARARLAR'
-    purpose: 'Kararlar üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KARAR'
-    purpose: 'Karar üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PAYDASLAR'
-    purpose: 'Paydaslar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'DOSYA'
-    purpose: 'Dosya için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VEKALET'
-    purpose: 'Vekalet için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'TAHSILAT'
-    purpose: 'Tahsilat için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'ANAHTAR'
-    purpose: 'Anahtar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'ESLESTIRME'
-    purpose: 'Eslestirme için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KOK_NEDEN'
-    purpose: 'Kok Neden için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'AKIS'
-    purpose: 'Akis için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIDER'
-    purpose: 'Gider için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'RAPOR'
-    purpose: 'Rapor üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: HIZLI_BASLANGIC
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki hızlı başlangıç değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KAPAK
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIRDI
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası modelinde veri girişi kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: KARARLAR
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası sonuçlarını karar senaryoları formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KARAR
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası sonuçlarını karar analizi formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KONTROLLER
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PAYDASLAR
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki paydaş kayıtları değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: DOSYA
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki dosya değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VEKALET
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki vekalet değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: TAHSILAT
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki tahsilat ve ödeme planı değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: ANAHTAR
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki temel parametreler değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: ESLESTIRME
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki kalem eşleştirme değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KOK_NEDEN
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki sapma ve kök neden değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: AKIS
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki süreç akış şeması değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIDER
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası içindeki maliyet ve gider takibi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: RAPOR
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası sonuçlarını yönetim raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Hukuk Bürosu Dosya & Vekalet Komutası modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Hukuk Bürosu Dosya & Vekalet Komutası dönemsel kayıt ve kalem tutarları
+- Veri Girişi, Karar Senaryoları, Karar Analizi, Tutarlılık Denetimi referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Hukuk Bürosu Dosya & Vekalet Komutası dönem özeti ve sapma göstergeleri
+- Hukuk bürosu sahibi, serbest avukat, dosya asistanı için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'Hukuk bürosu sahibi'
-  - 'serbest avukat'
-  - 'dosya asistanı'
-  - 'kurum içi hukuk müşaviri'
+- Hukuk bürosu sahibi
+- serbest avukat
+- dosya asistanı
+- kurum içi hukuk müşaviri
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Hukuk Bürosu Dosya & Vekalet Komutası kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Hukuk Bürosu Dosya & Vekalet Komutası dosyasında hangi hesaplamalar yer alır?
+  answer: Hukuk Bürosu Dosya & Vekalet Komutası; Veri Girişi, Karar Senaryoları, Karar Analizi, Tutarlılık Denetimi başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Hukuk Bürosu Dosya & Vekalet Komutası hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Hukuk Bürosu Dosya & Vekalet Komutası satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/hukuk-burosu-dosya-vekalet-1.png'
-    alt: 'Hukuk Bürosu Dosya & Vekalet Komutası — ürün ekranı 1'
-  - src: '/screenshots/hukuk-burosu-dosya-vekalet-2.png'
-    alt: 'Hukuk Bürosu Dosya & Vekalet Komutası — ürün ekranı 2'
-  - src: '/screenshots/hukuk-burosu-dosya-vekalet-3.png'
-    alt: 'Hukuk Bürosu Dosya & Vekalet Komutası — ürün ekranı 3'
+- src: /screenshots/hukuk-burosu-dosya-vekalet-1.png
+  alt: Hukuk Bürosu Dosya & Vekalet Komutası — ürün ekranı 1
+- src: /screenshots/hukuk-burosu-dosya-vekalet-2.png
+  alt: Hukuk Bürosu Dosya & Vekalet Komutası — ürün ekranı 2
+- src: /screenshots/hukuk-burosu-dosya-vekalet-3.png
+  alt: Hukuk Bürosu Dosya & Vekalet Komutası — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Hukuk Bürosu Dosya & Vekalet Komutası, Hukuk bürosu sahibi, serbest avukat, dosya asistanı kullanıcılarının bütçe, planlama ve maliyet takibi kararlarını 21 çalışma sayfasında (Veri Girişi, Karar Senaryoları, Karar Analizi, Tutarlılık Denetimi) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

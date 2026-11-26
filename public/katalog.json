@@ -189,7 +189,7 @@
     {
       "slug": "asgari-kurumlar-vergisi-simulasyon-motoru",
       "name": "Asgari Kurumlar Vergisi Simülasyon Motoru",
-      "summary": "Asgari Kurumlar Vergisi Simülasyon Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Asgari Kurumlar Vergisi Simülasyon Motoru: SMMM için makrosuz kurumsal Excel ve karar modeli.",
       "category": "muhasebe-ve-vergi",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -249,7 +249,7 @@
     {
       "slug": "banka-kredi-covenant-erken-uyari",
       "name": "Banka Kredi + Covenant Erken Uyarı",
-      "summary": "Banka Kredi + Covenant Erken Uyarı: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Banka Kredi + Covenant Erken Uyarı: CFO için makrosuz kurumsal Excel ve karar modeli.",
       "category": "finansal-analiz",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -339,7 +339,7 @@
     {
       "slug": "dava-masraf-harc-hesaplama",
       "name": "Dava Masraf & Harç Hesaplama Motoru",
-      "summary": "Dava Masraf & Harç Hesaplama Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Dava Masraf & Harç Hesaplama Motoru: Hukuk bürosu sahibi için makrosuz kurumsal Excel ve karar modeli.",
       "category": "butce-ve-planlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -369,7 +369,7 @@
     {
       "slug": "depo-doluluk-lokasyon",
       "name": "Depo Doluluk & Lokasyon Optimizasyonu",
-      "summary": "Depo Doluluk & Lokasyon Optimizasyonu: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Depo Doluluk & Lokasyon Optimizasyonu: Depo müdürü için makrosuz kurumsal Excel ve karar modeli.",
       "category": "stok-ve-uretim",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -384,7 +384,7 @@
     {
       "slug": "dernek-kooperatif-mali-yonetim",
       "name": "Dernek/Kooperatif Mali Yönetim Sistemi",
-      "summary": "Dernek/Kooperatif Mali Yönetim Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Dernek/Kooperatif Mali Yönetim Sistemi: Dernek muhasibi için makrosuz kurumsal Excel ve karar modeli.",
       "category": "butce-ve-planlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -414,7 +414,7 @@
     {
       "slug": "e-belge-zorunluluk-radari",
       "name": "e-Belge Zorunluluk Radarı",
-      "summary": "e-Belge Zorunluluk Radarı: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "e-Belge Zorunluluk Radarı: SMMM için makrosuz kurumsal Excel ve karar modeli.",
       "category": "muhasebe-ve-vergi",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -474,7 +474,7 @@
     {
       "slug": "elektrik-faturasi-dogrulama",
       "name": "Elektrik Faturası Doğrulama Motoru",
-      "summary": "Elektrik Faturası Doğrulama Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Elektrik Faturası Doğrulama Motoru: Tesis müdürü için makrosuz kurumsal Excel ve karar modeli.",
       "category": "butce-ve-planlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -489,7 +489,7 @@
     {
       "slug": "emlak-pipeline-komisyon",
       "name": "Emlak Ofisi Satış Pipeline & Komisyon Takibi",
-      "summary": "Emlak Ofisi Satış Pipeline & Komisyon Takibi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Emlak Ofisi Satış Pipeline & Komisyon Takibi: Emlak ofisi sahibi için makrosuz kurumsal Excel ve karar modeli.",
       "category": "satis-ve-fiyatlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -519,7 +519,7 @@
     {
       "slug": "fason-uretim-takip-sistemi",
       "name": "Fason Üretim Takip Sistemi",
-      "summary": "Fason Üretim Takip Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Fason Üretim Takip Sistemi: Üretim planlama için makrosuz kurumsal Excel ve karar modeli.",
       "category": "stok-ve-uretim",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -549,7 +549,7 @@
     {
       "slug": "fesih-maliyeti-simulatoru",
       "name": "Fesih Maliyeti Simülatörü (kıdem+ihbar+işe iade)",
-      "summary": "Fesih Maliyeti Simülatörü (kıdem+ihbar+işe iade): SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Fesih Maliyeti Simülatörü (kıdem+ihbar+işe iade): İK müdürü için makrosuz kurumsal Excel ve karar modeli.",
       "category": "personel-ve-bordro",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -564,7 +564,7 @@
     {
       "slug": "filo-arac-maliyet-komutasi",
       "name": "Filo Araç Maliyet Komutası",
-      "summary": "Filo Araç Maliyet Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Filo Araç Maliyet Komutası: Filo yöneticisi için makrosuz kurumsal Excel ve karar modeli.",
       "category": "butce-ve-planlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -639,7 +639,7 @@
     {
       "slug": "ges-uretim-performans",
       "name": "GES Üretim & Performans Takibi",
-      "summary": "GES Üretim & Performans Takibi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "GES Üretim & Performans Takibi: GES işletme müdürü için makrosuz kurumsal Excel ve karar modeli.",
       "category": "stok-ve-uretim",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -654,7 +654,7 @@
     {
       "slug": "ges-yatirim-fizibilite",
       "name": "GES Yatırım Fizibilite Simülatörü",
-      "summary": "GES Yatırım Fizibilite Simülatörü: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "GES Yatırım Fizibilite Simülatörü: GES yatırımcısı için makrosuz kurumsal Excel ve karar modeli.",
       "category": "finansal-analiz",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -684,7 +684,7 @@
     {
       "slug": "gida-lot-maliyet-izlenebilirlik",
       "name": "Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik",
-      "summary": "Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik: Gıda üreticisi için makrosuz kurumsal Excel ve karar modeli.",
       "category": "stok-ve-uretim",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -729,7 +729,7 @@
     {
       "slug": "hizmet-ihracati-100-indirim-transfer-takip",
       "name": "Hizmet İhracatı %100 İndirim + Transfer Takip",
-      "summary": "Hizmet İhracatı %100 İndirim + Transfer Takip: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Hizmet İhracatı %100 İndirim + Transfer Takip: SMMM için makrosuz kurumsal Excel ve karar modeli.",
       "category": "muhasebe-ve-vergi",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -744,7 +744,7 @@
     {
       "slug": "hukuk-burosu-dosya-vekalet",
       "name": "Hukuk Bürosu Dosya & Vekalet Komutası",
-      "summary": "Hukuk Bürosu Dosya & Vekalet Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Hukuk Bürosu Dosya & Vekalet Komutası: Hukuk bürosu sahibi için makrosuz kurumsal Excel ve karar modeli.",
       "category": "butce-ve-planlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -759,7 +759,7 @@
     {
       "slug": "ihale-fiyat-farki-eskalasyon-pro",
       "name": "İhale Fiyat Farkı (Eskalasyon) Pro",
-      "summary": "İhale Fiyat Farkı (Eskalasyon) Pro: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "İhale Fiyat Farkı (Eskalasyon) Pro: Müteahhit için makrosuz kurumsal Excel ve karar modeli.",
       "category": "satis-ve-fiyatlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -834,7 +834,7 @@
     {
       "slug": "isg-risk-degerlendirme-pro-6331",
       "name": "İSG Risk Değerlendirme Pro (6331)",
-      "summary": "İSG Risk Değerlendirme Pro (6331): SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "İSG Risk Değerlendirme Pro (6331): İSG uzmanı için makrosuz kurumsal Excel ve karar modeli.",
       "category": "personel-ve-bordro",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -894,7 +894,7 @@
     {
       "slug": "kargo-desi-maliyet-optimizasyonu",
       "name": "Kargo/Desi Maliyet Optimizasyonu",
-      "summary": "Kargo/Desi Maliyet Optimizasyonu: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Kargo/Desi Maliyet Optimizasyonu: E-ticaret operasyon için makrosuz kurumsal Excel ve karar modeli.",
       "category": "satis-ve-fiyatlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -909,7 +909,7 @@
     {
       "slug": "kat-karsiligi-hasilat-paylasimi-simulator",
       "name": "Kat Karşılığı / Hasılat Paylaşımı Simülatör",
-      "summary": "Kat Karşılığı / Hasılat Paylaşımı Simülatör: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Kat Karşılığı / Hasılat Paylaşımı Simülatör: Müteahhit için makrosuz kurumsal Excel ve karar modeli.",
       "category": "finansal-analiz",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -954,7 +954,7 @@
     {
       "slug": "kdv-iadesi-tutar-surec-simulasyonu",
       "name": "KDV İadesi Tutar ve Süreç Simülasyonu",
-      "summary": "KDV İadesi Tutar ve Süreç Simülasyonu: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "KDV İadesi Tutar ve Süreç Simülasyonu: SMMM için makrosuz kurumsal Excel ve karar modeli.",
       "category": "muhasebe-ve-vergi",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -999,7 +999,7 @@
     {
       "slug": "kik-asiri-dusuk-savunma-sinir-deger",
       "name": "KİK Aşırı Düşük Savunma + Sınır Değer Paketi",
-      "summary": "KİK Aşırı Düşük Savunma + Sınır Değer Paketi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "KİK Aşırı Düşük Savunma + Sınır Değer Paketi: Müteahhit için makrosuz kurumsal Excel ve karar modeli.",
       "category": "satis-ve-fiyatlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1029,7 +1029,7 @@
     {
       "slug": "kira-portfoyu-getiri-komutasi",
       "name": "Kira Portföyü Getiri Komutası",
-      "summary": "Kira Portföyü Getiri Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Kira Portföyü Getiri Komutası: Portföy sahibi için makrosuz kurumsal Excel ve karar modeli.",
       "category": "finansal-analiz",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1104,7 +1104,7 @@
     {
       "slug": "konkordato-ttk376-kriz-paketi",
       "name": "Konkordato + TTK 376 Kriz Paketi",
-      "summary": "Konkordato + TTK 376 Kriz Paketi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Konkordato + TTK 376 Kriz Paketi: CFO için makrosuz kurumsal Excel ve karar modeli.",
       "category": "finansal-analiz",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1119,7 +1119,7 @@
     {
       "slug": "kvkk-veri-envanteri-verbis-uyum",
       "name": "KVKK Veri Envanteri + VERBİS Uyum Sistemi",
-      "summary": "KVKK Veri Envanteri + VERBİS Uyum Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "KVKK Veri Envanteri + VERBİS Uyum Sistemi: KVKK sorumlusu için makrosuz kurumsal Excel ve karar modeli.",
       "category": "muhasebe-ve-vergi",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1149,7 +1149,7 @@
     {
       "slug": "makine-bakim-kalibrasyon-durus-maliyeti",
       "name": "Makine Bakım & Kalibrasyon + Duruş Maliyeti",
-      "summary": "Makine Bakım & Kalibrasyon + Duruş Maliyeti: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Makine Bakım & Kalibrasyon + Duruş Maliyeti: Bakım müdürü için makrosuz kurumsal Excel ve karar modeli.",
       "category": "stok-ve-uretim",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1164,7 +1164,7 @@
     {
       "slug": "mini-mrp-bom-malzeme-kapasite",
       "name": "Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite)",
-      "summary": "Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite): SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite): Üretim planlama için makrosuz kurumsal Excel ve karar modeli.",
       "category": "stok-ve-uretim",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1179,7 +1179,7 @@
     {
       "slug": "mizan-anomali-denetim-oncesi-kontrol",
       "name": "Mizan Anomali & Denetim Öncesi Kontrol",
-      "summary": "Mizan Anomali & Denetim Öncesi Kontrol: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Mizan Anomali & Denetim Öncesi Kontrol: SMMM için makrosuz kurumsal Excel ve karar modeli.",
       "category": "muhasebe-ve-vergi",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1224,7 +1224,7 @@
     {
       "slug": "oee-durus-kok-neden-komutasi",
       "name": "OEE & Duruş Kök-Neden Komutası",
-      "summary": "OEE & Duruş Kök-Neden Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "OEE & Duruş Kök-Neden Komutası: Üretim müdürü / OEE sahibi için makrosuz kurumsal Excel ve karar modeli.",
       "category": "stok-ve-uretim",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1239,7 +1239,7 @@
     {
       "slug": "on-uc-haftalik-nakit-odeme-onceligi",
       "name": "13 Haftalık Nakit + Ödeme Önceliği",
-      "summary": "13 Haftalık Nakit + Ödeme Önceliği: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "13 Haftalık Nakit + Ödeme Önceliği: CFO için makrosuz kurumsal Excel ve karar modeli.",
       "category": "nakit-akisi",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1284,7 +1284,7 @@
     {
       "slug": "ortulu-sermaye-emsal-faiz-tf-paketi",
       "name": "Örtülü Sermaye + Emsal Faiz + TF Paketi",
-      "summary": "Örtülü Sermaye + Emsal Faiz + TF Paketi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Örtülü Sermaye + Emsal Faiz + TF Paketi: SMMM için makrosuz kurumsal Excel ve karar modeli.",
       "category": "muhasebe-ve-vergi",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1314,7 +1314,7 @@
     {
       "slug": "pazaryeri-hakedis-mutabakat-motoru",
       "name": "Pazaryeri Hakediş Mutabakat Motoru",
-      "summary": "Pazaryeri Hakediş Mutabakat Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Pazaryeri Hakediş Mutabakat Motoru: E-ticaret operasyon için makrosuz kurumsal Excel ve karar modeli.",
       "category": "satis-ve-fiyatlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1389,7 +1389,7 @@
     {
       "slug": "proje-finansmani-dscr-llcr-paketi",
       "name": "Proje Finansmanı Paketi (DSCR/LLCR)",
-      "summary": "Proje Finansmanı Paketi (DSCR/LLCR): SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Proje Finansmanı Paketi (DSCR/LLCR): CFO için makrosuz kurumsal Excel ve karar modeli.",
       "category": "finansal-analiz",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1419,7 +1419,7 @@
     {
       "slug": "puantaj-vardiya-fazla-mesai-kanit-sistemi",
       "name": "Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi",
-      "summary": "Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi: İK müdürü için makrosuz kurumsal Excel ve karar modeli.",
       "category": "personel-ve-bordro",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1494,7 +1494,7 @@
     {
       "slug": "sarj-istasyonu-yatirim",
       "name": "Şarj İstasyonu Yatırım Simülatörü",
-      "summary": "Şarj İstasyonu Yatırım Simülatörü: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Şarj İstasyonu Yatırım Simülatörü: EV şarj yatırımcısı için makrosuz kurumsal Excel ve karar modeli.",
       "category": "finansal-analiz",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1509,7 +1509,7 @@
     {
       "slug": "sekiz-d-duzeltici-faaliyet-dosya",
       "name": "8D / Düzeltici Faaliyet Dosya Sistemi",
-      "summary": "8D / Düzeltici Faaliyet Dosya Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "8D / Düzeltici Faaliyet Dosya Sistemi: Kalite müdürü için makrosuz kurumsal Excel ve karar modeli.",
       "category": "stok-ve-uretim",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1524,7 +1524,7 @@
     {
       "slug": "sera-kurulum-fizibilite",
       "name": "Sera Kurulum & Rekolte Fizibilitesi",
-      "summary": "Sera Kurulum & Rekolte Fizibilitesi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Sera Kurulum & Rekolte Fizibilitesi: Sera yatırımcısı için makrosuz kurumsal Excel ve karar modeli.",
       "category": "finansal-analiz",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1539,7 +1539,7 @@
     {
       "slug": "sevkiyat-fiyatlama-navlun",
       "name": "Sevkiyat Fiyatlama & Navlun Maliyet Motoru",
-      "summary": "Sevkiyat Fiyatlama & Navlun Maliyet Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Sevkiyat Fiyatlama & Navlun Maliyet Motoru: Lojistik müdürü için makrosuz kurumsal Excel ve karar modeli.",
       "category": "satis-ve-fiyatlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1554,7 +1554,7 @@
     {
       "slug": "sgk-prim-tesvikleri-optimizasyon-motoru",
       "name": "SGK Prim Teşvikleri Optimizasyon Motoru",
-      "summary": "SGK Prim Teşvikleri Optimizasyon Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "SGK Prim Teşvikleri Optimizasyon Motoru: İK için makrosuz kurumsal Excel ve karar modeli.",
       "category": "personel-ve-bordro",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1599,7 +1599,7 @@
     {
       "slug": "site-apartman-yonetim-sistemi",
       "name": "Site/Apartman Yönetim Sistemi",
-      "summary": "Site/Apartman Yönetim Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Site/Apartman Yönetim Sistemi: Site yöneticisi için makrosuz kurumsal Excel ve karar modeli.",
       "category": "butce-ve-planlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1614,7 +1614,7 @@
     {
       "slug": "spc-proses-yetenek-analizi",
       "name": "SPC Proses Yetenek Analizi",
-      "summary": "SPC Proses Yetenek Analizi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "SPC Proses Yetenek Analizi: Kalite müdürü için makrosuz kurumsal Excel ve karar modeli.",
       "category": "stok-ve-uretim",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1689,7 +1689,7 @@
     {
       "slug": "sut-surusu-yonetim",
       "name": "Süt Sürüsü Yönetim Komutası",
-      "summary": "Süt Sürüsü Yönetim Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Süt Sürüsü Yönetim Komutası: Süt çiftliği sahibi için makrosuz kurumsal Excel ve karar modeli.",
       "category": "stok-ve-uretim",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1719,7 +1719,7 @@
     {
       "slug": "tarimsal-destek-uygunluk",
       "name": "Tarımsal Destek/Teşvik Uygunluk Testi",
-      "summary": "Tarımsal Destek/Teşvik Uygunluk Testi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Tarımsal Destek/Teşvik Uygunluk Testi: Çiftçi için makrosuz kurumsal Excel ve karar modeli.",
       "category": "butce-ve-planlama",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1809,7 +1809,7 @@
     {
       "slug": "uretim-kari-125-kv-optimizasyonu",
       "name": "Üretim Kârı %12,5 KV Optimizasyonu",
-      "summary": "Üretim Kârı %12,5 KV Optimizasyonu: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Üretim Kârı %12,5 KV Optimizasyonu: SMMM için makrosuz kurumsal Excel ve karar modeli.",
       "category": "stok-ve-uretim",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1884,7 +1884,7 @@
     {
       "slug": "yem-rasyonu-maliyet",
       "name": "Yem Rasyonu & Maliyet Motoru",
-      "summary": "Yem Rasyonu & Maliyet Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Yem Rasyonu & Maliyet Motoru: Süt çiftliği sahibi için makrosuz kurumsal Excel ve karar modeli.",
       "category": "stok-ve-uretim",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1899,7 +1899,7 @@
     {
       "slug": "yeniden-degerleme-komuta-merkezi",
       "name": "Yeniden Değerleme Komuta Merkezi (298/Ç + Geç.32)",
-      "summary": "Yeniden Değerleme Komuta Merkezi (298/Ç + Geç.32): SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Yeniden Değerleme Komuta Merkezi (298/Ç + Geç.32): SMMM için makrosuz kurumsal Excel ve karar modeli.",
       "category": "muhasebe-ve-vergi",
       "priceTL": 1999,
       "vatIncluded": true,
@@ -1959,7 +1959,7 @@
     {
       "slug": "yurt-disi-yapilanma-vergi-simulatoru",
       "name": "Yurt Dışı Yapılanma Vergi Simülatörü",
-      "summary": "Yurt Dışı Yapılanma Vergi Simülatörü: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.",
+      "summary": "Yurt Dışı Yapılanma Vergi Simülatörü: SMMM için makrosuz kurumsal Excel ve karar modeli.",
       "category": "finansal-analiz",
       "priceTL": 1999,
       "vatIncluded": true,

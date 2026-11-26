@@ -1,97 +1,99 @@
 ---
-name: 'e-Belge Zorunluluk Radarı'
-summary: 'e-Belge Zorunluluk Radarı: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'muhasebe-ve-vergi'
+name: e-Belge Zorunluluk Radarı
+summary: 'e-Belge Zorunluluk Radarı: SMMM için makrosuz kurumsal Excel ve karar modeli.'
+category: muhasebe-ve-vergi
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.14
 sheetCount: 17
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIRDI'
-    purpose: 'Girdi için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'SENARYO'
-    purpose: 'Senaryo için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KURALLAR'
-    purpose: 'Kurallar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'MOTOR'
-    purpose: 'Motor için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'ENVANTER'
-    purpose: 'Envanter için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'EYLEM_PLANI'
-    purpose: 'Eylem Plani için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'AKIS'
-    purpose: 'Akis için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VAKALAR'
-    purpose: 'Vakalar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: e-Belge Zorunluluk Radarı içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIRDI
+  purpose: e-Belge Zorunluluk Radarı modelinde veri girişi kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: SENARYO
+  purpose: e-Belge Zorunluluk Radarı içindeki senaryo değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: e-Belge Zorunluluk Radarı içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: e-Belge Zorunluluk Radarı içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: e-Belge Zorunluluk Radarı sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KURALLAR
+  purpose: e-Belge Zorunluluk Radarı içindeki kurallar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: MOTOR
+  purpose: e-Belge Zorunluluk Radarı içindeki motor değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: ENVANTER
+  purpose: e-Belge Zorunluluk Radarı içindeki envanter değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: EYLEM_PLANI
+  purpose: e-Belge Zorunluluk Radarı içindeki eylem plani değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: AKIS
+  purpose: e-Belge Zorunluluk Radarı içindeki süreç akış şeması değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VAKALAR
+  purpose: e-Belge Zorunluluk Radarı içindeki vakalar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: e-Belge Zorunluluk Radarı sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: e-Belge Zorunluluk Radarı modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: e-Belge Zorunluluk Radarı modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: e-Belge Zorunluluk Radarı modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- e-Belge Zorunluluk Radarı dönemsel kayıt ve kalem tutarları
+- Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- e-Belge Zorunluluk Radarı dönem özeti ve sapma göstergeleri
+- SMMM, mali işler, işletme sahibi için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'SMMM'
-  - 'mali işler'
-  - 'işletme sahibi'
+- SMMM
+- mali işler
+- işletme sahibi
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- e-Belge Zorunluluk Radarı kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: e-Belge Zorunluluk Radarı dosyasında hangi hesaplamalar yer alır?
+  answer: e-Belge Zorunluluk Radarı; Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: e-Belge Zorunluluk Radarı hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: e-Belge Zorunluluk Radarı satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/e-belge-zorunluluk-radari-1.png'
-    alt: 'e-Belge Zorunluluk Radarı — ürün ekranı 1'
-  - src: '/screenshots/e-belge-zorunluluk-radari-2.png'
-    alt: 'e-Belge Zorunluluk Radarı — ürün ekranı 2'
-  - src: '/screenshots/e-belge-zorunluluk-radari-3.png'
-    alt: 'e-Belge Zorunluluk Radarı — ürün ekranı 3'
+- src: /screenshots/e-belge-zorunluluk-radari-1.png
+  alt: e-Belge Zorunluluk Radarı — ürün ekranı 1
+- src: /screenshots/e-belge-zorunluluk-radari-2.png
+  alt: e-Belge Zorunluluk Radarı — ürün ekranı 2
+- src: /screenshots/e-belge-zorunluluk-radari-3.png
+  alt: e-Belge Zorunluluk Radarı — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+e-Belge Zorunluluk Radarı, SMMM, mali işler, işletme sahibi kullanıcılarının muhasebe, vergi ve mevzuat uyumu kararlarını 16 çalışma sayfasında (Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

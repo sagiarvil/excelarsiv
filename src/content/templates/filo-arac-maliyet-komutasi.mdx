@@ -1,89 +1,91 @@
 ---
-name: 'Filo Araç Maliyet Komutası'
-summary: 'Filo Araç Maliyet Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'butce-ve-planlama'
+name: Filo Araç Maliyet Komutası
+summary: 'Filo Araç Maliyet Komutası: Filo yöneticisi için makrosuz kurumsal Excel ve karar modeli.'
+category: butce-ve-planlama
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.14
 sheetCount: 14
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VARLIKLAR'
-    purpose: 'Varliklar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GUNLUK_GIRIS'
-    purpose: 'Gunluk Giris için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'DONEM_ANALIZ'
-    purpose: 'Donem Analiz üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'HESAP'
-    purpose: 'Hesap için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ALARMLAR'
-    purpose: 'Alarmlar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'RAPOR'
-    purpose: 'Rapor üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: Filo Araç Maliyet Komutası içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: Filo Araç Maliyet Komutası içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Filo Araç Maliyet Komutası içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VARLIKLAR
+  purpose: Filo Araç Maliyet Komutası içindeki varliklar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GUNLUK_GIRIS
+  purpose: Filo Araç Maliyet Komutası içindeki gunluk giris değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: DONEM_ANALIZ
+  purpose: Filo Araç Maliyet Komutası sonuçlarını donem analiz formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: HESAP
+  purpose: Filo Araç Maliyet Komutası içindeki hesap değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Filo Araç Maliyet Komutası sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ALARMLAR
+  purpose: Filo Araç Maliyet Komutası içindeki alarmlar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: RAPOR
+  purpose: Filo Araç Maliyet Komutası sonuçlarını yönetim raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Filo Araç Maliyet Komutası modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Filo Araç Maliyet Komutası modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Filo Araç Maliyet Komutası modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Filo Araç Maliyet Komutası dönemsel kayıt ve kalem tutarları
+- Tutarlılık Denetimi, Varliklar, Gunluk Giris, Donem Analiz referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Filo Araç Maliyet Komutası dönem özeti ve sapma göstergeleri
+- Filo yöneticisi, lojistik operasyon, saha şofi koordinatörü için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'Filo yöneticisi'
-  - 'lojistik operasyon'
-  - 'saha şofi koordinatörü'
-  - 'CFO'
+- Filo yöneticisi
+- lojistik operasyon
+- saha şofi koordinatörü
+- CFO
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Filo Araç Maliyet Komutası kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Filo Araç Maliyet Komutası dosyasında hangi hesaplamalar yer alır?
+  answer: Filo Araç Maliyet Komutası; Tutarlılık Denetimi, Varliklar, Gunluk Giris, Donem Analiz başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Filo Araç Maliyet Komutası hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Filo Araç Maliyet Komutası satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/filo-arac-maliyet-komutasi-1.png'
-    alt: 'Filo Araç Maliyet Komutası — ürün ekranı 1'
-  - src: '/screenshots/filo-arac-maliyet-komutasi-2.png'
-    alt: 'Filo Araç Maliyet Komutası — ürün ekranı 2'
-  - src: '/screenshots/filo-arac-maliyet-komutasi-3.png'
-    alt: 'Filo Araç Maliyet Komutası — ürün ekranı 3'
+- src: /screenshots/filo-arac-maliyet-komutasi-1.png
+  alt: Filo Araç Maliyet Komutası — ürün ekranı 1
+- src: /screenshots/filo-arac-maliyet-komutasi-2.png
+  alt: Filo Araç Maliyet Komutası — ürün ekranı 2
+- src: /screenshots/filo-arac-maliyet-komutasi-3.png
+  alt: Filo Araç Maliyet Komutası — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Filo Araç Maliyet Komutası, Filo yöneticisi, lojistik operasyon, saha şofi koordinatörü kullanıcılarının bütçe, planlama ve maliyet takibi kararlarını 13 çalışma sayfasında (Tutarlılık Denetimi, Varliklar, Gunluk Giris, Donem Analiz) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

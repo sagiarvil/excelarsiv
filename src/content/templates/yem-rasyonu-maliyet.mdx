@@ -1,101 +1,103 @@
 ---
-name: 'Yem Rasyonu & Maliyet Motoru'
-summary: 'Yem Rasyonu & Maliyet Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'stok-ve-uretim'
+name: Yem Rasyonu & Maliyet Motoru
+summary: 'Yem Rasyonu & Maliyet Motoru: Süt çiftliği sahibi için makrosuz kurumsal Excel ve karar modeli.'
+category: stok-ve-uretim
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.47
 sheetCount: 18
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'HIZLI_BASLANGIC'
-    purpose: 'Hizli Baslangic için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIRDI'
-    purpose: 'Girdi için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'SENARYO'
-    purpose: 'Senaryo için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KARAR'
-    purpose: 'Karar üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'HAMMADDE'
-    purpose: 'Hammadde için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'RASYON'
-    purpose: 'Rasyon için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'MALIYET'
-    purpose: 'Maliyet için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'FIYATLAMA'
-    purpose: 'Fiyatlama için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VARYANS'
-    purpose: 'Varyans için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'RAPOR'
-    purpose: 'Rapor üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: HIZLI_BASLANGIC
+  purpose: Yem Rasyonu & Maliyet Motoru içindeki hızlı başlangıç değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KAPAK
+  purpose: Yem Rasyonu & Maliyet Motoru içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIRDI
+  purpose: Yem Rasyonu & Maliyet Motoru modelinde veri girişi kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: SENARYO
+  purpose: Yem Rasyonu & Maliyet Motoru içindeki senaryo değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KARAR
+  purpose: Yem Rasyonu & Maliyet Motoru sonuçlarını karar analizi formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KONTROLLER
+  purpose: Yem Rasyonu & Maliyet Motoru içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Yem Rasyonu & Maliyet Motoru içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: HAMMADDE
+  purpose: Yem Rasyonu & Maliyet Motoru içindeki hammadde değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: RASYON
+  purpose: Yem Rasyonu & Maliyet Motoru içindeki rasyon değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: MALIYET
+  purpose: Yem Rasyonu & Maliyet Motoru içindeki maliyet değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: FIYATLAMA
+  purpose: Yem Rasyonu & Maliyet Motoru içindeki fiyatlama değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VARYANS
+  purpose: Yem Rasyonu & Maliyet Motoru içindeki varyans değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Yem Rasyonu & Maliyet Motoru sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: RAPOR
+  purpose: Yem Rasyonu & Maliyet Motoru sonuçlarını yönetim raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Yem Rasyonu & Maliyet Motoru modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Yem Rasyonu & Maliyet Motoru modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Yem Rasyonu & Maliyet Motoru modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Yem Rasyonu & Maliyet Motoru dönemsel kayıt ve kalem tutarları
+- Veri Girişi, Senaryo, Karar Analizi, Tutarlılık Denetimi referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Yem Rasyonu & Maliyet Motoru dönem özeti ve sapma göstergeleri
+- Süt çiftliği sahibi, zooteknist, yem danışmanı için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'Süt çiftliği sahibi'
-  - 'zooteknist'
-  - 'yem danışmanı'
-  - 'CFO'
+- Süt çiftliği sahibi
+- zooteknist
+- yem danışmanı
+- CFO
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Yem Rasyonu & Maliyet Motoru kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Yem Rasyonu & Maliyet Motoru dosyasında hangi hesaplamalar yer alır?
+  answer: Yem Rasyonu & Maliyet Motoru; Veri Girişi, Senaryo, Karar Analizi, Tutarlılık Denetimi başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Yem Rasyonu & Maliyet Motoru hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Yem Rasyonu & Maliyet Motoru satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/yem-rasyonu-maliyet-1.png'
-    alt: 'Yem Rasyonu & Maliyet Motoru — ürün ekranı 1'
-  - src: '/screenshots/yem-rasyonu-maliyet-2.png'
-    alt: 'Yem Rasyonu & Maliyet Motoru — ürün ekranı 2'
-  - src: '/screenshots/yem-rasyonu-maliyet-3.png'
-    alt: 'Yem Rasyonu & Maliyet Motoru — ürün ekranı 3'
+- src: /screenshots/yem-rasyonu-maliyet-1.png
+  alt: Yem Rasyonu & Maliyet Motoru — ürün ekranı 1
+- src: /screenshots/yem-rasyonu-maliyet-2.png
+  alt: Yem Rasyonu & Maliyet Motoru — ürün ekranı 2
+- src: /screenshots/yem-rasyonu-maliyet-3.png
+  alt: Yem Rasyonu & Maliyet Motoru — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Yem Rasyonu & Maliyet Motoru, Süt çiftliği sahibi, zooteknist, yem danışmanı kullanıcılarının stok, tedarik ve üretim planlaması kararlarını 17 çalışma sayfasında (Veri Girişi, Senaryo, Karar Analizi, Tutarlılık Denetimi) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

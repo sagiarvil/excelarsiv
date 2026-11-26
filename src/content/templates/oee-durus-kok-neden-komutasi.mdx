@@ -1,89 +1,89 @@
 ---
-name: 'OEE & Duruş Kök-Neden Komutası'
-summary: 'OEE & Duruş Kök-Neden Komutası: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'stok-ve-uretim'
+name: OEE & Duruş Kök-Neden Komutası
+summary: 'OEE & Duruş Kök-Neden Komutası: Üretim müdürü / OEE sahibi için makrosuz kurumsal Excel ve karar modeli.'
+category: stok-ve-uretim
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.14
 sheetCount: 14
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VARLIKLAR'
-    purpose: 'Varliklar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GUNLUK_GIRIS'
-    purpose: 'Gunluk Giris için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'DONEM_ANALIZ'
-    purpose: 'Donem Analiz üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'HESAP'
-    purpose: 'Hesap için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ALARMLAR'
-    purpose: 'Alarmlar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'RAPOR'
-    purpose: 'Rapor üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: OEE & Duruş Kök-Neden Komutası içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: OEE & Duruş Kök-Neden Komutası içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: OEE & Duruş Kök-Neden Komutası içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VARLIKLAR
+  purpose: OEE & Duruş Kök-Neden Komutası içindeki varliklar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GUNLUK_GIRIS
+  purpose: OEE & Duruş Kök-Neden Komutası içindeki gunluk giris değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: DONEM_ANALIZ
+  purpose: OEE & Duruş Kök-Neden Komutası sonuçlarını donem analiz formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: HESAP
+  purpose: OEE & Duruş Kök-Neden Komutası içindeki hesap değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: OEE & Duruş Kök-Neden Komutası sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ALARMLAR
+  purpose: OEE & Duruş Kök-Neden Komutası içindeki alarmlar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: RAPOR
+  purpose: OEE & Duruş Kök-Neden Komutası sonuçlarını yönetim raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: OEE & Duruş Kök-Neden Komutası modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: OEE & Duruş Kök-Neden Komutası modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: OEE & Duruş Kök-Neden Komutası modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Vardiya çalışma süresi, plansız duruş dakikaları ve arıza/kalıp değişim kodları
+- Üretilen toplam adet, hurda/fire miktarı ve teorik hat çevrim hızı
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Kullanılabilirlik, Performans, Kalite bileşenli anlık OEE skoru
+- Pareto duruş kök neden sıralaması ve kayıp saat maliyet raporu
 suitableFor:
-  - 'Üretim müdürü / OEE sahibi'
-  - 'kalite müdürü'
-  - 'süreç mühendisi'
-  - 'fabrika yöneticisi'
+- Üretim müdürleri ve fabrika yalın üretim mühendisleri
+- Bakım planlama ve vardiya yöneticileri
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- OEE & Duruş Kök-Neden Komutası kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: OEE & Duruş Kök-Neden Komutası dosyasında hangi hesaplamalar yer alır?
+  answer: OEE & Duruş Kök-Neden Komutası; Tutarlılık Denetimi, Varliklar, Gunluk Giris, Donem Analiz başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: OEE & Duruş Kök-Neden Komutası hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: OEE & Duruş Kök-Neden Komutası satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/oee-durus-kok-neden-komutasi-1.png'
-    alt: 'OEE & Duruş Kök-Neden Komutası — ürün ekranı 1'
-  - src: '/screenshots/oee-durus-kok-neden-komutasi-2.png'
-    alt: 'OEE & Duruş Kök-Neden Komutası — ürün ekranı 2'
-  - src: '/screenshots/oee-durus-kok-neden-komutasi-3.png'
-    alt: 'OEE & Duruş Kök-Neden Komutası — ürün ekranı 3'
+- src: /screenshots/oee-durus-kok-neden-komutasi-1.png
+  alt: OEE & Duruş Kök-Neden Komutası — ürün ekranı 1
+- src: /screenshots/oee-durus-kok-neden-komutasi-2.png
+  alt: OEE & Duruş Kök-Neden Komutası — ürün ekranı 2
+- src: /screenshots/oee-durus-kok-neden-komutasi-3.png
+  alt: OEE & Duruş Kök-Neden Komutası — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+OEE & Duruş Kök-Neden Komutası, Üretim müdürü / OEE sahibi, kalite müdürü, süreç mühendisi kullanıcılarının stok, tedarik ve üretim planlaması kararlarını 13 çalışma sayfasında (Tutarlılık Denetimi, Varliklar, Gunluk Giris, Donem Analiz) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

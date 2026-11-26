@@ -1,101 +1,103 @@
 ---
-name: 'Banka Kredi + Covenant Erken Uyarı'
-summary: 'Banka Kredi + Covenant Erken Uyarı: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'finansal-analiz'
+name: Banka Kredi + Covenant Erken Uyarı
+summary: 'Banka Kredi + Covenant Erken Uyarı: CFO için makrosuz kurumsal Excel ve karar modeli.'
+category: finansal-analiz
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.4
 sheetCount: 18
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'HIZLI_BASLANGIC'
-    purpose: 'Hizli Baslangic için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIRDI'
-    purpose: 'Girdi için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'SENARYO'
-    purpose: 'Senaryo için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KURALLAR'
-    purpose: 'Kurallar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'MOTOR'
-    purpose: 'Motor için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KARTLAR'
-    purpose: 'Kartlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AKIS'
-    purpose: 'Akis için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KUYRUKLAR'
-    purpose: 'Kuyruklar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VAKALAR'
-    purpose: 'Vakalar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: HIZLI_BASLANGIC
+  purpose: Banka Kredi + Covenant Erken Uyarı içindeki hızlı başlangıç değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KAPAK
+  purpose: Banka Kredi + Covenant Erken Uyarı içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIRDI
+  purpose: Banka Kredi + Covenant Erken Uyarı modelinde veri girişi kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: SENARYO
+  purpose: Banka Kredi + Covenant Erken Uyarı içindeki senaryo değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: Banka Kredi + Covenant Erken Uyarı içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Banka Kredi + Covenant Erken Uyarı içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Banka Kredi + Covenant Erken Uyarı sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KURALLAR
+  purpose: Banka Kredi + Covenant Erken Uyarı içindeki kurallar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: MOTOR
+  purpose: Banka Kredi + Covenant Erken Uyarı içindeki motor değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KARTLAR
+  purpose: Banka Kredi + Covenant Erken Uyarı modelinde kartlar kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AKIS
+  purpose: Banka Kredi + Covenant Erken Uyarı içindeki süreç akış şeması değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KUYRUKLAR
+  purpose: Banka Kredi + Covenant Erken Uyarı içindeki kuyruklar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VAKALAR
+  purpose: Banka Kredi + Covenant Erken Uyarı içindeki vakalar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: Banka Kredi + Covenant Erken Uyarı sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Banka Kredi + Covenant Erken Uyarı modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Banka Kredi + Covenant Erken Uyarı modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Banka Kredi + Covenant Erken Uyarı modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Banka Kredi + Covenant Erken Uyarı dönemsel kayıt ve kalem tutarları
+- Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Banka Kredi + Covenant Erken Uyarı dönem özeti ve sapma göstergeleri
+- CFO, hazine, SMMM için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'CFO'
-  - 'hazine'
-  - 'SMMM'
-  - 'kredi ilişkileri yöneticisi'
+- CFO
+- hazine
+- SMMM
+- kredi ilişkileri yöneticisi
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Banka Kredi + Covenant Erken Uyarı kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Banka Kredi + Covenant Erken Uyarı dosyasında hangi hesaplamalar yer alır?
+  answer: Banka Kredi + Covenant Erken Uyarı; Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Banka Kredi + Covenant Erken Uyarı hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Banka Kredi + Covenant Erken Uyarı satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/banka-kredi-covenant-erken-uyari-1.png'
-    alt: 'Banka Kredi + Covenant Erken Uyarı — ürün ekranı 1'
-  - src: '/screenshots/banka-kredi-covenant-erken-uyari-2.png'
-    alt: 'Banka Kredi + Covenant Erken Uyarı — ürün ekranı 2'
-  - src: '/screenshots/banka-kredi-covenant-erken-uyari-3.png'
-    alt: 'Banka Kredi + Covenant Erken Uyarı — ürün ekranı 3'
+- src: /screenshots/banka-kredi-covenant-erken-uyari-1.png
+  alt: Banka Kredi + Covenant Erken Uyarı — ürün ekranı 1
+- src: /screenshots/banka-kredi-covenant-erken-uyari-2.png
+  alt: Banka Kredi + Covenant Erken Uyarı — ürün ekranı 2
+- src: /screenshots/banka-kredi-covenant-erken-uyari-3.png
+  alt: Banka Kredi + Covenant Erken Uyarı — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Banka Kredi + Covenant Erken Uyarı, CFO, hazine, SMMM kullanıcılarının finansal analiz ve kârlılık modelleme kararlarını 17 çalışma sayfasında (Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

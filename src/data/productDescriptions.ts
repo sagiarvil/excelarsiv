@@ -63,34 +63,37 @@ function formatSheetName(name: string): string {
     .replace(/\b([a-zğüşıöç])/gi, (char) => char.toLocaleUpperCase('tr-TR'));
 }
 
-// Sayfa Amacını Kullanıcı Dostu Someka Tarzı Açıklamaya Dönüştürücü
-function enhanceSheetDescription(sheet: { name: string; purpose: string; kind: 'input' | 'calculation' | 'output' }): string {
+// Sayfa Amacını Ürüne Özgü Net Açıklamaya Dönüştürücü
+function enhanceSheetDescription(
+  sheet: { name: string; purpose: string; kind: 'input' | 'calculation' | 'output' },
+  productName: string
+): string {
   const n = sheet.name.toUpperCase();
+  if (sheet.purpose && sheet.purpose.toLowerCase().includes(productName.toLowerCase().slice(0, 12))) {
+    return sheet.purpose;
+  }
   if (n.includes('KAPAK')) {
-    return 'Dosyanın genel kimliğini, sürüm bilgilerini ve tek tıkla ilgili sayfalara gitmenizi sağlayan gezinti butonlarını içerir.';
+    return `${productName} çalışma kitabının sürüm kimliği ve ana sekme gezinti indeksidir (${sheet.purpose}).`;
   }
   if (n.includes('HIZLI_BASLANGIC') || n.includes('KILAVUZ')) {
-    return 'Şablonu ilk kez açan kullanıcılar için adım adım kullanım talimatlarını ve formül mantığını özetleyen rehber sayfadır.';
+    return `${productName} için adım adım veri girişi ve formül kullanım yönergesi (${sheet.purpose}).`;
   }
   if (n.includes('PANO') || n.includes('DASHBOARD')) {
-    return 'Tüm verilerin özetlendiği, grafikler ve kilit performans göstergeleriyle (KPI) desteklenmiş ana yönetim ekranıdır. Kararlarınızı tek bakışta bu sayfadan verirsiniz.';
+    return `${productName} sonuç özetleri, KPI kartları ve karar göstergeleri ekranı (${sheet.purpose}).`;
   }
   if (n.includes('GIRDI') || n.includes('VERI') || sheet.kind === 'input') {
-    return `${sheet.purpose}. Bu alanda yalnızca beyaz renkli giriş hücrelerini doldurmanız yeterlidir; formüller verileri otomatik olarak işler.`;
-  }
-  if (n.includes('HESAP') || n.includes('MOTOR') || sheet.kind === 'calculation') {
-    return `${sheet.purpose}. Arka planda matematiksel formüller, oranlar ve koşullu mantıklar hatasız olarak çalışır; elle müdahaleye gerek kalmaz.`;
+    return `${productName} veri giriş katmanı: ${sheet.purpose}. Açık hücrelere kendi kayıtlarınızı yazabilirsiniz.`;
   }
   if (n.includes('KONTROL') || n.includes('ALARM')) {
-    return 'Hatalı, eksik veya tutarsız veri girişlerini anında yakalayan; bakiye ve mantık uyumsuzluklarında kırmızı uyarı veren denetim sayfasıdır.';
+    return `${productName} tutarlılık denetimi: ${sheet.purpose}. Eksik veya dengesiz kayıtları anında işaretler.`;
   }
   if (n.includes('KARAR')) {
-    return 'Ham rakamları somut iş kararlarına dönüştüren karar motorudur. Hangi aksiyonun ne zaman alınması gerektiğini net önerilerle sunar.';
+    return `${productName} karar motoru: ${sheet.purpose}. Eşikleri ve önerilen aksiyonu öne çıkarır.`;
   }
   if (n.includes('RAPOR')) {
-    return 'Yönetime, bankalara veya ortaklara sunulmaya hazır; yazdırılabilir ve PDF olarak dışa aktarılabilir profesyonel dönem raporudur.';
+    return `${productName} çıktı ekranı: ${sheet.purpose}. A4 PDF veya yönetici sunumu olarak dışa aktarılır.`;
   }
-  return `${sheet.purpose}. İş sürecinizi hızlandırmak ve hatasız sonuç üretmek için özel olarak tasarlanmıştır.`;
+  return `${productName} (${formatSheetName(sheet.name)}): ${sheet.purpose}.`;
 }
 
 export function getProductFullDescription(template: {
@@ -116,46 +119,45 @@ export function getProductFullDescription(template: {
   // Alt Başlık (Someka tarzı)
   const subTitle = `Kullanıma hazır profesyonel Excel sistemi. ${template.summary}`;
 
-  // Satış Paragrafları (İkna kabiliyeti yüksek, psikolojisi güçlü)
+  // Satış Paragrafları (Ürüne özel girdi, çıktı ve sayfa mimarisiyle dinamik)
+  const inputList = template.inputs.slice(0, 3).join(', ');
+  const outputList = template.outputs.slice(0, 3).join(', ');
+  const rolesList = template.suitableFor.slice(0, 3).join(', ');
   const salesPitch = [
-    `${template.name}, işletmenizin en kritik operasyonel ve finansal süreçlerini tek bir dosyada kusursuz bir şekilde yönetmeniz için geliştirilmiş kapsamlı bir Excel çözümüdür. Dağınık notlar, birbirini tutmayan tablolar ve son anda fark edilen hatalar yüzünden yaşanan stres ve zaman kaybını tamamen ortadan kaldırır.`,
+    `${template.name}, özellikle ${rolesList || 'yöneticiler ve finans ekipleri'} için ${inputList} verilerini işleyerek ${outputList} çıktılarını üreten profesyonel bir karar modelidir.`,
     decisionData.painPrice
-      ? `Bu alanda yapılan hataların işletmeye faturası çok ağır olabilir: ${decisionData.painPrice} ${template.name}, bu riskleri sıfıra indirmek ve her adımda doğru kararı vermenizi sağlamak için arka planda çalışan gelişmiş formül ağıyla donatılmıştır.`
-      : `${categoryConfig.painFocus} ${template.name} sayesinde verilerinizi sadece ilgili giriş alanlarına yazmanız yeterlidir; sistem kalan tüm hesaplamaları, kontrolleri ve raporları sizin yerinize saniyeler içinde tamamlar.`,
-    `Başka hiçbir pahalı yazılıma, karmaşık ERP modülüne veya aylık abonelik ücretine gerek kalmadan; kendi bilgisayarınızda %100 gizlilikle, internet bağımlılığı olmadan hemen çalışmaya başlayabilirsiniz. Tamamen şifresiz, açık formüllü ve şirketinize göre özelleştirilebilir bir yapı sunar.`
+      ? `${decisionData.painPrice} ${template.name} modeli ${template.sheetMap.length} çalışma sayfasıyla hesaplama kontrollerini tek yapıda toplar.`
+      : `${template.name} içinde ${inputList} bilgilerini girmenizle birlikte ${outputList} göstergeleri ${template.sheetMap.length} sayfalık formül zincirinde otomatik güncellenir.`,
+    `${template.name} çalışma kitabı makrosuz (.xlsx) yapısıyla harici sunuculara veri göndermeden şirketinize özel ${outputList} analizi sunar.`
   ];
 
   // Temel Faydalar
   const keyBenefits = [
     {
-      title: 'Zaman Tasarrufu ve Sıfır Formül Hatası',
-      desc: 'Günlerce süren manuel hesaplama, tablo eşleştirme ve hata arama süreçlerini sonlandırır. Formüller önceden test edilmiş ve doğrulanmıştır.'
+      title: `${template.name}: Otomatik Hesaplama Disiplini`,
+      desc: `${inputList} verilerinden ${outputList} sonuçlarını hatasız üreten ${template.sheetMap.length} sayfalı açık formül mimarisi sunar.`
     },
     {
-      title: 'Anlık Yönetici Raporları ve Görsel Dashboard',
-      desc: 'Rakamları boğucu tablolardan çıkarıp tek bakışta anlaşılan grafikler ve karar göstergelerine dönüştürür. Ortaklarınıza veya bankanıza gururla sunabilirsiniz.'
+      title: `${rolesList || 'Yönetim'} İçin Anlık Pano`,
+      desc: `${template.name} yönetim ekranında kritik sapmaları, eşik kontrollerini ve ${outputList} özetlerini tek bakışta izleyin.`
     },
     {
-      title: 'Erken Uyarı ve Risk Tespiti',
+      title: 'Erken Uyarı ve Kontrol Katmanı',
       desc: decisionData.decisionAction
         ? `${decisionData.decisionAction}`
-        : 'Beklenmeyen nakit açıkları, geciken ödemeler ve kârlılık sapmalarını henüz oluşmadan yakalar ve aksiyon almanızı sağlar.'
+        : `${template.name} içindeki tutarlılık kontrolleri, ${inputList} girişlerindeki eksik veya çelişkili kayıtları anında işaretler.`
     },
     {
-      title: 'Şeffaf Teklif Modeli, Ömür Boyu Sahiplik',
-      desc: 'Aylık veya yıllık yinelenen gizli lisans ücreti yoktur. Şirketinize özel tek seferlik teklifle dosya tamamen firmanıza devredilir, süre sınırı olmadan kullanabilirsiniz.'
-    },
-    {
-      title: 'Windows ve Mac ile %100 Uyumlu',
-      desc: 'Microsoft Excel 2016 ve üzerindeki tüm masaüstü sürümlerde sorunsuz çalışır. Dışarıya veri göndermez; tüm şirket bilgileriniz kendi bilgisayarınızda kalır.'
+      title: 'Kurulumsuz Yerel .xlsx Mülkiyeti',
+      desc: `Aylık abonelik gerektirmeden Windows ve macOS Excel üzerinde çalışır; ${template.name} kurumsal kullanım için açık formüllüdür.`
     }
   ];
 
-  // Sayfa Açıklamaları (Someka Görsel 1 & 2'deki gibi 1- Dashboard, 2- Ekip Verileri vb.)
+  // Sayfa Açıklamaları
   const sheetDescriptions = template.sheetMap.map((sheet, index) => ({
     name: sheet.name,
     title: `${index + 1}- ${formatSheetName(sheet.name)}`,
-    description: enhanceSheetDescription(sheet),
+    description: enhanceSheetDescription(sheet, template.name),
     kind: sheet.kind
   }));
 
@@ -163,18 +165,18 @@ export function getProductFullDescription(template: {
   const howToUseSteps = [
     {
       step: 1,
-      title: 'Verilerinizi Girin',
-      desc: `Dosyayı açın ve açık renkli girdi hücrelerine temel işletme verilerinizi (${template.inputs.slice(0, 3).join(', ')}) yazın. Hazır örnek verileri silip kendi rakamlarınızı eklemeniz birkaç dakika sürer.`
+      title: `${template.name} Girdilerini Tanımlayın`,
+      desc: `${template.inputs.slice(0, 3).join(', ')} alanlarına şirket verilerinizi girin; örnek kayıtları tek hamlede temizleyin.`
     },
     {
       step: 2,
-      title: 'Otomatik Hesaplama ve Kontrolleri İzleyin',
-      desc: 'Siz verileri girdikçe arkadaki formül motoru tüm oranları, toplamları ve dengeleri otomatik hesaplar. Dahili kontrol mekanizması hatalı girişleri anında uyarır.'
+      title: 'Formül ve Tutarlılık Motorunu Çalıştırın',
+      desc: `${template.sheetMap.slice(0, 4).map((s) => s.name).join(', ')} sekmeleri arasındaki dinamik bağlantılar girilen verileri otomatik işler.`
     },
     {
       step: 3,
-      title: 'Karar Çıktılarını ve Raporunuzu Alın',
-      desc: `Yönetim panelinden (${template.outputs.slice(0, 3).join(', ')}) gibi kritik çıktıları görün. Dilerseniz tek tuşla yazdırabilir veya PDF olarak paylaşabilirsiniz.`
+      title: `${template.outputs[0] || 'Yönetim'} Çıktısını Raporlayın`,
+      desc: `${template.outputs.slice(0, 3).join(', ')} sonuçlarını yönetici panosundan okuyun veya A4 PDF rapor olarak paylaşın.`
     }
   ];
 

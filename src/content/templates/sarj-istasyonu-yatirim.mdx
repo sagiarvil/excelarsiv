@@ -1,101 +1,101 @@
 ---
-name: 'Şarj İstasyonu Yatırım Simülatörü'
-summary: 'Şarj İstasyonu Yatırım Simülatörü: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'finansal-analiz'
+name: Şarj İstasyonu Yatırım Simülatörü
+summary: 'Şarj İstasyonu Yatırım Simülatörü: EV şarj yatırımcısı için makrosuz kurumsal Excel ve karar modeli.'
+category: finansal-analiz
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.08
 sheetCount: 18
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'HIZLI_BASLANGIC'
-    purpose: 'Hizli Baslangic için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIRDI'
-    purpose: 'Girdi için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'VARSAYIMLAR'
-    purpose: 'Varsayimlar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'FINANSMAN'
-    purpose: 'Finansman için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'SENARYO'
-    purpose: 'Senaryo için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KARAR'
-    purpose: 'Karar üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KURALLAR'
-    purpose: 'Kurallar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'MOTOR'
-    purpose: 'Motor için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'VAKALAR'
-    purpose: 'Vakalar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: HIZLI_BASLANGIC
+  purpose: Şarj İstasyonu Yatırım Simülatörü içindeki hızlı başlangıç değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KAPAK
+  purpose: Şarj İstasyonu Yatırım Simülatörü içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIRDI
+  purpose: Şarj İstasyonu Yatırım Simülatörü modelinde veri girişi kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: VARSAYIMLAR
+  purpose: Şarj İstasyonu Yatırım Simülatörü içindeki varsayimlar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: FINANSMAN
+  purpose: Şarj İstasyonu Yatırım Simülatörü içindeki finansman değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: SENARYO
+  purpose: Şarj İstasyonu Yatırım Simülatörü içindeki senaryo değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KARAR
+  purpose: Şarj İstasyonu Yatırım Simülatörü sonuçlarını karar analizi formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KONTROLLER
+  purpose: Şarj İstasyonu Yatırım Simülatörü içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Şarj İstasyonu Yatırım Simülatörü içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KURALLAR
+  purpose: Şarj İstasyonu Yatırım Simülatörü içindeki kurallar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: MOTOR
+  purpose: Şarj İstasyonu Yatırım Simülatörü içindeki motor değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Şarj İstasyonu Yatırım Simülatörü sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: VAKALAR
+  purpose: Şarj İstasyonu Yatırım Simülatörü içindeki vakalar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: Şarj İstasyonu Yatırım Simülatörü sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Şarj İstasyonu Yatırım Simülatörü modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Şarj İstasyonu Yatırım Simülatörü modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Şarj İstasyonu Yatırım Simülatörü modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- AC/DC hızlı şarj ünite sayısı, kW gücü ve trafo bağlantı CAPEX bedeli
+- Günlük doluluk saati, kWh satış tarifesi ve şebeke alış maliyeti
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- İstasyon başabaş doluluk eşiği ve aylık net nakit akışı
+- 5-10 yıllık yatırım geri dönüş ve soket karlılık kıyaslaması
 suitableFor:
-  - 'EV şarj yatırımcısı'
-  - 'tesis müdürü'
-  - 'CFO'
-  - 'enerji danışmanı'
+- EV şarj ağı işletmecileri ve akaryakıt istasyonları
+- AVM ve otopark yatırım geliştirme ekipleri
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Şarj İstasyonu Yatırım Simülatörü kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Şarj İstasyonu Yatırım Simülatörü dosyasında hangi hesaplamalar yer alır?
+  answer: Şarj İstasyonu Yatırım Simülatörü; Veri Girişi, Varsayimlar, Finansman, Senaryo başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Şarj İstasyonu Yatırım Simülatörü hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Şarj İstasyonu Yatırım Simülatörü satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/sarj-istasyonu-yatirim-1.png'
-    alt: 'Şarj İstasyonu Yatırım Simülatörü — ürün ekranı 1'
-  - src: '/screenshots/sarj-istasyonu-yatirim-2.png'
-    alt: 'Şarj İstasyonu Yatırım Simülatörü — ürün ekranı 2'
-  - src: '/screenshots/sarj-istasyonu-yatirim-3.png'
-    alt: 'Şarj İstasyonu Yatırım Simülatörü — ürün ekranı 3'
+- src: /screenshots/sarj-istasyonu-yatirim-1.png
+  alt: Şarj İstasyonu Yatırım Simülatörü — ürün ekranı 1
+- src: /screenshots/sarj-istasyonu-yatirim-2.png
+  alt: Şarj İstasyonu Yatırım Simülatörü — ürün ekranı 2
+- src: /screenshots/sarj-istasyonu-yatirim-3.png
+  alt: Şarj İstasyonu Yatırım Simülatörü — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Şarj İstasyonu Yatırım Simülatörü, EV şarj yatırımcısı, tesis müdürü, CFO kullanıcılarının finansal analiz ve kârlılık modelleme kararlarını 17 çalışma sayfasında (Veri Girişi, Varsayimlar, Finansman, Senaryo) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

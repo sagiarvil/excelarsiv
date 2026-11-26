@@ -26,20 +26,12 @@ export function getProductSearchFaq(t: TemplateLike): FaqItem[] {
 
   return [
     {
-      question: `${t.name} ne işe yarar?`,
-      answer: `${t.name}, ${intent.value} için hazırlanmış bir Excel sistemidir. Temel girdiler ${inputText}; temel çıktılar ise ${outputText} alanlarında toplanır.`,
+      question: `${t.name} hangi girdilerle hangi karar çıktısını üretir?`,
+      answer: `${t.name}, ${intent.value} amacıyla ${inputText} verilerini işleyerek ${outputText} raporlarını oluşturur.`,
     },
     {
-      question: `${t.name} muhasebeciler ve finansçılar için uygun mu?`,
-      answer: `Evet. Bu sistem özellikle ${intent.audience} için tasarlanmıştır. Tekrarlanan manuel hesaplamaları azaltır, aynı veriden tutarlı çıktı üretir ve kontrol edilmesi gereken alanları görünür hale getirir.`,
-    },
-    {
-      question: `${intent.query} arayan biri neden ${t.name} kullanmalı?`,
-      answer: `Basit bir kayıt tablosundan farklı olarak ${t.name}, yalnız veri saklamayı değil karar üretmeyi hedefler. ${outputText} gibi sonuçları aynı iş akışında sunarak kullanıcıyı ayrı dosyalar ve manuel kontrol adımları arasında dolaştırmaz.`,
-    },
-    {
-      question: `${t.name} için hangi Excel sürümü gerekir?`,
-      answer: `Minimum gereksinim ${t.minExcelVersion} sürümüdür. ${t.macCompatible ? 'Windows ve Mac Excel ile kullanılabilir.' : 'Windows Excel kullanımı esas alınmıştır.'} Ürünün teknik künyesindeki sürüm ve uyumluluk bilgileri satın alma öncesinde kontrol edilmelidir.`,
+      question: `${intent.query} ihtiyacında ${t.name} kimlere uygundur?`,
+      answer: `${t.name}; ${intent.audience} için ${t.minExcelVersion} (${t.macCompatible ? 'Windows ve Mac' : 'Windows'}) üzerinde makrosuz ${outputText} takibi sağlar.`,
     },
   ];
 }

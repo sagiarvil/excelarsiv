@@ -1,93 +1,92 @@
 ---
-name: 'Örtülü Sermaye + Emsal Faiz + TF Paketi'
-summary: 'Örtülü Sermaye + Emsal Faiz + TF Paketi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'muhasebe-ve-vergi'
+name: Örtülü Sermaye + Emsal Faiz + TF Paketi
+summary: 'Örtülü Sermaye + Emsal Faiz + TF Paketi: SMMM için makrosuz kurumsal Excel ve karar modeli.'
+category: muhasebe-ve-vergi
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.2
 sheetCount: 15
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'HIZLI_BASLANGIC'
-    purpose: 'Hizli Baslangic için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIRDI'
-    purpose: 'Girdi için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'SENARYO'
-    purpose: 'Senaryo için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KURALLAR'
-    purpose: 'Kurallar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'MOTOR'
-    purpose: 'Motor için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VAKALAR'
-    purpose: 'Vakalar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: HIZLI_BASLANGIC
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi içindeki hızlı başlangıç değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KAPAK
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIRDI
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi modelinde veri girişi kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: SENARYO
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi içindeki senaryo değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KURALLAR
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi içindeki kurallar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: MOTOR
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi içindeki motor değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VAKALAR
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi içindeki vakalar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Örtülü Sermaye + Emsal Faiz + TF Paketi modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Dönem başı öz sermaye tutarı ve ortak/ilişkili kişi borç hareketleri
+- TCMB reeskont faiz oranları ve emsal transfer fiyatlandırması verisi
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- 3 kat sınırı aşan örtülü sermaye günlük adat hesabı
+- Transfer fiyatlandırması KKEG ve vergi farkı kanıt tablosu
 suitableFor:
-  - 'SMMM'
-  - 'YMM'
-  - 'vergi müdürü'
-  - 'CFO'
-  - 'transfer fiyatı sorumlusu'
+- Grup şirket finans direktörleri ve vergi müdürleri
+- Bağımsız denetim ve tasdik ekipleri
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Örtülü Sermaye + Emsal Faiz + TF Paketi kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Örtülü Sermaye + Emsal Faiz + TF Paketi dosyasında hangi hesaplamalar yer alır?
+  answer: Örtülü Sermaye + Emsal Faiz + TF Paketi; Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Örtülü Sermaye + Emsal Faiz + TF Paketi hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Örtülü Sermaye + Emsal Faiz + TF Paketi satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/ortulu-sermaye-emsal-faiz-tf-paketi-1.png'
-    alt: 'Örtülü Sermaye + Emsal Faiz + TF Paketi — ürün ekranı 1'
-  - src: '/screenshots/ortulu-sermaye-emsal-faiz-tf-paketi-2.png'
-    alt: 'Örtülü Sermaye + Emsal Faiz + TF Paketi — ürün ekranı 2'
-  - src: '/screenshots/ortulu-sermaye-emsal-faiz-tf-paketi-3.png'
-    alt: 'Örtülü Sermaye + Emsal Faiz + TF Paketi — ürün ekranı 3'
+- src: /screenshots/ortulu-sermaye-emsal-faiz-tf-paketi-1.png
+  alt: Örtülü Sermaye + Emsal Faiz + TF Paketi — ürün ekranı 1
+- src: /screenshots/ortulu-sermaye-emsal-faiz-tf-paketi-2.png
+  alt: Örtülü Sermaye + Emsal Faiz + TF Paketi — ürün ekranı 2
+- src: /screenshots/ortulu-sermaye-emsal-faiz-tf-paketi-3.png
+  alt: Örtülü Sermaye + Emsal Faiz + TF Paketi — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Örtülü Sermaye + Emsal Faiz + TF Paketi, SMMM, YMM, vergi müdürü kullanıcılarının muhasebe, vergi ve mevzuat uyumu kararlarını 14 çalışma sayfasında (Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

@@ -1,91 +1,93 @@
 ---
-name: 'Pazaryeri Hakediş Mutabakat Motoru'
-summary: 'Pazaryeri Hakediş Mutabakat Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'satis-ve-fiyatlama'
+name: Pazaryeri Hakediş Mutabakat Motoru
+summary: 'Pazaryeri Hakediş Mutabakat Motoru: E-ticaret operasyon için makrosuz kurumsal Excel ve karar modeli.'
+category: satis-ve-fiyatlama
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.35
 sheetCount: 15
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'VERI_A'
-    purpose: 'Veri A için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'VERI_B'
-    purpose: 'Veri B için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'ANAHTAR'
-    purpose: 'Anahtar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'ESLESTIRME'
-    purpose: 'Eslestirme için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KOK_NEDEN'
-    purpose: 'Kok Neden için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'AKSIYON'
-    purpose: 'Aksiyon için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: Pazaryeri Hakediş Mutabakat Motoru içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: Pazaryeri Hakediş Mutabakat Motoru içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Pazaryeri Hakediş Mutabakat Motoru içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Pazaryeri Hakediş Mutabakat Motoru sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: VERI_A
+  purpose: Pazaryeri Hakediş Mutabakat Motoru modelinde veri a kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: VERI_B
+  purpose: Pazaryeri Hakediş Mutabakat Motoru modelinde veri b kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: ANAHTAR
+  purpose: Pazaryeri Hakediş Mutabakat Motoru içindeki temel parametreler değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: ESLESTIRME
+  purpose: Pazaryeri Hakediş Mutabakat Motoru içindeki kalem eşleştirme değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KOK_NEDEN
+  purpose: Pazaryeri Hakediş Mutabakat Motoru içindeki sapma ve kök neden değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: AKSIYON
+  purpose: Pazaryeri Hakediş Mutabakat Motoru içindeki aksiyon değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: Pazaryeri Hakediş Mutabakat Motoru sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Pazaryeri Hakediş Mutabakat Motoru modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Pazaryeri Hakediş Mutabakat Motoru modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Pazaryeri Hakediş Mutabakat Motoru modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Pazaryeri Hakediş Mutabakat Motoru dönemsel kayıt ve kalem tutarları
+- Tutarlılık Denetimi, Yönetici Panosu, Veri A, Veri B referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Pazaryeri Hakediş Mutabakat Motoru dönem özeti ve sapma göstergeleri
+- E-ticaret operasyon, mali işler, SMMM için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'E-ticaret operasyon'
-  - 'mali işler'
-  - 'SMMM'
+- E-ticaret operasyon
+- mali işler
+- SMMM
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Pazaryeri Hakediş Mutabakat Motoru kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Pazaryeri Hakediş Mutabakat Motoru dosyasında hangi hesaplamalar yer alır?
+  answer: Pazaryeri Hakediş Mutabakat Motoru; Tutarlılık Denetimi, Yönetici Panosu, Veri A, Veri B başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Pazaryeri Hakediş Mutabakat Motoru hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Pazaryeri Hakediş Mutabakat Motoru satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/pazaryeri-hakedis-mutabakat-motoru-1.png'
-    alt: 'Pazaryeri Hakediş Mutabakat Motoru — ürün ekranı 1'
-  - src: '/screenshots/pazaryeri-hakedis-mutabakat-motoru-2.png'
-    alt: 'Pazaryeri Hakediş Mutabakat Motoru — ürün ekranı 2'
-  - src: '/screenshots/pazaryeri-hakedis-mutabakat-motoru-3.png'
-    alt: 'Pazaryeri Hakediş Mutabakat Motoru — ürün ekranı 3'
+- src: /screenshots/pazaryeri-hakedis-mutabakat-motoru-1.png
+  alt: Pazaryeri Hakediş Mutabakat Motoru — ürün ekranı 1
+- src: /screenshots/pazaryeri-hakedis-mutabakat-motoru-2.png
+  alt: Pazaryeri Hakediş Mutabakat Motoru — ürün ekranı 2
+- src: /screenshots/pazaryeri-hakedis-mutabakat-motoru-3.png
+  alt: Pazaryeri Hakediş Mutabakat Motoru — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Pazaryeri Hakediş Mutabakat Motoru, E-ticaret operasyon, mali işler, SMMM kullanıcılarının satış, komisyon ve fiyatlama analizi kararlarını 14 çalışma sayfasında (Tutarlılık Denetimi, Yönetici Panosu, Veri A, Veri B) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

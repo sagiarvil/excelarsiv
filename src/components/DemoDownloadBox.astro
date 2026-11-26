@@ -2,63 +2,78 @@
 interface Props {
   productSlug: string;
   name: string;
+  outputs?: string[];
+  compact?: boolean;
 }
 
-const { productSlug, name } = Astro.props;
+const { productSlug, name, outputs = [], compact = false } = Astro.props;
+const safeToolId = productSlug.replace(/[^a-z0-9]/gi, '_');
+const feat1 = outputs[0] ?? `${name} özet ekranı`;
+const feat2 = outputs[1] ?? 'Canlı formül hesaplamaları';
+const feat3 = outputs[2] ?? 'Yazdırılabilir yönetim raporu';
 ---
 
 <section id="demo-indir" class="demo-cockpit-card" data-proof-demo data-product-slug={productSlug}>
-  <!-- Üst Başlık & Rozet Şeridi -->
-  <div class="demo-cockpit-card__header">
-    <div class="demo-cockpit-card__kicker-wrap">
-      <span class="demo-cockpit-card__kicker">★ CANLI DEĞERLENDİRME</span>
-      <span class="demo-cockpit-card__version-pill">PROOF DEMO v15.3</span>
-    </div>
-    <div class="demo-cockpit-card__badges">
-      <span class="demo-badge demo-badge--xlsx">.XLSX</span>
-      <span class="demo-badge demo-badge--safe">SIFIR MAKRO</span>
-    </div>
-  </div>
+  {!compact && (
+    <>
+      <!-- Üst Başlık & Rozet Şeridi -->
+      <div class="demo-cockpit-card__header">
+        <div class="demo-cockpit-card__kicker-wrap">
+          <span class="demo-cockpit-card__kicker">★ ÜCRETSİZ ÖNİZLEME</span>
+          <span class="demo-cockpit-card__version-pill">DENEME SÜRÜMÜ</span>
+        </div>
+        <div class="demo-cockpit-card__badges">
+          <span class="demo-badge demo-badge--xlsx">.XLSX</span>
+          <span class="demo-badge demo-badge--safe">MAKROSUZ</span>
+        </div>
+      </div>
 
-  <div class="demo-cockpit-card__title-row">
-    <div>
-      <h2 class="demo-cockpit-card__title">{name}</h2>
-      <p class="demo-cockpit-card__subtitle">Yönetici Kokpiti, Dinamik Formül Motoru ve İkili Stres Testi Değerlendirme Sürümü</p>
-    </div>
-  </div>
+      <div class="demo-cockpit-card__title-row">
+        <div>
+          <h2 class="demo-cockpit-card__title">{name}</h2>
+          <p class="demo-cockpit-card__subtitle">{name} değerlendirme sürümü ({feat1})</p>
+        </div>
+      </div>
 
-  <!-- Bento 3'lü Özellik Şeridi -->
-  <div class="demo-cockpit-card__grid">
-    <div class="demo-feature-pill">
-      <span class="demo-feature-pill__dot demo-feature-pill__dot--emerald"></span>
-      <div class="demo-feature-pill__text">
-        <strong>20 Satır Canlı Veri</strong>
-        <span>Sarı hücreleri değiştir, formülü test et</span>
+      <!-- Ürüne Özgü 3'lü Çıktı Şeridi -->
+      <div class="demo-cockpit-card__grid">
+        <div class="demo-feature-pill">
+          <span class="demo-feature-pill__dot demo-feature-pill__dot--emerald"></span>
+          <div class="demo-feature-pill__text">
+            <strong>Örnek Girdi & Test</strong>
+            <span>{feat1}</span>
+          </div>
+        </div>
+        <div class="demo-feature-pill">
+          <span class="demo-feature-pill__dot demo-feature-pill__dot--navy"></span>
+          <div class="demo-feature-pill__text">
+            <strong>Yönetici Çıktısı</strong>
+            <span>{feat2}</span>
+          </div>
+        </div>
+        <div class="demo-feature-pill">
+          <span class="demo-feature-pill__dot demo-feature-pill__dot--cyan"></span>
+          <div class="demo-feature-pill__text">
+            <strong>Rapor & Doğrulama</strong>
+            <span>{feat3}</span>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="demo-feature-pill">
-      <span class="demo-feature-pill__dot demo-feature-pill__dot--navy"></span>
-      <div class="demo-feature-pill__text">
-        <strong>CRM/ERP Bento Pano</strong>
-        <span>Yönetici kokpiti & erken uyarı radarı</span>
-      </div>
-    </div>
-    <div class="demo-feature-pill">
-      <span class="demo-feature-pill__dot demo-feature-pill__dot--cyan"></span>
-      <div class="demo-feature-pill__text">
-        <strong>İkili Stres Senaryosu</strong>
-        <span>Kötümser vs. Baz Model karşılaştırması</span>
-      </div>
-    </div>
-  </div>
+    </>
+  )}
 
   <!-- Demo Gönderim / İndirme Formu -->
-  <form class="demo-cockpit-form" data-demo-form>
+  <form
+    class="demo-cockpit-form"
+    data-demo-form
+    data-seo-interactive="true"
+    toolname={`demoDownload_${safeToolId}`}
+    tooldescription={`${name} ücretsiz Excel deneme dosyası indirme formu`}
+  >
     <div class="demo-cockpit-form__inputs">
       <label class="demo-cockpit-form__field" for={`demo-email-${productSlug}`}>
         <span class="demo-cockpit-form__label">
-          <span>Kurumsal E-posta Adresi</span>
-          <span class="demo-cockpit-form__optional">(İsteğe bağlı — arşiv için)</span>
+          <span>E-posta (İsteğe Bağlı)</span>
         </span>
         <div class="demo-cockpit-form__input-wrapper">
           <input
@@ -69,7 +84,7 @@ const { productSlug, name } = Astro.props;
             inputmode="email"
             maxlength="254"
             placeholder="adiniz@sirketiniz.com"
-            aria-label="Demo indirme için kurumsal e-posta adresi"
+            aria-label={`${name} test dosyası için e-posta`}
           />
         </div>
       </label>
@@ -81,21 +96,19 @@ const { productSlug, name } = Astro.props;
     </div>
 
     <label class="demo-cockpit-form__terms" for={`demo-terms-${productSlug}`}>
-      <input id={`demo-terms-${productSlug}`} type="checkbox" name="terms" checked required aria-label="Demo kullanım koşullarını kabul ediyorum" />
+      <input id={`demo-terms-${productSlug}`} type="checkbox" name="terms" checked required aria-label="Koşulları onaylıyorum" />
       <span>
-        <a href="/demo-kullanim-kosullari" target="_blank" rel="noopener noreferrer">Demo Kullanım Koşulları</a>'nı kabul ediyorum. Dosya doğrudan cihazınıza indirilir.
+        <a href="/demo-kullanim-kosullari/" target="_blank" rel="noopener noreferrer">Kullanım Koşulları</a> onayı (.xlsx doğrudan iner).
       </span>
     </label>
 
-    <div class="demo-cockpit-card__trust-strip" aria-label="Güvenlik bilgileri">
-      <span class="trust-item"><span class="trust-item__icon">⚡</span> Anında Cihaza İner</span>
-      <span class="trust-dot">·</span>
-      <span class="trust-item"><span class="trust-item__icon">💳</span> Kart Gerekmez</span>
-      <span class="trust-dot">·</span>
-      <span class="trust-item"><span class="trust-item__icon">🔒</span> 10 Dk Güvenli Bağlantı</span>
-      <span class="trust-dot">·</span>
-      <span class="trust-item"><span class="trust-item__icon">✓</span> Sıfır Spam</span>
-    </div>
+    {!compact && (
+      <div class="demo-cockpit-card__trust-strip" aria-label="Güvenlik bilgileri">
+        <span class="trust-item"><span class="trust-item__icon">⚡</span> Anında İndirme</span>
+        <span class="trust-dot">·</span>
+        <span class="trust-item"><span class="trust-item__icon">✓</span> Makrosuz .xlsx</span>
+      </div>
+    )}
 
     <p class="hidden demo-cockpit-card__status" role="status" aria-live="polite" data-demo-status></p>
   </form>

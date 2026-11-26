@@ -1,110 +1,110 @@
 ---
-name: 'Site/Apartman Yönetim Sistemi'
-summary: 'Site/Apartman Yönetim Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'butce-ve-planlama'
+name: Site/Apartman Yönetim Sistemi
+summary: 'Site/Apartman Yönetim Sistemi: Site yöneticisi için makrosuz kurumsal Excel ve karar modeli.'
+category: butce-ve-planlama
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.11
 sheetCount: 21
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'HIZLI_BASLANGIC'
-    purpose: 'Hizli Baslangic için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIRDI'
-    purpose: 'Girdi için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'KARARLAR'
-    purpose: 'Kararlar üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KARAR'
-    purpose: 'Karar üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PAYDASLAR'
-    purpose: 'Paydaslar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'DONEMLER'
-    purpose: 'Donemler için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'TAHSILAT'
-    purpose: 'Tahsilat için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'ANAHTAR'
-    purpose: 'Anahtar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'ESLESTIRME'
-    purpose: 'Eslestirme için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KOK_NEDEN'
-    purpose: 'Kok Neden için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'AKIS'
-    purpose: 'Akis için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIDER'
-    purpose: 'Gider için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'RAPOR'
-    purpose: 'Rapor üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: HIZLI_BASLANGIC
+  purpose: Site/Apartman Yönetim Sistemi içindeki hızlı başlangıç değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KAPAK
+  purpose: Site/Apartman Yönetim Sistemi içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIRDI
+  purpose: Site/Apartman Yönetim Sistemi modelinde veri girişi kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: KARARLAR
+  purpose: Site/Apartman Yönetim Sistemi sonuçlarını karar senaryoları formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KARAR
+  purpose: Site/Apartman Yönetim Sistemi sonuçlarını karar analizi formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KONTROLLER
+  purpose: Site/Apartman Yönetim Sistemi içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Site/Apartman Yönetim Sistemi içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PAYDASLAR
+  purpose: Site/Apartman Yönetim Sistemi içindeki paydaş kayıtları değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: DONEMLER
+  purpose: Site/Apartman Yönetim Sistemi içindeki dönem karşılaştırma değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: TAHSILAT
+  purpose: Site/Apartman Yönetim Sistemi içindeki tahsilat ve ödeme planı değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: ANAHTAR
+  purpose: Site/Apartman Yönetim Sistemi içindeki temel parametreler değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: ESLESTIRME
+  purpose: Site/Apartman Yönetim Sistemi içindeki kalem eşleştirme değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KOK_NEDEN
+  purpose: Site/Apartman Yönetim Sistemi içindeki sapma ve kök neden değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: AKIS
+  purpose: Site/Apartman Yönetim Sistemi içindeki süreç akış şeması değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIDER
+  purpose: Site/Apartman Yönetim Sistemi içindeki maliyet ve gider takibi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Site/Apartman Yönetim Sistemi sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: RAPOR
+  purpose: Site/Apartman Yönetim Sistemi sonuçlarını yönetim raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Site/Apartman Yönetim Sistemi modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Site/Apartman Yönetim Sistemi modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Site/Apartman Yönetim Sistemi modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Blok/daire arsa payı dağılımı ve aylık aidat/demirbaş tarifesi
+- Ortak alan fatura giderleri (asansör, yakıt, personel, bakım)
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Kat maliki bazlı aidat borç-alacak ve gecikme tazminatı dökümü
+- Panoya asılmaya hazır aylık işletme gelir-gider bilançosu
 suitableFor:
-  - 'Site yöneticisi'
-  - 'yönetim kurulu'
-  - 'kat malikleri temsilcisi'
-  - 'SMMM'
+- Apartman ve site yöneticileri
+- Profesyonel tesis yönetim firmaları
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Site/Apartman Yönetim Sistemi kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Site/Apartman Yönetim Sistemi dosyasında hangi hesaplamalar yer alır?
+  answer: Site/Apartman Yönetim Sistemi; Veri Girişi, Karar Senaryoları, Karar Analizi, Tutarlılık Denetimi başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Site/Apartman Yönetim Sistemi hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Site/Apartman Yönetim Sistemi satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/site-apartman-yonetim-sistemi-1.png'
-    alt: 'Site/Apartman Yönetim Sistemi — ürün ekranı 1'
-  - src: '/screenshots/site-apartman-yonetim-sistemi-2.png'
-    alt: 'Site/Apartman Yönetim Sistemi — ürün ekranı 2'
-  - src: '/screenshots/site-apartman-yonetim-sistemi-3.png'
-    alt: 'Site/Apartman Yönetim Sistemi — ürün ekranı 3'
+- src: /screenshots/site-apartman-yonetim-sistemi-1.png
+  alt: Site/Apartman Yönetim Sistemi — ürün ekranı 1
+- src: /screenshots/site-apartman-yonetim-sistemi-2.png
+  alt: Site/Apartman Yönetim Sistemi — ürün ekranı 2
+- src: /screenshots/site-apartman-yonetim-sistemi-3.png
+  alt: Site/Apartman Yönetim Sistemi — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Site/Apartman Yönetim Sistemi, Site yöneticisi, yönetim kurulu, kat malikleri temsilcisi kullanıcılarının bütçe, planlama ve maliyet takibi kararlarını 20 çalışma sayfasında (Veri Girişi, Karar Senaryoları, Karar Analizi, Tutarlılık Denetimi) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

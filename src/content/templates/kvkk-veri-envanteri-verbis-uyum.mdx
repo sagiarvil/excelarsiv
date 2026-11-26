@@ -1,85 +1,87 @@
 ---
-name: 'KVKK Veri Envanteri + VERBİS Uyum Sistemi'
-summary: 'KVKK Veri Envanteri + VERBİS Uyum Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'muhasebe-ve-vergi'
+name: KVKK Veri Envanteri + VERBİS Uyum Sistemi
+summary: 'KVKK Veri Envanteri + VERBİS Uyum Sistemi: KVKK sorumlusu için makrosuz kurumsal Excel ve karar modeli.'
+category: muhasebe-ve-vergi
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.14
 sheetCount: 13
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'ENVANTER'
-    purpose: 'Envanter için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'UYUM_AKIS'
-    purpose: 'Uyum Akis için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'MOTOR'
-    purpose: 'Motor için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'AKIS'
-    purpose: 'Akis için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: KVKK Veri Envanteri + VERBİS Uyum Sistemi içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: KVKK Veri Envanteri + VERBİS Uyum Sistemi içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: KVKK Veri Envanteri + VERBİS Uyum Sistemi içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: ENVANTER
+  purpose: KVKK Veri Envanteri + VERBİS Uyum Sistemi içindeki envanter değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: UYUM_AKIS
+  purpose: KVKK Veri Envanteri + VERBİS Uyum Sistemi içindeki uyum akis değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: MOTOR
+  purpose: KVKK Veri Envanteri + VERBİS Uyum Sistemi içindeki motor değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: KVKK Veri Envanteri + VERBİS Uyum Sistemi sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: AKIS
+  purpose: KVKK Veri Envanteri + VERBİS Uyum Sistemi içindeki süreç akış şeması değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: KVKK Veri Envanteri + VERBİS Uyum Sistemi sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: KVKK Veri Envanteri + VERBİS Uyum Sistemi modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: KVKK Veri Envanteri + VERBİS Uyum Sistemi modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: KVKK Veri Envanteri + VERBİS Uyum Sistemi modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- KVKK Veri Envanteri + VERBİS Uyum Sistemi dönemsel kayıt ve kalem tutarları
+- Tutarlılık Denetimi, Envanter, Uyum Akis, Motor referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- KVKK Veri Envanteri + VERBİS Uyum Sistemi dönem özeti ve sapma göstergeleri
+- KVKK sorumlusu, uyum yöneticisi, denetim hazırlığı için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'KVKK sorumlusu'
-  - 'uyum yöneticisi'
-  - 'denetim hazırlığı'
+- KVKK sorumlusu
+- uyum yöneticisi
+- denetim hazırlığı
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- KVKK Veri Envanteri + VERBİS Uyum Sistemi kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: KVKK Veri Envanteri + VERBİS Uyum Sistemi dosyasında hangi hesaplamalar yer alır?
+  answer: KVKK Veri Envanteri + VERBİS Uyum Sistemi; Tutarlılık Denetimi, Envanter, Uyum Akis, Motor başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: KVKK Veri Envanteri + VERBİS Uyum Sistemi hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: KVKK Veri Envanteri + VERBİS Uyum Sistemi satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/kvkk-veri-envanteri-verbis-uyum-1.png'
-    alt: 'KVKK Veri Envanteri + VERBİS Uyum Sistemi — ürün ekranı 1'
-  - src: '/screenshots/kvkk-veri-envanteri-verbis-uyum-2.png'
-    alt: 'KVKK Veri Envanteri + VERBİS Uyum Sistemi — ürün ekranı 2'
-  - src: '/screenshots/kvkk-veri-envanteri-verbis-uyum-3.png'
-    alt: 'KVKK Veri Envanteri + VERBİS Uyum Sistemi — ürün ekranı 3'
+- src: /screenshots/kvkk-veri-envanteri-verbis-uyum-1.png
+  alt: KVKK Veri Envanteri + VERBİS Uyum Sistemi — ürün ekranı 1
+- src: /screenshots/kvkk-veri-envanteri-verbis-uyum-2.png
+  alt: KVKK Veri Envanteri + VERBİS Uyum Sistemi — ürün ekranı 2
+- src: /screenshots/kvkk-veri-envanteri-verbis-uyum-3.png
+  alt: KVKK Veri Envanteri + VERBİS Uyum Sistemi — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+KVKK Veri Envanteri + VERBİS Uyum Sistemi, KVKK sorumlusu, uyum yöneticisi, denetim hazırlığı kullanıcılarının muhasebe, vergi ve mevzuat uyumu kararlarını 12 çalışma sayfasında (Tutarlılık Denetimi, Envanter, Uyum Akis, Motor) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

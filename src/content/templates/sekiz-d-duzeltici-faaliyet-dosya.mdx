@@ -1,89 +1,91 @@
 ---
-name: '8D / Düzeltici Faaliyet Dosya Sistemi'
-summary: '8D / Düzeltici Faaliyet Dosya Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'stok-ve-uretim'
+name: 8D / Düzeltici Faaliyet Dosya Sistemi
+summary: '8D / Düzeltici Faaliyet Dosya Sistemi: Kalite müdürü için makrosuz kurumsal Excel ve karar modeli.'
+category: stok-ve-uretim
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.16
 sheetCount: 14
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'EKIP'
-    purpose: 'Ekip için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'AKIS'
-    purpose: 'Akis için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KUYRUKLAR'
-    purpose: 'Kuyruklar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'HESAP'
-    purpose: 'Hesap için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'RAPOR'
-    purpose: 'Rapor üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: EKIP
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi içindeki ekip değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: AKIS
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi içindeki süreç akış şeması değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KUYRUKLAR
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi içindeki kuyruklar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: HESAP
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi içindeki hesap değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: RAPOR
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi sonuçlarını yönetim raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: 8D / Düzeltici Faaliyet Dosya Sistemi modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- 8D / Düzeltici Faaliyet Dosya Sistemi dönemsel kayıt ve kalem tutarları
+- Tutarlılık Denetimi, Yönetici Panosu, Ekip, Süreç Akış Şeması referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- 8D / Düzeltici Faaliyet Dosya Sistemi dönem özeti ve sapma göstergeleri
+- Kalite müdürü, QA sorumlusu, müşteri şikâyet / 8D lideri için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'Kalite müdürü'
-  - 'QA sorumlusu'
-  - 'müşteri şikâyet / 8D lideri'
-  - 'IATF denetim hazırlığı'
+- Kalite müdürü
+- QA sorumlusu
+- müşteri şikâyet / 8D lideri
+- IATF denetim hazırlığı
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- 8D / Düzeltici Faaliyet Dosya Sistemi kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: 8D / Düzeltici Faaliyet Dosya Sistemi dosyasında hangi hesaplamalar yer alır?
+  answer: 8D / Düzeltici Faaliyet Dosya Sistemi; Tutarlılık Denetimi, Yönetici Panosu, Ekip, Süreç Akış Şeması başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: 8D / Düzeltici Faaliyet Dosya Sistemi hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: 8D / Düzeltici Faaliyet Dosya Sistemi satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/sekiz-d-duzeltici-faaliyet-dosya-1.png'
-    alt: '8D / Düzeltici Faaliyet Dosya Sistemi — ürün ekranı 1'
-  - src: '/screenshots/sekiz-d-duzeltici-faaliyet-dosya-2.png'
-    alt: '8D / Düzeltici Faaliyet Dosya Sistemi — ürün ekranı 2'
-  - src: '/screenshots/sekiz-d-duzeltici-faaliyet-dosya-3.png'
-    alt: '8D / Düzeltici Faaliyet Dosya Sistemi — ürün ekranı 3'
+- src: /screenshots/sekiz-d-duzeltici-faaliyet-dosya-1.png
+  alt: 8D / Düzeltici Faaliyet Dosya Sistemi — ürün ekranı 1
+- src: /screenshots/sekiz-d-duzeltici-faaliyet-dosya-2.png
+  alt: 8D / Düzeltici Faaliyet Dosya Sistemi — ürün ekranı 2
+- src: /screenshots/sekiz-d-duzeltici-faaliyet-dosya-3.png
+  alt: 8D / Düzeltici Faaliyet Dosya Sistemi — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+8D / Düzeltici Faaliyet Dosya Sistemi, Kalite müdürü, QA sorumlusu, müşteri şikâyet / 8D lideri kullanıcılarının stok, tedarik ve üretim planlaması kararlarını 13 çalışma sayfasında (Tutarlılık Denetimi, Yönetici Panosu, Ekip, Süreç Akış Şeması) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

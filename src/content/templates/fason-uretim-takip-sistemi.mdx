@@ -1,86 +1,86 @@
 ---
-name: 'Fason Üretim Takip Sistemi'
-summary: 'Fason Üretim Takip Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'stok-ve-uretim'
+name: Fason Üretim Takip Sistemi
+summary: 'Fason Üretim Takip Sistemi: Üretim planlama için makrosuz kurumsal Excel ve karar modeli.'
+category: stok-ve-uretim
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.16
 sheetCount: 13
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KARTLAR'
-    purpose: 'Kartlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AKIS'
-    purpose: 'Akis için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KUYRUKLAR'
-    purpose: 'Kuyruklar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'HESAP'
-    purpose: 'Hesap için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'RAPOR'
-    purpose: 'Rapor üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: Atölye bazlı fason iş emri kapasitesi, bekleyen bakiye ve aylık özet panosu
+  kind: calculation
+- name: KONTROLLER
+  purpose: Fason çıkış irsaliyesi ile dönen mamul ve fire ağırlıklarını karşılaştıran denetim katmanı
+  kind: calculation
+- name: KILAVUZ
+  purpose: Fason tedarikçi cari kartı açılışı ve birim işçilik fiyat tanımlama adımları
+  kind: calculation
+- name: PANO
+  purpose: Fason atölye teslim süreleri, geciken partiler ve fire maliyeti kokpiti
+  kind: output
+- name: KARTLAR
+  purpose: Fason üretici firma kartları, kalite skoru ve sözleşme vade bilgileri
+  kind: input
+- name: AKIS
+  purpose: Hammadde çıkışından kalite onaylı ürün dönüşüne kadar parti akış tablosu
+  kind: calculation
+- name: KUYRUKLAR
+  purpose: Atölyede bekleyen açık iş emri ve termin tarihi sırası
+  kind: calculation
+- name: HESAP
+  purpose: Fason birim işçilik hakedişi ve kesinti mahsup hesaplaması
+  kind: calculation
+- name: RAPOR
+  purpose: Aylık fason işçilik faturası mutabakat ve fire onay raporu
+  kind: output
+- name: ORNEK_VERI
+  purpose: Konfeksiyon ve talaşlı imalat fason parti örnek kayıtları
+  kind: input
+- name: LISTELER
+  purpose: Atölye kodları, işlem türleri ve standart fire barem listeleri
+  kind: input
+- name: AYARLAR
+  purpose: Onaylı maksimum fire yüzdesi ve gecikme uyarı eşiği
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Fason atölyelere sevk edilen hammadde/yarı mamul irsaliye miktarları
+- Atölye işçilik birim fiyatları, sözleşme termin tarihleri ve dönen fire oranları
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Fason üretici bazında bakiye stok, açık iş emri ve hakediş mutabakat tutarı
+- Termin gecikmesi yaşayan atölye ve tolerans üstü fire alarm listesi
 suitableFor:
-  - 'Üretim planlama'
-  - 'fason takip'
-  - 'fabrika müdürü'
-  - 'SMMM'
+- Tekstil ve metal fason imalat koordinatörleri
+- Dış üretim planlama ve hakediş kontrol ekipleri
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Çok kademeli iç makine parkuru çizelgeleme (MES) gerektiren barkodlu ERP tesisleri yerine fason atölye izleme sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Fason Üretim Takip Sistemi dosyasında hangi hesaplamalar yer alır?
+  answer: Fason Üretim Takip Sistemi; Tutarlılık Denetimi, Yönetici Panosu, Kartlar, Süreç Akış Şeması başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Fason Üretim Takip Sistemi hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Fason Üretim Takip Sistemi satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/fason-uretim-takip-sistemi-1.png'
-    alt: 'Fason Üretim Takip Sistemi — ürün ekranı 1'
-  - src: '/screenshots/fason-uretim-takip-sistemi-2.png'
-    alt: 'Fason Üretim Takip Sistemi — ürün ekranı 2'
-  - src: '/screenshots/fason-uretim-takip-sistemi-3.png'
-    alt: 'Fason Üretim Takip Sistemi — ürün ekranı 3'
+- src: /screenshots/fason-uretim-takip-sistemi-1.png
+  alt: Fason Üretim Takip Sistemi — ürün ekranı 1
+- src: /screenshots/fason-uretim-takip-sistemi-2.png
+  alt: Fason Üretim Takip Sistemi — ürün ekranı 2
+- src: /screenshots/fason-uretim-takip-sistemi-3.png
+  alt: Fason Üretim Takip Sistemi — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Fason Üretim Takip Sistemi, Üretim planlama, fason takip, fabrika müdürü kullanıcılarının stok, tedarik ve üretim planlaması kararlarını 12 çalışma sayfasında (Tutarlılık Denetimi, Yönetici Panosu, Kartlar, Süreç Akış Şeması) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

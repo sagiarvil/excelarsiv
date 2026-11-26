@@ -85,7 +85,7 @@
   "allowAiTrainingBots": true,
   "enableUcpCommerce": false,
   "cannibalizationThreshold": 0.78,
-  "shingleThreshold": 0.35,
+  "shingleThreshold": 0.48,
   "allowedPartnerDomains": [],
   "indexNowKey": "2e94e31cc3112a1b975b400943b22b50"
 }

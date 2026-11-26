@@ -1,95 +1,97 @@
 ---
-name: 'Mizan Anomali & Denetim Öncesi Kontrol'
-summary: 'Mizan Anomali & Denetim Öncesi Kontrol: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'muhasebe-ve-vergi'
+name: Mizan Anomali & Denetim Öncesi Kontrol
+summary: 'Mizan Anomali & Denetim Öncesi Kontrol: SMMM için makrosuz kurumsal Excel ve karar modeli.'
+category: muhasebe-ve-vergi
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.44
 sheetCount: 16
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VERI_A'
-    purpose: 'Veri A için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'VERI_B'
-    purpose: 'Veri B için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'ANAHTAR'
-    purpose: 'Anahtar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'MOTOR'
-    purpose: 'Motor için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'ESLESTIRME'
-    purpose: 'Eslestirme için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KOK_NEDEN'
-    purpose: 'Kok Neden için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'AKSIYON'
-    purpose: 'Aksiyon için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VERI_A
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol modelinde veri a kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: VERI_B
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol modelinde veri b kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: ANAHTAR
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol içindeki temel parametreler değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: MOTOR
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol içindeki motor değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: ESLESTIRME
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol içindeki kalem eşleştirme değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KOK_NEDEN
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol içindeki sapma ve kök neden değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: AKSIYON
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol içindeki aksiyon değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Mizan Anomali & Denetim Öncesi Kontrol modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Mizan Anomali & Denetim Öncesi Kontrol dönemsel kayıt ve kalem tutarları
+- Tutarlılık Denetimi, Veri A, Veri B, Temel Parametreler referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Mizan Anomali & Denetim Öncesi Kontrol dönem özeti ve sapma göstergeleri
+- SMMM, iç denetim, mali işler için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'SMMM'
-  - 'iç denetim'
-  - 'mali işler'
-  - 'denetim öncesi hazırlık'
+- SMMM
+- iç denetim
+- mali işler
+- denetim öncesi hazırlık
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Mizan Anomali & Denetim Öncesi Kontrol kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Mizan Anomali & Denetim Öncesi Kontrol dosyasında hangi hesaplamalar yer alır?
+  answer: Mizan Anomali & Denetim Öncesi Kontrol; Tutarlılık Denetimi, Veri A, Veri B, Temel Parametreler başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Mizan Anomali & Denetim Öncesi Kontrol hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Mizan Anomali & Denetim Öncesi Kontrol satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/mizan-anomali-denetim-oncesi-kontrol-1.png'
-    alt: 'Mizan Anomali & Denetim Öncesi Kontrol — ürün ekranı 1'
-  - src: '/screenshots/mizan-anomali-denetim-oncesi-kontrol-2.png'
-    alt: 'Mizan Anomali & Denetim Öncesi Kontrol — ürün ekranı 2'
-  - src: '/screenshots/mizan-anomali-denetim-oncesi-kontrol-3.png'
-    alt: 'Mizan Anomali & Denetim Öncesi Kontrol — ürün ekranı 3'
+- src: /screenshots/mizan-anomali-denetim-oncesi-kontrol-1.png
+  alt: Mizan Anomali & Denetim Öncesi Kontrol — ürün ekranı 1
+- src: /screenshots/mizan-anomali-denetim-oncesi-kontrol-2.png
+  alt: Mizan Anomali & Denetim Öncesi Kontrol — ürün ekranı 2
+- src: /screenshots/mizan-anomali-denetim-oncesi-kontrol-3.png
+  alt: Mizan Anomali & Denetim Öncesi Kontrol — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Mizan Anomali & Denetim Öncesi Kontrol, SMMM, iç denetim, mali işler kullanıcılarının muhasebe, vergi ve mevzuat uyumu kararlarını 15 çalışma sayfasında (Tutarlılık Denetimi, Veri A, Veri B, Temel Parametreler) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

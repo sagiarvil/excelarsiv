@@ -1,93 +1,95 @@
 ---
-name: 'Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi'
-summary: 'Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'personel-ve-bordro'
+name: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi
+summary: 'Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi: İK müdürü için makrosuz kurumsal Excel ve karar modeli.'
+category: personel-ve-bordro
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.16
 sheetCount: 15
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PERSONEL'
-    purpose: 'Personel için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AKIS'
-    purpose: 'Akis için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KUYRUKLAR'
-    purpose: 'Kuyruklar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'HESAP'
-    purpose: 'Hesap için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KURALLAR'
-    purpose: 'Kurallar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VAKALAR'
-    purpose: 'Vakalar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PERSONEL
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi modelinde personel kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AKIS
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi içindeki süreç akış şeması değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KUYRUKLAR
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi içindeki kuyruklar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: HESAP
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi içindeki hesap değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KURALLAR
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi içindeki kurallar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VAKALAR
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi içindeki vakalar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi dönemsel kayıt ve kalem tutarları
+- Tutarlılık Denetimi, Personel, Süreç Akış Şeması, Kuyruklar referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi dönem özeti ve sapma göstergeleri
+- İK müdürü, bordro, işveren vekili için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'İK müdürü'
-  - 'bordro'
-  - 'işveren vekili'
-  - 'SMMM'
-  - 'denetçi'
+- İK müdürü
+- bordro
+- işveren vekili
+- SMMM
+- denetçi
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi dosyasında hangi hesaplamalar yer alır?
+  answer: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi; Tutarlılık Denetimi, Personel, Süreç Akış Şeması, Kuyruklar başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/puantaj-vardiya-fazla-mesai-kanit-sistemi-1.png'
-    alt: 'Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi — ürün ekranı 1'
-  - src: '/screenshots/puantaj-vardiya-fazla-mesai-kanit-sistemi-2.png'
-    alt: 'Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi — ürün ekranı 2'
-  - src: '/screenshots/puantaj-vardiya-fazla-mesai-kanit-sistemi-3.png'
-    alt: 'Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi — ürün ekranı 3'
+- src: /screenshots/puantaj-vardiya-fazla-mesai-kanit-sistemi-1.png
+  alt: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi — ürün ekranı 1
+- src: /screenshots/puantaj-vardiya-fazla-mesai-kanit-sistemi-2.png
+  alt: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi — ürün ekranı 2
+- src: /screenshots/puantaj-vardiya-fazla-mesai-kanit-sistemi-3.png
+  alt: Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Puantaj-Vardiya-Fazla Mesai Kanıt Sistemi, İK müdürü, bordro, işveren vekili kullanıcılarının personel maliyeti, kıdem ve vardiya planlaması kararlarını 14 çalışma sayfasında (Tutarlılık Denetimi, Personel, Süreç Akış Şeması, Kuyruklar) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

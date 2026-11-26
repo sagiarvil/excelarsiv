@@ -1,101 +1,103 @@
 ---
-name: 'Sera Kurulum & Rekolte Fizibilitesi'
-summary: 'Sera Kurulum & Rekolte Fizibilitesi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'finansal-analiz'
+name: Sera Kurulum & Rekolte Fizibilitesi
+summary: 'Sera Kurulum & Rekolte Fizibilitesi: Sera yatırımcısı için makrosuz kurumsal Excel ve karar modeli.'
+category: finansal-analiz
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.09
 sheetCount: 18
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'HIZLI_BASLANGIC'
-    purpose: 'Hizli Baslangic için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIRDI'
-    purpose: 'Girdi için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'VARSAYIMLAR'
-    purpose: 'Varsayimlar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'FINANSMAN'
-    purpose: 'Finansman için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'SENARYO'
-    purpose: 'Senaryo için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KARAR'
-    purpose: 'Karar üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KURALLAR'
-    purpose: 'Kurallar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'MOTOR'
-    purpose: 'Motor için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'VAKALAR'
-    purpose: 'Vakalar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: HIZLI_BASLANGIC
+  purpose: Sera Kurulum & Rekolte Fizibilitesi içindeki hızlı başlangıç değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KAPAK
+  purpose: Sera Kurulum & Rekolte Fizibilitesi içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIRDI
+  purpose: Sera Kurulum & Rekolte Fizibilitesi modelinde veri girişi kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: VARSAYIMLAR
+  purpose: Sera Kurulum & Rekolte Fizibilitesi içindeki varsayimlar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: FINANSMAN
+  purpose: Sera Kurulum & Rekolte Fizibilitesi içindeki finansman değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: SENARYO
+  purpose: Sera Kurulum & Rekolte Fizibilitesi içindeki senaryo değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KARAR
+  purpose: Sera Kurulum & Rekolte Fizibilitesi sonuçlarını karar analizi formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KONTROLLER
+  purpose: Sera Kurulum & Rekolte Fizibilitesi içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Sera Kurulum & Rekolte Fizibilitesi içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KURALLAR
+  purpose: Sera Kurulum & Rekolte Fizibilitesi içindeki kurallar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: MOTOR
+  purpose: Sera Kurulum & Rekolte Fizibilitesi içindeki motor değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Sera Kurulum & Rekolte Fizibilitesi sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: VAKALAR
+  purpose: Sera Kurulum & Rekolte Fizibilitesi içindeki vakalar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: Sera Kurulum & Rekolte Fizibilitesi sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Sera Kurulum & Rekolte Fizibilitesi modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Sera Kurulum & Rekolte Fizibilitesi modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Sera Kurulum & Rekolte Fizibilitesi modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Sera Kurulum & Rekolte Fizibilitesi dönemsel kayıt ve kalem tutarları
+- Veri Girişi, Varsayimlar, Finansman, Senaryo referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Sera Kurulum & Rekolte Fizibilitesi dönem özeti ve sapma göstergeleri
+- Sera yatırımcısı, ziraat mühendisi, tarım danışmanı için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'Sera yatırımcısı'
-  - 'ziraat mühendisi'
-  - 'tarım danışmanı'
-  - 'CFO'
+- Sera yatırımcısı
+- ziraat mühendisi
+- tarım danışmanı
+- CFO
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Sera Kurulum & Rekolte Fizibilitesi kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Sera Kurulum & Rekolte Fizibilitesi dosyasında hangi hesaplamalar yer alır?
+  answer: Sera Kurulum & Rekolte Fizibilitesi; Veri Girişi, Varsayimlar, Finansman, Senaryo başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Sera Kurulum & Rekolte Fizibilitesi hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Sera Kurulum & Rekolte Fizibilitesi satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/sera-kurulum-fizibilite-1.png'
-    alt: 'Sera Kurulum & Rekolte Fizibilitesi — ürün ekranı 1'
-  - src: '/screenshots/sera-kurulum-fizibilite-2.png'
-    alt: 'Sera Kurulum & Rekolte Fizibilitesi — ürün ekranı 2'
-  - src: '/screenshots/sera-kurulum-fizibilite-3.png'
-    alt: 'Sera Kurulum & Rekolte Fizibilitesi — ürün ekranı 3'
+- src: /screenshots/sera-kurulum-fizibilite-1.png
+  alt: Sera Kurulum & Rekolte Fizibilitesi — ürün ekranı 1
+- src: /screenshots/sera-kurulum-fizibilite-2.png
+  alt: Sera Kurulum & Rekolte Fizibilitesi — ürün ekranı 2
+- src: /screenshots/sera-kurulum-fizibilite-3.png
+  alt: Sera Kurulum & Rekolte Fizibilitesi — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Sera Kurulum & Rekolte Fizibilitesi, Sera yatırımcısı, ziraat mühendisi, tarım danışmanı kullanıcılarının finansal analiz ve kârlılık modelleme kararlarını 17 çalışma sayfasında (Veri Girişi, Varsayimlar, Finansman, Senaryo) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

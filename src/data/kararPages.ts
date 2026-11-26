@@ -14,20 +14,24 @@ export interface KararPageSpec {
 type BaseSpec = Omit<KararPageSpec, 'notFor' | 'faq'> & { notFor?: string[]; faq?: KararPageSpec['faq'] };
 
 function makePage(spec: BaseSpec): KararPageSpec {
-  const primary = spec.primaryProductSlug ? 'önerilen ürünün' : 'seçim rehberinin';
+  const query = spec.primaryQuery;
+  const optionCount = spec.situations.length;
+  const topCase = spec.situations[0]?.situation ?? spec.title;
   return {
     ...spec,
     notFor: spec.notFor ?? [
-      'ERP veya bulut tabanlı çok kullanıcılı operasyon yazılımı arıyorsanız.',
-      'Uzman görüşü gerektiren hukuki veya vergisel sonucu yalnız bir Excel dosyasına bırakmak istiyorsanız.',
-      'Ürün sayfasındaki kapsam ve uyumluluk bilgisini incelemeden satın alma kararı vermek istiyorsanız.',
+      `Çok şubeli çevrimiçi ERP yerine ${query} için tek dosya çözümü gerekmiyorsa.`,
+      `${spec.title} kapsamındaki teknik sınırları incelemeden hızlı karar verilecekse.`,
     ],
     faq: spec.faq ?? [
-      { q: 'Bu karar rehberi ne işe yarar?', a: `İşletme ihtiyacını ürün kapsamıyla eşleştirir ve ${primary} hangi durumda daha uygun olabileceğini açıklar. Kesin kapsam için ürün detay sayfası esas alınır.` },
-      { q: 'Fiyat bilgisi güncel mi?', a: 'Karar sayfasındaki fiyatlar ürün veri kaynağından build sırasında alınır; karar metnine elle yazılmaz.' },
-      { q: 'Satın almadan önce inceleyebilir miyim?', a: 'Uygun ürünlerde demo ve gerçek ekran örnekleri ürün detay sayfasında sunulur. Satın almadan önce kapsamı ve çıktıları kontrol edin.' },
-      { q: 'Bu sayfa uzman görüşünün yerine geçer mi?', a: 'Hayır. Sayfa ürün seçim rehberidir. Vergi, hukuk, ihale veya mevzuat sonucu doğuran konularda güncel düzenleme ve uzman değerlendirmesi ayrıca gerekir.' },
-      { q: 'Ürün sayfası ile karar sayfası farklıysa hangisi esas?', a: 'Ürün kapsamı, fiyat, uyumluluk ve satın alma bilgisi bakımından ürün detay sayfası esas kaynaktır.' },
+      {
+        q: `${spec.title} karşılaştırmasında kaç senaryo yer alır?`,
+        a: `Bu sayfa ${query} aramasında öne çıkan ${optionCount} farklı işletme senaryosunu (örneğin "${topCase}") ilgili Excel modeliyle eşleştirir.`,
+      },
+      {
+        q: `${query} seçimi sonrası demo inceleyebilir miyim?`,
+        a: `Evet. "${spec.title}" sayfasından seçtiğiniz modelin detay sayfasına geçerek çalışma sayfalarını ve deneme dosyasını görebilirsiniz.`,
+      },
     ],
   };
 }

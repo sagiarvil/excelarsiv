@@ -65,8 +65,8 @@ const llmsMetaTags = `  <link rel="describedby" href="https://excelarsiv.com/llm
 let updatedPagesCount = 0;
 
 for (const route of validCanonicalRoutes) {
-  // Never overwrite Astro's /sablon/ product pages and /yerel-erp-crm-moduller because they are dynamically built with latest Astro components and standards
-  if (route.startsWith('/sablon/') || route === '/yerel-erp-crm-moduller') {
+  // Never overwrite Astro's dynamic /sablon/, /demo/, /rehber/, and /yerel-erp-crm-moduller pages
+  if (route.startsWith('/sablon/') || route.startsWith('/demo/') || route.startsWith('/rehber/') || route === '/yerel-erp-crm-moduller') {
     continue;
   }
 

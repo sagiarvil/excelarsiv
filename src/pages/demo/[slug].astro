@@ -1,10 +1,11 @@
 ---
 import CommerceLayout from '../../layouts/CommerceLayout.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Button from '../../components/Button.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import DemoDownloadBox from '../../components/DemoDownloadBox.astro';
 import { kapakYolu, premiumKapakUrl } from '../../lib/kapak';
+import { getProductFullDescription } from '../../data/productDescriptions';
 
 export async function getStaticPaths() {
   const templates = await getCollection('templates');
@@ -19,34 +20,84 @@ interface Props {
 }
 
 const { template } = Astro.props;
+const { Content } = await render(template);
 const t = template.data;
 const productUrl = `/sablon/${template.id}`;
-const demoAnchor = `${productUrl}#demo-indir`;
+
+const categoryLabels: Record<string, string> = {
+  'finansal-analiz': 'Finansal Analiz',
+  'nakit-akisi': 'Nakit Akışı',
+  'muhasebe-ve-vergi': 'Muhasebe ve Vergi',
+  'butce-ve-planlama': 'Bütçe ve Planlama',
+  'stok-ve-uretim': 'Stok ve Üretim',
+  'satis-ve-fiyatlama': 'Satış ve Fiyatlama',
+  'personel-ve-bordro': 'Personel ve Bordro',
+};
+const categoryLabel = categoryLabels[t.category] ?? t.category;
+
+function wordTrim(str: string, maxLen: number): string {
+  const clean = str.replace(/\s+/g, ' ').trim();
+  if (clean.length <= maxLen) return clean;
+  const sliced = clean.slice(0, maxLen);
+  const idx = sliced.lastIndexOf(' ');
+  const base = idx > 8 ? sliced.slice(0, idx) : sliced;
+  return base.replace(/[\s,;:\-—–+(/]+$/g, '');
+}
+
+const allTemplates = await getCollection('templates');
+const shortTitleMap = new Map<string, string>();
+for (const item of allTemplates) {
+  let candidate = `${wordTrim(item.data.name, 34)}: Ön İzleme & Test`;
+  if (candidate.length < 34) {
+    candidate = `${candidate} Dosyası`;
+  }
+  if (Array.from(shortTitleMap.values()).includes(candidate)) {
+    candidate = `${wordTrim(item.data.name, 42)}: Test Dosyası`;
+  }
+  shortTitleMap.set(item.id, candidate);
+}
 
 const FREE_TITLES: Record<string, { title: string; description: string }> = {
   '13-haftalik-nakit-akisi-ve-odeme-planlama-sistemi': {
-    title: '[ÜCRETSİZ İNDİR] 13 Haftalık Dinamik Nakit Akışı Excel Tablosu (.xlsx) — Excel Arşiv',
-    description: 'İşletmeler ve KOBİ\'ler için 13 haftalık dinamik nakit akışı ve ödeme planlama Excel tablosunu hemen ücretsiz indirin. Makrosuz, açık formüllü, tam uyumlu canlı çalışma kitabı.'
+    title: '13 Haftalık Nakit Akışı Ücretsiz Ön İzleme & Test Dosyası',
+    description: '13 haftalık dinamik nakit akışı ve ödeme planlama Excel çalışma kitabının sekmelerini ve açık formül yapısını test dosyasıyla hemen inceleyin.'
   },
   'gunluk-gelir-gider-ve-gercek-karlilik-sistemi': {
-    title: '[ÜCRETSİZ İNDİR] Günlük Gelir Gider & Kasa Takip Excel Tablosu (.xlsx) — Excel Arşiv',
-    description: 'Kasa defteri, günlük gelir-gider ve net kârlılık Excel tablosunu hemen ücretsiz indirin. Başabaş analizi, kategori bazlı marj ve canlı formül motoru.'
+    title: 'Günlük Gelir Gider & Kasa Takip Ön İzleme & Test Dosyası',
+    description: 'Günlük gelir-gider ve net kârlılık Excel çalışma kitabının örnek sekmelerini, kâr marjı mantığını ve çıktı düzenini test edin.'
   },
   'kidem-ihbar-yuku-ve-personel-cikarma-maliyeti-hesaplayici': {
-    title: '[ÜCRETSİZ İNDİR] 2026 Kıdem & İhbar Tazminatı Hesaplama Excel Tablosu (.xlsx) — Excel Arşiv',
-    description: '4857 sayılı İş Kanunu ve 2026 tavanına tam uyumlu kıdem-ihbar tazminatı ve personel çıkarma maliyeti Excel tablosunu hemen ücretsiz indirin.'
+    title: '2026 Kıdem & İhbar Maliyeti Ön İzleme & Test Dosyası',
+    description: '2026 tavanına göre kıdem ve ihbar tazminatı hesaplama sekmelerini örnek personel kayıtlarıyla tam sürüm öncesi test edin.'
   }
 };
 
 const customSeo = FREE_TITLES[template.id];
-const title = customSeo ? customSeo.title : `${t.name} — Ücretsiz Demo İndir | Excel Arşiv`;
-const description = customSeo ? customSeo.description : `${t.name} için 20 satırlık formüllü Excel değerlendirme sürümünü ücretsiz indirin; formül ve hesaplama mimarisini hemen test edin.`;
+const title = customSeo ? customSeo.title : (shortTitleMap.get(template.id) ?? `${wordTrim(t.name, 34)}: Ön İzleme & Test`);
+const topSheets = t.sheetMap.slice(0, 4).map((s) => s.name).join(', ');
+const topInputs = t.inputs.slice(0, 2).join(', ');
+const topOutputs = t.outputs.slice(0, 2).join(' ve ');
+const description = customSeo
+  ? customSeo.description
+  : `Ücretsiz ${t.name} test dosyası (${categoryLabel}): ${topSheets} sekmelerindeki ${topInputs} hesaplamasını örnek veriyle doğrulayın.`;
 
 const site = Astro.site ?? new URL('https://excelarsiv.com/');
-const currentUrl = new URL(`/demo/${template.id}`, site).href;
-const fullProductUrl = new URL(productUrl, site).href;
+const currentUrl = new URL(`/demo/${template.id}/`, site).href;
+const fullProductUrl = new URL(`${productUrl}/`, site).href;
 const kapak = premiumKapakUrl(template.id) ?? kapakYolu(template.id);
 const kapakUrl = kapak ? new URL(kapak, site).href : undefined;
+const descriptionData = getProductFullDescription({
+  id: template.id,
+  name: t.name,
+  summary: t.summary,
+  category: t.category,
+  priceTL: t.priceTL,
+  sheetMap: t.sheetMap,
+  inputs: t.inputs,
+  outputs: t.outputs,
+  suitableFor: t.suitableFor,
+  notSuitableFor: t.notSuitableFor,
+});
 
 const demoJsonLd = {
   '@context': 'https://schema.org',
@@ -56,14 +107,14 @@ const demoJsonLd = {
       '@id': `${currentUrl}#breadcrumb`,
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: new URL('/', site).href },
-        { '@type': 'ListItem', position: 2, name: 'Demo Kataloğu', item: new URL('/demo', site).href },
-        { '@type': 'ListItem', position: 3, name: `${t.name} (Demo)` },
+        { '@type': 'ListItem', position: 2, name: 'Demo Kataloğu', item: new URL('/demo/', site).href },
+        { '@type': 'ListItem', position: 3, name: `${t.name} Önizleme` },
       ],
     },
     {
       '@type': 'SoftwareApplication',
       '@id': `${currentUrl}#software`,
-      name: `${t.name} — Ücretsiz Değerlendirme Demosu`,
+      name: `Ücretsiz Deneme Sürümü: ${t.name}`,
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Windows, macOS (Excel 2016 ve üzeri)',
       fileFormat: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -93,90 +144,110 @@ const demoJsonLd = {
     <Breadcrumbs
       crumbs={[
         { label: 'Ana Sayfa', href: '/' },
-        { label: 'Demo Kataloğu', href: '/demo' },
-        { label: t.name },
+        { label: 'Demo Kataloğu', href: '/demo/' },
+        { label: `${t.name} Önizleme` },
       ]}
     />
 
     <div class="mt-6">
-      <p class="font-mono text-xs font-semibold tracking-widest text-accent-primary uppercase">Demo & Ön İnceleme</p>
-      <h1 class="display mt-3">{t.name} — Demo İnceleme</h1>
+      <p class="font-mono text-xs font-semibold tracking-widest text-accent-primary uppercase">{categoryLabel} · Deneme Sürümü</p>
+      <h1 class="display mt-3">Ücretsiz Deneme Sürümü: {t.name}</h1>
     </div>
 
-    <!-- Hero Answer Engine: Arama motorları ve kullanıcılar için net yönetici özeti -->
-    <div class="hero-answer-engine mt-6 rounded-xl border border-rule-subtle bg-surface-subtle p-6">
-      <p class="font-mono text-xs font-bold uppercase tracking-wider text-accent-primary">Yönetici Özeti & Demo Kapsamı</p>
-      <p class="mt-2 text-base leading-relaxed text-ink-800">
-        <strong>{t.name}</strong>, {t.summary.toLowerCase().endsWith('.') ? t.summary.slice(0, -1) : t.summary}. Satın alma kararı öncesinde 20 satırlık formüllü değerlendirme sürümünü indirerek çalışma sayfası mimarisini, formül akışını, girdi-çıktı tutarlılığını ve canlı KPI panosunu Excel üzerinde doğrudan test edebilirsiniz.
+    <p
+      class="hero-answer hero-answer-engine mt-5 text-base leading-relaxed text-ink-800 border-l-4 border-accent-primary pl-4 py-1"
+      data-answer-capsule="true"
+    >
+      Ücretsiz Excel değerlendirme şablonu ({categoryLabel}): {topSheets} sekmelerindeki açık formül akışını ve {topInputs} girişlerini 20 örnek kayıtla kurulumsuz sınayın; tam sürüm öncesi {topOutputs} ekran düzenini görün.
+    </p>
+
+    <nav aria-label="İçindekiler" data-toc="true" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0 22px 0;padding:10px 0;border-top:1px solid #dbe3ee;border-bottom:1px solid #dbe3ee;font-size:12.5px;">
+      <span style="font-weight:700;color:#1d1d1f;margin-right:4px;">Bu Sayfada:</span>
+      <a href="#ornek-senaryo" style="display:inline-block;padding:4px 11px;border-radius:999px;background:#ffffff;border:1px solid #dbe3ee;color:#1d1d1f;font-weight:600;text-decoration:none;">Örnek Senaryo</a>
+      <a href="#sekme-mimarisi" style="display:inline-block;padding:4px 11px;border-radius:999px;background:#ffffff;border:1px solid #dbe3ee;color:#1d1d1f;font-weight:600;text-decoration:none;">Sekme Mimarisi</a>
+      <a href="#kullanim-kapsami" style="display:inline-block;padding:4px 11px;border-radius:999px;background:#ffffff;border:1px solid #dbe3ee;color:#1d1d1f;font-weight:600;text-decoration:none;">Kullanım Kapsamı</a>
+    </nav>
+
+    <div class="mt-6 flex flex-wrap items-center gap-3">
+      <Button href="#demo-indir">Önizleme Dosyasını Aç ↓</Button>
+      <a
+        href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${t.name} test dosyası ve tam sürüm hakkında bilgi almak istiyorum.`)}`}
+        data-cro-cta="true"
+        data-context-item={t.name}
+        data-conversion-event="whatsapp_lead"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center rounded-lg border border-rule-subtle bg-white px-4 py-2 text-sm font-semibold text-ink-900 hover:bg-surface-subtle"
+      >
+        WhatsApp'tan Bilgi Al
+      </a>
+    </div>
+
+    <section class="mt-8 rounded-xl border border-rule-hairline bg-white p-6">
+      <h2 id="ornek-senaryo" class="text-lg font-bold text-ink-900">{t.name} — Örnek Veri Senaryosu ve Ekran Akışı</h2>
+      {descriptionData.subTitle && (
+        <p class="mt-2 text-sm text-ink-800">{descriptionData.subTitle}</p>
+      )}
+      <div class="mt-3 text-sm leading-relaxed text-ink-700">
+        <Content />
+      </div>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 text-sm">
+        <div>
+          <h3 class="font-semibold text-ink-900 mb-2">Test Edilecek Girdiler</h3>
+          <ul class="list-disc pl-5 space-y-1 text-ink-700">
+            {t.inputs.map((inp) => <li>{inp}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-ink-900 mb-2">Doğrulanacak Çıktılar</h3>
+          <ul class="list-disc pl-5 space-y-1 text-ink-700">
+            {t.outputs.map((out) => <li>{out}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-unlock mt-8">
+      <h2 id="sekme-mimarisi" class="text-lg font-bold text-ink-900">{t.name} — Çalışma Sayfası ve Modül Yapısı</h2>
+      <p class="mt-2 text-sm text-ink-600">
+        <strong>{t.name}</strong> deneme paketi {t.sheetCount} çalışma sayfasından ({t.sizeMB} MB, 20 örnek kayıt) oluşur ve {t.minExcelVersion} üzerinde {topInputs} verilerini işler.
       </p>
-    </div>
+      <div style="overflow-x:auto; margin-top:14px;">
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px; background:#fff; border:1px solid #d7e2db;">
+          <thead>
+            <tr style="background:#f4f7fb;">
+              <th scope="col" style="padding:10px 12px; font-weight:700;">Sekme</th>
+              <th scope="col" style="padding:10px 12px; font-weight:700;">Tür</th>
+              <th scope="col" style="padding:10px 12px; font-weight:700;">İşlev ve Çıktı</th>
+            </tr>
+          </thead>
+          <tbody>
+            {t.sheetMap.slice(0, 4).map((s) => (
+              <tr style="border-top:1px solid #e5ede8;">
+                <th scope="row" style="padding:9px 12px; font-weight:600;">{s.name}</th>
+                <td style="padding:9px 12px;">{s.kind}</td>
+                <td style="padding:9px 12px;">{s.purpose}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-    <div class="mt-8 flex flex-wrap items-center gap-3">
-      <Button href="#demo-indir">Demoyu başlat ↓</Button>
-      <Button href={`https://wa.me/905393333303?text=${encodeURIComponent(`Merhaba, ${t.name} sistemi için teklif almak istiyorum.`)}`} variant="primary" target="_blank">WhatsApp'tan Teklif İste</Button>
-    </div>
+    <section class="mt-8 rounded-xl border border-rule-hairline bg-white p-6">
+      <h2 id="kullanim-kapsami" class="text-lg font-bold text-ink-900">{t.name} — Uygun Ekipler ve Gereksinimler</h2>
+      <p class="mt-2 text-sm text-ink-700">
+        <strong>Uygun ekipler:</strong> {t.suitableFor.join(', ')}. <strong>Gereksinimler:</strong> {t.requirements.join(', ')}. <strong>Kapsam dışı:</strong> {t.notSuitableFor.join(', ')}.
+      </p>
+      <div class="mt-4">
+        <a href={`${productUrl}/`} class="text-sm font-semibold text-accent-primary underline">
+          {t.name} Tam Sürüm Teknik Özelliklerini İncele →
+        </a>
+      </div>
+    </section>
 
-    <!-- Anında Cihaza İndirme Formu -->
     <div class="mt-8">
-      <DemoDownloadBox productSlug={template.id} name={t.name} />
+      <DemoDownloadBox productSlug={template.id} name={t.name} outputs={t.outputs} compact={true} />
     </div>
-
-    <!-- Teknik Künye & Sistem Gereksinimleri (data-nosnippet ile korunur) -->
-    <section class="mt-10 rounded-xl border border-rule-hairline bg-surface-primary p-6 shadow-sm" data-nosnippet aria-label="Teknik Özellikler">
-      <h2 class="font-mono text-xs font-bold uppercase tracking-wider text-ink-500">Teknik Künye & Sistem Uyumluluğu</h2>
-      <dl class="mt-4 grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
-        <div class="rounded-lg bg-surface-subtle p-3">
-          <dt class="font-mono text-xs text-ink-400">Excel Sürümü</dt>
-          <dd class="mt-1 font-semibold text-ink-900">{t.minExcelVersion}</dd>
-        </div>
-        <div class="rounded-lg bg-surface-subtle p-3">
-          <dt class="font-mono text-xs text-ink-400">Sayfa Sayısı</dt>
-          <dd class="mt-1 font-semibold text-ink-900">{t.sheetCount} Sayfa</dd>
-        </div>
-        <div class="rounded-lg bg-surface-subtle p-3">
-          <dt class="font-mono text-xs text-ink-400">Tam Sürüm Fiyatı</dt>
-          <dd class="mt-1 font-semibold text-ink-900">Teklif İste</dd>
-        </div>
-        <div class="rounded-lg bg-surface-subtle p-3">
-          <dt class="font-mono text-xs text-ink-400">Format & Dil</dt>
-          <dd class="mt-1 font-semibold text-ink-900">Türkçe (.xlsx)</dd>
-        </div>
-      </dl>
-      <p class="mt-4 text-xs text-ink-500">
-        Türkçe formül ayıracı (virgül) ile tam uyumludur. İngilizce Excel kullanıyorsanız bölge ayarını Türkiye yapmanız önerilir.
-      </p>
-    </section>
-
-    <section class="demo-unlock mt-10" aria-labelledby="demo-unlock-title">
-      <h2 id="demo-unlock-title">Tam sürümde neler açılır?</h2>
-      <dl>
-        <div>
-          <dt>Demo Sürümü</dt>
-          <dd>20 kayıtlık değerlendirme ve formül kontrol sürümü</dd>
-        </div>
-        <div>
-          <dt>Tam Sürüm</dt>
-          <dd>Sınırsız operasyonel kayıt, tam raporlama, tüm dinamik pivot kontrolleri ve tam yönetim panosu</dd>
-        </div>
-      </dl>
-      <ul class="mt-4 space-y-1.5 text-sm text-ink-700">
-        {t.outputs.map((item) => (
-          <li class="flex items-center gap-2">
-            <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent-primary"></span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </section>
   </section>
 </CommerceLayout>
-
-<style>
-  .demo-unlock { padding: 20px; border: 1px solid var(--border-rule-hairline, #d7e2db); border-radius: 16px; background: var(--bg-surface-subtle, #f6f9f7); }
-  .demo-unlock h2 { margin: 0; font-size: 18px; }
-  .demo-unlock dl { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 0; }
-  .demo-unlock dt { font-family: var(--font-mono); font-size: 10px; font-weight: 800; color: var(--color-accent-primary, #0d7040); }
-  .demo-unlock dd { margin: 4px 0 0; font-size: 13px; line-height: 1.5; }
-  .demo-unlock ul { display: grid; gap: 6px; margin: 16px 0 0; padding-left: 0; list-style: none; font-size: 13px; }
-  @media (max-width: 640px) { .demo-unlock dl { grid-template-columns: 1fr; } }
-</style>

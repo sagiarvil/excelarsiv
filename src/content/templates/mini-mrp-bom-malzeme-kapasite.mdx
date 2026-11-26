@@ -1,86 +1,86 @@
 ---
-name: 'Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite)'
-summary: 'Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite): SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'stok-ve-uretim'
+name: Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite)
+summary: 'Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite): Üretim planlama için makrosuz kurumsal Excel ve karar modeli.'
+category: stok-ve-uretim
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.15
 sheetCount: 13
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KARTLAR'
-    purpose: 'Kartlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AKIS'
-    purpose: 'Akis için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KUYRUKLAR'
-    purpose: 'Kuyruklar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'HESAP'
-    purpose: 'Hesap için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'RAPOR'
-    purpose: 'Rapor üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: Ürün ağacı (BOM) patlatma özeti, eksik hammadde sayısı ve haftalık yük oranı
+  kind: calculation
+- name: KONTROLLER
+  purpose: Sipariş miktarı, serbest depo stoğu ve yoldaki tedarik siparişlerinin denetimi
+  kind: calculation
+- name: KILAVUZ
+  purpose: Çok seviyeli BOM kodlama kuralları ve hat kapasite saati giriş yönergesi
+  kind: calculation
+- name: PANO
+  purpose: Net malzeme açığı (MRP) satın alma tarihleri ve darboğaz iş istasyonu grafiği
+  kind: output
+- name: KARTLAR
+  purpose: Mamul, yarı mamul ve hammadde SKU kartları ile tedarikçi termin günleri
+  kind: input
+- name: AKIS
+  purpose: Siparişten hammadde satın alma emrine net ihtiyaç patlatma matrisi
+  kind: calculation
+- name: KUYRUKLAR
+  purpose: Acil satın alma siparişi açılması gereken kritik malzeme listesi
+  kind: calculation
+- name: HESAP
+  purpose: İş merkezi saatlik kapasite gereksinimi vs. mevcut vardiya saati dengesi
+  kind: calculation
+- name: RAPOR
+  purpose: Satın alma bütçesi ve haftalık üretim kapasite doluluk tablosu
+  kind: output
+- name: ORNEK_VERI
+  purpose: 3 seviyeli montaj ürünü için örnek BOM ve haftalık sipariş seti
+  kind: input
+- name: LISTELER
+  purpose: İş istasyonları, ölçü birimleri ve emniyet stoğu katsayıları
+  kind: input
+- name: AYARLAR
+  purpose: Vardiya süresi, emniyet stoğu gün sayısı ve tedarik gecikme toleransı
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Mamul ürün ağacı (BOM) bileşen oranları, müşteri sipariş miktarları ve mevcut depo stokları
+- İş istasyonu vardiya kapasite saatleri, tedarikçi teslim süreleri ve emniyet stoğu hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Hammadde bazlı net satın alma ihtiyaç miktarı ve son sipariş açılış tarihleri
+- Makine ve montaj hattı kapasite doluluk oranı ile darboğaz uyarı tablosu
 suitableFor:
-  - 'Üretim planlama'
-  - 'satın alma'
-  - 'fabrika müdürü'
-  - 'SMMM'
+- İmalat MRP uzmanları ve tedarik planlama şefleri
+- Montaj ve seri üretim işletme müdürleri
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Canlı PLC makine sinyali veya saniyelik barkod okuyucu entegrasyonu yerine Excel tabanlı haftalık MRP sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite) dosyasında hangi hesaplamalar yer alır?
+  answer: Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite); Tutarlılık Denetimi, Yönetici Panosu, Kartlar, Süreç Akış Şeması başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite) hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite) satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/mini-mrp-bom-malzeme-kapasite-1.png'
-    alt: 'Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite) — ürün ekranı 1'
-  - src: '/screenshots/mini-mrp-bom-malzeme-kapasite-2.png'
-    alt: 'Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite) — ürün ekranı 2'
-  - src: '/screenshots/mini-mrp-bom-malzeme-kapasite-3.png'
-    alt: 'Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite) — ürün ekranı 3'
+- src: /screenshots/mini-mrp-bom-malzeme-kapasite-1.png
+  alt: Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite) — ürün ekranı 1
+- src: /screenshots/mini-mrp-bom-malzeme-kapasite-2.png
+  alt: Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite) — ürün ekranı 2
+- src: /screenshots/mini-mrp-bom-malzeme-kapasite-3.png
+  alt: Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite) — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Mini-MRP (BOM + Malzeme İhtiyacı + Kapasite), Üretim planlama, satın alma, fabrika müdürü kullanıcılarının stok, tedarik ve üretim planlaması kararlarını 12 çalışma sayfasında (Tutarlılık Denetimi, Yönetici Panosu, Kartlar, Süreç Akış Şeması) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

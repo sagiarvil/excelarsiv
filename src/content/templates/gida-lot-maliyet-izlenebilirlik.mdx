@@ -1,110 +1,112 @@
 ---
-name: 'Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik'
-summary: 'Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'stok-ve-uretim'
+name: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik
+summary: 'Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik: Gıda üreticisi için makrosuz kurumsal Excel ve karar modeli.'
+category: stok-ve-uretim
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.76
 sheetCount: 21
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'HIZLI_BASLANGIC'
-    purpose: 'Hizli Baslangic için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIRDI'
-    purpose: 'Girdi için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'SENARYO'
-    purpose: 'Senaryo için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KARAR'
-    purpose: 'Karar üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'HAMMADDE'
-    purpose: 'Hammadde için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'RECETE'
-    purpose: 'Recete için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'LOTLAR'
-    purpose: 'Lotlar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'HAREKET'
-    purpose: 'Hareket için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'MALIYET'
-    purpose: 'Maliyet için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'FIYATLAMA'
-    purpose: 'Fiyatlama için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VARYANS'
-    purpose: 'Varyans için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'RAPOR'
-    purpose: 'Rapor üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: HIZLI_BASLANGIC
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik içindeki hızlı başlangıç değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KAPAK
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIRDI
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik modelinde veri girişi kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: SENARYO
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik içindeki senaryo değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KARAR
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik sonuçlarını karar analizi formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KONTROLLER
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: HAMMADDE
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik içindeki hammadde değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: RECETE
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik içindeki recete değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: LOTLAR
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik içindeki lotlar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: HAREKET
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik modelinde hareket kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: MALIYET
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik içindeki maliyet değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: FIYATLAMA
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik içindeki fiyatlama değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VARYANS
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik içindeki varyans değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KANIT_RAPORU
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: RAPOR
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik sonuçlarını yönetim raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik dönemsel kayıt ve kalem tutarları
+- Veri Girişi, Senaryo, Karar Analizi, Tutarlılık Denetimi referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik dönem özeti ve sapma göstergeleri
+- Gıda üreticisi, kalite müdürü, maliyet kontrolörü için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'Gıda üreticisi'
-  - 'kalite müdürü'
-  - 'maliyet kontrolörü'
-  - 'denetçi'
+- Gıda üreticisi
+- kalite müdürü
+- maliyet kontrolörü
+- denetçi
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik dosyasında hangi hesaplamalar yer alır?
+  answer: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik; Veri Girişi, Senaryo, Karar Analizi, Tutarlılık Denetimi başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/gida-lot-maliyet-izlenebilirlik-1.png'
-    alt: 'Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik — ürün ekranı 1'
-  - src: '/screenshots/gida-lot-maliyet-izlenebilirlik-2.png'
-    alt: 'Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik — ürün ekranı 2'
-  - src: '/screenshots/gida-lot-maliyet-izlenebilirlik-3.png'
-    alt: 'Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik — ürün ekranı 3'
+- src: /screenshots/gida-lot-maliyet-izlenebilirlik-1.png
+  alt: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik — ürün ekranı 1
+- src: /screenshots/gida-lot-maliyet-izlenebilirlik-2.png
+  alt: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik — ürün ekranı 2
+- src: /screenshots/gida-lot-maliyet-izlenebilirlik-3.png
+  alt: Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Gıda Üretim Parti (Lot) Maliyet & İzlenebilirlik, Gıda üreticisi, kalite müdürü, maliyet kontrolörü kullanıcılarının stok, tedarik ve üretim planlaması kararlarını 20 çalışma sayfasında (Veri Girişi, Senaryo, Karar Analizi, Tutarlılık Denetimi) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

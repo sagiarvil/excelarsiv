@@ -1,94 +1,92 @@
 ---
-name: 'Asgari Kurumlar Vergisi Simülasyon Motoru'
-summary: 'Asgari Kurumlar Vergisi Simülasyon Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'muhasebe-ve-vergi'
+name: Asgari Kurumlar Vergisi Simülasyon Motoru
+summary: 'Asgari Kurumlar Vergisi Simülasyon Motoru: SMMM için makrosuz kurumsal Excel ve karar modeli.'
+category: muhasebe-ve-vergi
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.18
 sheetCount: 15
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'HIZLI_BASLANGIC'
-    purpose: 'Hizli Baslangic için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIRDI'
-    purpose: 'Girdi için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'SENARYO'
-    purpose: 'Senaryo için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KURALLAR'
-    purpose: 'Kurallar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'MOTOR'
-    purpose: 'Motor için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VAKALAR'
-    purpose: 'Vakalar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: HIZLI_BASLANGIC
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru içindeki hızlı başlangıç değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KAPAK
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIRDI
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru modelinde veri girişi kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: SENARYO
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru içindeki senaryo değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KURALLAR
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru içindeki kurallar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: MOTOR
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru içindeki motor değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VAKALAR
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru içindeki vakalar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Asgari Kurumlar Vergisi Simülasyon Motoru modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Ticari bilanço kârı, KKEG ve istisna-indirim tutarları
+- Hasılat bazlı %10 yurt içi asgari kurumlar vergisi verileri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Standart %25 vs. %10 asgari kurumlar vergisi kıyaslaması
+- İstisna kullanımına bağlı net vergi yükü simülasyonu
 suitableFor:
-  - 'SMMM'
-  - 'YMM'
-  - 'vergi müdürü'
-  - 'CFO'
+- YMM, SMMM ve vergi planlama departmanları
+- Şirket CFO ve mali işler direktörleri
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Asgari Kurumlar Vergisi Simülasyon Motoru kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Asgari Kurumlar Vergisi Simülasyon Motoru dosyasında hangi hesaplamalar yer alır?
+  answer: Asgari Kurumlar Vergisi Simülasyon Motoru; Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Asgari Kurumlar Vergisi Simülasyon Motoru hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Asgari Kurumlar Vergisi Simülasyon Motoru satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/asgari-kurumlar-vergisi-simulasyon-motoru-1.png'
-    alt: 'Asgari Kurumlar Vergisi Simülasyon Motoru — ürün ekranı 1'
-  - src: '/screenshots/asgari-kurumlar-vergisi-simulasyon-motoru-2.png'
-    alt: 'Asgari Kurumlar Vergisi Simülasyon Motoru — ürün ekranı 2'
-  - src: '/screenshots/asgari-kurumlar-vergisi-simulasyon-motoru-3.png'
-    alt: 'Asgari Kurumlar Vergisi Simülasyon Motoru — ürün ekranı 3'
+- src: /screenshots/asgari-kurumlar-vergisi-simulasyon-motoru-1.png
+  alt: Asgari Kurumlar Vergisi Simülasyon Motoru — ürün ekranı 1
+- src: /screenshots/asgari-kurumlar-vergisi-simulasyon-motoru-2.png
+  alt: Asgari Kurumlar Vergisi Simülasyon Motoru — ürün ekranı 2
+- src: /screenshots/asgari-kurumlar-vergisi-simulasyon-motoru-3.png
+  alt: Asgari Kurumlar Vergisi Simülasyon Motoru — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
-
-{/* catalog-release-marker: qa-approved-2026-09-21 */}
+Asgari Kurumlar Vergisi Simülasyon Motoru, SMMM, YMM, vergi müdürü kullanıcılarının muhasebe, vergi ve mevzuat uyumu kararlarını 14 çalışma sayfasında (Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

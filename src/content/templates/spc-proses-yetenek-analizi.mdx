@@ -1,89 +1,91 @@
 ---
-name: 'SPC Proses Yetenek Analizi'
-summary: 'SPC Proses Yetenek Analizi: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'stok-ve-uretim'
+name: SPC Proses Yetenek Analizi
+summary: 'SPC Proses Yetenek Analizi: Kalite müdürü için makrosuz kurumsal Excel ve karar modeli.'
+category: stok-ve-uretim
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.14
 sheetCount: 14
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VARLIKLAR'
-    purpose: 'Varliklar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GUNLUK_GIRIS'
-    purpose: 'Gunluk Giris için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'DONEM_ANALIZ'
-    purpose: 'Donem Analiz üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'HESAP'
-    purpose: 'Hesap için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ALARMLAR'
-    purpose: 'Alarmlar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'RAPOR'
-    purpose: 'Rapor üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: SPC Proses Yetenek Analizi içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: SPC Proses Yetenek Analizi içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: SPC Proses Yetenek Analizi içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VARLIKLAR
+  purpose: SPC Proses Yetenek Analizi içindeki varliklar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GUNLUK_GIRIS
+  purpose: SPC Proses Yetenek Analizi içindeki gunluk giris değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: DONEM_ANALIZ
+  purpose: SPC Proses Yetenek Analizi sonuçlarını donem analiz formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: HESAP
+  purpose: SPC Proses Yetenek Analizi içindeki hesap değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: SPC Proses Yetenek Analizi sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ALARMLAR
+  purpose: SPC Proses Yetenek Analizi içindeki alarmlar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: RAPOR
+  purpose: SPC Proses Yetenek Analizi sonuçlarını yönetim raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: SPC Proses Yetenek Analizi modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: SPC Proses Yetenek Analizi modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: SPC Proses Yetenek Analizi modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- SPC Proses Yetenek Analizi dönemsel kayıt ve kalem tutarları
+- Tutarlılık Denetimi, Varliklar, Gunluk Giris, Donem Analiz referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- SPC Proses Yetenek Analizi dönem özeti ve sapma göstergeleri
+- Kalite müdürü, QA sorumlusu, süreç mühendisi (SPC) için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'Kalite müdürü'
-  - 'QA sorumlusu'
-  - 'süreç mühendisi (SPC)'
-  - 'üretim müdürü'
+- Kalite müdürü
+- QA sorumlusu
+- süreç mühendisi (SPC)
+- üretim müdürü
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- SPC Proses Yetenek Analizi kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: SPC Proses Yetenek Analizi dosyasında hangi hesaplamalar yer alır?
+  answer: SPC Proses Yetenek Analizi; Tutarlılık Denetimi, Varliklar, Gunluk Giris, Donem Analiz başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: SPC Proses Yetenek Analizi hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: SPC Proses Yetenek Analizi satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/spc-proses-yetenek-analizi-1.png'
-    alt: 'SPC Proses Yetenek Analizi — ürün ekranı 1'
-  - src: '/screenshots/spc-proses-yetenek-analizi-2.png'
-    alt: 'SPC Proses Yetenek Analizi — ürün ekranı 2'
-  - src: '/screenshots/spc-proses-yetenek-analizi-3.png'
-    alt: 'SPC Proses Yetenek Analizi — ürün ekranı 3'
+- src: /screenshots/spc-proses-yetenek-analizi-1.png
+  alt: SPC Proses Yetenek Analizi — ürün ekranı 1
+- src: /screenshots/spc-proses-yetenek-analizi-2.png
+  alt: SPC Proses Yetenek Analizi — ürün ekranı 2
+- src: /screenshots/spc-proses-yetenek-analizi-3.png
+  alt: SPC Proses Yetenek Analizi — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+SPC Proses Yetenek Analizi, Kalite müdürü, QA sorumlusu, süreç mühendisi (SPC) kullanıcılarının stok, tedarik ve üretim planlaması kararlarını 13 çalışma sayfasında (Tutarlılık Denetimi, Varliklar, Gunluk Giris, Donem Analiz) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

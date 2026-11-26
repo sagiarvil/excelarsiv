@@ -1,92 +1,91 @@
 ---
-name: 'Kira ve Avans Takip + Dekont'
-summary: 'Kira ve avans mahsup bakiyesini gösterir; yazdırılabilir dekont için karar üretir.'
-category: 'finansal-analiz'
+name: Kira ve Avans Takip + Dekont
+summary: Kira ve avans mahsup bakiyesini gösterir; yazdırılabilir dekont için karar üretir.
+category: finansal-analiz
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.19
 sheetCount: 14
 hasMacros: false
-minExcelVersion: 'Excel 2016 ve üzeri'
+minExcelVersion: Excel 2016 ve üzeri
 macCompatible: true
 sheetsCompatibility: full
-version: '1.0.0'
+version: 1.0.0
 updatedAt: '2026-08-14'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Ürün kapak sayfası'
-    kind: 'output'
-  - name: 'PANO'
-    purpose: 'Yönetici panosu'
-    kind: 'output'
-  - name: 'KARTLAR'
-    purpose: 'Kart kayıtları'
-    kind: 'input'
-  - name: 'AKIS'
-    purpose: 'Durum akışı'
-    kind: 'calculation'
-  - name: 'KUYRUKLAR'
-    purpose: 'Kuyruklar'
-    kind: 'calculation'
-  - name: 'AVANS'
-    purpose: 'Avans mahsup'
-    kind: 'input'
-  - name: 'DEKONT'
-    purpose: 'Yazdırılabilir dekont'
-    kind: 'output'
-  - name: 'HESAP'
-    purpose: 'Ara hesaplar'
-    kind: 'calculation'
-  - name: 'RAPOR'
-    purpose: 'Yönetici raporu'
-    kind: 'output'
-  - name: 'KONTROLLER'
-    purpose: 'Kontrol paneli'
-    kind: 'calculation'
-  - name: 'ORNEK_VERI'
-    purpose: 'Örnek veri'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Doğrulama listeleri'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Parametre ve eşikler'
-    kind: 'input'
-  - name: 'KILAVUZ'
-    purpose: 'Kullanım kılavuzu'
-    kind: 'output'
+- name: KAPAK
+  purpose: Ürün kapak sayfası
+  kind: output
+- name: PANO
+  purpose: Yönetici panosu
+  kind: output
+- name: KARTLAR
+  purpose: Kart kayıtları
+  kind: input
+- name: AKIS
+  purpose: Durum akışı
+  kind: calculation
+- name: KUYRUKLAR
+  purpose: Kuyruklar
+  kind: calculation
+- name: AVANS
+  purpose: Avans mahsup
+  kind: input
+- name: DEKONT
+  purpose: Yazdırılabilir dekont
+  kind: output
+- name: HESAP
+  purpose: Ara hesaplar
+  kind: calculation
+- name: RAPOR
+  purpose: Yönetici raporu
+  kind: output
+- name: KONTROLLER
+  purpose: Kontrol paneli
+  kind: calculation
+- name: ORNEK_VERI
+  purpose: Örnek veri
+  kind: input
+- name: LISTELER
+  purpose: Doğrulama listeleri
+  kind: input
+- name: AYARLAR
+  purpose: Parametre ve eşikler
+  kind: input
+- name: KILAVUZ
+  purpose: Kullanım kılavuzu
+  kind: output
 inputs:
-  - 'Dönemsel işlem ve belge satırları'
-  - 'Parametre ve eşik ayarları'
+- Kiracı/mal sahibi sözleşme tutarı, artış oranı (TÜFE) ve vade takvimi
+- Banka EFT dekont tarihleri, stopaj/KDV ve alınan avans mahsup tutarları
 outputs:
-  - 'Karar kapısı ve gerekçe'
-  - 'Yönetici panosu ve kanıt raporu'
+- Vade gecikmesi yaşayan kira ve açık avans bakiye alarm listesi
+- Yıllık kira artış projeksiyonu ve taraf bazlı cari mutabakat özeti
 suitableFor:
-  - 'Türkiye iş sürecini yöneten profesyoneller'
-  - 'SMMM ve mali işler ekipleri'
+- Çok şubeli perakende yöneticileri ve emlak sahipleri
+- Ön muhasebe ve kira portföy yöneticileri
 notSuitableFor:
-  - 'Makro veya API entegrasyonu bekleyenler'
+- Makro veya API entegrasyonu bekleyenler
 requirements:
-  - 'Excel 2016 veya üzeri'
-updatePolicy: 'Yapı değişmediği sürece güncel sürüm aynıdır; mevzuat veya Excel davranışı değişirse güncel sürüm satın alma döneminden itibaren 12 ay ücretsiz sunulur.'
+- Excel 2016 veya üzeri
+updatePolicy: Yapı değişmediği sürece güncel sürüm aynıdır; mevzuat veya Excel davranışı değişirse güncel sürüm satın alma döneminden itibaren 12 ay ücretsiz sunulur.
 faq:
-  - question: 'Bu araç ne karar verir?'
-    answer: 'Girdi kalitesine göre VERİ YOK veya süreç kararını üretir.'
-  - question: 'Makro veya internet gerekir mi?'
-    answer: 'Hayır. Dosya makrosuz ve çevrimdışıdır; veri cihazınızda kalır.'
-  - question: 'Kanıt raporu var mı?'
-    answer: 'Evet. Kanıt veya rapor sayfası yazdırılabilir / PDF için uygundur.'
+- question: Bu araç ne karar verir?
+  answer: Girdi kalitesine göre VERİ YOK veya süreç kararını üretir.
+- question: Makro veya internet gerekir mi?
+  answer: Hayır. Dosya makrosuz ve çevrimdışıdır; veri cihazınızda kalır.
+- question: Kanıt raporu var mı?
+  answer: Evet. Kanıt veya rapor sayfası yazdırılabilir / PDF için uygundur.
 screenshots:
-  - src: '/screenshots/kira-avans-takip-dekont-1.png'
-    alt: 'Kira ve Avans Takip + Dekont panosu'
-  - src: '/screenshots/kira-avans-takip-dekont-2.png'
-    alt: 'Kira ve Avans Takip + Dekont giriş ekranı'
-  - src: '/screenshots/kira-avans-takip-dekont-3.png'
-    alt: 'Kira ve Avans Takip + Dekont karar ekranı'
+- src: /screenshots/kira-avans-takip-dekont-1.png
+  alt: Kira ve Avans Takip + Dekont panosu
+- src: /screenshots/kira-avans-takip-dekont-2.png
+  alt: Kira ve Avans Takip + Dekont giriş ekranı
+- src: /screenshots/kira-avans-takip-dekont-3.png
+  alt: Kira ve Avans Takip + Dekont karar ekranı
 related:
-  - 'aylik-patron-finans-paneli'
-  - 'gunluk-gelir-gider-ve-gercek-karlilik-sistemi'
+- aylik-patron-finans-paneli
+- gunluk-gelir-gider-ve-gercek-karlilik-sistemi
 ---
 
-Satın almadan önce demo dosyasıyla inceleyin. Ödeme Shopier altyapısıyla güvenli şekilde işlenir, teslimat e-posta ile yapılır.

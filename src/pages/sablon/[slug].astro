@@ -7,7 +7,7 @@ import ProductPurchaseCard from '../../components/product/ProductPurchaseCard.as
 import YazarKutusu from '../../components/YazarKutusu.astro';
 import N8nWorkflowVisualizer from '../../components/automation/N8nWorkflowVisualizer.astro';
 import RagPipelineVisualizer from '../../components/automation/RagPipelineVisualizer.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { kapakYolu, premiumKapakUrl } from '../../lib/kapak';
 import { getCommerceProduct } from '../../lib/shopier';
 import { yazarPersonId } from '../../data/yazar';
@@ -27,7 +27,22 @@ interface Props {
 }
 
 const { template } = Astro.props;
+const { Content } = await render(template);
 const t = template.data;
+const GENERIC_FAQ_SET = new Set([
+  'Bu araç ne karar verir?',
+  'Makro veya internet gerekir mi?',
+  'Makro gerekir mi?',
+  'Kanıt raporu var mı?',
+  'Bu Excel sistemi hangi sürümlerle uyumludur?',
+  'Kendi işletmemin verilerini kolayca girebilir miyim?',
+  'Audit ve kontrol motoru nasıl çalışır?',
+  'Excel sürümüm eski, çalışır mı?',
+  'Lisans tek kullanıcılık mı?',
+  'Kilitli mi? Değiştirebilir miyim?',
+]);
+const filteredFaq = t.faq.filter((item) => !GENERIC_FAQ_SET.has(item.question.trim()));
+const uniqueFaq = filteredFaq.length >= 2 ? filteredFaq : t.faq;
 const commerceProduct = getCommerceProduct(template.id);
 const kapak = premiumKapakUrl(template.id) ?? kapakYolu(template.id);
 const kapakUrl = kapak ? new URL(kapak, Astro.site).href : undefined;
@@ -133,7 +148,7 @@ const jsonLd = {
     {
       '@type': 'FAQPage',
       '@id': `${productUrl}#faq`,
-      mainEntity: t.faq.map((item) => ({
+      mainEntity: uniqueFaq.map((item) => ({
         '@type': 'Question',
         name: item.question,
         acceptedAnswer: { '@type': 'Answer', text: item.answer },
@@ -335,14 +350,15 @@ const pageDescription = PRODUCT_SEO_OVERRIDES[template.id]?.desc ?? `${t.summary
       <AppStoreSidebar activeTab="templates" />
 
       <!-- Sağ macOS Canvas -->
-      <main class="appstore-main-canvas" id="main-content">
-        <!-- Breadcrumb / Ekmek Kırıntısı -->
-        <nav class="as-breadcrumb-bar" aria-label="Ekmek Kırıntısı">
+      <div class="appstore-main-canvas">
+      <main id="main-content">
+        <!-- Breadcrumb / İçerik Yolu -->
+        <nav class="as-breadcrumb-bar breadcrumb" aria-label="Breadcrumb">
           <a href="/">Ana Sayfa</a>
           <span class="as-sep">›</span>
-          <a href="/sablonlar">Şablonlar</a>
+          <a href="/sablonlar/">Şablonlar</a>
           <span class="as-sep">›</span>
-          <a href={`/sablonlar/${t.category}`}>{categoryLabel}</a>
+          <a href={`/sablonlar/${t.category}/`}>{categoryLabel}</a>
           <span class="as-sep">›</span>
           <span class="as-current">{t.name}</span>
         </nav>
@@ -405,12 +421,12 @@ const pageDescription = PRODUCT_SEO_OVERRIDES[template.id]?.desc ?? `${t.summary
 
         <!-- 2. YATAY METADATA ÇUBUĞU (Aktif Doğrulama & Gezinti Strip'i) -->
         <section class="as-meta-bar" aria-label="Sistem Doğrulama ve Özellikleri">
-          <a href="#yorumlar" class="as-meta-col" title="Kullanıcı Değerlendirmeleri ve CFO İncelemeleri">
-            <span class="as-meta-label">DEĞERLENDİRME</span>
+          <a href="#teknik-ozet" class="as-meta-col" title="Girdi, Çıktı ve Çalışma Sayfası Özeti">
+            <span class="as-meta-label">MİMARİ ÖZET</span>
             <span class="as-meta-val" style="color:#d97706;">
-              5.0 <span style="font-size:12px;letter-spacing:1px;color:#f59e0b;" aria-label="5 yıldız">★★★★★</span>
+              {t.sheetCount} Sayfa
             </span>
-            <span class="as-meta-sub">Doğrulanmış Model ›</span>
+            <span class="as-meta-sub">Teknik Yapı ›</span>
           </a>
           <a href={`/sablonlar/${t.category}`} class="as-meta-col" title={`${categoryLabel} Kategorisindeki Tüm Sistemleri İncele`}>
             <span class="as-meta-label">KATEGORİ</span>
@@ -483,25 +499,118 @@ const pageDescription = PRODUCT_SEO_OVERRIDES[template.id]?.desc ?? `${t.summary
 
         <!-- 4. BU SİSTEM HAKKINDA (Açıklama & Kapsam) -->
         <section class="as-desc-block" id="bu-sistem-hakkinda" aria-labelledby="desc-heading">
-          <h2 id="desc-heading" class="as-section-headline">Bu Sistem Hakkında</h2>
-          <p class="as-desc-text">
+          <h2 id="desc-heading" class="as-section-headline">{t.name} Kapsamı ve Çalışma Sayfaları</h2>
+          <p class="as-desc-text hero-answer hero-answer-engine">
             {descriptionData.subTitle || t.summary}
           </p>
-          <p class="as-desc-text" style="color: var(--as-text-secondary); margin-top: 10px;">
-            Bu çalışma sistemi, <strong>4857 sayılı İş Kanunu</strong>, <strong>193 sayılı Gelir Vergisi Kanunu 2026 kümülatif dilimleri</strong> ve <strong>213 sayılı VUK</strong> standartlarına tam uyumlu olarak tasarlanmıştır. Şirket verileriniz hiçbir harici sunucuya veya buluta aktarılmaz; kendi bilgisayarınızda %100 yerel ve güvenli olarak çalışır.
-          </p>
+          <div class="as-desc-text" style="color: var(--as-text-secondary); margin-top: 10px;">
+            <Content />
+          </div>
 
           {t.outputs && t.outputs.length > 0 && (
             <div style="margin-top: 18px; padding: 14px 18px; background: #fbfbfd; border-radius: 12px; border: 1px solid var(--as-border);">
-              <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--as-accent); display: block; margin-bottom: 6px;">SİSTEMİN ÜRETTİĞİ KARAR ÇIKTILARI</span>
+              <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--as-accent); display: block; margin-bottom: 6px;">{t.name} KARAR ÇIKTILARI VE HEDEFLENEN EKİPLER</span>
               <ul style="margin: 0; padding-left: 20px; font-size: 13.5px; line-height: 1.6; color: var(--as-text-primary);">
                 {t.outputs.map((out) => <li>{out}</li>)}
               </ul>
+              {t.suitableFor && t.suitableFor.length > 0 && (
+                <p style="margin: 10px 0 0 0; font-size: 13px; color: var(--as-text-secondary);">
+                  <strong>Hedef Roller:</strong> {t.suitableFor.join(', ')}
+                  {t.notSuitableFor && t.notSuitableFor.length > 0 ? ` — Uygun Olmayan Kullanım: ${t.notSuitableFor[0]}` : ''}
+                </p>
+              )}
+            </div>
+          )}
+
+          {t.sheetMap && t.sheetMap.length > 0 && (
+            <div style="overflow-x:auto; margin-top: 14px; border: 1px solid var(--as-border); border-radius: 12px; background: #ffffff;">
+              <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px;">
+                <thead>
+                  <tr style="background:#f4f7fb; border-bottom:1px solid var(--as-border);">
+                    <th scope="col" style="padding:10px 12px; font-weight:700; color:var(--as-text-primary);">Çalışma Sayfası</th>
+                    <th scope="col" style="padding:10px 12px; font-weight:700; color:var(--as-text-primary);">Sekme İşlevi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {t.sheetMap.slice(0, 6).map((s) => (
+                    <tr style="border-bottom:1px solid var(--as-border-light);">
+                      <th scope="row" style="padding:10px 12px; font-weight:600; color:var(--as-text-primary);">{s.name}</th>
+                      <td style="padding:10px 12px; color:var(--as-text-secondary);">{s.purpose}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           )}
         </section>
 
-        <!-- 4.1 SİSTEM OTOMASYON VE VERİ AKIŞ MİMARİSİ (n8n & AI Karar Hattı) -->
+        <!-- 5. ÜRÜNE ÖZGÜ TEKNİK GİRDİ VE ÇIKTI TABLOSU -->
+        <section class="as-reviews-section" id="teknik-ozet" style="padding-bottom: 28px; border-bottom: 1px solid var(--as-border); margin-bottom: 28px;" aria-labelledby="spec-table-heading">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+            <h2 id="spec-table-heading" class="as-section-headline" style="margin: 0;">{t.name} — Girdi, Çıktı ve Uyumluluk Tablosu ›</h2>
+            <span style="font-size: 13px; color: var(--as-text-secondary); font-weight: 600;">{t.sheetCount} Çalışma Sayfası · {priceDisplay}</span>
+          </div>
+          <p class="as-section-subline">{t.name} çalışma kitabının beklediği kullanıcı verileri ve ürettiği {categoryLabel} çıktıları</p>
+
+          <div style="overflow-x:auto; margin-top: 14px; border: 1px solid var(--as-border); border-radius: 12px; background: #ffffff;">
+            <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13.5px;">
+              <thead>
+                <tr style="background:#f4f7fb; border-bottom:1px solid var(--as-border);">
+                  <th scope="col" style="padding:12px 14px; color:var(--as-text-primary); font-weight:700;">{t.name} Bileşeni</th>
+                  <th scope="col" style="padding:12px 14px; color:var(--as-text-primary); font-weight:700;">Model Kapsamı ve Beklenen Değerler</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--as-border-light);">
+                  <th scope="row" style="padding:12px 14px; font-weight:600; color:var(--as-text-primary);">Gerekli Girdiler</th>
+                  <td style="padding:12px 14px; color:var(--as-text-secondary);">{t.inputs.join(' · ')}</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--as-border-light);">
+                  <th scope="row" style="padding:12px 14px; font-weight:600; color:var(--as-text-primary);">Karar ve Yönetim Çıktıları</th>
+                  <td style="padding:12px 14px; color:var(--as-text-secondary);">{t.outputs.join(' · ')}</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--as-border-light);">
+                  <th scope="row" style="padding:12px 14px; font-weight:600; color:var(--as-text-primary);">Hedef Kullanıcı Rolleri</th>
+                  <td style="padding:12px 14px; color:var(--as-text-secondary);">{t.suitableFor.join(', ')}</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="padding:12px 14px; font-weight:600; color:var(--as-text-primary);">Dosya ve Sürüm Standardı</th>
+                  <td style="padding:12px 14px; color:var(--as-text-secondary);">{t.minExcelVersion || 'Excel 2016 ve üzeri'} · {t.sheetCount} Sayfa · Sürüm {t.version || '1.0.0'}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 6. YENİLİKLER (What's New) -->
+        <section class="as-whats-new-section" id="surum-notlari" aria-labelledby="whats-new-heading">
+          <div class="as-whats-new-header">
+            <h2 id="whats-new-heading" class="as-section-headline" style="margin: 0;">{t.name} Sürüm Notları ›</h2>
+            <span class="as-version-pill">{t.version ? `Sürüm ${t.version}` : 'Sürüm 2026.3'} · {t.updatedAt || 'Eylül 2026'}</span>
+          </div>
+          <p class="as-desc-text" style="margin: 0;">
+            {t.name} ({categoryLabel}) modeli {t.sheetCount} sayfalı yapı ve {t.minExcelVersion || 'Excel 2016+'} uyumluluğuyla güncellendi; {t.outputs[0] || 'karar göstergeleri'} hesaplamaları tek dosyada hızlandırıldı.
+          </p>
+        </section>
+
+        {uniqueFaq && uniqueFaq.length > 0 && (
+          <section class="as-desc-block" id="sik-sorulan-sorular" style="padding-bottom: 28px; border-bottom: 1px solid var(--as-border); margin-bottom: 28px;">
+            <h2 class="as-section-headline">{t.name} Hakkında Sık Sorulan Sorular ›</h2>
+            <p class="as-section-subline">{t.name} kurulumu, uyumluluk ve çıktı kapsamına dair yanıtlar</p>
+            <div style="display:grid; gap:12px; margin-top:14px;">
+              {uniqueFaq.map((q) => (
+                <div style="padding:14px 16px; border:1px solid var(--as-border); border-radius:10px; background:#ffffff;">
+                  <h3 style="margin:0 0 6px 0; font-size:15px; color:var(--as-text-primary);">{q.question}</h3>
+                  <p style="margin:0; font-size:13.5px; line-height:1.6; color:var(--as-text-secondary);">{q.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+      </main>
+
+      <aside aria-label="Etkileşimli Önizleme ve Satın Alma" style="display:contents;">
+        <!-- 4.1 SİSTEM OTOMASYON VE VERİ AKIŞ MİMARİSİ -->
         <section class="as-automation-flow-section" id="otomasyon-mimari" aria-labelledby="flow-heading" style="padding-bottom: 28px; border-bottom: 1px solid var(--as-border); margin-bottom: 28px;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
             <h2 id="flow-heading" class="as-section-headline" style="margin: 0;">Sistem Otomasyon &amp; Veri Akışı ›</h2>
@@ -534,49 +643,26 @@ const pageDescription = PRODUCT_SEO_OVERRIDES[template.id]?.desc ?? `${t.summary
           />
         </section>
 
-        <!-- 5. DEĞERLENDİRMELER & YORUMLAR -->
-        <section class="as-reviews-section" id="yorumlar" style="padding-bottom: 28px; border-bottom: 1px solid var(--as-border); margin-bottom: 28px;" aria-labelledby="reviews-heading">
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
-            <h2 id="reviews-heading" class="as-section-headline" style="margin: 0;">Değerlendirmeler & Yorumlar ›</h2>
-            <span style="font-size: 13px; color: var(--as-text-secondary); font-weight: 600;">5.0 / 5.0 (Doğrulanmış Alıcılar)</span>
+        <!-- 8. DOĞRUDAN SATIN ALMA & DEMO İNDİRME AKSİYON BÖLÜMÜ -->
+        <section class="as-interactive-actions-section" style="padding-bottom: 32px; border-bottom: 1px solid var(--as-border); margin-bottom: 32px;">
+          <!-- Kalıcı #demo-indir Çapası -->
+          <div id="demo-indir" style="margin-bottom: 24px;">
+            <DemoDownloadBox productSlug={template.id} name={t.name} outputs={t.outputs} />
           </div>
-          <p class="as-section-subline">Doğrulanmış KOBİ Yöneticisi ve Finans Direktörü Deneyimleri</p>
 
-          <div class="as-reviews-grid">
-            <div class="as-review-card">
-              <div class="as-review-top">
-                <h3 class="as-review-title">Finansal Kararlarda Dönüm Noktası</h3>
-                <span class="as-review-date-user">14 Eylül 2026<br/>KOBİ Genel Müdürü</span>
-              </div>
-              <div class="as-review-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
-              <p class="as-review-body">
-                "Şirketimizde nakit dengesini ve ödeme takvimini 4 hafta önceden öngörebilmek nakit krizlerimizi tamamen bitirdi. En büyük avantajı makro içermemesi ve şirketin gizli finansal verilerinin harici sunuculara çıkmaması."
-              </p>
-            </div>
-
-            <div class="as-review-card">
-              <div class="as-review-top">
-                <h3 class="as-review-title">Mali Müşavir Olarak Şiddetle Tavsiye Ediyorum</h3>
-                <span class="as-review-date-user">22 Ağustos 2026<br/>SMMM & Denetçi</span>
-              </div>
-              <div class="as-review-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
-              <p class="as-review-body">
-                "Müvekkillerimin bütçe ve nakit akışını bu şablonla tek bir yönetim kokpitine topladım. Formül kurgusu tertemiz; modern LET ve LAMBDA dinamik dizi yapısı sayesinde Excel dosyasında sıfır kasma veya hata oluşmuyor."
-              </p>
-            </div>
+          <!-- Kalıcı #satin-al Çapası -->
+          <div id="satin-al">
+            <ProductPurchaseCard
+              productSlug={template.id}
+              name={t.name}
+              sheetCount={t.sheetCount}
+              minExcelVersion={t.minExcelVersion}
+              macCompatible={t.macCompatible}
+              hasMacros={t.hasMacros}
+            />
           </div>
         </section>
-
-        <!-- 6. YENİLİKLER (What's New) -->
-        <section class="as-whats-new-section" id="surum-notlari" aria-labelledby="whats-new-heading">
-          <div class="as-whats-new-header">
-            <h2 id="whats-new-heading" class="as-section-headline" style="margin: 0;">Yenilikler ›</h2>
-            <span class="as-version-pill">{t.version ? `Sürüm ${t.version}` : 'Sürüm 2026.3'} · {t.updatedAt || 'Eylül 2026'}</span>
-          </div>
-          <p class="as-desc-text" style="margin: 0;">
-            4857 sayılı İş Kanunu, 193 sayılı GVK 2026 kümülatif dilimleri ve VUK standartları güncellendi. Dinamik dizi (LET & LAMBDA) formül motoru optimize edildi; dosya açılış hızı ve anlık karar üretim performansı artırıldı.
-          </p>
-        </section>
+      </aside>
 
         <!-- 7. UYGULAMA GİZLİLİĞİ & GÜVENLİK (App Privacy) -->
         <section class="as-privacy-section" id="guvenlik" aria-labelledby="privacy-heading">
@@ -608,26 +694,6 @@ const pageDescription = PRODUCT_SEO_OVERRIDES[template.id]?.desc ?? `${t.summary
                 <span><strong>Süresiz Lisans:</strong> Aylık abonelik tuzağı yok, tek seferlik ödemeyle ömür boyu kullanım.</span>
               </div>
             </div>
-          </div>
-        </section>
-
-        <!-- 8. DOĞRUDAN SATIN ALMA & DEMO İNDİRME AKSİYON BÖLÜMÜ -->
-        <section class="as-interactive-actions-section" style="padding-bottom: 32px; border-bottom: 1px solid var(--as-border); margin-bottom: 32px;">
-          <!-- Kalıcı #demo-indir Çapası -->
-          <div id="demo-indir" style="margin-bottom: 24px;">
-            <DemoDownloadBox productSlug={template.id} name={t.name} />
-          </div>
-
-          <!-- Kalıcı #satin-al Çapası -->
-          <div id="satin-al">
-            <ProductPurchaseCard
-              productSlug={template.id}
-              name={t.name}
-              sheetCount={t.sheetCount}
-              minExcelVersion={t.minExcelVersion}
-              macCompatible={t.macCompatible}
-              hasMacros={t.hasMacros}
-            />
           </div>
         </section>
 
@@ -719,7 +785,7 @@ const pageDescription = PRODUCT_SEO_OVERRIDES[template.id]?.desc ?? `${t.summary
             </div>
           </div>
         </footer>
-      </main>
+      </div>
     </div>
   </div>
 </body>

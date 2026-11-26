@@ -1,107 +1,109 @@
 ---
-name: 'Sevkiyat Fiyatlama & Navlun Maliyet Motoru'
-summary: 'Sevkiyat Fiyatlama & Navlun Maliyet Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'satis-ve-fiyatlama'
+name: Sevkiyat Fiyatlama & Navlun Maliyet Motoru
+summary: 'Sevkiyat Fiyatlama & Navlun Maliyet Motoru: Lojistik müdürü için makrosuz kurumsal Excel ve karar modeli.'
+category: satis-ve-fiyatlama
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.14
 sheetCount: 20
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'HIZLI_BASLANGIC'
-    purpose: 'Hizli Baslangic için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIRDI'
-    purpose: 'Girdi için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'VARSAYIMLAR'
-    purpose: 'Varsayimlar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'FINANSMAN'
-    purpose: 'Finansman için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'SENARYO'
-    purpose: 'Senaryo için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KARAR'
-    purpose: 'Karar üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'HAMMADDE'
-    purpose: 'Hammadde için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'RECETE'
-    purpose: 'Recete için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'MOTOR'
-    purpose: 'Motor için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'FIYATLAMA'
-    purpose: 'Fiyatlama için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VARYANS'
-    purpose: 'Varyans için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: HIZLI_BASLANGIC
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru içindeki hızlı başlangıç değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KAPAK
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIRDI
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru modelinde veri girişi kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: VARSAYIMLAR
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru içindeki varsayimlar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: FINANSMAN
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru içindeki finansman değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: SENARYO
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru içindeki senaryo değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KARAR
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru sonuçlarını karar analizi formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KONTROLLER
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: HAMMADDE
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru içindeki hammadde değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: RECETE
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru içindeki recete değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: MOTOR
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru içindeki motor değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: FIYATLAMA
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru içindeki fiyatlama değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VARYANS
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru içindeki varyans değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KANIT_RAPORU
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: Sevkiyat Fiyatlama & Navlun Maliyet Motoru modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- Sevkiyat Fiyatlama & Navlun Maliyet Motoru dönemsel kayıt ve kalem tutarları
+- Veri Girişi, Varsayimlar, Finansman, Senaryo referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- Sevkiyat Fiyatlama & Navlun Maliyet Motoru dönem özeti ve sapma göstergeleri
+- Lojistik müdürü, sevkiyat fiyatlandırma, filo planlama için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'Lojistik müdürü'
-  - 'sevkiyat fiyatlandırma'
-  - 'filo planlama'
-  - 'CFO'
+- Lojistik müdürü
+- sevkiyat fiyatlandırma
+- filo planlama
+- CFO
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- Sevkiyat Fiyatlama & Navlun Maliyet Motoru kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: Sevkiyat Fiyatlama & Navlun Maliyet Motoru dosyasında hangi hesaplamalar yer alır?
+  answer: Sevkiyat Fiyatlama & Navlun Maliyet Motoru; Veri Girişi, Varsayimlar, Finansman, Senaryo başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: Sevkiyat Fiyatlama & Navlun Maliyet Motoru hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: Sevkiyat Fiyatlama & Navlun Maliyet Motoru satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/sevkiyat-fiyatlama-navlun-1.png'
-    alt: 'Sevkiyat Fiyatlama & Navlun Maliyet Motoru — ürün ekranı 1'
-  - src: '/screenshots/sevkiyat-fiyatlama-navlun-2.png'
-    alt: 'Sevkiyat Fiyatlama & Navlun Maliyet Motoru — ürün ekranı 2'
-  - src: '/screenshots/sevkiyat-fiyatlama-navlun-3.png'
-    alt: 'Sevkiyat Fiyatlama & Navlun Maliyet Motoru — ürün ekranı 3'
+- src: /screenshots/sevkiyat-fiyatlama-navlun-1.png
+  alt: Sevkiyat Fiyatlama & Navlun Maliyet Motoru — ürün ekranı 1
+- src: /screenshots/sevkiyat-fiyatlama-navlun-2.png
+  alt: Sevkiyat Fiyatlama & Navlun Maliyet Motoru — ürün ekranı 2
+- src: /screenshots/sevkiyat-fiyatlama-navlun-3.png
+  alt: Sevkiyat Fiyatlama & Navlun Maliyet Motoru — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+Sevkiyat Fiyatlama & Navlun Maliyet Motoru, Lojistik müdürü, sevkiyat fiyatlandırma, filo planlama kullanıcılarının satış, komisyon ve fiyatlama analizi kararlarını 19 çalışma sayfasında (Veri Girişi, Varsayimlar, Finansman, Senaryo) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

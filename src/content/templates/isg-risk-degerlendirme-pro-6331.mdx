@@ -1,85 +1,87 @@
 ---
-name: 'İSG Risk Değerlendirme Pro (6331)'
-summary: 'İSG Risk Değerlendirme Pro (6331): SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'personel-ve-bordro'
+name: İSG Risk Değerlendirme Pro (6331)
+summary: 'İSG Risk Değerlendirme Pro (6331): İSG uzmanı için makrosuz kurumsal Excel ve karar modeli.'
+category: personel-ve-bordro
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.13
 sheetCount: 13
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'DEGERLENDIRME'
-    purpose: 'Degerlendirme için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ENVANTER'
-    purpose: 'Envanter için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'EYLEM_PLANI'
-    purpose: 'Eylem Plani için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'AKIS'
-    purpose: 'Akis için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: KAPAK
+  purpose: İSG Risk Değerlendirme Pro (6331) içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: İSG Risk Değerlendirme Pro (6331) içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: İSG Risk Değerlendirme Pro (6331) içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: DEGERLENDIRME
+  purpose: İSG Risk Değerlendirme Pro (6331) içindeki degerlendirme değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: İSG Risk Değerlendirme Pro (6331) sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ENVANTER
+  purpose: İSG Risk Değerlendirme Pro (6331) içindeki envanter değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: EYLEM_PLANI
+  purpose: İSG Risk Değerlendirme Pro (6331) içindeki eylem plani değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: AKIS
+  purpose: İSG Risk Değerlendirme Pro (6331) içindeki süreç akış şeması değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: İSG Risk Değerlendirme Pro (6331) sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: İSG Risk Değerlendirme Pro (6331) modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: İSG Risk Değerlendirme Pro (6331) modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: İSG Risk Değerlendirme Pro (6331) modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- İSG Risk Değerlendirme Pro (6331) dönemsel kayıt ve kalem tutarları
+- Tutarlılık Denetimi, Degerlendirme, Yönetici Panosu, Envanter referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- İSG Risk Değerlendirme Pro (6331) dönem özeti ve sapma göstergeleri
+- İSG uzmanı, işveren vekili, denetim hazırlığı için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'İSG uzmanı'
-  - 'işveren vekili'
-  - 'denetim hazırlığı'
+- İSG uzmanı
+- işveren vekili
+- denetim hazırlığı
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- İSG Risk Değerlendirme Pro (6331) kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: İSG Risk Değerlendirme Pro (6331) dosyasında hangi hesaplamalar yer alır?
+  answer: İSG Risk Değerlendirme Pro (6331); Tutarlılık Denetimi, Degerlendirme, Yönetici Panosu, Envanter başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: İSG Risk Değerlendirme Pro (6331) hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: İSG Risk Değerlendirme Pro (6331) satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/isg-risk-degerlendirme-pro-6331-1.png'
-    alt: 'İSG Risk Değerlendirme Pro (6331) — ürün ekranı 1'
-  - src: '/screenshots/isg-risk-degerlendirme-pro-6331-2.png'
-    alt: 'İSG Risk Değerlendirme Pro (6331) — ürün ekranı 2'
-  - src: '/screenshots/isg-risk-degerlendirme-pro-6331-3.png'
-    alt: 'İSG Risk Değerlendirme Pro (6331) — ürün ekranı 3'
+- src: /screenshots/isg-risk-degerlendirme-pro-6331-1.png
+  alt: İSG Risk Değerlendirme Pro (6331) — ürün ekranı 1
+- src: /screenshots/isg-risk-degerlendirme-pro-6331-2.png
+  alt: İSG Risk Değerlendirme Pro (6331) — ürün ekranı 2
+- src: /screenshots/isg-risk-degerlendirme-pro-6331-3.png
+  alt: İSG Risk Değerlendirme Pro (6331) — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+İSG Risk Değerlendirme Pro (6331), İSG uzmanı, işveren vekili, denetim hazırlığı kullanıcılarının personel maliyeti, kıdem ve vardiya planlaması kararlarını 12 çalışma sayfasında (Tutarlılık Denetimi, Degerlendirme, Yönetici Panosu, Envanter) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.

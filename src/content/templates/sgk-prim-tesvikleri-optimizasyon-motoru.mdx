@@ -1,91 +1,93 @@
 ---
-name: 'SGK Prim Teşvikleri Optimizasyon Motoru'
-summary: 'SGK Prim Teşvikleri Optimizasyon Motoru: SPEC kapsamında tanımlanan girdileri hesaplar, kontrol eder ve karar çıktısına dönüştürür.'
-category: 'personel-ve-bordro'
+name: SGK Prim Teşvikleri Optimizasyon Motoru
+summary: 'SGK Prim Teşvikleri Optimizasyon Motoru: İK için makrosuz kurumsal Excel ve karar modeli.'
+category: personel-ve-bordro
 priceTL: 1999
 vatIncluded: true
 fileFormat: xlsx
 sizeMB: 0.19
 sheetCount: 15
 hasMacros: false
-minExcelVersion: 'Microsoft Excel 2016 ve üzeri'
+minExcelVersion: Microsoft Excel 2016 ve üzeri
 macCompatible: true
-sheetsCompatibility: 'partial'
-version: '1.0.0'
+sheetsCompatibility: partial
+version: 1.0.0
 updatedAt: '2026-09-21'
 sheetMap:
-  - name: 'HIZLI_BASLANGIC'
-    purpose: 'Hizli Baslangic için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KAPAK'
-    purpose: 'Kapak için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'GIRDI'
-    purpose: 'Girdi için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'SENARYO'
-    purpose: 'Senaryo için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KONTROLLER'
-    purpose: 'Kontroller için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KILAVUZ'
-    purpose: 'Kilavuz için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'PANO'
-    purpose: 'Pano üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'KURALLAR'
-    purpose: 'Kurallar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'MOTOR'
-    purpose: 'Motor için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'VAKALAR'
-    purpose: 'Vakalar için hesaplama ve kontrol katmanı'
-    kind: 'calculation'
-  - name: 'KANIT_RAPORU'
-    purpose: 'Kanit Raporu üzerinden sonuç, karar veya yönetim çıktısı'
-    kind: 'output'
-  - name: 'ORNEK_VERI'
-    purpose: 'Ornek Veri için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'LISTELER'
-    purpose: 'Listeler için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
-  - name: 'AYARLAR'
-    purpose: 'Ayarlar için kullanıcı veri girişi ve tanım alanı'
-    kind: 'input'
+- name: HIZLI_BASLANGIC
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru içindeki hızlı başlangıç değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KAPAK
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru içindeki kapak değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: GIRDI
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru modelinde veri girişi kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: SENARYO
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru içindeki senaryo değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KONTROLLER
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru içindeki tutarlılık denetimi değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KILAVUZ
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru içindeki uygulama kılavuzu değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: PANO
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru sonuçlarını yönetici panosu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: KURALLAR
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru içindeki kurallar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: MOTOR
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru içindeki motor değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: VAKALAR
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru içindeki vakalar değişkenlerini ve oranlarını hesaplayan analiz motoru
+  kind: calculation
+- name: KANIT_RAPORU
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru sonuçlarını kanit raporu formatında özetleyen yönetici çıktı katmanı
+  kind: output
+- name: ORNEK_VERI
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru modelinde örnek senaryo verileri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: LISTELER
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru modelinde referans listeleri kayıtlarını standart alanlara işleme sekmesi
+  kind: input
+- name: AYARLAR
+  purpose: SGK Prim Teşvikleri Optimizasyon Motoru modelinde model parametre ayarları kayıtlarını standart alanlara işleme sekmesi
+  kind: input
 inputs:
-  - 'SPEC dosyasında tanımlanan kullanıcı girdileri'
+- SGK Prim Teşvikleri Optimizasyon Motoru dönemsel kayıt ve kalem tutarları
+- Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu referans eşikleri ve hedef hedefleri
 outputs:
-  - 'Karar motoru, kontrol ve yönetim çıktıları'
+- SGK Prim Teşvikleri Optimizasyon Motoru dönem özeti ve sapma göstergeleri
+- İK, SMMM, bordro için yazdırılabilir A4 yönetim raporu
 suitableFor:
-  - 'İK'
-  - 'SMMM'
-  - 'bordro'
+- İK
+- SMMM
+- bordro
 notSuitableFor:
-  - 'SPEC kapsamı dışında kalan ve tam ERP/özel yazılım entegrasyonu gerektiren süreçler'
+- SGK Prim Teşvikleri Optimizasyon Motoru kurumsal Excel çalışma kitabıdır; çevrimiçi çok kullanıcılı ERP veritabanı yerine tek masaüstü raporlama sunar.
 requirements:
-  - 'Microsoft Excel 2016 veya üzeri'
-  - 'Dosyadaki giriş alanlarının işletme verileriyle doldurulması'
-  - 'Makro gerektirmez'
-updatePolicy: 'Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.'
+- Microsoft Excel 2016 veya üzeri
+- Dosyadaki giriş alanlarının işletme verileriyle doldurulması
+- Makro gerektirmez
+updatePolicy: Model mantığı veya dayanak parametreler değiştiğinde sürüm yeniden kalite kontrolünden geçirilir.
 faq:
-  - question: 'Bu sistem hangi kararı veya çıktıyı üretir?'
-    answer: 'Karar motoru, kontrol ve yönetim çıktıları'
-  - question: 'Kalite kontrolü nasıl doğrulandı?'
-    answer: 'Güncel ExcelArsiv QA kapılarında P1/P2 hata bırakmadan READY_FOR_REVIEW statüsü aldı; ayrıca ürün KANIT/SEVK_KARARI kaydı SEVK EDİLEBİLİR sonucunu içeriyor.'
-  - question: 'Satın alma veya teklif süreci nasıl ilerler?'
-    answer: 'Doğrudan ödeme kaydı henüz tanımlı değil; ürün teklif talebi üzerinden sunulur.'
+- question: SGK Prim Teşvikleri Optimizasyon Motoru dosyasında hangi hesaplamalar yer alır?
+  answer: SGK Prim Teşvikleri Optimizasyon Motoru; Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu başlıklarındaki verileri açık Excel formülleriyle birleştirerek yönetici özeti ve erken uyarı çıktıları üretir.
+- question: SGK Prim Teşvikleri Optimizasyon Motoru hangi Excel sürümlerinde çalışır?
+  answer: Windows ve macOS ortamında Microsoft Excel 2016 ve üzeri tüm sürümlerde VBA makrosu gerektirmeden güvenle açılır.
+- question: SGK Prim Teşvikleri Optimizasyon Motoru satın alma veya ön inceleme nasıl yapılır?
+  answer: Ücretsiz 20 kayıtlı değerlendirme sürümünü hemen indirip test edebilir veya tam sürüm için doğrudan WhatsApp/iletişim hattından teklif alabilirsiniz.
 screenshots:
-  - src: '/screenshots/sgk-prim-tesvikleri-optimizasyon-motoru-1.png'
-    alt: 'SGK Prim Teşvikleri Optimizasyon Motoru — ürün ekranı 1'
-  - src: '/screenshots/sgk-prim-tesvikleri-optimizasyon-motoru-2.png'
-    alt: 'SGK Prim Teşvikleri Optimizasyon Motoru — ürün ekranı 2'
-  - src: '/screenshots/sgk-prim-tesvikleri-optimizasyon-motoru-3.png'
-    alt: 'SGK Prim Teşvikleri Optimizasyon Motoru — ürün ekranı 3'
+- src: /screenshots/sgk-prim-tesvikleri-optimizasyon-motoru-1.png
+  alt: SGK Prim Teşvikleri Optimizasyon Motoru — ürün ekranı 1
+- src: /screenshots/sgk-prim-tesvikleri-optimizasyon-motoru-2.png
+  alt: SGK Prim Teşvikleri Optimizasyon Motoru — ürün ekranı 2
+- src: /screenshots/sgk-prim-tesvikleri-optimizasyon-motoru-3.png
+  alt: SGK Prim Teşvikleri Optimizasyon Motoru — ürün ekranı 3
 related: []
 ---
 
-Bu ürün, ExcelArsiv kalite kapıları ve ürün klasöründeki SPEC/KANIT kayıtları esas alınarak kataloğa alınmıştır.
+SGK Prim Teşvikleri Optimizasyon Motoru, İK, SMMM, bordro kullanıcılarının personel maliyeti, kıdem ve vardiya planlaması kararlarını 14 çalışma sayfasında (Veri Girişi, Senaryo, Tutarlılık Denetimi, Yönetici Panosu) tek merkezden yönetmesi için kurumsal kalite standartlarıyla hazırlanmıştır.
