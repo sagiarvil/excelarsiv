@@ -5,13 +5,22 @@
     <link>https://excelarsiv.com</link>
     <description>Nakit akışı, kredi, maliyet, kârlılık ve muhasebe süreçleri için profesyonel hazır Excel karar sistemleri.</description>
     <language>tr-TR</language>
-    <lastBuildDate>Sat, 21 Nov 2026 17:51:46 GMT</lastBuildDate>
-    <pubDate>Sat, 21 Nov 2026 17:51:46 GMT</pubDate>
+    <lastBuildDate>Sat, 21 Nov 2026 19:55:11 GMT</lastBuildDate>
+    <pubDate>Sat, 21 Nov 2026 19:55:11 GMT</pubDate>
     <atom:link href="https://excelarsiv.com/rss.xml" rel="self" type="application/rss+xml" />
     <managingEditor>barisbagirlar@gmail.com (Barış Bağırlar)</managingEditor>
     <webMaster>barisbagirlar@gmail.com (Barış Bağırlar)</webMaster>
     <docs>https://www.rssboard.org/rss-specification</docs>
     <generator>Excel Arşiv Feed Engine v3.0</generator>
+    <item>
+      <title>Pratik Excel Programları | ExcelArşiv</title>
+      <link>https://excelarsiv.com/pratik-programlar</link>
+      <guid isPermaLink="true">https://excelarsiv.com/pratik-programlar</guid>
+      <description>53 pratik Excel programı ve dinamik grafik; her biri 1.999 TL.</description>
+      <category>diger</category>
+      <dc:creator>Barış Bağırlar</dc:creator>
+      <pubDate>Sat, 21 Nov 2026 19:55:11 GMT</pubDate>
+    </item>
     <item>
       <title>Hazır Excel Şablonları ve İş Çözümleri | ExcelArşiv</title>
       <link>https://excelarsiv.com/</link>
@@ -53,15 +62,6 @@
       <link>https://excelarsiv.com/ozel-excel-sistemleri</link>
       <guid isPermaLink="true">https://excelarsiv.com/ozel-excel-sistemleri</guid>
       <description>İş akışınıza ve raporlama ihtiyacınıza uygun özel Excel sistemi geliştirme.</description>
-      <category>diger</category>
-      <dc:creator>Barış Bağırlar</dc:creator>
-      <pubDate>Fri, 30 Oct 2026 18:20:19 GMT</pubDate>
-    </item>
-    <item>
-      <title>Pratik Excel Programları | ExcelArşiv</title>
-      <link>https://excelarsiv.com/pratik-programlar</link>
-      <guid isPermaLink="true">https://excelarsiv.com/pratik-programlar</guid>
-      <description>53 pratik Excel programı ve dinamik grafik; her biri 1.999 TL.</description>
       <category>diger</category>
       <dc:creator>Barış Bağırlar</dc:creator>
       <pubDate>Fri, 30 Oct 2026 18:20:19 GMT</pubDate>

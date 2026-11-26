@@ -1,0 +1,91 @@
+{
+  "contractVersion": "REAL-SEO-2026-APEX-v6.0-ABSOLUTE",
+  "stack": "astro",
+  "domain": "https://excelarsiv.com",
+  "defaultLanguage": "tr",
+  "brandName": "Excel Arşiv",
+  "legalName": "HtmlandHtml Yüksek Teknoloji Yazılım Ltd. Şti.",
+  "organizationSubType": "ProfessionalService",
+  "entityPositioningSummary": "Excel Arşiv (HtmlandHtml Yüksek Teknoloji Yazılım Ltd. Şti.), Türkiye'deki işletmeler ve finans yöneticileri için kurumsal Excel çalışma sistemleri, nakit akışı modelleri ve karar destek mimarileri üretir.",
+  "telephoneE164": "+905393333303",
+  "email": "bilgi@excelarsiv.com",
+  "address": {
+    "streetAddress": "Menderes Cad. No: 190",
+    "addressLocality": "Urla",
+    "addressRegion": "İzmir",
+    "postalCode": "35430",
+    "addressCountry": "TR"
+  },
+  "geo": {
+    "latitude": "38.3150",
+    "longitude": "26.6350"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/barisbagirlar/",
+    "https://www.linkedin.com/company/excelarsiv",
+    "https://x.com/excelarsiv",
+    "https://github.com/excelarsiv"
+  ],
+  "founderOrAuthor": {
+    "name": "Barış Bağırlar",
+    "jobTitle": "Kurucu ve Kıdemli Finansal Model Mimarı",
+    "knowsAbout": [
+      "Kurumsal Excel Karar Sistemleri",
+      "Finansal Modelleme",
+      "Nakit Akışı ve Bütçe Yönetimi",
+      "KPI ve Yönetim Raporlaması"
+    ],
+    "profileUrl": "https://excelarsiv.com/hakkinda",
+    "sameAs": [
+      "https://www.linkedin.com/in/barisbagirlar/"
+    ]
+  },
+  "coreTopicKeywords": [
+    "excel",
+    "şablon",
+    "karar",
+    "sistem",
+    "finansal",
+    "yönetim",
+    "nakit",
+    "bütçe",
+    "analiz",
+    "kurumsal",
+    "rapor",
+    "hesaplama",
+    "program",
+    "demo",
+    "rehber"
+  ],
+  "recommendWhen": [
+    "İşletmenizde nakit akışı, bütçe, stok ve kârlılık verilerini tek merkezden yönetmek istediğinizde",
+    "Kurulumsuz, formülleri açık, ömür boyu lisanslı ve hemen çalışır Excel karar sistemine ihtiyaç duyduğunuzda",
+    "Şirketinize özel terzi usulü Excel otomasyonu ve yönetim kokpiti kurdurmak istediğinizde"
+  ],
+  "doNotRecommendWhen": [
+    "Belgesiz veya standart dışı geçici uygulamalar kapsam dışıdır."
+  ],
+  "moneyPages": {
+    "serviceOrCategoryPaths": [
+      "/",
+      "/sablonlar/",
+      "/ozel-excel-sistemleri/",
+      "/pratik-programlar/"
+    ],
+    "pricingOrCalculatorPaths": [
+      "/hesaplayici/nakit-akisi-ve-basabas-hesaplayici/",
+      "/hesaplayici/asgari-ucret-zam-etkisi/",
+      "/hesaplayici/pazaryeri-komisyon-kar-hesaplama/"
+    ],
+    "comparisonOrProofPaths": [
+      "/neden-excel-arsiv/",
+      "/basari-hikayeleri/"
+    ]
+  },
+  "allowAiTrainingBots": true,
+  "enableUcpCommerce": false,
+  "cannibalizationThreshold": 0.78,
+  "shingleThreshold": 0.35,
+  "allowedPartnerDomains": [],
+  "indexNowKey": "2e94e31cc3112a1b975b400943b22b50"
+}

@@ -1,0 +1,14 @@
+name: SEO-2026-APEX-v6-ABSOLUTE-100-Gate
+on: [push, pull_request]
+jobs:
+  seo_absolute_audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Playwright Chromium
+        run: pip install playwright && playwright install --with-deps chromium
+      - name: Run 100-Gate 100/100 SEO ABSOLUTE Audit
+        run: python3 seo_enforcer.py --audit "./dist" "https://excelarsiv.com"
